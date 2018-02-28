@@ -1,0 +1,7 @@
+{
+    "name"          : "clone-me",
+    "domain"        : [ "exmample.com" ],
+    "version"       : "0.0.1",
+    "url"           : "http://example.com/_clone_me.js",
+    "request_data"  : {}
+}

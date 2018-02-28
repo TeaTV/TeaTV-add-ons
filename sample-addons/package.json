@@ -1,0 +1,21 @@
+{
+  "name": "sample-addons",
+  "version": "0.0.1",
+  "description": "sample add-ons",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "TeaTV",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "base-64": "^0.1.0",
+    "cheerio-without-node-native": "^0.20.2",
+    "cloudscraper": "^1.4.1",
+    "cross-fetch": "^1.1.1",
+    "jsdom": "^11.6.2",
+    "request": "^2.83.0"
+  }
+}
