@@ -1,0 +1,101 @@
+{
+    "providers": {
+        "primeware": {
+            "name": "primeware",
+            "domain": "primeware.ag",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/primeware.js",
+            "type": ["movie", "tv"]
+        },
+        "afdah": {
+            "name": "afdah",
+            "domain": "afdah.to",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/afdah.js",
+            "type": ["movie"]
+        },
+        "alluc-hand": {
+            "name": "alluc-hand",
+            "domain": "alluc.ee",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/alluc-hand.js",
+            "type": ["movie", "tv"]
+        },
+        "flixanity": {
+            "name": "flixanity",
+            "domain": "flixanity.mobi",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/flixanity.js",
+            "type": ["movie", "tv"]
+        },
+        "gowatchfreemovies": {
+            "name": "gowatchfreemovies",
+            "domain": "gowatchfreemovies.to",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/gowatchfreemovies.js",
+            "type": ["movie", "tv"]
+        },
+        "m4ufree": {
+            "name": "m4ufree",
+            "domain": "m4ufree.club",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/m4ufree.js",
+            "type": ["movie", "tv"]
+        },
+        "mytv": {
+            "name": "mytv",
+            "domain": "api.teatv.net",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/mytv.js",
+            "type": ["movie", "tv"]
+        },
+        "playdk": {
+            "name": "playdk",
+            "domain": "api.teatv.net",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/playdk.js",
+            "type": ["movie", "tv"]
+        },
+        "putlockerhd": {
+            "name": "putlockerhd",
+            "domain": "api.teatv.net",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/putlockerhd.js",
+            "type": ["movie", "tv"]
+        },
+        "seehd": {
+            "name": "seehd",
+            "domain": "api.teatv.net",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/seehd.js",
+            "type": ["movie", "tv"]
+        },
+        "seehduno": {
+            "name": "seehduno",
+            "domain": "api.teatv.net",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/seehduno.js",
+            "type": ["tv", "movie"]
+        }
+    },
+    "hosts": {
+        "streamango": {
+            "name": "streamango",
+            "domain": "streamango.com",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/streamango.js"
+        },
+        "openload": {
+            "name": "openload",
+            "domain": ["openload.com", "openload.co", "oload.tv", "oload.stream", "oload.info"],
+            "version": "0.0.5",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/openload.js"
+        },
+        "teamdk": {
+            "name": "teamdk",
+            "domain": ["teamdk.net"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/teamdk.js"
+        }
+    }
+}
