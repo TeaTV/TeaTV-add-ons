@@ -10,6 +10,8 @@ const URL = {
     }
 };
 
+
+
 class Flixanity {
     constructor(props) {
         this.libs = props.libs;
@@ -22,25 +24,31 @@ class Flixanity {
 
 
     async searchDetail() {
-        const { httpRequest, cheerio, stringHelper } = this.libs; 
-        let { title, year, season, episode, type } = this.movieInfo;
+        const { httpRequest, cheerio, stringHelper }    = this.libs; 
+        let { title, year, season, episode, type }      = this.movieInfo;
 
         let dataBody = {
             sl: URL.KEY_SL,
             q: stringHelper.convertToSearchQueryString(title)
         };
         
-        let resultSearch = await httpRequest.post(URL.SEARCH, URL.HEADERS, dataBody);
+        let resultSearch = await httpRequest.postCloudflare(URL.SEARCH, {}, dataBody);
+
+        if( resultSearch.data == null ) return;
 
         for( let item of resultSearch.data )  {
 
-            if( item.type == 'movie' && type == 'movie' ) {
+            if( stringHelper.shallowCompare(item.title, title) ) {
 
-                this.state.detailUrl = URL.DOMAIN + item.permalink;
-            } else if( item.type == 'tv' && type == 'tv' ) {
+                if( item.type == 'movie' && type == 'movie' && item.year == year ) {
 
-                this.state.detailUrl = `${URL.DOMAIN}${item.permalink}/season/${season}/episode/${episode}`;
+                    this.state.detailUrl = URL.DOMAIN + item.permalink;
+                } else if( item.type == 'tv' && type == 'tv' ) {
+    
+                    this.state.detailUrl = `${URL.DOMAIN}${item.permalink}/season/${season}/episode/${episode}`;
+                }
             }
+            
         }
 
         return;
@@ -57,7 +65,7 @@ class Flixanity {
         let {type}      = this.movieInfo;
         let actionEmbed = type == 'movie' ? 'getMovieEmb' : 'getEpisodeEmb';
         let htmlDetail  = await httpRequest.get(this.state.detailUrl, URL.HEADERS);
-        let elid        = htmlDetail.htmlDetail.match(/elid *= *\"([^"]*)/);
+        let elid        = htmlDetail.data.match(/elid *= *\"([^"]*)/);
         elid            = elid != null ? elid[1] : false;
 
         if( elid != false ) {
@@ -68,11 +76,12 @@ class Flixanity {
                 token: URL.TOKEN_API_EMBED,
                 nopop: ''
             };
-            let resultApi = await httpRequest.post(URL.EMBED_URL, URL.HEADERS, dataBody);
+            let resultApi = await httpRequest.postCloudflare(URL.EMBED_URL, {}, dataBody);
 
-            for( let item in resultApi ) {
+            for( let item in resultApi.data ) {
 
-                let embed = resultApi[item].embed.match(/src="([^"]*)/i);
+                let embed   = resultApi.data[item].embed.match(/src="([^"]*)/i);
+                embed       = embed != null ? embed[1] : false;
 
                 embed && hosts.push({
                     provider: {
@@ -82,7 +91,7 @@ class Flixanity {
                     result: {
                         file: embed,
                         label: "embed",
-                        type: "embed"
+                        type: this.isEmbed(embed) ? "embed" : 'direct'
                     }
                 });
             }
@@ -92,9 +101,23 @@ class Flixanity {
     }
 
 
+
+    isEmbed(link) {
+
+        if( link.indexOf('statics2.vidcdn.pro') != -1 ) {
+            return false;
+        } else if( link.indexOf('stream2.m4ukido.com') != -1 ) {
+            return false;
+        } 
+
+
+        return true;
+    }
+
+
 }
 
-module.exports = async (libs, movieInfo, settings) => {
+exports.default = async (libs, movieInfo, settings) => {
 
     const flixanity = new Flixanity({
         libs: libs,
@@ -105,3 +128,5 @@ module.exports = async (libs, movieInfo, settings) => {
     await flixanity.getHostFromDetail();
     return flixanity.state.hosts;
 }
+
+exports.testing = Flixanity;

@@ -22,31 +22,29 @@ class Afdah {
 
     async searchDetail() {
 
-        const { httpRequest, cheerio, stringHelper, cryptoJs } = this.libs; 
-        let { title, year, season, episode, type } = this.movieInfo;
-        let detailUrl = false;
+        const { httpRequest, cheerio, stringHelper, cryptoJs }  = this.libs; 
+        let { title, year, season, episode, type }              = this.movieInfo;
 
-        const bodyRequest = {
+        let detailUrl       = false;
+        const bodyRequest   = {
             process: cryptoJs.AES.encrypt(title + '|||' + 'title', 'Watch Movies Online').toString()
         };
 
-        let htmlSearch = await httpRequest.postCloudflare(URL.SEARCH ,URL.HEADERS, bodyRequest);
+        let htmlSearch  = await httpRequest.postCloudflare(URL.SEARCH ,URL.HEADERS, bodyRequest);
+        let $           = cheerio.load(htmlSearch.data);
+        let itemSearch  = $('ul li');
 
-        let $ = cheerio.load(htmlSearch.data);
+        itemSearch.each( function() {
 
-        $('ul li').each( function() {
-
-            let title_afdah 	= $(this).find('a').text().replace(/\([0-9]+\)/i, '').trim();
+            let titleAfdah 	    = $(this).find('a').text().replace(/\([0-9]+\)/i, '').trim();
 			let id 				= $(this).find('a').attr('href');
-			let year_afdah 		= $(this).find('a').text().match(/\(([0-9]+)\)/i);
-            year_afdah 			= year_afdah != null ? +year_afdah[1] : 0;
+			let yearAfdah 		= $(this).find('a').text().match(/\(([0-9]+)\)/i);
+            yearAfdah 			= yearAfdah != null ? +yearAfdah[1] : 0;
 
-
-            if( stringHelper.shallowCompare(title_afdah, title) && year_afdah == year ) {
+            if( stringHelper.shallowCompare(titleAfdah, title) && yearAfdah == year ) {
                 detailUrl = `${URL.DOMAIN}/${id}`;
             }
         });
-
 
         this.state.detailUrl = detailUrl; 
         return;
@@ -57,12 +55,12 @@ class Afdah {
         if(!this.state.detailUrl) throw new Error("NOT_FOUND");
         console.log(this.state.detailUrl);
 
-        let hosts = [];
-        let detailUrl = this.state.detailUrl;
-        let htmlDetail = await httpRequest.get(this.state.detailUrl);
-        let $ = cheerio.load(htmlDetail.data);
+        let hosts       = [];
+        let detailUrl   = this.state.detailUrl;
+        let htmlDetail  = await httpRequest.get(this.state.detailUrl);
+        let $           = cheerio.load(htmlDetail.data);
+        let servers     = ['cont_1', 'cont_3', 'cont_4', 'cont_5'];
 
-        let servers = ['cont_1', 'cont_3', 'cont_4', 'cont_5'];
         for( let item of servers ) {
 
             if( item == 'cont_5' ) {
@@ -107,14 +105,19 @@ class Afdah {
     }
 }
 
-module.exports = async (libs, movieInfo, settings) => {
+exports.default = async (libs, movieInfo, settings) => {
 
     const afdah = new Afdah({
         libs: libs,
         movieInfo: movieInfo,
         settings: settings
     });
+
     await afdah.searchDetail();
     await afdah.getHostFromDetail();
     return afdah.state.hosts;
 }
+
+
+
+exports.testing = Afdah;

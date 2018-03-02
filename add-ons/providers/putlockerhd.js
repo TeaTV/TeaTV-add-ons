@@ -94,7 +94,7 @@ class PutlockerHd {
 
 }
 
-module.exports = async (libs, movieInfo, settings) => {
+exports.default = async (libs, movieInfo, settings) => {
 
     const putlocker = new PutlockerHd({
         libs: libs,
@@ -105,3 +105,6 @@ module.exports = async (libs, movieInfo, settings) => {
     await putlocker.getHostFromDetail();
     return putlocker.state.hosts;
 }
+
+
+exports.testing = PutlockerHd;

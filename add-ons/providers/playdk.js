@@ -146,7 +146,7 @@ class Playdk {
 
 }
 
-module.exports = async (libs, movieInfo, settings) => {
+exports.default = async (libs, movieInfo, settings) => {
 
     const mytv = new Playdk({
         libs: libs,
@@ -157,3 +157,5 @@ module.exports = async (libs, movieInfo, settings) => {
     await mytv.getHostFromDetail();
     return mytv.state.hosts;
 }
+
+exports.testing = Playdk;

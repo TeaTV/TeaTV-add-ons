@@ -13,22 +13,20 @@ const URL = {
 
 class MyTv {
     constructor(props) {
-        this.libs = props.libs;
-        this.movieInfo = props.movieInfo;
-        this.settings = props.settings;
-
-        this.state = {};
+        this.libs       = props.libs;
+        this.movieInfo  = props.movieInfo;
+        this.settings   = props.settings;
+        this.state      = {};
     }
 
     async searchDetail() {
 
         const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
         let { title, year, season, episode, type } = this.movieInfo;
-        let detailUrl = false;
 
+        let detailUrl       = false;
         let resultSearch    = await httpRequest.get(URL.DOMAIN_MOVIEDB(stringHelper.convertToSearchQueryString(title)));
         let movieid         = false;
-
 
         for( let item in resultSearch ) {
 
@@ -87,7 +85,7 @@ class MyTv {
 
 }
 
-module.exports = async (libs, movieInfo, settings) => {
+exports.default = async (libs, movieInfo, settings) => {
 
     const mytv = new MyTv({
         libs: libs,
@@ -98,3 +96,6 @@ module.exports = async (libs, movieInfo, settings) => {
     await mytv.getHostFromDetail();
     return mytv.state.hosts;
 }
+
+
+exports.testing = MyTv;

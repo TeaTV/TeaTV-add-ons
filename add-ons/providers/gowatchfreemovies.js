@@ -7,9 +7,9 @@ const URL = {
 
 class FreeMovies {
     constructor(props) {
-        this.libs = props.libs;
-        this.movieInfo = props.movieInfo;
-        this.settings = props.settings;
+        this.libs       = props.libs;
+        this.movieInfo  = props.movieInfo;
+        this.settings   = props.settings;
 
         this.state = {};
     }
@@ -19,31 +19,31 @@ class FreeMovies {
     async searchDetail() {
         const { httpRequest, cheerio, stringHelper } = this.libs; 
         let { title, year, season, episode, type } = this.movieInfo;
-        let detailUrl = false;
 
-        let htmlSearch = await httpRequest.get(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')), {});
-        let $          = cheerio.load(htmlSearch.data);
-        let item       = $('.item');
+        let detailUrl   = false;
+        let htmlSearch  = await httpRequest.get(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')), {});
+        let $           = cheerio.load(htmlSearch.data);
+        let item        = $('.item');
 
         item.each(function() {
             
-            let hrefFree = URL.DOMAIN + $(this).find('a').attr('href');
-			let titleTemp = $(this).find('a').attr('title');
-			titleTemp = titleTemp.replace('Watch Putlocker', '').trim();
-			let yearFree = titleTemp.match(/\(([^\)]+)/i);
-			yearFree = yearFree != null ? yearFree[1] : 0;
-            let titleFree = titleTemp.replace(/\(.*/i, '');
+            let hrefFree    = URL.DOMAIN + $(this).find('a').attr('href');
+			let titleTemp   = $(this).find('a').attr('title');
+			titleTemp       = titleTemp.replace('Watch Putlocker', '').trim();
+			let yearFree    = titleTemp.match(/\(([^\)]+)/i);
+			yearFree        = yearFree != null ? yearFree[1] : 0;
+            let titleFree   = titleTemp.replace(/\(.*/i, '');
             
             if( stringHelper.shallowCompare(title, titleFree) && +yearFree == year ) {
 
 				if( hrefFree.indexOf('-tv-show-') != -1 && type == 'tv' ) {
 
-                    hrefFree = `${hrefFree}/season-${season}-episode-${episode}`;
-	                hrefFree = hrefFree.replace('watch-', 'tv-');
-                    detailUrl = hrefFree;
+                    hrefFree    = `${hrefFree}/season-${season}-episode-${episode}`;
+	                hrefFree    = hrefFree.replace('watch-', 'tv-');
+                    detailUrl   = hrefFree;
 				} else if(hrefFree.indexOf('-movie-') != -1 && type == 'movie') {
 
-                    detailUrl = hrefFree;
+                    detailUrl   = hrefFree;
 				}
 			}
         });
@@ -53,18 +53,16 @@ class FreeMovies {
         return;
     }
 
-
-
     async getHostFromDetail() {
         const { httpRequest, cheerio } = this.libs;
         if(!this.state.detailUrl) throw new Error("NOT_FOUND");
 
-        let detailUrl = this.state.detailUrl;
-        let hosts = [];
-        let arrRedirects = [];
-        let htmlDetail = await httpRequest.get(this.state.detailUrl, {});
-        let $          = cheerio.load(htmlDetail.data);
-        let item       = $('.link_item');
+        let detailUrl       = this.state.detailUrl;
+        let hosts           = [];
+        let arrRedirects    = [];
+        let htmlDetail      = await httpRequest.get(this.state.detailUrl, {});
+        let $               = cheerio.load(htmlDetail.data);
+        let item            = $('.link_item');
 
         item.each(function() {
 
@@ -96,7 +94,7 @@ class FreeMovies {
 
 }
 
-module.exports = async (libs, movieInfo, settings) => {
+exports.default = async (libs, movieInfo, settings) => {
 
     const freemovies = new FreeMovies({
         libs: libs,
@@ -107,3 +105,6 @@ module.exports = async (libs, movieInfo, settings) => {
     await freemovies.getHostFromDetail();
     return freemovies.state.hosts;
 }
+
+
+exports.testing = FreeMovies;

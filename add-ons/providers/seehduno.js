@@ -120,13 +120,12 @@ class SeehdUno {
             }
         });
 
-
         this.state.hosts = hosts;
     }
 
 }
 
-module.exports = async (libs, movieInfo, settings) => {
+exports.default = async (libs, movieInfo, settings) => {
 
     const seehduno = new SeehdUno({
         libs: libs,
@@ -137,3 +136,6 @@ module.exports = async (libs, movieInfo, settings) => {
     await seehduno.getHostFromDetail();
     return seehduno.state.hosts;
 }
+
+
+exports.testing = SeehdUno;

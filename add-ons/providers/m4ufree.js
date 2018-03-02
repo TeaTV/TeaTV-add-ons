@@ -11,21 +11,21 @@ const URL = {
 
 class M4uFree {
     constructor(props) {
-        this.libs = props.libs;
-        this.movieInfo = props.movieInfo;
-        this.settings = props.settings;
+        this.libs       = props.libs;
+        this.movieInfo  = props.movieInfo;
+        this.settings   = props.settings;
 
-        this.state = {};
+        this.state      = {};
     }
 
     async searchDetail() {
 
         const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
         let { title, year, season, episode, type } = this.movieInfo;
-        let detailUrl = false;
 
+        let detailUrl   = false;
         let htmlSearch  = await httpRequest.get(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')));
-        let currentPage= false;
+        let currentPage = false;
         let $           = cheerio.load(htmlSearch);
         let page        = $('.pages a');
         if( page ) {
@@ -158,7 +158,7 @@ class M4uFree {
 
 }
 
-module.exports = async (libs, movieInfo, settings) => {
+exports.default = async (libs, movieInfo, settings) => {
 
     const m4ufree = new M4uFree({
         libs: libs,
@@ -169,3 +169,6 @@ module.exports = async (libs, movieInfo, settings) => {
     await m4ufree.getHostFromDetail();
     return m4ufree.state.hosts;
 }
+
+
+exports.testing = M4uFree;

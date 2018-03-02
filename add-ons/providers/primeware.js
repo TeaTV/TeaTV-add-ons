@@ -84,7 +84,7 @@ class Primeware {
     }
 }
 
-module.exports = async (libs, movieInfo, settings) => {
+exports.default = async (libs, movieInfo, settings) => {
 
     const primeware = new Primeware({
         libs: libs,
@@ -95,3 +95,5 @@ module.exports = async (libs, movieInfo, settings) => {
     await primeware.getHostFromDetail();
     return primeware.state.hosts;
 }
+
+exports.testing = Primeware;
