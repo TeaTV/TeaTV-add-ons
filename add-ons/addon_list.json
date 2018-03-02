@@ -51,28 +51,28 @@
         },
         "playdk": {
             "name": "playdk",
-            "domain": "api.teatv.net",
+            "domain": "playdk.net",
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/playdk.js",
             "type": ["movie", "tv"]
         },
         "putlockerhd": {
             "name": "putlockerhd",
-            "domain": "api.teatv.net",
+            "domain": "putlockerhd.co",
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/putlockerhd.js",
             "type": ["movie", "tv"]
         },
         "seehd": {
             "name": "seehd",
-            "domain": "api.teatv.net",
+            "domain": "seehd.pl",
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/seehd.js",
             "type": ["movie", "tv"]
         },
         "seehduno": {
             "name": "seehduno",
-            "domain": "api.teatv.net",
+            "domain": "seehd.uno",
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/seehduno.js",
             "type": ["tv", "movie"]
