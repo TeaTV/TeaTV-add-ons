@@ -63,13 +63,6 @@
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/putlockerhd.js",
             "type": ["movie", "tv"]
         },
-        "seehd": {
-            "name": "seehd",
-            "domain": "api.teatv.net",
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/seehd.js",
-            "type": ["movie", "tv"]
-        },
         "seehduno": {
             "name": "seehduno",
             "domain": "api.teatv.net",
