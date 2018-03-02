@@ -202,9 +202,9 @@ class Streamango {
 
   constructor(props) {
 
-      this.libs = props.libs;
+      this.libs     = props.libs;
       this.settings = props.settings;
-      this.state = {};
+      this.state    = {};
   }
 
   async checkLive(url) {
@@ -220,24 +220,28 @@ class Streamango {
 
   async getLink(url) {
 
-    let { httpRequest, cheerio } = this.libs;
-    let html = await this.checkLive(url);
+    let { httpRequest, cheerio }  = this.libs;
+    let html                      = await this.checkLive(url);
 
     if( html == false ) throw new Error("LINK DIE");
 
-    let $ = cheerio.load(html);
-    let targetedScriptString = $('script:contains("var srces")').html();
-    if (targetedScriptString == null)
-    throw new Error("ERROR GET LINK STREAMANGO");
-    let reg = /srces.push\({type:"video\/mp4"(.*);/g;
-    let matchArr = targetedScriptString.match(reg);
+    let $                     = cheerio.load(html);
+    let targetedScriptString  = $('script:contains("var srces")').html();
+    
+    if (targetedScriptString == null) throw new Error("ERROR GET LINK STREAMANGO");
+    
+    let reg       = /srces.push\({type:"video\/mp4"(.*);/g;
+    let matchArr  = targetedScriptString.match(reg);
+
     if (matchArr == null) throw new Error("ERROR GET LINK STREAMANGO");
 
     let sources = [];
-    let srces = [];
+    let srces   = [];
+
     matchArr.forEach((val, index) => {
         eval(val);
     });
+    
     let resultArr = srces.map((val, index) => {
         return {
             file: "https:" + val.src,
@@ -269,4 +273,4 @@ class Streamango {
 }
 
 
-module.exports = (libs, settings) => new Streamango({ libs, settings });
+exports.default = (libs, settings) => new Streamango({ libs, settings });

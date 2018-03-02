@@ -2,9 +2,9 @@ class ViduShare {
 
     constructor(props) {
 
-        this.libs = props.libs;
-        this.settings = props.settings;
-        this.state = {};
+        this.libs       = props.libs;
+        this.settings   = props.settings;
+        this.state      = {};
 
     }
 
@@ -35,8 +35,8 @@ class ViduShare {
 
         const { httpRequest, cheerio } = this.libs;
 
-        let arr = [];
-        let result = await this.checkLive(url); 
+        let arr     = [];
+        let result  = await this.checkLive(url); 
 
         if( result == false ) throw new Error("LINK DIE");
 
@@ -62,4 +62,4 @@ class ViduShare {
     }
 }
 
-module.exports = (libs, settings) => new ViduShare({ libs, settings });
+exports.default = (libs, settings) => new ViduShare({ libs, settings });

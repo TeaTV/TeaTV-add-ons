@@ -2,9 +2,9 @@ class VidLox {
 
     constructor(props) {
 
-        this.libs = props.libs;
+        this.libs     = props.libs;
         this.settings = props.settings;
-        this.state = {};
+        this.state    = {};
 
     }
 
@@ -93,4 +93,4 @@ class VidLox {
     }
 }
 
-module.exports = (libs, settings) => new VidLox({ libs, settings });
+exports.default = (libs, settings) => new VidLox({ libs, settings });

@@ -2,24 +2,29 @@ class Openload {
 
     constructor(props) {
 
-        this.libs = props.libs;
-        this.settings = props.settings;
-        this.state = {};
+        this.libs       = props.libs;
+        this.settings   = props.settings;
+        this.state      = {};
     }
 
     async getOpenload(url) {
 
-        const { httpRequest, jsdom } = this.libs;
-        const { JSDOM } = jsdom;
-        const jqueryUrl = "http://code.jquery.com/jquery-1.11.0.min.js";
-        let html = await httpRequest.getHTML(url);
+        const { httpRequest, jsdom }    = this.libs;
+        const { JSDOM }                 = jsdom;
+        const jqueryUrl                 = "http://code.jquery.com/jquery-1.11.0.min.js";
+        let html                        = await httpRequest.getHTML(url);
+
         if (html.indexOf('<h3>We’re Sorry!</h3>') > -1) throw new Error("Invalid fileId");
-        let jquery = await httpRequest.getHTML(jqueryUrl);
-        const dom = new JSDOM(html, {
+
+
+        let jquery  = await httpRequest.getHTML(jqueryUrl);
+        const dom   = new JSDOM(html, {
             runScripts: "outside-only"
         });
+
         const window = dom.window;
         window.eval(jquery);
+
         var script = html.substring(html.indexOf("ﾟωﾟﾉ= /｀ｍ´"));
         script = script.substring(0, script.indexOf("</script>"));
         window.eval(script);
@@ -30,9 +35,10 @@ class Openload {
         script = script.replace("document.createTextNode.toString().indexOf('[native code')", "1");
         script = script.replace("_0x3d7b02=[];", "");
         window.eval(script);
-        let streamUrl = window.document.getElementById("streamurj").innerHTML;
-        let opl = "https://openload.co/stream/" + streamUrl + "?mime=true";
-        let isDie = await httpRequest.isLinkDie(opl);
+
+        let streamUrl   = window.document.getElementById("streamurj").innerHTML;
+        let opl         = "https://openload.co/stream/" + streamUrl + "?mime=true";
+        let isDie       = await httpRequest.isLinkDie(opl);
 
         if( isDie == false ) throw new Error("NOT LINK");
         return {
@@ -58,7 +64,7 @@ class Openload {
     async getUsingAPI (url) {
     
         const { httpRequest, cryptoJs } = this.libs;
-        const html = await this.checkLive(url);
+        const html                      = await this.checkLive(url);
     
         if( html == false ) throw new Error("LINK DIE");
     
@@ -70,8 +76,8 @@ class Openload {
             token: token
         }));
     
-        let isDie = await httpRequest.isLinkDie(apiResponse.data.data);
-        if( isDie == false ) throw new Error("LINK DIE");
+        // let isDie = await httpRequest.isLinkDie(apiResponse.data.data);
+        // if( isDie == false ) throw new Error("LINK DIE");
         
         const { status, data, error } = apiResponse.data;
         if(error) throw new Error(error);
@@ -82,7 +88,7 @@ class Openload {
                 type: "embed"
                 
             },
-            result: [{ file: data, label: "NOR", type: "embed", size: isDie }]
+            result: [{ file: data, label: "NOR", type: "embed", size: "NOR" }]
         }
     }
     convertToEmbed() {
@@ -96,6 +102,7 @@ class Openload {
         const { httpRequest, cheerio } = this.libs;
 
         let data;
+        
         try {
             data = await this.getOpenload(url);
         } catch(err) {
@@ -107,4 +114,4 @@ class Openload {
     }
 }
 
-module.exports = (libs, settings) => new Openload({ libs, settings })
+exports.default = (libs, settings) => new Openload({ libs, settings })

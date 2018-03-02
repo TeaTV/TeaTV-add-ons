@@ -2,9 +2,9 @@ class Vidstreaming {
 
     constructor(props) {
 
-        this.libs = props.libs;
-        this.settings = props.settings;
-        this.state = {};
+        this.libs       = props.libs;
+        this.settings   = props.settings;
+        this.state      = {};
 
     }
 
@@ -65,4 +65,4 @@ class Vidstreaming {
     }
 }
 
-module.exports = (libs, settings) => new Vidstreaming({ libs, settings });
+exports.default = (libs, settings) => new Vidstreaming({ libs, settings });

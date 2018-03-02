@@ -2,9 +2,9 @@ class Estream {
 
     constructor(props) {
 
-        this.libs = props.libs;
-        this.settings = props.settings;
-        this.state = {};
+        this.libs       = props.libs;
+        this.settings   = props.settings;
+        this.state      = {};
     }
 
     async checkLive(url) {
@@ -72,4 +72,4 @@ class Estream {
     }
 }
 
-module.exports = (libs, settings) => new Estream({ libs, settings });
+exports.default = (libs, settings) => new Estream({ libs, settings });

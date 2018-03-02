@@ -2,9 +2,9 @@ class Vidoza {
 
     constructor(props) {
 
-        this.libs = props.libs;
-        this.settings = props.settings;
-        this.state = {};
+        this.libs       = props.libs;
+        this.settings   = props.settings;
+        this.state      = {};
 
     }
 
@@ -80,4 +80,4 @@ class Vidoza {
     }
 }
 
-module.exports = (libs, settings) => new Vidoza({ libs, settings });
+exports.default = (libs, settings) => new Vidoza({ libs, settings });

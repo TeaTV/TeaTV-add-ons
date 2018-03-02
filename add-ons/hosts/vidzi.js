@@ -93,4 +93,4 @@ class Vidzi {
     }
 }
 
-module.exports = (libs, settings) => new Vidzi({ libs, settings });
+exports.default = (libs, settings) => new Vidzi({ libs, settings });

@@ -2,9 +2,9 @@ class Teamdk {
 
     constructor(props) {
 
-        this.libs = props.libs;
-        this.settings = props.settings;
-        this.state = {};
+        this.libs       = props.libs;
+        this.settings   = props.settings;
+        this.state      = {};
 
 
     }
@@ -88,4 +88,4 @@ class Teamdk {
     }
 }
 
-module.exports = (libs, settings) => new Teamdk({ libs, settings });
+exports.default = (libs, settings) => new Teamdk({ libs, settings });

@@ -2,9 +2,9 @@ class VidLink {
 
     constructor(props) {
 
-        this.libs = props.libs;
-        this.settings = props.settings;
-        this.state = {};
+        this.libs       = props.libs;
+        this.settings   = props.settings;
+        this.state      = {};
 
     }
 
@@ -130,4 +130,4 @@ class VidLink {
     }
 }
 
-module.exports = (libs, settings) => new VidLink({ libs, settings });
+exports.default = (libs, settings) => new VidLink({ libs, settings });

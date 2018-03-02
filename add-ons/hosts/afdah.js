@@ -89,9 +89,9 @@ class Afdah {
 
     constructor(props) {
 
-        this.libs = props.libs;
-        this.settings = props.settings;
-        this.state = {};
+        this.libs       = props.libs;
+        this.settings   = props.settings;
+        this.state      = {};
     }
 
     async checkLive(url) {
@@ -129,8 +129,8 @@ class Afdah {
       
             let sources = [];
         
-            decryp = eval(`[${decryp}]`);
-            let arrPromise =  decryp.map( async function(value) {
+            decryp          = eval(`[${decryp}]`);
+            let arrPromise  =  decryp.map( async function(value) {
                 
                 let isDie = await httpRequest.isLinkDie(value.file);
 
@@ -161,4 +161,4 @@ class Afdah {
     }
 }
 
-module.exports = (libs, settings) => new Afdah({ libs, settings });
+exports.default = (libs, settings) => new Afdah({ libs, settings });

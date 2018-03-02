@@ -2,9 +2,9 @@ class TheVideo {
 
     constructor(props) {
 
-        this.libs = props.libs;
-        this.settings = props.settings;
-        this.state = {};
+        this.libs       = props.libs;
+        this.settings   = props.settings;
+        this.state      = {};
 
 
     }
@@ -74,4 +74,4 @@ class TheVideo {
     }
 }
 
-module.exports = (libs, settings) => new TheVideo({ libs, settings });
+exports.default = (libs, settings) => new TheVideo({ libs, settings });
