@@ -96,6 +96,42 @@
             "domain": ["teamdk.net"],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/teamdk.js"
+        },
+        "estream": {
+            "name": "estream",
+            "domain": ["estream.to"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/estream.js"
+        },
+        "thevideo": {
+            "name": "thevideo",
+            "domain": ["thevideo.me"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/thevideo.js"
+        },
+        "vidlink": {
+            "name": "vidlink",
+            "domain": ["vidlink.org"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/vidlink.js"
+        },
+        "vidoza": {
+            "name": "vidoza",
+            "domain": ["vidoza.net"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/vidoza.js"
+        },
+        "vidstreaming": {
+            "name": "vidstreaming",
+            "domain": ["vidstreaming.io"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/vidstreaming.js"
+        },
+        "vidushare": {
+            "name": "vidushare",
+            "domain": ["vidushare.com"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/vidushare.js"
         }
     }
 }
