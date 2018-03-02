@@ -76,6 +76,20 @@
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/seehduno.js",
             "type": ["tv", "movie"]
+        },
+        "watchonline": {
+            "name": "watchonline",
+            "domain": "watchonline.to",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/watchonline.js",
+            "type": ["tv", "movie"]
+        },
+        "watchseriesepisode": {
+            "name": "watchseriesepisode",
+            "domain": "watchseriesepisode.com",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/watchseriesepisode.js",
+            "type": ["tv"]
         }
     },
     "hosts": {
