@@ -43,7 +43,7 @@ class TheVideo {
 
         if( htmlDetail == false ) throw new Error("LINK DIE");
 
-        let linkPlay = htmlDetail.data.match(/sources *: *\[([^\]]+)/i);
+        let linkPlay = htmlDetail.match(/sources *: *\[([^\]]+)/i);
         linkPlay = linkPlay != null ? linkPlay[1] : '';
 
 
