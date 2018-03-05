@@ -10,16 +10,16 @@ class VidLink {
 
     async checkLive(id) {
 
-        let { httpRequest } = this.libs;
+        let { httpRequest, qs } = this.libs;
 
         // you fill the die status text
         // const dieStatusText = "";
         let html = await httpRequest.post(`http://vidlink.org/streamdrive/info/${id}`, {
             "Content-Type": "application/x-www-form-urlencoded" 
-        }, {
+        }, qs.stringify({
             browserName: "Chrome",
             platform: "MacIntel" 
-        });
+        }));
         html = html.data;
         // if(html.includes(dieStatusText)) return true;
         return html;
