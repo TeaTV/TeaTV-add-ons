@@ -1,9 +1,9 @@
 const URL = {
-    DOMAIN: "http://www.primewire.ag",
-    SEARCH: keyword => `http://www.primewire.ag/index.php?search_keywords=${keyword}&key=d6077aeec4e85692&search_section=1`,
+    DOMAIN: "http://www.primewire.ac",
+    SEARCH: keyword => `http://www.primewire.ac/index.php?search_keywords=${keyword}&key=d6077aeec4e85692&search_section=1`,
     DETAIL: (type, id, dummyText, season, episode) => {
-        if(type === 'tv') return `http://www.primewire.ag/${type}-${id}-${dummyText}/season-${season}-episode-${episode}`;
-        return `http://www.primewire.ag/watch-${id}-${dummyText}`;
+        if(type === 'tv') return `http://www.primewire.ac/${type}-${id}-${dummyText}/season-${season}-episode-${episode}`;
+        return `http://www.primewire.ac/watch-${id}-${dummyText}`;
     }
 };
 
