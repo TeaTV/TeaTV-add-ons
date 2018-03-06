@@ -43,19 +43,30 @@ class TheVideo {
 
         if( htmlDetail == false ) throw new Error("LINK DIE");
 
+
+        let thief   = htmlDetail.match(/var *thief\=\'([^\']+)/i);
+        thief       = thief != null ? thief[1] : '';
+        let jwConfig= `https://thevideo.website/vsign/player/${thief}`;
+        let htmlJwConfig    = await httpRequest.getHTML(jwConfig);
+
+        let vt      = htmlJwConfig.match(/jwConfig\|([^\|]+)/i);
+        vt          = vt != null ? vt[1] : '';
+
         let linkPlay = htmlDetail.match(/sources *: *\[([^\]]+)/i);
         linkPlay = linkPlay != null ? linkPlay[1] : '';
 
-
         linkPlay = eval(`[${linkPlay}]`);
+        
+        console.log();
         let arrPromise = linkPlay.map(async function(value) {
-            
-            let isDie = await httpRequest.isLinkDie(value.file);
+
+            let linkDirect  = `${value.file}?direct=false&ua=1&vt=${vt}`;
+            let isDie       = await httpRequest.isLinkDie(linkDirect);
 
             if( isDie != false ) {
 
                 sources.push({
-                    file: value.file, label: value.label, type: "embed" , size: isDie
+                    file: linkDirect, label: value.label, type: "embed" , size: isDie
                 });
             }
             
@@ -63,7 +74,7 @@ class TheVideo {
 
         await Promise.all(arrPromise);
 
-
+        
         return {
             host: {
                 url: url,
