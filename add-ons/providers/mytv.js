@@ -25,18 +25,39 @@ class MyTv {
         let { title, year, season, episode, type } = this.movieInfo;
 
         let detailUrl       = false;
-        let resultSearch    = await httpRequest.get(URL.DOMAIN_MOVIEDB(stringHelper.convertToSearchQueryString(title)));
+        let resultSearch    = await httpRequest.getHTML(URL.DOMAIN_MOVIEDB(encodeURI(title)));
         let movieid         = false;
 
-        for( let item in resultSearch ) {
-
-            if( stringHelper.shallowCompare(title, resultSearch.results[item].name) ) {
-                movieid = resultSearch.results[item].id;
-                break;
-            }
+        try {
+            resultSearch = JSON.parse(resultSearch);
+        } catch(error) {
+            throw new Error("ERROR");
         }
 
-        if( id != false ) {
+        if( resultSearch.total_results == 0 ) throw new Error("NOT RESULT");
+        
+        if( type == 'movie' ) {
+
+            for( let item in resultSearch.results ) {
+
+                if( stringHelper.shallowCompare(title, resultSearch.results[item].title) ) {
+                    movieid = resultSearch.results[item].id;
+                    break;
+                }
+            }
+        } else {
+
+            for( let item in resultSearch.results ) {
+
+                if( stringHelper.shallowCompare(title, resultSearch.results[item].name) ) {
+                    movieid = resultSearch.results[item].id;
+                    break;
+                }
+            }
+        }
+        
+
+        if( movieid != false ) {
 
             if( type == 'movie' ) {
 
@@ -57,10 +78,17 @@ class MyTv {
 
         let hosts = [];
 
-        let result = await httpRequest.get(this.state.detailUrl);
+        let result = await httpRequest.getHTML(this.state.detailUrl);
+
+        try {
+            result = JSON.parse(result);
+        } catch(error) {
+            throw new Error('NOT LINK');
+        }
+        
 
         if( result.error == 0 ) {
-
+            
             for( let item in result.message.not_direct ) {
 
                 for( let item1 in result.message.not_direct[item].link  ) {
@@ -71,7 +99,7 @@ class MyTv {
                             name: "mytv"
                         },
                         result: {
-                            file: item1,
+                            file: result.message.not_direct[item].link[item1],
                             label: "embed",
                             type: "embed"
                         }
