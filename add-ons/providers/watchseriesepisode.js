@@ -152,7 +152,6 @@ exports.default = async (libs, movieInfo, settings) => {
     });
     await watchseries.searchDetail();
     await watchseries.getHostFromDetail();
-    console.log(watchseries.state); process.exit();
     return watchseries.state.hosts;
 }
 
