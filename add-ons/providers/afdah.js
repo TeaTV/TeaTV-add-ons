@@ -22,7 +22,7 @@ class Afdah {
 
     async searchDetail() {
 
-        const { httpRequest, cheerio, stringHelper, cryptoJs }  = this.libs; 
+        const { httpRequest, cheerio, stringHelper, cryptoJs, qs }  = this.libs; 
         let { title, year, season, episode, type }              = this.movieInfo;
 
         let detailUrl       = false;
@@ -30,7 +30,7 @@ class Afdah {
             process: cryptoJs.AES.encrypt(title + '|||' + 'title', 'Watch Movies Online').toString()
         };
 
-        let htmlSearch  = await httpRequest.postCloudflare(URL.SEARCH ,URL.HEADERS, bodyRequest);
+        let htmlSearch  = await httpRequest.post(URL.SEARCH ,URL.HEADERS, qs.stringify(bodyRequest));
         let $           = cheerio.load(htmlSearch.data);
         let itemSearch  = $('ul li');
 
