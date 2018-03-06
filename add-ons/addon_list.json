@@ -146,6 +146,12 @@
             "domain": ["vidushare.com"],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/vidushare.js"
+        },
+        "ok-ru": {
+            "name": "ok-ru",
+            "domain": ["ok.ru"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/ok-ru.js"
         }
     }
 }
