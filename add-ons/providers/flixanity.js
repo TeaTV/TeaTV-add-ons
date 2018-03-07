@@ -24,7 +24,7 @@ class Flixanity {
 
 
     async searchDetail() {
-        const { httpRequest, cheerio, stringHelper, qs }    = this.libs; 
+        const { httpRequest, cheerio, stringHelper }    = this.libs; 
         let { title, year, season, episode, type }      = this.movieInfo;
 
         let dataBody = {
@@ -32,7 +32,7 @@ class Flixanity {
             q: stringHelper.convertToSearchQueryString(title)
         };
         
-        let resultSearch = await httpRequest.post(URL.SEARCH, {'content-type' : 'application/json; charset=utf-8'}, JSON.stringify(dataBody));
+        let resultSearch = await httpRequest.postCloudflare(URL.SEARCH, {}, dataBody);
 
         if( resultSearch.data == null ) return;
 
@@ -57,9 +57,9 @@ class Flixanity {
 
 
     async getHostFromDetail() {
-        const { httpRequest, cheerio, qs } = this.libs;
+        const { httpRequest, cheerio } = this.libs;
         if(!this.state.detailUrl) throw new Error("NOT_FOUND");
-        console.log(this.state.detailUrl);
+        // console.log(this.state.detailUrl);
 
         let hosts       = [];
         let {type}      = this.movieInfo;
@@ -76,13 +76,7 @@ class Flixanity {
                 token: URL.TOKEN_API_EMBED,
                 nopop: ''
             };
-            // let resultApi = await httpRequest.postCloudflare(URL.EMBED_URL, {}, dataBody);
-            let resultApi = await httpRequest.post(URL.EMBED_URL, {
-                'accept': 'application/json, text/javascript, */*; q=0.01',
-                'content-type':'application/x-www-form-urlencoded; charset=UTF-8'
-            }, qs.stringify(dataBody));
-            
-            if( resultApi.data == 'Invalid request, your IP have been reported!' ) throw new Error('NOT LINK');
+            let resultApi = await httpRequest.postCloudflare(URL.EMBED_URL, {}, dataBody);
 
             for( let item in resultApi.data ) {
 

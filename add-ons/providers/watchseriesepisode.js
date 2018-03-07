@@ -83,11 +83,11 @@ class WatchSeriesEpisode {
         if( hrefEpisode == false )  throw new Error('NOT EPISODE');
 
         this.state.hosts = await this.getEmbeds(hrefEpisode, this.state.detailUrl);
-
         return;
     }
 
     async getEmbeds(hrefMovie, detailUrl) {
+
 
         const { httpRequest, cheerio, base64, _ }      = this.libs;
         let { title, year, season, episode, type }  = this.movieInfo;
@@ -105,10 +105,8 @@ class WatchSeriesEpisode {
             arrRedirect.push(linkRedirect);
         });
 
-        
-        if( arrRedirect.length > 100 ) {
-            arrRedirect = _.dropRight(arrRedirect, arrRedirect.length - 50);
-        }
+
+        arrRedirect = _.dropRight(arrRedirect, arrRedirect.length - 100);
 
         let arrPromise = arrRedirect.map(async function(val) {
 
@@ -120,7 +118,8 @@ class WatchSeriesEpisode {
                 let $_2         = cheerio.load(htmlEmbed);
                 let linkEmbed   = $_2('.wb-main .watch-button').attr('href');
 
-                linkEmbed && arrhosts.push({
+                console.log(linkEmbed);
+                arrhosts.push({
                     provider: {
                         url: detailUrl,
                         name: "watchseriesepisode"
@@ -131,7 +130,6 @@ class WatchSeriesEpisode {
                         type: "embed"
                     }
                 });
-                
             }
 
         });

@@ -162,7 +162,7 @@ class AllucHand {
                         
                     } else if( type == 'tv' ) {
 
-                        if( title1.indexOf(infoParams.season) != -1 && title1.indexOf(infoParams.episode) != -1 && title2.indexOf(infoParams.season) != -1 && title2.indexOf(infoParams.episode) != -1  )   {
+                        if( title1.indexOf(season) != -1 && title1.indexOf(episode) != -1 && title2.indexOf(season) != -1 && title2.indexOf(episode) != -1  )   {
 
                            urlDetail.push(hrefMovie); 
                         }

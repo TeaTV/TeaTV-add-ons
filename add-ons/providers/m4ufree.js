@@ -37,12 +37,12 @@ class M4uFree {
             page        = page != null ? +page[1] : 1;
         }
 
-        await this.getDetailUrl(page, currentPage, this.state, this.state);
+        this.state.detailUrl = await this.getDetailUrl(page, currentPage, this.state, this.state.detailUrl);
         return;
     }
 
 
-    async getDetailUrl(page, currentPage, state) {
+    async getDetailUrl(page, currentPage) {
 
         const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
         let { title, year, season, episode, type } = this.movieInfo;
@@ -77,28 +77,26 @@ class M4uFree {
 
             for( let item in arrItem ) {
 
-                if( stringHelper.shallowCompare(arrItem[item].titleM4u, title) && year == arrItem[item].yearM4u )  {
+                if( stringHelper.shallowCompare(arrItem[item].titleM4u, title) )  {
     
-                    if( arrItem[item].checkMovies == null && type == 'movie'  ) {
+                    if( arrItem[item].checkMovies == null && type == 'movie' && year == arrItem[item].yearM4u ) {
                         
                         return arrItem[item].hrefM4u;
                     } else if( arrItem[item].checkMovies != null && type == 'tv' ) {
     
                         if( +arrItem[item].seasonNumber == season ) {
                             
-                            let htmlEpisode         = await httpRequest.getHTML(arrItem[item].hrefM4u, URL.HEADERS);
-                            let $_3                 = cheerio.load(htmlEpisode);
-                            let itemEpisode         = $_3('#details .episode');
-
+                            let $_3         = await httpRequest.get(arrItem[item].hrefM4u, URL.HEADERS);
+                            $_3             = cheerio.load($_3);
+                            let itemEpisode = $_3('#details .episode');
+    
                             itemEpisode.each(function() {
     
-                                let hrefEpisode 	= $_3(this).attr('href');
-                                let numberEpisode	= $_3(this).text();    
-    
-                                if( +numberEpisode == episode ) {
-
-                                    state.detailUrl =  hrefEpisode;
-                                    return;
+                                let hrefEpisode 	= $(this).attr('href');
+                                let numberEpisode	= $(this).text();    
+                                
+                                if( numberEpisode == episode ) {
+                                    return hrefEpisode;
                                 }
                             });
                             return false;

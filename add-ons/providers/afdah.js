@@ -22,7 +22,7 @@ class Afdah {
 
     async searchDetail() {
 
-        const { httpRequest, cheerio, stringHelper, cryptoJs, qs }  = this.libs; 
+        const { httpRequest, cheerio, stringHelper, cryptoJs }  = this.libs; 
         let { title, year, season, episode, type }              = this.movieInfo;
 
         let detailUrl       = false;
@@ -30,7 +30,7 @@ class Afdah {
             process: cryptoJs.AES.encrypt(title + '|||' + 'title', 'Watch Movies Online').toString()
         };
 
-        let htmlSearch  = await httpRequest.post(URL.SEARCH ,URL.HEADERS, qs.stringify(bodyRequest));
+        let htmlSearch  = await httpRequest.postCloudflare(URL.SEARCH ,URL.HEADERS, bodyRequest);
         let $           = cheerio.load(htmlSearch.data);
         let itemSearch  = $('ul li');
 
@@ -53,7 +53,7 @@ class Afdah {
     async getHostFromDetail() {
         const { httpRequest, cheerio } = this.libs;
         if(!this.state.detailUrl) throw new Error("NOT_FOUND");
-        console.log(this.state.detailUrl);
+        // console.log(this.state.detailUrl);
 
         let hosts       = [];
         let detailUrl   = this.state.detailUrl;
