@@ -3,98 +3,98 @@
         "primeware": {
             "name": "primeware",
             "domain": "primeware.ag",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/primeware.js",
             "type": ["movie", "tv"]
         },
         "afdah": {
             "name": "afdah",
             "domain": "afdah.to",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/afdah.js",
             "type": ["movie"]
         },
         "alluc-hand": {
             "name": "alluc-hand",
             "domain": "alluc.ee",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/alluc-hand.js",
             "type": ["movie", "tv"]
         },
         "flixanity": {
             "name": "flixanity",
             "domain": "flixanity.mobi",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/flixanity.js",
             "type": ["movie", "tv"]
         },
         "gowatchfreemovies": {
             "name": "gowatchfreemovies",
             "domain": "gowatchfreemovies.to",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/gowatchfreemovies.js",
             "type": ["movie", "tv"]
         },
         "m4ufree": {
             "name": "m4ufree",
             "domain": "m4ufree.club",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/m4ufree.js",
             "type": ["movie", "tv"]
         },
         "mytv": {
             "name": "mytv",
             "domain": "api.teatv.net",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/mytv.js",
             "type": ["movie", "tv"]
         },
         "playdk": {
             "name": "playdk",
             "domain": "playdk.net",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/playdk.js",
             "type": ["movie", "tv"]
         },
         "putlockerhd": {
             "name": "putlockerhd",
             "domain": "putlockerhd.co",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/putlockerhd.js",
             "type": ["movie", "tv"]
         },
         "seehd": {
             "name": "seehd",
             "domain": "seehd.pl",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/seehd.js",
             "type": ["movie", "tv"]
         },
         "seehduno": {
             "name": "seehduno",
             "domain": "seehd.uno",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/seehduno.js",
             "type": ["tv", "movie"]
         },
         "watchonline": {
             "name": "watchonline",
             "domain": "watchonline.to",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/watchonline.js",
             "type": ["tv", "movie"]
         },
         "watchseriesepisode": {
             "name": "watchseriesepisode",
             "domain": "watchseriesepisode.com",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/watchseriesepisode.js",
             "type": ["tv"]
         },
         "yesmovies": {
             "name": "yesmovies",
             "domain": "yesmovies.to",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/yesmovies.js",
             "type": ["tv", "movie"]
         }
