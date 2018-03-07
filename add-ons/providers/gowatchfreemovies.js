@@ -73,18 +73,22 @@ class FreeMovies {
 
         let arrPromise = arrRedirects.map(async function(val) {
 
-            let linkEmbed = await httpRequest.getRedirectUrl(val);
-            linkEmbed && hosts.push({
-                provider: {
-                    url: detailUrl,
-                    name: "gowatchfreemovies"
-                },
-                result: {
-                    file: linkEmbed,
-                    label: "embed",
-                    type: "embed"
-                }
-            });
+            try {
+                let linkEmbed = await httpRequest.getRedirectUrl(val);
+                linkEmbed && hosts.push({
+                    provider: {
+                        url: detailUrl,
+                        name: "gowatchfreemovies"
+                    },
+                    result: {
+                        file: linkEmbed,
+                        label: "embed",
+                        type: "embed"
+                    }
+                });
+            } catch (err) {
+                console.log(err);
+            }
 
         });
 
