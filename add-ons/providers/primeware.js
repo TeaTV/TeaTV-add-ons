@@ -80,6 +80,7 @@ class Primeware {
         let hosts       = [];
 
         let detailUrl   = this.state.detailUrl;
+        let state       = this.state;
 
         let htmlEpisode = await httpRequest.getHTML(this.state.detailUrl);
         let $           = cheerio.load(htmlEpisode);
@@ -92,9 +93,9 @@ class Primeware {
         });
 
         let checkTimeout = false;
-        let timeout = setTimeout(() => {
+        let timeout = setTimeout(function() {
 
-            this.state.hosts = hosts;
+            state.hosts = hosts;
             checkTimeout = true;
             return;
         }, 7000);
@@ -131,11 +132,11 @@ class Primeware {
 
         await Promise.all(arrPromise);
         if( !checkTimeout ) {
+            
             clearTimeout(timeout);
-            this.state.hosts = hosts;
+            state.hosts = hosts;
             return;
         }
-        
         
     }
 }
