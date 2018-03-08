@@ -23,7 +23,9 @@ class Seehd {
         const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
         let { title, year, season, episode, type } = this.movieInfo;
 
-        let htmlSearch  = await httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')));
+        let urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
+
+        let htmlSearch  = await httpRequest.getCloudflare(urlSearch);
         htmlSearch      = htmlSearch.data;
         let $           = cheerio.load(htmlSearch);
         let page        = $('.pagination-item').text();
@@ -44,9 +46,16 @@ class Seehd {
         const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
         let { title, year, season, episode, type } = this.movieInfo;
 
+        let arrNumber = [];
+
         for( let i = 1; i <= page; i++ ) {
 
-            let htmlSearch  = await httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), i));
+            arrNumber.push(i);
+        }
+
+        let arrPromise = arrNumber.map(async function(val) {
+
+            let htmlSearch  = await httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), val));
             let $           = cheerio.load(htmlSearch.data);
             let itemPage    = $('.type-post');
 
@@ -59,30 +68,37 @@ class Seehd {
                 yearMovie       = yearMovie.length > 0 ? yearMovie[yearMovie.length - 1] : 0;
                 titleMovie      = titleMovie.replace(yearMovie, '').trim();    
 
-
                 if( stringHelper.shallowCompare(title, titleMovie) ) {
-
 
                     if( type == 'movie' && year == +yearMovie ) {
 
                         state.detailUrl = hrefMovie;
                     } else if( type == 'tv' ) {
 
-                        let seasonMovie = yearMovie.match(/S([0-9]+)/i);
-                        seasonMovie = seasonMovie != null ? +seasonMovie[1]  : 0;
-                        let episodeMovie = yearMovie.match(/E([0-9]+)/i);
-                        episodeMovie = episodeMovie  != null ? +episodeMovie[1] : 0;
+                        let seasonMovie     = yearMovie.match(/S([0-9]+)/i);
+                        let episodeMovie    = yearMovie.match(/E([0-9]+)/i);
+                        seasonMovie         = seasonMovie != null ? +seasonMovie[1]  : 0;
+                        episodeMovie        = episodeMovie  != null ? +episodeMovie[1] : 0;
+
 
                         if( season == seasonMovie && episode == episodeMovie ) {
                             state.detailUrl = hrefMovie;
-                            
                         }
+
                     }
                 } 
             });
 
-            return;
-        }
+
+            if( val == page ) {
+                return;
+            }
+
+        });
+
+
+        await Promise.all(arrPromise);
+        return;
     }
 
 
@@ -103,7 +119,7 @@ class Seehd {
             
             let linkEmbed = $(this).find('center > iframe').attr('src');
 
-            linkEmbed !== false && hosts.push({
+            linkEmbed && hosts.push({
                 provider: {
                     url: detailUrl,
                     name: "seehd"

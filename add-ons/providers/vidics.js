@@ -15,8 +15,8 @@ class Vidics {
 
     async searchDetail() {
 
-        const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
-        let { title, year, season, episode, type } = this.movieInfo;
+        const { httpRequest, cheerio, stringHelper, base64 }    = this.libs; 
+        let { title, year, season, episode, type }              = this.movieInfo;
 
         let state       = this.state;
 
@@ -25,14 +25,12 @@ class Vidics {
         let $           = cheerio.load(htmlSearch);
         let itemSearch  = $('#searchResults .searchResult');
         
-        console.log(htmlSearch);
         itemSearch.each(function() {
             
             let titleMovie  = $(this).find('.searchResultInner h2 a.blue').text();
             let hrefMovie   = URL.DOMAIN + $(this).find('.searchResultInner h2 a.blue').attr('href');
             titleMovie      = titleMovie.replace(/\([0-9]+\)/i, '').trim();
             
-
             if( stringHelper.shallowCompare(titleMovie, title) ) {
                 detailUrl = hrefMovie;
             }
@@ -45,24 +43,24 @@ class Vidics {
 
         let itemSeason  = $_2('.season');
 
-        console.log(itemSeason.length); process.exit();
         itemSearch.each(function() {
 
             let titleSeason = $_2(this).find('.season_header a.null').text();
             if( titleSeason ) {
 
-                let numberSeason = titleSeason.match(/season *([0-9]+)/i);
-                numberSeason = numberSeason != null ? +numberSeason[1] : -1;
-
+                let numberSeason    = titleSeason.match(/season *([0-9]+)/i);
+                numberSeason        = numberSeason != null ? +numberSeason[1] : -1;
+                
+                console.log("season", numberSeason);
                 if( season == numberSeason ) {
 
                     let itemEpisode = $_2(this).find('.episode');
 
                     itemEpisode.each(function() {
 
-                        let hrefEpisode = DOMAIN + $_2(this).attr('href');  
-                        let numberEpisode = hrefEpisode.match(/-episode-([0-9]+)/i);
-                        numberEpisode = numberEpisode != null ? +numberEpisode[1] : -1;
+                        let hrefEpisode     = DOMAIN + $_2(this).attr('href');  
+                        let numberEpisode   = hrefEpisode.match(/-episode-([0-9]+)/i);
+                        numberEpisode       = numberEpisode != null ? +numberEpisode[1] : -1;
 
                         if( numberEpisode == episode ) {
                             detailUrl = hrefEpisode;

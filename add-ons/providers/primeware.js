@@ -1,86 +1,142 @@
 const URL = {
-    DOMAIN: "http://www.primewire.ac",
-    SEARCH: keyword => `http://www.primewire.ac/index.php?search_keywords=${keyword}&key=d6077aeec4e85692&search_section=1`,
-    DETAIL: (type, id, dummyText, season, episode) => {
-        if(type === 'tv') return `http://www.primewire.ac/${type}-${id}-${dummyText}/season-${season}-episode-${episode}`;
-        return `http://www.primewire.ac/watch-${id}-${dummyText}`;
+    DOMAIN: 'http://www.primewire.ag',
+    SEARCH: (title, type) => {
+
+        if( type == 'movie' ) {
+            return `http://www.primewire.ag/index.php?search_keywords=${title}&key=235debe0d7f423b4&search_section=1`; 
+        }
+        return `http://www.primewire.ag/index.php?search_keywords=${title}&key=235debe0d7f423b4&search_section=2`;
     }
 };
 
 class Primeware {
     constructor(props) {
-        this.libs = props.libs;
-        this.movieInfo = props.movieInfo;
-        this.settings = props.settings;
+        this.libs       = props.libs;
+        this.movieInfo  = props.movieInfo;
+        this.settings   = props.settings;
 
-        this.varHelper = {
-            urlSlug(string, spaceCharacter) {
-                return string.replace(/\s/g, spaceCharacter);
-            },
-            extractIdFromSlug(string) {
-                // example: /watch-9594-The-Big-Bang-Theory-online-free
-                let matchArr = string.match(/([0-9])\w+/g);
-                if(matchArr !== null) return matchArr[0];
-                return false;
-            }
-        };
         this.state = {};
     }
 
     async searchDetail() {
-        const { httpRequest, cheerio } = this.libs; 
-        let { title, year, season, episode, type } = this.movieInfo;
-        let searchUrl = URL.SEARCH(this.varHelper.urlSlug(title, "+"));
-        let htmlSearch = await httpRequest.getHTML(searchUrl);
-        let $ = cheerio.load(htmlSearch);
-        let result = [];
-        $(".index_item.index_item_ie").each(function(){
-            result.push({
-                slug: $(this).find("a").attr("href"),
-                titleAndYear: $(this).find("a").attr("title").replace("Watch ", "")
-            });
-        });
-        let titleAndYear = `${title} (${year})`.toLowerCase();
-        for (let i=0; i<result.length; i++) {
-            if(result[i].titleAndYear.toLowerCase() == titleAndYear) {
-                let id = this.varHelper.extractIdFromSlug(result[i].slug);
-                if(id !== false) {
-                    this.state.detailUrl = URL.DETAIL(type, id, this.varHelper.urlSlug(title, "-"), season, episode);
-                    return;
+        const { httpRequest, cheerio, stringHelper }      = this.libs; 
+        const { title, year, season, episode, type }      = this.movieInfo;
+
+        let detailUrl   = false;
+        let detailUrlTv = false;
+
+        let urlSearch   = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), type);
+        let htmlSearch  = await httpRequest.getHTML(urlSearch);
+        let $           = cheerio.load(htmlSearch);
+        let itemSearch  = $('div.index_item.index_item_ie');
+
+        itemSearch.each(function() {
+
+            let titleMovie  = $(this).find('a').attr('title').replace('Watch', '').match(/([^(]*)/);
+            let yearMovie   = $(this).find('a h2').text().replace('Watch', '').match(/\(([0-9]*)\)/);
+            let hrefMovie   = URL.DOMAIN + $(this).find('a').attr('href');
+            titleMovie      = titleMovie    != null ? titleMovie[1].trim()  : '';
+            yearMovie       = yearMovie     != null ? +yearMovie[1]         : 0;
+
+            if( stringHelper.shallowCompare(title, titleMovie) && year == yearMovie ) {
+                
+                if( type == 'movie' ) {
+                    detailUrl = hrefMovie;
+                } else {
+                    detailUrlTv = hrefMovie;
                 }
+                
             }
+        });
+
+        if( type == 'tv' && detailUrlTv != false ) {
+
+            
+            let htmlEpisode     = await httpRequest.getHTML(detailUrlTv);
+            let $_2             = cheerio.load(htmlEpisode);
+            let itemEpisode     = $_2(`.tv_container div[data-id=${season}] .tv_episode_item`);
+
+            itemEpisode.each(function() {
+
+                let hrefEpisode     = URL.DOMAIN + $_2(this).find('a').attr('href');
+                let episodeMovie    = hrefEpisode.match(/\-episode\-([0-9]+)/i); 
+                episodeMovie        = episodeMovie != null ? +episodeMovie[1] : -1;
+
+                if( episodeMovie == episode ) {
+                    detailUrl = hrefEpisode;
+                }
+            });
         }
+
+        this.state.detailUrl = detailUrl;
+        return;
     }
 
     async getHostFromDetail() {
         const { httpRequest, cheerio } = this.libs;
         if(!this.state.detailUrl) throw new Error("NOT_FOUND");
-        console.log(this.state.detailUrl);
-        let htmlDetail = await httpRequest.getHTML(this.state.detailUrl);
-        let $ = cheerio.load(htmlDetail);
-        let redirectLinks = [];
-        let hosts = [];
-        $(".movie_version_link").each(function(index){
-            if(index === 0) return;
-            redirectLinks.push(URL.DOMAIN + $(this).find("a").attr("href"))
+
+        let arrRedirect = [];
+        let hosts       = [];
+
+        let detailUrl   = this.state.detailUrl;
+
+        let htmlEpisode = await httpRequest.getHTML(this.state.detailUrl);
+        let $           = cheerio.load(htmlEpisode);
+        let itemRedirect= $('.movie_version_link');
+
+        itemRedirect.each(function() {
+
+            let linkRedirect = URL.DOMAIN +  $(this).find('a').attr('href');
+            arrRedirect.push(linkRedirect);
         });
-        // console.log(redirectLinks);
-        let promiseArr = redirectLinks.map(async val => {
-            let host = await httpRequest.getRedirectUrl(val);
-            host !== false && hosts.push({
-                provider: {
-                    url: this.state.detailUrl,
-                    name: "primeware"
-                },
-                result: {
-                    file: host,
-                    label: "embed",
-                    type: "embed"
-                }
-            });
+
+        let checkTimeout = false;
+        let timeout = setTimeout(function() {
+
+            this.state.hosts = hosts;
+            checkTimeout = true;
+            return;
+        }, 7000);
+
+        /** 
+         * 
+         * FIXME:
+         * this function will setTimeout 7s. 
+         * Because many link redirect error and not response. 
+        */
+        let arrPromise = arrRedirect.map(async function(val) {
+
+            let linkEmbed;
+            try {
+                linkEmbed   = await httpRequest.getRedirectUrl(val);
+                linkEmbed && hosts.push({
+                    provider: {
+                        url: detailUrl,
+                        name: "primeware"
+                    },
+                    result: {
+                        file: linkEmbed,
+                        label: "embed",
+                        type: "embed"
+                    }
+                });
+            } catch(error) {}
+
+            if( val == arrRedirect.length ) {
+                return;
+            }
+
         });
-        await Promise.all(promiseArr);
-        this.state.hosts = hosts;
+
+        await Promise.all(arrPromise);
+        if( !checkTimeout ) {
+            clearTimeout(timeout);
+            this.state.hosts = hosts;
+            return;
+        }
+        
+        
     }
 }
 

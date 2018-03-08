@@ -28,9 +28,9 @@ class YesMovies {
     async searchDetail() {
 
         
-        const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
-        let { title, year, season, episode, type }  = this.movieInfo;
-        let { getYear, getHrefEpisode }             = this;
+        const { httpRequest, cheerio, stringHelper, base64 }    = this.libs; 
+        let { title, year, season, episode, type }              = this.movieInfo;
+        let { getYear, getHrefEpisode }                         = this;
 
         let hrefSearch = '';
         let detailUrl  = false;
@@ -41,6 +41,8 @@ class YesMovies {
             
             hrefSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(`${title}++season+${season}+episode+${episode}`, '+'));
         }
+
+
         
         let htmlSearch  = await httpRequest.getCloudflare(hrefSearch);
         let $           = cheerio.load(htmlSearch.data);
@@ -131,26 +133,27 @@ class YesMovies {
         let htmlEmbed       = await httpRequest.getCloudflare(URL.GET_HTML_EMBED(idMovies));
         let $               = cheerio.load(htmlEmbed.data.html);
 
-        
-
 
         if( type == 'movie' ) {
 
             let idEmbed         = $('.ep-item');
+
             idEmbed.each(function() {
 
                 let dataId = $(this).attr('data-id');
                 arrId.push(dataId);
             });
+
         } else if( type == 'tv' )  {
 
             let idEmbed         = $('.ep-item');
+
             idEmbed.each(function() {
 
-                let dataId  = $(this).attr('data-id');
-                let episodeMovie = $(this).find('a').attr('title');
-                episodeMovie     = episodeMovie.match(/episode *([0-9]+)/i);
-                episodeMovie     = episodeMovie != null ? +episodeMovie[1] : -1;
+                let dataId          = $(this).attr('data-id');
+                let episodeMovie    = $(this).find('a').attr('title');
+                episodeMovie        = episodeMovie.match(/episode *([0-9]+)/i);
+                episodeMovie        = episodeMovie != null ? +episodeMovie[1] : -1;
 
                 if( episode == episodeMovie ) {
                     arrId.push(dataId);

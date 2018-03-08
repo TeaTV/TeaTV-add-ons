@@ -34,6 +34,7 @@ class FreeMovies {
 			yearFree        = yearFree != null ? yearFree[1] : 0;
             let titleFree   = titleTemp.replace(/\(.*/i, '');
             
+            
             if( stringHelper.shallowCompare(title, titleFree) && +yearFree == year ) {
 
 				if( hrefFree.indexOf('-tv-show-') != -1 && type == 'tv' ) {

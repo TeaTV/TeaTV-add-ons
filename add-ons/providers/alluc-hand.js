@@ -131,7 +131,6 @@ class AllucHand {
     }
 
 
-
     async searchDetail() {
         const { httpRequest, cheerio, stringHelper } = this.libs; 
         let { title, year, season, episode, type } = this.movieInfo;
@@ -142,7 +141,7 @@ class AllucHand {
         let result      = [];
         let urlDetail   = [];
 
-        let item = $('#resultitems .resblock');
+        let item        = $('#resultitems .resblock');
 
         item.each(function() {
 
@@ -171,7 +170,6 @@ class AllucHand {
                 }
 			}
         });
-        
     
         this.state.urlDetail = urlDetail;
         return;
@@ -212,13 +210,13 @@ class AllucHand {
 
                     host !== false && hosts.push({
                         provider: {
-                            url: item,
+                            url : item,
                             name: "alluc-hand"
                         },
                         result: {
-                            file: host,
-                            label: "embed",
-                            type: "embed"
+                            file    : host,
+                            label   : "embed",
+                            type    : "embed"
                         }
                     });
                 }
@@ -228,7 +226,6 @@ class AllucHand {
 
         this.state.hosts = hosts;
     }
-
 
 }
 

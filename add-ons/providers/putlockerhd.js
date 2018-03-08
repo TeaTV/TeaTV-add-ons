@@ -16,52 +16,31 @@ class PutlockerHd {
 
     async searchDetail() {
 
-        const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
-        let { title, year, season, episode, type } = this.movieInfo;
+        const { httpRequest, cheerio, stringHelper, base64 }    = this.libs; 
+        let { title, year, season, episode, type }              = this.movieInfo;
 
         let detailUrl   = false;
-        let htmlSearch  = await httpRequest.get(URL.SEARCH(stringHelper.convertToSearchQueryString(title), '+'));
-        let $           = cheerio.load(htmlSearch);
-        let page        = $('.pagination li').last().find('a').text();
+        
+        let urlSearch   = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
+        let htmlSearch  = await httpRequest.getHTML(urlSearch);
+        let $           = cheerio.load(htmlSearch); 
+        let itemSearch  = $('.video_container');
 
-        if( page.indexOf('current') != 1 ) {
-            page = 1;
-        }
+        itemSearch.each(function() {
 
-        await this.getDetailUrl(page, this.state);
-
-        return;
-    }
-
-
-    async getDetailUrl(page, state) {
-
-        const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
-        let { title, year, season, episode, type } = this.movieInfo;
-
-        for( let i = 1; i <= page; i++ )  {
-
-            let currentPage = i != 1 ? `&page=${i}`  : '';
-            let htmlSearch  = await httpRequest.getHTML(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')) + currentPage);
-            let $           = cheerio.load(htmlSearch); 
-            let itemPage    = $('.video_container');
-
-
-            itemPage.each(function() {
-
-                let titleMovies = $(this).find('.video_title h3 a').html();
-                let hrefMovies 	= URL.DOMAIN + $(this).find('.video_title h3 a').attr('href');
-                let yearMovies 	= $(this).find('.video_title h3 a').attr('title');
-                yearMovies 		= yearMovies.match(/\(([0-9]+)/i);
-                yearMovies 		= yearMovies != null ? +yearMovies[1] : 0;
+            let titleMovies = $(this).find('.video_title h3 a').html();
+            let hrefMovies 	= URL.DOMAIN + $(this).find('.video_title h3 a').attr('href');
+            let yearMovies 	= $(this).find('.video_title h3 a').attr('title');
+            yearMovies 		= yearMovies.match(/\(([0-9]+)/i);
+            yearMovies 		= yearMovies != null ? +yearMovies[1] : 0;
                 
-                if( stringHelper.shallowCompare(title, titleMovies) && yearMovies == year ) { 
-                    state.detailUrl = hrefMovies;
-                }
-            });
+            if( stringHelper.shallowCompare(title, titleMovies) && yearMovies == year ) { 
+                detailUrl = hrefMovies;
+            }
+        });
 
-            return;
-        }
+        this.state.detailUrl = detailUrl;
+        return;
     }
 
 

@@ -24,6 +24,8 @@ class WatchOnline {
         let htmlSearch  = await httpRequest.postCloudflare(URL.DOMAIN_SEARCH_POST, URL.HEADERS, {
             searchquery: title
         });
+
+        console.log(htmlSearch.data, detailUrl);
         let $           = cheerio.load(htmlSearch.data);
         let itemSearch  = $('.search-page .table tbody tr');
         let arrSearch   = [];

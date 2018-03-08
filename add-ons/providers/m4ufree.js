@@ -23,90 +23,70 @@ class M4uFree {
         const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
         let { title, year, season, episode, type } = this.movieInfo;
 
+
         let detailUrl   = false;
-        let htmlSearch  = await httpRequest.get(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')));
-        let currentPage = false;
-        let $           = cheerio.load(htmlSearch);
-        let page        = $('.pages a');
-        if( page ) {
-            page        = 1;
-            currentPage = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')) 
+        let urlSearch  = '';
+
+        if( type == 'movie' ) {
+            urlSearch  = URL.SEARCH(title);
         } else {
-            currentPage = page.last().attr('href');
-            page        = currentPage.match(/page\-([0-9]+)/i);
-            page        = page != null ? +page[1] : 1;
+            urlSearch  = URL.SEARCH(title + `+season+${season}`);
         }
 
-        this.state.detailUrl = await this.getDetailUrl(page, currentPage, this.state, this.state.detailUrl);
-        return;
-    }
+        let htmlSearch  = await httpRequest.getHTML(urlSearch);
+        let $           = cheerio.load(htmlSearch);
+        let itemSearch  = $('.item');
 
+        itemSearch.each(function() {
 
-    async getDetailUrl(page, currentPage) {
+            let hrefM4u 	= $(this).find('p b a').attr('href');
+            let titleM4u 	= $(this).find('p b a').text();
+            let checkMovies = titleM4u.match(/ *season *[0-9]+/i);
+            let seasonNumber= checkMovies != null ? titleM4u.match(/season *([0-9]+)/i) != null ? titleM4u.match(/season *([0-9]+)/i)[1] : 0 : false;
+            let infoM4u		= $(this).find('p b a').attr('onmouseover');
+            let yearM4u 	= infoM4u.match(/release *\: *([0-9]+)/i);
+            yearM4u			= yearM4u != null ? +yearM4u[1] : 0;
+            titleM4u		= titleM4u.replace(/ *\: *season.*/i, ''); 
 
-        const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
-        let { title, year, season, episode, type } = this.movieInfo;
+            if( stringHelper.shallowCompare(title, titleM4u) ) {
 
-        for( let val = 1; val <= page; val++ ) {
+                if( seasonNumber == false && type == 'movie' ) {
 
-            let hrefPage        = currentPage.replace(/page\-[0-9]+/i, `page-${val}`);
-            let htmlCurrentPage = await httpRequest.get(hrefPage, URL.HEADERS);
-            let $_2             = cheerio.load(htmlCurrentPage.data);
-            let item            = $_2('.item');
-            let arrItem         = [];
+                    if( yearM4u == year )  {
 
-            item.each(function() {
-    
-                let hrefM4u 	= $_2(this).find('.item p b a').attr('href');
-                let titleM4u 	= $_2(this).find('.item p b a').text();
-                let checkMovies = titleM4u.match(/ *season *[0-9]+/i);
-                let seasonNumber= checkMovies != null ? titleM4u.match(/season *([0-9]+)/i) != null ? titleM4u.match(/season *([0-9]+)/i)[1] : 0 : false;
-                let infoM4u		= $_2(this).find('.item p b a').attr('onmouseover');
-                let yearM4u 	= infoM4u.match(/release *\: *([0-9]+)/i);
-                yearM4u			= yearM4u != null ? +yearM4u[1] : 0;
-                titleM4u		= titleM4u.replace(/ *\: *season.*/i, '');
-                
-                arrItem.push({
-                    hrefM4u: hrefM4u,
-                    titleM4u: titleM4u,
-                    seasonNumber: seasonNumber,
-                    yearM4u: yearM4u, 
-                    checkMovies: checkMovies
-                });
-            });
+                        detailUrl = hrefM4u;
+                    }
+                } else if( seasonNumber != false && type == 'tv' ) {
 
-            for( let item in arrItem ) {
-
-                if( stringHelper.shallowCompare(arrItem[item].titleM4u, title) )  {
-    
-                    if( arrItem[item].checkMovies == null && type == 'movie' && year == arrItem[item].yearM4u ) {
-                        
-                        return arrItem[item].hrefM4u;
-                    } else if( arrItem[item].checkMovies != null && type == 'tv' ) {
-    
-                        if( +arrItem[item].seasonNumber == season ) {
-                            
-                            let $_3         = await httpRequest.get(arrItem[item].hrefM4u, URL.HEADERS);
-                            $_3             = cheerio.load($_3);
-                            let itemEpisode = $_3('#details .episode');
-    
-                            itemEpisode.each(function() {
-    
-                                let hrefEpisode 	= $(this).attr('href');
-                                let numberEpisode	= $(this).text();    
-                                
-                                if( numberEpisode == episode ) {
-                                    return hrefEpisode;
-                                }
-                            });
-                            return false;
-                        }
-                    } 
+                    if( seasonNumber == season )  {
+                        detailUrl = hrefM4u;
+                    }
                 }
             }
-        }
-    }
+        });
+        
+        if( type == 'tv' && detailUrl != false ) {
 
+            let htmlEpisode = await httpRequest.getHTML(detailUrl);
+            let $_2         = cheerio.load(htmlEpisode);
+            
+            let itemEpisode = $_2('#details .episode');
+    
+            itemEpisode.each(function() {
+    
+                let hrefEpisode 	= $_2(this).attr('href');
+                let numberEpisode	= $_2(this).text();    
+    
+                if( +numberEpisode == episode ) {
+
+                    detailUrl =  hrefEpisode;
+                }
+            });
+        }
+
+        this.state.detailUrl    = detailUrl;
+        return
+    }
 
 
     async getHostFromDetail() {

@@ -4,12 +4,7 @@ const URL = {
         return `http://www.watchepisodeseries.com/home/search?q=${title}`;
     },
     HEADER: {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36',
-        // 'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-        // 'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-        // 'Connection':'keep-alive',
-        // 'Host': 'www.watchepisodeseries.com',
-        // 'Upgrade-Insecure-Requests':1
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36'
     }
 };
 
@@ -23,8 +18,8 @@ class WatchSeriesEpisode {
 
     async searchDetail() {
 
-        const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
-        let { title, year, season, episode, type } = this.movieInfo;
+        const { httpRequest, cheerio, stringHelper, base64 }    = this.libs; 
+        let { title, year, season, episode, type }              = this.movieInfo;
 
         let detailUrl       = false;
         let jsonSearch      = await httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')));
@@ -36,6 +31,7 @@ class WatchSeriesEpisode {
 
             let titleMovie  = jsonSearch.series[item].original_name;
             titleMovie      = titleMovie.replace(/\([0-9]+\)/i, '').trim();
+
             if( stringHelper.shallowCompare(title, titleMovie) ) {
 
                 slugMovie = jsonSearch.series[item].seo_name; 
@@ -82,12 +78,11 @@ class WatchSeriesEpisode {
 
         if( hrefEpisode == false )  throw new Error('NOT EPISODE');
 
-        this.state.hosts = await this.getEmbeds(hrefEpisode, this.state.detailUrl);
+        await this.getEmbeds(hrefEpisode, this.state);
         return;
     }
 
-    async getEmbeds(hrefMovie, detailUrl) {
-
+    async getEmbeds(hrefMovie, state) {
 
         const { httpRequest, cheerio, base64, _ }      = this.libs;
         let { title, year, season, episode, type }  = this.movieInfo;
@@ -104,10 +99,26 @@ class WatchSeriesEpisode {
             let linkRedirect = $(this).find('.watch .watch-button').attr('href');
             arrRedirect.push(linkRedirect);
         });
+        
+        arrRedirect = _.dropRight(arrRedirect, arrRedirect.length - 50);
 
 
-        arrRedirect = _.dropRight(arrRedirect, arrRedirect.length - 100);
+        let checkTimeout    = false;
+        let checkReturn     = false
+        let timeout         = setTimeout(function() {
+          
+            checkTimeout    = true; 
+            checkReturn     = true;
+            state.hosts     = arrhosts;
+            return;
+        }, 10000);
 
+        /** 
+         * 
+         * FIXME 
+         * this promise auto return after 10s.
+         * because many link embed not response or loss many time to response
+        */
         let arrPromise = arrRedirect.map(async function(val) {
 
             let htmlEmbed       = await httpRequest.getCloudflare(val, URL.HEADER);
@@ -118,10 +129,9 @@ class WatchSeriesEpisode {
                 let $_2         = cheerio.load(htmlEmbed);
                 let linkEmbed   = $_2('.wb-main .watch-button').attr('href');
 
-                console.log(linkEmbed);
-                arrhosts.push({
+                linkEmbed && arrhosts.push({
                     provider: {
-                        url: detailUrl,
+                        url: state.detailUrl,
                         name: "watchseriesepisode"
                     },
                     result: {
@@ -130,13 +140,23 @@ class WatchSeriesEpisode {
                         type: "embed"
                     }
                 });
+                
+            }
+            
+            if( checkReturn ) {
+                return;
             }
 
         });
 
         await Promise.all(arrPromise);
 
-        return arrhosts;
+        if( !checkTimeout )  {
+            clearTimeout(timeout);
+            state.hosts = arrhosts;
+            return;
+        }
+       
     }
 
 }
@@ -152,7 +172,5 @@ exports.default = async (libs, movieInfo, settings) => {
     await watchseries.getHostFromDetail();
     return watchseries.state.hosts;
 }
-
-
 
 exports.testing = WatchSeriesEpisode;

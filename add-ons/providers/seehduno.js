@@ -28,7 +28,9 @@ class SeehdUno {
         if( page.length <= 0 ) {
             page = 1;
         } else {
-            page = +page.last().text();
+            page = page.last().find('a').attr('href');
+            page = page.match(/\/page\/([0-9]+)/i);
+            page = page != null ? +page[1] : 1;
         }
 
         await this.getDetailUrl(page, this.state);
@@ -40,11 +42,18 @@ class SeehdUno {
     async getDetailUrl(page, state) {
 
         const { httpRequest, cheerio, stringHelper, base64 }    = this.libs; 
-        let { title, year, season, episode, type }              = this.movieInfo;
+        const { title, year, season, episode, type }            = this.movieInfo;
+
+        let arrNumber = [];
         
         for( let i = 1; i <= page; i++ )  {
 
-            let htmlSearch  = await httpRequest.getHTML(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'),i));
+            arrNumber.push(i);
+        }
+
+        let arrPromise = arrNumber.map(async function(val) {
+
+            let htmlSearch  = await httpRequest.getHTML(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), val));
             let $           = cheerio.load(htmlSearch);
             let itemSearch  = $('.peliculas .items .item');
 
@@ -55,8 +64,8 @@ class SeehdUno {
                 let yearMovies      = $(this).find('.fixyear .year').text();
                 let titleMovies     = $(this).find('.fixyear h2').text();
                 let seasonMovies    = titleMovies.match(/season *([0-9]+)/i);
-                seasonMovies 	    = seasonMovies != null ? +seasonMovies[1] : false;
                 let episodeMovies   = titleMovies.match(/season *[0-9]+ *episode *([0-9]+)/i);
+                seasonMovies 	    = seasonMovies  != null ? +seasonMovies[1]  : false;
                 episodeMovies 	    = episodeMovies != null ? +episodeMovies[1] : false; 
                 titleMovies         = titleMovies.replace('Watch', '').replace('Online', '').replace('Free', '').trim();
                 titleMovies         = titleMovies.replace(/\([0-9]+\)/i, '').trim();
@@ -78,8 +87,15 @@ class SeehdUno {
                 }
             });
 
-            return;
-        }
+
+            if( val == page ) {
+                return;
+            }
+
+        });
+
+        await Promise.all(arrPromise);
+        return;        
     }
 
 
@@ -88,7 +104,8 @@ class SeehdUno {
         const { httpRequest, cheerio, base64 } = this.libs;
         if(!this.state.detailUrl) throw new Error("NOT_FOUND");
 
-        let hosts = [];
+        let hosts       = [];
+        
         let detailUrl   = this.state.detailUrl;
         let htmlDetail  = await httpRequest.getHTML(this.state.detailUrl);
         let $           = cheerio.load(htmlDetail);
