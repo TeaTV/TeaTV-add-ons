@@ -92,7 +92,7 @@ class Primeware {
         });
 
         let checkTimeout = false;
-        let timeout = setTimeout(function() {
+        let timeout = setTimeout(() => {
 
             this.state.hosts = hosts;
             checkTimeout = true;
