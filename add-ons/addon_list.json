@@ -159,6 +159,12 @@
             "domain": ["ok.ru"],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/ok-ru.js"
+        },
+        "rapidvideo": {
+            "name": "rapidvideo",
+            "domain": ["rapidvideo.com"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/rapidvideo.js"
         }
     }
 }
