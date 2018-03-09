@@ -118,6 +118,13 @@
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/seehd9.js",
             "type": ["tv", "movie"]
+        },
+        "vexmovies": {
+            "name": "vexmovies",
+            "domain": "vexmovies.org",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/vexmovies.js",
+            "type": ["movie"]
         }
     },
     "hosts": {
