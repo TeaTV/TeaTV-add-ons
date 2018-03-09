@@ -114,7 +114,8 @@ class HollyMovies {
                 let $ = cheerio.load(htmlRedirect);
                 let embed = $('iframe').attr('src');
 
-                hosts.push({
+                
+                embed && hosts.push({
                     provider: {
                         url: detailUrl,
                         name: "hollymovies"
@@ -136,7 +137,7 @@ class HollyMovies {
     
                     if( arrSources[item].file.indexOf('google') == -1 ) {
     
-                        hosts.push({
+                        arrSources[item].file && hosts.push({
                             provider: {
                                 url: detailUrl,
                                 name: "hollymovies"
@@ -148,7 +149,7 @@ class HollyMovies {
                             }
                         });
                     } else {
-                        hosts.push({
+                        arrSources[item].file && hosts.push({
                             provider: {
                                 url: detailUrl,
                                 name: "hollymovies"
