@@ -107,10 +107,15 @@ class M4uFree {
             arrDetail.push(links);
         });
 
-
         let arrPromise = arrDetail.map(async function(links) {
 
-            let htmlData    = await httpRequest.get(links);
+            let htmlData = {data: ''};
+            
+            try {
+                htmlData    = await httpRequest.get(links);
+            } catch(error) {}
+
+            
             let encode 	    = htmlData.data.match(/Base64\.decode\(\"([^\"]+)/i);
             encode 		    = encode != null ? encode[1] : false;
 
@@ -118,7 +123,7 @@ class M4uFree {
                 let iframes 	= base64.decode(encode);
                 let linkEmbed 	= iframes.match(/src\=\"([^\"]+)/i); 
                 linkEmbed		= linkEmbed != null ? linkEmbed[1] : false;
-                
+    
                 linkEmbed && hosts.push({
                     provider: {
                         url: detailUrl,
