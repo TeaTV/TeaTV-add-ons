@@ -186,6 +186,12 @@
             "domain": ["rapidvideo.com"],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/rapidvideo.js"
+        },
+        "vidnode": {
+            "name": "vidnode",
+            "domain": ["vidnode.net"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/vidnode.js"
         }
     }
 }
