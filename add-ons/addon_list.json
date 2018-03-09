@@ -210,8 +210,14 @@
         "hulu": {
             "name": "hulu",
             "domain": ["hulu.so"],
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/hulu.js"
+        },
+        "vidcdn": {
+            "name": "vidcdn",
+            "domain": ["vidcdn.pro"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/vidcdn.js"
         }
     }
 }
