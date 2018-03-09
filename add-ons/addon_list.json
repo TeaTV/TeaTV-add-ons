@@ -38,7 +38,7 @@
         "m4ufree": {
             "name": "m4ufree",
             "domain": "m4ufree.club",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/m4ufree.js",
             "type": ["movie", "tv"]
         },
