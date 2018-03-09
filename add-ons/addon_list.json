@@ -144,7 +144,7 @@
         "openload": {
             "name": "openload",
             "domain": ["openload.com", "openload.co", "oload.tv", "oload.stream", "oload.info", "oload.site"],
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/openload.js"
         },
         "teamdk": {
