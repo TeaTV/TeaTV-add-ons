@@ -62,7 +62,7 @@ class Vumoo {
     async getHostFromDetail() {
 
         const { httpRequest, cheerio, base64, cryptoJs } = this.libs;
-        let { episode }                                 = this.movieInfo;
+        let { episode, type }                                 = this.movieInfo;
         if(!this.state.detailUrl) throw new Error("NOT_FOUND");
 
         let hosts           = [];
@@ -79,10 +79,12 @@ class Vumoo {
             let episodeMovie = $(this).find('a').text();
             episodeMovie     = episodeMovie.match(/s[0-9]+e([0-9]+)/i);
             episodeMovie     = episodeMovie != null ? +episodeMovie[1] : -1;
-            
-            if( episodeMovie == episode ) {
+           
+            let linkRedirect = $(this).find('a').attr('embedurl');
 
-                let linkRedirect = $(this).find('a').attr('embedurl');
+            if( type == 'movie' ) {
+                arrRedirect.push(linkRedirect);
+            } else if( episodeMovie == episode ) {
                 arrRedirect.push(linkRedirect);
             }
             
@@ -97,7 +99,6 @@ class Vumoo {
             if( token != false ) {
 
                 let linkEmbed       = cryptoJs.AES.decrypt(token, 'iso10126').toString(cryptoJs.enc.Utf8);
-
                 try {
 
                     linkEmbed = JSON.parse(linkEmbed);
@@ -128,7 +129,6 @@ class Vumoo {
 
                 for( let item in linkDirect ) {
                     
-                    console.log(linkDirect[item].file);
                     linkDirect[item].file && hosts.push({
                         provider: {
                             url: detailUrl,
