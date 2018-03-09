@@ -81,15 +81,20 @@ class Openload {
         
         const { status, data, error } = apiResponse.data;
         if(error) throw new Error(error);
-        if(status == 200) return {
-            host: {
-                url: url,
-                name: "openload",
-                type: "embed"
-                
-            },
-            result: [{ file: data, label: "NOR", type: "embed", size: "NOR" }]
+        if(status == 200) {
+            let isDie       = await httpRequest.isLinkDie(data);
+            if( isDie == false ) throw new Error("NOT LINK");
+
+            return {
+                host: {
+                    url: url,
+                    name: "openload"
+                },
+                result: [{ file: data, label: "NOR", type: "embed", size: isDie }]
+            }
         }
+        
+        
     }
     convertToEmbed() {
         
