@@ -206,6 +206,12 @@
             "domain": ["vidnode.net"],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/vidnode.js"
+        },
+        "hulu": {
+            "name": "hulu",
+            "domain": ["hulu.so"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/hulu.js"
         }
     }
 }
