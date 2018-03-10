@@ -88,8 +88,14 @@ class Primeware {
 
         itemRedirect.each(function() {
 
-            let linkRedirect = URL.DOMAIN +  $(this).find('a').attr('href');
-            arrRedirect.push(linkRedirect);
+            let slug = $(this).find('a').attr('href');
+            
+            if( slug.indexOf('javascript:') == -1 )  {
+
+                let linkRedirect = URL.DOMAIN +  slug;
+                arrRedirect.push(linkRedirect);
+            }
+            
         });
 
         let checkTimeout = false;
