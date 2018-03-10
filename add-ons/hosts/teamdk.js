@@ -75,7 +75,7 @@ class Teamdk {
                 return {
                     host: {
                         url: url,
-                        name: "teamdk"
+                        name: "GoogleVideo"
                     },
                     result: sources
                 }
