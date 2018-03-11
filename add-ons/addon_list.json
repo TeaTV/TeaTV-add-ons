@@ -132,6 +132,13 @@
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/hollymovies.js",
             "type": ["movie", "tv"]
+        },
+        "dizilab": {
+            "name": "dizilab",
+            "domain": "dizilab.me",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/dizilab.js",
+            "type": ["tv"]
         }
     },
     "hosts": {
