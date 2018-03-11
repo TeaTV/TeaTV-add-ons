@@ -139,6 +139,13 @@
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/dizilab.js",
             "type": ["tv"]
+        },
+        "watchseries": {
+            "name": "watchseries",
+            "domain": "watchseries.sk",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/watchseries.js",
+            "type": ["tv"]
         }
     },
     "hosts": {
