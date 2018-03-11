@@ -27,7 +27,8 @@ class HollyMovies {
             urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')) + `+season+${season}`;
         }
 
-        let htmlSearch  = await httpRequest.getHTML(urlSearch);
+        let htmlSearch  = await httpRequest.getCloudflare(urlSearch);
+        htmlSearch      = htmlSearch.data;
         let $           = cheerio.load(htmlSearch);
 
         let itemSearch  = $('.movies-list .ml-item');
@@ -58,7 +59,6 @@ class HollyMovies {
 
         });
 
-
         this.state.detailUrl = detailUrl;
         return;
     }
@@ -67,15 +67,22 @@ class HollyMovies {
     async getHostFromDetail() {
 
         const { httpRequest, cheerio, base64 }  = this.libs;
-        const {type}                            = this;
+        const {type, episode, season}           = this.movieInfo;
         if(!this.state.detailUrl) throw new Error("NOT_FOUND");
 
         let hosts = [];
         let arrRedirect = [];
 
         let detailUrl   = this.state.detailUrl;
-        
-        let htmlDetail = await httpRequest.getHTML(this.state.detailUrl);
+
+
+        if(type == 'tv') {
+            detailUrl = detailUrl.replace('/series/', '/episode/');
+            detailUrl = detailUrl.replace(/-season-[0-9]+\//i, `-season-${season}-episode-${episode}/`);
+        }
+
+        let htmlDetail = await httpRequest.getCloudflare(detailUrl);
+        htmlDetail     = htmlDetail.data;
         let $          = cheerio.load(htmlDetail);
         let itemRedirect = $('#player2 > div');
 
@@ -95,7 +102,6 @@ class HollyMovies {
         });
 
 
-
         let arrPromise = arrRedirect.map(async function(val) {
 
             let arrSources      = [];
@@ -103,12 +109,13 @@ class HollyMovies {
 
 
             try {
-                htmlRedirect    = await httpRequest.getHTML(val);
+                htmlRedirect    = await httpRequest.getHTML(val, {
+                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36',
+                    'Referer': val
+                });
             } catch(error) {}
 
-            let sources         = htmlRedirect.match(/sources\: *\[([^\]]+)/i);
-
-
+            let sources         = htmlRedirect.match(/player\.setup\(\{\s*sources\: *\[([^\]]+)/i);
             if( sources == null ) {
 
                 let $ = cheerio.load(htmlRedirect);
