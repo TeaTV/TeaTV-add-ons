@@ -18,8 +18,8 @@ class VidCdn {
         const { httpRequest, cheerio } = this.libs;
         
         let results = [];
+        let isDie   = 'NOR';
 
-        let isDie = 'NOR';
         try {
             isDie       = await httpRequest.isLinkDie(url);
         } catch(error) {}
@@ -34,7 +34,7 @@ class VidCdn {
         return {
             host: {
                 url: url,
-                name: "vidcdn"
+                name: "CDN"
             },
             result: results
         }
