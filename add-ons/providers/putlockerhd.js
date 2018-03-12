@@ -1,179 +1,89 @@
-
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var URL = {
-    DOMAIN: 'https://putlockerhd.co',
-    SEARCH: function SEARCH(title) {
-        return 'https://putlockerhd.co/results?q=' + title;
+const URL = {
+    DOMAIN: `https://putlockerhd.co`,
+    SEARCH: (title) => {
+        return `https://putlockerhd.co/results?q=${title}`;
     }
 };
 
-var PutlockerHd = function () {
-    function PutlockerHd(props) {
-        _classCallCheck(this, PutlockerHd);
-
-        this.libs = props.libs;
-        this.movieInfo = props.movieInfo;
-        this.settings = props.settings;
+class PutlockerHd {
+    constructor(props) {
+        this.libs       = props.libs;
+        this.movieInfo  = props.movieInfo;
+        this.settings   = props.settings;
 
         this.state = {};
     }
 
-    _createClass(PutlockerHd, [{
-        key: 'searchDetail',
-        value: function () {
-            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, urlSearch, htmlSearch, $, itemSearch;
+    async searchDetail() {
 
-                return regeneratorRuntime.wrap(function _callee$(_context) {
-                    while (1) {
-                        switch (_context.prev = _context.next) {
-                            case 0:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
-                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
-                                detailUrl = false;
-                                urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
-                                _context.next = 6;
-                                return httpRequest.getHTML(urlSearch);
+        const { httpRequest, cheerio, stringHelper, base64 }    = this.libs; 
+        let { title, year, season, episode, type }              = this.movieInfo;
 
-                            case 6:
-                                htmlSearch = _context.sent;
-                                $ = cheerio.load(htmlSearch);
-                                itemSearch = $('.video_container');
+        let detailUrl   = false;
+        
+        let urlSearch   = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
+        let htmlSearch  = await httpRequest.getHTML(urlSearch);
+        let $           = cheerio.load(htmlSearch); 
+        let itemSearch  = $('.video_container');
 
+        itemSearch.each(function() {
 
-                                itemSearch.each(function () {
-
-                                    var titleMovies = $(this).find('.video_title h3 a').html();
-                                    var hrefMovies = URL.DOMAIN + $(this).find('.video_title h3 a').attr('href');
-                                    var yearMovies = $(this).find('.video_title h3 a').attr('title');
-                                    yearMovies = yearMovies.match(/\(([0-9]+)/i);
-                                    yearMovies = yearMovies != null ? +yearMovies[1] : 0;
-
-                                    if (stringHelper.shallowCompare(title, titleMovies) && yearMovies == year) {
-                                        detailUrl = hrefMovies;
-                                    }
-                                });
-
-                                this.state.detailUrl = detailUrl;
-                                return _context.abrupt('return');
-
-                            case 12:
-                            case 'end':
-                                return _context.stop();
-                        }
-                    }
-                }, _callee, this);
-            }));
-
-            function searchDetail() {
-                return _ref.apply(this, arguments);
+            let titleMovies = $(this).find('.video_title h3 a').html();
+            let hrefMovies 	= URL.DOMAIN + $(this).find('.video_title h3 a').attr('href');
+            let yearMovies 	= $(this).find('.video_title h3 a').attr('title');
+            yearMovies 		= yearMovies.match(/\(([0-9]+)/i);
+            yearMovies 		= yearMovies != null ? +yearMovies[1] : 0;
+                
+            if( stringHelper.shallowCompare(title, titleMovies) && yearMovies == year ) { 
+                detailUrl = hrefMovies;
             }
+        });
 
-            return searchDetail;
-        }()
-    }, {
-        key: 'getHostFromDetail',
-        value: function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, base64, hosts, htmlDetail, $, linkEmbed;
+        this.state.detailUrl = detailUrl;
+        return;
+    }
 
-                return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                    while (1) {
-                        switch (_context2.prev = _context2.next) {
-                            case 0:
-                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64;
 
-                                if (this.state.detailUrl) {
-                                    _context2.next = 3;
-                                    break;
-                                }
+    async getHostFromDetail() {
 
-                                throw new Error("NOT_FOUND");
+        const { httpRequest, cheerio, base64 } = this.libs;
+        if(!this.state.detailUrl) throw new Error("NOT_FOUND");
 
-                            case 3:
-                                hosts = [];
-                                _context2.next = 6;
-                                return httpRequest.getHTML(this.state.detailUrl);
+        let hosts       = [];
+        let htmlDetail  = await httpRequest.getHTML(this.state.detailUrl);
+        let $           = cheerio.load(htmlDetail);
+        let linkEmbed   = htmlDetail.match(/var *frame_url *\= *\"([^\"]+)/i);
+        linkEmbed       = linkEmbed != false ? `http:${linkEmbed[1]}` : false;
 
-                            case 6:
-                                htmlDetail = _context2.sent;
-                                $ = cheerio.load(htmlDetail);
-                                linkEmbed = htmlDetail.match(/var *frame_url *\= *\"([^\"]+)/i);
 
-                                linkEmbed = linkEmbed != false ? 'http:' + linkEmbed[1] : false;
-
-                                linkEmbed !== false && hosts.push({
-                                    provider: {
-                                        url: this.state.detailUrl,
-                                        name: "putlockerhd"
-                                    },
-                                    result: {
-                                        file: linkEmbed,
-                                        label: "embed",
-                                        type: "embed"
-                                    }
-                                });
-
-                                this.state.hosts = hosts;
-
-                            case 12:
-                            case 'end':
-                                return _context2.stop();
-                        }
-                    }
-                }, _callee2, this);
-            }));
-
-            function getHostFromDetail() {
-                return _ref2.apply(this, arguments);
+        linkEmbed !== false && hosts.push({
+            provider: {
+                url: this.state.detailUrl,
+                name: "putlockerhd"
+            },
+            result: {
+                file: linkEmbed,
+                label: "embed",
+                type: "embed"
             }
+        });
 
-            return getHostFromDetail;
-        }()
-    }]);
+        this.state.hosts = hosts;
+    }
 
-    return PutlockerHd;
-}();
+}
 
-thisSource.function = function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(libs, movieInfo, settings) {
-        var putlocker;
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
-            while (1) {
-                switch (_context3.prev = _context3.next) {
-                    case 0:
-                        putlocker = new PutlockerHd({
-                            libs: libs,
-                            movieInfo: movieInfo,
-                            settings: settings
-                        });
-                        _context3.next = 3;
-                        return putlocker.searchDetail();
+exports.default = async (libs, movieInfo, settings) => {
 
-                    case 3:
-                        _context3.next = 5;
-                        return putlocker.getHostFromDetail();
+    const putlocker = new PutlockerHd({
+        libs: libs,
+        movieInfo: movieInfo,
+        settings: settings
+    });
+    await putlocker.searchDetail();
+    await putlocker.getHostFromDetail();
+    return putlocker.state.hosts;
+}
 
-                    case 5:
-                        return _context3.abrupt('return', putlocker.state.hosts);
 
-                    case 6:
-                    case 'end':
-                        return _context3.stop();
-                }
-            }
-        }, _callee3, undefined);
-    }));
-
-    return function (_x, _x2, _x3) {
-        return _ref3.apply(this, arguments);
-    };
-}();
-
-thisSource.testing = PutlockerHd;
+exports.testing = PutlockerHd;

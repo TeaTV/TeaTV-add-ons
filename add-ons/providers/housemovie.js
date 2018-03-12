@@ -15,8 +15,8 @@ class HouseMovies {
 
     async searchDetail() {
 
-        const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
-        let { title, year, season, episode, type } = this.movieInfo;
+        const { httpRequest, cheerio, stringHelper, base64 }    = this.libs; 
+        let { title, year, season, episode, type }              = this.movieInfo;
 
         let detailUrl       = false;
 
