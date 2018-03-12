@@ -34,7 +34,7 @@ class RapidVideo {
 
         if( html == false ) throw new Error("LINK DIE");
 
-        let $       = cheerio.load(html);
+        let $                   = cheerio.load(html);
         
         try {
 

@@ -27,7 +27,7 @@ class Hulu {
         if( isDie != false ) {
 
             results.push({
-                file: url, label: 'NOR', type: "embed" , size: isDie
+                file: url, label: 'NOR', type: "direct" , size: isDie
             });
         }
 

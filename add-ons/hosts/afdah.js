@@ -100,7 +100,8 @@ class Afdah {
 
         // you fill the die status text
         // const dieStatusText = "";
-        let html = await httpRequest.getHTML(url);
+        let html = await httpRequest.getCloudflare(url);
+        html     = html.data;
         // if(html.includes(dieStatusText)) return true;
         return html;
     }
@@ -120,34 +121,32 @@ class Afdah {
 
         let decryp  = html.match(/decrypt\(\"([^\"]+)/i);
         decryp      = decryp != null ? decryp[1] : '';
+        decryp      = decrypt(decryp);
+        decryp      = decryp.match(/sources *: *\[([^\]]+)/i);
+        decryp      = decryp != null ? decryp[1] : '';
 
-        decryp = decrypt(decryp);
-        decryp = decryp.match(/sources *: *\[([^\]]+)/i);
-        decryp = decryp != null ? decryp[1] : '';
-        
         if( decryp != '' ) {
-      
+            
             let sources = [];
         
             decryp          = eval(`[${decryp}]`);
             let arrPromise  =  decryp.map( async function(value) {
                 
                 let isDie = await httpRequest.isLinkDie(value.file);
-
                 if( isDie != false ) {
 
                     sources.push({
-                        label: value.label,
+                        label: 'NOR',
                         file: value.file,
                         type: "embed",
                         size: isDie
                     });
                 }
-                
+    
             });
 
             await Promise.all(arrPromise);
-      
+            
             return {
                 host: {
                     url: url,

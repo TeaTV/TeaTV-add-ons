@@ -1,4 +1,4 @@
-class TheVideo {
+class EnterVideo {
 
     constructor(props) {
 
@@ -44,34 +44,7 @@ class TheVideo {
         if( htmlDetail == false ) throw new Error("LINK DIE");
 
 
-        let thief   = htmlDetail.match(/var *thief\=\'([^\']+)/i);
-        thief       = thief != null ? thief[1] : '';
-        let jwConfig= `https://thevideo.website/vsign/player/${thief}`;
-        let htmlJwConfig    = await httpRequest.getHTML(jwConfig);
-
-        let vt      = htmlJwConfig.match(/jwConfig\|([^\|]+)/i);
-        vt          = vt != null ? vt[1] : '';
-
-        let linkPlay = htmlDetail.match(/sources *: *\[([^\]]+)/i);
-        linkPlay = linkPlay != null ? linkPlay[1] : '';
-
-        linkPlay = eval(`[${linkPlay}]`);
-        
-        let arrPromise = linkPlay.map(async function(value) {
-
-            let linkDirect  = `${value.file}?direct=false&ua=1&vt=${vt}`;
-            let isDie       = await httpRequest.isLinkDie(linkDirect);
-
-            if( isDie != false ) {
-
-                sources.push({
-                    file: linkDirect, label: value.label, type: "embed" , size: isDie
-                });
-            }
-            
-        });
-
-        await Promise.all(arrPromise);
+ 
 
         
         return {
@@ -84,4 +57,4 @@ class TheVideo {
     }
 }
 
-exports.default = (libs, settings) => new TheVideo({ libs, settings });
+exports.default = (libs, settings) => new EnterVideo({ libs, settings });
