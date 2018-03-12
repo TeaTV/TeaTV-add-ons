@@ -42,7 +42,7 @@ class Afdah {
             yearAfdah 			= yearAfdah != null ? +yearAfdah[1] : 0;
 
             if( stringHelper.shallowCompare(titleAfdah, title) && yearAfdah == year ) {
-                detailUrl = `${URL.DOMAIN}/${id}`;
+                detailUrl = `${URL.DOMAIN}${id}`;
             }
         });
 
@@ -53,7 +53,6 @@ class Afdah {
     async getHostFromDetail() {
         const { httpRequest, cheerio } = this.libs;
         if(!this.state.detailUrl) throw new Error("NOT_FOUND");
-        // console.log(this.state.detailUrl);
 
         let hosts       = [];
         let detailUrl   = this.state.detailUrl;

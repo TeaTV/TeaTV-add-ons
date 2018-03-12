@@ -22,7 +22,8 @@ class WatchSeriesEpisode {
         let { title, year, season, episode, type }              = this.movieInfo;
 
         let detailUrl       = false;
-        let jsonSearch      = await httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')));
+        let urlSearch       = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
+        let jsonSearch      = await httpRequest.getCloudflare(urlSearch);
         jsonSearch          = jsonSearch.data;
 
         let slugMovie       = false;

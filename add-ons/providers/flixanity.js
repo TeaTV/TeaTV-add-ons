@@ -45,7 +45,7 @@ class Flixanity {
 
                     this.state.detailUrl = URL.DOMAIN + item.permalink;
                 } else if( item.type == 'show' && type == 'tv' ) {
-    
+                    
                     this.state.detailUrl = `${URL.DOMAIN}${item.permalink}/season/${season}/episode/${episode}`;
                 }
             }
