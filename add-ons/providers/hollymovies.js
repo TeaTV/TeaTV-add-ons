@@ -1,191 +1,300 @@
-const URL = {
-    DOMAIN: `http://www.hollymoviehd.com`,
-    SEARCH: (title) => {
-        return `http://www.hollymoviehd.com/?zc=search&s=${title}`;
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var URL = {
+    DOMAIN: 'http://www.hollymoviehd.com',
+    SEARCH: function SEARCH(title) {
+        return 'http://www.hollymoviehd.com/?zc=search&s=' + title;
     }
 };
 
-class HollyMovies {
-    constructor(props) {
-        this.libs       = props.libs;
-        this.movieInfo  = props.movieInfo;
-        this.settings   = props.settings;
-        this.state      = {};
+var HollyMovies = function () {
+    function HollyMovies(props) {
+        _classCallCheck(this, HollyMovies);
+
+        this.libs = props.libs;
+        this.movieInfo = props.movieInfo;
+        this.settings = props.settings;
+        this.state = {};
     }
 
-    async searchDetail() {
+    _createClass(HollyMovies, [{
+        key: 'searchDetail',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, urlSearch, htmlSearch, $, itemSearch;
 
-        const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
-        let { title, year, season, episode, type } = this.movieInfo;
-
-        let detailUrl       = false;
-        let urlSearch       = '';
-
-        if( type == 'movie' ) {
-            urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')) + `+${year}`; 
-        } else {
-            urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')) + `+season+${season}`;
-        }
-
-        let htmlSearch  = await httpRequest.getHTML(urlSearch);
-        let $           = cheerio.load(htmlSearch);
-
-        let itemSearch  = $('.movies-list .ml-item');
-        
-        itemSearch.each(function() {
-
-            let hrefMovie   =  $(this).find('a').first().attr('href');
-            let titleMovie  = $(this).find('a').first().attr('oldtitle');
-            let yearMovie   = titleMovie.match(/\(([0-9]+)\)/i);
-            yearMovie       = yearMovie != null ? +yearMovie[1] : 0;
-            let seasonMovie = titleMovie.match(/season *([0-9]+)/i);
-            seasonMovie    = seasonMovie != null ? +seasonMovie[1] : false;
-            titleMovie      = titleMovie.replace(/\([0-9]+\)/i, '').trim();
-            titleMovie      = titleMovie.replace(/ *season *[0-9]+/i, '').trim();
-
-            if( stringHelper.shallowCompare(title, titleMovie) ) {
-
-                if( type == 'movie' && seasonMovie == false && yearMovie == year ) {
-
-                    detailUrl = hrefMovie;       
-                    return;
-                } else if( type == 'tv' && seasonMovie == season ) {
-
-                    detailUrl = hrefMovie;
-                    return;
-                }
-            }
-
-        });
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
+                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+                                detailUrl = false;
+                                urlSearch = '';
 
 
-        this.state.detailUrl = detailUrl;
-        return;
-    }
+                                if (type == 'movie') {
+                                    urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')) + ('+' + year);
+                                } else {
+                                    urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')) + ('+season+' + season);
+                                }
+
+                                _context.next = 7;
+                                return httpRequest.getHTML(urlSearch);
+
+                            case 7:
+                                htmlSearch = _context.sent;
+                                $ = cheerio.load(htmlSearch);
+                                itemSearch = $('.movies-list .ml-item');
 
 
-    async getHostFromDetail() {
+                                itemSearch.each(function () {
 
-        const { httpRequest, cheerio, base64 }  = this.libs;
-        const {type}                            = this;
-        if(!this.state.detailUrl) throw new Error("NOT_FOUND");
+                                    var hrefMovie = $(this).find('a').first().attr('href');
+                                    var titleMovie = $(this).find('a').first().attr('oldtitle');
+                                    var yearMovie = titleMovie.match(/\(([0-9]+)\)/i);
+                                    yearMovie = yearMovie != null ? +yearMovie[1] : 0;
+                                    var seasonMovie = titleMovie.match(/season *([0-9]+)/i);
+                                    seasonMovie = seasonMovie != null ? +seasonMovie[1] : false;
+                                    titleMovie = titleMovie.replace(/\([0-9]+\)/i, '').trim();
+                                    titleMovie = titleMovie.replace(/ *season *[0-9]+/i, '').trim();
 
-        let hosts = [];
-        let arrRedirect = [];
+                                    if (stringHelper.shallowCompare(title, titleMovie)) {
 
-        let detailUrl   = this.state.detailUrl;
-        
-        let htmlDetail = await httpRequest.getHTML(this.state.detailUrl);
-        let $          = cheerio.load(htmlDetail);
-        let itemRedirect = $('#player2 > div');
+                                        if (type == 'movie' && seasonMovie == false && yearMovie == year) {
 
-        itemRedirect.each(function() {
+                                            detailUrl = hrefMovie;
+                                            return;
+                                        } else if (type == 'tv' && seasonMovie == season) {
 
-            let linkRedirect = $(this).find('iframe').attr('data-lazy-src');
+                                            detailUrl = hrefMovie;
+                                            return;
+                                        }
+                                    }
+                                });
 
-            if( linkRedirect != undefined ) {
-                
-                if( linkRedirect.indexOf('http:') == -1 && linkRedirect.indexOf('https:') == -1 ) {
-                    linkRedirect = 'http:' + linkRedirect; 
-                }
-    
-                arrRedirect.push(linkRedirect);
-            }
-            
-        });
+                                this.state.detailUrl = detailUrl;
+                                return _context.abrupt('return');
 
-
-
-        let arrPromise = arrRedirect.map(async function(val) {
-
-            let arrSources      = [];
-            let htmlRedirect    = '';
-
-
-            try {
-                htmlRedirect    = await httpRequest.getHTML(val);
-            } catch(error) {}
-
-            let sources         = htmlRedirect.match(/sources\: *\[([^\]]+)/i);
-
-
-            if( sources == null ) {
-
-                let $ = cheerio.load(htmlRedirect);
-                let embed = $('iframe').attr('src');
-
-                hosts.push({
-                    provider: {
-                        url: detailUrl,
-                        name: "hollymovies"
-                    },
-                    result: {
-                        file: embed,
-                        label: "embed",
-                        type: "embed"
+                            case 13:
+                            case 'end':
+                                return _context.stop();
+                        }
                     }
-                }); 
-            } else {
+                }, _callee, this);
+            }));
 
-                sources             = sources != null ? sources[1] : '';
+            function searchDetail() {
+                return _ref.apply(this, arguments);
+            }
 
-                eval(`arrSources = [${sources}]`);
-    
-                
-                for( let item in arrSources ) {
-    
-                    if( arrSources[item].file.indexOf('google') == -1 ) {
-    
-                        hosts.push({
-                            provider: {
-                                url: detailUrl,
-                                name: "hollymovies"
-                            },
-                            result: {
-                                file: arrSources[item].file,
-                                label: "embed",
-                                type: "direct"
-                            }
+            return searchDetail;
+        }()
+    }, {
+        key: 'getHostFromDetail',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+                var _libs2, httpRequest, cheerio, base64, type, hosts, arrRedirect, detailUrl, htmlDetail, $, itemRedirect, arrPromise;
+
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64;
+                                type = this.type;
+
+                                if (this.state.detailUrl) {
+                                    _context3.next = 4;
+                                    break;
+                                }
+
+                                throw new Error("NOT_FOUND");
+
+                            case 4:
+                                hosts = [];
+                                arrRedirect = [];
+                                detailUrl = this.state.detailUrl;
+                                _context3.next = 9;
+                                return httpRequest.getHTML(this.state.detailUrl);
+
+                            case 9:
+                                htmlDetail = _context3.sent;
+                                $ = cheerio.load(htmlDetail);
+                                itemRedirect = $('#player2 > div');
+
+
+                                itemRedirect.each(function () {
+
+                                    var linkRedirect = $(this).find('iframe').attr('data-lazy-src');
+
+                                    if (linkRedirect != undefined) {
+
+                                        if (linkRedirect.indexOf('http:') == -1 && linkRedirect.indexOf('https:') == -1) {
+                                            linkRedirect = 'http:' + linkRedirect;
+                                        }
+
+                                        arrRedirect.push(linkRedirect);
+                                    }
+                                });
+
+                                arrPromise = arrRedirect.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
+                                        var arrSources, htmlRedirect, sources, _$, embed, item;
+
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+                                                        arrSources = [];
+                                                        htmlRedirect = '';
+                                                        _context2.prev = 2;
+                                                        _context2.next = 5;
+                                                        return httpRequest.getHTML(val);
+
+                                                    case 5:
+                                                        htmlRedirect = _context2.sent;
+                                                        _context2.next = 10;
+                                                        break;
+
+                                                    case 8:
+                                                        _context2.prev = 8;
+                                                        _context2.t0 = _context2['catch'](2);
+
+                                                    case 10:
+                                                        sources = htmlRedirect.match(/sources\: *\[([^\]]+)/i);
+
+
+                                                        if (sources == null) {
+                                                            _$ = cheerio.load(htmlRedirect);
+                                                            embed = _$('iframe').attr('src');
+
+
+                                                            hosts.push({
+                                                                provider: {
+                                                                    url: detailUrl,
+                                                                    name: "hollymovies"
+                                                                },
+                                                                result: {
+                                                                    file: embed,
+                                                                    label: "embed",
+                                                                    type: "embed"
+                                                                }
+                                                            });
+                                                        } else {
+
+                                                            sources = sources != null ? sources[1] : '';
+
+                                                            eval('arrSources = [' + sources + ']');
+
+                                                            for (item in arrSources) {
+
+                                                                if (arrSources[item].file.indexOf('google') == -1) {
+
+                                                                    hosts.push({
+                                                                        provider: {
+                                                                            url: detailUrl,
+                                                                            name: "hollymovies"
+                                                                        },
+                                                                        result: {
+                                                                            file: arrSources[item].file,
+                                                                            label: "embed",
+                                                                            type: "direct"
+                                                                        }
+                                                                    });
+                                                                } else {
+                                                                    hosts.push({
+                                                                        provider: {
+                                                                            url: detailUrl,
+                                                                            name: "hollymovies"
+                                                                        },
+                                                                        result: {
+                                                                            file: arrSources[item].file,
+                                                                            label: "embed",
+                                                                            type: "embed"
+                                                                        }
+                                                                    });
+                                                                }
+                                                            }
+                                                        }
+
+                                                    case 12:
+                                                    case 'end':
+                                                        return _context2.stop();
+                                                }
+                                            }
+                                        }, _callee2, this, [[2, 8]]);
+                                    }));
+
+                                    return function (_x) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 16;
+                                return Promise.all(arrPromise);
+
+                            case 16:
+
+                                this.state.hosts = hosts;
+                                return _context3.abrupt('return');
+
+                            case 18:
+                            case 'end':
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this);
+            }));
+
+            function getHostFromDetail() {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getHostFromDetail;
+        }()
+    }]);
+
+    return HollyMovies;
+}();
+
+thisSource.function = function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
+        var hollymovies;
+        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+            while (1) {
+                switch (_context4.prev = _context4.next) {
+                    case 0:
+                        hollymovies = new HollyMovies({
+                            libs: libs,
+                            movieInfo: movieInfo,
+                            settings: settings
                         });
-                    } else {
-                        hosts.push({
-                            provider: {
-                                url: detailUrl,
-                                name: "hollymovies"
-                            },
-                            result: {
-                                file: arrSources[item].file,
-                                label: "embed",
-                                type: "embed"
-                            }
-                        }); 
-                    }
+                        _context4.next = 3;
+                        return hollymovies.searchDetail();
+
+                    case 3:
+                        _context4.next = 5;
+                        return hollymovies.getHostFromDetail();
+
+                    case 5:
+                        return _context4.abrupt('return', hollymovies.state.hosts);
+
+                    case 6:
+                    case 'end':
+                        return _context4.stop();
                 }
             }
+        }, _callee4, undefined);
+    }));
 
+    return function (_x2, _x3, _x4) {
+        return _ref4.apply(this, arguments);
+    };
+}();
 
-        });
-
-
-        await Promise.all(arrPromise);
-
-        this.state.hosts = hosts;
-        return;
-    }
-
-}
-
-exports.default = async (libs, movieInfo, settings) => {
-
-    const hollymovies = new HollyMovies({
-        libs: libs,
-        movieInfo: movieInfo,
-        settings: settings
-    });
-    await hollymovies.searchDetail();
-    await hollymovies.getHostFromDetail();
-    return hollymovies.state.hosts;
-}
-
-
-exports.testing = HollyMovies;
+thisSource.testing = HollyMovies;
