@@ -52,38 +52,39 @@ class VidLink {
 
         const { httpRequest, cheerio } = this.libs;
 
-        let sources = [];
-        let temp    = [];
+        let sources     = [];
+        let temp        = [];
 
-        let urlParts = url.split("/");
-        let id = urlParts[urlParts.length - 1 ];
+        let urlParts    = url.split("/");
+        let id          = urlParts[urlParts.length - 1];
+
         try {
 
             let postResponse = await this.checkLive(id);
 
             if( postResponse == false )  throw new Error("LINK DIE");
 
-            let { data } = postResponse;
+            for( let item in postResponse ) {
 
-            let resultArr = data.map((val, index) => {
-                if(val.status == 403) throw new Error("NOT LINK");
-
-                temp.push({
-                    file: val.url,
-                    label: "HD",
-                    type: "embed" 
-                });
-
-            }).filter(val => val !== undefined);
+                if( postResponse[item].type == 'video/mp4' ) {
+                    temp.push(postResponse[item].url);
+                }
+                
+            }
 
             let arrPromise = temp.map(async function(val) {
 
-                let isDie = await httpRequest.isLinkDie(val.file);
+                try {
+
+                    let isDie = await httpRequest.isLinkDie(val);
     
-                if( isDie != false )  {
-                    val.size = isDie;
-                    sources.push(val);
-                }
+                    if( isDie != false )  {
+                        sources.push({
+                            file: val, label: 'NOR', type: "direct" , size: isDie
+                        });
+                    }
+                } catch(error) {}
+                
             });
     
             await Promise.all(arrPromise); 
@@ -118,13 +119,12 @@ class VidLink {
             return {
                 host: {
                     url: url,
-                    name: "vidlink"
+                    name: "GoogleVideo"
                 },
                 result: sources
             }
         }
-
-
+        
     }
 }
 
