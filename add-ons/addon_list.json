@@ -167,6 +167,13 @@
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/fmoviespe.js",
             "type": ["movie", "tv"]
+        },
+        "pubfilm": {
+            "name": "pubfilm",
+            "domain": "pubfilm.is",
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/pubfilm.js",
+            "type": ["movie", "tv"]
         }
     },
     "hosts": {
