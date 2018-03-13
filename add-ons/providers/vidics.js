@@ -2,6 +2,17 @@ const URL = {
     DOMAIN: `https://www.vidics.to`,
     SEARCH: (title) => {
         return `https://www.vidics.to/Category-TvShows/Genre-Any/Letter-Any/ByPopularity/1/Search-${title}.htm`
+    },
+    HEADERS: () => {
+        return {
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'Cache-Control': 'max-age=0',
+            'Connection': 'keep-alive',
+            'Host': 'www.vidics.to',
+            'Upgrade-Insecure-Requests': 1,
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36'
+        };
     }
 };
 
@@ -21,7 +32,9 @@ class Vidics {
         let state       = this.state;
 
         let detailUrl   = false;
-        let htmlSearch  = await httpRequest.getHTML(URL.SEARCH(encodeURI(title)));
+        let detailSeason= false;
+        let htmlSearch  = await httpRequest.getHTML(URL.SEARCH(encodeURI(title)), URL.HEADERS());
+        htmlSearch      = await httpRequest.getHTML(URL.SEARCH(encodeURI(title)), URL.HEADERS());
         let $           = cheerio.load(htmlSearch);
         let itemSearch  = $('#searchResults .searchResult');
         
@@ -33,44 +46,34 @@ class Vidics {
             titleMovie      = titleMovie.replace(/\([0-9]+\)/i, '').trim();
             
             if( stringHelper.shallowCompare(titleMovie, title) ) {
-                detailUrl = hrefMovie;
+                detailSeason = hrefMovie;
             }
         });
 
-        if( !detailUrl ) return;
+        if( detailSeason != false ) {
 
-        let htmlDetail  = await httpRequest.getHTML(detailUrl);
-        let $_2         = cheerio.load(htmlDetail);
+            let htmlDetail  = await httpRequest.getHTML(detailSeason, URL.HEADERS());
+            htmlDetail      = await httpRequest.getHTML(detailSeason, URL.HEADERS());
+            let $_2         = cheerio.load(htmlDetail);
+    
+            let itemSeason  = $_2('.episode');
+            
+            itemSeason.each(function() {
 
-        let itemSeason  = $_2('.season');
 
-        itemSearch.each(function() {
+                let hrefEpisode = URL.DOMAIN + $_2(this).attr('href');
+                let seasonMovie = hrefEpisode.match(/\-Season\-([0-9]+)/i);
+                let episodeMovie= hrefEpisode.match(/\-Episode\-([0-9]+)/i);
+                seasonMovie     = seasonMovie != null ? +seasonMovie[1] : -1;
+                episodeMovie    = episodeMovie != null ? +episodeMovie[1] : -1;
 
-            let titleSeason = $_2(this).find('.season_header a.null').text();
-            if( titleSeason ) {
+                if( seasonMovie == season && episodeMovie == episode ) {
 
-                let numberSeason    = titleSeason.match(/season *([0-9]+)/i);
-                numberSeason        = numberSeason != null ? +numberSeason[1] : -1;
-                
-                console.log("season", numberSeason);
-                if( season == numberSeason ) {
-
-                    let itemEpisode = $_2(this).find('.episode');
-
-                    itemEpisode.each(function() {
-
-                        let hrefEpisode     = DOMAIN + $_2(this).attr('href');  
-                        let numberEpisode   = hrefEpisode.match(/-episode-([0-9]+)/i);
-                        numberEpisode       = numberEpisode != null ? +numberEpisode[1] : -1;
-
-                        if( numberEpisode == episode ) {
-                            detailUrl = hrefEpisode;
-                        }
-                    });
+                    detailUrl   = hrefEpisode;
+                    return;
                 }
-
-            }
-        });
+            });
+        }
 
 
         this.state.detailUrl = detailUrl;
@@ -80,39 +83,48 @@ class Vidics {
 
     async getHostFromDetail() {
 
-        const { httpRequest, cheerio, base64 } = this.libs;
+        const { httpRequest, cheerio, base64, _ } = this.libs;
         if(!this.state.detailUrl) throw new Error("NOT_FOUND");
 
         let hosts       = [];
         let arrRedirects= [];
         let detailUrl   = this.state.detailUrl;
-        let htmlDetail  = await httpRequest.getHTML(this.state.detailUrl);
+        let htmlDetail  = await httpRequest.getHTML(this.state.detailUrl, URL.HEADERS());
+        htmlDetail      = await httpRequest.getHTML(this.state.detailUrl, URL.HEADERS());
         let $           = cheerio.load(htmlDetail);
         
         let itemRedirect=  $('.movie_link');
 
         itemRedirect.each(function() {
 
-            let linkRedirect = DOMAIN + $(this).find('.p1').attr('href');
+            let linkRedirect = URL.DOMAIN + $(this).find('.p1').attr('href');
             arrRedirects.push(linkRedirect);
         });
 
-        let arrPromise = arrRedirects.map(async function() {
+        arrRedirects = _.dropRight(arrRedirects, arrRedirects.length - 50);
 
-            let $_2         = await parse.PARSE_DOM_DEFAULT({}, linkRedirect, true);
-            let linkEmbed   = $_2('.movie_link1 .blue').attr('href');
+        let arrPromise = arrRedirects.map(async function(val) {
 
-            linkEmbed && hosts.push({
-                provider: {
-                    url: detailUrl,
-                    name: "vidics"
-                },
-                result: {
-                    file: linkEmbed,
-                    label: "embed",
-                    type: "embed"
-                }
-            });
+            try {
+                let htmlRedirect         = await httpRequest.getHTML(val, URL.HEADERS());
+                let $_2                  = cheerio.load(htmlRedirect);
+                let linkEmbed            = $_2('.movie_link1 .blue').attr('href');
+
+                linkEmbed && hosts.push({
+                    provider: {
+                        url: detailUrl,
+                        name: "vidics"
+                    },
+                    result: {
+                        file: linkEmbed,
+                        label: "embed",
+                        type: "embed"
+                    }
+                });
+            } catch(error) {}
+            
+            
+            
         }); 
         
         await Promise.all(arrPromise);
