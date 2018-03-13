@@ -197,8 +197,8 @@
         },
         "thevideo": {
             "name": "thevideo",
-            "domain": ["thevideo.me"],
-            "version": "0.0.1",
+            "domain": ["thevideo.me", "tvad.me"],
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/thevideo.js"
         },
         "vidlink": {
