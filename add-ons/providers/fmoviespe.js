@@ -108,13 +108,15 @@ class FmoviesPe {
         let yourupload        = htmlDetail.match(/link\_server\_yourupload *\= *\"([^\"]+)/i);
         yourupload            = yourupload != null ? yourupload[1] : false;
 
-        if( vidnode2.indexOf('http:') == -1 && vidnode2.indexOf('https:') == -1 ) {
+        if( vidnode2 != false && vidnode2.indexOf('http:') == -1 && vidnode2.indexOf('https:') == -1 ) {
             vidnode2 = 'http:' + vidnode2;
         }
-        if( vidnode3.indexOf('http:') == -1 && vidnode3.indexOf('https:') == -1 ) {
+        if( vidnode3 != false && vidnode3.indexOf('http:') == -1 && vidnode3.indexOf('https:') == -1 ) {
             vidnode3 = 'http:' + vidnode3;
         }
-        if( yourupload.indexOf('http:') == -1 && yourupload.indexOf('https:') == -1 ) {
+        
+
+        if( yourupload != false &&  yourupload.indexOf('http:') == -1 && yourupload.indexOf('https:') == -1 ) {
             yourupload = 'https:' + yourupload;
         }
 
