@@ -266,6 +266,12 @@
             "domain": ["googleusercontent.com"],
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/googleusercontent.js"
+        },
+        "212.47.226.206": {
+            "name": "212.47.226.206",
+            "domain": ["212.47.226.206"],
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/212.47.226.206.js"
         }
     }
 }
