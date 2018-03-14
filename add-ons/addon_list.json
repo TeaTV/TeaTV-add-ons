@@ -14,13 +14,6 @@
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/afdah.js",
             "type": ["movie"]
         },
-        "alluc-hand": {
-            "name": "alluc-hand",
-            "domain": "alluc.ee",
-            "version": "0.0.3",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/alluc-hand.js",
-            "type": ["movie", "tv"]
-        },
         "flixanity": {
             "name": "flixanity",
             "domain": "flixanity.mobi",
