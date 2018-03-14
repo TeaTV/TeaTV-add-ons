@@ -253,8 +253,6 @@ var HollyMovies = function () {
 
                             case 18:
 
-                                console.log(hosts);process.exit();
-
                                 this.state.hosts = hosts;
                                 return _context3.abrupt('return');
 
