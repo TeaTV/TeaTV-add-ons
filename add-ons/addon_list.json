@@ -98,11 +98,11 @@
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/vumoo.js",
             "type": ["tv", "movie"]
         },
-        "seehd9": {
-            "name": "seehd9",
-            "domain": "seehd9.co",
+        "series9": {
+            "name": "series9",
+            "domain": "series9.co",
             "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/seehd9.js",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/series9.js",
             "type": ["tv", "movie"]
         },
         "vexmovies": {
