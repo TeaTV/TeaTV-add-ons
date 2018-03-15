@@ -98,11 +98,11 @@
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vumoo.js",
             "type": ["tv", "movie"]
         },
-        "seehd9": {
-            "name": "seehd9",
-            "domain": "seehd9.co",
+        "series9": {
+            "name": "series9",
+            "domain": "series9.co",
             "version": "0.0.2",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seehd9.js",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/series9.js",
             "type": ["tv", "movie"]
         },
         "vexmovies": {
@@ -167,6 +167,13 @@
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vidics.js",
             "type": ["tv"]
+        },
+        "pubfilmonline": {
+            "name": "pubfilmonline",
+            "domain": "pubfilmonline.net",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/pubfilmonline.js",
+            "type": ["tv", "movie"]
         }
     },
     "hosts": {
@@ -266,6 +273,18 @@
             "domain": ["googleusercontent.com"],
             "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/googleusercontent.js"
+        },
+        "212.47.226.206": {
+            "name": "212.47.226.206",
+            "domain": ["212.47.226.206"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/212.47.226.206.js"
+        },
+        "212.47.234.139": {
+            "name": "212.47.234.139",
+            "domain": ["212.47.234.139"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/212.47.234.139.js"
         }
     }
 }
