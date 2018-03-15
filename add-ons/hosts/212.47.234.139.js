@@ -19,17 +19,17 @@ class FastServer {
         
         let results = [];
 
-        let isDie = 'NOR';
-        try {
-            isDie       = await httpRequest.isLinkDie(url);
-        } catch(error) {}
+        // let isDie = 'NOR';
+        // try {
+        //     isDie       = await httpRequest.isLinkDie(url);
+        // } catch(error) {}
     
-        if( isDie != false ) {
+        // if( isDie != false ) {
 
             results.push({
-                file: url, label: 'NOR', type: "direct" , size: isDie
+                file: url, label: 'HD', type: "direct" , size: 'NOR' 
             });
-        }
+        // }
 
         return {
             host: {
