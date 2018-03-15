@@ -283,7 +283,7 @@
         "212.47.234.139": {
             "name": "212.47.234.139",
             "domain": ["212.47.234.139"],
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/212.47.234.139.js"
         }
     }
