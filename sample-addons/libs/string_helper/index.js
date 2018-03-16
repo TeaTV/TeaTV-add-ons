@@ -94,6 +94,12 @@ class StringHelper {
         return title;
     }
 
+
+    getLabelVideo(size) {
+
+        
+    }
+
 }
 
 module.exports = exports.default = new StringHelper();
