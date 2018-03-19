@@ -157,7 +157,7 @@
         "pubfilm": {
             "name": "pubfilm",
             "domain": "pubfilm.is",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/pubfilm.js",
             "type": ["movie", "tv"]
         },
