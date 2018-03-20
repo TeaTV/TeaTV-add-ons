@@ -3,7 +3,7 @@
         "primeware": {
             "name": "primeware",
             "domain": "primeware.ag",
-            "version": "0.0.7",
+            "version": "0.0.8",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/primeware.js",
             "type": ["movie", "tv"]
         },
