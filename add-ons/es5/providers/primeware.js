@@ -11,9 +11,9 @@ var URL = {
     SEARCH: function SEARCH(title, type) {
 
         if (type == 'movie') {
-            return 'http://www.primewire.ac/?keywordssss=' + title + '&type=movie';
+            return 'http://www.primewire.ac/?keywords=' + title + '&type=movie';
         }
-        return 'http://www.primewire.ac/?keywordssss=' + title + '&type=tv';
+        return 'http://www.primewire.ac/?keywords=' + title + '&type=tv';
     },
     DETAIL: function DETAIL(title) {
         return 'http://www.primewire.ac/watch-' + title + '-online.html';
@@ -35,7 +35,7 @@ var Primeware = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, detailUrl, detailUrlTv;
+                var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, detailUrl, detailUrlTv, urlSearch, htmlSearch, $, itemSearch, htmlEpisode, $_2, itemSeason;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -45,60 +45,84 @@ var Primeware = function () {
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 detailUrl = false;
                                 detailUrlTv = false;
+                                urlSearch = URL.SEARCH(encodeURIComponent(title), type);
+                                _context.next = 7;
+                                return httpRequest.getHTML(urlSearch);
 
-                                // let urlSearch   = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), type);
-                                // let htmlSearch  = await httpRequest.getHTML(urlSearch);
-                                // let $           = cheerio.load(htmlSearch);
-                                // let itemSearch  = $('div.index_item.index_item_ie');
+                            case 7:
+                                htmlSearch = _context.sent;
+                                $ = cheerio.load(htmlSearch);
+                                itemSearch = $('div.index_item.index_item_ie');
 
-                                // itemSearch.each(function() {
 
-                                //     let titleMovie  = $(this).find('a').attr('title').replace('Watch', '').match(/([^(]*)/);
-                                //     let yearMovie   = $(this).find('a h2').text().replace('Watch', '').match(/\(([0-9]*)\)/);
-                                //     let hrefMovie   = URL.DOMAIN + $(this).find('a').attr('href');
-                                //     titleMovie      = titleMovie    != null ? titleMovie[1].trim()  : '';
-                                //     yearMovie       = yearMovie     != null ? +yearMovie[1]         : 0;
+                                itemSearch.each(function () {
 
-                                //     if( stringHelper.shallowCompare(title, titleMovie) && year == yearMovie ) {
+                                    var titleMovie = $(this).find('a').attr('title').replace('Watch', '').match(/([^(]*)/);
+                                    var yearMovie = $(this).find('a h2').text().replace('Watch', '').match(/\(([0-9]*)\)/);
+                                    var hrefMovie = URL.DOMAIN + '/' + $(this).find('a').attr('href');
+                                    titleMovie = titleMovie != null ? titleMovie[1].trim() : '';
+                                    yearMovie = yearMovie != null ? +yearMovie[1] : 0;
 
-                                //         if( type == 'movie' ) {
-                                //             detailUrl = hrefMovie;
-                                //         } else {
-                                //             detailUrlTv = hrefMovie;
-                                //         }
+                                    if (stringHelper.shallowCompare(title, titleMovie) && year == yearMovie) {
 
-                                //     }
-                                // });
+                                        if (type == 'movie') {
+                                            detailUrl = hrefMovie;
+                                        } else {
+                                            detailUrlTv = hrefMovie;
+                                        }
+                                    }
+                                });
 
-                                if (type == 'tv') {
-                                    detailUrl = URL.DETAIL(stringHelper.convertToSearchQueryString(title) + ('-season-' + season + '-episode-' + episode));
-                                } else if (type == 'movie') {
-                                    detailUrl = URL.DETAIL(stringHelper.convertToSearchQueryString(title));
+                                // if( type == 'tv' )  {
+                                //     detailUrl = URL.DETAIL(stringHelper.convertToSearchQueryString(title) + `-season-${season}-episode-${episode}`);
+                                // } else if( type == 'movie' ) {
+                                //     detailUrl = URL.DETAIL(stringHelper.convertToSearchQueryString(title));
+                                // }
+
+                                if (!(type == 'tv' && detailUrlTv != false)) {
+                                    _context.next = 18;
+                                    break;
                                 }
 
-                                // if( type == 'tv' && detailUrlTv != false ) {
+                                _context.next = 14;
+                                return httpRequest.getHTML(detailUrlTv);
+
+                            case 14:
+                                htmlEpisode = _context.sent;
+                                $_2 = cheerio.load(htmlEpisode);
+                                itemSeason = $_2('.tv_container');
 
 
-                                //     let htmlEpisode     = await httpRequest.getHTML(detailUrlTv);
-                                //     let $_2             = cheerio.load(htmlEpisode);
-                                //     let itemEpisode     = $_2(`.tv_container div[data-id=${season}] .tv_episode_item`);
+                                itemSeason.each(function () {
 
-                                //     itemEpisode.each(function() {
+                                    var seasonMovie = $_2(this).find('.season-toggle').text();
+                                    seasonMovie = seasonMovie.match(/season *([0-9]+)/i);
+                                    seasonMovie = seasonMovie != null ? +seasonMovie[1] : -1;
 
-                                //         let hrefEpisode     = URL.DOMAIN + $_2(this).find('a').attr('href');
-                                //         let episodeMovie    = hrefEpisode.match(/\-episode\-([0-9]+)/i); 
-                                //         episodeMovie        = episodeMovie != null ? +episodeMovie[1] : -1;
+                                    if (seasonMovie == season) {
 
-                                //         if( episodeMovie == episode ) {
-                                //             detailUrl = hrefEpisode;
-                                //         }
-                                //     });
-                                // }
+                                        var itemEpisode = $_2(this).find('.show_season .tv_episode_item');
+
+                                        itemEpisode.each(function () {
+
+                                            var hrefEpisode = $_2(this).find('a').attr('href');
+                                            var episodeMovie = hrefEpisode.match(/\-episode\-([0-9]+)/i);
+                                            episodeMovie = episodeMovie != null ? +episodeMovie[1] : -1;
+
+                                            if (episodeMovie == episode) {
+                                                detailUrl = URL.DOMAIN + '/' + hrefEpisode;
+                                                return;
+                                            }
+                                        });
+                                    }
+                                });
+
+                            case 18:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 7:
+                            case 20:
                             case 'end':
                                 return _context.stop();
                         }
@@ -150,7 +174,7 @@ var Primeware = function () {
                                     var slug = $(this).find('a').attr('href');
                                     if (slug.indexOf('javascript:') == -1) {
 
-                                        // let linkRedirect = URL.DOMAIN +  slug;
+                                        var linkRedirect = URL.DOMAIN + slug;
                                         arrRedirect.push(slug);
                                     }
                                 });
