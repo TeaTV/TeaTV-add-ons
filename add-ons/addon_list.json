@@ -181,6 +181,13 @@
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/gogoanime.js",
             "type": ["anime"]
+        },
+        "xpau": {
+            "name": "xpau",
+            "domain": "xpau.se",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/xpau.js",
+            "type": ["movie"]
         }
     },
     "hosts": {
@@ -292,6 +299,12 @@
             "domain": ["videozoo.gogoanime.to", "playbb.gogoanime.to", "videowing.gogoanime.to", "easyvideo.gogoanime.to"],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/videozoo.js"
+        },
+        "docs.google": {
+            "name": "docs.google",
+            "domain": ["docs.google.com"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/docs.google.js"
         }
     }
 }
