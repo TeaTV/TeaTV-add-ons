@@ -266,8 +266,8 @@
         },
         "vidcdn": {
             "name": "vidcdn",
-            "domain": ["vidcdn.pro", "video.xx.fbcdn.net"],
-            "version": "0.0.3",
+            "domain": ["vidcdn.pro", "video.xx.fbcdn.net", "dfcdn.net"],
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidcdn.js"
         },
         "m4ukido": {
