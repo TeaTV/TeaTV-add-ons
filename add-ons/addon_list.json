@@ -266,7 +266,7 @@
         },
         "vidcdn": {
             "name": "vidcdn",
-            "domain": ["vidcdn.pro", "video.xx.fbcdn.net", "dfcdn"],
+            "domain": ["vidcdn.pro", "video.xx.fbcdn.net", "dfcdn.net"],
             "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/vidcdn.js"
         },
