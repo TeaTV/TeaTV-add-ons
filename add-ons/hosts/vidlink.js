@@ -8,16 +8,40 @@ class VidLink {
 
     }
 
-    async checkLive(id) {
+    async checkLive(url) {
 
         let { httpRequest, qs } = this.libs;
 
-        // you fill the die status text
-        // const dieStatusText = "";
-        let html = await httpRequest.post(`http://vidlink.org/streamdrive/info/${id}`, {}, {
+        let htmlDetail  = await httpRequest.getHTML(url);
+        let actionToken = htmlDetail.match(/\'action\'\: *\'([^\']+)/i);        
+        actionToken     = actionToken != null ? actionToken[1] : '';
+        actionToken     = actionToken.trim();
+
+
+        let urlParts    = url.split("/");
+        let id          = urlParts[urlParts.length - 1];
+
+        let headers = {
+            'accept': 'application/json, text/javascript, */*; q=0.01',
+            'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'content-length': '144',
+            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'origin': 'https://vidlink.org',
+            'referer': url,
+            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36',
+            'x-requested-with': 'XMLHttpRequest'
+        }
+
+        let bodys = {
             browserName: "Chrome",
-            platform: "MacIntel" 
-        });
+            platform: "MacIntel",
+            postID: id,
+            action: actionToken
+        }
+
+
+        let html = await httpRequest.post(`https://vidlink.org/streamdrive/info/${id}`, headers, qs.stringify(bodys));
+
         html = html.data;
         // if(html.includes(dieStatusText)) return true;
         return html;
@@ -55,12 +79,11 @@ class VidLink {
         let sources     = [];
         let temp        = [];
 
-        let urlParts    = url.split("/");
-        let id          = urlParts[urlParts.length - 1];
+        
 
         try {
 
-            let postResponse = await this.checkLive(id);
+            let postResponse = await this.checkLive(url);
 
             if( postResponse == false )  throw new Error("LINK DIE");
 
@@ -103,8 +126,8 @@ class VidLink {
 
         let sources = [];
 
-        if( url.includes('redirect') ) {
-           
+        if( url.indexOf('redirect') != -1 ) {
+            
             sources = await this.getRedirect(url);
             return {
                 host: {
