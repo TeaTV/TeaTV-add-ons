@@ -266,9 +266,15 @@
         },
         "vidcdn": {
             "name": "vidcdn",
-            "domain": ["vidcdn.pro", "video.xx.fbcdn.net", "dfcdn.net"],
+            "domain": ["vidcdn.pro", "video.xx.fbcdn.net"],
             "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidcdn.js"
+        },
+        "dfcdn": {
+            "name": "dfcdn",
+            "domain": ["dfcdn.net"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/dfcdn.js"
         },
         "m4ukido": {
             "name": "m4ukido",
