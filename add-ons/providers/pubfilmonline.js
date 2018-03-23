@@ -31,11 +31,11 @@ class PubfilmOnline {
 
     async searchDetail() {
 
-        const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
-        let { title, year, season, episode, type } = this.movieInfo;
+        const { httpRequest, cheerio, stringHelper, base64 }    = this.libs; 
+        let { title, year, season, episode, type }              = this.movieInfo;
 
         let detailUrl       = false;
-        let urlSearch       = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
+        let urlSearch       = URL.SEARCH(encodeURIComponent(title));
         let htmlSearch      = await httpRequest.get(urlSearch, URL.HEADERS(urlSearch));
         try {
             this.state.pipeGuard = htmlSearch.headers['set-cookie'][0].replace('path=/', '').trim();
@@ -48,6 +48,7 @@ class PubfilmOnline {
         
         let itemSearch      = $('.search-page .result-item');
 
+        console.log(itemSearch.length);
         itemSearch.each(function() {
 
             let hrefMovie   = $(this).find('.details .title a').attr('href');
@@ -90,7 +91,8 @@ class PubfilmOnline {
                 });
             });
         }
-        
+
+        console.log(detailUrl);
         this.state.detailUrl                = detailUrl;
         return;
     }
@@ -106,6 +108,7 @@ class PubfilmOnline {
 
         let htmlDetail  = await httpRequest.getHTML(this.state.detailUrl, URL.HEADERS(this.state.detailUrl, this.state.pipeGuard));
         let $_2         = cheerio.load(htmlDetail);
+
         let ids         = $_2('.htt_player').attr('data-ids');
         let nonce       = htmlDetail.match(/\"ajax\_get\_video\_info\" *\: *\"([^\"]+)/i);
         nonce           = nonce != null ? nonce[1] : '';
@@ -118,7 +121,7 @@ class PubfilmOnline {
             ids:    ids
         };
 
-
+        console.log(bodyEmbed);
         try {
 
             let itemEmbed   = await httpRequest.post(URL.EMBED, URL.HEADERS(URL.EMBED, this.state.pipeGuard), bodyEmbed);
@@ -146,8 +149,6 @@ class PubfilmOnline {
         } catch(error) {
             throw new Error(error);
         }
-        
-
         
         this.state.hosts = hosts;
         return;
