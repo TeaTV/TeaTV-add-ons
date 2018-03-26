@@ -168,17 +168,10 @@
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vidics.js",
             "type": ["tv"]
         },
-        "pubfilmonline": {
-            "name": "pubfilmonline",
-            "domain": "pubfilmonline.net",
-            "version": "0.0.2",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/pubfilmonline.js",
-            "type": ["tv", "movie"]
-        },
         "gogoanime": {
             "name": "gogoanime",
             "domain": "www.gogoanime.to",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/gogoanime.js",
             "type": ["anime"]
         },
