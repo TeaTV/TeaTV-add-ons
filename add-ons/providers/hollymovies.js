@@ -2,6 +2,18 @@ const URL = {
     DOMAIN: `http://www.hollymoviehd.com`,
     SEARCH: (title) => {
         return `http://www.hollymoviehd.com/?zc=search&s=${title}`;
+    },
+    HEADERS: (rerfer) => {
+        return {
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'Cache-Control': 'max-age=0',
+            'Connection': 'keep-alive',
+            'Host': 'www.hollymoviehd.com',
+            'Referer': rerfer,
+            'Upgrade-Insecure-Requests': 1,
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+        }
     }
 };
 
@@ -27,7 +39,7 @@ class HollyMovies {
             urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')) + `+season+${season}`;
         }
 
-        let htmlSearch  = await httpRequest.getCloudflare(urlSearch);
+        let htmlSearch  = await httpRequest.getCloudflare(urlSearch, URL.HEADERS(urlSearch));
         htmlSearch      = htmlSearch.data;
         let $           = cheerio.load(htmlSearch);
 
@@ -81,7 +93,7 @@ class HollyMovies {
             detailUrl = detailUrl.replace(/-season-[0-9]+\//i, `-season-${season}-episode-${episode}/`);
         }
 
-        let htmlDetail = await httpRequest.getCloudflare(detailUrl);
+        let htmlDetail = await httpRequest.getCloudflare(detailUrl, URL.HEADERS(detailUrl));
         htmlDetail     = htmlDetail.data;
         let $          = cheerio.load(htmlDetail);
         let itemRedirect = $('#player2 > div');
@@ -109,10 +121,7 @@ class HollyMovies {
 
 
             try {
-                htmlRedirect    = await httpRequest.getHTML(val, {
-                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36',
-                    'Referer': val
-                });
+                htmlRedirect    = await httpRequest.getHTML(val, URL.HEADERS(val));
             } catch(error) {}
 
             let sources         = htmlRedirect.match(/player\.setup\(\{\s*sources\: *\[([^\]]+)/i);
