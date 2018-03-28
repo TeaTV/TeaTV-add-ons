@@ -17,7 +17,7 @@
         "afdah": {
             "name": "afdah",
             "domain": "afdah.to",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/afdah.js",
             "type": ["movie"]
         },
@@ -167,20 +167,6 @@
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vidics.js",
             "type": ["tv"]
-        },
-        "gogoanime": {
-            "name": "gogoanime",
-            "domain": "www.gogoanime.to",
-            "version": "0.0.3",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/gogoanime.js",
-            "type": ["anime"]
-        },
-        "xpau": {
-            "name": "xpau",
-            "domain": "xpau.se",
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/xpau.js",
-            "type": ["movie"]
         }
     },
     "hosts": {
@@ -263,12 +249,6 @@
             "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidcdn.js"
         },
-        "dfcdn": {
-            "name": "dfcdn",
-            "domain": ["dfcdn.net"],
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/dfcdn.js"
-        },
         "m4ukido": {
             "name": "m4ukido",
             "domain": ["m4ukido.com"],
@@ -296,14 +276,8 @@
         "videozoo": {
             "name": "videozoo",
             "domain": ["easyvideo.gogoanime.to", "videowing.gogoanime.to", "playbb.gogoanime.to", "videozoo.gogoanime.to"],
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/videozoo.js"
-        },
-        "docs.google": {
-            "name": "docs.google",
-            "domain": ["docs.google.com"],
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/docs.google.js"
         }
     }
 }
