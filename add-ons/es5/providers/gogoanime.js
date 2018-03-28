@@ -63,12 +63,13 @@ var Gogoanime = function () {
                                             while (1) {
                                                 switch (_context.prev = _context.next) {
                                                     case 0:
+                                                        _context.prev = 0;
 
                                                         urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+') + ('+episode+' + episode), val);
-                                                        _context.next = 3;
+                                                        _context.next = 4;
                                                         return httpRequest.getHTML(urlSearch);
 
-                                                    case 3:
+                                                    case 4:
                                                         htmlSearch = _context.sent;
 
                                                         $ = cheerio.load(htmlSearch);
@@ -89,13 +90,19 @@ var Gogoanime = function () {
                                                                 return;
                                                             }
                                                         });
+                                                        _context.next = 12;
+                                                        break;
 
-                                                    case 7:
+                                                    case 10:
+                                                        _context.prev = 10;
+                                                        _context.t0 = _context['catch'](0);
+
+                                                    case 12:
                                                     case 'end':
                                                         return _context.stop();
                                                 }
                                             }
-                                        }, _callee, this);
+                                        }, _callee, this, [[0, 10]]);
                                     }));
 
                                     return function (_x2) {
@@ -146,14 +153,27 @@ var Gogoanime = function () {
                             case 3:
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
-                                _context3.next = 7;
+                                htmlSearch = void 0;
+                                $ = void 0;
+                                itemEmbed = [];
+                                _context3.prev = 8;
+                                _context3.next = 11;
                                 return httpRequest.getHTML(this.state.detailUrl);
 
-                            case 7:
+                            case 11:
                                 htmlSearch = _context3.sent;
+
                                 $ = cheerio.load(htmlSearch);
                                 itemEmbed = $('#content .postcontent iframe');
+                                _context3.next = 19;
+                                break;
 
+                            case 16:
+                                _context3.prev = 16;
+                                _context3.t0 = _context3['catch'](8);
+                                throw new Error(_context3.t0);
+
+                            case 19:
 
                                 itemEmbed.each(function () {
 
@@ -175,12 +195,12 @@ var Gogoanime = function () {
                                 this.state.hosts = hosts;
                                 return _context3.abrupt('return');
 
-                            case 13:
+                            case 22:
                             case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this);
+                }, _callee3, this, [[8, 16]]);
             }));
 
             function getHostFromDetail() {

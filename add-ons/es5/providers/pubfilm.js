@@ -63,7 +63,7 @@ var Pubfilm = function () {
                             case 9:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch);
-                                itemSearch = $('.g');
+                                itemSearch = $('._NId .g');
 
 
                                 itemSearch.each(function () {

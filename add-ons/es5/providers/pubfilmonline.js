@@ -53,7 +53,7 @@ var PubfilmOnline = function () {
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 detailUrl = false;
-                                urlSearch = URL.SEARCH(encodeURIComponent(title));
+                                urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
                                 _context.next = 6;
                                 return httpRequest.get(urlSearch, URL.HEADERS(urlSearch));
 

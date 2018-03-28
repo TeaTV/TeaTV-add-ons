@@ -62,9 +62,12 @@ var FreeMovies = function () {
                                             hrefFree = hrefFree + '/season-' + season + '-episode-' + episode;
                                             hrefFree = hrefFree.replace('watch-', 'tv-');
                                             detailUrl = hrefFree;
+
+                                            return;
                                         } else if (hrefFree.indexOf('-movie-') != -1 && type == 'movie') {
 
                                             detailUrl = hrefFree;
+                                            return;
                                         }
                                     }
                                 });

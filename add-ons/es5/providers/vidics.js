@@ -10,6 +10,17 @@ var URL = {
     DOMAIN: 'https://www.vidics.to',
     SEARCH: function SEARCH(title) {
         return 'https://www.vidics.to/Category-TvShows/Genre-Any/Letter-Any/ByPopularity/1/Search-' + title + '.htm';
+    },
+    HEADERS: function HEADERS() {
+        return {
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'Cache-Control': 'max-age=0',
+            'Connection': 'keep-alive',
+            'Host': 'www.vidics.to',
+            'Upgrade-Insecure-Requests': 1,
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36'
+        };
     }
 };
 
@@ -27,7 +38,7 @@ var Vidics = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, state, detailUrl, htmlSearch, $, itemSearch, htmlDetail, $_2, itemSeason;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, state, detailUrl, detailSeason, htmlSearch, $, itemSearch, htmlDetail, $_2, itemSeason;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -37,10 +48,16 @@ var Vidics = function () {
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 state = this.state;
                                 detailUrl = false;
-                                _context.next = 6;
-                                return httpRequest.getHTML(URL.SEARCH(encodeURI(title)));
+                                detailSeason = false;
+                                _context.next = 7;
+                                return httpRequest.getHTML(URL.SEARCH(encodeURI(title)), URL.HEADERS());
 
-                            case 6:
+                            case 7:
+                                htmlSearch = _context.sent;
+                                _context.next = 10;
+                                return httpRequest.getHTML(URL.SEARCH(encodeURI(title)), URL.HEADERS());
+
+                            case 10:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch);
                                 itemSearch = $('#searchResults .searchResult');
@@ -54,58 +71,50 @@ var Vidics = function () {
                                     titleMovie = titleMovie.replace(/\([0-9]+\)/i, '').trim();
 
                                     if (stringHelper.shallowCompare(titleMovie, title)) {
-                                        detailUrl = hrefMovie;
+                                        detailSeason = hrefMovie;
                                     }
                                 });
 
-                                if (detailUrl) {
-                                    _context.next = 13;
+                                if (!(detailSeason != false)) {
+                                    _context.next = 25;
                                     break;
                                 }
 
-                                return _context.abrupt('return');
+                                _context.next = 18;
+                                return httpRequest.getHTML(detailSeason, URL.HEADERS());
 
-                            case 13:
-                                _context.next = 15;
-                                return httpRequest.getHTML(detailUrl);
+                            case 18:
+                                htmlDetail = _context.sent;
+                                _context.next = 21;
+                                return httpRequest.getHTML(detailSeason, URL.HEADERS());
 
-                            case 15:
+                            case 21:
                                 htmlDetail = _context.sent;
                                 $_2 = cheerio.load(htmlDetail);
-                                itemSeason = $_2('.season');
+                                itemSeason = $_2('.episode');
 
 
-                                itemSearch.each(function () {
+                                itemSeason.each(function () {
 
-                                    var titleSeason = $_2(this).find('.season_header a.null').text();
-                                    if (titleSeason) {
+                                    var hrefEpisode = URL.DOMAIN + $_2(this).attr('href');
+                                    var seasonMovie = hrefEpisode.match(/\-Season\-([0-9]+)/i);
+                                    var episodeMovie = hrefEpisode.match(/\-Episode\-([0-9]+)/i);
+                                    seasonMovie = seasonMovie != null ? +seasonMovie[1] : -1;
+                                    episodeMovie = episodeMovie != null ? +episodeMovie[1] : -1;
 
-                                        var numberSeason = titleSeason.match(/season *([0-9]+)/i);
-                                        numberSeason = numberSeason != null ? +numberSeason[1] : -1;
+                                    if (seasonMovie == season && episodeMovie == episode) {
 
-                                        console.log("season", numberSeason);
-                                        if (season == numberSeason) {
-
-                                            var itemEpisode = $_2(this).find('.episode');
-
-                                            itemEpisode.each(function () {
-
-                                                var hrefEpisode = DOMAIN + $_2(this).attr('href');
-                                                var numberEpisode = hrefEpisode.match(/-episode-([0-9]+)/i);
-                                                numberEpisode = numberEpisode != null ? +numberEpisode[1] : -1;
-
-                                                if (numberEpisode == episode) {
-                                                    detailUrl = hrefEpisode;
-                                                }
-                                            });
-                                        }
+                                        detailUrl = hrefEpisode;
+                                        return;
                                     }
                                 });
+
+                            case 25:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 21:
+                            case 27:
                             case 'end':
                                 return _context.stop();
                         }
@@ -123,13 +132,13 @@ var Vidics = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs2, httpRequest, cheerio, base64, hosts, arrRedirects, detailUrl, htmlDetail, $, itemRedirect, arrPromise;
+                var _libs2, httpRequest, cheerio, base64, _, hosts, arrRedirects, detailUrl, htmlDetail, $, itemRedirect, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
                         switch (_context3.prev = _context3.next) {
                             case 0:
-                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64;
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64, _ = _libs2._;
 
                                 if (this.state.detailUrl) {
                                     _context3.next = 3;
@@ -143,9 +152,14 @@ var Vidics = function () {
                                 arrRedirects = [];
                                 detailUrl = this.state.detailUrl;
                                 _context3.next = 8;
-                                return httpRequest.getHTML(this.state.detailUrl);
+                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS());
 
                             case 8:
+                                htmlDetail = _context3.sent;
+                                _context3.next = 11;
+                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS());
+
+                            case 11:
                                 htmlDetail = _context3.sent;
                                 $ = cheerio.load(htmlDetail);
                                 itemRedirect = $('.movie_link');
@@ -153,51 +167,67 @@ var Vidics = function () {
 
                                 itemRedirect.each(function () {
 
-                                    var linkRedirect = DOMAIN + $(this).find('.p1').attr('href');
+                                    var linkRedirect = URL.DOMAIN + $(this).find('.p1').attr('href');
                                     arrRedirects.push(linkRedirect);
                                 });
 
-                                arrPromise = arrRedirects.map(_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                                    var $_2, linkEmbed;
-                                    return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                                        while (1) {
-                                            switch (_context2.prev = _context2.next) {
-                                                case 0:
-                                                    _context2.next = 2;
-                                                    return parse.PARSE_DOM_DEFAULT({}, linkRedirect, true);
+                                arrRedirects = _.dropRight(arrRedirects, arrRedirects.length - 50);
 
-                                                case 2:
-                                                    $_2 = _context2.sent;
-                                                    linkEmbed = $_2('.movie_link1 .blue').attr('href');
+                                arrPromise = arrRedirects.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
+                                        var htmlRedirect, $_2, linkEmbed;
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+                                                        _context2.prev = 0;
+                                                        _context2.next = 3;
+                                                        return httpRequest.getHTML(val, URL.HEADERS());
+
+                                                    case 3:
+                                                        htmlRedirect = _context2.sent;
+                                                        $_2 = cheerio.load(htmlRedirect);
+                                                        linkEmbed = $_2('.movie_link1 .blue').attr('href');
 
 
-                                                    linkEmbed && hosts.push({
-                                                        provider: {
-                                                            url: detailUrl,
-                                                            name: "vidics"
-                                                        },
-                                                        result: {
-                                                            file: linkEmbed,
-                                                            label: "embed",
-                                                            type: "embed"
-                                                        }
-                                                    });
+                                                        linkEmbed && hosts.push({
+                                                            provider: {
+                                                                url: detailUrl,
+                                                                name: "vidics"
+                                                            },
+                                                            result: {
+                                                                file: linkEmbed,
+                                                                label: "embed",
+                                                                type: "embed"
+                                                            }
+                                                        });
+                                                        _context2.next = 11;
+                                                        break;
 
-                                                case 5:
-                                                case 'end':
-                                                    return _context2.stop();
+                                                    case 9:
+                                                        _context2.prev = 9;
+                                                        _context2.t0 = _context2['catch'](0);
+
+                                                    case 11:
+                                                    case 'end':
+                                                        return _context2.stop();
+                                                }
                                             }
-                                        }
-                                    }, _callee2, this);
-                                })));
-                                _context3.next = 15;
+                                        }, _callee2, this, [[0, 9]]);
+                                    }));
+
+                                    return function (_x) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 19;
                                 return Promise.all(arrPromise);
 
-                            case 15:
+                            case 19:
 
                                 this.state.hosts = hosts;
 
-                            case 16:
+                            case 20:
                             case 'end':
                                 return _context3.stop();
                         }
@@ -246,7 +276,7 @@ thisSource.function = function () {
         }, _callee4, undefined);
     }));
 
-    return function (_x, _x2, _x3) {
+    return function (_x2, _x3, _x4) {
         return _ref4.apply(this, arguments);
     };
 }();

@@ -15,15 +15,6 @@ var URL = {
             return 'https://seehd.uno/?s=' + title;
         }
         return 'https://seehd.uno/page/' + page + '/?s=' + title;
-    },
-    HEADERS: function HEADERS() {
-        return {
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-            'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-            'cache-control': 'max-age=0',
-            'upgrade-insecure-requests': 1,
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36'
-        };
     }
 };
 
@@ -50,12 +41,10 @@ var SeehdUno = function () {
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 _context.next = 4;
-                                return httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')), URL.HEADERS());
+                                return httpRequest.getHTML(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')));
 
                             case 4:
                                 htmlSearch = _context.sent;
-
-                                htmlSearch = htmlSearch.data;
                                 $ = cheerio.load(htmlSearch);
                                 page = $('#paginador .paginado ul li');
 
@@ -68,13 +57,13 @@ var SeehdUno = function () {
                                     page = page != null ? +page[1] : 1;
                                 }
 
-                                _context.next = 11;
+                                _context.next = 10;
                                 return this.getDetailUrl(page, this.state);
 
-                            case 11:
+                            case 10:
                                 return _context.abrupt('return');
 
-                            case 12:
+                            case 11:
                             case 'end':
                                 return _context.stop();
                         }
@@ -116,12 +105,10 @@ var SeehdUno = function () {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
                                                         _context2.next = 2;
-                                                        return httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), val), URL.HEADERS());
+                                                        return httpRequest.getHTML(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), val));
 
                                                     case 2:
                                                         htmlSearch = _context2.sent;
-
-                                                        htmlSearch = htmlSearch.data;
                                                         $ = cheerio.load(htmlSearch);
                                                         itemSearch = $('.peliculas .items .item');
 
@@ -156,13 +143,13 @@ var SeehdUno = function () {
                                                         });
 
                                                         if (!(val == page)) {
-                                                            _context2.next = 9;
+                                                            _context2.next = 8;
                                                             break;
                                                         }
 
                                                         return _context2.abrupt('return');
 
-                                                    case 9:
+                                                    case 8:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
@@ -217,12 +204,10 @@ var SeehdUno = function () {
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
                                 _context4.next = 7;
-                                return httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS());
+                                return httpRequest.getHTML(this.state.detailUrl);
 
                             case 7:
                                 htmlDetail = _context4.sent;
-
-                                htmlDetail = htmlDetail.data;
                                 $ = cheerio.load(htmlDetail);
                                 itemEmbed = $('#player2 .movieplay');
 
@@ -255,7 +240,7 @@ var SeehdUno = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 13:
+                            case 12:
                             case 'end':
                                 return _context4.stop();
                         }

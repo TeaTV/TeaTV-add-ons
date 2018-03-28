@@ -10,18 +10,6 @@ var URL = {
     DOMAIN: 'http://www.hollymoviehd.com',
     SEARCH: function SEARCH(title) {
         return 'http://www.hollymoviehd.com/?zc=search&s=' + title;
-    },
-    HEADERS: function HEADERS(rerfer) {
-        return {
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-            'Cache-Control': 'max-age=0',
-            'Connection': 'keep-alive',
-            'Host': 'www.hollymoviehd.com',
-            'Referer': rerfer,
-            'Upgrade-Insecure-Requests': 1,
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
-        };
     }
 };
 
@@ -58,7 +46,7 @@ var HollyMovies = function () {
                                 }
 
                                 _context.next = 7;
-                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS(urlSearch));
+                                return httpRequest.getCloudflare(urlSearch);
 
                             case 7:
                                 htmlSearch = _context.sent;
@@ -142,7 +130,7 @@ var HollyMovies = function () {
                                 }
 
                                 _context3.next = 10;
-                                return httpRequest.getCloudflare(detailUrl, URL.HEADERS(detailUrl));
+                                return httpRequest.getCloudflare(detailUrl);
 
                             case 10:
                                 htmlDetail = _context3.sent;
@@ -178,7 +166,10 @@ var HollyMovies = function () {
                                                         htmlRedirect = '';
                                                         _context2.prev = 2;
                                                         _context2.next = 5;
-                                                        return httpRequest.getHTML(val, URL.HEADERS(val));
+                                                        return httpRequest.getHTML(val, {
+                                                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36',
+                                                            'Referer': val
+                                                        });
 
                                                     case 5:
                                                         htmlRedirect = _context2.sent;
