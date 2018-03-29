@@ -158,7 +158,7 @@
         "openload": {
             "name": "openload",
             "domain": ["openload.com", "openload.co", "oload.tv", "oload.stream", "oload.info", "oload.site"],
-            "version": "0.0.5",
+            "version": "0.0.6",
             "author": "psyntium",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/openload.js"
         },
