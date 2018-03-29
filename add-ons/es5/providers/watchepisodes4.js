@@ -158,17 +158,20 @@ var WatchEpisode = function () {
 
                                     var linkEmbed = $(this).find('.watch-button').attr('data-actuallink');
 
-                                    linkEmbed && hosts.push({
-                                        provider: {
-                                            url: detailUrl,
-                                            name: "episode4"
-                                        },
-                                        result: {
-                                            file: linkEmbed,
-                                            label: "embed",
-                                            type: "embed"
-                                        }
-                                    });
+                                    if (linkEmbed.indexOf('https://') != -1 || linkEmbed.indexOf('http://') != -1) {
+
+                                        linkEmbed && hosts.push({
+                                            provider: {
+                                                url: detailUrl,
+                                                name: "episode4"
+                                            },
+                                            result: {
+                                                file: linkEmbed,
+                                                label: "embed",
+                                                type: "embed"
+                                            }
+                                        });
+                                    }
                                 });
 
                                 hosts = _.dropRight(hosts, hosts.length - 100);
