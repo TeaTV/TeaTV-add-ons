@@ -15,82 +15,71 @@ var Openload = function () {
         this.state = {};
     }
 
+    // async getOpenload(url) {
+
+    //     const { httpRequest, jsdom }    = this.libs;
+    //     const { JSDOM }                 = jsdom;
+    //     const jqueryUrl                 = "http://code.jquery.com/jquery-1.11.0.min.js";
+    //     let html                        = await httpRequest.getHTML(url);
+
+    //     if (html.indexOf('<h3>We’re Sorry!</h3>') > -1) throw new Error("Invalid fileId");
+
+
+    //     let jquery  = await httpRequest.getHTML(jqueryUrl);
+    //     const dom   = new JSDOM(html, {
+    //         runScripts: "outside-only"
+    //     });
+
+    //     const window = dom.window;
+    //     window.eval(jquery);
+
+    //     var script = html.substring(html.indexOf("ﾟωﾟﾉ= /｀ｍ´"));
+    //     script = script.substring(0, script.indexOf("</script>"));
+    //     window.eval(script);
+    //     script = script.substring(script.indexOf("$(document)"));
+    //     script = script.substring(script.indexOf("var"))
+    //     script = script.substring(0, script.indexOf("ﾟωﾟ"))
+    //     script = script.substring(0, script.lastIndexOf("});"))
+    //     script = script.replace("document.createTextNode.toString().indexOf('[native code')", "1");
+    //     script = script.replace("_0x3d7b02=[];", "");
+    //     window.eval(script);
+
+    //     let streamUrl   = window.document.getElementById("streamurj").innerHTML;
+    //     let opl         = "https://openload.co/stream/" + streamUrl + "?mime=true";
+    //     let isDie       = await httpRequest.isLinkDie(opl);
+
+    //     if( isDie == false ) throw new Error("NOT LINK");
+    //     return {
+    //         host: {
+    //             url: url,
+    //             name: "openload"
+    //         },
+    //         result: [{ file: opl, label: "NOR", type: "embed", size: isDie }]
+    //     }
+    // }
+
     _createClass(Openload, [{
-        key: "getOpenload",
+        key: "checkLive",
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
-                var _libs, httpRequest, jsdom, JSDOM, jqueryUrl, html, jquery, dom, window, script, streamUrl, opl, isDie;
-
+                var httpRequest, html;
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, jsdom = _libs.jsdom;
-                                JSDOM = jsdom.JSDOM;
-                                jqueryUrl = "http://code.jquery.com/jquery-1.11.0.min.js";
-                                _context.next = 5;
+                                httpRequest = this.libs.httpRequest;
+
+                                // you fill the die status text
+                                // const dieStatusText = "";
+
+                                _context.next = 3;
                                 return httpRequest.getHTML(url);
 
-                            case 5:
+                            case 3:
                                 html = _context.sent;
+                                return _context.abrupt("return", html);
 
-                                if (!(html.indexOf('<h3>We’re Sorry!</h3>') > -1)) {
-                                    _context.next = 8;
-                                    break;
-                                }
-
-                                throw new Error("Invalid fileId");
-
-                            case 8:
-                                _context.next = 10;
-                                return httpRequest.getHTML(jqueryUrl);
-
-                            case 10:
-                                jquery = _context.sent;
-                                dom = new JSDOM(html, {
-                                    runScripts: "outside-only"
-                                });
-                                window = dom.window;
-
-                                window.eval(jquery);
-
-                                script = html.substring(html.indexOf("ﾟωﾟﾉ= /｀ｍ´"));
-
-                                script = script.substring(0, script.indexOf("</script>"));
-                                window.eval(script);
-                                script = script.substring(script.indexOf("$(document)"));
-                                script = script.substring(script.indexOf("var"));
-                                script = script.substring(0, script.indexOf("ﾟωﾟ"));
-                                script = script.substring(0, script.lastIndexOf("});"));
-                                script = script.replace("document.createTextNode.toString().indexOf('[native code')", "1");
-                                script = script.replace("_0x3d7b02=[];", "");
-                                window.eval(script);
-
-                                streamUrl = window.document.getElementById("streamurj").innerHTML;
-                                opl = "https://openload.co/stream/" + streamUrl + "?mime=true";
-                                _context.next = 28;
-                                return httpRequest.isLinkDie(opl);
-
-                            case 28:
-                                isDie = _context.sent;
-
-                                if (!(isDie == false)) {
-                                    _context.next = 31;
-                                    break;
-                                }
-
-                                throw new Error("NOT LINK");
-
-                            case 31:
-                                return _context.abrupt("return", {
-                                    host: {
-                                        url: url,
-                                        name: "openload"
-                                    },
-                                    result: [{ file: opl, label: "NOR", type: "embed", size: isDie }]
-                                });
-
-                            case 32:
+                            case 5:
                             case "end":
                                 return _context.stop();
                         }
@@ -98,43 +87,8 @@ var Openload = function () {
                 }, _callee, this);
             }));
 
-            function getOpenload(_x) {
+            function checkLive(_x) {
                 return _ref.apply(this, arguments);
-            }
-
-            return getOpenload;
-        }()
-    }, {
-        key: "checkLive",
-        value: function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var httpRequest, html;
-                return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                    while (1) {
-                        switch (_context2.prev = _context2.next) {
-                            case 0:
-                                httpRequest = this.libs.httpRequest;
-
-                                // you fill the die status text
-                                // const dieStatusText = "";
-
-                                _context2.next = 3;
-                                return httpRequest.getHTML(url);
-
-                            case 3:
-                                html = _context2.sent;
-                                return _context2.abrupt("return", html);
-
-                            case 5:
-                            case "end":
-                                return _context2.stop();
-                        }
-                    }
-                }, _callee2, this);
-            }));
-
-            function checkLive(_x2) {
-                return _ref2.apply(this, arguments);
             }
 
             return checkLive;
@@ -142,32 +96,32 @@ var Openload = function () {
     }, {
         key: "getUsingAPI",
         value: function () {
-            var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
-                var _libs2, httpRequest, cryptoJs, html, token, apiResponse, _apiResponse$data, status, data, error, isDie;
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cryptoJs, html, token, apiResponse, _apiResponse$data, status, data, error, isDie;
 
-                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
-                        switch (_context3.prev = _context3.next) {
+                        switch (_context2.prev = _context2.next) {
                             case 0:
-                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cryptoJs = _libs2.cryptoJs;
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cryptoJs = _libs.cryptoJs;
                                 html = false;
-                                _context3.prev = 2;
-                                _context3.next = 5;
+                                _context2.prev = 2;
+                                _context2.next = 5;
                                 return this.checkLive(url);
 
                             case 5:
-                                html = _context3.sent;
-                                _context3.next = 11;
+                                html = _context2.sent;
+                                _context2.next = 11;
                                 break;
 
                             case 8:
-                                _context3.prev = 8;
-                                _context3.t0 = _context3["catch"](2);
+                                _context2.prev = 8;
+                                _context2.t0 = _context2["catch"](2);
                                 throw new Error("LINK DIE");
 
                             case 11:
                                 token = cryptoJs.MD5(html + "teatv-openload").toString();
-                                _context3.next = 14;
+                                _context2.next = 14;
                                 return httpRequest.post("https://api.teatv.net/api/v2/get_opl", {
                                     "Content-Type": "application/json"
                                 }, JSON.stringify({
@@ -176,7 +130,7 @@ var Openload = function () {
                                 }));
 
                             case 14:
-                                apiResponse = _context3.sent;
+                                apiResponse = _context2.sent;
 
 
                                 // let isDie = await httpRequest.isLinkDie(apiResponse.data.data);
@@ -185,7 +139,7 @@ var Openload = function () {
                                 _apiResponse$data = apiResponse.data, status = _apiResponse$data.status, data = _apiResponse$data.data, error = _apiResponse$data.error;
 
                                 if (!error) {
-                                    _context3.next = 18;
+                                    _context2.next = 18;
                                     break;
                                 }
 
@@ -193,34 +147,34 @@ var Openload = function () {
 
                             case 18:
                                 if (!(status == 200)) {
-                                    _context3.next = 31;
+                                    _context2.next = 31;
                                     break;
                                 }
 
                                 isDie = false;
-                                _context3.prev = 20;
-                                _context3.next = 23;
+                                _context2.prev = 20;
+                                _context2.next = 23;
                                 return httpRequest.isLinkDie(data);
 
                             case 23:
-                                isDie = _context3.sent;
-                                _context3.next = 28;
+                                isDie = _context2.sent;
+                                _context2.next = 28;
                                 break;
 
                             case 26:
-                                _context3.prev = 26;
-                                _context3.t1 = _context3["catch"](20);
+                                _context2.prev = 26;
+                                _context2.t1 = _context2["catch"](20);
 
                             case 28:
                                 if (!(isDie == false)) {
-                                    _context3.next = 30;
+                                    _context2.next = 30;
                                     break;
                                 }
 
                                 throw new Error("NOT LINK");
 
                             case 30:
-                                return _context3.abrupt("return", {
+                                return _context2.abrupt("return", {
                                     host: {
                                         url: url,
                                         name: "openload"
@@ -230,14 +184,14 @@ var Openload = function () {
 
                             case 31:
                             case "end":
-                                return _context3.stop();
+                                return _context2.stop();
                         }
                     }
-                }, _callee3, this, [[2, 8], [20, 26]]);
+                }, _callee2, this, [[2, 8], [20, 26]]);
             }));
 
-            function getUsingAPI(_x3) {
-                return _ref3.apply(this, arguments);
+            function getUsingAPI(_x2) {
+                return _ref2.apply(this, arguments);
             }
 
             return getUsingAPI;
@@ -252,44 +206,37 @@ var Openload = function () {
     }, {
         key: "getLink",
         value: function () {
-            var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(url) {
-                var _libs3, httpRequest, cheerio, data;
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
+                var _libs2, httpRequest, cheerio, data;
 
-                return regeneratorRuntime.wrap(function _callee4$(_context4) {
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
-                        switch (_context4.prev = _context4.next) {
+                        switch (_context3.prev = _context3.next) {
                             case 0:
-                                _libs3 = this.libs, httpRequest = _libs3.httpRequest, cheerio = _libs3.cheerio;
-                                data = void 0;
-                                _context4.prev = 2;
-                                _context4.next = 5;
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio;
+                                _context3.prev = 1;
+                                _context3.next = 4;
                                 return this.getUsingAPI(url);
 
-                            case 5:
-                                data = _context4.sent;
-                                _context4.next = 12;
-                                break;
+                            case 4:
+                                data = _context3.sent;
+                                return _context3.abrupt("return", data);
 
                             case 8:
-                                _context4.prev = 8;
-                                _context4.t0 = _context4["catch"](2);
+                                _context3.prev = 8;
+                                _context3.t0 = _context3["catch"](1);
+                                throw new Error(_context3.t0);
 
-                                console.log(_context4.t0);
-                                throw new Error(error);
-
-                            case 12:
-                                return _context4.abrupt("return", data);
-
-                            case 13:
+                            case 11:
                             case "end":
-                                return _context4.stop();
+                                return _context3.stop();
                         }
                     }
-                }, _callee4, this, [[2, 8]]);
+                }, _callee3, this, [[1, 8]]);
             }));
 
-            function getLink(_x4) {
-                return _ref4.apply(this, arguments);
+            function getLink(_x3) {
+                return _ref3.apply(this, arguments);
             }
 
             return getLink;
