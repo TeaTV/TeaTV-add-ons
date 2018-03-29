@@ -150,22 +150,31 @@ var Openload = function () {
                         switch (_context3.prev = _context3.next) {
                             case 0:
                                 _libs2 = this.libs, httpRequest = _libs2.httpRequest, cryptoJs = _libs2.cryptoJs;
-                                _context3.next = 3;
+                                html = false;
+                                _context3.prev = 2;
+                                _context3.next = 5;
                                 return this.checkLive(url);
 
-                            case 3:
+                            case 5:
                                 html = _context3.sent;
+                                _context3.next = 10;
+                                break;
 
+                            case 8:
+                                _context3.prev = 8;
+                                _context3.t0 = _context3["catch"](2);
+
+                            case 10:
                                 if (!(html == false)) {
-                                    _context3.next = 6;
+                                    _context3.next = 12;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
-                            case 6:
+                            case 12:
                                 token = cryptoJs.MD5(html + "teatv-openload").toString();
-                                _context3.next = 9;
+                                _context3.next = 15;
                                 return httpRequest.post("https://api.teatv.net/api/v2/get_opl", {
                                     "Content-Type": "application/json"
                                 }, JSON.stringify({
@@ -173,7 +182,7 @@ var Openload = function () {
                                     token: token
                                 }));
 
-                            case 9:
+                            case 15:
                                 apiResponse = _context3.sent;
 
 
@@ -183,32 +192,32 @@ var Openload = function () {
                                 _apiResponse$data = apiResponse.data, status = _apiResponse$data.status, data = _apiResponse$data.data, error = _apiResponse$data.error;
 
                                 if (!error) {
-                                    _context3.next = 13;
+                                    _context3.next = 19;
                                     break;
                                 }
 
                                 throw new Error(error);
 
-                            case 13:
+                            case 19:
                                 if (!(status == 200)) {
-                                    _context3.next = 20;
+                                    _context3.next = 26;
                                     break;
                                 }
 
-                                _context3.next = 16;
+                                _context3.next = 22;
                                 return httpRequest.isLinkDie(data);
 
-                            case 16:
+                            case 22:
                                 isDie = _context3.sent;
 
                                 if (!(isDie == false)) {
-                                    _context3.next = 19;
+                                    _context3.next = 25;
                                     break;
                                 }
 
                                 throw new Error("NOT LINK");
 
-                            case 19:
+                            case 25:
                                 return _context3.abrupt("return", {
                                     host: {
                                         url: url,
@@ -217,12 +226,12 @@ var Openload = function () {
                                     result: [{ file: data, label: "NOR", type: "embed", size: isDie }]
                                 });
 
-                            case 20:
+                            case 26:
                             case "end":
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this);
+                }, _callee3, this, [[2, 8]]);
             }));
 
             function getUsingAPI(_x3) {
@@ -252,11 +261,11 @@ var Openload = function () {
                                 data = void 0;
                                 _context4.prev = 2;
                                 _context4.next = 5;
-                                return this.getOpenload(url);
+                                return this.getUsingAPI(url);
 
                             case 5:
                                 data = _context4.sent;
-                                _context4.next = 14;
+                                _context4.next = 12;
                                 break;
 
                             case 8:
@@ -264,16 +273,12 @@ var Openload = function () {
                                 _context4.t0 = _context4["catch"](2);
 
                                 console.log(_context4.t0);
-                                _context4.next = 13;
-                                return this.getUsingAPI(url);
+                                throw new Error(error);
 
-                            case 13:
-                                data = _context4.sent;
-
-                            case 14:
+                            case 12:
                                 return _context4.abrupt("return", data);
 
-                            case 15:
+                            case 13:
                             case "end":
                                 return _context4.stop();
                         }
