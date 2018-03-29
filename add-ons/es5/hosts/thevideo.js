@@ -16,7 +16,7 @@ var TheVideo = function () {
     }
 
     _createClass(TheVideo, [{
-        key: "checkLive",
+        key: 'checkLive',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
                 var httpRequest, html;
@@ -25,25 +25,31 @@ var TheVideo = function () {
                         switch (_context.prev = _context.next) {
                             case 0:
                                 httpRequest = this.libs.httpRequest;
-
-                                // you fill the die status text
-                                // const dieStatusText = "";
-
-                                _context.next = 3;
+                                _context.prev = 1;
+                                _context.next = 4;
                                 return httpRequest.getHTML(url, {
-                                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"
+                                    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                                    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+                                    'cache-control': 'max-age=0',
+                                    'upgrade-insecure-requests': 1,
+                                    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36'
                                 });
 
-                            case 3:
+                            case 4:
                                 html = _context.sent;
-                                return _context.abrupt("return", html);
+                                return _context.abrupt('return', html);
 
-                            case 5:
-                            case "end":
+                            case 8:
+                                _context.prev = 8;
+                                _context.t0 = _context['catch'](1);
+                                throw new Error(_context.t0);
+
+                            case 11:
+                            case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this);
+                }, _callee, this, [[1, 8]]);
             }));
 
             function checkLive(_x) {
@@ -53,7 +59,7 @@ var TheVideo = function () {
             return checkLive;
         }()
     }, {
-        key: "convertToEmbed",
+        key: 'convertToEmbed',
         value: function convertToEmbed(url) {
 
             // convert link detail to link embed
@@ -66,7 +72,7 @@ var TheVideo = function () {
 
         }
     }, {
-        key: "getLink",
+        key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
                 var _libs, httpRequest, cheerio, sources, htmlDetail, thief, jwConfig, htmlJwConfig, vt, linkPlay, arrPromise;
@@ -77,29 +83,51 @@ var TheVideo = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                 sources = [];
-                                _context3.next = 4;
+                                htmlDetail = false;
+                                _context3.prev = 3;
+                                _context3.next = 6;
                                 return this.checkLive(url);
 
-                            case 4:
+                            case 6:
                                 htmlDetail = _context3.sent;
+                                _context3.next = 12;
+                                break;
 
+                            case 9:
+                                _context3.prev = 9;
+                                _context3.t0 = _context3['catch'](3);
+                                throw new Error(_context3.t0);
+
+                            case 12:
                                 if (!(htmlDetail == false)) {
-                                    _context3.next = 7;
+                                    _context3.next = 14;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
-                            case 7:
-                                thief = htmlDetail.match(/var *thief\=\'([^\']+)/i);
+                            case 14:
+                                thief = htmlDetail.match(/var *thief *\=\ *'([^\']+)/i);
 
                                 thief = thief != null ? thief[1] : '';
-                                jwConfig = "https://thevideo.website/vsign/player/" + thief;
-                                _context3.next = 12;
+
+                                jwConfig = 'https://thevideo.website/vsign/player/' + thief;
+                                htmlJwConfig = false;
+                                _context3.prev = 18;
+                                _context3.next = 21;
                                 return httpRequest.getHTML(jwConfig);
 
-                            case 12:
+                            case 21:
                                 htmlJwConfig = _context3.sent;
+                                _context3.next = 27;
+                                break;
+
+                            case 24:
+                                _context3.prev = 24;
+                                _context3.t1 = _context3['catch'](18);
+                                throw new Error(_context3.t1);
+
+                            case 27:
                                 vt = htmlJwConfig.match(/jwConfig\|([^\|]+)/i);
 
                                 vt = vt != null ? vt[1] : '';
@@ -108,7 +136,7 @@ var TheVideo = function () {
 
                                 linkPlay = linkPlay != null ? linkPlay[1] : '';
 
-                                linkPlay = eval("[" + linkPlay + "]");
+                                linkPlay = eval('[' + linkPlay + ']');
 
                                 arrPromise = linkPlay.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(value) {
@@ -117,11 +145,12 @@ var TheVideo = function () {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
-                                                        linkDirect = value.file + "?direct=false&ua=1&vt=" + vt;
-                                                        _context2.next = 3;
+                                                        linkDirect = value.file + '?direct=false&ua=1&vt=' + vt;
+                                                        _context2.prev = 1;
+                                                        _context2.next = 4;
                                                         return httpRequest.isLinkDie(linkDirect);
 
-                                                    case 3:
+                                                    case 4:
                                                         isDie = _context2.sent;
 
 
@@ -131,24 +160,30 @@ var TheVideo = function () {
                                                                 file: linkDirect, label: value.label, type: "embed", size: isDie
                                                             });
                                                         }
+                                                        _context2.next = 10;
+                                                        break;
 
-                                                    case 5:
-                                                    case "end":
+                                                    case 8:
+                                                        _context2.prev = 8;
+                                                        _context2.t0 = _context2['catch'](1);
+
+                                                    case 10:
+                                                    case 'end':
                                                         return _context2.stop();
                                                 }
                                             }
-                                        }, _callee2, this);
+                                        }, _callee2, this, [[1, 8]]);
                                     }));
 
                                     return function (_x3) {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 21;
+                                _context3.next = 35;
                                 return Promise.all(arrPromise);
 
-                            case 21:
-                                return _context3.abrupt("return", {
+                            case 35:
+                                return _context3.abrupt('return', {
                                     host: {
                                         url: url,
                                         name: "thevideo"
@@ -156,12 +191,12 @@ var TheVideo = function () {
                                     result: sources
                                 });
 
-                            case 22:
-                            case "end":
+                            case 36:
+                            case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this);
+                }, _callee3, this, [[3, 9], [18, 24]]);
             }));
 
             function getLink(_x2) {
