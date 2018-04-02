@@ -146,13 +146,6 @@
             "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vidics.js",
             "type": ["tv"]
-        },
-        "coolmoviezone": {
-            "name": "coolmoviezone",
-            "domain": "coolmoviezone.info",
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/coolmoviezone.js",
-            "type": ["movie"]
         }
     },
     "hosts": {
