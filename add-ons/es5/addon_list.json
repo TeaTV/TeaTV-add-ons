@@ -84,17 +84,10 @@
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchepisodes4.js",
             "type": ["tv"]
         },
-        "yesmovies": {
-            "name": "yesmovies",
-            "domain": "yesmovies.to",
-            "version": "0.0.8",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/yesmovies.js",
-            "type": ["tv", "movie"]
-        },
         "vumoo": {
             "name": "vumoo",
             "domain": "vumoo.to",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vumoo.js",
             "type": ["tv", "movie"]
         },
