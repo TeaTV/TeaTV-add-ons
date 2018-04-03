@@ -88,7 +88,7 @@ var Afdah = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, hosts, detailUrl, htmlDetail, $, servers, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, item, embed;
+                var _libs2, httpRequest, cheerio, hosts, detailUrl, htmlDetail, $, servers;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -113,15 +113,9 @@ var Afdah = function () {
                                 htmlDetail = _context2.sent;
                                 $ = cheerio.load(htmlDetail.data);
                                 servers = ['cont_1', 'cont_3', 'cont_4', 'cont_5'];
-                                _iteratorNormalCompletion = true;
-                                _didIteratorError = false;
-                                _iteratorError = undefined;
-                                _context2.prev = 13;
 
 
-                                for (_iterator = servers[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                                    item = _step.value;
-
+                                servers.forEach(function (item) {
 
                                     if (item == 'cont_5') {
 
@@ -141,8 +135,8 @@ var Afdah = function () {
                                             });
                                         });
                                     } else {
-                                        embed = $('#' + item + ' .jw-player').attr('data-id');
 
+                                        var embed = $('#' + item + ' .jw-player').attr('data-id');
                                         if (embed != undefined) {
 
                                             embed = URL.DOMAIN + embed;
@@ -159,50 +153,16 @@ var Afdah = function () {
                                             });
                                         }
                                     }
-                                }
+                                });
 
-                                _context2.next = 21;
-                                break;
-
-                            case 17:
-                                _context2.prev = 17;
-                                _context2.t0 = _context2['catch'](13);
-                                _didIteratorError = true;
-                                _iteratorError = _context2.t0;
-
-                            case 21:
-                                _context2.prev = 21;
-                                _context2.prev = 22;
-
-                                if (!_iteratorNormalCompletion && _iterator.return) {
-                                    _iterator.return();
-                                }
-
-                            case 24:
-                                _context2.prev = 24;
-
-                                if (!_didIteratorError) {
-                                    _context2.next = 27;
-                                    break;
-                                }
-
-                                throw _iteratorError;
-
-                            case 27:
-                                return _context2.finish(24);
-
-                            case 28:
-                                return _context2.finish(21);
-
-                            case 29:
                                 this.state.hosts = hosts;
 
-                            case 30:
+                            case 12:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[13, 17, 21, 29], [22,, 24, 28]]);
+                }, _callee2, this);
             }));
 
             function getHostFromDetail() {
