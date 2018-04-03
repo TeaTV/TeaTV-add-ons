@@ -33,7 +33,9 @@ var Flixanity = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type, dataBody, resultSearch, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, item;
+                var _this = this;
+
+                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type, dataBody, resultSearch;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -59,70 +61,29 @@ var Flixanity = function () {
                                 return _context.abrupt('return');
 
                             case 8:
-                                _iteratorNormalCompletion = true;
-                                _didIteratorError = false;
-                                _iteratorError = undefined;
-                                _context.prev = 11;
 
-
-                                for (_iterator = resultSearch.data[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                                    item = _step.value;
-
+                                resultSearch.data.forEach(function (item) {
 
                                     if (stringHelper.shallowCompare(item.title, title)) {
 
                                         if (item.type == 'movie' && type == 'movie' && item.year == year) {
 
-                                            this.state.detailUrl = URL.DOMAIN + item.permalink;
+                                            _this.state.detailUrl = URL.DOMAIN + item.permalink;
                                         } else if (item.type == 'show' && type == 'tv') {
 
-                                            this.state.detailUrl = '' + URL.DOMAIN + item.permalink + '/season/' + season + '/episode/' + episode;
+                                            _this.state.detailUrl = '' + URL.DOMAIN + item.permalink + '/season/' + season + '/episode/' + episode;
                                         }
                                     }
-                                }
+                                });
 
-                                _context.next = 19;
-                                break;
-
-                            case 15:
-                                _context.prev = 15;
-                                _context.t0 = _context['catch'](11);
-                                _didIteratorError = true;
-                                _iteratorError = _context.t0;
-
-                            case 19:
-                                _context.prev = 19;
-                                _context.prev = 20;
-
-                                if (!_iteratorNormalCompletion && _iterator.return) {
-                                    _iterator.return();
-                                }
-
-                            case 22:
-                                _context.prev = 22;
-
-                                if (!_didIteratorError) {
-                                    _context.next = 25;
-                                    break;
-                                }
-
-                                throw _iteratorError;
-
-                            case 25:
-                                return _context.finish(22);
-
-                            case 26:
-                                return _context.finish(19);
-
-                            case 27:
                                 return _context.abrupt('return');
 
-                            case 28:
+                            case 10:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[11, 15, 19, 27], [20,, 22, 26]]);
+                }, _callee, this);
             }));
 
             function searchDetail() {
