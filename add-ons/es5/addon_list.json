@@ -59,7 +59,7 @@
         "seehd": {
             "name": "seehd",
             "domain": "seehd.pl",
-            "version": "0.0.5",
+            "version": "0.0.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seehd.js",
             "type": ["movie", "tv"]
         },
