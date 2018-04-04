@@ -1,5 +1,12 @@
 {
     "providers": {
+        "housemovie": {
+            "name": "housemovie",
+            "domain": "housemovie.to",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/housemovie.js",
+            "type": ["tv", "movie"]
+        },
         "hollymovies": {
             "name": "hollymovies",
             "domain": "hollymoviehd.com",
