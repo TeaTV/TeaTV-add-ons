@@ -261,10 +261,11 @@ var HouseMovies = function () {
                             case 17:
 
                                 this.state.cookie = document.cookie.replace(/\;.*/i, '') + ';';
-                                _context.next = 20;
+                                console.log(this.state.cookie, 'dongdong-cookie-housemovie');
+                                _context.next = 21;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS(urlSearch, this.state.cookie));
 
-                            case 20:
+                            case 21:
                                 htmlSearch = _context.sent;
 
                                 $ = cheerio.load(htmlSearch);
@@ -290,7 +291,7 @@ var HouseMovies = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 26:
+                            case 27:
                             case 'end':
                                 return _context.stop();
                         }
