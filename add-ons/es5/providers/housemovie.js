@@ -272,6 +272,7 @@ var HouseMovies = function () {
 
                                 itemSearch = $('.items_preview .main_list li');
 
+                                console.log(htmlSearch, 'dongdong-cookie-htmlSearch');
 
                                 itemSearch.each(function () {
 
@@ -291,7 +292,7 @@ var HouseMovies = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 27:
+                            case 28:
                             case 'end':
                                 return _context.stop();
                         }
