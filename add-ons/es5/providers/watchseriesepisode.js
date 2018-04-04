@@ -228,6 +228,7 @@ var WatchSeriesEpisode = function () {
                                                             linkEmbed = $_2('.wb-main .watch-button').attr('href');
 
 
+                                                            console.log(linkEmbed);
                                                             linkEmbed && arrhosts.push({
                                                                 provider: {
                                                                     url: state.detailUrl,
