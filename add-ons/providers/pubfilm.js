@@ -44,8 +44,7 @@ class Pubfilm {
         let htmlSearch      = await httpRequest.getHTML(urlSearch, URL.HEADERS());
         let $               = cheerio.load(htmlSearch);
 
-        let itemSearch      = $('.g');
-
+        let itemSearch      = $('._NId .g')
 
         itemSearch.each(function() {
 
@@ -59,7 +58,6 @@ class Pubfilm {
 
             if( titleMovie && seasonMovie && yearMovie && (isNaN(yearMovie) == false || yearMovie == '') && hrefMovie.indexOf('pubfilm') != -1 ) {
 
-    
                 if( type == 'movie' ) {
 
                     if( titleMovie.indexOf(year) != -1 ) {

@@ -60,7 +60,7 @@ class Afdah {
         let $           = cheerio.load(htmlDetail.data);
         let servers     = ['cont_1', 'cont_3', 'cont_4', 'cont_5'];
 
-        for( let item of servers ) {
+        servers.forEach((item) => {
 
             if( item == 'cont_5' ) {
 
@@ -98,7 +98,7 @@ class Afdah {
                     })
 				}
             }
-        }
+        });
 
         this.state.hosts = hosts;
     }

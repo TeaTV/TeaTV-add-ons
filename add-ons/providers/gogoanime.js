@@ -37,25 +37,28 @@ class Gogoanime {
 
         let arrPromise      = arrPage.map(async function(val) {
 
-            urlSearch       = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+') + `+episode+${episode}`, val);
-            htmlSearch      = await httpRequest.getHTML(urlSearch);
-            $               = cheerio.load(htmlSearch); 
+            try {
+                urlSearch       = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+') + `+episode+${episode}`, val);
+                htmlSearch      = await httpRequest.getHTML(urlSearch);
+                $               = cheerio.load(htmlSearch); 
 
-            let itemSearch  = $('.postlist');
+                let itemSearch  = $('.postlist');
 
-            itemSearch.each(function() {
+                itemSearch.each(function() {
 
-                let hrefMovie   = $(this).find('a').attr('href');
-                let titleMovie  = $(this).find('a').text();
-                let episodeMovie= titleMovie.match(/episode *([0-9]+)/i);
-                episodeMovie    = episodeMovie != null ? +episodeMovie[1] : -1;
-                titleMovie      = titleMovie.replace(/ *episode *[0-9]+/i, '').trim();
+                    let hrefMovie   = $(this).find('a').attr('href');
+                    let titleMovie  = $(this).find('a').text();
+                    let episodeMovie= titleMovie.match(/episode *([0-9]+)/i);
+                    episodeMovie    = episodeMovie != null ? +episodeMovie[1] : -1;
+                    titleMovie      = titleMovie.replace(/ *episode *[0-9]+/i, '').trim();
 
-                if( stringHelper.shallowCompare(titleMovie, title) && episode == episodeMovie )  {
-                    detailUrl = hrefMovie;
-                    return;
-                }
-            });
+                    if( stringHelper.shallowCompare(titleMovie, title) && episode == episodeMovie )  {
+                        detailUrl = hrefMovie;
+                        return;
+                    }
+                });
+            } catch(error) {}
+            
         });
 
         await Promise.all(arrPromise);
@@ -74,9 +77,17 @@ class Gogoanime {
 
         let detailUrl   = this.state.detailUrl;
 
-        let htmlSearch  = await httpRequest.getHTML(this.state.detailUrl);
-        let $           = cheerio.load(htmlSearch);
-        let itemEmbed   = $('#content .postcontent iframe');
+        let htmlSearch;
+        let $;
+        let itemEmbed   = [];
+        try {
+            htmlSearch  = await httpRequest.getHTML(this.state.detailUrl);
+            $           = cheerio.load(htmlSearch);
+            itemEmbed   = $('#content .postcontent iframe');
+        } catch(error) {
+            throw new Error(error);
+        }
+        
 
         itemEmbed.each(function() {
 

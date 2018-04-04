@@ -36,8 +36,7 @@ class Flixanity {
 
         if( resultSearch.data == null ) return;
 
-        
-        for( let item of resultSearch.data )  {
+        resultSearch.data.forEach((item) => {
 
             if( stringHelper.shallowCompare(item.title, title) ) {
 
@@ -50,7 +49,7 @@ class Flixanity {
                 }
             }
             
-        }
+        });
 
         return;
     }

@@ -1,14 +1,11 @@
 const URL = {
-    DOMAIN: 'http://www.primewire.ac',
+    DOMAIN: 'http://www.primewire.ag',
     SEARCH: (title, type) => {
 
         if( type == 'movie' ) {
-            return `http://www.primewire.ac/?keywords=${title}&type=movie`; 
+            return `http://www.primewire.ag/index.php?search_keywords=${title}&key=235debe0d7f423b4&search_section=1`; 
         }
-        return `http://www.primewire.ac/?keywords=${title}&type=tv`;
-    },
-    DETAIL: (title) => {
-        return `http://www.primewire.ac/watch-${title}-online.html`;
+        return `http://www.primewire.ag/index.php?search_keywords=${title}&key=235debe0d7f423b4&search_section=2`;
     }
 };
 
@@ -28,7 +25,7 @@ class Primeware {
         let detailUrl   = false;
         let detailUrlTv = false;
 
-        let urlSearch   = URL.SEARCH(encodeURIComponent(title), type);
+        let urlSearch   = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), type);
         let htmlSearch  = await httpRequest.getHTML(urlSearch);
         let $           = cheerio.load(htmlSearch);
         let itemSearch  = $('div.index_item.index_item_ie');
@@ -37,7 +34,7 @@ class Primeware {
 
             let titleMovie  = $(this).find('a').attr('title').replace('Watch', '').match(/([^(]*)/);
             let yearMovie   = $(this).find('a h2').text().replace('Watch', '').match(/\(([0-9]*)\)/);
-            let hrefMovie   = URL.DOMAIN + '/' + $(this).find('a').attr('href');
+            let hrefMovie   = URL.DOMAIN + $(this).find('a').attr('href');
             titleMovie      = titleMovie    != null ? titleMovie[1].trim()  : '';
             yearMovie       = yearMovie     != null ? +yearMovie[1]         : 0;
 
@@ -52,44 +49,22 @@ class Primeware {
             }
         });
 
-        // if( type == 'tv' )  {
-        //     detailUrl = URL.DETAIL(stringHelper.convertToSearchQueryString(title) + `-season-${season}-episode-${episode}`);
-        // } else if( type == 'movie' ) {
-        //     detailUrl = URL.DETAIL(stringHelper.convertToSearchQueryString(title));
-        // }
-
         if( type == 'tv' && detailUrlTv != false ) {
 
             
             let htmlEpisode     = await httpRequest.getHTML(detailUrlTv);
             let $_2             = cheerio.load(htmlEpisode);
+            let itemEpisode     = $_2(`.tv_container div[data-id=${season}] .tv_episode_item`);
 
+            itemEpisode.each(function() {
 
-            let itemSeason      = $_2('.tv_container');
-            
-            itemSeason.each(function() {
+                let hrefEpisode     = URL.DOMAIN + $_2(this).find('a').attr('href');
+                let episodeMovie    = hrefEpisode.match(/\-episode\-([0-9]+)/i); 
+                episodeMovie        = episodeMovie != null ? +episodeMovie[1] : -1;
 
-                let seasonMovie = $_2(this).find('.season-toggle').text();
-                seasonMovie     = seasonMovie.match(/season *([0-9]+)/i);
-                seasonMovie     = seasonMovie != null ? +seasonMovie[1] : -1;
-
-                if( seasonMovie == season ) {
-
-                    let itemEpisode = $_2(this).find('.show_season .tv_episode_item');
-
-                    itemEpisode.each(function() {
-
-                        let hrefEpisode     = $_2(this).find('a').attr('href');
-                        let episodeMovie    = hrefEpisode.match(/\-episode\-([0-9]+)/i);
-                        episodeMovie        = episodeMovie != null ? +episodeMovie[1] : -1;
-
-                        if( episodeMovie == episode ) {
-                            detailUrl = URL.DOMAIN + '/' + hrefEpisode;
-                            return;
-                        }
-                    });
+                if( episodeMovie == episode ) {
+                    detailUrl = hrefEpisode;
                 }
-                
             });
         }
 
@@ -107,7 +82,6 @@ class Primeware {
         let detailUrl   = this.state.detailUrl;
         let state       = this.state;
 
-
         let htmlEpisode = await httpRequest.getHTML(this.state.detailUrl);
         let $           = cheerio.load(htmlEpisode);
         let itemRedirect= $('.movie_version_link');
@@ -115,10 +89,11 @@ class Primeware {
         itemRedirect.each(function() {
 
             let slug = $(this).find('a').attr('href');
+            
             if( slug.indexOf('javascript:') == -1 )  {
 
                 let linkRedirect = URL.DOMAIN +  slug;
-                arrRedirect.push(slug);
+                arrRedirect.push(linkRedirect);
             }
             
         });
@@ -141,12 +116,7 @@ class Primeware {
 
             let linkEmbed;
             try {
-                
-                let htmlEmbed       = await httpRequest.getHTML(val); 
-                let $_2             = cheerio.load(htmlEmbed);
-                let linkRedirect    = $_2('.download').attr('href');
-
-                linkEmbed           = await httpRequest.getRedirectUrl(linkRedirect);
+                linkEmbed   = await httpRequest.getRedirectUrl(val);
                 linkEmbed && hosts.push({
                     provider: {
                         url: detailUrl,

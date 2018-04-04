@@ -5,15 +5,6 @@ const URL = {
             return `https://seehd.uno/?s=${title}`;
         }
         return `https://seehd.uno/page/${page}/?s=${title}`;
-    },
-    HEADERS: () => {
-        return {
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-            'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-            'cache-control': 'max-age=0',
-            'upgrade-insecure-requests': 1,
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36'
-        };
     }
 };
 
@@ -30,8 +21,7 @@ class SeehdUno {
         const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
         let { title, year, season, episode, type } = this.movieInfo;
 
-        let htmlSearch  = await httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')), URL.HEADERS());
-        htmlSearch      = htmlSearch.data;
+        let htmlSearch  = await httpRequest.getHTML(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')));
         let $           = cheerio.load(htmlSearch);
         let page        = $('#paginador .paginado ul li');
 
@@ -63,8 +53,7 @@ class SeehdUno {
 
         let arrPromise = arrNumber.map(async function(val) {
 
-            let htmlSearch  = await httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), val), URL.HEADERS());
-            htmlSearch      = htmlSearch.data;
+            let htmlSearch  = await httpRequest.getHTML(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), val));
             let $           = cheerio.load(htmlSearch);
             let itemSearch  = $('.peliculas .items .item');
 
@@ -118,8 +107,7 @@ class SeehdUno {
         let hosts       = [];
         
         let detailUrl   = this.state.detailUrl;
-        let htmlDetail  = await httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS());
-        htmlDetail      = htmlDetail.data;
+        let htmlDetail  = await httpRequest.getHTML(this.state.detailUrl);
         let $           = cheerio.load(htmlDetail);
         let itemEmbed   = $('#player2 .movieplay');
 

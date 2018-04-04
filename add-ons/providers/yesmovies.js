@@ -27,7 +27,6 @@ class YesMovies {
 
     async searchDetail() {
 
-        
         const { httpRequest, cheerio, stringHelper, base64 }    = this.libs; 
         let { title, year, season, episode, type }              = this.movieInfo;
         let { getYear, getHrefEpisode }                         = this;
@@ -63,7 +62,7 @@ class YesMovies {
             arrInfo.push({
                 hrefMovie, titleMovie, seasonMovie, slugGetInfo
             });
-        })
+        });
 
         let arrPromise = arrInfo.map(async function(val) {
 

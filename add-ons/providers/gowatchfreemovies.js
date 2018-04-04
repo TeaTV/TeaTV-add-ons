@@ -34,7 +34,6 @@ class FreeMovies {
 			yearFree        = yearFree != null ? yearFree[1] : 0;
             let titleFree   = titleTemp.replace(/\(.*/i, '');
             
-            
             if( stringHelper.shallowCompare(title, titleFree) && +yearFree == year ) {
 
 				if( hrefFree.indexOf('-tv-show-') != -1 && type == 'tv' ) {
@@ -42,9 +41,12 @@ class FreeMovies {
                     hrefFree    = `${hrefFree}/season-${season}-episode-${episode}`;
 	                hrefFree    = hrefFree.replace('watch-', 'tv-');
                     detailUrl   = hrefFree;
+
+                    return;
 				} else if(hrefFree.indexOf('-movie-') != -1 && type == 'movie') {
 
                     detailUrl   = hrefFree;
+                    return;
 				}
 			}
         });

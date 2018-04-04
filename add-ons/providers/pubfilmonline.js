@@ -35,7 +35,7 @@ class PubfilmOnline {
         let { title, year, season, episode, type }              = this.movieInfo;
 
         let detailUrl       = false;
-        let urlSearch       = URL.SEARCH(encodeURIComponent(title));
+        let urlSearch       = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
         let htmlSearch      = await httpRequest.get(urlSearch, URL.HEADERS(urlSearch));
         try {
             this.state.pipeGuard = htmlSearch.headers['set-cookie'][0].replace('path=/', '').trim();
@@ -149,6 +149,8 @@ class PubfilmOnline {
         } catch(error) {
             throw new Error(error);
         }
+        
+
         
         this.state.hosts = hosts;
         return;
