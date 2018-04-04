@@ -10,6 +10,17 @@ var URL = {
     DOMAIN: 'http://www.hollymoviehd.com',
     SEARCH: function SEARCH(title) {
         return 'http://www.hollymoviehd.com/?zc=search&s=' + title;
+    },
+    HEADERS: function HEADERS() {
+        return {
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'Cache-Control': 'max-age=0',
+            'Connection': 'keep-alive',
+            'Host': 'www.hollymoviehd.com',
+            'Upgrade-Insecure-Requests': 1,
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+        };
     }
 };
 
@@ -46,12 +57,10 @@ var HollyMovies = function () {
                                 }
 
                                 _context.next = 7;
-                                return httpRequest.getCloudflare(urlSearch);
+                                return httpRequest.getHTML(urlSearch, URL.HEADERS());
 
                             case 7:
                                 htmlSearch = _context.sent;
-
-                                htmlSearch = htmlSearch.data;
                                 $ = cheerio.load(htmlSearch);
                                 itemSearch = $('.movies-list .ml-item');
 
@@ -84,7 +93,7 @@ var HollyMovies = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 14:
+                            case 13:
                             case 'end':
                                 return _context.stop();
                         }
@@ -130,12 +139,10 @@ var HollyMovies = function () {
                                 }
 
                                 _context3.next = 10;
-                                return httpRequest.getCloudflare(detailUrl);
+                                return httpRequest.getHTML(detailUrl, URL.HEADERS());
 
                             case 10:
                                 htmlDetail = _context3.sent;
-
-                                htmlDetail = htmlDetail.data;
                                 $ = cheerio.load(htmlDetail);
                                 itemRedirect = $('#player2 > div');
 
@@ -248,15 +255,15 @@ var HollyMovies = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 18;
+                                _context3.next = 17;
                                 return Promise.all(arrPromise);
 
-                            case 18:
+                            case 17:
 
                                 this.state.hosts = hosts;
                                 return _context3.abrupt('return');
 
-                            case 20:
+                            case 19:
                             case 'end':
                                 return _context3.stop();
                         }
