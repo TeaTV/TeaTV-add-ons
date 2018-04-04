@@ -3,7 +3,7 @@
         "series9": {
             "name": "series9",
             "domain": "series9.co",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/series9.js",
             "type": ["tv", "movie"]
         },
