@@ -268,11 +268,12 @@ var HouseMovies = function () {
                             case 21:
                                 htmlSearch = _context.sent;
 
+
+                                console.log(htmlSearch, 'dongdong-cookie-htmlSearch');
                                 $ = cheerio.load(htmlSearch);
 
                                 itemSearch = $('.items_preview .main_list li');
 
-                                console.log(htmlSearch, 'dongdong-cookie-htmlSearch');
 
                                 itemSearch.each(function () {
 
