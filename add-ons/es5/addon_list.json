@@ -80,7 +80,7 @@
         "watchseriesepisode": {
             "name": "watchseriesepisode",
             "domain": "watchseriesepisode.com",
-            "version": "0.0.7",
+            "version": "0.0.8",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchseriesepisode.js",
             "type": ["tv"]
         },
