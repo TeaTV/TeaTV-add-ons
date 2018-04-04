@@ -127,7 +127,7 @@ var VidLink = function () {
         key: 'getEmbed',
         value: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(url) {
-                var _libs2, httpRequest, cheerio, sources, temp, postResponse, item, arrPromise;
+                var _libs2, httpRequest, cheerio, sources, temp, window, postResponse, item, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee4$(_context4) {
                     while (1) {
@@ -136,85 +136,84 @@ var VidLink = function () {
                                 _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio;
                                 sources = [];
                                 temp = [];
-                                _context4.prev = 3;
-                                _context4.next = 6;
+                                window = {
+                                    srcs: [],
+                                    nsrc: [],
+                                    checkSrc: function checkSrc() {}
+                                };
+                                _context4.prev = 4;
+                                _context4.next = 7;
                                 return this.checkLive(url);
 
-                            case 6:
+                            case 7:
                                 postResponse = _context4.sent;
 
                                 if (!(postResponse == false)) {
-                                    _context4.next = 9;
+                                    _context4.next = 10;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
-                            case 9:
+                            case 10:
+
+                                eval(postResponse);
+                                postResponse = window.srcs;
 
                                 for (item in postResponse) {
 
-                                    if (postResponse[item].type == 'video/mp4') {
-                                        temp.push(postResponse[item].url);
+                                    if (postResponse[item].type == 'video/mp4' && postResponse[item].status != 401) {
+                                        temp.push('https://vidlink.org' + postResponse[item].src);
                                     }
                                 }
 
                                 arrPromise = temp.map(function () {
                                     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(val) {
-                                        var isDie;
                                         return regeneratorRuntime.wrap(function _callee3$(_context3) {
                                             while (1) {
                                                 switch (_context3.prev = _context3.next) {
                                                     case 0:
-                                                        _context3.prev = 0;
-                                                        _context3.next = 3;
-                                                        return httpRequest.isLinkDie(val);
 
-                                                    case 3:
-                                                        isDie = _context3.sent;
+                                                        try {
 
+                                                            // let isDie = await httpRequest.isLinkDie(val);
 
-                                                        if (isDie != false) {
+                                                            // if( isDie != false )  {
                                                             sources.push({
-                                                                file: val, label: 'NOR', type: "direct", size: isDie
+                                                                file: val, label: 'NOR', type: "direct", size: 'NOR'
                                                             });
-                                                        }
-                                                        _context3.next = 9;
-                                                        break;
+                                                            // }
+                                                        } catch (error) {}
 
-                                                    case 7:
-                                                        _context3.prev = 7;
-                                                        _context3.t0 = _context3['catch'](0);
-
-                                                    case 9:
+                                                    case 1:
                                                     case 'end':
                                                         return _context3.stop();
                                                 }
                                             }
-                                        }, _callee3, this, [[0, 7]]);
+                                        }, _callee3, this);
                                     }));
 
                                     return function (_x4) {
                                         return _ref4.apply(this, arguments);
                                     };
                                 }());
-                                _context4.next = 13;
+                                _context4.next = 16;
                                 return Promise.all(arrPromise);
 
-                            case 13:
+                            case 16:
                                 return _context4.abrupt('return', sources);
 
-                            case 16:
-                                _context4.prev = 16;
-                                _context4.t0 = _context4['catch'](3);
+                            case 19:
+                                _context4.prev = 19;
+                                _context4.t0 = _context4['catch'](4);
                                 throw new Error(_context4.t0);
 
-                            case 19:
+                            case 22:
                             case 'end':
                                 return _context4.stop();
                         }
                     }
-                }, _callee4, this, [[3, 16]]);
+                }, _callee4, this, [[4, 19]]);
             }));
 
             function getEmbed(_x3) {
