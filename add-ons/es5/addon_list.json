@@ -129,7 +129,7 @@
         "fmoviespe": {
             "name": "fmoviespe",
             "domain": "fmovies.pe",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/fmoviespe.js",
             "type": ["movie", "tv"]
         },
