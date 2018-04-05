@@ -134,7 +134,7 @@ var FmoviesPe = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, base64, _movieInfo2, type, episode, hosts, detailUrl, htmlDetail, vidnode2, vidnode3, thevideo, yourupload;
+                var _libs2, httpRequest, cheerio, base64, _movieInfo2, type, episode, hosts, detailUrl, htmlDetail, vidnode2, vidnode3, thevideo, yourupload, openload, streamango;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -168,18 +168,24 @@ var FmoviesPe = function () {
                                 _context2.t0 = _context2['catch'](7);
 
                             case 15:
-                                vidnode2 = htmlDetail.match(/link\_server\_f2 *\= *\"([^\"]+)/i);
+                                vidnode2 = htmlDetail.match(/link\_server\_f2 *\= *\"*\'*([^\"*\'*]+)/i);
 
                                 vidnode2 = vidnode2 != null ? vidnode2[1] : false;
-                                vidnode3 = htmlDetail.match(/link\_server\_vidnode *\= *\"([^\"]+)/i);
+                                vidnode3 = htmlDetail.match(/link\_server\_vidnode *\= *\"*\'*([^\"*\'*]+)/i);
 
                                 vidnode3 = vidnode3 != null ? vidnode3[1] : false;
-                                thevideo = htmlDetail.match(/link\_server\_thevideo *\= *\"([^\"]+)/i);
+                                thevideo = htmlDetail.match(/link\_server\_thevideo *\= *\"*\'*([^\"*\'*]+)/i);
 
                                 thevideo = thevideo != null ? thevideo[1] : false;
-                                yourupload = htmlDetail.match(/link\_server\_yourupload *\= *\"([^\"]+)/i);
+                                yourupload = htmlDetail.match(/link\_server\_yourupload *\= *\"*\'*([^\"*\'*]+)/i);
 
                                 yourupload = yourupload != null ? yourupload[1] : false;
+                                openload = htmlDetail.match(/link\_server\_openload *\= *\"*\'*([^\"*\'*]+)/i);
+
+                                openload = openload != null ? openload[1] : false;
+                                streamango = htmlDetail.match(/link\_server\_streamango *\= *\"*\'*([^\"*\'*]+)/i);
+
+                                streamango = streamango != null ? streamango[1] : false;
 
                                 if (vidnode2 != false && vidnode2.indexOf('http:') == -1 && vidnode2.indexOf('https:') == -1) {
                                     vidnode2 = 'http:' + vidnode2;
@@ -200,6 +206,34 @@ var FmoviesPe = function () {
                                         },
                                         result: {
                                             file: vidnode2,
+                                            label: "embed",
+                                            type: 'embed'
+                                        }
+                                    });
+                                }
+
+                                if (streamango != false) {
+                                    hosts.push({
+                                        provider: {
+                                            url: this.state.detailUrl,
+                                            name: "fmoviespe"
+                                        },
+                                        result: {
+                                            file: streamango,
+                                            label: "embed",
+                                            type: 'embed'
+                                        }
+                                    });
+                                }
+
+                                if (openload != false) {
+                                    hosts.push({
+                                        provider: {
+                                            url: this.state.detailUrl,
+                                            name: "fmoviespe"
+                                        },
+                                        result: {
+                                            file: openload,
                                             label: "embed",
                                             type: 'embed'
                                         }
@@ -250,7 +284,7 @@ var FmoviesPe = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 31:
+                            case 37:
                             case 'end':
                                 return _context2.stop();
                         }
