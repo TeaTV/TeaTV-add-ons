@@ -1,0 +1,128 @@
+{
+    "providers": {
+        "bilutv": {
+            "name": "bilutv",
+            "domain": "bilutv.com",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/bilutv.js",
+            "type": ["tv", "movie"]
+        }
+    },
+    "hosts": {
+        "streamango": {
+            "name": "streamango",
+            "domain": "streamango.com",
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/streamango.js"
+        },
+        "api.bilutv": {
+            "name": "api.bilutv",
+            "domain": "api.bilutv.com",
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/api.bl.js"
+        },
+        "openload": {
+            "name": "openload",
+            "domain": ["openload.com", "openload.co", "oload.tv", "oload.stream", "oload.info", "oload.site"],
+            "version": "0.0.6",
+            "author": "psyntium",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/openload.js"
+        },
+        "teamdk": {
+            "name": "teamdk",
+            "domain": ["teamdk.net"],
+            "version": "0.0.3",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/teamdk.js"
+        },
+        "estream": {
+            "name": "estream",
+            "domain": ["estream.to"],
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/estream.js"
+        },
+        "thevideo": {
+            "name": "thevideo",
+            "domain": ["thevideo.me", "tvad.me"],
+            "version": "0.0.5",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/thevideo.js"
+        },
+        "vidlink": {
+            "name": "vidlink",
+            "domain": ["vidlink.org"],
+            "version": "0.0.5",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidlink.js"
+        },
+        "vidoza": {
+            "name": "vidoza",
+            "domain": ["vidoza.net"],
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidoza.js"
+        },
+        "vidstreaming": {
+            "name": "vidstreaming",
+            "domain": ["vidstreaming.io"],
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidstreaming.js"
+        },
+        "vidushare": {
+            "name": "vidushare",
+            "domain": ["vidushare.com"],
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidushare.js"
+        },
+        "ok-ru": {
+            "name": "ok-ru",
+            "domain": ["ok.ru"],
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ok-ru.js"
+        },
+        "rapidvideo": {
+            "name": "rapidvideo",
+            "domain": ["rapidvideo.com"],
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/rapidvideo.js"
+        },
+        "vidnode": {
+            "name": "vidnode",
+            "domain": ["vidnode.net"],
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidnode.js"
+        },
+        "vidcdn": {
+            "name": "vidcdn",
+            "domain": ["vidcdn.pro"],
+            "version": "0.0.5",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidcdn.js"
+        },
+        "m4ukido": {
+            "name": "m4ukido",
+            "domain": ["m4ukido.com"],
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/m4ukido.js"
+        },
+        "googleusercontent": {
+            "name": "googleusercontent",
+            "domain": ["googleusercontent.com"],
+            "version": "0.0.3",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/googleusercontent.js"
+        },
+        "212.47.226.206": {
+            "name": "212.47.226.206",
+            "domain": ["212.47.226.206"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/212.47.226.206.js"
+        },
+        "212.47.234.139": {
+            "name": "212.47.234.139",
+            "domain": ["212.47.234.139"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/212.47.234.139.js"
+        },
+        "video.xx.fbcdn": {
+            "name": "video.xx.fbcdn",
+            "domain": ["video.xx.fbcdn.net"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/video.xx.fbcdn.js"
+        }
+    }
+}
