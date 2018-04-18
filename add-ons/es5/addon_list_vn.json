@@ -17,9 +17,9 @@
         },
         "api.bilutv": {
             "name": "api.bilutv",
-            "domain": "api.bilutv.com",
-            "version": "0.0.2",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/api.bl.js"
+            "domain": ["api.bilutv.com"],
+            "version": "0.0.3",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/api.bilu.js"
         },
         "openload": {
             "name": "openload",
