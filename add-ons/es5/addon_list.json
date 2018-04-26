@@ -257,6 +257,12 @@
             "domain": ["video.xx.fbcdn.net"],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/video.xx.fbcdn.js"
+        },
+        "vidlink": {
+            "name": "vidlink",
+            "domain": ["vidlink.org"],
+            "version": "0.0.9",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidlink.js"
         }
     }
 }
