@@ -6,7 +6,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var converter = require('byte-converter').converterBase2;
+// const converter     = require('byte-converter').converterBase2;
 
 var VidLink = function () {
     function VidLink(props) {
@@ -197,7 +197,7 @@ var VidLink = function () {
 
                                                         if (isDie != false) {
                                                             sources.push({
-                                                                file: val.url, label: 'NOR', type: "direct", size: parseFloat(converter(val.size, 'B', 'GB')).toFixed(2)
+                                                                file: val.url, label: 'NOR', type: "direct", size: 'NOR'
                                                             });
                                                         }
                                                         _context3.next = 9;
