@@ -149,6 +149,12 @@
         }
     },
     "hosts": {
+        "afdah": {
+            "name": "afdah",
+            "domain": "afdah.to",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/afdah.js"
+        },
         "streamango": {
             "name": "streamango",
             "domain": "streamango.com",
