@@ -6,6 +6,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var converter = require('byte-converter').converterBase2;
+
 var VidLink = function () {
     function VidLink(props) {
         _classCallCheck(this, VidLink);
@@ -127,7 +129,7 @@ var VidLink = function () {
         key: 'getEmbed',
         value: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(url) {
-                var _libs2, httpRequest, cheerio, sources, temp, window, postResponse, item, _url, arrPromise;
+                var _libs2, httpRequest, cheerio, sources, temp, window, postResponse, item, _url, size, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee4$(_context4) {
                     while (1) {
@@ -166,10 +168,13 @@ var VidLink = function () {
                                         _url = postResponse[item].src.match(/url\=([^\&]+)/i);
 
                                         _url = _url != null ? _url[1] : false;
+                                        size = postResponse[item].src.match(/\&size\=([0-9]+)/i);
+
+                                        size = size != null ? +size[1] : 0;
 
                                         if (_url != false) {
                                             _url = decodeURIComponent(_url);
-                                            temp.push(_url);
+                                            temp.push({ url: _url, size: size });
                                         }
                                         // temp.push('https://vidlink.org' + postResponse[item].src);
                                     }
@@ -184,7 +189,7 @@ var VidLink = function () {
                                                     case 0:
                                                         _context3.prev = 0;
                                                         _context3.next = 3;
-                                                        return httpRequest.isLinkDie(val);
+                                                        return httpRequest.isLinkDie(val.url);
 
                                                     case 3:
                                                         isDie = _context3.sent;
@@ -192,7 +197,7 @@ var VidLink = function () {
 
                                                         if (isDie != false) {
                                                             sources.push({
-                                                                file: val, label: 'NOR', type: "direct", size: isDie
+                                                                file: val.url, label: 'NOR', type: "direct", size: parseFloat(converter(val.size, 'B', 'GB')).toFixed(2)
                                                             });
                                                         }
                                                         _context3.next = 9;
