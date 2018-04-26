@@ -127,7 +127,7 @@ var VidLink = function () {
         key: 'getEmbed',
         value: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(url) {
-                var _libs2, httpRequest, cheerio, sources, temp, window, postResponse, item, arrPromise;
+                var _libs2, httpRequest, cheerio, sources, temp, window, postResponse, item, _url, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee4$(_context4) {
                     while (1) {
@@ -163,34 +163,51 @@ var VidLink = function () {
                                 for (item in postResponse) {
 
                                     if (postResponse[item].type == 'video/mp4' && postResponse[item].status != 401) {
-                                        temp.push('https://vidlink.org' + postResponse[item].src);
+                                        _url = postResponse[item].src.match(/url\=([^\&]+)/i);
+
+                                        _url = _url != null ? _url[1] : false;
+
+                                        if (_url != false) {
+                                            _url = decodeURIComponent(_url);
+                                            temp.push(_url);
+                                        }
+                                        // temp.push('https://vidlink.org' + postResponse[item].src);
                                     }
                                 }
 
                                 arrPromise = temp.map(function () {
                                     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(val) {
+                                        var isDie;
                                         return regeneratorRuntime.wrap(function _callee3$(_context3) {
                                             while (1) {
                                                 switch (_context3.prev = _context3.next) {
                                                     case 0:
+                                                        _context3.prev = 0;
+                                                        _context3.next = 3;
+                                                        return httpRequest.isLinkDie(val);
 
-                                                        try {
+                                                    case 3:
+                                                        isDie = _context3.sent;
 
-                                                            // let isDie = await httpRequest.isLinkDie(val);
 
-                                                            // if( isDie != false )  {
+                                                        if (isDie != false) {
                                                             sources.push({
-                                                                file: val, label: 'NOR', type: "direct", size: 'NOR'
+                                                                file: val, label: 'NOR', type: "direct", size: isDie
                                                             });
-                                                            // }
-                                                        } catch (error) {}
+                                                        }
+                                                        _context3.next = 9;
+                                                        break;
 
-                                                    case 1:
+                                                    case 7:
+                                                        _context3.prev = 7;
+                                                        _context3.t0 = _context3['catch'](0);
+
+                                                    case 9:
                                                     case 'end':
                                                         return _context3.stop();
                                                 }
                                             }
-                                        }, _callee3, this);
+                                        }, _callee3, this, [[0, 7]]);
                                     }));
 
                                     return function (_x4) {
