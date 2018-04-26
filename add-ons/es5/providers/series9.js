@@ -12,7 +12,8 @@ var URL = {
         return 'https://series9.co' + slug;
     },
     SEARCH: function SEARCH(title) {
-        return 'https://series9.co/movie/search/' + title;
+        return 'https://api.yesmovie.io/series//movie/search/' + title;
+        // return `https://series9.co/movie/search/${title}`;
     }
 };
 
@@ -178,17 +179,22 @@ var Series9 = function () {
                         switch (_context4.prev = _context4.next) {
                             case 0:
                                 yearMovie = 0;
+                                // let htmlGetInfo = await httpRequest.getHTML(URL.GET_INFO(slug), {
+                                //     'X-Requested-With': 'XMLHttpRequest',
+                                //     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36',
+                                //     'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5'
+                                // });
+
                                 _context4.next = 3;
-                                return httpRequest.getHTML(URL.GET_INFO(slug), {
-                                    'X-Requested-With': 'XMLHttpRequest',
-                                    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36',
-                                    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5'
-                                });
+                                return httpRequest.getHTML(slug);
 
                             case 3:
                                 htmlGetInfo = _context4.sent;
+
+                                htmlGetInfo = JSON.parse(htmlGetInfo);
                                 $ = cheerio.load(htmlGetInfo);
                                 itemInfo = $('.jt-info');
+
 
                                 itemInfo.each(function () {
 
@@ -200,7 +206,7 @@ var Series9 = function () {
                                 });
                                 return _context4.abrupt('return', yearMovie);
 
-                            case 8:
+                            case 9:
                             case 'end':
                                 return _context4.stop();
                         }
