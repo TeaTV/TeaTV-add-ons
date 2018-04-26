@@ -189,7 +189,7 @@
         "vidlink": {
             "name": "vidlink",
             "domain": ["vidlink.org"],
-            "version": "0.0.5",
+            "version": "0.0.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidlink.js"
         },
         "vidoza": {
