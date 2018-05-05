@@ -7,13 +7,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: 'http://www.primewire.ag',
+    DOMAIN: 'http://www.primewire.ac',
     SEARCH: function SEARCH(title, type) {
 
         if (type == 'movie') {
-            return 'http://www.primewire.ag/index.php?search_keywords=' + title + '&key=235debe0d7f423b4&search_section=1';
+            return 'http://www.primewire.ac/?keywords=' + title;
+            // return `http://www.primewire.ag/index.php?search_keywords=${title}&key=235debe0d7f423b4&search_section=1`; 
         }
-        return 'http://www.primewire.ag/index.php?search_keywords=' + title + '&key=235debe0d7f423b4&search_section=2';
+        return 'http://www.primewire.ac/tv?keywords=' + title;
+        // return `http://www.primewire.ag/index.php?search_keywords=${title}&key=235debe0d7f423b4&search_section=2`;
     }
 };
 
@@ -56,7 +58,7 @@ var Primeware = function () {
 
                                     var titleMovie = $(this).find('a').attr('title').replace('Watch', '').match(/([^(]*)/);
                                     var yearMovie = $(this).find('a h2').text().replace('Watch', '').match(/\(([0-9]*)\)/);
-                                    var hrefMovie = URL.DOMAIN + $(this).find('a').attr('href');
+                                    var hrefMovie = URL.DOMAIN + '/' + $(this).find('a').attr('href');
                                     titleMovie = titleMovie != null ? titleMovie[1].trim() : '';
                                     yearMovie = yearMovie != null ? +yearMovie[1] : 0;
 
@@ -117,17 +119,17 @@ var Primeware = function () {
     }, {
         key: 'getHostFromDetail',
         value: function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs2, httpRequest, cheerio, arrRedirect, hosts, detailUrl, state, htmlEpisode, $, itemRedirect, checkTimeout, timeout, arrPromise;
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+                var _libs2, httpRequest, cheerio, arrRedirect, hosts, detailUrl, state, htmlEpisode, $, itemRedirect, checkTimeout, timeout, arr_redirect, arrPromise;
 
-                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                return regeneratorRuntime.wrap(function _callee4$(_context4) {
                     while (1) {
-                        switch (_context3.prev = _context3.next) {
+                        switch (_context4.prev = _context4.next) {
                             case 0:
                                 _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio;
 
                                 if (this.state.detailUrl) {
-                                    _context3.next = 3;
+                                    _context4.next = 3;
                                     break;
                                 }
 
@@ -138,11 +140,11 @@ var Primeware = function () {
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
                                 state = this.state;
-                                _context3.next = 9;
+                                _context4.next = 9;
                                 return httpRequest.getHTML(this.state.detailUrl);
 
                             case 9:
-                                htmlEpisode = _context3.sent;
+                                htmlEpisode = _context4.sent;
                                 $ = cheerio.load(htmlEpisode);
                                 itemRedirect = $('.movie_version_link');
 
@@ -173,20 +175,72 @@ var Primeware = function () {
                                  * Because many link redirect error and not response. 
                                 */
 
+                                arr_redirect = [];
                                 arrPromise = arrRedirect.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
-                                        var linkEmbed;
+                                        var html_redirect, $_3, link_embed;
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
-                                                        linkEmbed = void 0;
-                                                        _context2.prev = 1;
-                                                        _context2.next = 4;
+                                                        _context2.prev = 0;
+                                                        _context2.next = 3;
+                                                        return httpRequest.getHTML(val);
+
+                                                    case 3:
+                                                        html_redirect = _context2.sent;
+                                                        $_3 = cheerio.load(html_redirect);
+                                                        link_embed = $_3('.download').attr('href');
+
+                                                        link_embed = URL.DOMAIN + link_embed;
+
+                                                        arr_redirect.push(link_embed);
+                                                        _context2.next = 12;
+                                                        break;
+
+                                                    case 10:
+                                                        _context2.prev = 10;
+                                                        _context2.t0 = _context2['catch'](0);
+
+                                                    case 12:
+                                                        if (!(val == arr_redirect.length)) {
+                                                            _context2.next = 14;
+                                                            break;
+                                                        }
+
+                                                        return _context2.abrupt('return');
+
+                                                    case 14:
+                                                    case 'end':
+                                                        return _context2.stop();
+                                                }
+                                            }
+                                        }, _callee2, this, [[0, 10]]);
+                                    }));
+
+                                    return function (_x) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context4.next = 19;
+                                return Promise.all(arrPromise);
+
+                            case 19:
+
+                                arrPromise = arr_redirect.map(function () {
+                                    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(val) {
+                                        var linkEmbed;
+                                        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                                            while (1) {
+                                                switch (_context3.prev = _context3.next) {
+                                                    case 0:
+                                                        _context3.prev = 0;
+                                                        _context3.next = 3;
                                                         return httpRequest.getRedirectUrl(val);
 
-                                                    case 4:
-                                                        linkEmbed = _context2.sent;
+                                                    case 3:
+                                                        linkEmbed = _context3.sent;
+
 
                                                         linkEmbed && hosts.push({
                                                             provider: {
@@ -199,52 +253,46 @@ var Primeware = function () {
                                                                 type: "embed"
                                                             }
                                                         });
-                                                        _context2.next = 10;
+
+                                                        _context3.next = 9;
                                                         break;
 
-                                                    case 8:
-                                                        _context2.prev = 8;
-                                                        _context2.t0 = _context2['catch'](1);
+                                                    case 7:
+                                                        _context3.prev = 7;
+                                                        _context3.t0 = _context3['catch'](0);
 
-                                                    case 10:
-                                                        if (!(val == arrRedirect.length)) {
-                                                            _context2.next = 12;
-                                                            break;
-                                                        }
-
-                                                        return _context2.abrupt('return');
-
-                                                    case 12:
+                                                    case 9:
                                                     case 'end':
-                                                        return _context2.stop();
+                                                        return _context3.stop();
                                                 }
                                             }
-                                        }, _callee2, this, [[1, 8]]);
+                                        }, _callee3, this, [[0, 7]]);
                                     }));
 
-                                    return function (_x) {
-                                        return _ref3.apply(this, arguments);
+                                    return function (_x2) {
+                                        return _ref4.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 18;
+
+                                _context4.next = 22;
                                 return Promise.all(arrPromise);
 
-                            case 18:
+                            case 22:
                                 if (checkTimeout) {
-                                    _context3.next = 22;
+                                    _context4.next = 26;
                                     break;
                                 }
 
                                 clearTimeout(timeout);
                                 state.hosts = hosts;
-                                return _context3.abrupt('return');
+                                return _context4.abrupt('return');
 
-                            case 22:
+                            case 26:
                             case 'end':
-                                return _context3.stop();
+                                return _context4.stop();
                         }
                     }
-                }, _callee3, this);
+                }, _callee4, this);
             }));
 
             function getHostFromDetail() {
@@ -259,37 +307,37 @@ var Primeware = function () {
 }();
 
 thisSource.function = function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(libs, movieInfo, settings) {
         var primeware;
-        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+        return regeneratorRuntime.wrap(function _callee5$(_context5) {
             while (1) {
-                switch (_context4.prev = _context4.next) {
+                switch (_context5.prev = _context5.next) {
                     case 0:
                         primeware = new Primeware({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
-                        _context4.next = 3;
+                        _context5.next = 3;
                         return primeware.searchDetail();
 
                     case 3:
-                        _context4.next = 5;
+                        _context5.next = 5;
                         return primeware.getHostFromDetail();
 
                     case 5:
-                        return _context4.abrupt('return', primeware.state.hosts);
+                        return _context5.abrupt('return', primeware.state.hosts);
 
                     case 6:
                     case 'end':
-                        return _context4.stop();
+                        return _context5.stop();
                 }
             }
-        }, _callee4, undefined);
+        }, _callee5, undefined);
     }));
 
-    return function (_x2, _x3, _x4) {
-        return _ref4.apply(this, arguments);
+    return function (_x3, _x4, _x5) {
+        return _ref5.apply(this, arguments);
     };
 }();
 
