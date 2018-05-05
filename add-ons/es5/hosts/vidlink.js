@@ -192,6 +192,11 @@ var VidLink = function () {
 
                                                     case 3:
                                                         isDie = _context3.sent;
+                                                        _context3.next = 6;
+                                                        return httpRequest.isLinkDie(val.url);
+
+                                                    case 6:
+                                                        isDie = _context3.sent;
 
 
                                                         console.log('dongdong', val.url, isDie, 'hihi');
@@ -200,19 +205,19 @@ var VidLink = function () {
                                                                 file: val.url, label: 'NOR', type: "direct", size: isDie
                                                             });
                                                         }
-                                                        _context3.next = 10;
+                                                        _context3.next = 13;
                                                         break;
 
-                                                    case 8:
-                                                        _context3.prev = 8;
+                                                    case 11:
+                                                        _context3.prev = 11;
                                                         _context3.t0 = _context3['catch'](0);
 
-                                                    case 10:
+                                                    case 13:
                                                     case 'end':
                                                         return _context3.stop();
                                                 }
                                             }
-                                        }, _callee3, this, [[0, 8]]);
+                                        }, _callee3, this, [[0, 11]]);
                                     }));
 
                                     return function (_x4) {
