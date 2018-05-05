@@ -1,5 +1,12 @@
 {
     "providers": {
+        "primeware": {
+            "name": "primeware",
+            "domain": "primeware.ac",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/primeware.js",
+            "type": ["tv", "movie"]
+        },
         "hollymovies": {
             "name": "hollymovies",
             "domain": "hollymoviehd.com",
