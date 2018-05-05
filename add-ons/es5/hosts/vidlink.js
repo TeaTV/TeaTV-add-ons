@@ -194,7 +194,7 @@ var VidLink = function () {
                                                         isDie = _context3.sent;
 
 
-                                                        if (isDie != false) {
+                                                        if (isDie != false && !isNaN(isDie)) {
                                                             sources.push({
                                                                 file: val.url, label: 'NOR', type: "direct", size: isDie
                                                             });
