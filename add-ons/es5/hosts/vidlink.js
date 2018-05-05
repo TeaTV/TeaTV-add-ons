@@ -194,24 +194,25 @@ var VidLink = function () {
                                                         isDie = _context3.sent;
 
 
+                                                        console.log('dongdong', val.url, isDie, 'hihi');
                                                         if (isDie != false && !isNaN(isDie)) {
                                                             sources.push({
                                                                 file: val.url, label: 'NOR', type: "direct", size: isDie
                                                             });
                                                         }
-                                                        _context3.next = 9;
+                                                        _context3.next = 10;
                                                         break;
 
-                                                    case 7:
-                                                        _context3.prev = 7;
+                                                    case 8:
+                                                        _context3.prev = 8;
                                                         _context3.t0 = _context3['catch'](0);
 
-                                                    case 9:
+                                                    case 10:
                                                     case 'end':
                                                         return _context3.stop();
                                                 }
                                             }
-                                        }, _callee3, this, [[0, 7]]);
+                                        }, _callee3, this, [[0, 8]]);
                                     }));
 
                                     return function (_x4) {
