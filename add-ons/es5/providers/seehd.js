@@ -112,12 +112,12 @@ var Seehd = function () {
                                                     case 2:
                                                         htmlSearch = _context2.sent;
                                                         $ = cheerio.load(htmlSearch.data);
-                                                        itemPage = $('.movie.big');
+                                                        itemPage = $('.movie');
 
 
                                                         itemPage.each(function () {
 
-                                                            var hrefMovie = $(this).find('a').attr('href');
+                                                            var hrefMovie = $(this).find('.post_thumb a').attr('href');
                                                             var titleMovie = $(this).find('a h2').text();
                                                             titleMovie = titleMovie.replace('Watch Online', '').trim();
                                                             var yearMovie = titleMovie.split(' ');
