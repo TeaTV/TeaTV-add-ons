@@ -43,7 +43,6 @@ var VidLink = function () {
                                 headers = {
                                     'accept': 'application/json, text/javascript, */*; q=0.01',
                                     'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-                                    'content-length': '144',
                                     'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
                                     'origin': 'https://vidlink.org',
                                     'referer': url,
@@ -197,7 +196,7 @@ var VidLink = function () {
 
                                                         if (isDie != false) {
                                                             sources.push({
-                                                                file: val.url, label: 'NOR', type: "direct", size: 'NOR'
+                                                                file: val.url, label: 'NOR', type: "direct", size: isDie
                                                             });
                                                         }
                                                         _context3.next = 9;
