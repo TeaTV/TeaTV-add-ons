@@ -156,7 +156,6 @@
         }
     },
     "hosts": {
-
         "streamango": {
             "name": "streamango",
             "domain": "streamango.com",
