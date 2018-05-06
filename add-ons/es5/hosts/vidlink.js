@@ -198,7 +198,7 @@ var VidLink = function () {
 
                                                             // if( isDie != false  )  {
                                                             sources.push({
-                                                                file: val.url, label: 'NOR', type: "direct", size: '2.0'
+                                                                file: val.url, label: 'NOR', type: "direct", size: _size
                                                             });
                                                             // }
                                                         } catch (error) {}

@@ -127,7 +127,7 @@ class VidLink {
                     
                     // if( isDie != false  )  {
                         sources.push({
-                            file: val.url, label: 'NOR', type: "direct" , size: '2.0'
+                            file: val.url, label: 'NOR', type: "direct" , size: size
                         });
                     // }
                 } catch(error) {}
