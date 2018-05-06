@@ -6,7 +6,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-// const converter     = require('byte-converter').converterBase2;
+var converter = require('byte-converter').converterBase2;
 
 var VidLink = function () {
     function VidLink(props) {
@@ -128,13 +128,14 @@ var VidLink = function () {
         key: 'getEmbed',
         value: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(url) {
-                var _libs2, httpRequest, cheerio, sources, temp, window, postResponse, item, _url, size, arrPromise;
+                var _libs2, httpRequest, cheerio, vidlink, sources, temp, window, postResponse, item, _url, size, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee4$(_context4) {
                     while (1) {
                         switch (_context4.prev = _context4.next) {
                             case 0:
                                 _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio;
+                                vidlink = this;
                                 sources = [];
                                 temp = [];
                                 window = {
@@ -142,21 +143,21 @@ var VidLink = function () {
                                     nsrc: [],
                                     checkSrc: function checkSrc() {}
                                 };
-                                _context4.prev = 4;
-                                _context4.next = 7;
+                                _context4.prev = 5;
+                                _context4.next = 8;
                                 return this.checkLive(url);
 
-                            case 7:
+                            case 8:
                                 postResponse = _context4.sent;
 
                                 if (!(postResponse == false)) {
-                                    _context4.next = 10;
+                                    _context4.next = 11;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
-                            case 10:
+                            case 11:
 
                                 eval(postResponse);
                                 postResponse = window.srcs;
@@ -181,61 +182,56 @@ var VidLink = function () {
 
                                 arrPromise = temp.map(function () {
                                     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(val) {
-                                        var isDie;
+                                        var _size;
+
                                         return regeneratorRuntime.wrap(function _callee3$(_context3) {
                                             while (1) {
                                                 switch (_context3.prev = _context3.next) {
                                                     case 0:
-                                                        _context3.prev = 0;
-                                                        _context3.next = 3;
-                                                        return httpRequest.isLinkDie(val.url);
 
-                                                    case 3:
-                                                        isDie = _context3.sent;
+                                                        try {
+                                                            _size = converter(+val.size, 'B', 'GB');
 
-                                                        // isDie = await httpRequest.isLinkDie(val.url);
+                                                            _size = parseFloat(+_size).toFixed(2);
+                                                            // let isDie = await this.isLinkDie(val.url);
+                                                            // isDie = await httpRequest.isLinkDie(val.url);
 
-                                                        if (isDie != false) {
+                                                            // if( isDie != false  )  {
                                                             sources.push({
-                                                                file: val.url, label: 'NOR', type: "direct", size: isDie
+                                                                file: val.url, label: 'NOR', type: "direct", size: _size
                                                             });
-                                                        }
-                                                        _context3.next = 9;
-                                                        break;
+                                                            // }
+                                                        } catch (error) {}
 
-                                                    case 7:
-                                                        _context3.prev = 7;
-                                                        _context3.t0 = _context3['catch'](0);
-
-                                                    case 9:
+                                                    case 1:
                                                     case 'end':
                                                         return _context3.stop();
                                                 }
                                             }
-                                        }, _callee3, this, [[0, 7]]);
+                                        }, _callee3, this);
                                     }));
 
                                     return function (_x4) {
                                         return _ref4.apply(this, arguments);
                                     };
                                 }());
-                                _context4.next = 16;
+                                _context4.next = 17;
                                 return Promise.all(arrPromise);
 
-                            case 16:
+                            case 17:
                                 return _context4.abrupt('return', sources);
 
-                            case 19:
-                                _context4.prev = 19;
-                                _context4.t0 = _context4['catch'](4);
+                            case 20:
+                                _context4.prev = 20;
+                                _context4.t0 = _context4['catch'](5);
                                 throw new Error(_context4.t0);
 
-                            case 22:
+                            case 23:
                             case 'end':
                                 return _context4.stop();
                         }
                     }
-                }, _callee4, this, [[4, 19]]);
+                }, _callee4, this, [[5, 20]]);
             }));
 
             function getEmbed(_x3) {
