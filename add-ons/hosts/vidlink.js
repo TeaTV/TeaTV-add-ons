@@ -118,10 +118,8 @@ class VidLink {
                 try {
 
                     let isDie = await httpRequest.isLinkDie(val.url);
-                    isDie = await httpRequest.isLinkDie(val.url);
                     
-                    console.log('dongdong', val.url, isDie, 'hihi');
-                    if( isDie != false && !isNaN(isDie) )  {
+                    if( isDie != false )  {
                         sources.push({
                             file: val.url, label: 'NOR', type: "direct" , size: isDie
                         });
