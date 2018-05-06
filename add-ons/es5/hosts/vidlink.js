@@ -192,32 +192,27 @@ var VidLink = function () {
 
                                                     case 3:
                                                         isDie = _context3.sent;
-                                                        _context3.next = 6;
-                                                        return httpRequest.isLinkDie(val.url);
 
-                                                    case 6:
-                                                        isDie = _context3.sent;
+                                                        // isDie = await httpRequest.isLinkDie(val.url);
 
-
-                                                        console.log('dongdong', val.url, isDie, 'hihi');
-                                                        if (isDie != false && !isNaN(isDie)) {
+                                                        if (isDie != false) {
                                                             sources.push({
                                                                 file: val.url, label: 'NOR', type: "direct", size: isDie
                                                             });
                                                         }
-                                                        _context3.next = 13;
+                                                        _context3.next = 9;
                                                         break;
 
-                                                    case 11:
-                                                        _context3.prev = 11;
+                                                    case 7:
+                                                        _context3.prev = 7;
                                                         _context3.t0 = _context3['catch'](0);
 
-                                                    case 13:
+                                                    case 9:
                                                     case 'end':
                                                         return _context3.stop();
                                                 }
                                             }
-                                        }, _callee3, this, [[0, 11]]);
+                                        }, _callee3, this, [[0, 7]]);
                                     }));
 
                                     return function (_x4) {
