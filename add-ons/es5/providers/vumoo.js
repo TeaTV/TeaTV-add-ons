@@ -10,7 +10,7 @@ var URL = {
     DOMAIN: 'http://vumoo.to',
     DOMAIN_CDN: 'http://cdn.123moviesapp.net',
     SEARCH: function SEARCH(title) {
-        return 'http://vumoo.to/search?q=' + title;
+        return 'http://vumoo.to/search?t=13579&q=' + title;
     }
 };
 
@@ -46,7 +46,7 @@ var Vumoo = function () {
 
                                 jsonSearch = jsonSearch.data;
 
-                                jsonSearch.suggestions.map(function (val) {
+                                jsonSearch.suggestions.forEach(function (val) {
 
                                     var hrefMovie = URL.DOMAIN + val.data.href;
                                     var typeMovie = val.data.type;
@@ -193,7 +193,7 @@ var Vumoo = function () {
                                                 switch (_context3.prev = _context3.next) {
                                                     case 0:
                                                         if (!(val.indexOf('http:') == -1 && val.indexOf('https:') == -1)) {
-                                                            _context3.next = 9;
+                                                            _context3.next = 11;
                                                             break;
                                                         }
 
@@ -206,6 +206,7 @@ var Vumoo = function () {
 
                                                         linkDirect = linkDirect.data;
 
+                                                        console.log(linkDirect);process.exit();
                                                         for (item in linkDirect) {
 
                                                             linkDirect[item].file && hosts.push({
@@ -220,10 +221,10 @@ var Vumoo = function () {
                                                                 }
                                                             });
                                                         }
-                                                        _context3.next = 10;
+                                                        _context3.next = 12;
                                                         break;
 
-                                                    case 9:
+                                                    case 11:
                                                         hosts.push({
                                                             provider: {
                                                                 url: detailUrl,
@@ -236,7 +237,7 @@ var Vumoo = function () {
                                                             }
                                                         });
 
-                                                    case 10:
+                                                    case 12:
                                                     case 'end':
                                                         return _context3.stop();
                                                 }

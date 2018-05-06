@@ -100,7 +100,7 @@ class WatchSeriesEpisode {
             let linkRedirect = $(this).find('.watch .watch-button').attr('href');
             arrRedirect.push(linkRedirect);
         });
-        
+    
         arrRedirect = _.dropRight(arrRedirect, arrRedirect.length - 50);
 
 
@@ -130,6 +130,7 @@ class WatchSeriesEpisode {
                 let $_2         = cheerio.load(htmlEmbed);
                 let linkEmbed   = $_2('.wb-main .watch-button').attr('href');
 
+                console.log(linkEmbed);
                 linkEmbed && arrhosts.push({
                     provider: {
                         url: state.detailUrl,

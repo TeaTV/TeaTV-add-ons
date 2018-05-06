@@ -1,3 +1,5 @@
+// const converter     = require('byte-converter').converterBase2;
+
 class VidLink {
 
     constructor(props) {
@@ -17,14 +19,13 @@ class VidLink {
         actionToken     = actionToken != null ? actionToken[1] : '';
         actionToken     = actionToken.trim();
 
-
+       
         let urlParts    = url.split("/");
         let id          = urlParts[urlParts.length - 1];
 
         let headers = {
             'accept': 'application/json, text/javascript, */*; q=0.01',
             'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-            'content-length': '144',
             'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
             'origin': 'https://vidlink.org',
             'referer': url,
@@ -79,31 +80,49 @@ class VidLink {
         let sources     = [];
         let temp        = [];
 
+        let window      = {
+            srcs: [],
+            nsrc: [],
+            checkSrc: () => {}
+        };
         
-
         try {
 
             let postResponse = await this.checkLive(url);
 
             if( postResponse == false )  throw new Error("LINK DIE");
 
+            eval(postResponse);
+            postResponse = window.srcs;
+
             for( let item in postResponse ) {
 
-                if( postResponse[item].type == 'video/mp4' ) {
-                    temp.push(postResponse[item].url);
+                if( postResponse[item].type == 'video/mp4' && postResponse[item].status != 401 ) {
+
+                    let url = postResponse[item].src.match(/url\=([^\&]+)/i);
+                    url     = url != null ? url[1] : false;
+                    let size = postResponse[item].src.match(/\&size\=([0-9]+)/i); 
+                    size    = size != null ? +size[1] : 0;
+
+                    if( url != false ) {
+                        url = decodeURIComponent(url);
+                        temp.push({url, size});
+                    }
+                    // temp.push('https://vidlink.org' + postResponse[item].src);
                 }
-                
             }
+
 
             let arrPromise = temp.map(async function(val) {
 
                 try {
 
-                    let isDie = await httpRequest.isLinkDie(val);
-    
+                    let isDie = await httpRequest.isLinkDie(val.url);
+                    isDie = await httpRequest.isLinkDie(val.url);
+                    
                     if( isDie != false )  {
                         sources.push({
-                            file: val, label: 'NOR', type: "direct" , size: isDie
+                            file: val.url, label: 'NOR', type: "direct" , size: isDie
                         });
                     }
                 } catch(error) {}

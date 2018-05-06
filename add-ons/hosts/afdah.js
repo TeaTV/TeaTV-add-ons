@@ -130,9 +130,11 @@ class Afdah {
             let sources = [];
         
             decryp          = eval(`[${decryp}]`);
+
             let arrPromise  =  decryp.map( async function(value) {
                 
                 let isDie = await httpRequest.isLinkDie(value.file);
+
                 if( isDie != false ) {
 
                     sources.push({

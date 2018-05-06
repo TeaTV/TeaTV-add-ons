@@ -1,11 +1,13 @@
 const URL = {
-    DOMAIN: 'http://www.primewire.ag',
+    DOMAIN: 'http://www.primewire.ac',
     SEARCH: (title, type) => {
 
         if( type == 'movie' ) {
-            return `http://www.primewire.ag/index.php?search_keywords=${title}&key=235debe0d7f423b4&search_section=1`; 
+            return `http://www.primewire.ac/?keywords=${title}`; 
+            // return `http://www.primewire.ag/index.php?search_keywords=${title}&key=235debe0d7f423b4&search_section=1`; 
         }
-        return `http://www.primewire.ag/index.php?search_keywords=${title}&key=235debe0d7f423b4&search_section=2`;
+        return `http://www.primewire.ac/tv?keywords=${title}`;
+        // return `http://www.primewire.ag/index.php?search_keywords=${title}&key=235debe0d7f423b4&search_section=2`;
     }
 };
 
@@ -34,7 +36,7 @@ class Primeware {
 
             let titleMovie  = $(this).find('a').attr('title').replace('Watch', '').match(/([^(]*)/);
             let yearMovie   = $(this).find('a h2').text().replace('Watch', '').match(/\(([0-9]*)\)/);
-            let hrefMovie   = URL.DOMAIN + $(this).find('a').attr('href');
+            let hrefMovie   = URL.DOMAIN +'/'+ $(this).find('a').attr('href');
             titleMovie      = titleMovie    != null ? titleMovie[1].trim()  : '';
             yearMovie       = yearMovie     != null ? +yearMovie[1]         : 0;
 
@@ -98,6 +100,7 @@ class Primeware {
             
         });
 
+        
         let checkTimeout = false;
         let timeout = setTimeout(function() {
 
@@ -112,11 +115,35 @@ class Primeware {
          * this function will setTimeout 7s. 
          * Because many link redirect error and not response. 
         */
+
+        let arr_redirect = [];
         let arrPromise = arrRedirect.map(async function(val) {
 
-            let linkEmbed;
             try {
-                linkEmbed   = await httpRequest.getRedirectUrl(val);
+                let html_redirect   = await httpRequest.getHTML(val);
+                let $_3             = cheerio.load(html_redirect);
+
+                let link_embed = $_3('.download').attr('href');
+                link_embed      = URL.DOMAIN + link_embed;
+
+                arr_redirect.push(link_embed);
+            } catch(error) {}
+
+            if( val == arr_redirect.length ) {
+                return;
+            }
+        });
+
+        await Promise.all(arrPromise);
+
+
+        arrPromise = arr_redirect.map(async function(val) {
+
+            try {
+
+                let linkEmbed = await httpRequest.getRedirectUrl(val);
+                
+
                 linkEmbed && hosts.push({
                     provider: {
                         url: detailUrl,
@@ -127,13 +154,9 @@ class Primeware {
                         label: "embed",
                         type: "embed"
                     }
-                });
-            } catch(error) {}
+                }); 
 
-            if( val == arrRedirect.length ) {
-                return;
-            }
-
+            } catch(e){}
         });
 
         await Promise.all(arrPromise);

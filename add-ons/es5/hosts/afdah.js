@@ -187,6 +187,7 @@ var Afdah = function () {
 
 
                                 decryp = eval("[" + decryp + "]");
+
                                 arrPromise = decryp.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(value) {
                                         var isDie;
@@ -199,6 +200,7 @@ var Afdah = function () {
 
                                                     case 2:
                                                         isDie = _context2.sent;
+
 
                                                         if (isDie != false) {
 

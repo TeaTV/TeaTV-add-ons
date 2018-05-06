@@ -21,8 +21,8 @@ class SeehdUno {
         const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
         let { title, year, season, episode, type } = this.movieInfo;
 
-        let htmlSearch  = await httpRequest.getHTML(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')));
-        let $           = cheerio.load(htmlSearch);
+        let htmlSearch  = await httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')));
+        let $           = cheerio.load(htmlSearch.data);
         let page        = $('#paginador .paginado ul li');
 
         if( page.length <= 0 ) {
@@ -53,8 +53,8 @@ class SeehdUno {
 
         let arrPromise = arrNumber.map(async function(val) {
 
-            let htmlSearch  = await httpRequest.getHTML(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), val));
-            let $           = cheerio.load(htmlSearch);
+            let htmlSearch  = await httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), val));
+            let $           = cheerio.load(htmlSearch.data);
             let itemSearch  = $('.peliculas .items .item');
 
             itemSearch.each(function() {
@@ -107,8 +107,8 @@ class SeehdUno {
         let hosts       = [];
         
         let detailUrl   = this.state.detailUrl;
-        let htmlDetail  = await httpRequest.getHTML(this.state.detailUrl);
-        let $           = cheerio.load(htmlDetail);
+        let htmlDetail  = await httpRequest.getCloudflare(this.state.detailUrl);
+        let $           = cheerio.load(htmlDetail.data);
         let itemEmbed   = $('#player2 .movieplay');
 
         itemEmbed.each(function() {

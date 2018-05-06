@@ -2,7 +2,7 @@ const URL = {
     DOMAIN: `http://vumoo.to`,
     DOMAIN_CDN: 'http://cdn.123moviesapp.net',
     SEARCH: (title) => {
-        return `http://vumoo.to/search?q=${title}`;
+        return `http://vumoo.to/search?t=13579&q=${title}`;
     }
 };
 
@@ -21,10 +21,11 @@ class Vumoo {
 
         let detailUrl       = false;
         let urlSearch       = URL.SEARCH(encodeURI(title));
+
         let jsonSearch      = await httpRequest.get(urlSearch);
         jsonSearch          = jsonSearch.data;
 
-        jsonSearch.suggestions.map(function(val) {
+        jsonSearch.suggestions.forEach(function(val) {
 
             let hrefMovie   = URL.DOMAIN + val.data.href;
             let typeMovie   = val.data.type;
@@ -34,7 +35,6 @@ class Vumoo {
             titleMovie      = titleMovie.replace(/\([0-9]+\)/i, '').trim();
             let seasonMovie = titleMovie.match(/ *season *([0-9]+)/i);
             seasonMovie     = seasonMovie != null ? +seasonMovie[1] : false;
-
 
             
             if( seasonMovie != false ) {
@@ -118,7 +118,6 @@ class Vumoo {
         
         await Promise.all(arrPromise);
 
-
         let arrPromiseEmbed = arrLinkEmbed.map(async function(val) {
 
             if( val.indexOf('http:') == -1 && val.indexOf('https:') == -1 ) {
@@ -127,6 +126,7 @@ class Vumoo {
                 let linkDirect  = await httpRequest.get(urlDirect);
                 linkDirect      = linkDirect.data;
 
+                console.log(linkDirect); process.exit();
                 for( let item in linkDirect ) {
                     
                     linkDirect[item].file && hosts.push({

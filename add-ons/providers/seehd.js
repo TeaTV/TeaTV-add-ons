@@ -57,11 +57,11 @@ class Seehd {
 
             let htmlSearch  = await httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), val));
             let $           = cheerio.load(htmlSearch.data);
-            let itemPage    = $('.movie.big');
+            let itemPage    = $('.movie');
 
             itemPage.each(function() {
                 
-                let hrefMovie   = $(this).find('a').attr('href');
+                let hrefMovie   = $(this).find('.post_thumb a').attr('href');
                 let titleMovie  = $(this).find('a h2').text();
                 titleMovie      = titleMovie.replace('Watch Online', '').trim();
                 let yearMovie   = titleMovie.split(' ');
