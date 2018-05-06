@@ -1,3 +1,5 @@
+const converter     = require('byte-converter').converterBase2;
+
 let END_OF_INPUT = -1;
 let arrChrs = new Array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "/");
 let reversegetFChars = new Array;
@@ -94,6 +96,34 @@ class Afdah {
         this.state      = {};
     }
 
+    async isLinkDie(url) {
+
+        const {axios} = this.libs;
+
+        if( url.indexOf('.m3u') != -1 ) return "NOR";
+
+        let size     = await this.getFileSize(url);
+        
+        try {
+
+            size = parseInt(+size);  
+            // size = converter(+size, 'KB', 'GB');
+            // size = parseFloat(+size).toFixed(2);
+            return size;
+        } catch(e) {
+
+            return false;
+        }
+    }
+
+    async getFileSize(url) {
+
+        const {axios} = this.libs;
+
+        let res = await axios.head(url);
+        return res.headers["content-length"];
+    }
+
     async checkLive(url) {
 
         let { httpRequest } = this.libs;
@@ -115,6 +145,8 @@ class Afdah {
     async getLink(url) {
         
         const { httpRequest, cheerio } = this.libs;
+        const afdah = this;
+
 
         let html    = await this.checkLive(url);
         if( html == false ) throw new Error("LINK DIE");
@@ -131,24 +163,25 @@ class Afdah {
         
             decryp          = eval(`[${decryp}]`);
 
+
             let arrPromise  =  decryp.map( async function(value) {
                 
-                let isDie = await httpRequest.isLinkDie(value.file);
+                let htmlM3u8 = await httpRequest.getHTML(value.file); 
+                let listM3u8 = htmlM3u8.match(/(?:(?:https?|ftp):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/ig);
 
-                if( isDie != false ) {
+                let size     = await afdah.getSizeM3u8(listM3u8);
 
-                    sources.push({
-                        label: 'NOR',
-                        file: value.file,
-                        type: "embed",
-                        size: isDie
-                    });
-                }
-    
+                sources.push({
+                    label: 'NOR',
+                    file: value.file,
+                    type: "embed",
+                    size: size
+                });
+
             });
 
             await Promise.all(arrPromise);
-            
+
             return {
                 host: {
                     url: url,
@@ -159,6 +192,55 @@ class Afdah {
       
         }
 
+    }
+
+    async getSizeM3u8(listLink) {
+
+        const { httpRequest, cheerio } = this.libs;
+        const afdah = this;
+
+        let totalSize = 0;
+
+        let arrM3u8 = [];
+
+        let arrPromise = listLink.map(async (val) => {
+
+            if( val.indexOf('http') != -1 ) {
+
+                let htmlM3u8 = await httpRequest.getHTML(val); 
+                let listM3u8 = htmlM3u8.match(/(?:(?:https?|ftp):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/ig);
+
+                for( let i = 1; i <= listM3u8.length; i+=2 ) {
+
+                    if( listM3u8[i].indexOf('http') != -1 ) {
+
+
+                        arrM3u8.push(listM3u8[i]);
+                    }
+                }
+            }
+        });
+
+        await Promise.all(arrPromise);
+
+        arrPromise = arrM3u8.map(async (val) => {
+
+            try {
+                let size = await afdah.isLinkDie(val);
+
+                if( size ) {
+
+                    totalSize += +size;
+                }
+            } catch(e) {}
+            
+        });
+
+        await Promise.all(arrPromise);
+
+        totalSize = converter(totalSize, 'B', 'GB');
+        totalSize = parseFloat(totalSize).toFixed(2); 
+        return totalSize;
     }
 }
 
