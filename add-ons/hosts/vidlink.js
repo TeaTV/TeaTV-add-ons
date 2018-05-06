@@ -1,4 +1,6 @@
-// const converter     = require('byte-converter').converterBase2;
+const converter     = require('byte-converter').converterBase2;
+
+
 
 class VidLink {
 
@@ -76,6 +78,7 @@ class VidLink {
     async getEmbed(url) {
 
         const { httpRequest, cheerio } = this.libs;
+        const vidlink = this;
 
         let sources     = [];
         let temp        = [];
@@ -117,14 +120,16 @@ class VidLink {
 
                 try {
 
-                    let isDie = await httpRequest.isLinkDie(val.url);
-                    isDie = await httpRequest.isLinkDie(val.url);
+                    let size = converter(+val.size, 'B', 'GB');
+                    size = parseFloat(+size).toFixed(2);
+                    // let isDie = await this.isLinkDie(val.url);
+                    // isDie = await httpRequest.isLinkDie(val.url);
                     
-                    if( isDie != false )  {
+                    // if( isDie != false  )  {
                         sources.push({
-                            file: val.url, label: 'NOR', type: "direct" , size: isDie
+                            file: val.url, label: 'NOR', type: "direct" , size: size
                         });
-                    }
+                    // }
                 } catch(error) {}
                 
             });
