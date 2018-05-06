@@ -16,7 +16,11 @@ class TheVideo {
         // you fill the die status text
         // const dieStatusText = "";
         let html = await httpRequest.getHTML(url, {
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'cache-control': 'max-age=0',
+            'upgrade-insecure-requests': 1,
+            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36'
         });
         // if(html.includes(dieStatusText)) return true;
         return html;
@@ -44,8 +48,9 @@ class TheVideo {
         if( htmlDetail == false ) throw new Error("LINK DIE");
 
 
-        let thief   = htmlDetail.match(/var *thief\=\'([^\']+)/i);
+        let thief   = htmlDetail.match(/var *thief *\=\ *'([^\']+)/i);
         thief       = thief != null ? thief[1] : '';
+
         let jwConfig= `https://thevideo.website/vsign/player/${thief}`;
         let htmlJwConfig    = await httpRequest.getHTML(jwConfig);
 

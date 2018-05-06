@@ -7,48 +7,48 @@ class Openload {
         this.state      = {};
     }
 
-    async getOpenload(url) {
+    // async getOpenload(url) {
 
-        const { httpRequest, jsdom }    = this.libs;
-        const { JSDOM }                 = jsdom;
-        const jqueryUrl                 = "http://code.jquery.com/jquery-1.11.0.min.js";
-        let html                        = await httpRequest.getHTML(url);
+    //     const { httpRequest, jsdom }    = this.libs;
+    //     const { JSDOM }                 = jsdom;
+    //     const jqueryUrl                 = "http://code.jquery.com/jquery-1.11.0.min.js";
+    //     let html                        = await httpRequest.getHTML(url);
 
-        if (html.indexOf('<h3>We’re Sorry!</h3>') > -1) throw new Error("Invalid fileId");
+    //     if (html.indexOf('<h3>We’re Sorry!</h3>') > -1) throw new Error("Invalid fileId");
 
 
-        let jquery  = await httpRequest.getHTML(jqueryUrl);
-        const dom   = new JSDOM(html, {
-            runScripts: "outside-only"
-        });
+    //     let jquery  = await httpRequest.getHTML(jqueryUrl);
+    //     const dom   = new JSDOM(html, {
+    //         runScripts: "outside-only"
+    //     });
 
-        const window = dom.window;
-        window.eval(jquery);
+    //     const window = dom.window;
+    //     window.eval(jquery);
 
-        var script = html.substring(html.indexOf("ﾟωﾟﾉ= /｀ｍ´"));
-        script = script.substring(0, script.indexOf("</script>"));
-        window.eval(script);
-        script = script.substring(script.indexOf("$(document)"));
-        script = script.substring(script.indexOf("var"))
-        script = script.substring(0, script.indexOf("ﾟωﾟ"))
-        script = script.substring(0, script.lastIndexOf("});"))
-        script = script.replace("document.createTextNode.toString().indexOf('[native code')", "1");
-        script = script.replace("_0x3d7b02=[];", "");
-        window.eval(script);
+    //     var script = html.substring(html.indexOf("ﾟωﾟﾉ= /｀ｍ´"));
+    //     script = script.substring(0, script.indexOf("</script>"));
+    //     window.eval(script);
+    //     script = script.substring(script.indexOf("$(document)"));
+    //     script = script.substring(script.indexOf("var"))
+    //     script = script.substring(0, script.indexOf("ﾟωﾟ"))
+    //     script = script.substring(0, script.lastIndexOf("});"))
+    //     script = script.replace("document.createTextNode.toString().indexOf('[native code')", "1");
+    //     script = script.replace("_0x3d7b02=[];", "");
+    //     window.eval(script);
 
-        let streamUrl   = window.document.getElementById("streamurj").innerHTML;
-        let opl         = "https://openload.co/stream/" + streamUrl + "?mime=true";
-        let isDie       = await httpRequest.isLinkDie(opl);
+    //     let streamUrl   = window.document.getElementById("streamurj").innerHTML;
+    //     let opl         = "https://openload.co/stream/" + streamUrl + "?mime=true";
+    //     let isDie       = await httpRequest.isLinkDie(opl);
 
-        if( isDie == false ) throw new Error("NOT LINK");
-        return {
-            host: {
-                url: url,
-                name: "openload"
-            },
-            result: [{ file: opl, label: "NOR", type: "embed", size: isDie }]
-        }
-    }
+    //     if( isDie == false ) throw new Error("NOT LINK");
+    //     return {
+    //         host: {
+    //             url: url,
+    //             name: "openload"
+    //         },
+    //         result: [{ file: opl, label: "NOR", type: "embed", size: isDie }]
+    //     }
+    // }
     
     async checkLive(url)  {
     
@@ -64,12 +64,16 @@ class Openload {
     async getUsingAPI (url) {
     
         const { httpRequest, cryptoJs } = this.libs;
-        const html                      = await this.checkLive(url);
     
-        if( html == false ) throw new Error("LINK DIE");
+        let html = false;
+        try {
+            html                      = await this.checkLive(url);
+        } catch(error) {
+            throw new Error("LINK DIE");
+        }
     
-        const token = cryptoJs.MD5(html + "teatv-openload").toString();
-        const apiResponse = await httpRequest.post("https://api.teatv.net/api/v2/get_opl", {
+        const token         = cryptoJs.MD5(html + "teatv-openload").toString();
+        const apiResponse   = await httpRequest.post("https://api.teatv.net/api/v2/get_opl", {
             "Content-Type": "application/json"
         }, JSON.stringify({
             data: html,
@@ -82,7 +86,11 @@ class Openload {
         const { status, data, error } = apiResponse.data;
         if(error) throw new Error(error);
         if(status == 200) {
-            let isDie       = await httpRequest.isLinkDie(data);
+
+            let isDie = false;
+            try {
+                isDie       = await httpRequest.isLinkDie(data);
+            } catch(error) {}
             if( isDie == false ) throw new Error("NOT LINK");
 
             return {
@@ -93,7 +101,6 @@ class Openload {
                 result: [{ file: data, label: "NOR", type: "embed", size: isDie }]
             }
         }
-        
         
     }
     convertToEmbed() {
@@ -106,16 +113,13 @@ class Openload {
 
         const { httpRequest, cheerio } = this.libs;
 
-        let data;
-        
         try {
-            data = await this.getOpenload(url);
+            let data = await this.getUsingAPI(url);
+
+            return data;
         } catch(err) {
-            console.log(err);
-            data = await this.getUsingAPI(url);
+            throw new Error(err);
         }
-        
-        return data;
     }
 }
 

@@ -33,6 +33,7 @@ class FreeMovies {
 			let yearFree    = titleTemp.match(/\(([^\)]+)/i);
 			yearFree        = yearFree != null ? yearFree[1] : 0;
             let titleFree   = titleTemp.replace(/\(.*/i, '');
+    
             
             if( stringHelper.shallowCompare(title, titleFree) && +yearFree == year ) {
 
@@ -50,7 +51,6 @@ class FreeMovies {
 				}
 			}
         });
-
 
         this.state.detailUrl = detailUrl;
         return;

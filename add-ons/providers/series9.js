@@ -4,7 +4,8 @@ const URL = {
         return `https://series9.co${slug}`;
     },
     SEARCH: (title) => {
-        return `https://series9.co/movie/search/${title}`;
+        return `https://api.yesmovie.io/series//movie/search/${title}`;
+        // return `https://series9.co/movie/search/${title}`;
     }
 };
 
@@ -88,14 +89,17 @@ class Series9 {
     async getYear(slug, cheerio, httpRequest) {
 
         let yearMovie        = 0;
-        let htmlGetInfo = await httpRequest.getHTML(URL.GET_INFO(slug), {
-            'X-Requested-With': 'XMLHttpRequest',
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36',
-            'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5'
-        });
+        // let htmlGetInfo = await httpRequest.getHTML(URL.GET_INFO(slug), {
+        //     'X-Requested-With': 'XMLHttpRequest',
+        //     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36',
+        //     'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5'
+        // });
 
+        let htmlGetInfo = await httpRequest.getHTML(slug);
+        htmlGetInfo     = JSON.parse(htmlGetInfo);
         let $           = cheerio.load(htmlGetInfo);
         let itemInfo    = $('.jt-info');
+
         itemInfo.each( function() {
 
 			let info = $(this).text();

@@ -51,7 +51,7 @@ class Teamdk {
 
             linkPlay = `arrLink = [${linkPlay}]`;
             eval(linkPlay);
-        
+            
             if( arrLink.length > 0 ) {
         
                 let arrPromise = arrLink.map(async function(value) {

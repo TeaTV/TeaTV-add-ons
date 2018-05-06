@@ -2,6 +2,17 @@ const URL = {
     DOMAIN: `http://www.hollymoviehd.com`,
     SEARCH: (title) => {
         return `http://www.hollymoviehd.com/?zc=search&s=${title}`;
+    },
+    HEADERS: () => {
+        return {
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'Cache-Control': 'max-age=0',
+            'Connection': 'keep-alive',
+            'Host': 'www.hollymoviehd.com',
+            'Upgrade-Insecure-Requests': 1,
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+        };
     }
 };
 
@@ -27,12 +38,11 @@ class HollyMovies {
             urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')) + `+season+${season}`;
         }
 
-        let htmlSearch  = await httpRequest.getCloudflare(urlSearch);
-        htmlSearch      = htmlSearch.data;
+        let htmlSearch  = await httpRequest.getHTML(urlSearch, URL.HEADERS());
         let $           = cheerio.load(htmlSearch);
 
         let itemSearch  = $('.movies-list .ml-item');
-        
+
         itemSearch.each(function() {
 
             let hrefMovie   =  $(this).find('a').first().attr('href');
@@ -46,6 +56,7 @@ class HollyMovies {
 
             if( stringHelper.shallowCompare(title, titleMovie) ) {
 
+                
                 if( type == 'movie' && seasonMovie == false && yearMovie == year ) {
 
                     detailUrl = hrefMovie;       
@@ -81,8 +92,7 @@ class HollyMovies {
             detailUrl = detailUrl.replace(/-season-[0-9]+\//i, `-season-${season}-episode-${episode}/`);
         }
 
-        let htmlDetail = await httpRequest.getCloudflare(detailUrl);
-        htmlDetail     = htmlDetail.data;
+        let htmlDetail = await httpRequest.getHTML(detailUrl, URL.HEADERS());
         let $          = cheerio.load(htmlDetail);
         let itemRedirect = $('#player2 > div');
 

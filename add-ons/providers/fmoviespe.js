@@ -99,14 +99,18 @@ class FmoviesPe {
         try {
             htmlDetail      = await httpRequest.getHTML(this.state.detailUrl);
         } catch(error) {}
-        let vidnode2        = htmlDetail.match(/link\_server\_f2 *\= *\"([^\"]+)/i);
+        let vidnode2        = htmlDetail.match(/link\_server\_f2 *\= *\"*\'*([^\"*\'*]+)/i);
         vidnode2            = vidnode2 != null ? vidnode2[1] : false;
-        let vidnode3        = htmlDetail.match(/link\_server\_vidnode *\= *\"([^\"]+)/i);
+        let vidnode3        = htmlDetail.match(/link\_server\_vidnode *\= *\"*\'*([^\"*\'*]+)/i);
         vidnode3            = vidnode3 != null ? vidnode3[1] : false; 
-        let thevideo        = htmlDetail.match(/link\_server\_thevideo *\= *\"([^\"]+)/i);
+        let thevideo        = htmlDetail.match(/link\_server\_thevideo *\= *\"*\'*([^\"*\'*]+)/i);
         thevideo            = thevideo != null ? thevideo[1] : false;
-        let yourupload        = htmlDetail.match(/link\_server\_yourupload *\= *\"([^\"]+)/i);
+        let yourupload        = htmlDetail.match(/link\_server\_yourupload *\= *\"*\'*([^\"*\'*]+)/i);
         yourupload            = yourupload != null ? yourupload[1] : false;
+        let openload        = htmlDetail.match(/link\_server\_openload *\= *\"*\'*([^\"*\'*]+)/i);
+        openload            = openload != null ? openload[1] : false;
+        let streamango        = htmlDetail.match(/link\_server\_streamango *\= *\"*\'*([^\"*\'*]+)/i);
+        streamango            = streamango != null ? streamango[1] : false;
 
         if( vidnode2 != false && vidnode2.indexOf('http:') == -1 && vidnode2.indexOf('https:') == -1 ) {
             vidnode2 = 'http:' + vidnode2;
@@ -130,6 +134,36 @@ class FmoviesPe {
                 },
                 result: {
                     file: vidnode2,
+                    label: "embed",
+                    type: 'embed'
+                }
+            });
+        }
+
+
+        if( streamango != false ) {
+            hosts.push({
+                provider: {
+                    url: this.state.detailUrl,
+                    name: "fmoviespe"
+                },
+                result: {
+                    file: streamango,
+                    label: "embed",
+                    type: 'embed'
+                }
+            });
+        }
+
+
+        if( openload != false ) {
+            hosts.push({
+                provider: {
+                    url: this.state.detailUrl,
+                    name: "fmoviespe"
+                },
+                result: {
+                    file: openload,
                     label: "embed",
                     type: 'embed'
                 }
