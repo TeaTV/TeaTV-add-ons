@@ -196,7 +196,7 @@ var VidLink = function () {
 
                                                         if (isDie != false) {
                                                             sources.push({
-                                                                file: val.url, label: 'NOR', type: "direct", size: 2.0
+                                                                file: val.url, label: 'NOR', type: "direct", size: 1.92
                                                             });
                                                         }
                                                         _context3.next = 9;

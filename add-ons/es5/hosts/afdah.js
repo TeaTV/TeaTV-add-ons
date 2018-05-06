@@ -208,7 +208,7 @@ var Afdah = function () {
                                                                 label: 'NOR',
                                                                 file: value.file,
                                                                 type: "embed",
-                                                                size: 2.0
+                                                                size: 2.01
                                                             });
                                                         }
 
