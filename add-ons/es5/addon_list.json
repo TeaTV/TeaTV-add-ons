@@ -156,6 +156,12 @@
         }
     },
     "hosts": {
+        "afdah": {
+            "name": "afdah",
+            "domain": "afdah.to",
+            "version": "0.0.3",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/afdah.js"
+        },
         "streamango": {
             "name": "streamango",
             "domain": "streamango.com",
@@ -262,7 +268,7 @@
         "vidlink": {
             "name": "vidlink",
             "domain": ["vidlink.org"],
-            "version": "0.0.14",
+            "version": "0.0.15",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidlink.js"
         }
     }
