@@ -70,7 +70,7 @@ var Phimmoi = function () {
                                         if (type == 'movie') {
                                             videoUrl = hrefMovie;
                                             return;
-                                        } else if (type == 'tvshow' && season == seasonMovie) {
+                                        } else if (type == 'tv' && season == seasonMovie) {
                                             videoUrl = hrefMovie;
                                             return;
                                         }
@@ -97,12 +97,12 @@ var Phimmoi = function () {
                                 if (type == 'movie' && yearMovie == year && hrefVideo) {
 
                                     detailUrl = [hrefVideo];
-                                } else if (type == 'tvshow' && hrefVideo) {
+                                } else if (type == 'tv' && hrefVideo) {
                                     tvshowDetailUrl = hrefVideo;
                                 }
 
                             case 23:
-                                if (!(type == 'tvshow' && tvshowDetailUrl != false)) {
+                                if (!(type == 'tv' && tvshowDetailUrl != false)) {
                                     _context.next = 32;
                                     break;
                                 }

@@ -84,7 +84,7 @@ var Bilutv = function () {
                                         if (type == 'movie' && status_lower.indexOf('full') == -1 && status_lower.indexOf('tap') == -1 && year == year_movie) {
                                             link_detail = href_detail;
                                             return;
-                                        } else if (type == 'tvshow' && (status_lower.indexOf('full') != -1 || status_lower.indexOf('tap') != -1) && season == season_movie) {
+                                        } else if (type == 'tv' && (status_lower.indexOf('full') != -1 || status_lower.indexOf('tap') != -1) && season == season_movie) {
                                             link_detail = href_detail;
                                             return;
                                         }
@@ -117,7 +117,7 @@ var Bilutv = function () {
                                 throw new Error('NOT lINK WATCH');
 
                             case 22:
-                                if (!(type == 'tvshow')) {
+                                if (!(type == 'tv')) {
                                     _context.next = 32;
                                     break;
                                 }

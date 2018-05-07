@@ -52,7 +52,7 @@ class Phimmoi {
                 if( type == 'movie' ) {
                     videoUrl = hrefMovie;
                     return;
-                } else if( type == 'tvshow' && season == seasonMovie ) {
+                } else if( type == 'tv' && season == seasonMovie ) {
                     videoUrl = hrefMovie;
                     return;
                 }
@@ -72,12 +72,12 @@ class Phimmoi {
             if( type == 'movie' && yearMovie == year && hrefVideo ) {
 
                 detailUrl = [hrefVideo];
-            } else if( type == 'tvshow' && hrefVideo ) {
+            } else if( type == 'tv' && hrefVideo ) {
                 tvshowDetailUrl = hrefVideo;
             }
         }
 
-        if( type == 'tvshow' && tvshowDetailUrl != false ) {
+        if( type == 'tv' && tvshowDetailUrl != false ) {
 
             let htmlTvshow = await httpRequest.getHTML(tvshowDetailUrl, URL.HEADERS);
             let $_2        = cheerio.load(htmlTvshow);

@@ -65,7 +65,7 @@ var Phimbathu = function () {
                                         if (type == 'movie' && yearMovie == year && !seasonMovie) {
                                             videoUrl = hrefMovie;
                                             return;
-                                        } else if (type == 'tvshow' && seasonMovie && seasonMovie == season) {
+                                        } else if (type == 'tv' && seasonMovie && seasonMovie == season) {
                                             videoUrl = hrefMovie;
                                             return;
                                         }
@@ -88,13 +88,13 @@ var Phimbathu = function () {
 
                                 if (type == 'movie' && hrefVideo) {
                                     detailUrl = URL.DOMAIN + hrefVideo;
-                                } else if (type == 'tvshow' && hrefVideo) {
+                                } else if (type == 'tv' && hrefVideo) {
 
                                     tvshowDetailUrl = detailUrl;
                                 }
 
                             case 19:
-                                if (!(type == 'tvshow' && tvshowDetailUrl)) {
+                                if (!(type == 'tv' && tvshowDetailUrl)) {
                                     _context.next = 26;
                                     break;
                                 }

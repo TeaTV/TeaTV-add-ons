@@ -48,7 +48,7 @@ class Phimbathu {
         		if( type == 'movie' && yearMovie == year && !seasonMovie ) {
         			videoUrl = hrefMovie;
         			return;
-        		} else if( type == 'tvshow' && seasonMovie && seasonMovie == season ) {
+        		} else if( type == 'tv' && seasonMovie && seasonMovie == season ) {
         			videoUrl = hrefMovie;
         			return;
         		}
@@ -65,13 +65,13 @@ class Phimbathu {
 
         	if( type == 'movie' && hrefVideo ) {
         		detailUrl = URL.DOMAIN + hrefVideo;
-        	} else if( type == 'tvshow' && hrefVideo )  {
+        	} else if( type == 'tv' && hrefVideo )  {
 
         		tvshowDetailUrl = detailUrl;
         	}
         }
 
-        if( type == 'tvshow' && tvshowDetailUrl ) {
+        if( type == 'tv' && tvshowDetailUrl ) {
 
         	let htmlDetail = await httpRequest.getHTML(tvshowDetailUrl);
         	let $_2 	= cheerio.load(htmlDetail);

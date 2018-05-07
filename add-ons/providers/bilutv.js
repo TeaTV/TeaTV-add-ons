@@ -69,7 +69,7 @@ class Bilutv {
                 if( type == 'movie' && status_lower.indexOf('full') == -1 && status_lower.indexOf('tap') == -1 && year == year_movie ) {
                     link_detail = href_detail;
                     return;
-                } else if( type == 'tvshow' && (status_lower.indexOf('full') != -1 || status_lower.indexOf('tap') != -1) && season == season_movie ) {
+                } else if( type == 'tv' && (status_lower.indexOf('full') != -1 || status_lower.indexOf('tap') != -1) && season == season_movie ) {
                     link_detail = href_detail;
                     return;
                 }
@@ -89,7 +89,7 @@ class Bilutv {
             throw new Error('NOT lINK WATCH');
         }
 
-        if( type == 'tvshow' ) {
+        if( type == 'tv' ) {
 
             let html_episode = await httpRequest.getHTML(link_watch, URL.HEADERS(link_watch));
             let $_3          = cheerio.load(html_episode);
