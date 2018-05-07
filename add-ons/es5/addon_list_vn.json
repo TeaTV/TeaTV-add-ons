@@ -24,8 +24,8 @@
     },
     "hosts": {
         "googlevideo": {
-            "name": "streamango",
-            "domain": "googlevideo.com",
+            "name": "googlevideo",
+            "domain": ["googlevideo.com"],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/googlevideo.js"
         },
