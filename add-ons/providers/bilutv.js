@@ -153,7 +153,7 @@ class Bilutv {
                     link_direct && hosts.push({
                         provider: {
                             url: bilu.state.detailUrl,
-                            name: "bilutv"
+                            name: "Server 1"
                         },
                         result: {
                             file: link_direct,

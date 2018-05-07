@@ -250,7 +250,7 @@ var Phimmoi = function () {
                                                             bk3[_item2].url && hosts.push({
                                                                 provider: {
                                                                     url: phimmoi.state.detailUrl[0],
-                                                                    name: "phimmoi"
+                                                                    name: "Server 3"
                                                                 },
                                                                 result: {
                                                                     file: bk3[_item2].url,
@@ -276,41 +276,6 @@ var Phimmoi = function () {
                                 return Promise.all(arrPromise);
 
                             case 10:
-
-                                // if( elid != false ) {
-
-                                //     let dataBody = {
-                                //         action: actionEmbed,
-                                //         idEl: elid,
-                                //         token: URL.TOKEN_API_EMBED,
-                                //         nopop: ''
-                                //     };
-                                //     // let resultApi = await httpRequest.postCloudflare(URL.EMBED_URL, {}, dataBody);
-                                //     let resultApi = await httpRequest.post(URL.EMBED_URL, {
-                                //         'accept': 'application/json, text/javascript, */*; q=0.01',
-                                //         'content-type':'application/x-www-form-urlencoded; charset=UTF-8'
-                                //     }, qs.stringify(dataBody));
-
-                                //     if( resultApi.data == 'Invalid request, your IP have been reported!' ) throw new Error('NOT LINK');
-
-                                //     for( let item in resultApi.data ) {
-
-                                //         let embed   = resultApi.data[item].embed.match(/src="([^"]*)/i);
-                                //         embed       = embed != null ? embed[1] : false;
-
-                                //         embed && hosts.push({
-                                //             provider: {
-                                //                 url: this.state.detailUrl,
-                                //                 name: "flixanity"
-                                //             },
-                                //             result: {
-                                //                 file: embed,
-                                //                 label: "embed",
-                                //                 type: this.isEmbed(embed) ? "embed" : 'direct'
-                                //             }
-                                //         });
-                                //     }
-                                // }
 
                                 this.state.hosts = hosts;
                                 return _context3.abrupt('return');

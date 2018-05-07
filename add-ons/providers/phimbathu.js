@@ -132,7 +132,7 @@ class Phimbathu {
                 	hosts.push({
 	                    provider: {
 	                        url: phimbathu.state.detailUrl,
-	                        name: "phimbathu"
+	                        name: "Server 2"
 	                    },
 	                    result: {
 	                        file: link_direct,
