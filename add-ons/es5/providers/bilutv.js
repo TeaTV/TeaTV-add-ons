@@ -176,13 +176,13 @@ var Bilutv = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, qs, encrypt, _movieInfo2, episode, type, bilu, hosts, playerSetting, html_video, player, key, item, item1, link_direct;
+                var _libs2, httpRequest, cheerio, qs, gibberish, _movieInfo2, episode, type, bilu, hosts, playerSetting, html_video, player, key, item, item1, link_direct;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
                         switch (_context2.prev = _context2.next) {
                             case 0:
-                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, qs = _libs2.qs, encrypt = _libs2.encrypt;
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, qs = _libs2.qs, gibberish = _libs2.gibberish;
                                 _movieInfo2 = this.movieInfo, episode = _movieInfo2.episode, type = _movieInfo2.type;
 
                                 if (this.state.detailUrl) {
@@ -215,7 +215,7 @@ var Bilutv = function () {
                                 for (item in playerSetting.sourceLinks) {
 
                                     for (item1 in playerSetting.sourceLinks[item].links) {
-                                        link_direct = encrypt.dec(playerSetting.sourceLinks[item].links[item1].file, key);
+                                        link_direct = gibberish.dec(playerSetting.sourceLinks[item].links[item1].file, key);
 
 
                                         if (link_direct && link_direct.indexOf('s.bilutv.com') == -1 && link_direct.indexOf('api.bilutv.com/test') == -1 && link_direct.indexOf('s5.bilutv.com') == -1 && link_direct.indexOf('api.bilutv.com/getst') == -1) {

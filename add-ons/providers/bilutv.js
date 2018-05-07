@@ -120,7 +120,7 @@ class Bilutv {
     }
 
     async getHostFromDetail() {
-        const { httpRequest, cheerio, qs, encrypt } = this.libs;
+        const { httpRequest, cheerio, qs, gibberish } = this.libs;
         const {episode, type}                     = this.movieInfo;
         if(!this.state.detailUrl) throw new Error("NOT_FOUND");
 
@@ -144,7 +144,7 @@ class Bilutv {
 
             for( let item1 in playerSetting.sourceLinks[item].links ) {
 
-                let link_direct = encrypt.dec(playerSetting.sourceLinks[item].links[item1].file, key);
+                let link_direct = gibberish.dec(playerSetting.sourceLinks[item].links[item1].file, key);
 
                 if( link_direct && link_direct.indexOf('s.bilutv.com') == -1    &&
                     link_direct.indexOf('api.bilutv.com/test') == -1            && 
