@@ -10,7 +10,7 @@
         "phimmoi": {
             "name": "phimmoi",
             "domain": "phimmoi.net",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/phimmoi.js",
             "type": ["tv", "movie"]
         },
@@ -23,6 +23,12 @@
         }
     },
     "hosts": {
+        "googlevideo": {
+            "name": "streamango",
+            "domain": "googlevideo.com",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/googlevideo.js"
+        },
         "streamango": {
             "name": "streamango",
             "domain": "streamango.com",
@@ -144,10 +150,10 @@
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/212.47.234.139.js"
         },
-        "video.xx.fbcdn": {
+        "fbcdn": {
             "name": "video.xx.fbcdn",
-            "domain": ["video.xx.fbcdn.net"],
-            "version": "0.0.1",
+            "domain": ["video.xx.fbcdn.net", "fbcdn.net"],
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/video.xx.fbcdn.js"
         }
     }

@@ -70,7 +70,6 @@ class Phimmoi {
             yearMovie     = yearMovie != null ? +yearMovie[1] : 0;
 
             if( type == 'movie' && yearMovie == year && hrefVideo ) {
-
                 detailUrl = [hrefVideo];
             } else if( type == 'tv' && hrefVideo ) {
                 tvshowDetailUrl = hrefVideo;
