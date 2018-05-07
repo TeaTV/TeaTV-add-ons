@@ -1,4 +1,4 @@
-class Googlevideo {
+class GoogleUserContent {
 
     constructor(props) {
 
@@ -18,8 +18,8 @@ class Googlevideo {
         const { httpRequest, cheerio } = this.libs;
         
         let results = [];
-        let isDie   = 'NOR';
 
+        let isDie = 'NOR';
         try {
             isDie       = await httpRequest.isLinkDie(url);
         } catch(error) {}
@@ -34,7 +34,7 @@ class Googlevideo {
         return {
             host: {
                 url: url,
-                name: "CDN"
+                name: "googlevideo"
             },
             result: results
         }
@@ -42,4 +42,4 @@ class Googlevideo {
     }
 }
 
-exports.default = (libs, settings) => new Googlevideo({ libs, settings });
+exports.default = (libs, settings) => new GoogleUserContent({ libs, settings });

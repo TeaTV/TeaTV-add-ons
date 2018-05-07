@@ -6,16 +6,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Googlevideo = function () {
-    function Googlevideo(props) {
-        _classCallCheck(this, Googlevideo);
+var GoogleUserContent = function () {
+    function GoogleUserContent(props) {
+        _classCallCheck(this, GoogleUserContent);
 
         this.libs = props.libs;
         this.settings = props.settings;
         this.state = {};
     }
 
-    _createClass(Googlevideo, [{
+    _createClass(GoogleUserContent, [{
         key: 'convertToEmbed',
         value: function convertToEmbed() {
 
@@ -60,7 +60,7 @@ var Googlevideo = function () {
                                 return _context.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "CDN"
+                                        name: "googlevideo"
                                     },
                                     result: results
                                 });
@@ -81,9 +81,9 @@ var Googlevideo = function () {
         }()
     }]);
 
-    return Googlevideo;
+    return GoogleUserContent;
 }();
 
 thisSource.function = function (libs, settings) {
-    return new Googlevideo({ libs: libs, settings: settings });
+    return new GoogleUserContent({ libs: libs, settings: settings });
 };
