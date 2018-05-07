@@ -34,7 +34,7 @@ class GoogleUserContent {
         return {
             host: {
                 url: url,
-                name: "googlevideo"
+                name: "CDN"
             },
             result: results
         }

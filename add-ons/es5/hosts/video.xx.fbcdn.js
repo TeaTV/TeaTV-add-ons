@@ -60,7 +60,7 @@ var GoogleUserContent = function () {
                                 return _context.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "googlevideo"
+                                        name: "CDN"
                                     },
                                     result: results
                                 });
