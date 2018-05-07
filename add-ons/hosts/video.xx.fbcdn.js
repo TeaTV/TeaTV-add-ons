@@ -1,4 +1,4 @@
-class FbCdn {
+class GoogleUserContent {
 
     constructor(props) {
 
@@ -24,7 +24,7 @@ class FbCdn {
             isDie       = await httpRequest.isLinkDie(url);
         } catch(error) {}
     
-        if( isDie != false ) {
+        if( isDie != false && isDie != 'NOR' ) {
 
             results.push({
                 file: url, label: 'NOR', type: "direct" , size: isDie
@@ -34,7 +34,7 @@ class FbCdn {
         return {
             host: {
                 url: url,
-                name: "FastCDN"
+                name: "googlevideo"
             },
             result: results
         }
@@ -42,4 +42,4 @@ class FbCdn {
     }
 }
 
-exports.default = (libs, settings) => new FbCdn({ libs, settings });
+exports.default = (libs, settings) => new GoogleUserContent({ libs, settings });

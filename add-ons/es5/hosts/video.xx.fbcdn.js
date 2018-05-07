@@ -6,16 +6,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var FbCdn = function () {
-    function FbCdn(props) {
-        _classCallCheck(this, FbCdn);
+var GoogleUserContent = function () {
+    function GoogleUserContent(props) {
+        _classCallCheck(this, GoogleUserContent);
 
         this.libs = props.libs;
         this.settings = props.settings;
         this.state = {};
     }
 
-    _createClass(FbCdn, [{
+    _createClass(GoogleUserContent, [{
         key: 'convertToEmbed',
         value: function convertToEmbed() {
 
@@ -50,7 +50,7 @@ var FbCdn = function () {
 
                             case 11:
 
-                                if (isDie != false) {
+                                if (isDie != false && isDie != 'NOR') {
 
                                     results.push({
                                         file: url, label: 'NOR', type: "direct", size: isDie
@@ -60,7 +60,7 @@ var FbCdn = function () {
                                 return _context.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "FastCDN"
+                                        name: "googlevideo"
                                     },
                                     result: results
                                 });
@@ -81,9 +81,9 @@ var FbCdn = function () {
         }()
     }]);
 
-    return FbCdn;
+    return GoogleUserContent;
 }();
 
 thisSource.function = function (libs, settings) {
-    return new FbCdn({ libs: libs, settings: settings });
+    return new GoogleUserContent({ libs: libs, settings: settings });
 };

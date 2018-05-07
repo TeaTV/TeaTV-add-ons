@@ -23,10 +23,16 @@
         }
     },
     "hosts": {
+        "fbcdn": {
+            "name": "fbcdn",
+            "domain": ["video.xx.fbcdn.net", "fbcdn.net"],
+            "version": "0.0.3",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/video.xx.fbcdn.js"
+        },
         "googlevideo": {
             "name": "googlevideo",
             "domain": ["googlevideo.com"],
-            "version": "0.0.3",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/googlevideo.js"
         },
         "streamango": {
@@ -149,12 +155,6 @@
             "domain": ["212.47.234.139"],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/212.47.234.139.js"
-        },
-        "fbcdn": {
-            "name": "fbcdn",
-            "domain": ["video.xx.fbcdn.net", "fbcdn.net"],
-            "version": "0.0.2",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/video.xx.fbcdn.js"
         }
     }
 }
