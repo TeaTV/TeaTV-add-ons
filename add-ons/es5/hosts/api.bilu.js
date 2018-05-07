@@ -50,7 +50,7 @@ var Bl = function () {
 
                             case 11:
 
-                                if (isDie != false) {
+                                if (isDie != false && isDie != 'NOR') {
 
                                     results.push({
                                         file: url, label: 'NOR', type: "direct", size: isDie
