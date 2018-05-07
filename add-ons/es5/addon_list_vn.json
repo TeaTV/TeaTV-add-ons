@@ -6,6 +6,20 @@
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/bilutv.js",
             "type": ["tv", "movie"]
+        },
+        "phimmoi": {
+            "name": "phimmoi",
+            "domain": "phimmoi.net",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/phimmoi.js",
+            "type": ["tv", "movie"]
+        },
+        "phimbathu": {
+            "name": "phimbathu",
+            "domain": "phimbathu.net",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/phimbathu.js",
+            "type": ["tv", "movie"]
         }
     },
     "hosts": {
@@ -20,6 +34,18 @@
             "domain": ["api.bilutv.com"],
             "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/api.bilu.js"
+        },
+        "api.phimbathu": {
+            "name": "api.phimbathu",
+            "domain": ["api.phimbathu.com"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/api.phimbathu.js"
+        },
+        "cdn102.micetop": {
+            "name": "cdn102.micetop",
+            "domain": ["cdn102.micetop.us"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/cdn102.micetop.js"
         },
         "openload": {
             "name": "openload",
