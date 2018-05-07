@@ -224,7 +224,7 @@ var Phimmoi = function () {
                                                             bk[item].url && hosts.push({
                                                                 provider: {
                                                                     url: phimmoi.state.detailUrl[0],
-                                                                    name: "phimmoi"
+                                                                    name: "Server 3"
                                                                 },
                                                                 result: {
                                                                     file: bk[item].url,
@@ -237,7 +237,7 @@ var Phimmoi = function () {
                                                             bk2[_item].url && hosts.push({
                                                                 provider: {
                                                                     url: phimmoi.state.detailUrl[0],
-                                                                    name: "phimmoi"
+                                                                    name: "Server 3"
                                                                 },
                                                                 result: {
                                                                     file: bk2[_item].url,

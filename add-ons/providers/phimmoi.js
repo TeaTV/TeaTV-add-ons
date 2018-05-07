@@ -150,7 +150,7 @@ class Phimmoi {
                 bk[item].url && hosts.push({
                     provider: {
                         url: phimmoi.state.detailUrl[0],
-                        name: "phimmoi"
+                        name: "Server 3"
                     },
                     result: {
                         file: bk[item].url,
@@ -163,7 +163,7 @@ class Phimmoi {
                 bk2[item].url && hosts.push({
                     provider: {
                         url: phimmoi.state.detailUrl[0],
-                        name: "phimmoi"
+                        name: "Server 3"
                     },
                     result: {
                         file: bk2[item].url,
