@@ -48,9 +48,24 @@ class Vidnode {
         
         let linkDirect  = htmlDetail.match(/playerInstance\.setup\(\{\s*sources\: *\[([^\]]+)/i);
         linkDirect      = linkDirect != null ? linkDirect[1] : '';
+        let linkcdn     = htmlDetail.match(/playerInstance\.load\(\{\s*file *\: *\"([^\"]+)/i);
+        linkcdn         = linkcdn != null ? linkcdn[1] : '';
+
+        let size = false;
+        try {
+            size = await httpRequest.isLinkDie(linkcdn);
+        } catch(e) {
+            size = false;
+        }
+
+        if( size != false && size != 'NOR' && size != NaN ) {
+            sources.push({
+                file: linkcdn, label: val.label, type: "embed" , size: size
+            });
+        }
+        
 
         eval(`arrDirect = [${linkDirect}]`);
-
 
         let arrPromise = arrDirect.map(async function(val) {
 
@@ -62,7 +77,7 @@ class Vidnode {
             }
             
 
-            if( isDie != false ) {
+            if( isDie != false && isDie != 'NOR' ) {
 
                 sources.push({
                     file: val.file, label: val.label, type: "embed" , size: isDie

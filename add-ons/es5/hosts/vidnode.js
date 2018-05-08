@@ -69,7 +69,7 @@ var Vidnode = function () {
         key: "getLink",
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
-                var _libs, httpRequest, cheerio, sources, arrDirect, htmlDetail, linkDirect, arrPromise;
+                var _libs, httpRequest, cheerio, sources, arrDirect, htmlDetail, linkDirect, linkcdn, size, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -95,6 +95,33 @@ var Vidnode = function () {
                                 linkDirect = htmlDetail.match(/playerInstance\.setup\(\{\s*sources\: *\[([^\]]+)/i);
 
                                 linkDirect = linkDirect != null ? linkDirect[1] : '';
+                                linkcdn = htmlDetail.match(/playerInstance\.load\(\{\s*file *\: *\"([^\"]+)/i);
+
+                                linkcdn = linkcdn != null ? linkcdn[1] : '';
+
+                                size = false;
+                                _context3.prev = 13;
+                                _context3.next = 16;
+                                return httpRequest.isLinkDie(linkcdn);
+
+                            case 16:
+                                size = _context3.sent;
+                                _context3.next = 22;
+                                break;
+
+                            case 19:
+                                _context3.prev = 19;
+                                _context3.t0 = _context3["catch"](13);
+
+                                size = false;
+
+                            case 22:
+
+                                if (size != false && size != 'NOR' && size != NaN) {
+                                    sources.push({
+                                        file: linkcdn, label: val.label, type: "embed", size: size
+                                    });
+                                }
 
                                 eval("arrDirect = [" + linkDirect + "]");
 
@@ -123,7 +150,7 @@ var Vidnode = function () {
 
                                                     case 10:
 
-                                                        if (isDie != false) {
+                                                        if (isDie != false && isDie != 'NOR') {
 
                                                             sources.push({
                                                                 file: val.file, label: val.label, type: "embed", size: isDie
@@ -142,10 +169,10 @@ var Vidnode = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 14;
+                                _context3.next = 27;
                                 return Promise.all(arrPromise);
 
-                            case 14:
+                            case 27:
                                 return _context3.abrupt("return", {
                                     host: {
                                         url: url,
@@ -154,12 +181,12 @@ var Vidnode = function () {
                                     result: sources
                                 });
 
-                            case 15:
+                            case 28:
                             case "end":
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this);
+                }, _callee3, this, [[13, 19]]);
             }));
 
             function getLink(_x2) {
