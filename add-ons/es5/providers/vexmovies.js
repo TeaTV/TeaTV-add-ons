@@ -8,8 +8,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var URL = {
     DOMAIN: 'http://vexmovies.org',
+    DOMAIN_EMBED: 'https://consistent.stream/api/getVideo',
     SEARCH: function SEARCH(title) {
         return 'http://vexmovies.org/?s=' + title;
+    },
+    HEADERS: function HEADERS() {
+        var rerfer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+        return {
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'Connection': 'keep-alive',
+            'Referer': rerfer,
+            'Upgrade-Insecure-Requests': 1,
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+        };
+    },
+    HEADERS_COOKIE: function HEADERS_COOKIE() {
+        var rerfer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+        var cookie = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+        return {
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'Connection': 'keep-alive',
+            'Referer': rerfer,
+            'Cookie': cookie,
+            'Upgrade-Insecure-Requests': 1,
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+        };
     }
 };
 
@@ -80,7 +107,7 @@ var Vexmovies = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, base64, hosts, detailUrl, htmlDetail, $, embed, htmlDirect, $_2, encodeJson, item, item2, link;
+                var _libs2, httpRequest, cheerio, base64, hosts, detailUrl, htmlDetail, $, embed, htmlDirect, headers, body, $_2, hash, video, bodyForm, encodeJson, item, item2, link;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -99,31 +126,46 @@ var Vexmovies = function () {
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
                                 _context2.next = 7;
-                                return httpRequest.getHTML(this.state.detailUrl);
+                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS(detailUrl));
 
                             case 7:
                                 htmlDetail = _context2.sent;
                                 $ = cheerio.load(htmlDetail);
                                 embed = $('#cap1 iframe').attr('src');
                                 _context2.next = 12;
-                                return httpRequest.getHTML(embed);
+                                return httpRequest.get(embed, URL.HEADERS(detailUrl));
 
                             case 12:
                                 htmlDirect = _context2.sent;
-                                $_2 = cheerio.load(htmlDirect);
-                                encodeJson = $_2('#app player').attr(':title');
-                                _context2.prev = 15;
+                                headers = htmlDirect.headers;
 
-                                encodeJson = JSON.parse(encodeJson);
-                                _context2.next = 22;
-                                break;
+                                headers = headers['set-cookie'][0];
+                                headers = headers.replace(/\;.*/i, '').trim() + ';';
 
-                            case 19:
-                                _context2.prev = 19;
-                                _context2.t0 = _context2['catch'](15);
-                                throw new Error('NOT LINK');
+                                body = htmlDirect.data;
+                                $_2 = cheerio.load(body);
+                                hash = $_2('#app player').attr('hash');
+                                video = $_2('#app player').attr('video');
+                                bodyForm = {
+                                    key: hash,
+                                    referrer: detailUrl,
+                                    video: video
+                                };
+                                _context2.next = 23;
+                                return httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS(embed, headers), bodyForm);
 
-                            case 22:
+                            case 23:
+                                encodeJson = _context2.sent;
+
+                                encodeJson = encodeJson.data;
+
+                                // try {
+                                //     encodeJson = JSON.parse(encodeJson);
+                                // } catch(error) {
+                                //     console.log(String(error)); 
+                                //     throw new Error('NOT LINK');
+                                // }
+
 
                                 for (item in encodeJson.servers) {
 
@@ -163,12 +205,12 @@ var Vexmovies = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 24:
+                            case 27:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[15, 19]]);
+                }, _callee2, this);
             }));
 
             function getHostFromDetail() {
@@ -212,7 +254,7 @@ thisSource.function = function () {
         }, _callee3, undefined);
     }));
 
-    return function (_x, _x2, _x3) {
+    return function (_x4, _x5, _x6) {
         return _ref3.apply(this, arguments);
     };
 }();

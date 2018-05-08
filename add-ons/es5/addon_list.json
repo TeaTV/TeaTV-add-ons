@@ -108,7 +108,7 @@
         "vexmovies": {
             "name": "vexmovies",
             "domain": "vexmovies.org",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vexmovies.js",
             "type": ["movie"]
         },

@@ -1,7 +1,30 @@
 const URL = {
     DOMAIN: 'http://vexmovies.org',
+    DOMAIN_EMBED: 'https://consistent.stream/api/getVideo',
     SEARCH: (title) => {
         return `http://vexmovies.org/?s=${title}`
+    },
+    HEADERS: (rerfer='') =>  {
+        return {
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'Connection': 'keep-alive',
+            'Referer': rerfer,
+            'Upgrade-Insecure-Requests': 1,
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+        }
+    },
+    HEADERS_COOKIE: (rerfer='', cookie='') =>  {
+        return {
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'Connection': 'keep-alive',
+            'Referer': rerfer,
+            'Cookie': cookie,
+            'Upgrade-Insecure-Requests': 1,
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+        }
+        
     }
 };
 
@@ -52,18 +75,39 @@ class Vexmovies {
 
         let detailUrl   = this.state.detailUrl;
 
-        let htmlDetail  = await httpRequest.getHTML(this.state.detailUrl);
+        let htmlDetail  = await httpRequest.getHTML(this.state.detailUrl, URL.HEADERS(detailUrl));
         let $           = cheerio.load(htmlDetail);
         let embed       = $('#cap1 iframe').attr('src');
-        let htmlDirect  = await httpRequest.getHTML(embed);
-        let $_2         = cheerio.load(htmlDirect);
-        let encodeJson  = $_2('#app player').attr(':title');
+        let htmlDirect  = await httpRequest.get(embed, URL.HEADERS(detailUrl));
 
-        try {
-            encodeJson = JSON.parse(encodeJson);
-        } catch(error) {
-            throw new Error('NOT LINK');
-        }
+        let headers     = htmlDirect.headers;
+        headers         = headers['set-cookie'][0];
+        headers         = headers.replace(/\;.*/i, '').trim() + ';';
+
+        let body        = htmlDirect.data;
+        let $_2         = cheerio.load(body);
+        let hash        = $_2('#app player').attr('hash');
+        let video       = $_2('#app player').attr('video');
+
+
+        let bodyForm = {
+            key: hash,
+            referrer: detailUrl,
+            video: video
+        };
+
+        let encodeJson = await httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS(embed, headers), bodyForm);
+        encodeJson      = encodeJson.data;
+
+
+
+
+        // try {
+        //     encodeJson = JSON.parse(encodeJson);
+        // } catch(error) {
+        //     console.log(String(error)); 
+        //     throw new Error('NOT LINK');
+        // }
 
 
         for( let item in  encodeJson.servers) {
