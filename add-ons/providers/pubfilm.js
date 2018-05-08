@@ -34,46 +34,50 @@ class Pubfilm {
         let detailEpisodeUrl= false;
         let urlSearch       = '';
 
-        if( type == 'movie' ) {
 
-            urlSearch       = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+') + `+${year}`);
-        } else {
-            urlSearch       = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+') + `+season+${season}+episode+${episode}`);
-        }
+        urlSearch       = URL.SEARCH(encodeURIComponent(title.toLowerCase()));
 
         let htmlSearch      = await httpRequest.getHTML(urlSearch, URL.HEADERS());
         let $               = cheerio.load(htmlSearch);
 
-        let itemSearch      = $('._NId .g')
+        let itemSearch      = $('a');
 
         itemSearch.each(function() {
 
-            let titleMovie   = $(this).find('.rc .r a').text();
-            let hrefMovie    = $(this).find('.rc .r a').attr('href');
-            let seasonMovie  = titleMovie.match(/\: *Season *([0-9]+)/i);
-            seasonMovie      = seasonMovie != null ? +seasonMovie[1] : -1;
-            titleMovie       = titleMovie.replace('– Official Home pubfilm.com', '').trim();
-            titleMovie       = titleMovie.replace(/\: *Season *[0-9]+/i, '').trim();
-            let yearMovie    = titleMovie.toLowerCase().replace(title.toLowerCase(), '').trim();
+            let hrefCheck = $(this).attr('href');
 
-            if( titleMovie && seasonMovie && yearMovie && (isNaN(yearMovie) == false || yearMovie == '') && hrefMovie.indexOf('pubfilm') != -1 ) {
+            if( hrefCheck && hrefCheck.indexOf(URL.DOMAIN) != -1 && hrefCheck.indexOf('/tag/') == -1 ) {
 
-                if( type == 'movie' ) {
+                let titleMovie   = $(this).text();
+                let hrefMovie    = hrefCheck;
+                let seasonMovie  = titleMovie.match(/\: *Season *([0-9]+)/i);
+                seasonMovie      = seasonMovie != null ? +seasonMovie[1] : -1;
+                titleMovie       = titleMovie.replace('– Official Home pubfilm.com', '').trim();
+                titleMovie       = titleMovie.replace(/\: *Season *[0-9]+/i, '').trim();
+                let yearMovie    = titleMovie.toLowerCase().replace(title.toLowerCase(), '').trim();
+                yearMovie        = yearMovie.match(/([0-9]+)/i);
+                yearMovie        = yearMovie != null ? +yearMovie[1] : false;
 
-                    if( titleMovie.indexOf(year) != -1 ) {
-                        detailUrl = hrefMovie;
-                        return;
+                if( titleMovie && seasonMovie && yearMovie && (isNaN(yearMovie) == false || yearMovie == '') && hrefMovie.indexOf('pubfilm') != -1 ) {
+
+                    if( type == 'movie' ) {
+
+                        if( titleMovie.indexOf(year) != -1 ) {
+                            detailUrl = hrefMovie;
+                            return;
+                        }
+                        
+                    } else {
+                        
+                        if( seasonMovie == season ) {
+                            detailUrl = hrefMovie;
+                            return;
+                        }
+                        
                     }
-                    
-                } else {
-                    
-                    if( seasonMovie == season ) {
-                        detailUrl = hrefMovie;
-                        return;
-                    }
-                    
-                }
+                }                
             }
+
         });
 
 

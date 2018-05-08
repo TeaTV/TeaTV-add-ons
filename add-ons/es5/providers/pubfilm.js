@@ -50,12 +50,7 @@ var Pubfilm = function () {
                                 urlSearch = '';
 
 
-                                if (type == 'movie') {
-
-                                    urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+') + ('+' + year));
-                                } else {
-                                    urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+') + ('+season+' + season + '+episode+' + episode));
-                                }
+                                urlSearch = URL.SEARCH(encodeURIComponent(title.toLowerCase()));
 
                                 _context.next = 9;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS());
@@ -63,32 +58,39 @@ var Pubfilm = function () {
                             case 9:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch);
-                                itemSearch = $('._NId .g');
+                                itemSearch = $('a');
 
 
                                 itemSearch.each(function () {
 
-                                    var titleMovie = $(this).find('.rc .r a').text();
-                                    var hrefMovie = $(this).find('.rc .r a').attr('href');
-                                    var seasonMovie = titleMovie.match(/\: *Season *([0-9]+)/i);
-                                    seasonMovie = seasonMovie != null ? +seasonMovie[1] : -1;
-                                    titleMovie = titleMovie.replace('– Official Home pubfilm.com', '').trim();
-                                    titleMovie = titleMovie.replace(/\: *Season *[0-9]+/i, '').trim();
-                                    var yearMovie = titleMovie.toLowerCase().replace(title.toLowerCase(), '').trim();
+                                    var hrefCheck = $(this).attr('href');
 
-                                    if (titleMovie && seasonMovie && yearMovie && (isNaN(yearMovie) == false || yearMovie == '') && hrefMovie.indexOf('pubfilm') != -1) {
+                                    if (hrefCheck && hrefCheck.indexOf(URL.DOMAIN) != -1 && hrefCheck.indexOf('/tag/') == -1) {
 
-                                        if (type == 'movie') {
+                                        var titleMovie = $(this).text();
+                                        var hrefMovie = hrefCheck;
+                                        var seasonMovie = titleMovie.match(/\: *Season *([0-9]+)/i);
+                                        seasonMovie = seasonMovie != null ? +seasonMovie[1] : -1;
+                                        titleMovie = titleMovie.replace('– Official Home pubfilm.com', '').trim();
+                                        titleMovie = titleMovie.replace(/\: *Season *[0-9]+/i, '').trim();
+                                        var yearMovie = titleMovie.toLowerCase().replace(title.toLowerCase(), '').trim();
+                                        yearMovie = yearMovie.match(/([0-9]+)/i);
+                                        yearMovie = yearMovie != null ? +yearMovie[1] : false;
 
-                                            if (titleMovie.indexOf(year) != -1) {
-                                                detailUrl = hrefMovie;
-                                                return;
-                                            }
-                                        } else {
+                                        if (titleMovie && seasonMovie && yearMovie && (isNaN(yearMovie) == false || yearMovie == '') && hrefMovie.indexOf('pubfilm') != -1) {
 
-                                            if (seasonMovie == season) {
-                                                detailUrl = hrefMovie;
-                                                return;
+                                            if (type == 'movie') {
+
+                                                if (titleMovie.indexOf(year) != -1) {
+                                                    detailUrl = hrefMovie;
+                                                    return;
+                                                }
+                                            } else {
+
+                                                if (seasonMovie == season) {
+                                                    detailUrl = hrefMovie;
+                                                    return;
+                                                }
                                             }
                                         }
                                     }
