@@ -3,7 +3,7 @@
         "hollymovies": {
             "name": "hollymovies",
             "domain": "hollymoviehd.com",
-            "version": "0.0.5",
+            "version": "0.0.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hollymovies.js",
             "type": ["tv", "movie"]
         },
@@ -117,13 +117,6 @@
             "domain": "fmovies.pe",
             "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/fmoviespe.js",
-            "type": ["movie", "tv"]
-        },
-        "pubfilm": {
-            "name": "pubfilm",
-            "domain": "pubfilm.is",
-            "version": "0.0.6",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/pubfilm.js",
             "type": ["movie", "tv"]
         },
         "vidics": {
