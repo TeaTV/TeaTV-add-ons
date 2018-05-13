@@ -28,10 +28,10 @@
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hdonline.js",
             "type": ["tv", "movie"]
         },
-        "lululita": {
-            "name": "lululita",
-            "domain": "lululita.com",
-            "version": "0.0.2",
+        "afilm.filmhub": {
+            "name": "afilm.filmhub",
+            "domain": "afilm.filmhub.io",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/lululita.js",
             "type": ["tv", "movie"]
         }
