@@ -24,7 +24,7 @@ class Bl {
             isDie       = await httpRequest.isLinkDie(url);
         } catch(error) {}
     
-        if( isDie != false ) {
+        if( isDie != false && isDie != 'NOR' ) {
 
             results.push({
                 file: url, label: 'NOR', type: "direct" , size: isDie

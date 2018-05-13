@@ -20,9 +20,29 @@
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/phimbathu.js",
             "type": ["tv", "movie"]
+        },
+        "hdonline": {
+            "name": "hdonline",
+            "domain": "hdonline.vn",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hdonline.js",
+            "type": ["tv", "movie"]
+        },
+        "lululita": {
+            "name": "lululita",
+            "domain": "lululita.com",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/lululita.js",
+            "type": ["tv", "movie"]
         }
     },
     "hosts": {
+        "hdonline": {
+            "name": "hdonline",
+            "domain": ["vod-free.hdonline.vn", "s7.hdonline.vn"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vod-free.hdonline.js"
+        },
         "fbcdn": {
             "name": "fbcdn",
             "domain": ["video.xx.fbcdn.net", "fbcdn.net"],
@@ -47,16 +67,22 @@
             "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/api.bilu.js"
         },
+        "api.banhtv": {
+            "name": "api.banhtv",
+            "domain": ["api.banhtv.com"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/api.banhtv.js"
+        },
         "api.phimbathu": {
             "name": "api.phimbathu",
             "domain": ["api.phimbathu.com"],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/api.phimbathu.js"
         },
-        "cdn102.micetop": {
-            "name": "cdn102.micetop",
-            "domain": ["cdn102.micetop.us"],
-            "version": "0.0.1",
+        "micetop": {
+            "name": "micetop",
+            "domain": ["cdn102.micetop.us", "banhtv.micetop.us"],
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/cdn102.micetop.js"
         },
         "openload": {
