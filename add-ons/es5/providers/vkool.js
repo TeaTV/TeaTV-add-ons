@@ -364,12 +364,10 @@ var Vkool = function () {
 
                             case 53:
 
-                                console.log(hosts);process.exit();
-
                                 this.state.hosts = hosts;
                                 return _context3.abrupt('return');
 
-                            case 57:
+                            case 55:
                             case 'end':
                                 return _context3.stop();
                         }

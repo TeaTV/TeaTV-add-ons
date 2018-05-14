@@ -216,7 +216,6 @@ class Vkool {
 	        }
         }
 
-        console.log(hosts); process.exit();
         
         this.state.hosts = hosts;
         return;
