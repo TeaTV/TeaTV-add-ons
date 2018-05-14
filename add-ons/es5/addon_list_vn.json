@@ -37,12 +37,6 @@
         }
     },
     "hosts": {
-        "167.99.78.134": {
-            "name": "167.99.78.134",
-            "domain": ["167.99.78.134"],
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/167.99.78.134.js"
-        },
         "hdonline": {
             "name": "hdonline",
             "domain": ["vod-free.hdonline.vn", "s7.hdonline.vn"],
