@@ -1,6 +1,6 @@
 const URL = {
-    DOMAIN_MOVIE: "http://103.53.168.149:8889/api/movies/get_link_direct",
-    DOMAIN_TVSHOW: "http://103.53.168.149:8889/api/tvshows/get_link_direct",
+    DOMAIN_MOVIE: "http://afilm.filmhub.io:8889/api/movies/get_link_direct",
+    DOMAIN_TVSHOW: "http://afilm.filmhub.io:8889/api/tvshows/get_link_direct",
     HEADERS: {
     	'Accept': 'text/plain, */*; q=0.01',
         'Accept-Encoding': 'deflate',
@@ -31,6 +31,7 @@ class Lululita {
 
         let result = [];
 
+        
         let bodyInfo = {};
         let href = '';
         if( type == 'movie' ) {

@@ -31,7 +31,7 @@
         "afilm.filmhub": {
             "name": "afilm.filmhub",
             "domain": "afilm.filmhub.io",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/lululita.js",
             "type": ["tv", "movie"]
         }
