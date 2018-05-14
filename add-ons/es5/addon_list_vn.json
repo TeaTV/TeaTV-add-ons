@@ -82,7 +82,7 @@
         "micetop": {
             "name": "micetop",
             "domain": ["cdn102.micetop.us", "banhtv.micetop.us"],
-            "version": "0.0.3",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/cdn102.micetop.js"
         },
         "openload": {
