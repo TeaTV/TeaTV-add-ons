@@ -34,13 +34,6 @@
             "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/lululita.js",
             "type": ["tv", "movie"]
-        },
-        "vkool": {
-            "name": "vkool",
-            "domain": "vkool.net",
-            "version": "0.0.3",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vkool.js",
-            "type": ["tv", "movie"]
         }
     },
     "hosts": {
