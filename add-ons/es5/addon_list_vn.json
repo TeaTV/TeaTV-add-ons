@@ -34,9 +34,29 @@
             "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/lululita.js",
             "type": ["tv", "movie"]
+        },
+         "vkool": {
+            "name": "vkool",
+            "domain": "vkool.net",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vkool.js",
+            "type": ["tv", "movie"]
+        },
+        "animehay": {
+            "name": "animehay",
+            "domain": "animehay.tv",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/animehay.js",
+            "type": ["tv"]
         }
     },
     "hosts": {
+        "167.99.78.136": {
+            "name": "167.99.78.136",
+            "domain": ["167.99.78.136"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/167.99.78.136.js"
+        },
         "hdonline": {
             "name": "hdonline",
             "domain": ["vod-free.hdonline.vn", "s7.hdonline.vn"],
