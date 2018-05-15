@@ -126,7 +126,7 @@ var Vkool = function () {
                                                         if (linkVideo && linkVideo.indexOf('http://') == -1 && linkVideo.indexOf('https://') == -1) {
                                                             linkVideo = URL.DOMAIN + linkVideo;
                                                         }
-                                                        yearMovie = $_2('dt:contains(Năm)').next().find('a').text();
+                                                        yearMovie = $_2('dd.nobr').text();
 
 
                                                         console.log(yearMovie, linkVideo, 'abc');
