@@ -226,18 +226,20 @@ var Vkool = function () {
     }, {
         key: 'getHostFromDetail',
         value: function () {
-            var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs2, httpRequest, cheerio, qs, gibberish, type, hosts, vkool, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, item, list_link, html_video, $, script, info_video, linkdatap, body_post, result_post, item1, link_direct;
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+                var _this2 = this;
 
-                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                var _libs2, httpRequest, cheerio, qs, gibberish, type, hosts, vkool, arrPromise;
+
+                return regeneratorRuntime.wrap(function _callee4$(_context4) {
                     while (1) {
-                        switch (_context3.prev = _context3.next) {
+                        switch (_context4.prev = _context4.next) {
                             case 0:
                                 _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, qs = _libs2.qs, gibberish = _libs2.gibberish;
                                 type = this.movieInfo.type;
 
                                 if (!(this.state.detailUrl.length == 0)) {
-                                    _context3.next = 4;
+                                    _context4.next = 4;
                                     break;
                                 }
 
@@ -250,144 +252,115 @@ var Vkool = function () {
 
                                 console.log(this.state.detailUrl, 'abc3');
 
-                                _iteratorNormalCompletion = true;
-                                _didIteratorError = false;
-                                _iteratorError = undefined;
-                                _context3.prev = 10;
-                                _iterator = this.state.detailUrl[Symbol.iterator]();
+                                _context4.next = 9;
+                                return this.state.detailUrl.map(function () {
+                                    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(item) {
+                                        var list_link, html_video, $, script, info_video, linkdatap, body_post, result_post, item1, link_direct;
+                                        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                                            while (1) {
+                                                switch (_context3.prev = _context3.next) {
+                                                    case 0:
+                                                        list_link = {
+                                                            link: []
+                                                        };
+                                                        _context3.next = 3;
+                                                        return httpRequest.getHTML(item, URL.HEADERS);
+
+                                                    case 3:
+                                                        html_video = _context3.sent;
+                                                        $ = cheerio.load(html_video);
+
+
+                                                        console.log($('#VkoolMovie').length, 'abc4');
+
+                                                        if (!($('#VkoolMovie').length > 0)) {
+                                                            _context3.next = 24;
+                                                            break;
+                                                        }
+
+                                                        script = $('#VkoolMovie').next().html();
+
+
+                                                        console.log(script, 'abc5');
+
+                                                        info_video = script.match(/gkpluginsphp\(\"VkoolMovie\"\ *, *([^\)]+)/i);
+
+                                                        info_video = info_video[1];
+
+                                                        console.log(info_video, 'vkool');
+
+                                                        if (!info_video.link) {
+                                                            _context3.next = 22;
+                                                            break;
+                                                        }
+
+                                                        linkdatap = info_video.link.replace(/&/g, '%26');
+                                                        body_post = {
+                                                            link: linkdatap
+                                                        };
+                                                        _context3.next = 17;
+                                                        return httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS_RERFER(item), body_post);
+
+                                                    case 17:
+                                                        result_post = _context3.sent;
+
+                                                        result_post = result_post.data;
+                                                        list_link = result_post;
+                                                        _context3.next = 23;
+                                                        break;
+
+                                                    case 22:
+                                                        if (info_video.gklist) {} else if (info_video.list) {}
+
+                                                    case 23:
+                                                        if (list_link.link && list_link.link.length > 0) {
+                                                            for (item1 in list_link.link) {
+                                                                link_direct = gibberish.dec(list_link.link[item1].link, 'decolivkool');
+
+
+                                                                link_direct && hosts.push({
+                                                                    provider: {
+                                                                        url: item,
+                                                                        name: "Server 5"
+                                                                    },
+                                                                    result: {
+                                                                        file: link_direct,
+                                                                        label: list_link.link[item1].label,
+                                                                        type: 'direct'
+                                                                    }
+                                                                });
+                                                            }
+                                                        }
+
+                                                    case 24:
+                                                    case 'end':
+                                                        return _context3.stop();
+                                                }
+                                            }
+                                        }, _callee3, _this2);
+                                    }));
+
+                                    return function (_x3) {
+                                        return _ref4.apply(this, arguments);
+                                    };
+                                }());
+
+                            case 9:
+                                arrPromise = _context4.sent;
+                                _context4.next = 12;
+                                return Promise.all(arrPromise);
 
                             case 12:
-                                if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
-                                    _context3.next = 42;
-                                    break;
-                                }
-
-                                item = _step.value;
-                                list_link = {
-                                    link: []
-                                };
-                                _context3.next = 17;
-                                return httpRequest.getHTML(item, URL.HEADERS);
-
-                            case 17:
-                                html_video = _context3.sent;
-                                $ = cheerio.load(html_video);
-
-
-                                console.log($('#VkoolMovie').length, 'abc4');
-
-                                if (!($('#VkoolMovie').length == 0)) {
-                                    _context3.next = 22;
-                                    break;
-                                }
-
-                                return _context3.abrupt('continue', 39);
-
-                            case 22:
-                                script = $('#VkoolMovie').next().html();
-
-
-                                console.log(script, 'abc5');
-
-                                info_video = script.match(/gkpluginsphp\(\"VkoolMovie\"\ *, *([^\)]+)/i);
-
-                                info_video = info_video[1];
-
-                                console.log(info_video, 'vkool');
-
-                                if (!info_video.link) {
-                                    _context3.next = 37;
-                                    break;
-                                }
-
-                                linkdatap = info_video.link.replace(/&/g, '%26');
-                                body_post = {
-                                    link: linkdatap
-                                };
-                                _context3.next = 32;
-                                return httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS_RERFER(item), body_post);
-
-                            case 32:
-                                result_post = _context3.sent;
-
-                                result_post = result_post.data;
-                                list_link = result_post;
-                                _context3.next = 38;
-                                break;
-
-                            case 37:
-                                if (info_video.gklist) {} else if (info_video.list) {}
-
-                            case 38:
-                                if (list_link.link && list_link.link.length > 0) {
-                                    for (item1 in list_link.link) {
-                                        link_direct = gibberish.dec(list_link.link[item1].link, 'decolivkool');
-
-
-                                        link_direct && hosts.push({
-                                            provider: {
-                                                url: item,
-                                                name: "Server 5"
-                                            },
-                                            result: {
-                                                file: link_direct,
-                                                label: list_link.link[item1].label,
-                                                type: 'direct'
-                                            }
-                                        });
-                                    }
-                                }
-
-                            case 39:
-                                _iteratorNormalCompletion = true;
-                                _context3.next = 12;
-                                break;
-
-                            case 42:
-                                _context3.next = 48;
-                                break;
-
-                            case 44:
-                                _context3.prev = 44;
-                                _context3.t0 = _context3['catch'](10);
-                                _didIteratorError = true;
-                                _iteratorError = _context3.t0;
-
-                            case 48:
-                                _context3.prev = 48;
-                                _context3.prev = 49;
-
-                                if (!_iteratorNormalCompletion && _iterator.return) {
-                                    _iterator.return();
-                                }
-
-                            case 51:
-                                _context3.prev = 51;
-
-                                if (!_didIteratorError) {
-                                    _context3.next = 54;
-                                    break;
-                                }
-
-                                throw _iteratorError;
-
-                            case 54:
-                                return _context3.finish(51);
-
-                            case 55:
-                                return _context3.finish(48);
-
-                            case 56:
 
                                 this.state.hosts = hosts;
-                                return _context3.abrupt('return');
+                                return _context4.abrupt('return');
 
-                            case 58:
+                            case 14:
                             case 'end':
-                                return _context3.stop();
+                                return _context4.stop();
                         }
                     }
-                }, _callee3, this, [[10, 44, 48, 56], [49,, 51, 55]]);
+                }, _callee4, this);
             }));
 
             function getHostFromDetail() {
@@ -402,37 +375,37 @@ var Vkool = function () {
 }();
 
 thisSource.function = function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(libs, movieInfo, settings) {
         var vkool;
-        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+        return regeneratorRuntime.wrap(function _callee5$(_context5) {
             while (1) {
-                switch (_context4.prev = _context4.next) {
+                switch (_context5.prev = _context5.next) {
                     case 0:
                         vkool = new Vkool({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
-                        _context4.next = 3;
+                        _context5.next = 3;
                         return vkool.searchDetail();
 
                     case 3:
-                        _context4.next = 5;
+                        _context5.next = 5;
                         return vkool.getHostFromDetail();
 
                     case 5:
-                        return _context4.abrupt('return', vkool.state.hosts);
+                        return _context5.abrupt('return', vkool.state.hosts);
 
                     case 6:
                     case 'end':
-                        return _context4.stop();
+                        return _context5.stop();
                 }
             }
-        }, _callee4, undefined);
+        }, _callee5, undefined);
     }));
 
-    return function (_x3, _x4, _x5) {
-        return _ref4.apply(this, arguments);
+    return function (_x4, _x5, _x6) {
+        return _ref5.apply(this, arguments);
     };
 }();
 

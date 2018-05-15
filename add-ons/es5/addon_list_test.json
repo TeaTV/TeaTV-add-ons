@@ -3,7 +3,7 @@
         "vkool": {
             "name": "vkool",
             "domain": "vkool.net",
-            "version": "0.0.11",
+            "version": "0.0.13",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vkool.js",
             "type": ["tv", "movie"]
         }

@@ -165,64 +165,68 @@ class Vkool {
 
         console.log(this.state.detailUrl, 'abc3');
 
-        for( let item of this.state.detailUrl ) {
+        let arrPromise = await this.state.detailUrl.map(async (item) => {
 
-        	let list_link   = {
-	            link: [] 
-	        };
+            let list_link   = {
+                link: [] 
+            };
 
-	        let html_video  = await httpRequest.getHTML(item, URL.HEADERS);
-	        let $           = cheerio.load(html_video);
+            let html_video  = await httpRequest.getHTML(item, URL.HEADERS);
+            let $           = cheerio.load(html_video);
 
             console.log($('#VkoolMovie').length, 'abc4');
 
-	        if( $('#VkoolMovie').length == 0 ) continue;
 
-	        let script      = $('#VkoolMovie').next().html();
+            if( $('#VkoolMovie').length > 0 ) {
+                
+                let script      = $('#VkoolMovie').next().html();
 
-            console.log(script, 'abc5');
+                console.log(script, 'abc5');
+
+                let info_video  = script.match(/gkpluginsphp\(\"VkoolMovie\"\ *, *([^\)]+)/i);
+                info_video      = info_video[1];
 
 
-	        let info_video  = script.match(/gkpluginsphp\(\"VkoolMovie\"\ *, *([^\)]+)/i);
-	        info_video      = info_video[1];
+                console.log(info_video, 'vkool');
+                if (info_video.link) {
+                    let linkdatap = info_video.link.replace(/&/g, '%26');
 
+                    let body_post = {
+                        link: linkdatap
+                    };
+                    let result_post = await httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS_RERFER(item), body_post);
+                    result_post     = result_post.data;
+                    list_link       = result_post;
+                } else if (info_video.gklist) {
 
-            console.log(info_video, 'vkool');
-	        if (info_video.link) {
-	            let linkdatap = info_video.link.replace(/&/g, '%26');
+                } else if (info_video.list) {
 
-	            let body_post = {
-	                link: linkdatap
-	            };
-	            let result_post = await httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS_RERFER(item), body_post);
-	            result_post 	= result_post.data;
-	            list_link 		= result_post;
-	        } else if (info_video.gklist) {
+                }
 
-	        } else if (info_video.list) {
+                if (list_link.link && list_link.link.length > 0) {
+                    for ( let item1 in list_link.link ) {
 
-	        }
+                        let link_direct = gibberish.dec(list_link.link[item1].link, 'decolivkool');
 
-	        if (list_link.link && list_link.link.length > 0) {
-	            for ( let item1 in list_link.link ) {
+                        link_direct && hosts.push({
+                            provider: {
+                                url: item,
+                                name: "Server 5"
+                            },
+                            result: {
+                                file: link_direct,
+                                label: list_link.link[item1].label,
+                                type: 'direct'
+                            }
+                        });
+                    }
 
-	                let link_direct = gibberish.dec(list_link.link[item1].link, 'decolivkool');
+                }
+            }
+ 
+        });
 
-	            	link_direct && hosts.push({
-	                    provider: {
-	                        url: item,
-	                        name: "Server 5"
-	                    },
-	                    result: {
-	                        file: link_direct,
-	                        label: list_link.link[item1].label,
-	                        type: 'direct'
-	                    }
-	                });
-	            }
-
-	        }
-        }
+        await Promise.all(arrPromise);
 
         
         this.state.hosts = hosts;
