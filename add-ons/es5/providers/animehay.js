@@ -164,7 +164,7 @@ var Animehay = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, qs, gibberish, _movieInfo2, episode, type, animehay, hosts, infoLoad, serverLoad, loadVideo, loadVideo2, html_video, headers, $, cookie, hrefScript, script, item, _item, item2;
+                var _libs2, httpRequest, cheerio, qs, gibberish, _movieInfo2, episode, type, animehay, hosts, infoLoad, serverLoad, loadVideo, loadVideo2, html_video, $, cookie, hrefScript, script, item, _item, item2;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -194,23 +194,21 @@ var Animehay = function () {
 
                                 _context2.prev = 10;
                                 _context2.next = 13;
-                                return httpRequest.get(animehay.state.detailUrl, URL.HEADERS());
+                                return httpRequest.getHTML(animehay.state.detailUrl, URL.HEADERS());
 
                             case 13:
                                 html_video = _context2.sent;
 
-                                console.log(html_video);
-                                headers = html_video.headers['set-cookie'];
+                                // let headers     = html_video.headers['set-cookie'];
 
-                                console.log(headers);
 
-                                $ = cheerio.load(html_video.data);
-                                cookie = headers[0].replace(/\;.*/i, '') + ';';
+                                $ = cheerio.load(html_video);
+                                cookie = '';
                                 hrefScript = $('.ah-wf-head script[async=true]').attr('src');
-                                _context2.next = 22;
+                                _context2.next = 19;
                                 return httpRequest.getHTML(hrefScript, URL.HEADER_SCRIPT(cookie, animehay.state.detailUrl));
 
-                            case 22:
+                            case 19:
                                 script = _context2.sent;
 
 
@@ -261,26 +259,26 @@ var Animehay = function () {
                                         }
                                     }
                                 }
-                                _context2.next = 35;
+                                _context2.next = 32;
                                 break;
 
-                            case 32:
-                                _context2.prev = 32;
+                            case 29:
+                                _context2.prev = 29;
                                 _context2.t0 = _context2['catch'](10);
 
                                 console.log(String(_context2.t0));
 
-                            case 35:
+                            case 32:
 
                                 this.state.hosts = hosts;
                                 return _context2.abrupt('return');
 
-                            case 37:
+                            case 34:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[10, 32]]);
+                }, _callee2, this, [[10, 29]]);
             }));
 
             function getHostFromDetail() {

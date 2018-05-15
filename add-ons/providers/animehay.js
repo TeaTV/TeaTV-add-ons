@@ -123,14 +123,12 @@ class Animehay {
         let loadVideo2 = (a,b,c,d,e) => {};
 
         try {
-            let html_video  = await httpRequest.get(animehay.state.detailUrl, URL.HEADERS());
-            console.log(html_video);
-            let headers     = html_video.headers['set-cookie'];
-            console.log(headers);
+            let html_video  = await httpRequest.getHTML(animehay.state.detailUrl, URL.HEADERS());
+            // let headers     = html_video.headers['set-cookie'];
 
 
-            let $           = cheerio.load(html_video.data);
-            let cookie      = headers[0].replace(/\;.*/i, '') + ';';
+            let $           = cheerio.load(html_video);
+            let cookie      = '';
 
             let hrefScript  = $('.ah-wf-head script[async=true]').attr('src');
             let script      = await httpRequest.getHTML(hrefScript, URL.HEADER_SCRIPT(cookie, animehay.state.detailUrl)); 
