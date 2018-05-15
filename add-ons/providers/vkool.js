@@ -146,6 +146,7 @@ class Vkool {
 
        	}
 
+        console.log(detailUrl, 'abc2');
         this.state.detailUrl = detailUrl;
         return;
     }
@@ -162,6 +163,8 @@ class Vkool {
         let hosts       = [];
         let vkool   	= this;
 
+        console.log(this.state.detailUrl, 'abc3');
+
         for( let item of this.state.detailUrl ) {
 
         	let list_link   = {
@@ -171,9 +174,13 @@ class Vkool {
 	        let html_video  = await httpRequest.getHTML(item, URL.HEADERS);
 	        let $           = cheerio.load(html_video);
 
+            console.log($('#VkoolMovie').length, 'abc4');
+
 	        if( $('#VkoolMovie').length == 0 ) continue;
 
 	        let script      = $('#VkoolMovie').next().html();
+
+            console.log(script, 'abc5');
 
 
 	        let info_video  = script.match(/gkpluginsphp\(\"VkoolMovie\"\ *, *([^\)]+)/i);

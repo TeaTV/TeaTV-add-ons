@@ -205,10 +205,11 @@ var Vkool = function () {
 
                             case 33:
 
+                                console.log(detailUrl, 'abc2');
                                 this.state.detailUrl = detailUrl;
                                 return _context2.abrupt('return');
 
-                            case 35:
+                            case 36:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -245,15 +246,19 @@ var Vkool = function () {
                             case 4:
                                 hosts = [];
                                 vkool = this;
+
+
+                                console.log(this.state.detailUrl, 'abc3');
+
                                 _iteratorNormalCompletion = true;
                                 _didIteratorError = false;
                                 _iteratorError = undefined;
-                                _context3.prev = 9;
+                                _context3.prev = 10;
                                 _iterator = this.state.detailUrl[Symbol.iterator]();
 
-                            case 11:
+                            case 12:
                                 if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
-                                    _context3.next = 39;
+                                    _context3.next = 42;
                                     break;
                                 }
 
@@ -261,22 +266,29 @@ var Vkool = function () {
                                 list_link = {
                                     link: []
                                 };
-                                _context3.next = 16;
+                                _context3.next = 17;
                                 return httpRequest.getHTML(item, URL.HEADERS);
 
-                            case 16:
+                            case 17:
                                 html_video = _context3.sent;
                                 $ = cheerio.load(html_video);
 
+
+                                console.log($('#VkoolMovie').length, 'abc4');
+
                                 if (!($('#VkoolMovie').length == 0)) {
-                                    _context3.next = 20;
+                                    _context3.next = 22;
                                     break;
                                 }
 
-                                return _context3.abrupt('continue', 36);
+                                return _context3.abrupt('continue', 39);
 
-                            case 20:
+                            case 22:
                                 script = $('#VkoolMovie').next().html();
+
+
+                                console.log(script, 'abc5');
+
                                 info_video = script.match(/gkpluginsphp\(\"VkoolMovie\"\ *, *([^\)]+)/i);
 
                                 info_video = info_video[1];
@@ -284,7 +296,7 @@ var Vkool = function () {
                                 console.log(info_video, 'vkool');
 
                                 if (!info_video.link) {
-                                    _context3.next = 34;
+                                    _context3.next = 37;
                                     break;
                                 }
 
@@ -292,21 +304,21 @@ var Vkool = function () {
                                 body_post = {
                                     link: linkdatap
                                 };
-                                _context3.next = 29;
+                                _context3.next = 32;
                                 return httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS_RERFER(item), body_post);
 
-                            case 29:
+                            case 32:
                                 result_post = _context3.sent;
 
                                 result_post = result_post.data;
                                 list_link = result_post;
-                                _context3.next = 35;
+                                _context3.next = 38;
                                 break;
 
-                            case 34:
+                            case 37:
                                 if (info_video.gklist) {} else if (info_video.list) {}
 
-                            case 35:
+                            case 38:
                                 if (list_link.link && list_link.link.length > 0) {
                                     for (item1 in list_link.link) {
                                         link_direct = gibberish.dec(list_link.link[item1].link, 'decolivkool');
@@ -326,56 +338,56 @@ var Vkool = function () {
                                     }
                                 }
 
-                            case 36:
-                                _iteratorNormalCompletion = true;
-                                _context3.next = 11;
-                                break;
-
                             case 39:
-                                _context3.next = 45;
+                                _iteratorNormalCompletion = true;
+                                _context3.next = 12;
                                 break;
 
-                            case 41:
-                                _context3.prev = 41;
-                                _context3.t0 = _context3['catch'](9);
+                            case 42:
+                                _context3.next = 48;
+                                break;
+
+                            case 44:
+                                _context3.prev = 44;
+                                _context3.t0 = _context3['catch'](10);
                                 _didIteratorError = true;
                                 _iteratorError = _context3.t0;
 
-                            case 45:
-                                _context3.prev = 45;
-                                _context3.prev = 46;
+                            case 48:
+                                _context3.prev = 48;
+                                _context3.prev = 49;
 
                                 if (!_iteratorNormalCompletion && _iterator.return) {
                                     _iterator.return();
                                 }
 
-                            case 48:
-                                _context3.prev = 48;
+                            case 51:
+                                _context3.prev = 51;
 
                                 if (!_didIteratorError) {
-                                    _context3.next = 51;
+                                    _context3.next = 54;
                                     break;
                                 }
 
                                 throw _iteratorError;
 
-                            case 51:
+                            case 54:
+                                return _context3.finish(51);
+
+                            case 55:
                                 return _context3.finish(48);
 
-                            case 52:
-                                return _context3.finish(45);
-
-                            case 53:
+                            case 56:
 
                                 this.state.hosts = hosts;
                                 return _context3.abrupt('return');
 
-                            case 55:
+                            case 58:
                             case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this, [[9, 41, 45, 53], [46,, 48, 52]]);
+                }, _callee3, this, [[10, 44, 48, 56], [49,, 51, 55]]);
             }));
 
             function getHostFromDetail() {
