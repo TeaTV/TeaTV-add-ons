@@ -72,7 +72,7 @@ var Vkool = function () {
                                 tvshowDetailUrl = false;
 
 
-                                if (season == 0) {
+                                if (season == 0 && type == 'tv') {
                                     season = title.match(/season *([0-9]+)/i);
                                     season = season != null ? +season[1] : '0';
                                     title = title.match(/season *[0-9]+/i, '');

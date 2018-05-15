@@ -3,14 +3,14 @@
         "vkool": {
             "name": "vkool",
             "domain": "vkool.net",
-            "version": "0.0.17",
+            "version": "0.0.18",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vkool.js",
             "type": ["tv", "movie"]
         },
         "animehay": {
             "name": "animehay",
             "domain": "animehay.tv",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/animehay.js",
             "type": ["tv"]
         }

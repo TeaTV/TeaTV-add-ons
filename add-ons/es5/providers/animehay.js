@@ -135,6 +135,7 @@ var Animehay = function () {
                                     var numberEpisode = $_2(this).find('a').text();
                                     var hrefEpisode = $_2(this).find('a').attr('href');
 
+                                    console.log(numberEpisode);
                                     if (hrefEpisode && numberEpisode == episode) {
                                         detailUrl = hrefEpisode;
                                         return;
