@@ -70,11 +70,19 @@ var Vkool = function () {
                                 videoUrl = false;
                                 detailUrl = [];
                                 tvshowDetailUrl = false;
+
+
+                                if (season == 0) {
+                                    season = title.match(/season *([0-9]+)/i);
+                                    season = season != null ? +season[1] : '0';
+                                    title = title.match(/season *[0-9]+/i, '');
+                                }
+
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
-                                _context2.next = 11;
+                                _context2.next = 12;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS);
 
-                            case 11:
+                            case 12:
                                 htmlSearch = _context2.sent;
                                 $ = cheerio.load(htmlSearch);
                                 itemSearch = $('.list-movie .movie-item');
@@ -103,7 +111,7 @@ var Vkool = function () {
                                 });
 
                                 if (!(type == 'movie' && videoMovieUrl.length > 0)) {
-                                    _context2.next = 19;
+                                    _context2.next = 20;
                                     break;
                                 }
 
@@ -148,19 +156,19 @@ var Vkool = function () {
                                         return _ref2.apply(this, arguments);
                                     };
                                 }());
-                                _context2.next = 19;
+                                _context2.next = 20;
                                 return Promise.all(arrPromise);
 
-                            case 19:
+                            case 20:
                                 if (!(type == 'tv' && videoTvshowUrl != false)) {
-                                    _context2.next = 33;
+                                    _context2.next = 34;
                                     break;
                                 }
 
-                                _context2.next = 22;
+                                _context2.next = 23;
                                 return httpRequest.getHTML(videoTvshowUrl, URL.HEADERS);
 
-                            case 22:
+                            case 23:
                                 htmlVideo = _context2.sent;
                                 $_2 = cheerio.load(htmlVideo);
                                 linkVideo = $_2('#btn-film-watch').attr('href');
@@ -169,10 +177,10 @@ var Vkool = function () {
                                     linkVideo = URL.DOMAIN + linkVideo;
                                 }
 
-                                _context2.next = 28;
+                                _context2.next = 29;
                                 return httpRequest.getHTML(linkVideo, URL.HEADERS);
 
-                            case 28:
+                            case 29:
                                 htmlDetail = _context2.sent;
 
                                 $_2 = cheerio.load(htmlDetail);
@@ -200,12 +208,12 @@ var Vkool = function () {
 
                                 detailUrl = arrHrefEpisode;
 
-                            case 33:
+                            case 34:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context2.abrupt('return');
 
-                            case 35:
+                            case 36:
                             case 'end':
                                 return _context2.stop();
                         }

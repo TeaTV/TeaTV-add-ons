@@ -53,6 +53,13 @@ class Vkool {
         let detailUrl 		= [];
         let tvshowDetailUrl = false;
 
+
+        if( season == 0 ) {
+            season = title.match(/season *([0-9]+)/i);
+            season = season != null ? +season[1] : '0';
+            title  = title.match(/season *[0-9]+/i, '');
+        }
+
         let	urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
         let htmlSearch 	= await httpRequest.getHTML(urlSearch, URL.HEADERS);
         let $ 			= cheerio.load(htmlSearch);
