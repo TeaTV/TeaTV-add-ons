@@ -93,7 +93,7 @@ class Vkool {
                 if (linkVideo && linkVideo.indexOf('http://') == -1 && linkVideo.indexOf('https://') == -1) {
                     linkVideo = URL.DOMAIN +  linkVideo;
                 }
-       			let yearMovie = $_2('a.nobr').next().find('a').text();
+       			let yearMovie = $_2('a.nobr').text();
 
                 console.log(yearMovie, linkVideo, 'abc');
        			if (yearMovie == year) {
