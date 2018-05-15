@@ -185,6 +185,7 @@ class Vkool {
 
                 let info_video  = script.match(/gkpluginsphp\(\"VkoolMovie\"\ *, *([^\)]+)/i);
                 info_video      = info_video[1];
+                info_video      = JSON.parse(info_video);
 
 
                 console.log(info_video, 'vkool');
