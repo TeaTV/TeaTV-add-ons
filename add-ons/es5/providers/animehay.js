@@ -56,7 +56,7 @@ var Animehay = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, banhtv, detailUrl, arrVideo, videoUrl, tvshowVideoUrl, url_search, html_search, $, item_page, htmlVideo, $_2, linkDetail, listEpisode;
+                var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, animehay, detailUrl, arrVideo, videoUrl, tvshowVideoUrl, url_search, html_search, $, item_page, htmlVideo, $_2, linkDetail, listEpisode;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -64,7 +64,7 @@ var Animehay = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
-                                banhtv = this;
+                                animehay = this;
                                 detailUrl = false;
                                 arrVideo = [];
                                 videoUrl = false;
@@ -192,7 +192,7 @@ var Animehay = function () {
 
                                 loadVideo2 = function loadVideo2(a, b, c, d, e) {};
 
-                                console.log(animehay.state.detailUrl);
+                                console.log(animehay.state.detailUrl, 'abc');
                                 _context2.next = 13;
                                 return httpRequest.get(animehay.state.detailUrl, URL.HEADERS());
 
@@ -259,58 +259,6 @@ var Animehay = function () {
                                         }
                                     }
                                 }
-
-                                // let playerSetting = {
-                                //     sourceLinks: [],
-                                //     modelId: ''
-                                // };
-
-                                // let html_video  = await httpRequest.getHTML(banhtv.state.detailUrl);
-
-                                // let player      = html_video.match(/var *playerSetting *\=([^$]+)/i);
-                                // player      = player != null ? player[1] : '';
-                                // player      = player.replace(/var *bbPlayer\;/i, '');
-                                // player      = player.replace(/var *playerNoAds *\= *function\(\) *\{/i, '');
-                                // player      = player.replace('playerSetting["adsArray"] = [];', '');
-                                // player      = player.replace('playerSetting["midArray"] = [];', '');
-                                // player      = player.replace(`bbPlayer = new BPlayer('player');`, '');
-                                // player      = player.replace(`bbPlayer.init(playerSetting);`, '');
-                                // player      = player.replace(`$(".ads-under-player").remove();`, '');
-                                // player      = player.replace(/\}$/i, '');
-                                // player      = player.replace('var playerHasAds = function() {', '');
-                                // player      = player.replace(`bbPlayer = new BPlayer('player');`, '');
-                                // player      = player.replace(`bbPlayer.init(playerSetting);`, '');
-                                // player      = player.replace(/\}$/i, '');
-                                // player      = player.replace('hook_no_play_ads.push(playerNoAds);', '');
-                                // player      = player.replace('hook_play_ads.push(playerHasAds);', '');
-
-                                // eval(`playerSetting =  ${player}`);
-
-
-                                // let key = `banhtv.com4590481877${playerSetting.modelId}`;
-                                // for( let item in playerSetting.sourceLinks ) {
-
-                                //     for( let item1 in playerSetting.sourceLinks[item].links ) {
-
-                                //         let link_direct = gibberish.dec(playerSetting.sourceLinks[item].links[item1].file, key);
-
-                                //         if( link_direct ) {
-
-                                //         	hosts.push({
-                                //                 provider: {
-                                //                     url: banhtv.state.detailUrl,
-                                //                     name: "Server 5"
-                                //                 },
-                                //                 result: {
-                                //                     file: link_direct,
-                                //                     label: playerSetting.sourceLinks[item].links[item1].label
-                                //                 }
-                                //             });
-                                //         }
-
-                                //     }
-
-                                // }
 
                                 this.state.hosts = hosts;
                                 return _context2.abrupt('return');
