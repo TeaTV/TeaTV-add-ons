@@ -103,6 +103,7 @@ class Animehay {
         	}
         }
 
+        console.log(detailUrl);
         this.state.detailUrl = detailUrl;
         return;
     }
@@ -138,7 +139,7 @@ class Animehay {
 
         eval(script);
 
-
+        console.log(infoLoad, serverLoad);
         if( infoLoad.links.length > 0 ) {
 
             for (let item in infoLoad.links) {

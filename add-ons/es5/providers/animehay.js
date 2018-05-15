@@ -144,10 +144,11 @@ var Animehay = function () {
 
                             case 29:
 
+                                console.log(detailUrl);
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 31:
+                            case 32:
                             case 'end':
                                 return _context.stop();
                         }
@@ -214,6 +215,7 @@ var Animehay = function () {
 
                                 eval(script);
 
+                                console.log(infoLoad, serverLoad);
                                 if (infoLoad.links.length > 0) {
 
                                     for (item in infoLoad.links) {
@@ -309,7 +311,7 @@ var Animehay = function () {
                                 this.state.hosts = hosts;
                                 return _context2.abrupt('return');
 
-                            case 27:
+                            case 28:
                             case 'end':
                                 return _context2.stop();
                         }
