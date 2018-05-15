@@ -124,6 +124,7 @@ class Animehay {
 
         try {
             let html_video  = await httpRequest.get(animehay.state.detailUrl, URL.HEADERS());
+            console.log(html_video);
             let headers     = html_video.headers['set-cookie'];
             console.log(headers);
 

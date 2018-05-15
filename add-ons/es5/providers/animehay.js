@@ -198,6 +198,8 @@ var Animehay = function () {
 
                             case 13:
                                 html_video = _context2.sent;
+
+                                console.log(html_video);
                                 headers = html_video.headers['set-cookie'];
 
                                 console.log(headers);
@@ -205,10 +207,10 @@ var Animehay = function () {
                                 $ = cheerio.load(html_video.data);
                                 cookie = headers[0].replace(/\;.*/i, '') + ';';
                                 hrefScript = $('.ah-wf-head script[async=true]').attr('src');
-                                _context2.next = 21;
+                                _context2.next = 22;
                                 return httpRequest.getHTML(hrefScript, URL.HEADER_SCRIPT(cookie, animehay.state.detailUrl));
 
-                            case 21:
+                            case 22:
                                 script = _context2.sent;
 
 
@@ -259,26 +261,26 @@ var Animehay = function () {
                                         }
                                     }
                                 }
-                                _context2.next = 34;
+                                _context2.next = 35;
                                 break;
 
-                            case 31:
-                                _context2.prev = 31;
+                            case 32:
+                                _context2.prev = 32;
                                 _context2.t0 = _context2['catch'](10);
 
                                 console.log(String(_context2.t0));
 
-                            case 34:
+                            case 35:
 
                                 this.state.hosts = hosts;
                                 return _context2.abrupt('return');
 
-                            case 36:
+                            case 37:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[10, 31]]);
+                }, _callee2, this, [[10, 32]]);
             }));
 
             function getHostFromDetail() {
