@@ -128,18 +128,15 @@ var Vkool = function () {
                                                         }
                                                         yearMovie = $_2('a.nobr').text();
 
-
-                                                        console.log(yearMovie, linkVideo, 'abc');
-
                                                         if (!(yearMovie == year)) {
-                                                            _context.next = 11;
+                                                            _context.next = 10;
                                                             break;
                                                         }
 
                                                         detailUrl.push(linkVideo);
                                                         return _context.abrupt('return');
 
-                                                    case 11:
+                                                    case 10:
                                                     case 'end':
                                                         return _context.stop();
                                                 }
@@ -205,11 +202,10 @@ var Vkool = function () {
 
                             case 33:
 
-                                console.log(detailUrl, 'abc2');
                                 this.state.detailUrl = detailUrl;
                                 return _context2.abrupt('return');
 
-                            case 36:
+                            case 35:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -248,14 +244,10 @@ var Vkool = function () {
                             case 4:
                                 hosts = [];
                                 vkool = this;
-
-
-                                console.log(this.state.detailUrl, 'abc3');
-
-                                _context4.next = 9;
+                                _context4.next = 8;
                                 return this.state.detailUrl.map(function () {
                                     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(item) {
-                                        var list_link, html_video, $, script, info_video, linkdatap, body_post, result_post, item1, link_direct;
+                                        var list_link, html_video, $, script, listLink, linkdatap, body_post, result_post, item1, link_direct;
                                         return regeneratorRuntime.wrap(function _callee3$(_context3) {
                                             while (1) {
                                                 switch (_context3.prev = _context3.next) {
@@ -270,56 +262,35 @@ var Vkool = function () {
                                                         html_video = _context3.sent;
                                                         $ = cheerio.load(html_video);
 
-
-                                                        console.log($('#VkoolMovie').length, 'abc4');
-
                                                         if (!($('#VkoolMovie').length > 0)) {
-                                                            _context3.next = 28;
+                                                            _context3.next = 18;
                                                             break;
                                                         }
 
                                                         script = $('#VkoolMovie').next().html();
+                                                        listLink = script.match(/link *\: *\"([^\"]+)/i);
 
+                                                        listLink = listLink != null ? listLink[1] : false;
 
-                                                        console.log(script, 'abc5');
-
-                                                        info_video = script.match(/gkpluginsphp\(\"VkoolMovie\"\ *, *([^\)]+)/i);
-
-                                                        info_video = info_video[1];
-                                                        info_video = JSON.parse(info_video);
-
-                                                        console.log(info_video, 'vkool');
-
-                                                        if (!info_video.link) {
-                                                            _context3.next = 25;
+                                                        if (!(listLink != false)) {
+                                                            _context3.next = 18;
                                                             break;
                                                         }
 
-                                                        linkdatap = info_video.link.replace(/&/g, '%26');
+                                                        linkdatap = listLink.replace(/&/g, '%26');
                                                         body_post = {
                                                             link: linkdatap
                                                         };
-
-
-                                                        console.log(body_post, 'vkool1');
-                                                        _context3.next = 19;
+                                                        _context3.next = 14;
                                                         return httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS_RERFER(item), body_post);
 
-                                                    case 19:
+                                                    case 14:
                                                         result_post = _context3.sent;
 
                                                         result_post = result_post.data;
 
-                                                        console.log(result_post, 'vkool3');
                                                         list_link = result_post;
-                                                        _context3.next = 26;
-                                                        break;
 
-                                                    case 25:
-                                                        if (info_video.gklist) {} else if (info_video.list) {}
-
-                                                    case 26:
-                                                        console.log(list_link, 'vkool4');
                                                         if (list_link.link && list_link.link.length > 0) {
                                                             for (item1 in list_link.link) {
                                                                 link_direct = gibberish.dec(list_link.link[item1].link, 'decolivkool');
@@ -339,7 +310,7 @@ var Vkool = function () {
                                                             }
                                                         }
 
-                                                    case 28:
+                                                    case 18:
                                                     case 'end':
                                                         return _context3.stop();
                                                 }
@@ -352,17 +323,17 @@ var Vkool = function () {
                                     };
                                 }());
 
-                            case 9:
+                            case 8:
                                 arrPromise = _context4.sent;
-                                _context4.next = 12;
+                                _context4.next = 11;
                                 return Promise.all(arrPromise);
 
-                            case 12:
+                            case 11:
 
                                 this.state.hosts = hosts;
                                 return _context4.abrupt('return');
 
-                            case 14:
+                            case 13:
                             case 'end':
                                 return _context4.stop();
                         }

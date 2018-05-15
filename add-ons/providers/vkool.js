@@ -95,7 +95,6 @@ class Vkool {
                 }
        			let yearMovie = $_2('a.nobr').text();
 
-                console.log(yearMovie, linkVideo, 'abc');
        			if (yearMovie == year) {
 
        				detailUrl.push(linkVideo);
@@ -146,7 +145,6 @@ class Vkool {
 
        	}
 
-        console.log(detailUrl, 'abc2');
         this.state.detailUrl = detailUrl;
         return;
     }
@@ -158,14 +156,12 @@ class Vkool {
         const {type} 								  = this.movieInfo;
 
     	if(this.state.detailUrl.length == 0) throw new Error("NOT_FOUND");
-        
 
         let hosts       = [];
         let vkool   	= this;
 
-        console.log(this.state.detailUrl, 'abc3');
 
-        let arrPromise = await this.state.detailUrl.map(async (item) => {
+        let arrPromise = await this.state.detailUrl.map(async (item) =>{
 
             let list_link   = {
                 link: [] 
@@ -174,62 +170,47 @@ class Vkool {
             let html_video  = await httpRequest.getHTML(item, URL.HEADERS);
             let $           = cheerio.load(html_video);
 
-            console.log($('#VkoolMovie').length, 'abc4');
-
 
             if( $('#VkoolMovie').length > 0 ) {
 
                 let script      = $('#VkoolMovie').next().html();
+                let listLink    = script.match(/link *\: *\"([^\"]+)/i);
+                listLink        = listLink != null ? listLink[1] : false;
 
-                console.log(script, 'abc5');
+                if( listLink != false ) {
 
-                let info_video  = script.match(/gkpluginsphp\(\"VkoolMovie\"\ *, *([^\)]+)/i);
-                info_video      = info_video[1];
-                info_video      = JSON.parse(info_video);
-
-
-                console.log(info_video, 'vkool');
-                if (info_video.link) {
-                    let linkdatap = info_video.link.replace(/&/g, '%26');
+                    let linkdatap = listLink.replace(/&/g, '%26');
 
                     let body_post = {
                         link: linkdatap
                     };
 
-                    console.log(body_post, 'vkool1');
                     let result_post = await httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS_RERFER(item), body_post);
                     result_post     = result_post.data;
 
-                    console.log(result_post, 'vkool3');
                     list_link       = result_post;
-                } else if (info_video.gklist) {
 
-                } else if (info_video.list) {
+                    if (list_link.link && list_link.link.length > 0) {
+                        for ( let item1 in list_link.link ) {
 
-                }
+                            let link_direct = gibberish.dec(list_link.link[item1].link, 'decolivkool');
 
-                console.log(list_link, 'vkool4');
-                if (list_link.link && list_link.link.length > 0) {
-                    for ( let item1 in list_link.link ) {
-
-                        let link_direct = gibberish.dec(list_link.link[item1].link, 'decolivkool');
-
-                        link_direct && hosts.push({
-                            provider: {
-                                url: item,
-                                name: "Server 5"
-                            },
-                            result: {
-                                file: link_direct,
-                                label: list_link.link[item1].label,
-                                type: 'direct'
-                            }
-                        });
+                            link_direct && hosts.push({
+                                provider: {
+                                    url: item,
+                                    name: "Server 5"
+                                },
+                                result: {
+                                    file: link_direct,
+                                    label: list_link.link[item1].label,
+                                    type: 'direct'
+                                }
+                            });
+                        }
                     }
-
                 }
-            }
- 
+
+            } 
         });
 
         await Promise.all(arrPromise);
