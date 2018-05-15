@@ -90,6 +90,7 @@ class Vkool {
        			let $_2 	  = cheerio.load(htmlVideo);
        			let linkVideo  = $_2('#btn-film-watch').attr('href');
 
+                console.log(linkVideo, 'abc'); 
                 if (linkVideo && linkVideo.indexOf('http://') == -1 && linkVideo.indexOf('https://') == -1) {
                     linkVideo = URL.DOMAIN +  linkVideo;
                 }
@@ -141,7 +142,6 @@ class Vkool {
 
             });
 
-            console.log(arrHrefEpisode, 'length-arr');
             detailUrl = arrHrefEpisode;
 
        	}
@@ -179,7 +179,6 @@ class Vkool {
 	        let info_video  = script.match(/gkpluginsphp\(\"VkoolMovie\"\ *, *([^\)]+)/i);
 	        info_video      = info_video[1];
 
-	        eval(`info_video = ${info_video}`);
 
             console.log(info_video, 'vkool');
 	        if (info_video.link) {
