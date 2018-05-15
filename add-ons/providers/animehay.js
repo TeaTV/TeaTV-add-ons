@@ -89,12 +89,11 @@ class Animehay {
 
         		let listEpisode = $_2('.ah-wf-le ul li');
 
-
         		listEpisode.each(function () {
         			let numberEpisode = $_2(this).find('a').text();
         			let hrefEpisode = $_2(this).find('a').attr('href');
 
-                    console.log(numberEpisode, hrefEpisode);
+
         			if( hrefEpisode && numberEpisode == episode ) {
         				detailUrl = hrefEpisode;
         				return;
@@ -103,7 +102,6 @@ class Animehay {
         	}
         }
 
-        console.log(detailUrl);
         this.state.detailUrl = detailUrl;
         return;
     }
@@ -124,9 +122,10 @@ class Animehay {
         let loadVideo = (a,b,c,d,e) => {};
         let loadVideo2 = (a,b,c,d,e) => {};
 
-
-        let html_video  = await httpRequest.get(this.state.detailUrl, URL.HEADERS());
+        console.log(animehay.state.detailUrl);
+        let html_video  = await httpRequest.get(animehay.state.detailUrl, URL.HEADERS());
         let headers     = html_video.headers['set-cookie'];
+        console.log(headers);
 
         let $           = cheerio.load(html_video.data);
         let cookie      = headers[0].replace(/\;.*/i, '') + ';';
@@ -136,6 +135,8 @@ class Animehay {
 
         script          = script.replace(/var *infoLoad/i, 'infoLoad');
         script          = script.replace(/var *serverLoad/i, 'serverLoad');
+
+        console.log(script); 
 
         eval(script);
 
