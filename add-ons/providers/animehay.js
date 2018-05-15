@@ -122,66 +122,70 @@ class Animehay {
         let loadVideo = (a,b,c,d,e) => {};
         let loadVideo2 = (a,b,c,d,e) => {};
 
-        console.log(animehay.state.detailUrl, 'abc');
-        let html_video  = await httpRequest.get(animehay.state.detailUrl, URL.HEADERS());
-        let headers     = html_video.headers['set-cookie'];
-        console.log(headers);
+        try {
+            let html_video  = await httpRequest.get(animehay.state.detailUrl, URL.HEADERS());
+            let headers     = html_video.headers['set-cookie'];
+            console.log(headers);
 
 
-        let $           = cheerio.load(html_video.data);
-        let cookie      = headers[0].replace(/\;.*/i, '') + ';';
+            let $           = cheerio.load(html_video.data);
+            let cookie      = headers[0].replace(/\;.*/i, '') + ';';
 
-        let hrefScript  = $('.ah-wf-head script[async=true]').attr('src');
-        let script      = await httpRequest.getHTML(hrefScript, URL.HEADER_SCRIPT(cookie, animehay.state.detailUrl)); 
+            let hrefScript  = $('.ah-wf-head script[async=true]').attr('src');
+            let script      = await httpRequest.getHTML(hrefScript, URL.HEADER_SCRIPT(cookie, animehay.state.detailUrl)); 
 
-        script          = script.replace(/var *infoLoad/i, 'infoLoad');
-        script          = script.replace(/var *serverLoad/i, 'serverLoad');
+            script          = script.replace(/var *infoLoad/i, 'infoLoad');
+            script          = script.replace(/var *serverLoad/i, 'serverLoad');
 
-        console.log(script); 
+            console.log(script); 
 
-        eval(script);
+            eval(script);
 
-        console.log(infoLoad, serverLoad);
-        if( infoLoad.links.length > 0 ) {
+            console.log(infoLoad, serverLoad);
+            if( infoLoad.links.length > 0 ) {
 
-            for (let item in infoLoad.links) {
-                if( infoLoad.links[item].file ) {
-                	hosts.push({
-                        provider: {
-                            url: animehay.state.detailUrl,
-                            name: "Server 7"
-                        },
-                        result: {
-                            file: infoLoad.links[item].file,
-                            label: infoLoad.links[item].label
-                        }
-	                });
-                }
-            }
-        }
-
-        if( serverLoad ) {
-
-            for ( let item in serverLoad ) {
-
-                for( let item2 in serverLoad[item] )   {
-
-                    if( serverLoad[item][item2].file ) {
-	                   	hosts.push({
-	                        provider: {
-	                            url: animehay.state.detailUrl,
-	                            name: "Server 7"
-	                        },
-	                        result: {
-	                            file: serverLoad[item][item2].file,
-	                            label: serverLoad[item][item2].label
-	                        }
-	                    });
+                for (let item in infoLoad.links) {
+                    if( infoLoad.links[item].file ) {
+                        hosts.push({
+                            provider: {
+                                url: animehay.state.detailUrl,
+                                name: "Server 7"
+                            },
+                            result: {
+                                file: infoLoad.links[item].file,
+                                label: infoLoad.links[item].label
+                            }
+                        });
                     }
                 }
-                
             }
+
+            if( serverLoad ) {
+
+                for ( let item in serverLoad ) {
+
+                    for( let item2 in serverLoad[item] )   {
+
+                        if( serverLoad[item][item2].file ) {
+                            hosts.push({
+                                provider: {
+                                    url: animehay.state.detailUrl,
+                                    name: "Server 7"
+                                },
+                                result: {
+                                    file: serverLoad[item][item2].file,
+                                    label: serverLoad[item][item2].label
+                                }
+                            });
+                        }
+                    }
+                    
+                }
+            }
+        } catch(error) {
+            console.log(String(error));
         }
+        
 
 
 

@@ -192,7 +192,7 @@ var Animehay = function () {
 
                                 loadVideo2 = function loadVideo2(a, b, c, d, e) {};
 
-                                console.log(animehay.state.detailUrl, 'abc');
+                                _context2.prev = 10;
                                 _context2.next = 13;
                                 return httpRequest.get(animehay.state.detailUrl, URL.HEADERS());
 
@@ -259,16 +259,26 @@ var Animehay = function () {
                                         }
                                     }
                                 }
+                                _context2.next = 34;
+                                break;
+
+                            case 31:
+                                _context2.prev = 31;
+                                _context2.t0 = _context2['catch'](10);
+
+                                console.log(String(_context2.t0));
+
+                            case 34:
 
                                 this.state.hosts = hosts;
                                 return _context2.abrupt('return');
 
-                            case 31:
+                            case 36:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this);
+                }, _callee2, this, [[10, 31]]);
             }));
 
             function getHostFromDetail() {
