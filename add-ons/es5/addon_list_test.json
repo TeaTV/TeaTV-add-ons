@@ -12,7 +12,7 @@
         "167.99.78.136": {
             "name": "167.99.78.136",
             "domain": ["167.99.78.136"],
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/167.99.78.136.js"
         },
     	 "hdonline": {

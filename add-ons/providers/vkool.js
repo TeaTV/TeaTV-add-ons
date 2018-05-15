@@ -141,6 +141,7 @@ class Vkool {
 
             });
 
+            console.log(arrHrefEpisode, 'length-arr');
             detailUrl = arrHrefEpisode;
 
        	}
@@ -180,6 +181,7 @@ class Vkool {
 
 	        eval(`info_video = ${info_video}`);
 
+            console.log(info_video, 'vkool');
 	        if (info_video.link) {
 	            let linkdatap = info_video.link.replace(/&/g, '%26');
 

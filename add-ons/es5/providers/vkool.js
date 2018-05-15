@@ -153,7 +153,7 @@ var Vkool = function () {
 
                             case 19:
                                 if (!(type == 'tv' && videoTvshowUrl != false)) {
-                                    _context2.next = 33;
+                                    _context2.next = 34;
                                     break;
                                 }
 
@@ -198,14 +198,15 @@ var Vkool = function () {
                                     });
                                 });
 
+                                console.log(arrHrefEpisode, 'length-arr');
                                 detailUrl = arrHrefEpisode;
 
-                            case 33:
+                            case 34:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context2.abrupt('return');
 
-                            case 35:
+                            case 36:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -250,7 +251,7 @@ var Vkool = function () {
 
                             case 11:
                                 if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
-                                    _context3.next = 39;
+                                    _context3.next = 40;
                                     break;
                                 }
 
@@ -270,7 +271,7 @@ var Vkool = function () {
                                     break;
                                 }
 
-                                return _context3.abrupt('continue', 36);
+                                return _context3.abrupt('continue', 37);
 
                             case 20:
                                 script = $('#VkoolMovie').next().html();
@@ -280,8 +281,10 @@ var Vkool = function () {
 
                                 eval('info_video = ' + info_video);
 
+                                console.log(info_video, 'vkool');
+
                                 if (!info_video.link) {
-                                    _context3.next = 34;
+                                    _context3.next = 35;
                                     break;
                                 }
 
@@ -289,21 +292,21 @@ var Vkool = function () {
                                 body_post = {
                                     link: linkdatap
                                 };
-                                _context3.next = 29;
+                                _context3.next = 30;
                                 return httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS_RERFER(item), body_post);
 
-                            case 29:
+                            case 30:
                                 result_post = _context3.sent;
 
                                 result_post = result_post.data;
                                 list_link = result_post;
-                                _context3.next = 35;
+                                _context3.next = 36;
                                 break;
 
-                            case 34:
+                            case 35:
                                 if (info_video.gklist) {} else if (info_video.list) {}
 
-                            case 35:
+                            case 36:
                                 if (list_link.link && list_link.link.length > 0) {
                                     for (item1 in list_link.link) {
                                         link_direct = gibberish.dec(list_link.link[item1].link, 'decolivkool');
@@ -323,56 +326,56 @@ var Vkool = function () {
                                     }
                                 }
 
-                            case 36:
+                            case 37:
                                 _iteratorNormalCompletion = true;
                                 _context3.next = 11;
                                 break;
 
-                            case 39:
-                                _context3.next = 45;
+                            case 40:
+                                _context3.next = 46;
                                 break;
 
-                            case 41:
-                                _context3.prev = 41;
+                            case 42:
+                                _context3.prev = 42;
                                 _context3.t0 = _context3['catch'](9);
                                 _didIteratorError = true;
                                 _iteratorError = _context3.t0;
 
-                            case 45:
-                                _context3.prev = 45;
+                            case 46:
                                 _context3.prev = 46;
+                                _context3.prev = 47;
 
                                 if (!_iteratorNormalCompletion && _iterator.return) {
                                     _iterator.return();
                                 }
 
-                            case 48:
-                                _context3.prev = 48;
+                            case 49:
+                                _context3.prev = 49;
 
                                 if (!_didIteratorError) {
-                                    _context3.next = 51;
+                                    _context3.next = 52;
                                     break;
                                 }
 
                                 throw _iteratorError;
 
-                            case 51:
-                                return _context3.finish(48);
-
                             case 52:
-                                return _context3.finish(45);
+                                return _context3.finish(49);
 
                             case 53:
+                                return _context3.finish(46);
+
+                            case 54:
 
                                 this.state.hosts = hosts;
                                 return _context3.abrupt('return');
 
-                            case 55:
+                            case 56:
                             case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this, [[9, 41, 45, 53], [46,, 48, 52]]);
+                }, _callee3, this, [[9, 42, 46, 54], [47,, 49, 53]]);
             }));
 
             function getHostFromDetail() {
