@@ -178,7 +178,7 @@ class Vkool {
 
 
             if( $('#VkoolMovie').length > 0 ) {
-                
+
                 let script      = $('#VkoolMovie').next().html();
 
                 console.log(script, 'abc5');
@@ -194,8 +194,12 @@ class Vkool {
                     let body_post = {
                         link: linkdatap
                     };
+
+                    console.log(body_post, 'vkool1');
                     let result_post = await httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS_RERFER(item), body_post);
                     result_post     = result_post.data;
+
+                    console.log(result_post, 'vkool3');
                     list_link       = result_post;
                 } else if (info_video.gklist) {
 
@@ -203,6 +207,7 @@ class Vkool {
 
                 }
 
+                console.log(list_link, 'vkool4');
                 if (list_link.link && list_link.link.length > 0) {
                     for ( let item1 in list_link.link ) {
 

@@ -274,7 +274,7 @@ var Vkool = function () {
                                                         console.log($('#VkoolMovie').length, 'abc4');
 
                                                         if (!($('#VkoolMovie').length > 0)) {
-                                                            _context3.next = 24;
+                                                            _context3.next = 27;
                                                             break;
                                                         }
 
@@ -290,7 +290,7 @@ var Vkool = function () {
                                                         console.log(info_video, 'vkool');
 
                                                         if (!info_video.link) {
-                                                            _context3.next = 22;
+                                                            _context3.next = 24;
                                                             break;
                                                         }
 
@@ -298,21 +298,27 @@ var Vkool = function () {
                                                         body_post = {
                                                             link: linkdatap
                                                         };
-                                                        _context3.next = 17;
+
+
+                                                        console.log(body_post, 'vkool1');
+                                                        _context3.next = 18;
                                                         return httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS_RERFER(item), body_post);
 
-                                                    case 17:
+                                                    case 18:
                                                         result_post = _context3.sent;
 
                                                         result_post = result_post.data;
+
+                                                        console.log(result_post, 'vkool3');
                                                         list_link = result_post;
-                                                        _context3.next = 23;
+                                                        _context3.next = 25;
                                                         break;
 
-                                                    case 22:
+                                                    case 24:
                                                         if (info_video.gklist) {} else if (info_video.list) {}
 
-                                                    case 23:
+                                                    case 25:
+                                                        console.log(list_link, 'vkool4');
                                                         if (list_link.link && list_link.link.length > 0) {
                                                             for (item1 in list_link.link) {
                                                                 link_direct = gibberish.dec(list_link.link[item1].link, 'decolivkool');
@@ -332,7 +338,7 @@ var Vkool = function () {
                                                             }
                                                         }
 
-                                                    case 24:
+                                                    case 27:
                                                     case 'end':
                                                         return _context3.stop();
                                                 }
