@@ -15,12 +15,6 @@
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/167.99.78.136.js"
         },
-    	 "hdonline": {
-            "name": "hdonline",
-            "domain": ["vod-free.hdonline.vn", "s7.hdonline.vn"],
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vod-free.hdonline.js"
-        },
         "hdonline": {
             "name": "hdonline",
             "domain": ["vod-free.hdonline.vn", "s7.hdonline.vn"],
