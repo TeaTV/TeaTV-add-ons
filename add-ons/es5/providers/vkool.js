@@ -123,11 +123,13 @@ var Vkool = function () {
                                                         linkVideo = $_2('#btn-film-watch').attr('href');
 
 
-                                                        console.log(linkVideo, 'abc');
                                                         if (linkVideo && linkVideo.indexOf('http://') == -1 && linkVideo.indexOf('https://') == -1) {
                                                             linkVideo = URL.DOMAIN + linkVideo;
                                                         }
                                                         yearMovie = $_2('dt:contains(Năm)').next().find('a').text();
+
+
+                                                        console.log(yearMovie, linkVideo, 'abc');
 
                                                         if (!(yearMovie == year)) {
                                                             _context.next = 11;
