@@ -26,7 +26,7 @@ var URL = {
 
 var SOURCES = (_SOURCES = {
     'banhtv': 'Source 5',
-    'anomehay': 'Source 7',
+    'animehay': 'Source 7',
     'bilutv': 'Source 1',
     'hdonline': 'Source 4',
     'phimbathu': 'Source 2'
