@@ -40,14 +40,28 @@ var Phimbathu = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, qs = _libs.qs;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+
+
+                                if (season == 0 && type == 'tv') {
+                                    season = title.match(/season *([0-9]+)/i);
+                                    season = season != null ? +season[1] : '0';
+                                    title = title.match(/season *[0-9]+/i, '');
+
+                                    if (season == 0) {
+                                        season = title.match(/ss *([0-9]+)/i);
+                                        season = season != null ? +season[1] : '0';
+                                        title = title.match(/ss *[0-9]+/i, '');
+                                    }
+                                }
+
                                 videoUrl = false;
                                 detailUrl = false;
                                 tvshowDetailUrl = false;
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
-                                _context.next = 8;
+                                _context.next = 9;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS);
 
-                            case 8:
+                            case 9:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch);
                                 itemSearch = $('#page-info .item');
@@ -56,20 +70,28 @@ var Phimbathu = function () {
                                 itemSearch.each(function () {
 
                                     var hrefMovie = URL.DOMAIN + $(this).find('a').attr('href');
+                                    var titleVi = $(this).find('.name span').text();
                                     var titleMovie = $(this).find('.name-real').text();
                                     var yearMovie = titleMovie.match(/\( *([0-9]+)/i);
                                     yearMovie = yearMovie != null ? +yearMovie[1] : false;
                                     var seasonMovie = titleMovie.match(/season *([0-9]+)/i);
-                                    seasonMovie = seasonMovie != null ? +seasonMovie[1] : false;
+                                    seasonMovie = seasonMovie != null ? +seasonMovie[1] : 0;
                                     titleMovie = titleMovie.replace(/season *[0-9]+ *\(* *[0-9]+ *\)*$/i, '').trim();
                                     titleMovie = titleMovie.replace(/\( *[0-9]+ *\)/i, '').trim();
+                                    var status = $(this).find('.label').text().toLowerCase();
+                                    var status_lower = status.trim().replace('ậ', 'a');
+
+                                    if (!titleMovie) {
+                                        titleMovie = titleVi;
+                                    }
 
                                     if (stringHelper.shallowCompare(title, titleMovie)) {
 
-                                        if (type == 'movie' && yearMovie == year && !seasonMovie) {
+                                        if (type == 'movie' && status_lower.indexOf('full') == -1 && status_lower.indexOf('tap') == -1 && year == yearMovie) {
                                             videoUrl = hrefMovie;
                                             return;
-                                        } else if (type == 'tv' && seasonMovie && seasonMovie == season) {
+                                        } else if (type == 'tv' && (status_lower.indexOf('full') != -1 || status_lower.indexOf('tap') != -1) && (season == seasonMovie || seasonMovie == 0)) {
+
                                             videoUrl = hrefMovie;
                                             return;
                                         }
@@ -77,45 +99,49 @@ var Phimbathu = function () {
                                 });
 
                                 if (!(videoUrl != false)) {
-                                    _context.next = 19;
+                                    _context.next = 21;
                                     break;
                                 }
 
-                                _context.next = 15;
+                                _context.next = 16;
                                 return httpRequest.getHTML(videoUrl, URL.HEADERS);
 
-                            case 15:
+                            case 16:
                                 htmlVideo = _context.sent;
                                 $_2 = cheerio.load(htmlVideo);
                                 hrefVideo = $_2('.btn-see').attr('href');
 
 
-                                if (type == 'movie' && hrefVideo) {
-                                    detailUrl = URL.DOMAIN + hrefVideo;
-                                } else if (type == 'tv' && hrefVideo) {
-
-                                    tvshowDetailUrl = detailUrl;
+                                if (hrefVideo.indexOf('phimbathu') == -1) {
+                                    hrefVideo = URL.DOMAIN + hrefVideo;
                                 }
 
-                            case 19:
+                                if (type == 'movie' && hrefVideo) {
+                                    detailUrl = hrefVideo;
+                                } else if (type == 'tv' && hrefVideo) {
+
+                                    tvshowDetailUrl = hrefVideo;
+                                }
+
+                            case 21:
                                 if (!(type == 'tv' && tvshowDetailUrl)) {
-                                    _context.next = 26;
+                                    _context.next = 28;
                                     break;
                                 }
 
-                                _context.next = 22;
+                                _context.next = 24;
                                 return httpRequest.getHTML(tvshowDetailUrl);
 
-                            case 22:
+                            case 24:
                                 htmlDetail = _context.sent;
                                 _$_ = cheerio.load(htmlDetail);
-                                itemEpisode = _$_('#list_episodes');
+                                itemEpisode = _$_('#list_episodes a');
 
 
                                 itemEpisode.each(function () {
 
-                                    var hrefEpisode = _$_(this).find('a').attr('href');
-                                    var numberEpisode = _$_(this).find('a').text();
+                                    var hrefEpisode = _$_(this).attr('href');
+                                    var numberEpisode = _$_(this).text();
                                     numberEpisode = numberEpisode.match(/([0-9]+)/i);
                                     numberEpisode = numberEpisode != null ? +numberEpisode[1] : false;
 
@@ -125,12 +151,12 @@ var Phimbathu = function () {
                                     }
                                 });
 
-                            case 26:
+                            case 28:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 28:
+                            case 30:
                             case 'end':
                                 return _context.stop();
                         }

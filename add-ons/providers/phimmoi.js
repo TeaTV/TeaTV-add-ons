@@ -26,6 +26,19 @@ class Phimmoi {
         const { httpRequest, cheerio, stringHelper, qs }    = this.libs; 
         let { title, year, season, episode, type }      = this.movieInfo;
 
+
+        if( season == 0 && type == 'tv' ) {
+            season = title.match(/season *([0-9]+)/i);
+            season = season != null ? +season[1] : '0';
+            title  = title.match(/season *[0-9]+/i, '');
+
+            if( season == 0 ) {
+                season = title.match(/ss *([0-9]+)/i);
+                season = season != null ? +season[1] : '0';
+                title  = title.match(/ss *[0-9]+/i, '');
+            }
+        }
+
         let detailUrl = false;
         let videoUrl = false;
         let tvshowDetailUrl = false;
@@ -43,16 +56,22 @@ class Phimmoi {
 
             let hrefMovie = URL.DOMAIN + '/' + $(this).find('.block-wrapper').attr('href');
             let titleMovie = $(this).find('.movie-title-2').text();
+            let titleVi = $(this).find('.movie-title-1').text();
             let seasonMovie = titleMovie.match(/\( *season *([0-9]+) *\)/i);
-            seasonMovie     = seasonMovie != null ? +seasonMovie[1] : false;
+            seasonMovie     = seasonMovie != null ? +seasonMovie[1] : 0;
             titleMovie      = titleMovie.replace(/\( *season *[0-9]+ *\)/i, '').trim();
+            titleMovie      = titleMovie.replace(/\(.*/i, '').trim();
+
+            if( !titleMovie ) {
+                titleMovie = titleVi;
+            }
 
             if( stringHelper.shallowCompare(title, titleMovie) ) {
 
                 if( type == 'movie' ) {
                     videoUrl = hrefMovie;
                     return;
-                } else if( type == 'tv' && season == seasonMovie ) {
+                } else if( type == 'tv' && (season == seasonMovie || seasonMovie == 0) ) {
                     videoUrl = hrefMovie;
                     return;
                 }

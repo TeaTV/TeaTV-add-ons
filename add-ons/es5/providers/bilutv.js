@@ -50,15 +50,29 @@ var Bilutv = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+
+
+                                if (season == 0 && type == 'tv') {
+                                    season = title.match(/season *([0-9]+)/i);
+                                    season = season != null ? +season[1] : '0';
+                                    title = title.match(/season *[0-9]+/i, '');
+
+                                    if (season == 0) {
+                                        season = title.match(/ss *([0-9]+)/i);
+                                        season = season != null ? +season[1] : '0';
+                                        title = title.match(/ss *[0-9]+/i, '');
+                                    }
+                                }
+
                                 bilu = this;
                                 link_detail = '';
                                 link_watch = '';
                                 link_epsiode = '';
                                 url_search = URL.SEARCH(title);
-                                _context.next = 9;
+                                _context.next = 10;
                                 return httpRequest.getHTML(url_search, URL.HEADERS(url_search));
 
-                            case 9:
+                            case 10:
                                 html_search = _context.sent;
                                 $ = cheerio.load(html_search);
                                 item_page = $('.list-film .film-item');
@@ -71,7 +85,7 @@ var Bilutv = function () {
                                     var title_vi = $(this).find('.title .name').text();
                                     var title_movie = $(this).find('.title .real-name').text();
                                     var season_movie = title_movie.match(/season *([0-9]+)/i);
-                                    season_movie = season_movie != null ? +season_movie[1] : -1;
+                                    season_movie = season_movie != null ? +season_movie[1] : 0;
                                     title_movie = title_movie.replace(/\( *season *[0-9]+ *\)/i, '').trim();
                                     var year_movie = title_movie.match(/\(([0-9]+)\)/i);
                                     year_movie = year_movie != null ? +year_movie[1] : 0;
@@ -79,12 +93,16 @@ var Bilutv = function () {
 
                                     var status_lower = status.trim().replace('ậ', 'a');
 
+                                    if (!title_movie) {
+                                        title_movie = title_vi;
+                                    }
+
                                     if (stringHelper.shallowCompare(title, title_movie)) {
 
                                         if (type == 'movie' && status_lower.indexOf('full') == -1 && status_lower.indexOf('tap') == -1 && year == year_movie) {
                                             link_detail = href_detail;
                                             return;
-                                        } else if (type == 'tv' && (status_lower.indexOf('full') != -1 || status_lower.indexOf('tap') != -1) && season == season_movie) {
+                                        } else if (type == 'tv' && (status_lower.indexOf('full') != -1 || status_lower.indexOf('tap') != -1) && (season == season_movie || season_movie == 0)) {
                                             link_detail = href_detail;
                                             return;
                                         }
@@ -92,17 +110,17 @@ var Bilutv = function () {
                                 });
 
                                 if (!(link_detail == '')) {
-                                    _context.next = 15;
+                                    _context.next = 16;
                                     break;
                                 }
 
                                 throw new Error('NOT FIND');
 
-                            case 15:
-                                _context.next = 17;
+                            case 16:
+                                _context.next = 18;
                                 return httpRequest.getHTML(link_detail, URL.HEADERS(link_detail));
 
-                            case 17:
+                            case 18:
                                 html_watch = _context.sent;
                                 $_2 = cheerio.load(html_watch);
 
@@ -110,22 +128,22 @@ var Bilutv = function () {
                                 link_watch = URL.DOMAIN + $_2('.film-info .poster a').attr('href');
 
                                 if (link_watch) {
-                                    _context.next = 22;
+                                    _context.next = 23;
                                     break;
                                 }
 
                                 throw new Error('NOT lINK WATCH');
 
-                            case 22:
+                            case 23:
                                 if (!(type == 'tv')) {
-                                    _context.next = 32;
+                                    _context.next = 33;
                                     break;
                                 }
 
-                                _context.next = 25;
+                                _context.next = 26;
                                 return httpRequest.getHTML(link_watch, URL.HEADERS(link_watch));
 
-                            case 25:
+                            case 26:
                                 html_episode = _context.sent;
                                 $_3 = cheerio.load(html_episode);
                                 item_episode = $_3('#list_episodes li');
@@ -143,22 +161,22 @@ var Bilutv = function () {
                                 });
 
                                 if (!(link_epsiode == '')) {
-                                    _context.next = 31;
+                                    _context.next = 32;
                                     break;
                                 }
 
                                 throw new Error('NOT LINK EPISODE');
 
-                            case 31:
+                            case 32:
 
                                 link_watch = link_epsiode;
 
-                            case 32:
+                            case 33:
 
                                 this.state.detailUrl = link_watch;
                                 return _context.abrupt('return');
 
-                            case 34:
+                            case 35:
                             case 'end':
                                 return _context.stop();
                         }

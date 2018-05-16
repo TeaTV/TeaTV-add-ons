@@ -40,6 +40,20 @@ var Phimmoi = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, qs = _libs.qs;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+
+
+                                if (season == 0 && type == 'tv') {
+                                    season = title.match(/season *([0-9]+)/i);
+                                    season = season != null ? +season[1] : '0';
+                                    title = title.match(/season *[0-9]+/i, '');
+
+                                    if (season == 0) {
+                                        season = title.match(/ss *([0-9]+)/i);
+                                        season = season != null ? +season[1] : '0';
+                                        title = title.match(/ss *[0-9]+/i, '');
+                                    }
+                                }
+
                                 detailUrl = false;
                                 videoUrl = false;
                                 tvshowDetailUrl = false;
@@ -48,10 +62,10 @@ var Phimmoi = function () {
 
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
 
-                                _context.next = 9;
+                                _context.next = 10;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS);
 
-                            case 9:
+                            case 10:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch);
                                 itemSearch = $('.list-movie .movie-item');
@@ -61,16 +75,22 @@ var Phimmoi = function () {
 
                                     var hrefMovie = URL.DOMAIN + '/' + $(this).find('.block-wrapper').attr('href');
                                     var titleMovie = $(this).find('.movie-title-2').text();
+                                    var titleVi = $(this).find('.movie-title-1').text();
                                     var seasonMovie = titleMovie.match(/\( *season *([0-9]+) *\)/i);
-                                    seasonMovie = seasonMovie != null ? +seasonMovie[1] : false;
+                                    seasonMovie = seasonMovie != null ? +seasonMovie[1] : 0;
                                     titleMovie = titleMovie.replace(/\( *season *[0-9]+ *\)/i, '').trim();
+                                    titleMovie = titleMovie.replace(/\(.*/i, '').trim();
+
+                                    if (!titleMovie) {
+                                        titleMovie = titleVi;
+                                    }
 
                                     if (stringHelper.shallowCompare(title, titleMovie)) {
 
                                         if (type == 'movie') {
                                             videoUrl = hrefMovie;
                                             return;
-                                        } else if (type == 'tv' && season == seasonMovie) {
+                                        } else if (type == 'tv' && (season == seasonMovie || seasonMovie == 0)) {
                                             videoUrl = hrefMovie;
                                             return;
                                         }
@@ -78,14 +98,14 @@ var Phimmoi = function () {
                                 });
 
                                 if (!(videoUrl != false)) {
-                                    _context.next = 23;
+                                    _context.next = 24;
                                     break;
                                 }
 
-                                _context.next = 16;
+                                _context.next = 17;
                                 return httpRequest.getHTML(videoUrl, URL.HEADERS);
 
-                            case 16:
+                            case 17:
                                 htmlVideo = _context.sent;
                                 $_2 = cheerio.load(htmlVideo);
                                 hrefVideo = URL.DOMAIN + '/' + $_2('#btn-film-watch').attr('href');
@@ -100,16 +120,16 @@ var Phimmoi = function () {
                                     tvshowDetailUrl = hrefVideo;
                                 }
 
-                            case 23:
+                            case 24:
                                 if (!(type == 'tv' && tvshowDetailUrl != false)) {
-                                    _context.next = 32;
+                                    _context.next = 33;
                                     break;
                                 }
 
-                                _context.next = 26;
+                                _context.next = 27;
                                 return httpRequest.getHTML(tvshowDetailUrl, URL.HEADERS);
 
-                            case 26:
+                            case 27:
                                 htmlTvshow = _context.sent;
                                 _$_ = cheerio.load(htmlTvshow);
                                 arrLinkEpisode = [];
@@ -128,12 +148,12 @@ var Phimmoi = function () {
 
                                 detailUrl = arrLinkEpisode;
 
-                            case 32:
+                            case 33:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 34:
+                            case 35:
                             case 'end':
                                 return _context.stop();
                         }

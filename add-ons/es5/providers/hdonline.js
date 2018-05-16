@@ -67,14 +67,28 @@ var Hdonline = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, qs = _libs.qs;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+
+
+                                if (season == 0 && type == 'tv') {
+                                    season = title.match(/season *([0-9]+)/i);
+                                    season = season != null ? +season[1] : '0';
+                                    title = title.match(/season *[0-9]+/i, '');
+
+                                    if (season == 0) {
+                                        season = title.match(/ss *([0-9]+)/i);
+                                        season = season != null ? +season[1] : '0';
+                                        title = title.match(/ss *[0-9]+/i, '');
+                                    }
+                                }
+
                                 videoUrl = false;
                                 detailUrl = false;
                                 tvshowDetailUrl = false;
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title));
-                                _context2.next = 8;
+                                _context2.next = 9;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS);
 
-                            case 8:
+                            case 9:
                                 htmlSearch = _context2.sent;
                                 $ = cheerio.load(htmlSearch);
                                 itemSearch = $('#cat_tatca li');
@@ -85,18 +99,20 @@ var Hdonline = function () {
                                     var hrefMovie = URL.DOMAIN + $(this).find('.tn-bxitem a').attr('href');
                                     var titleMovie = $(this).find('.name-vi').text();
                                     var seasonMovie = titleMovie.match(/season *([0-9]+)/i);
-                                    seasonMovie = seasonMovie != null ? +seasonMovie[1] : false;
+                                    seasonMovie = seasonMovie != null ? +seasonMovie[1] : 0;
                                     titleMovie = titleMovie.replace(/season *[0-9]+/i, '').trim();
                                     var yearMovie = $(this).find("p:contains(Năm sản xuất)").text();
                                     yearMovie = yearMovie.match(/([0-9]+)/i);
                                     yearMovie = yearMovie != null ? +yearMovie[1] : false;
+                                    var status = $(this).find('.bxitem-episodes span').text();
+                                    status = status ? status.trim().toLowerCase().replace('ậ', 'a') : '';
 
                                     if (stringHelper.shallowCompare(title, titleMovie)) {
 
-                                        if (type == 'movie' && yearMovie == year && !seasonMovie) {
+                                        if (type == 'movie' && yearMovie == year && !status) {
                                             detailUrl = hrefMovie;
                                             return;
-                                        } else if (type == 'tv' && seasonMovie && seasonMovie == season) {
+                                        } else if (type == 'tv' && (status.indexOf('full') != -1 || status.indexOf('tap') != -1) && (season == seasonMovie || seasonMovie == 0)) {
                                             videoUrl = hrefMovie;
                                             return;
                                         }
@@ -104,7 +120,7 @@ var Hdonline = function () {
                                 });
 
                                 if (!(videoUrl != false && type == 'tv')) {
-                                    _context2.next = 27;
+                                    _context2.next = 28;
                                     break;
                                 }
 
@@ -113,10 +129,10 @@ var Hdonline = function () {
 
                                 idEpisode = idEpisode != null ? idEpisode[1] : "0";
 
-                                _context2.next = 18;
+                                _context2.next = 19;
                                 return httpRequest.getHTML(URL.DOMAIN_EPISODE(idEpisode));
 
-                            case 18:
+                            case 19:
                                 htmlVideo = _context2.sent;
                                 $_2 = cheerio.load(htmlVideo);
                                 itemEpisode = $_2('.paginationEpMovies a').last().attr('onclick');
@@ -174,15 +190,15 @@ var Hdonline = function () {
                                         return _ref2.apply(this, arguments);
                                     };
                                 }());
-                                _context2.next = 27;
+                                _context2.next = 28;
                                 return Promise.all(arr_promise);
 
-                            case 27:
+                            case 28:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context2.abrupt('return');
 
-                            case 29:
+                            case 30:
                             case 'end':
                                 return _context2.stop();
                         }

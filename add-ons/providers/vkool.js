@@ -46,6 +46,19 @@ class Vkool {
         const { httpRequest, cheerio, stringHelper, qs }    = this.libs; 
         let { title, year, season, episode, type }      = this.movieInfo;
 
+
+        if( season == 0 && type == 'tv' ) {
+            season = title.match(/season *([0-9]+)/i);
+            season = season != null ? +season[1] : '0';
+            title  = title.match(/season *[0-9]+/i, '');
+
+            if( season == 0 ) {
+                season = title.match(/ss *([0-9]+)/i);
+                season = season != null ? +season[1] : '0';
+                title  = title.match(/ss *[0-9]+/i, '');
+            }
+        }
+
         let videoMovieUrl  	= [];
         let arrHrefEpisode = []; 
         let videoTvshowUrl 	= false;
@@ -53,12 +66,6 @@ class Vkool {
         let detailUrl 		= [];
         let tvshowDetailUrl = false;
 
-
-        if( season == 0 && type == 'tv' ) {
-            season = title.match(/season *([0-9]+)/i);
-            season = season != null ? +season[1] : '0';
-            title  = title.match(/season *[0-9]+/i, '');
-        }
 
         let	urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
         let htmlSearch 	= await httpRequest.getHTML(urlSearch, URL.HEADERS);
@@ -74,7 +81,7 @@ class Vkool {
         	let status      = $(this).find('.movie-meta .ribbon').text().toLowerCase();
         	let seasonMovie = titleMovie.match(/\(* *season *([0-9]+)\)*/i);
            	titleMovie     	= titleMovie.replace(/\(* *season *[0-9]+\)*/i, '');
-           	seasonMovie     = seasonMovie != null ? seasonMovie[1] : "0";
+           	seasonMovie     = seasonMovie != null ? seasonMovie[1] : 0;
 
            	status = status.trim().replace('ậ', 'a');
 
@@ -82,7 +89,7 @@ class Vkool {
 
         		if( type == 'movie'  && status.indexOf('tap') == -1 && status.indexOf('-end') == -1 ) {
         			videoMovieUrl.push(hrefMovie);
-        		} else if( type == 'tv' && seasonMovie == season ) {
+        		} else if( type == 'tv' && (seasonMovie == season || seasonMovie == 0) ) {
         			videoTvshowUrl = hrefMovie;
         			return;
         		}
@@ -127,7 +134,6 @@ class Vkool {
             $_2 		   = cheerio.load(htmlDetail);
             let itemEpisode  = $_2('.list_ep');
             
-
             itemEpisode.each(function() {
 
                 let itemA = $_2(this).find('a');
@@ -205,7 +211,7 @@ class Vkool {
                             link_direct && hosts.push({
                                 provider: {
                                     url: item,
-                                    name: "Server 5"
+                                    name: "Server 6"
                                 },
                                 result: {
                                     file: link_direct,

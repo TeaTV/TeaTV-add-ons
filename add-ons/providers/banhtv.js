@@ -18,11 +18,7 @@ URL = {
     }
 };
 
-
-
 class Banhtv {
-
-
 
 
     constructor(props) {
@@ -34,8 +30,20 @@ class Banhtv {
 
 
     async searchDetail() {
-        const { httpRequest, cheerio, stringHelper }    = this.libs; 
-        let { title, year, season, episode, type }          = this.movieInfo;
+        const { httpRequest, cheerio, stringHelper }   = this.libs; 
+        let { title, year, season, episode, type }     = this.movieInfo;
+
+        if( season == 0 && type == 'tv' ) {
+            season = title.match(/season *([0-9]+)/i);
+            season = season != null ? +season[1] : '0';
+            title  = title.match(/season *[0-9]+/i, '');
+
+            if( season == 0 ) {
+                season = title.match(/ss *([0-9]+)/i);
+                season = season != null ? +season[1] : '0';
+                title  = title.match(/ss *[0-9]+/i, '');
+            }
+        }
 
         let banhtv = this;
 
@@ -53,13 +61,20 @@ class Banhtv {
         item_page.each(function() {
 
         	let hrefVideo = $(this).find('a').attr('href');
+            let status    = $(this).find('.label').text().toLowerCase();
+            status        = status.replace('ậ', 'a');
 
         	if( hrefVideo ) {
-        		hrefVideo = URL.DOMAIN + hrefVideo;
-        		arrVideo.push(hrefVideo);
+                hrefVideo = URL.DOMAIN + hrefVideo;
+                if( type == 'tv' && (status.indexOf('tap') != -1 || status.match(/[0-9]+ *\/ *[0-9]+/i)) )  {
+                    arrVideo.push(hrefVideo);
+                } else if( type == 'movie' && status.indexOf('tap') == -1 && !status.match(/[0-9]+ *\/ *[0-9]+/i) ) {
+                    arrVideo.push(hrefVideo);
+                }
+        		
+        		
         	}
         });
-
 
 
         let arrPromise = arrVideo.map(async function(val) {
@@ -68,24 +83,28 @@ class Banhtv {
         	let $_2  		= cheerio.load(htmlVideo);
 
         	let hrefVideo 	= $_2('.btn-see').attr('href');
+            let titleVi     = $_2('.image .text h1').text();
         	let titleMovie = $_2('.image .text h2').text();
         	let yearMovie 	= titleMovie.match(/\(* *([0-9]+) *\)*$/i); 
         	yearMovie 		= yearMovie != null ? +yearMovie[1] : false;
         	let seasonMovie = titleMovie.match(/\(* *season *([0-9]+) *\)*/i);
-        	seasonMovie 	= seasonMovie != null ? +seasonMovie[1] : false;
+        	seasonMovie 	= seasonMovie != null ? +seasonMovie[1] : 0;
         	titleMovie 		= titleMovie.replace(/\(* *season *[0-9]+ *\)*/i, '');
         	titleMovie 		= titleMovie.replace(/\(* *[0-9]+ *\)*/i, '');
 
+            if( !titleMovie ) {
+                titleMovie = titleVi;
+            }
 
         	if( stringHelper.shallowCompare(title, titleMovie) && hrefVideo ) {
 
+                
         		hrefVideo = URL.DOMAIN + hrefVideo;
-
-        		if( type == 'movie' && yearMovie && (yearMovie-1 == year || yearMovie == year || yearMovie+1 == year) && !seasonMovie ) {
+        		if( type == 'movie' && yearMovie && (yearMovie-1 == year || yearMovie == year || yearMovie+1 == year)  ) {
 
         			detailUrl = hrefVideo;
         			return;
-        		} else if( type == 'tv' && seasonMovie && seasonMovie == season ) {
+        		} else if( type == 'tv' && (seasonMovie == season || seasonMovie == 0) ) {
         			tvshowVideoUrl = hrefVideo;
         			return;
         		}
@@ -97,7 +116,7 @@ class Banhtv {
 
         if( type == 'tv' && tvshowVideoUrl ) {
 
-        	let htmlDetail = await httpRequest.getHTML(tvshowVideoUrl);
+        	let htmlDetail = await httpRequest.getHTML(tvshowVideoUrl, URL.HEADERS(tvshowVideoUrl));
         	let $_2 	   = cheerio.load(htmlDetail);
 
         	let itemEpisode = $_2('#list_episodes li');
@@ -118,7 +137,6 @@ class Banhtv {
         	});
         }
         
-
         this.state.detailUrl = detailUrl;
         return;
     }

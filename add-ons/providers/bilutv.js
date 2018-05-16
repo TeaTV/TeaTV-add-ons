@@ -37,6 +37,18 @@ class Bilutv {
         const { httpRequest, cheerio, stringHelper }    = this.libs; 
         let { title, year, season, episode, type }          = this.movieInfo;
 
+        if( season == 0 && type == 'tv' ) {
+            season = title.match(/season *([0-9]+)/i);
+            season = season != null ? +season[1] : '0';
+            title  = title.match(/season *[0-9]+/i, '');
+
+            if( season == 0 ) {
+                season = title.match(/ss *([0-9]+)/i);
+                season = season != null ? +season[1] : '0';
+                title  = title.match(/ss *[0-9]+/i, '');
+            }
+        }
+
         let bilu = this;
 
         let link_detail = '';
@@ -56,20 +68,24 @@ class Bilutv {
             let title_vi    = $(this).find('.title .name').text();
             let title_movie = $(this).find('.title .real-name').text();
             let season_movie     = title_movie.match(/season *([0-9]+)/i);
-            season_movie    = season_movie != null ? +season_movie[1] : -1;
+            season_movie    = season_movie != null ? +season_movie[1] : 0;
             title_movie     = title_movie.replace(/\( *season *[0-9]+ *\)/i, '').trim();
             let year_movie  = title_movie.match(/\(([0-9]+)\)/i);
             year_movie      = year_movie != null ? +year_movie[1] : 0;
             title_movie     = title_movie.replace(/\([0-9]+\)/i, '').trim();
 
             let status_lower        = status.trim().replace('ậ', 'a');
+
+            if( !title_movie ) {
+                title_movie = title_vi;
+            }
             
             if( stringHelper.shallowCompare(title, title_movie) ) {
 
                 if( type == 'movie' && status_lower.indexOf('full') == -1 && status_lower.indexOf('tap') == -1 && year == year_movie ) {
                     link_detail = href_detail;
                     return;
-                } else if( type == 'tv' && (status_lower.indexOf('full') != -1 || status_lower.indexOf('tap') != -1) && season == season_movie ) {
+                } else if( type == 'tv' && (status_lower.indexOf('full') != -1 || status_lower.indexOf('tap') != -1) && (season == season_movie || season_movie == 0) ) {
                     link_detail = href_detail;
                     return;
                 }
@@ -93,9 +109,7 @@ class Bilutv {
 
             let html_episode = await httpRequest.getHTML(link_watch, URL.HEADERS(link_watch));
             let $_3          = cheerio.load(html_episode);
-
             let item_episode    =$_3('#list_episodes li');
-
 
             item_episode.each(function() {
 

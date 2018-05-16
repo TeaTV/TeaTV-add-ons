@@ -64,20 +64,26 @@ var Vkool = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, qs = _libs.qs;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
-                                videoMovieUrl = [];
-                                arrHrefEpisode = [];
-                                videoTvshowUrl = false;
-                                videoUrl = false;
-                                detailUrl = [];
-                                tvshowDetailUrl = false;
 
 
                                 if (season == 0 && type == 'tv') {
                                     season = title.match(/season *([0-9]+)/i);
                                     season = season != null ? +season[1] : '0';
                                     title = title.match(/season *[0-9]+/i, '');
+
+                                    if (season == 0) {
+                                        season = title.match(/ss *([0-9]+)/i);
+                                        season = season != null ? +season[1] : '0';
+                                        title = title.match(/ss *[0-9]+/i, '');
+                                    }
                                 }
 
+                                videoMovieUrl = [];
+                                arrHrefEpisode = [];
+                                videoTvshowUrl = false;
+                                videoUrl = false;
+                                detailUrl = [];
+                                tvshowDetailUrl = false;
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
                                 _context2.next = 12;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS);
@@ -95,7 +101,7 @@ var Vkool = function () {
                                     var status = $(this).find('.movie-meta .ribbon').text().toLowerCase();
                                     var seasonMovie = titleMovie.match(/\(* *season *([0-9]+)\)*/i);
                                     titleMovie = titleMovie.replace(/\(* *season *[0-9]+\)*/i, '');
-                                    seasonMovie = seasonMovie != null ? seasonMovie[1] : "0";
+                                    seasonMovie = seasonMovie != null ? seasonMovie[1] : 0;
 
                                     status = status.trim().replace('ậ', 'a');
 
@@ -103,7 +109,7 @@ var Vkool = function () {
 
                                         if (type == 'movie' && status.indexOf('tap') == -1 && status.indexOf('-end') == -1) {
                                             videoMovieUrl.push(hrefMovie);
-                                        } else if (type == 'tv' && seasonMovie == season) {
+                                        } else if (type == 'tv' && (seasonMovie == season || seasonMovie == 0)) {
                                             videoTvshowUrl = hrefMovie;
                                             return;
                                         }
@@ -307,7 +313,7 @@ var Vkool = function () {
                                                                 link_direct && hosts.push({
                                                                     provider: {
                                                                         url: item,
-                                                                        name: "Server 5"
+                                                                        name: "Server 6"
                                                                     },
                                                                     result: {
                                                                         file: link_direct,

@@ -46,6 +46,18 @@ class Hdonline {
         const { httpRequest, cheerio, stringHelper, qs }    = this.libs; 
         let { title, year, season, episode, type }      = this.movieInfo;
 
+        if( season == 0 && type == 'tv' ) {
+            season = title.match(/season *([0-9]+)/i);
+            season = season != null ? +season[1] : '0';
+            title  = title.match(/season *[0-9]+/i, '');
+
+            if( season == 0 ) {
+                season = title.match(/ss *([0-9]+)/i);
+                season = season != null ? +season[1] : '0';
+                title  = title.match(/ss *[0-9]+/i, '');
+            }
+        }
+
         let videoUrl = false;
         let detailUrl = false;
         let tvshowDetailUrl = false;
@@ -61,18 +73,21 @@ class Hdonline {
         	let hrefMovie  = URL.DOMAIN  + $(this).find('.tn-bxitem a').attr('href');
         	let titleMovie = $(this).find('.name-vi').text();
         	let seasonMovie = titleMovie.match(/season *([0-9]+)/i);
-        	seasonMovie  	= seasonMovie != null ? +seasonMovie[1] : false;
+        	seasonMovie  	= seasonMovie != null ? +seasonMovie[1] : 0;
         	titleMovie 		= titleMovie.replace(/season *[0-9]+/i, '').trim();
         	let yearMovie   = $(this).find("p:contains(Năm sản xuất)").text();
         	yearMovie 	 	= yearMovie.match(/([0-9]+)/i);
         	yearMovie 		= yearMovie != null ? +yearMovie[1] : false;
+            let status      = $(this).find('.bxitem-episodes span').text();
+            status          = status ? status.trim().toLowerCase().replace('ậ', 'a') : '';
+
 
         	if( stringHelper.shallowCompare(title, titleMovie) ) {
 
-        		if( type == 'movie' && yearMovie == year && !seasonMovie ) {
+        		if( type == 'movie' && yearMovie == year && !status ) {
         			detailUrl = hrefMovie;
         			return;
-        		} else if( type == 'tv' && seasonMovie && seasonMovie == season ) {
+        		} else if( type == 'tv' && (status.indexOf('full') != -1 || status.indexOf('tap') != -1) && (season == seasonMovie || seasonMovie == 0) ) {
         			videoUrl = hrefMovie;
         			return;
         		}
