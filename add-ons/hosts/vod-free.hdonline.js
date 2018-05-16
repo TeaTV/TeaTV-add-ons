@@ -19,6 +19,8 @@ class VodFree {
         
         let results = [];
 
+        url = url.replace(/\?pi=.*/i, '');
+
         let isDie = 'NOR';
         try {
             isDie       = await this.isLinkDie(url);

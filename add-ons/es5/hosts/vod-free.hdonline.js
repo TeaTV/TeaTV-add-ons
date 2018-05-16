@@ -34,21 +34,25 @@ var VodFree = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                 results = [];
+
+
+                                url = url.replace(/\?pi=.*/i, '');
+
                                 isDie = 'NOR';
-                                _context.prev = 3;
-                                _context.next = 6;
+                                _context.prev = 4;
+                                _context.next = 7;
                                 return this.isLinkDie(url);
 
-                            case 6:
+                            case 7:
                                 isDie = _context.sent;
-                                _context.next = 11;
+                                _context.next = 12;
                                 break;
 
-                            case 9:
-                                _context.prev = 9;
-                                _context.t0 = _context['catch'](3);
+                            case 10:
+                                _context.prev = 10;
+                                _context.t0 = _context['catch'](4);
 
-                            case 11:
+                            case 12:
 
                                 if (isDie != false && isDie != 'NOR') {
 
@@ -65,12 +69,12 @@ var VodFree = function () {
                                     result: results
                                 });
 
-                            case 13:
+                            case 14:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[3, 9]]);
+                }, _callee, this, [[4, 10]]);
             }));
 
             function getLink(_x) {
