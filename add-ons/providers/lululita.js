@@ -13,6 +13,17 @@ const URL = {
 };
 
 
+const SOURCES = {
+    'banhtv': 'Source 5',
+    'anomehay': 'Source 7',
+    'bilutv': 'Source 1',
+    'hdonline': 'Source 4',
+    'phimbathu': 'Source 2',
+    'banhtv': 'Source 5',
+    'phimmoi': 'Source 3', 
+    'vkool'  : "Source 6"
+};
+
 
 class Lululita {
     constructor(props) {
@@ -75,10 +86,17 @@ class Lululita {
         let detailUrl = this.state.detailUrl;
 
        	for (let item in detailUrl) {
+
+            let source = SOURCES[detailUrl[item].source];
+
+            if(!source) {
+                source = 'Server 8';
+            }
+
        		 detailUrl[item].link && hosts.push({
                 provider: {
                     url: detailUrl[item].link,
-                    name: "Server 8"
+                    name: source
                 },
                 result: {
                     file: detailUrl[item].link,

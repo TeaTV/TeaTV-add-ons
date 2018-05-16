@@ -2,9 +2,13 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _SOURCES;
+
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var URL = {
     DOMAIN_MOVIE: "http://afilm.filmhub.io:8889/api/movies/get_link_direct",
@@ -19,6 +23,14 @@ var URL = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
     }
 };
+
+var SOURCES = (_SOURCES = {
+    'banhtv': 'Source 5',
+    'anomehay': 'Source 7',
+    'bilutv': 'Source 1',
+    'hdonline': 'Source 4',
+    'phimbathu': 'Source 2'
+}, _defineProperty(_SOURCES, "banhtv", 'Source 5'), _defineProperty(_SOURCES, 'phimmoi', 'Source 3'), _defineProperty(_SOURCES, 'vkool', "Source 6"), _SOURCES);
 
 var Lululita = function () {
     function Lululita(props) {
@@ -99,7 +111,7 @@ var Lululita = function () {
         key: "getHostFromDetail",
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, qs, hosts, detailUrl, item;
+                var _libs2, httpRequest, cheerio, qs, hosts, detailUrl, item, source;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -120,10 +132,17 @@ var Lululita = function () {
 
 
                                 for (item in detailUrl) {
+                                    source = SOURCES[detailUrl[item].source];
+
+
+                                    if (!source) {
+                                        source = 'Server 8';
+                                    }
+
                                     detailUrl[item].link && hosts.push({
                                         provider: {
                                             url: detailUrl[item].link,
-                                            name: "Server 8"
+                                            name: source
                                         },
                                         result: {
                                             file: detailUrl[item].link,
