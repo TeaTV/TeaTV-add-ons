@@ -94,6 +94,7 @@ class Vungtv {
 
             let itemSearch      = $('.group-film-small a.film-small');
 
+            console.log(itemSearch.length, 'length');
             itemSearch.each(function() {
 
                 let status = $(this).find('.sotap').text();

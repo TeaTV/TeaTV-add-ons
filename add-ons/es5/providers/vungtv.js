@@ -118,6 +118,7 @@ var Vungtv = function () {
                                 itemSearch = $('.group-film-small a.film-small');
 
 
+                                console.log(itemSearch.length, 'length');
                                 itemSearch.each(function () {
 
                                     var status = $(this).find('.sotap').text();
@@ -154,14 +155,14 @@ var Vungtv = function () {
                                 });
 
                                 if (!(type == 'movie' && videoUrl)) {
-                                    _context.next = 23;
+                                    _context.next = 24;
                                     break;
                                 }
 
-                                _context.next = 18;
+                                _context.next = 19;
                                 return httpRequest.getHTML(videoUrl, URL.HEADERS());
 
-                            case 18:
+                            case 19:
                                 htmlVideo = _context.sent;
                                 $_2 = cheerio.load(htmlVideo);
                                 hrefDetail = $_2('.big-img-film-detail').attr('href');
@@ -172,29 +173,29 @@ var Vungtv = function () {
                                     detailUrl = hrefDetail;
                                 }
 
-                            case 23:
+                            case 24:
                                 if (!(type == 'tv' && tvshowVideoUrl)) {
-                                    _context.next = 36;
+                                    _context.next = 37;
                                     break;
                                 }
 
-                                _context.next = 26;
+                                _context.next = 27;
                                 return httpRequest.getHTML(tvshowVideoUrl, URL.HEADERS());
 
-                            case 26:
+                            case 27:
                                 _htmlVideo = _context.sent;
                                 _$_ = cheerio.load(_htmlVideo);
                                 _hrefDetail = _$_('.big-img-film-detail').attr('href');
 
                                 if (!_hrefDetail) {
-                                    _context.next = 36;
+                                    _context.next = 37;
                                     break;
                                 }
 
-                                _context.next = 32;
+                                _context.next = 33;
                                 return httpRequest.getHTML(_hrefDetail, URL.HEADERS());
 
-                            case 32:
+                            case 33:
                                 _htmlVideo = _context.sent;
 
                                 _$_ = cheerio.load(_htmlVideo);
@@ -213,28 +214,28 @@ var Vungtv = function () {
                                     }
                                 });
 
-                            case 36:
-                                _context.next = 41;
+                            case 37:
+                                _context.next = 42;
                                 break;
 
-                            case 38:
-                                _context.prev = 38;
+                            case 39:
+                                _context.prev = 39;
                                 _context.t0 = _context['catch'](7);
 
                                 console.log(String(_context.t0));
 
-                            case 41:
+                            case 42:
 
                                 console.log(detailUrl, 'vungtvabc');
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 44:
+                            case 45:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[7, 38]]);
+                }, _callee, this, [[7, 39]]);
             }));
 
             function searchDetail() {
