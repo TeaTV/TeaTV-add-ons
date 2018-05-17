@@ -36,7 +36,7 @@ class OK_RU {
 
             let results = [];
             let $       = cheerio.load(html);
-            let script  = $('.vid-card div[data-module=OKVideo]').attr('data-options');
+            let script  = $('.vp_video div[data-module=OKVideo]').attr('data-options');
             script      = JSON.parse(script);
             let videos  = script.flashvars.metadata;
             videos      = JSON.parse(videos);

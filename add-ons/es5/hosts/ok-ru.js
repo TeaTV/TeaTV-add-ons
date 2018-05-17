@@ -90,7 +90,7 @@ var OK_RU = function () {
                                 _context3.prev = 6;
                                 results = [];
                                 $ = cheerio.load(html);
-                                script = $('.vid-card div[data-module=OKVideo]').attr('data-options');
+                                script = $('.vp_video div[data-module=OKVideo]').attr('data-options');
 
                                 script = JSON.parse(script);
                                 videos = script.flashvars.metadata;
