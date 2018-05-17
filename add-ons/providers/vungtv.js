@@ -86,85 +86,91 @@ class Vungtv {
         let videoUrl  = false;
         let tvshowVideoUrl = false;
 
-        let urlSearch      = URL.SEARCH(title);
-        let dataSearch     = await httpRequest.getHTML(urlSearch, URL.HEADERS());
-        let $               = cheerio.load(dataSearch);
+        try {
 
-        let itemSearch      = $('.group-film-small a.film-small');
+            let urlSearch      = URL.SEARCH(title);
+            let dataSearch     = await httpRequest.getHTML(urlSearch, URL.HEADERS());
+            let $               = cheerio.load(dataSearch);
 
-        itemSearch.each(function() {
+            let itemSearch      = $('.group-film-small a.film-small');
 
-            let status = $(this).find('.sotap').text();
-            let titleEn = $(this).find('.title-film-small p').text();
-            let titleVi = $(this).find('.title-film-small .title-film').text();
-            let hrefDetail = $(this).attr('href');
+            itemSearch.each(function() {
 
-            let yearMovie = titleEn.match(/\( *([0-9]+) *\)/i);
-            yearMovie     = yearMovie != null ? +yearMovie[1] : 0;
-            let seasonMovie = titleEn.match(/season *([0-9]+)/i);
-            seasonMovie     = seasonMovie != null ? +seasonMovie[1] : 0;
+                let status = $(this).find('.sotap').text();
+                let titleEn = $(this).find('.title-film-small p').text();
+                let titleVi = $(this).find('.title-film-small .title-film').text();
+                let hrefDetail = $(this).attr('href');
 
-            titleEn         = titleEn.replace(/\( *([0-9]+) *\)/i, '');
-            titleEn         = titleEn.replace(/season *[0-9]+/i, '').trim();
+                let yearMovie = titleEn.match(/\( *([0-9]+) *\)/i);
+                yearMovie     = yearMovie != null ? +yearMovie[1] : 0;
+                let seasonMovie = titleEn.match(/season *([0-9]+)/i);
+                seasonMovie     = seasonMovie != null ? +seasonMovie[1] : 0;
 
-            if( !titleEn ) {
-                titleVi = titleEn;
-            }
+                titleEn         = titleEn.replace(/\( *([0-9]+) *\)/i, '');
+                titleEn         = titleEn.replace(/season *[0-9]+/i, '').trim();
 
-            if( stringHelper.shallowCompare(title, titleEn) ) {
-
-                if( type == 'movie'  && !status && yearMovie == year ) {
-                    videoUrl = hrefDetail;
-                    return;
-                } else if( type == 'tv' && (seasonMovie == season || seasonMovie == 0) ) {
-                    tvshowVideoUrl = hrefDetail;
-                    return;
+                if( !titleEn ) {
+                    titleVi = titleEn;
                 }
-            }
-        });
 
+                if( stringHelper.shallowCompare(title, titleEn) ) {
 
-
-        if( type == 'movie' && videoUrl ) {
-
-            let htmlVideo = await httpRequest.getHTML(videoUrl, URL.HEADERS());
-            let $_2       = cheerio.load(htmlVideo);
-
-            let hrefDetail = $_2('.big-img-film-detail').attr('href');
-
-            if( hrefDetail ) {
-                detailUrl = hrefDetail;
-            }
-
-        }
-
-        if (type == 'tv' && tvshowVideoUrl) {
-
-            let htmlVideo = await httpRequest.getHTML(tvshowVideoUrl, URL.HEADERS());
-            let $_2       = cheerio.load(htmlVideo);
-
-            let hrefDetail = $_2('.big-img-film-detail').attr('href');
-
-            if( hrefDetail ) {
-
-                htmlVideo = await httpRequest.getHTML(hrefDetail, URL.HEADERS());
-                $_2       = cheerio.load(htmlVideo);
-
-                let listEpisode = $_2('.episode-main ul li');
-
-                listEpisode.each(function() {
-
-                    let hrefEpisode = $(this).find('a').attr('href');
-                    let numberEpisode = $(this).find('a').text();
-
-                    if( numberEpisode == episode ) {
-                        detailUrl = hrefEpisode;
+                    if( type == 'movie'  && !status && yearMovie == year ) {
+                        videoUrl = hrefDetail;
+                        return;
+                    } else if( type == 'tv' && (seasonMovie == season || seasonMovie == 0) ) {
+                        tvshowVideoUrl = hrefDetail;
                         return;
                     }
-                });
+                }
+            });
+
+
+
+            if( type == 'movie' && videoUrl ) {
+
+                let htmlVideo = await httpRequest.getHTML(videoUrl, URL.HEADERS());
+                let $_2       = cheerio.load(htmlVideo);
+
+                let hrefDetail = $_2('.big-img-film-detail').attr('href');
+
+                if( hrefDetail ) {
+                    detailUrl = hrefDetail;
+                }
+
             }
+
+            if (type == 'tv' && tvshowVideoUrl) {
+
+                let htmlVideo = await httpRequest.getHTML(tvshowVideoUrl, URL.HEADERS());
+                let $_2       = cheerio.load(htmlVideo);
+
+                let hrefDetail = $_2('.big-img-film-detail').attr('href');
+
+                if( hrefDetail ) {
+
+                    htmlVideo = await httpRequest.getHTML(hrefDetail, URL.HEADERS());
+                    $_2       = cheerio.load(htmlVideo);
+
+                    let listEpisode = $_2('.episode-main ul li');
+
+                    listEpisode.each(function() {
+
+                        let hrefEpisode = $(this).find('a').attr('href');
+                        let numberEpisode = $(this).find('a').text();
+
+                        if( numberEpisode == episode ) {
+                            detailUrl = hrefEpisode;
+                            return;
+                        }
+                    });
+                }
+            }
+        } catch(error) {
+            console.log(String(error));
         }
 
+        console.log(detailUrl, 'vungtvabc');
         this.state.detailUrl = detailUrl;
         return;
     }

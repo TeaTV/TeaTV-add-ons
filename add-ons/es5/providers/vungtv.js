@@ -107,11 +107,12 @@ var Vungtv = function () {
                                 detailUrl = false;
                                 videoUrl = false;
                                 tvshowVideoUrl = false;
+                                _context.prev = 7;
                                 urlSearch = URL.SEARCH(title);
-                                _context.next = 10;
+                                _context.next = 11;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS());
 
-                            case 10:
+                            case 11:
                                 dataSearch = _context.sent;
                                 $ = cheerio.load(dataSearch);
                                 itemSearch = $('.group-film-small a.film-small');
@@ -149,14 +150,14 @@ var Vungtv = function () {
                                 });
 
                                 if (!(type == 'movie' && videoUrl)) {
-                                    _context.next = 21;
+                                    _context.next = 22;
                                     break;
                                 }
 
-                                _context.next = 17;
+                                _context.next = 18;
                                 return httpRequest.getHTML(videoUrl, URL.HEADERS());
 
-                            case 17:
+                            case 18:
                                 htmlVideo = _context.sent;
                                 $_2 = cheerio.load(htmlVideo);
                                 hrefDetail = $_2('.big-img-film-detail').attr('href');
@@ -166,29 +167,29 @@ var Vungtv = function () {
                                     detailUrl = hrefDetail;
                                 }
 
-                            case 21:
+                            case 22:
                                 if (!(type == 'tv' && tvshowVideoUrl)) {
-                                    _context.next = 34;
+                                    _context.next = 35;
                                     break;
                                 }
 
-                                _context.next = 24;
+                                _context.next = 25;
                                 return httpRequest.getHTML(tvshowVideoUrl, URL.HEADERS());
 
-                            case 24:
+                            case 25:
                                 _htmlVideo = _context.sent;
                                 _$_ = cheerio.load(_htmlVideo);
                                 _hrefDetail = _$_('.big-img-film-detail').attr('href');
 
                                 if (!_hrefDetail) {
-                                    _context.next = 34;
+                                    _context.next = 35;
                                     break;
                                 }
 
-                                _context.next = 30;
+                                _context.next = 31;
                                 return httpRequest.getHTML(_hrefDetail, URL.HEADERS());
 
-                            case 30:
+                            case 31:
                                 _htmlVideo = _context.sent;
 
                                 _$_ = cheerio.load(_htmlVideo);
@@ -207,17 +208,28 @@ var Vungtv = function () {
                                     }
                                 });
 
-                            case 34:
+                            case 35:
+                                _context.next = 40;
+                                break;
 
+                            case 37:
+                                _context.prev = 37;
+                                _context.t0 = _context['catch'](7);
+
+                                console.log(String(_context.t0));
+
+                            case 40:
+
+                                console.log(detailUrl, 'vungtvabc');
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 36:
+                            case 43:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this);
+                }, _callee, this, [[7, 37]]);
             }));
 
             function searchDetail() {
