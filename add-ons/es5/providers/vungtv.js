@@ -137,9 +137,13 @@ var Vungtv = function () {
                                         titleVi = titleEn;
                                     }
 
+                                    console.log(title, titleEn, 'not match');
                                     if (stringHelper.shallowCompare(title, titleEn)) {
 
+                                        console.log(title, titleEn, 'match');
                                         if (type == 'movie' && !status && yearMovie == year) {
+
+                                            console.log(videoUrl, 'videoUrl');
                                             videoUrl = hrefDetail;
                                             return;
                                         } else if (type == 'tv' && (seasonMovie == season || seasonMovie == 0)) {
@@ -164,6 +168,7 @@ var Vungtv = function () {
 
 
                                 if (hrefDetail) {
+                                    console.log(hrefDetail, 'hrefDetail');
                                     detailUrl = hrefDetail;
                                 }
 

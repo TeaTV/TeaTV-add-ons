@@ -113,9 +113,13 @@ class Vungtv {
                     titleVi = titleEn;
                 }
 
+                console.log(title, titleEn, 'not match');
                 if( stringHelper.shallowCompare(title, titleEn) ) {
 
+                    console.log(title, titleEn, 'match');
                     if( type == 'movie'  && !status && yearMovie == year ) {
+
+                        console.log(videoUrl, 'videoUrl');
                         videoUrl = hrefDetail;
                         return;
                     } else if( type == 'tv' && (seasonMovie == season || seasonMovie == 0) ) {
@@ -129,12 +133,14 @@ class Vungtv {
 
             if( type == 'movie' && videoUrl ) {
 
+
                 let htmlVideo = await httpRequest.getHTML(videoUrl, URL.HEADERS());
                 let $_2       = cheerio.load(htmlVideo);
 
                 let hrefDetail = $_2('.big-img-film-detail').attr('href');
 
                 if( hrefDetail ) {
+                    console.log(hrefDetail, 'hrefDetail');
                     detailUrl = hrefDetail;
                 }
 
