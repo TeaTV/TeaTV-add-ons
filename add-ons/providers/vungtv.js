@@ -205,11 +205,14 @@ class Vungtv {
 
          try {
 
-            let infoDetail = await httpRequest.get(this.state.detailUrl, URL.HEADERS());
+            let infoDetail = await httpRequest.getV2(this.state.detailUrl, URL.HEADERS());
+
+
             let htmlDetail = infoDetail.data;
             let $           = cheerio.load(htmlDetail);
             let headers     = infoDetail.headers;
 
+            console.log(headers);
             for( let i = 0; i < headers['set-cookie'].length; i++ ) {
                 let string_cookie = headers['set-cookie'][i].replace(/\;.*/i, '').trim() + ';'; 
                 rerfer += string_cookie + ' ';

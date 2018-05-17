@@ -278,7 +278,7 @@ var Vungtv = function () {
                                 hosts = [];
                                 _context2.prev = 11;
                                 _context2.next = 14;
-                                return httpRequest.get(this.state.detailUrl, URL.HEADERS());
+                                return httpRequest.getV2(this.state.detailUrl, URL.HEADERS());
 
                             case 14:
                                 infoDetail = _context2.sent;
@@ -287,6 +287,7 @@ var Vungtv = function () {
                                 headers = infoDetail.headers;
 
 
+                                console.log(headers);
                                 for (_i = 0; _i < headers['set-cookie'].length; _i++) {
                                     string_cookie = headers['set-cookie'][_i].replace(/\;.*/i, '').trim() + ';';
 
@@ -294,10 +295,10 @@ var Vungtv = function () {
                                 }
 
                                 iframe = $('#player-holder iframe').attr('src');
-                                _context2.next = 22;
+                                _context2.next = 23;
                                 return httpRequest.getHTML(iframe, URL.HEADER_2(vungtv.state.detailUrl, rerfer));
 
-                            case 22:
+                            case 23:
                                 html_embed = _context2.sent;
                                 $_2 = cheerio.load(html_embed);
                                 script = $_2('script').last().html() + 'hihi';
@@ -319,10 +320,10 @@ var Vungtv = function () {
                                     t: random_string,
                                     hash: hash
                                 };
-                                _context2.next = 35;
+                                _context2.next = 36;
                                 return httpRequest.post(URL.DOMAIN_EMBED(id_movie), URL.HEADERS_COOKIE(iframe, rerfer), body_post_f);
 
-                            case 35:
+                            case 36:
                                 data_f = _context2.sent;
 
                                 data_f = data_f.data;
@@ -336,10 +337,10 @@ var Vungtv = function () {
                                     t: random_string_2,
                                     hash: hash
                                 };
-                                _context2.next = 41;
+                                _context2.next = 42;
                                 return httpRequest.post(URL.DOMAIN_EMBED(id_movie), URL.HEADERS_COOKIE(iframe, rerfer), body_post_v1);
 
-                            case 41:
+                            case 42:
                                 data_direct = _context2.sent;
 
                                 data_direct = data_direct.data;
@@ -361,26 +362,26 @@ var Vungtv = function () {
                                         }
                                     });
                                 }
-                                _context2.next = 51;
+                                _context2.next = 52;
                                 break;
 
-                            case 48:
-                                _context2.prev = 48;
+                            case 49:
+                                _context2.prev = 49;
                                 _context2.t0 = _context2['catch'](11);
 
                                 console.log(String(_context2.t0), 'vungtv');
 
-                            case 51:
+                            case 52:
 
                                 this.state.hosts = hosts;
                                 return _context2.abrupt('return');
 
-                            case 53:
+                            case 54:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[11, 48]]);
+                }, _callee2, this, [[11, 49]]);
             }));
 
             function getHostFromDetail() {

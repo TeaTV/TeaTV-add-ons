@@ -48,9 +48,22 @@
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/animehay.js",
             "type": ["tv"]
+        },
+        "vungtv": {
+            "name": "vungtv",
+            "domain": "vung.tv",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vungtv.js",
+            "type": ["tv", "movie"]
         }
     },
     "hosts": {
+        "googleapis": {
+            "name": "googleapis",
+            "domain": ["storage.googleapis.com"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/googleusercontent.js"
+        },
         "167.99.78.136": {
             "name": "167.99.78.136",
             "domain": ["167.99.78.136"],
