@@ -1,21 +1,20 @@
 {
     "providers": {
-        "vkool": {
+        "vungtv": {
             "name": "vkool",
             "domain": "vkool.net",
             "version": "0.0.18",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vkool.js",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vungtv.js",
             "type": ["tv", "movie"]
-        },
-        "animehay": {
-            "name": "animehay",
-            "domain": "animehay.tv",
-            "version": "0.0.9",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/animehay.js",
-            "type": ["tv"]
         }
     },
     "hosts": {
+        "googleapis": {
+            "name": "googleapis",
+            "domain": ["storage.googleapis.com"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/googleusercontent.js"
+        },
         "167.99.78.136": {
             "name": "167.99.78.136",
             "domain": ["167.99.78.136"],
