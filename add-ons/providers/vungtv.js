@@ -119,7 +119,7 @@ class Vungtv {
                     console.log(title, titleEn, 'match');
                     if( type == 'movie'  && !status && yearMovie == year ) {
 
-                        console.log(videoUrl, 'videoUrl');
+                        console.log(hrefDetail, 'videoUrl');
                         videoUrl = hrefDetail;
                         return;
                     } else if( type == 'tv' && (seasonMovie == season || seasonMovie == 0) ) {
@@ -139,8 +139,8 @@ class Vungtv {
 
                 let hrefDetail = $_2('.big-img-film-detail').attr('href');
 
+                console.log(hrefDetail, 'hrefDetail');
                 if( hrefDetail ) {
-                    console.log(hrefDetail, 'hrefDetail');
                     detailUrl = hrefDetail;
                 }
 
