@@ -71,12 +71,12 @@ class Vungtv {
         if( season == 0 && type == 'tv' ) {
             season = title.match(/season *([0-9]+)/i);
             season = season != null ? +season[1] : '0';
-            title  = title.match(/season *[0-9]+/i, '');
+            title  = title.replace(/season *[0-9]+/i, '');
 
             if( season == 0 ) {
                 season = title.match(/ss *([0-9]+)/i);
                 season = season != null ? +season[1] : '0';
-                title  = title.match(/ss *[0-9]+/i, '');
+                title  = title.replace(/ss *[0-9]+/i, '');
             }
         }
 
@@ -94,7 +94,7 @@ class Vungtv {
 
             let itemSearch      = $('.group-film-small a.film-small');
 
-            console.log(itemSearch.length, 'length');
+            console.log(itemSearch.length, 'length'); process.exit();
             itemSearch.each(function() {
 
                 let status = $(this).find('.sotap').text();

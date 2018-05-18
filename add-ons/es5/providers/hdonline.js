@@ -72,12 +72,12 @@ var Hdonline = function () {
                                 if (season == 0 && type == 'tv') {
                                     season = title.match(/season *([0-9]+)/i);
                                     season = season != null ? +season[1] : '0';
-                                    title = title.match(/season *[0-9]+/i, '');
+                                    title = title.replace(/season *[0-9]+/i, '');
 
                                     if (season == 0) {
                                         season = title.match(/ss *([0-9]+)/i);
                                         season = season != null ? +season[1] : '0';
-                                        title = title.match(/ss *[0-9]+/i, '');
+                                        title = title.replace(/ss *[0-9]+/i, '');
                                     }
                                 }
 

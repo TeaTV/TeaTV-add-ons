@@ -94,12 +94,12 @@ var Vungtv = function () {
                                 if (season == 0 && type == 'tv') {
                                     season = title.match(/season *([0-9]+)/i);
                                     season = season != null ? +season[1] : '0';
-                                    title = title.match(/season *[0-9]+/i, '');
+                                    title = title.replace(/season *[0-9]+/i, '');
 
                                     if (season == 0) {
                                         season = title.match(/ss *([0-9]+)/i);
                                         season = season != null ? +season[1] : '0';
-                                        title = title.match(/ss *[0-9]+/i, '');
+                                        title = title.replace(/ss *[0-9]+/i, '');
                                     }
                                 }
 
@@ -118,7 +118,7 @@ var Vungtv = function () {
                                 itemSearch = $('.group-film-small a.film-small');
 
 
-                                console.log(itemSearch.length, 'length');
+                                console.log(itemSearch.length, 'length');process.exit();
                                 itemSearch.each(function () {
 
                                     var status = $(this).find('.sotap').text();
@@ -155,14 +155,14 @@ var Vungtv = function () {
                                 });
 
                                 if (!(type == 'movie' && videoUrl)) {
-                                    _context.next = 24;
+                                    _context.next = 25;
                                     break;
                                 }
 
-                                _context.next = 19;
+                                _context.next = 20;
                                 return httpRequest.getHTML(videoUrl, URL.HEADERS());
 
-                            case 19:
+                            case 20:
                                 htmlVideo = _context.sent;
                                 $_2 = cheerio.load(htmlVideo);
                                 hrefDetail = $_2('.big-img-film-detail').attr('href');
@@ -173,29 +173,29 @@ var Vungtv = function () {
                                     detailUrl = hrefDetail;
                                 }
 
-                            case 24:
+                            case 25:
                                 if (!(type == 'tv' && tvshowVideoUrl)) {
-                                    _context.next = 37;
+                                    _context.next = 38;
                                     break;
                                 }
 
-                                _context.next = 27;
+                                _context.next = 28;
                                 return httpRequest.getHTML(tvshowVideoUrl, URL.HEADERS());
 
-                            case 27:
+                            case 28:
                                 _htmlVideo = _context.sent;
                                 _$_ = cheerio.load(_htmlVideo);
                                 _hrefDetail = _$_('.big-img-film-detail').attr('href');
 
                                 if (!_hrefDetail) {
-                                    _context.next = 37;
+                                    _context.next = 38;
                                     break;
                                 }
 
-                                _context.next = 33;
+                                _context.next = 34;
                                 return httpRequest.getHTML(_hrefDetail, URL.HEADERS());
 
-                            case 33:
+                            case 34:
                                 _htmlVideo = _context.sent;
 
                                 _$_ = cheerio.load(_htmlVideo);
@@ -214,28 +214,28 @@ var Vungtv = function () {
                                     }
                                 });
 
-                            case 37:
-                                _context.next = 42;
+                            case 38:
+                                _context.next = 43;
                                 break;
 
-                            case 39:
-                                _context.prev = 39;
+                            case 40:
+                                _context.prev = 40;
                                 _context.t0 = _context['catch'](7);
 
                                 console.log(String(_context.t0));
 
-                            case 42:
+                            case 43:
 
                                 console.log(detailUrl, 'vungtvabc');
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 45:
+                            case 46:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[7, 39]]);
+                }, _callee, this, [[7, 40]]);
             }));
 
             function searchDetail() {
