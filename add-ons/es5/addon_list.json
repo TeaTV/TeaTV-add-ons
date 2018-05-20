@@ -120,6 +120,12 @@
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/uploadhaven.js"
         },
+        "consistent": {
+            "name": "consistent",
+            "domain": ["consistent.stream"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/consistent.js"
+        },
         "afdah": {
             "name": "afdah",
             "domain": ["afdah.to"],
