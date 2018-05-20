@@ -44,16 +44,16 @@ class SeehdUno {
         const { httpRequest, cheerio, stringHelper, base64 }    = this.libs; 
         const { title, year, season, episode, type }            = this.movieInfo;
 
-        let arrNumber = [];
+        // let arrNumber = [];
         
-        for( let i = 1; i <= page; i++ )  {
+        // for( let i = 1; i <= page; i++ )  {
 
-            arrNumber.push(i);
-        }
+        //     arrNumber.push(i);
+        // }
 
-        let arrPromise = arrNumber.map(async function(val) {
+        // let arrPromise = arrNumber.map(async function(val) {
 
-            let htmlSearch  = await httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), val));
+            let htmlSearch  = await httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), 1));
             let $           = cheerio.load(htmlSearch.data);
             let itemSearch  = $('.peliculas .items .item');
 
@@ -88,13 +88,13 @@ class SeehdUno {
             });
 
 
-            if( val == page ) {
-                return;
-            }
+            // if( val == page ) {
+            //     return;
+            // }
 
-        });
+        // });
 
-        await Promise.all(arrPromise);
+        // await Promise.all(arrPromise);
         return;        
     }
 

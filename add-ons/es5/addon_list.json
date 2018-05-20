@@ -59,7 +59,7 @@
         "seehduno": {
             "name": "seehduno",
             "domain": "seehd.uno",
-            "version": "0.0.7",
+            "version": "0.0.8",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seehduno.js",
             "type": ["tv", "movie"]
         },

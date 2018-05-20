@@ -80,99 +80,78 @@ var SeehdUno = function () {
     }, {
         key: 'getDetailUrl',
         value: function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(page, state) {
-                var _libs2, httpRequest, cheerio, stringHelper, base64, _movieInfo2, title, year, season, episode, type, arrNumber, i, arrPromise;
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(page, state) {
+                var _libs2, httpRequest, cheerio, stringHelper, base64, _movieInfo2, title, year, season, episode, type, htmlSearch, $, itemSearch;
 
-                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
-                        switch (_context3.prev = _context3.next) {
+                        switch (_context2.prev = _context2.next) {
                             case 0:
                                 _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, stringHelper = _libs2.stringHelper, base64 = _libs2.base64;
                                 _movieInfo2 = this.movieInfo, title = _movieInfo2.title, year = _movieInfo2.year, season = _movieInfo2.season, episode = _movieInfo2.episode, type = _movieInfo2.type;
-                                arrNumber = [];
+
+                                // let arrNumber = [];
+
+                                // for( let i = 1; i <= page; i++ )  {
+
+                                //     arrNumber.push(i);
+                                // }
+
+                                // let arrPromise = arrNumber.map(async function(val) {
+
+                                _context2.next = 4;
+                                return httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), 1));
+
+                            case 4:
+                                htmlSearch = _context2.sent;
+                                $ = cheerio.load(htmlSearch.data);
+                                itemSearch = $('.peliculas .items .item');
 
 
-                                for (i = 1; i <= page; i++) {
+                                itemSearch.each(function () {
 
-                                    arrNumber.push(i);
-                                }
+                                    var hrefMovies = $(this).find('a').attr('href');
+                                    var yearMovies = $(this).find('.fixyear .year').text();
+                                    var titleMovies = $(this).find('.fixyear h2').text();
+                                    var seasonMovies = titleMovies.match(/season *([0-9]+)/i);
+                                    var episodeMovies = titleMovies.match(/season *[0-9]+ *episode *([0-9]+)/i);
+                                    seasonMovies = seasonMovies != null ? +seasonMovies[1] : false;
+                                    episodeMovies = episodeMovies != null ? +episodeMovies[1] : false;
+                                    titleMovies = titleMovies.replace('Watch', '').replace('Online', '').replace('Free', '').trim();
+                                    titleMovies = titleMovies.replace(/\([0-9]+\)/i, '').trim();
 
-                                arrPromise = arrNumber.map(function () {
-                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
-                                        var htmlSearch, $, itemSearch;
-                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                                            while (1) {
-                                                switch (_context2.prev = _context2.next) {
-                                                    case 0:
-                                                        _context2.next = 2;
-                                                        return httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), val));
+                                    if (seasonMovies != false && episodeMovies != false) {
 
-                                                    case 2:
-                                                        htmlSearch = _context2.sent;
-                                                        $ = cheerio.load(htmlSearch.data);
-                                                        itemSearch = $('.peliculas .items .item');
+                                        titleMovies = titleMovies.replace(/\– *season.*/i, '').trim();
+                                    }
 
+                                    if (stringHelper.shallowCompare(title, titleMovies)) {
 
-                                                        itemSearch.each(function () {
+                                        if (type == 'movie' && +yearMovies == year) {
 
-                                                            var hrefMovies = $(this).find('a').attr('href');
-                                                            var yearMovies = $(this).find('.fixyear .year').text();
-                                                            var titleMovies = $(this).find('.fixyear h2').text();
-                                                            var seasonMovies = titleMovies.match(/season *([0-9]+)/i);
-                                                            var episodeMovies = titleMovies.match(/season *[0-9]+ *episode *([0-9]+)/i);
-                                                            seasonMovies = seasonMovies != null ? +seasonMovies[1] : false;
-                                                            episodeMovies = episodeMovies != null ? +episodeMovies[1] : false;
-                                                            titleMovies = titleMovies.replace('Watch', '').replace('Online', '').replace('Free', '').trim();
-                                                            titleMovies = titleMovies.replace(/\([0-9]+\)/i, '').trim();
+                                            state.detailUrl = hrefMovies;
+                                        } else if (type == 'tv' && seasonMovies == season && episodeMovies == episode) {
 
-                                                            if (seasonMovies != false && episodeMovies != false) {
+                                            state.detailUrl = hrefMovies;
+                                        }
+                                    }
+                                });
 
-                                                                titleMovies = titleMovies.replace(/\– *season.*/i, '').trim();
-                                                            }
+                                // if( val == page ) {
+                                //     return;
+                                // }
 
-                                                            if (stringHelper.shallowCompare(title, titleMovies)) {
+                                // });
 
-                                                                if (type == 'movie' && +yearMovies == year) {
+                                // await Promise.all(arrPromise);
+                                return _context2.abrupt('return');
 
-                                                                    state.detailUrl = hrefMovies;
-                                                                } else if (type == 'tv' && seasonMovies == season && episodeMovies == episode) {
-
-                                                                    state.detailUrl = hrefMovies;
-                                                                }
-                                                            }
-                                                        });
-
-                                                        if (!(val == page)) {
-                                                            _context2.next = 8;
-                                                            break;
-                                                        }
-
-                                                        return _context2.abrupt('return');
-
-                                                    case 8:
-                                                    case 'end':
-                                                        return _context2.stop();
-                                                }
-                                            }
-                                        }, _callee2, this);
-                                    }));
-
-                                    return function (_x4) {
-                                        return _ref3.apply(this, arguments);
-                                    };
-                                }());
-                                _context3.next = 7;
-                                return Promise.all(arrPromise);
-
-                            case 7:
-                                return _context3.abrupt('return');
-
-                            case 8:
+                            case 9:
                             case 'end':
-                                return _context3.stop();
+                                return _context2.stop();
                         }
                     }
-                }, _callee3, this);
+                }, _callee2, this);
             }));
 
             function getDetailUrl(_x2, _x3) {
@@ -184,17 +163,17 @@ var SeehdUno = function () {
     }, {
         key: 'getHostFromDetail',
         value: function () {
-            var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
                 var _libs3, httpRequest, cheerio, base64, hosts, detailUrl, htmlDetail, $, itemEmbed;
 
-                return regeneratorRuntime.wrap(function _callee4$(_context4) {
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
-                        switch (_context4.prev = _context4.next) {
+                        switch (_context3.prev = _context3.next) {
                             case 0:
                                 _libs3 = this.libs, httpRequest = _libs3.httpRequest, cheerio = _libs3.cheerio, base64 = _libs3.base64;
 
                                 if (this.state.detailUrl) {
-                                    _context4.next = 3;
+                                    _context3.next = 3;
                                     break;
                                 }
 
@@ -203,11 +182,11 @@ var SeehdUno = function () {
                             case 3:
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
-                                _context4.next = 7;
+                                _context3.next = 7;
                                 return httpRequest.getCloudflare(this.state.detailUrl);
 
                             case 7:
-                                htmlDetail = _context4.sent;
+                                htmlDetail = _context3.sent;
                                 $ = cheerio.load(htmlDetail.data);
                                 itemEmbed = $('#player2 .movieplay');
 
@@ -242,14 +221,14 @@ var SeehdUno = function () {
 
                             case 12:
                             case 'end':
-                                return _context4.stop();
+                                return _context3.stop();
                         }
                     }
-                }, _callee4, this);
+                }, _callee3, this);
             }));
 
             function getHostFromDetail() {
-                return _ref4.apply(this, arguments);
+                return _ref3.apply(this, arguments);
             }
 
             return getHostFromDetail;
@@ -260,37 +239,37 @@ var SeehdUno = function () {
 }();
 
 thisSource.function = function () {
-    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(libs, movieInfo, settings) {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
         var seehduno;
-        return regeneratorRuntime.wrap(function _callee5$(_context5) {
+        return regeneratorRuntime.wrap(function _callee4$(_context4) {
             while (1) {
-                switch (_context5.prev = _context5.next) {
+                switch (_context4.prev = _context4.next) {
                     case 0:
                         seehduno = new SeehdUno({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
-                        _context5.next = 3;
+                        _context4.next = 3;
                         return seehduno.searchDetail();
 
                     case 3:
-                        _context5.next = 5;
+                        _context4.next = 5;
                         return seehduno.getHostFromDetail();
 
                     case 5:
-                        return _context5.abrupt('return', seehduno.state.hosts);
+                        return _context4.abrupt('return', seehduno.state.hosts);
 
                     case 6:
                     case 'end':
-                        return _context5.stop();
+                        return _context4.stop();
                 }
             }
-        }, _callee5, undefined);
+        }, _callee4, undefined);
     }));
 
-    return function (_x5, _x6, _x7) {
-        return _ref5.apply(this, arguments);
+    return function (_x4, _x5, _x6) {
+        return _ref4.apply(this, arguments);
     };
 }();
 
