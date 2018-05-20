@@ -66,7 +66,7 @@
         "watchepisodes4": {
             "name": "watchepisodes4",
             "domain": "watchepisodes4.com",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchepisodes4.js",
             "type": ["tv"]
         },
@@ -114,6 +114,12 @@
         }
     },
     "hosts": {
+        "uploadhaven": {
+            "name": "uploadhaven",
+            "domain": ["uploadhaven.com"],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/uploadhaven.js"
+        },
         "afdah": {
             "name": "afdah",
             "domain": ["afdah.to"],
