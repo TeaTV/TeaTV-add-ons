@@ -12,8 +12,8 @@ var URL = {
         return 'https://series9.co' + slug;
     },
     SEARCH: function SEARCH(title) {
-        return 'https://api.yesmovie.io/series//movie/search/' + title;
-        // return `https://series9.co/movie/search/${title}`;
+        return 'https://api.yesmovie.io/series/ajax/suggest_search?keyword=' + title + '&img=%2F%2Fcdn.themovieseries.net%2F&link_web=https%3A%2F%2Fwww1.series9.io%2F';
+        // return `https://api.yesmovie.io/series//movie/search/${title}`;
     }
 };
 
@@ -57,33 +57,39 @@ var Series9 = function () {
 
                             case 8:
                                 htmlSearch = _context3.sent;
+
+                                htmlSearch = JSON.parse(htmlSearch);
+                                htmlSearch = htmlSearch.content;
                                 $ = cheerio.load(htmlSearch);
-                                itemSearch = $('.movies-list .ml-item');
+                                itemSearch = $('ul li');
                                 arrInfo = [];
 
 
                                 itemSearch.each(_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                                    var hrefMovie, titleMovie, seasonMovie, slugGetInfo;
+                                    var hrefMovie, titleMovie, seasonMovie;
                                     return regeneratorRuntime.wrap(function _callee$(_context) {
                                         while (1) {
                                             switch (_context.prev = _context.next) {
                                                 case 0:
                                                     hrefMovie = $(this).find('a').attr('href');
-                                                    titleMovie = $(this).find('a .mli-info h2').text();
+                                                    titleMovie = $(this).find('.ss-title').text();
                                                     seasonMovie = titleMovie.match(/\- *season *([0-9]+)/i);
 
                                                     seasonMovie = seasonMovie != null ? +seasonMovie[1] : false;
                                                     titleMovie = titleMovie.replace(/\([0-9]+\)/i, '');
                                                     titleMovie = titleMovie.replace(/\- *season.*/i, '');
                                                     titleMovie = titleMovie.trim();
-                                                    slugGetInfo = $(this).find('a').attr('data-url');
 
+                                                    if (stringHelper.shallowCompare(title, titleMovie)) {
 
-                                                    arrInfo.push({
-                                                        hrefMovie: hrefMovie, titleMovie: titleMovie, seasonMovie: seasonMovie, slugGetInfo: slugGetInfo
-                                                    });
+                                                        if (type == 'movie' && !seasonMovie) {
+                                                            arrInfo.push(hrefMovie);
+                                                        } else if (type == 'tv' && seasonMovie == season) {
+                                                            arrInfo.push(hrefMovie);
+                                                        }
+                                                    }
 
-                                                case 9:
+                                                case 8:
                                                 case 'end':
                                                     return _context.stop();
                                             }
@@ -93,49 +99,36 @@ var Series9 = function () {
 
                                 arrPromise = arrInfo.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
-                                        var yearMovie, urlWatching, htmlWatching, $_2, linkWatching;
+                                        var htmlVideo, $, yearMovie;
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
                                                         _context2.next = 2;
-                                                        return getYear(val.slugGetInfo, cheerio, httpRequest);
+                                                        return httpRequest.getHTML(val);
 
                                                     case 2:
-                                                        yearMovie = _context2.sent;
+                                                        htmlVideo = _context2.sent;
+                                                        $ = cheerio.load(htmlVideo);
+                                                        yearMovie = $('p:contains(Release)').text();
 
-                                                        if (!stringHelper.shallowCompare(title, val.titleMovie)) {
-                                                            _context2.next = 18;
+                                                        yearMovie = yearMovie.replace('Release', '');
+                                                        yearMovie = yearMovie.replace(':', '').trim();
+
+                                                        if (!(type == 'movie' && yearMovie == year)) {
+                                                            _context2.next = 12;
                                                             break;
                                                         }
 
-                                                        urlWatching = URL.DOMAIN + val.hrefMovie;
-                                                        _context2.next = 7;
-                                                        return httpRequest.getHTML(urlWatching);
-
-                                                    case 7:
-                                                        htmlWatching = _context2.sent;
-                                                        $_2 = cheerio.load(htmlWatching);
-                                                        linkWatching = URL.DOMAIN + $_2('#mv-info a').first().attr('href');
-
-                                                        if (!(type == 'movie' && year == yearMovie && linkWatching != 'https://series9.coundefined')) {
-                                                            _context2.next = 15;
-                                                            break;
-                                                        }
-
-                                                        detailUrl = linkWatching;
+                                                        detailUrl = val;
                                                         return _context2.abrupt('return');
 
-                                                    case 15:
-                                                        if (!(type == 'tv' && val.seasonMovie == season && linkWatching != 'https://series9.coundefined')) {
-                                                            _context2.next = 18;
-                                                            break;
-                                                        }
+                                                    case 12:
 
-                                                        detailUrl = linkWatching;
+                                                        detailUrl = val;
                                                         return _context2.abrupt('return');
 
-                                                    case 18:
+                                                    case 14:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
@@ -147,15 +140,15 @@ var Series9 = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 16;
+                                _context3.next = 18;
                                 return Promise.all(arrPromise);
 
-                            case 16:
+                            case 18:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context3.abrupt('return');
 
-                            case 18:
+                            case 20:
                             case 'end':
                                 return _context3.stop();
                         }
@@ -170,71 +163,20 @@ var Series9 = function () {
             return searchDetail;
         }()
     }, {
-        key: 'getYear',
+        key: 'getHostFromDetail',
         value: function () {
-            var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(slug, cheerio, httpRequest) {
-                var yearMovie, htmlGetInfo, $, itemInfo;
+            var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+                var _libs2, httpRequest, cheerio, base64, _movieInfo2, title, year, season, episode, type, hosts, arrId, detailUrl, htmlDetail, $, itemEpisode;
+
                 return regeneratorRuntime.wrap(function _callee4$(_context4) {
                     while (1) {
                         switch (_context4.prev = _context4.next) {
-                            case 0:
-                                yearMovie = 0;
-                                // let htmlGetInfo = await httpRequest.getHTML(URL.GET_INFO(slug), {
-                                //     'X-Requested-With': 'XMLHttpRequest',
-                                //     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36',
-                                //     'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5'
-                                // });
-
-                                _context4.next = 3;
-                                return httpRequest.getHTML(slug);
-
-                            case 3:
-                                htmlGetInfo = _context4.sent;
-
-                                htmlGetInfo = JSON.parse(htmlGetInfo);
-                                $ = cheerio.load(htmlGetInfo);
-                                itemInfo = $('.jt-info');
-
-
-                                itemInfo.each(function () {
-
-                                    var info = $(this).text();
-
-                                    if (isNaN(+info) == false) {
-                                        yearMovie = +info;
-                                    }
-                                });
-                                return _context4.abrupt('return', yearMovie);
-
-                            case 9:
-                            case 'end':
-                                return _context4.stop();
-                        }
-                    }
-                }, _callee4, this);
-            }));
-
-            function getYear(_x2, _x3, _x4) {
-                return _ref4.apply(this, arguments);
-            }
-
-            return getYear;
-        }()
-    }, {
-        key: 'getHostFromDetail',
-        value: function () {
-            var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
-                var _libs2, httpRequest, cheerio, base64, _movieInfo2, title, year, season, episode, type, hosts, arrId, detailUrl, htmlDetail, $, itemEpisode;
-
-                return regeneratorRuntime.wrap(function _callee5$(_context5) {
-                    while (1) {
-                        switch (_context5.prev = _context5.next) {
                             case 0:
                                 _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64;
                                 _movieInfo2 = this.movieInfo, title = _movieInfo2.title, year = _movieInfo2.year, season = _movieInfo2.season, episode = _movieInfo2.episode, type = _movieInfo2.type;
 
                                 if (this.state.detailUrl) {
-                                    _context5.next = 4;
+                                    _context4.next = 4;
                                     break;
                                 }
 
@@ -244,11 +186,11 @@ var Series9 = function () {
                                 hosts = [];
                                 arrId = [];
                                 detailUrl = this.state.detailUrl;
-                                _context5.next = 9;
+                                _context4.next = 9;
                                 return httpRequest.getHTML(detailUrl);
 
                             case 9:
-                                htmlDetail = _context5.sent;
+                                htmlDetail = _context4.sent;
                                 $ = cheerio.load(htmlDetail);
                                 itemEpisode = $('#list-eps .le-server');
 
@@ -277,51 +219,48 @@ var Series9 = function () {
                                     });
                                 } else if (type == 'tv') {
 
+                                    itemEpisode = $('.btn-eps');
+
                                     itemEpisode.each(function () {
 
-                                        var itemLink = $(this).find('.les-content a');
+                                        var linkEmbed = $(this).attr('player-data');
+                                        var episodeMovie = $(this).text();
+                                        episodeMovie = episodeMovie.replace(/episode */i, '').trim();
 
-                                        itemLink.each(function () {
+                                        if (episodeMovie == episode) {
 
-                                            var linkEmbed = $(this).attr('player-data');
-                                            var episodeMovie = $(this).text();
-                                            episodeMovie = episodeMovie.replace(/episode */i, '').trim();
-
-                                            if (episodeMovie == episode) {
-
-                                                if (linkEmbed.indexOf('http:') == -1 && linkEmbed.indexOf('https:') == -1) {
-                                                    linkEmbed = 'http:' + linkEmbed;
-                                                }
-
-                                                linkEmbed && hosts.push({
-                                                    provider: {
-                                                        url: detailUrl,
-                                                        name: "series9"
-                                                    },
-                                                    result: {
-                                                        file: linkEmbed,
-                                                        label: "embed",
-                                                        type: "embed"
-                                                    }
-                                                });
+                                            if (linkEmbed.indexOf('http:') == -1 && linkEmbed.indexOf('https:') == -1) {
+                                                linkEmbed = 'http:' + linkEmbed;
                                             }
-                                        });
+
+                                            linkEmbed && hosts.push({
+                                                provider: {
+                                                    url: detailUrl,
+                                                    name: "series9"
+                                                },
+                                                result: {
+                                                    file: linkEmbed,
+                                                    label: "embed",
+                                                    type: "embed"
+                                                }
+                                            });
+                                        }
                                     });
                                 }
 
                                 this.state.hosts = hosts;
-                                return _context5.abrupt('return');
+                                return _context4.abrupt('return');
 
                             case 15:
                             case 'end':
-                                return _context5.stop();
+                                return _context4.stop();
                         }
                     }
-                }, _callee5, this);
+                }, _callee4, this);
             }));
 
             function getHostFromDetail() {
-                return _ref5.apply(this, arguments);
+                return _ref4.apply(this, arguments);
             }
 
             return getHostFromDetail;
@@ -332,37 +271,37 @@ var Series9 = function () {
 }();
 
 thisSource.function = function () {
-    var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(libs, movieInfo, settings) {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(libs, movieInfo, settings) {
         var series;
-        return regeneratorRuntime.wrap(function _callee6$(_context6) {
+        return regeneratorRuntime.wrap(function _callee5$(_context5) {
             while (1) {
-                switch (_context6.prev = _context6.next) {
+                switch (_context5.prev = _context5.next) {
                     case 0:
                         series = new Series9({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
-                        _context6.next = 3;
+                        _context5.next = 3;
                         return series.searchDetail();
 
                     case 3:
-                        _context6.next = 5;
+                        _context5.next = 5;
                         return series.getHostFromDetail();
 
                     case 5:
-                        return _context6.abrupt('return', series.state.hosts);
+                        return _context5.abrupt('return', series.state.hosts);
 
                     case 6:
                     case 'end':
-                        return _context6.stop();
+                        return _context5.stop();
                 }
             }
-        }, _callee6, undefined);
+        }, _callee5, undefined);
     }));
 
-    return function (_x5, _x6, _x7) {
-        return _ref6.apply(this, arguments);
+    return function (_x2, _x3, _x4) {
+        return _ref5.apply(this, arguments);
     };
 }();
 

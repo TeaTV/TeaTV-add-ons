@@ -4,8 +4,8 @@ const URL = {
         return `https://series9.co${slug}`;
     },
     SEARCH: (title) => {
-        return `https://api.yesmovie.io/series//movie/search/${title}`;
-        // return `https://series9.co/movie/search/${title}`;
+        return `https://api.yesmovie.io/series/ajax/suggest_search?keyword=${title}&img=%2F%2Fcdn.themovieseries.net%2F&link_web=https%3A%2F%2Fwww1.series9.io%2F`;
+        // return `https://api.yesmovie.io/series//movie/search/${title}`;
     }
 };
 
@@ -35,47 +35,49 @@ class Series9 {
         }
 
         let htmlSearch  = await httpRequest.getHTML(urlSearch);
+        htmlSearch      = JSON.parse(htmlSearch);
+        htmlSearch      = htmlSearch.content;
         let $           = cheerio.load(htmlSearch);
-        let itemSearch  = $('.movies-list .ml-item');
+        let itemSearch  = $('ul li');
         let arrInfo     = [];
 
         itemSearch.each(async function() {
 
             let hrefMovie 	= $(this).find('a').attr('href');
-            let titleMovie 	= $(this).find('a .mli-info h2').text();
+            let titleMovie 	= $(this).find('.ss-title').text();
             let seasonMovie = titleMovie.match(/\- *season *([0-9]+)/i);
             seasonMovie		= seasonMovie != null ? +seasonMovie[1] : false;
             titleMovie		= titleMovie.replace(/\([0-9]+\)/i, '');
             titleMovie		= titleMovie.replace(/\- *season.*/i, '');
             titleMovie		= titleMovie.trim();
-            let slugGetInfo = $(this).find('a').attr('data-url');
 
-            arrInfo.push({
-                hrefMovie, titleMovie, seasonMovie, slugGetInfo
-            });
+
+            if( stringHelper.shallowCompare(title, titleMovie) ) {
+
+                if( type == 'movie' && !seasonMovie ) {
+                    arrInfo.push(hrefMovie);
+                } else if( type == 'tv' && seasonMovie == season ) {
+                    arrInfo.push(hrefMovie);
+                }
+            }
         });
 
         let arrPromise = arrInfo.map(async function(val) {
 
-            let yearMovie 	= await getYear(val.slugGetInfo, cheerio, httpRequest);
+            let htmlVideo = await httpRequest.getHTML(val);
+            let $         = cheerio.load(htmlVideo);
+            let yearMovie = $('p:contains(Release)').text();
+            yearMovie     = yearMovie.replace('Release', '');
+            yearMovie     = yearMovie.replace(':', '').trim();
 
-            if( stringHelper.shallowCompare(title, val.titleMovie) ) {
+            if( type == 'movie' && yearMovie == year ) {
 
-                let urlWatching     = URL.DOMAIN + val.hrefMovie;
-                let htmlWatching    = await httpRequest.getHTML(urlWatching);
-                let $_2             = cheerio.load(htmlWatching);
-                let linkWatching    = URL.DOMAIN + $_2('#mv-info a').first().attr('href');
+                detailUrl = val;
+                return;
+            } else {
 
-
-                if( type == 'movie' && year == yearMovie && linkWatching != 'https://series9.coundefined' ) {
-
-                    detailUrl = linkWatching;
-                    return;
-                } else if(type == 'tv' && val.seasonMovie == season && linkWatching != 'https://series9.coundefined' ) {
-
-                    detailUrl = linkWatching;
-                    return;
-                }
+                detailUrl = val;
+                return;
             }
         });
 
@@ -85,32 +87,6 @@ class Series9 {
         this.state.detailUrl = detailUrl;
         return;
     }
-
-    async getYear(slug, cheerio, httpRequest) {
-
-        let yearMovie        = 0;
-        // let htmlGetInfo = await httpRequest.getHTML(URL.GET_INFO(slug), {
-        //     'X-Requested-With': 'XMLHttpRequest',
-        //     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36',
-        //     'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5'
-        // });
-
-        let htmlGetInfo = await httpRequest.getHTML(slug);
-        htmlGetInfo     = JSON.parse(htmlGetInfo);
-        let $           = cheerio.load(htmlGetInfo);
-        let itemInfo    = $('.jt-info');
-
-        itemInfo.each( function() {
-
-			let info = $(this).text();
-
-			if( isNaN(+info) == false ) {
-				yearMovie = +info;
-			}
-        });
-        return yearMovie;
-    }
-
 
     async getHostFromDetail() {
 
@@ -152,36 +128,33 @@ class Series9 {
 
         } else if( type == 'tv' )  {
 
+            itemEpisode = $('.btn-eps');
+
             itemEpisode.each(function() {
 
-                let itemLink        = $(this).find('.les-content a');
+                let linkEmbed       = $(this).attr('player-data');
+                let episodeMovie    = $(this).text();
+                episodeMovie        = episodeMovie.replace(/episode */i, '').trim();
 
-                itemLink.each(function() {
+                if( episodeMovie == episode ) {
 
-                    let linkEmbed       = $(this).attr('player-data');
-                    let episodeMovie    = $(this).text();
-                    episodeMovie        = episodeMovie.replace(/episode */i, '').trim();
 
-                    if( episodeMovie == episode ) {
-    
-    
-                        if( linkEmbed.indexOf('http:') == -1 && linkEmbed.indexOf('https:') == -1 ) {
-                            linkEmbed = 'http:' + linkEmbed;
-                        }
-        
-                        linkEmbed && hosts.push({
-                            provider: {
-                                url: detailUrl,
-                                name: "series9"
-                            },
-                            result: {
-                                file: linkEmbed,
-                                label: "embed",
-                                type: "embed"
-                            }
-                        });
+                    if( linkEmbed.indexOf('http:') == -1 && linkEmbed.indexOf('https:') == -1 ) {
+                        linkEmbed = 'http:' + linkEmbed;
                     }
-                });
+    
+                    linkEmbed && hosts.push({
+                        provider: {
+                            url: detailUrl,
+                            name: "series9"
+                        },
+                        result: {
+                            file: linkEmbed,
+                            label: "embed",
+                            type: "embed"
+                        }
+                    });
+                }
 
                 
             });
