@@ -1,52 +1,10 @@
 {
     "providers": {
-        "hollymovies": {
-            "name": "hollymovies",
-            "domain": "hollymoviehd.com",
-            "version": "0.0.6",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hollymovies.js",
-            "type": ["tv", "movie"]
-        },
-        "series9": {
-            "name": "series9",
-            "domain": "series9.co",
-            "version": "0.0.7",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/series9.js",
-            "type": ["tv", "movie"]
-        },
-        "afdah": {
-            "name": "afdah",
-            "domain": "afdah.to",
-            "version": "0.0.7",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/afdah.js",
-            "type": ["movie"]
-        },
         "flixanity": {
             "name": "flixanity",
             "domain": "flixanity.mobi",
-            "version": "0.0.7",
+            "version": "0.0.9",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/flixanity.js",
-            "type": ["movie", "tv"]
-        },
-        "gowatchfreemovies": {
-            "name": "gowatchfreemovies",
-            "domain": "gowatchfreemovies.to",
-            "version": "0.0.5",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/gowatchfreemovies.js",
-            "type": ["movie", "tv"]
-        },
-        "m4ufree": {
-            "name": "m4ufree",
-            "domain": "m4ufree.club",
-            "version": "0.0.7",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/m4ufree.js",
-            "type": ["movie", "tv"]
-        },
-        "mytv": {
-            "name": "mytv",
-            "domain": "api.teatv.net",
-            "version": "0.0.8",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/mytv.js",
             "type": ["movie", "tv"]
         },
         "playdk": {
@@ -61,6 +19,34 @@
             "domain": "putlockerhd.co",
             "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/putlockerhd.js",
+            "type": ["movie", "tv"]
+        },
+        "afdah": {
+            "name": "afdah",
+            "domain": "afdah.to",
+            "version": "0.0.7",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/afdah.js",
+            "type": ["movie"]
+        },
+        "series9": {
+            "name": "series9",
+            "domain": "series9.co",
+            "version": "0.0.7",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/series9.js",
+            "type": ["tv", "movie"]
+        },
+        "hollymovies": {
+            "name": "hollymovies",
+            "domain": "hollymoviehd.com",
+            "version": "0.0.6",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hollymovies.js",
+            "type": ["tv", "movie"]
+        },
+        "mytv": {
+            "name": "mytv",
+            "domain": "api.teatv.net",
+            "version": "0.0.8",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/mytv.js",
             "type": ["movie", "tv"]
         },
         "seehd": {
