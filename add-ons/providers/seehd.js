@@ -120,6 +120,7 @@ class Seehd {
         if(!this.state.detailUrl) throw new Error("NOT_FOUND");
 
         let hosts       = [];
+        let arrEmbed    = [];
         let detailUrl   = this.state.detailUrl;
 
         let htmlDetail  = await httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS());
@@ -128,21 +129,56 @@ class Seehd {
         let itemEmbed   = $('.tabcontent');
 
         itemEmbed.each(function() {
-            
+
             let linkEmbed = $(this).find('center > iframe').attr('src');
 
-            linkEmbed && hosts.push({
-                provider: {
-                    url: detailUrl,
-                    name: "seehd"
-                },
-                result: {
-                    file: linkEmbed,
-                    label: "embed",
-                    type: "embed"
-                }
-            });
+            if( linkEmbed ) {
+                arrEmbed.push(linkEmbed);
+            }
+
         });
+
+
+        let arrPromise = arrEmbed.map(async (val) => {
+
+            if( val.indexOf('seehd.pl/d') != -1 ) {
+
+                let htmlEmbed = await httpRequest.getCloudflare(val, URL.HEADERS());
+                htmlEmbed     = htmlEmbed.data;
+                let $_3       = cheerio.load(htmlEmbed);
+                let iframe    = $_3('iframe').attr('src');
+
+                if( iframe && iframe.indexOf('ok.ru') != -1) {
+                    iframe = 'https:' + iframe; 
+                }
+
+                iframe && hosts.push({
+                    provider: {
+                        url: detailUrl,
+                        name: "seehd"
+                    },
+                    result: {
+                        file: iframe,
+                        label: "embed",
+                        type: "embed"
+                    }
+                }); 
+            } else {
+                val && hosts.push({
+                    provider: {
+                        url: detailUrl,
+                        name: "seehd"
+                    },
+                    result: {
+                        file: val,
+                        label: "embed",
+                        type: "embed"
+                    }
+                }); 
+            }
+        });
+
+        await Promise.all(arrPromise);
 
         this.state.hosts = hosts;
     }

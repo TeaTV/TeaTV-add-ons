@@ -197,17 +197,19 @@ var Seehd = function () {
     }, {
         key: 'getHostFromDetail',
         value: function () {
-            var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
-                var _libs3, httpRequest, cheerio, base64, hosts, detailUrl, htmlDetail, $, itemEmbed;
+            var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
+                var _this = this;
 
-                return regeneratorRuntime.wrap(function _callee4$(_context4) {
+                var _libs3, httpRequest, cheerio, base64, hosts, arrEmbed, detailUrl, htmlDetail, $, itemEmbed, arrPromise;
+
+                return regeneratorRuntime.wrap(function _callee5$(_context5) {
                     while (1) {
-                        switch (_context4.prev = _context4.next) {
+                        switch (_context5.prev = _context5.next) {
                             case 0:
                                 _libs3 = this.libs, httpRequest = _libs3.httpRequest, cheerio = _libs3.cheerio, base64 = _libs3.base64;
 
                                 if (this.state.detailUrl) {
-                                    _context4.next = 3;
+                                    _context5.next = 3;
                                     break;
                                 }
 
@@ -215,12 +217,13 @@ var Seehd = function () {
 
                             case 3:
                                 hosts = [];
+                                arrEmbed = [];
                                 detailUrl = this.state.detailUrl;
-                                _context4.next = 7;
+                                _context5.next = 8;
                                 return httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS());
 
-                            case 7:
-                                htmlDetail = _context4.sent;
+                            case 8:
+                                htmlDetail = _context5.sent;
 
                                 htmlDetail = htmlDetail.data;
                                 $ = cheerio.load(htmlDetail);
@@ -231,27 +234,90 @@ var Seehd = function () {
 
                                     var linkEmbed = $(this).find('center > iframe').attr('src');
 
-                                    linkEmbed && hosts.push({
-                                        provider: {
-                                            url: detailUrl,
-                                            name: "seehd"
-                                        },
-                                        result: {
-                                            file: linkEmbed,
-                                            label: "embed",
-                                            type: "embed"
-                                        }
-                                    });
+                                    if (linkEmbed) {
+                                        arrEmbed.push(linkEmbed);
+                                    }
                                 });
+
+                                arrPromise = arrEmbed.map(function () {
+                                    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(val) {
+                                        var htmlEmbed, $_3, iframe;
+                                        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+                                            while (1) {
+                                                switch (_context4.prev = _context4.next) {
+                                                    case 0:
+                                                        if (!(val.indexOf('seehd.pl/d') != -1)) {
+                                                            _context4.next = 11;
+                                                            break;
+                                                        }
+
+                                                        _context4.next = 3;
+                                                        return httpRequest.getCloudflare(val, URL.HEADERS());
+
+                                                    case 3:
+                                                        htmlEmbed = _context4.sent;
+
+                                                        htmlEmbed = htmlEmbed.data;
+                                                        $_3 = cheerio.load(htmlEmbed);
+                                                        iframe = $_3('iframe').attr('src');
+
+
+                                                        if (iframe && iframe.indexOf('ok.ru') != -1) {
+                                                            iframe = 'https:' + iframe;
+                                                        }
+
+                                                        iframe && hosts.push({
+                                                            provider: {
+                                                                url: detailUrl,
+                                                                name: "seehd"
+                                                            },
+                                                            result: {
+                                                                file: iframe,
+                                                                label: "embed",
+                                                                type: "embed"
+                                                            }
+                                                        });
+                                                        _context4.next = 12;
+                                                        break;
+
+                                                    case 11:
+                                                        val && hosts.push({
+                                                            provider: {
+                                                                url: detailUrl,
+                                                                name: "seehd"
+                                                            },
+                                                            result: {
+                                                                file: val,
+                                                                label: "embed",
+                                                                type: "embed"
+                                                            }
+                                                        });
+
+                                                    case 12:
+                                                    case 'end':
+                                                        return _context4.stop();
+                                                }
+                                            }
+                                        }, _callee4, _this);
+                                    }));
+
+                                    return function (_x5) {
+                                        return _ref5.apply(this, arguments);
+                                    };
+                                }());
+                                _context5.next = 16;
+                                return Promise.all(arrPromise);
+
+                            case 16:
 
                                 this.state.hosts = hosts;
 
-                            case 13:
+                            case 17:
                             case 'end':
-                                return _context4.stop();
+                                return _context5.stop();
                         }
                     }
-                }, _callee4, this);
+                }, _callee5, this);
             }));
 
             function getHostFromDetail() {
@@ -266,37 +332,37 @@ var Seehd = function () {
 }();
 
 thisSource.function = function () {
-    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(libs, movieInfo, settings) {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(libs, movieInfo, settings) {
         var seehd;
-        return regeneratorRuntime.wrap(function _callee5$(_context5) {
+        return regeneratorRuntime.wrap(function _callee6$(_context6) {
             while (1) {
-                switch (_context5.prev = _context5.next) {
+                switch (_context6.prev = _context6.next) {
                     case 0:
                         seehd = new Seehd({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
-                        _context5.next = 3;
+                        _context6.next = 3;
                         return seehd.searchDetail();
 
                     case 3:
-                        _context5.next = 5;
+                        _context6.next = 5;
                         return seehd.getHostFromDetail();
 
                     case 5:
-                        return _context5.abrupt('return', seehd.state.hosts);
+                        return _context6.abrupt('return', seehd.state.hosts);
 
                     case 6:
                     case 'end':
-                        return _context5.stop();
+                        return _context6.stop();
                 }
             }
-        }, _callee5, undefined);
+        }, _callee6, undefined);
     }));
 
-    return function (_x5, _x6, _x7) {
-        return _ref5.apply(this, arguments);
+    return function (_x6, _x7, _x8) {
+        return _ref6.apply(this, arguments);
     };
 }();
 
