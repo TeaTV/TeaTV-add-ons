@@ -16,6 +16,18 @@ var URL = {
             return 'http://www.seehd.pl/page/' + page + '/?s=' + title;
         }
         return 'http://www.seehd.pl/?s=' + title;
+    },
+    HEADERS: function HEADERS() {
+        return {
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'Cache-Control': 'max-age=0',
+            'Connection': 'keep-alive',
+            'Host': 'www.seehd.pl',
+            'Referer': 'http://www.seehd.pl/',
+            'Upgrade-Insecure-Requests': 1,
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+        };
     }
 };
 
@@ -43,7 +55,7 @@ var Seehd = function () {
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
                                 _context.next = 5;
-                                return httpRequest.getCloudflare(urlSearch);
+                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
 
                             case 5:
                                 htmlSearch = _context.sent;
@@ -107,7 +119,7 @@ var Seehd = function () {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
                                                         _context2.next = 2;
-                                                        return httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), val));
+                                                        return httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), val), URL.HEADERS());
 
                                                     case 2:
                                                         htmlSearch = _context2.sent;
@@ -205,7 +217,7 @@ var Seehd = function () {
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
                                 _context4.next = 7;
-                                return httpRequest.getCloudflare(this.state.detailUrl);
+                                return httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS());
 
                             case 7:
                                 htmlDetail = _context4.sent;

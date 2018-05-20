@@ -6,6 +6,18 @@ const URL = {
             return `http://www.seehd.pl/page/${page}/?s=${title}`;
         }
        return `http://www.seehd.pl/?s=${title}`;
+   },
+   HEADERS: () => {
+    return {
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+        'Cache-Control': 'max-age=0',
+        'Connection': 'keep-alive',
+        'Host': 'www.seehd.pl',
+        'Referer':'http://www.seehd.pl/',
+        'Upgrade-Insecure-Requests': 1,
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    }
    }
 };
 
@@ -25,7 +37,7 @@ class Seehd {
 
         let urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
 
-        let htmlSearch  = await httpRequest.getCloudflare(urlSearch);
+        let htmlSearch  = await httpRequest.getCloudflare(urlSearch, URL.HEADERS());
         htmlSearch      = htmlSearch.data;
         let $           = cheerio.load(htmlSearch);
         let page        = $('.pagination-item').text();
@@ -55,7 +67,7 @@ class Seehd {
 
         let arrPromise = arrNumber.map(async function(val) {
 
-            let htmlSearch  = await httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), val));
+            let htmlSearch  = await httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), val), URL.HEADERS());
             let $           = cheerio.load(htmlSearch.data);
             let itemPage    = $('.movie');
 
@@ -110,7 +122,7 @@ class Seehd {
         let hosts       = [];
         let detailUrl   = this.state.detailUrl;
 
-        let htmlDetail  = await httpRequest.getCloudflare(this.state.detailUrl);
+        let htmlDetail  = await httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS());
         htmlDetail      = htmlDetail.data;
         let $           = cheerio.load(htmlDetail);
         let itemEmbed   = $('.tabcontent');
