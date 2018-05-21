@@ -6,6 +6,9 @@ const URL = {
     HEADERS: {
         'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    },
+    DOMAIN_THUYET_MINH: (id, vietsubId) => {
+        return `http://phimbathu.com/ajax/getLinkPlayer/id/${id}/index/${vietsubId}`;
     }
 };
 
@@ -143,6 +146,7 @@ class Phimbathu {
        	};
 
         let html_video  = await httpRequest.getHTML(this.state.detailUrl, URL.HEADERS);
+        let $           = cheerio.load(html_video);
         let player      = html_video.match(/var *playerSetting *\=([^\$]+)/i);
         player      = player != null ? player[1] : '';
 
@@ -161,7 +165,7 @@ class Phimbathu {
                 	hosts.push({
 	                    provider: {
 	                        url: phimbathu.state.detailUrl,
-	                        name: "Server 2"
+	                        name: "Server 2 - Vietsub"
 	                    },
 	                    result: {
 	                        file: link_direct,
@@ -175,23 +179,57 @@ class Phimbathu {
             
         }
 
+
+        // thuyetminh
+        let arrServer = [];
+        let idServer   = html_video.match(/\/ajax\/getLinkPlayer\/id\/([^\/]+)/i);
+        idServer       = idServer != null ? idServer[1] : '';
+
+        let itemServer = $('.server-item .option .btn');
+
+        itemServer.each(function() {
+            let numberServer = $(this).attr('data-index');
+            arrServer.push(numberServer);
+        });
+
+
+        let arrPromise = arrServer.map(async (val) => {
+
+            let jsonThuyetMinh = await httpRequest.getHTML(URL.DOMAIN_THUYET_MINH(idServer, val));
+            jsonThuyetMinh     = JSON.parse(jsonThuyetMinh);
+
+            for( let item in jsonThuyetMinh.sourceLinks ) {
+
+                for( let item1 in jsonThuyetMinh.sourceLinks[item].links ) {
+
+                    let link_direct = gibberish.dec(jsonThuyetMinh.sourceLinks[item].links[item1].file, key);
+
+                    if( link_direct ) {
+
+                        hosts.push({
+                            provider: {
+                                url: phimbathu.state.detailUrl,
+                                name: "Server 2 - Thuyet Minh"
+                            },
+                            result: {
+                                file: link_direct,
+                                label: jsonThuyetMinh.sourceLinks[item].links[item1].label,
+                                type: 'direct'
+                            }
+                        });
+                    }
+                    
+                }
+                
+            }
+        });
+
+        await Promise.all(arrPromise);
+
         this.state.hosts = hosts;
         return;
     }
 
-
-
-    isEmbed(link) {
-
-        if( link.indexOf('statics2.vidcdn.pro') != -1 ) {
-            return false;
-        } else if( link.indexOf('stream2.m4ukido.com') != -1 ) {
-            return false;
-        } 
-
-
-        return true;
-    }
 
 
 }

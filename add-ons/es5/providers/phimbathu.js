@@ -14,6 +14,9 @@ var URL = {
     HEADERS: {
         'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    },
+    DOMAIN_THUYET_MINH: function DOMAIN_THUYET_MINH(id, vietsubId) {
+        return 'http://phimbathu.com/ajax/getLinkPlayer/id/' + id + '/index/' + vietsubId;
     }
 };
 
@@ -173,17 +176,19 @@ var Phimbathu = function () {
     }, {
         key: 'getHostFromDetail',
         value: function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, qs, gibberish, hosts, type, phimbathu, playerSetting, html_video, player, key, item, item1, link_direct;
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+                var _this = this;
 
-                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                var _libs2, httpRequest, cheerio, qs, gibberish, hosts, type, phimbathu, playerSetting, html_video, $, player, key, item, item1, link_direct, arrServer, idServer, itemServer, arrPromise;
+
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
-                        switch (_context2.prev = _context2.next) {
+                        switch (_context3.prev = _context3.next) {
                             case 0:
                                 _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, qs = _libs2.qs, gibberish = _libs2.gibberish;
 
                                 if (this.state.detailUrl) {
-                                    _context2.next = 3;
+                                    _context3.next = 3;
                                     break;
                                 }
 
@@ -197,11 +202,12 @@ var Phimbathu = function () {
                                     sourceLinks: [],
                                     modelId: ''
                                 };
-                                _context2.next = 9;
+                                _context3.next = 9;
                                 return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS);
 
                             case 9:
-                                html_video = _context2.sent;
+                                html_video = _context3.sent;
+                                $ = cheerio.load(html_video);
                                 player = html_video.match(/var *playerSetting *\=([^\$]+)/i);
 
                                 player = player != null ? player[1] : '';
@@ -222,7 +228,7 @@ var Phimbathu = function () {
                                             hosts.push({
                                                 provider: {
                                                     url: phimbathu.state.detailUrl,
-                                                    name: "Server 2"
+                                                    name: "Server 2 - Vietsub"
                                                 },
                                                 result: {
                                                     file: link_direct,
@@ -234,15 +240,85 @@ var Phimbathu = function () {
                                     }
                                 }
 
-                                this.state.hosts = hosts;
-                                return _context2.abrupt('return');
+                                // thuyetminh
+                                arrServer = [];
+                                idServer = html_video.match(/\/ajax\/getLinkPlayer\/id\/([^\/]+)/i);
 
-                            case 17:
+                                idServer = idServer != null ? idServer[1] : '';
+
+                                itemServer = $('.server-item .option .btn');
+
+
+                                itemServer.each(function () {
+                                    var numberServer = $(this).attr('data-index');
+                                    arrServer.push(numberServer);
+                                });
+
+                                arrPromise = arrServer.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
+                                        var jsonThuyetMinh, _item, _item2, _link_direct;
+
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+                                                        _context2.next = 2;
+                                                        return httpRequest.getHTML(URL.DOMAIN_THUYET_MINH(idServer, val));
+
+                                                    case 2:
+                                                        jsonThuyetMinh = _context2.sent;
+
+                                                        jsonThuyetMinh = JSON.parse(jsonThuyetMinh);
+
+                                                        for (_item in jsonThuyetMinh.sourceLinks) {
+
+                                                            for (_item2 in jsonThuyetMinh.sourceLinks[_item].links) {
+                                                                _link_direct = gibberish.dec(jsonThuyetMinh.sourceLinks[_item].links[_item2].file, key);
+
+
+                                                                if (_link_direct) {
+
+                                                                    hosts.push({
+                                                                        provider: {
+                                                                            url: phimbathu.state.detailUrl,
+                                                                            name: "Server 2 - Thuyet Minh"
+                                                                        },
+                                                                        result: {
+                                                                            file: _link_direct,
+                                                                            label: jsonThuyetMinh.sourceLinks[_item].links[_item2].label,
+                                                                            type: 'direct'
+                                                                        }
+                                                                    });
+                                                                }
+                                                            }
+                                                        }
+
+                                                    case 5:
+                                                    case 'end':
+                                                        return _context2.stop();
+                                                }
+                                            }
+                                        }, _callee2, _this);
+                                    }));
+
+                                    return function (_x) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 24;
+                                return Promise.all(arrPromise);
+
+                            case 24:
+
+                                this.state.hosts = hosts;
+                                return _context3.abrupt('return');
+
+                            case 26:
                             case 'end':
-                                return _context2.stop();
+                                return _context3.stop();
                         }
                     }
-                }, _callee2, this);
+                }, _callee3, this);
             }));
 
             function getHostFromDetail() {
@@ -251,55 +327,43 @@ var Phimbathu = function () {
 
             return getHostFromDetail;
         }()
-    }, {
-        key: 'isEmbed',
-        value: function isEmbed(link) {
-
-            if (link.indexOf('statics2.vidcdn.pro') != -1) {
-                return false;
-            } else if (link.indexOf('stream2.m4ukido.com') != -1) {
-                return false;
-            }
-
-            return true;
-        }
     }]);
 
     return Phimbathu;
 }();
 
 thisSource.function = function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(libs, movieInfo, settings) {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
         var phimbathu;
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+        return regeneratorRuntime.wrap(function _callee4$(_context4) {
             while (1) {
-                switch (_context3.prev = _context3.next) {
+                switch (_context4.prev = _context4.next) {
                     case 0:
                         phimbathu = new Phimbathu({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
-                        _context3.next = 3;
+                        _context4.next = 3;
                         return phimbathu.searchDetail();
 
                     case 3:
-                        _context3.next = 5;
+                        _context4.next = 5;
                         return phimbathu.getHostFromDetail();
 
                     case 5:
-                        return _context3.abrupt('return', phimbathu.state.hosts);
+                        return _context4.abrupt('return', phimbathu.state.hosts);
 
                     case 6:
                     case 'end':
-                        return _context3.stop();
+                        return _context4.stop();
                 }
             }
-        }, _callee3, undefined);
+        }, _callee4, undefined);
     }));
 
-    return function (_x, _x2, _x3) {
-        return _ref3.apply(this, arguments);
+    return function (_x2, _x3, _x4) {
+        return _ref4.apply(this, arguments);
     };
 }();
 
