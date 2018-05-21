@@ -246,12 +246,22 @@ var Phimbathu = function () {
 
                                 idServer = idServer != null ? idServer[1] : '';
 
-                                itemServer = $('.server-item .option .btn');
+                                itemServer = $('.server-item');
 
 
                                 itemServer.each(function () {
-                                    var numberServer = $(this).attr('data-index');
-                                    arrServer.push(numberServer);
+
+                                    var nameServer = $(this).find('.name span').text();
+
+                                    if (nameServer && nameServer.trim() == 'Thuyết Minh') {
+
+                                        var itemNumberServer = $(this).find('.option .btn');
+
+                                        itemNumberServer.each(function () {
+                                            var numberServer = $(this).attr('data-index');
+                                            arrServer.push(numberServer);
+                                        });
+                                    }
                                 });
 
                                 arrPromise = arrServer.map(function () {

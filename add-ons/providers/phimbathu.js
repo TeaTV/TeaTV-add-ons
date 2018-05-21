@@ -185,11 +185,23 @@ class Phimbathu {
         let idServer   = html_video.match(/\/ajax\/getLinkPlayer\/id\/([^\/]+)/i);
         idServer       = idServer != null ? idServer[1] : '';
 
-        let itemServer = $('.server-item .option .btn');
+        let itemServer = $('.server-item');
 
         itemServer.each(function() {
-            let numberServer = $(this).attr('data-index');
-            arrServer.push(numberServer);
+
+            let nameServer = $(this).find('.name span').text();
+
+            if( nameServer && nameServer.trim() == 'Thuyết Minh' ) {
+
+                let itemNumberServer = $(this).find('.option .btn');
+
+                itemNumberServer.each(function() {
+                    let numberServer = $(this).attr('data-index');
+                    arrServer.push(numberServer);
+                });
+                
+            }
+            
         });
 
 
