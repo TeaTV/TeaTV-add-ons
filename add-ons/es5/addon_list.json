@@ -14,6 +14,13 @@
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/playdk.js",
             "type": ["movie", "tv"]
         },
+        "321movies": {
+            "name": "321movies",
+            "domain": "321movies.club",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/321movies.js",
+            "type": ["movie", "tv"]
+        },
         "putlockerhd": {
             "name": "putlockerhd",
             "domain": "putlockerhd.co",
