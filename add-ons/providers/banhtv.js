@@ -15,6 +15,9 @@ URL = {
     },
     SEARCH: (title) => {
         return `http://banhtv.com/tim-kiem.html?q=${encodeURI(title)}`;
+    },
+    DOMAIN_THUYET_MINH: (id, vietsubId) => {
+        return `http://banhtv.com/ajax/getLinkPlayer/id/${id}/index/${vietsubId}`;
     }
 };
 
@@ -156,7 +159,7 @@ class Banhtv {
         };
 
         let html_video  = await httpRequest.getHTML(banhtv.state.detailUrl);
-        
+        let $           = cheerio.load(html_video); 
         let player      = html_video.match(/var *playerSetting *\=([^$]+)/i);
         player      = player != null ? player[1] : '';
         player      = player.replace(/var *bbPlayer\;/i, '');
@@ -189,7 +192,7 @@ class Banhtv {
                 	hosts.push({
                         provider: {
                             url: banhtv.state.detailUrl,
-                            name: "Server 5"
+                            name: "Server 5 - Vietsub"
                         },
                         result: {
                             file: link_direct,
@@ -201,6 +204,64 @@ class Banhtv {
             }
             
         }
+
+
+                // thuyetminh
+        // let arrServer = [];
+        // let idServer   = html_video.match(/\/ajax\/getLinkPlayer\/id\/([^\/]+)/i);
+        // idServer       = idServer != null ? idServer[1] : '';
+
+        // let itemServer = $('.server-item');
+
+        // itemServer.each(function() {
+
+        //     let nameServer = $(this).find('.name span').text();
+
+        //     if( nameServer && nameServer.trim() == 'Thuyết Minh' ) {
+
+        //         let itemNumberServer = $(this).find('.option .btn');
+
+        //         itemNumberServer.each(function() {
+        //             let numberServer = $(this).attr('data-index');
+        //             arrServer.push(numberServer);
+        //         });
+                
+        //     }
+            
+        // });
+
+        // let arrPromise = arrServer.map(async (val) => {
+
+        //     let jsonThuyetMinh = await httpRequest.getHTML(URL.DOMAIN_THUYET_MINH(idServer, val));
+        //     jsonThuyetMinh     = JSON.parse(jsonThuyetMinh);
+
+
+        //     for( let item in playerSetting.sourceLinks ) {
+
+        //         for( let item1 in playerSetting.sourceLinks[item].links ) {
+
+        //             let link_direct = gibberish.dec(playerSetting.sourceLinks[item].links[item1].file, key);
+
+        //             if( link_direct ) {
+
+        //                 hosts.push({
+        //                     provider: {
+        //                         url: banhtv.state.detailUrl,
+        //                         name: "Server 5 - Thuyet Minh"
+        //                     },
+        //                     result: {
+        //                         file: link_direct,
+        //                         label: playerSetting.sourceLinks[item].links[item1].label
+        //                     }
+        //                 });
+        //             }
+                    
+        //         }
+                
+        //     }
+        // });
+
+        // await Promise.all(arrPromise);
 
         this.state.hosts = hosts;
         return;

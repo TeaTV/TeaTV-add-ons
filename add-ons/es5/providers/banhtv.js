@@ -25,6 +25,9 @@ URL = {
     },
     SEARCH: function SEARCH(title) {
         return 'http://banhtv.com/tim-kiem.html?q=' + encodeURI(title);
+    },
+    DOMAIN_THUYET_MINH: function DOMAIN_THUYET_MINH(id, vietsubId) {
+        return 'http://banhtv.com/ajax/getLinkPlayer/id/' + id + '/index/' + vietsubId;
     }
 };
 
@@ -216,7 +219,7 @@ var Banhtv = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs2, httpRequest, cheerio, qs, gibberish, _movieInfo2, episode, type, banhtv, hosts, playerSetting, html_video, player, key, item, item1, link_direct;
+                var _libs2, httpRequest, cheerio, qs, gibberish, _movieInfo2, episode, type, banhtv, hosts, playerSetting, html_video, $, player, key, item, item1, link_direct;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -244,6 +247,7 @@ var Banhtv = function () {
 
                             case 9:
                                 html_video = _context3.sent;
+                                $ = cheerio.load(html_video);
                                 player = html_video.match(/var *playerSetting *\=([^$]+)/i);
 
                                 player = player != null ? player[1] : '';
@@ -277,7 +281,7 @@ var Banhtv = function () {
                                             hosts.push({
                                                 provider: {
                                                     url: banhtv.state.detailUrl,
-                                                    name: "Server 5"
+                                                    name: "Server 5 - Vietsub"
                                                 },
                                                 result: {
                                                     file: link_direct,
@@ -288,10 +292,67 @@ var Banhtv = function () {
                                     }
                                 }
 
+                                // thuyetminh
+                                // let arrServer = [];
+                                // let idServer   = html_video.match(/\/ajax\/getLinkPlayer\/id\/([^\/]+)/i);
+                                // idServer       = idServer != null ? idServer[1] : '';
+
+                                // let itemServer = $('.server-item');
+
+                                // itemServer.each(function() {
+
+                                //     let nameServer = $(this).find('.name span').text();
+
+                                //     if( nameServer && nameServer.trim() == 'Thuyết Minh' ) {
+
+                                //         let itemNumberServer = $(this).find('.option .btn');
+
+                                //         itemNumberServer.each(function() {
+                                //             let numberServer = $(this).attr('data-index');
+                                //             arrServer.push(numberServer);
+                                //         });
+
+                                //     }
+
+                                // });
+
+                                // let arrPromise = arrServer.map(async (val) => {
+
+                                //     let jsonThuyetMinh = await httpRequest.getHTML(URL.DOMAIN_THUYET_MINH(idServer, val));
+                                //     jsonThuyetMinh     = JSON.parse(jsonThuyetMinh);
+
+
+                                //     for( let item in playerSetting.sourceLinks ) {
+
+                                //         for( let item1 in playerSetting.sourceLinks[item].links ) {
+
+                                //             let link_direct = gibberish.dec(playerSetting.sourceLinks[item].links[item1].file, key);
+
+                                //             if( link_direct ) {
+
+                                //                 hosts.push({
+                                //                     provider: {
+                                //                         url: banhtv.state.detailUrl,
+                                //                         name: "Server 5 - Thuyet Minh"
+                                //                     },
+                                //                     result: {
+                                //                         file: link_direct,
+                                //                         label: playerSetting.sourceLinks[item].links[item1].label
+                                //                     }
+                                //                 });
+                                //             }
+
+                                //         }
+
+                                //     }
+                                // });
+
+                                // await Promise.all(arrPromise);
+
                                 this.state.hosts = hosts;
                                 return _context3.abrupt('return');
 
-                            case 31:
+                            case 32:
                             case 'end':
                                 return _context3.stop();
                         }

@@ -211,7 +211,7 @@ class Vkool {
                             link_direct && hosts.push({
                                 provider: {
                                     url: item,
-                                    name: "Server 6"
+                                    name: "Server 6 - Vietsub"
                                 },
                                 result: {
                                     file: link_direct,

@@ -353,7 +353,7 @@ var Vungtv = function () {
                                     hosts.push({
                                         provider: {
                                             url: vungtv.state.detailUrl,
-                                            name: "Source 9"
+                                            name: "Source 9 - Vietsub"
                                         },
                                         result: {
                                             file: data_direct[item].file,

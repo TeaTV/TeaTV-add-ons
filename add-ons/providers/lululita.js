@@ -14,14 +14,14 @@ const URL = {
 
 
 const SOURCES = {
-    'banhtv': 'Source 5',
-    'animehay': 'Source 7',
-    'bilutv': 'Source 1',
-    'hdonline': 'Source 4',
-    'phimbathu': 'Source 2',
-    'banhtv': 'Source 5',
-    'phimmoi': 'Source 3', 
-    'vkool'  : "Source 6"
+    'banhtv': 'Source 5 - Vietsub',
+    'animehay': 'Source 7 - Vietsub',
+    'bilutv': 'Source 1 - Vietsub',
+    'hdonline': 'Source 4 - Vietsub',
+    'phimbathu': 'Source 2 - Vietsub',
+    'banhtv': 'Source 5 - Vietsub',
+    'phimmoi': 'Source 3 - Vietsub', 
+    'vkool'  : "Source 6 - Vietsub"
 };
 
 

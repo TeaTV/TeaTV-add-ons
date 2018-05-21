@@ -340,7 +340,7 @@ var Hdonline = function () {
                                                         data.file && hosts.push({
                                                             provider: {
                                                                 url: hdonline.state.detailUrl,
-                                                                name: "Server 4"
+                                                                name: "Server 4 - Vietsub"
                                                             },
                                                             result: {
                                                                 file: data.file,
@@ -354,7 +354,7 @@ var Hdonline = function () {
                                                             data.level[item].file && hosts.push({
                                                                 provider: {
                                                                     url: hdonline.state.detailUrl,
-                                                                    name: "Server 4"
+                                                                    name: "Server 4 - Vietsub"
                                                                 },
                                                                 result: {
                                                                     file: data.level[item].file,

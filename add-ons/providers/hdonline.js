@@ -213,7 +213,7 @@ class Hdonline {
            	data.file && hosts.push({
                 provider: {
                     url: hdonline.state.detailUrl,
-                    name: "Server 4"
+                    name: "Server 4 - Vietsub"
                 },
                 result: {
                     file: data.file,
@@ -227,7 +227,7 @@ class Hdonline {
             	data.level[item].file && hosts.push({
 	                provider: {
 	                    url: hdonline.state.detailUrl,
-	                    name: "Server 4"
+	                    name: "Server 4 - Vietsub"
 	                },
 	                result: {
 	                    file: data.level[item].file,

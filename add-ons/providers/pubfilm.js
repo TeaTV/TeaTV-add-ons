@@ -140,7 +140,7 @@ class Pubfilm {
         let _responseData; 
 
         let detailUrl           = this.state.detailUrl.replace('get.php', 'gel.php');
-
+        
         try {
 
             let htmlDetail      = await httpRequest.getHTML(detailUrl, URL.HEADERS());
