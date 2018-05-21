@@ -15,15 +15,15 @@ URL = {
     },
     SEARCH: (title) => {
         return `http://bilutv.com/tim-kiem.html?q=${encodeURI(title)}`;
+    },
+    DOMAIN_THUYET_MINH: (id, vietsubId) => {
+        return `http://bilutv.com/ajax/getLinkPlayer/id/${id}/index/${vietsubId}`;
     }
 };
 
 
 
 class Bilutv {
-
-
-
 
     constructor(props) {
         this.libs = props.libs;
@@ -148,6 +148,7 @@ class Bilutv {
         };
 
         let html_video  = await httpRequest.getHTML(bilu.state.detailUrl, URL.HEADERS(bilu.state.detailUrl));
+        let $           = cheerio.load(html_video);
         let player      = html_video.match(/var *playerSetting *\=([^\$]+)/i);
         player      = player != null ? player[1] : '';
 
@@ -167,7 +168,7 @@ class Bilutv {
                     link_direct && hosts.push({
                         provider: {
                             url: bilu.state.detailUrl,
-                            name: "Server 1"
+                            name: "Server 1 - Vietsub"
                         },
                         result: {
                             file: link_direct,
@@ -178,6 +179,54 @@ class Bilutv {
                 }
             }
         }
+
+
+
+        // thuyetminh
+        let arrServer = [];
+        let idServer   = html_video.match(/\/ajax\/getLinkPlayer\/id\/([^\/]+)/i);
+        idServer       = idServer != null ? idServer[1] : '';
+
+        let itemServer = $('.server-item .option .btn');
+
+        itemServer.each(function() {
+            let numberServer = $(this).attr('data-index');
+            arrServer.push(numberServer);
+        });
+
+
+        let arrPromise = arrServer.map(async (val) => {
+
+            let jsonThuyetMinh = await httpRequest.getHTML(URL.DOMAIN_THUYET_MINH(idServer, val));
+            jsonThuyetMinh     = JSON.parse(jsonThuyetMinh);
+
+            for( let item in jsonThuyetMinh.sourceLinks ) {
+
+                for( let item1 in jsonThuyetMinh.sourceLinks[item].links ) {
+
+                    let link_direct = gibberish.dec(jsonThuyetMinh.sourceLinks[item].links[item1].file, key);
+
+                    if( link_direct && link_direct.indexOf('s.bilutv.com') == -1    &&
+                        link_direct.indexOf('api.bilutv.com/test') == -1            && 
+                        link_direct.indexOf('s5.bilutv.com') == -1 && link_direct.indexOf('api.bilutv.com/getst') == -1 )  {
+
+                        link_direct && hosts.push({
+                            provider: {
+                                url: bilu.state.detailUrl,
+                                name: "Server 1 - Thuyet Minh"
+                            },
+                            result: {
+                                file: link_direct,
+                                label: jsonThuyetMinh.sourceLinks[item].links[item1].label
+                            }
+                        });
+
+                    }
+                }
+            }
+        });
+
+        await Promise.all(arrPromise);
 
         this.state.hosts = hosts;
         return;

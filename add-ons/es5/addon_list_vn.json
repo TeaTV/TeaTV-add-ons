@@ -3,7 +3,7 @@
         "bilutv": {
             "name": "bilutv",
             "domain": "bilutv.com",
-            "version": "0.0.6",
+            "version": "0.0.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/bilutv.js",
             "type": ["tv", "movie"]
         },
@@ -72,7 +72,7 @@
         },
         "hdonline": {
             "name": "hdonline",
-            "domain": ["vod-free.hdonline.vn", "s7.hdonline.vn", "s6.hdonline.vn"],
+            "domain": ["vod-free.hdonline.vn", "s7.hdonline.vn", "s6.hdonline.vn", "free9.hdonline.vn"],
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vod-free.hdonline.js"
         },

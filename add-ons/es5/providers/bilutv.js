@@ -25,6 +25,9 @@ URL = {
     },
     SEARCH: function SEARCH(title) {
         return 'http://bilutv.com/tim-kiem.html?q=' + encodeURI(title);
+    },
+    DOMAIN_THUYET_MINH: function DOMAIN_THUYET_MINH(id, vietsubId) {
+        return 'http://bilutv.com/ajax/getLinkPlayer/id/' + id + '/index/' + vietsubId;
     }
 };
 
@@ -193,18 +196,20 @@ var Bilutv = function () {
     }, {
         key: 'getHostFromDetail',
         value: function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, qs, gibberish, _movieInfo2, episode, type, bilu, hosts, playerSetting, html_video, player, key, item, item1, link_direct;
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+                var _this = this;
 
-                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                var _libs2, httpRequest, cheerio, qs, gibberish, _movieInfo2, episode, type, bilu, hosts, playerSetting, html_video, $, player, key, item, item1, link_direct, arrServer, idServer, itemServer, arrPromise;
+
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
-                        switch (_context2.prev = _context2.next) {
+                        switch (_context3.prev = _context3.next) {
                             case 0:
                                 _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, qs = _libs2.qs, gibberish = _libs2.gibberish;
                                 _movieInfo2 = this.movieInfo, episode = _movieInfo2.episode, type = _movieInfo2.type;
 
                                 if (this.state.detailUrl) {
-                                    _context2.next = 4;
+                                    _context3.next = 4;
                                     break;
                                 }
 
@@ -217,11 +222,12 @@ var Bilutv = function () {
                                     sourceLinks: [],
                                     modelId: ''
                                 };
-                                _context2.next = 9;
+                                _context3.next = 9;
                                 return httpRequest.getHTML(bilu.state.detailUrl, URL.HEADERS(bilu.state.detailUrl));
 
                             case 9:
-                                html_video = _context2.sent;
+                                html_video = _context3.sent;
+                                $ = cheerio.load(html_video);
                                 player = html_video.match(/var *playerSetting *\=([^\$]+)/i);
 
                                 player = player != null ? player[1] : '';
@@ -241,7 +247,7 @@ var Bilutv = function () {
                                             link_direct && hosts.push({
                                                 provider: {
                                                     url: bilu.state.detailUrl,
-                                                    name: "Server 1"
+                                                    name: "Server 1 - Vietsub"
                                                 },
                                                 result: {
                                                     file: link_direct,
@@ -252,15 +258,84 @@ var Bilutv = function () {
                                     }
                                 }
 
-                                this.state.hosts = hosts;
-                                return _context2.abrupt('return');
+                                // thuyetminh
+                                arrServer = [];
+                                idServer = html_video.match(/\/ajax\/getLinkPlayer\/id\/([^\/]+)/i);
 
-                            case 17:
+                                idServer = idServer != null ? idServer[1] : '';
+
+                                itemServer = $('.server-item .option .btn');
+
+
+                                itemServer.each(function () {
+                                    var numberServer = $(this).attr('data-index');
+                                    arrServer.push(numberServer);
+                                });
+
+                                arrPromise = arrServer.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
+                                        var jsonThuyetMinh, _item, _item2, _link_direct;
+
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+                                                        _context2.next = 2;
+                                                        return httpRequest.getHTML(URL.DOMAIN_THUYET_MINH(idServer, val));
+
+                                                    case 2:
+                                                        jsonThuyetMinh = _context2.sent;
+
+                                                        jsonThuyetMinh = JSON.parse(jsonThuyetMinh);
+
+                                                        for (_item in jsonThuyetMinh.sourceLinks) {
+
+                                                            for (_item2 in jsonThuyetMinh.sourceLinks[_item].links) {
+                                                                _link_direct = gibberish.dec(jsonThuyetMinh.sourceLinks[_item].links[_item2].file, key);
+
+
+                                                                if (_link_direct && _link_direct.indexOf('s.bilutv.com') == -1 && _link_direct.indexOf('api.bilutv.com/test') == -1 && _link_direct.indexOf('s5.bilutv.com') == -1 && _link_direct.indexOf('api.bilutv.com/getst') == -1) {
+
+                                                                    _link_direct && hosts.push({
+                                                                        provider: {
+                                                                            url: bilu.state.detailUrl,
+                                                                            name: "Server 1 - Thuyet Minh"
+                                                                        },
+                                                                        result: {
+                                                                            file: _link_direct,
+                                                                            label: jsonThuyetMinh.sourceLinks[_item].links[_item2].label
+                                                                        }
+                                                                    });
+                                                                }
+                                                            }
+                                                        }
+
+                                                    case 5:
+                                                    case 'end':
+                                                        return _context2.stop();
+                                                }
+                                            }
+                                        }, _callee2, _this);
+                                    }));
+
+                                    return function (_x2) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 24;
+                                return Promise.all(arrPromise);
+
+                            case 24:
+
+                                this.state.hosts = hosts;
+                                return _context3.abrupt('return');
+
+                            case 26:
                             case 'end':
-                                return _context2.stop();
+                                return _context3.stop();
                         }
                     }
-                }, _callee2, this);
+                }, _callee3, this);
             }));
 
             function getHostFromDetail() {
@@ -275,36 +350,36 @@ var Bilutv = function () {
 }();
 
 thisSource.function = function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(libs, movieInfo, settings) {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
         var bilu;
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+        return regeneratorRuntime.wrap(function _callee4$(_context4) {
             while (1) {
-                switch (_context3.prev = _context3.next) {
+                switch (_context4.prev = _context4.next) {
                     case 0:
                         bilu = new Bilutv({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
-                        _context3.next = 3;
+                        _context4.next = 3;
                         return bilu.searchDetail();
 
                     case 3:
-                        _context3.next = 5;
+                        _context4.next = 5;
                         return bilu.getHostFromDetail();
 
                     case 5:
-                        return _context3.abrupt('return', bilu.state.hosts);
+                        return _context4.abrupt('return', bilu.state.hosts);
 
                     case 6:
                     case 'end':
-                        return _context3.stop();
+                        return _context4.stop();
                 }
             }
-        }, _callee3, undefined);
+        }, _callee4, undefined);
     }));
 
-    return function (_x2, _x3, _x4) {
-        return _ref3.apply(this, arguments);
+    return function (_x3, _x4, _x5) {
+        return _ref4.apply(this, arguments);
     };
 }();
