@@ -35,6 +35,13 @@
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/series9.js",
             "type": ["tv", "movie"]
         },
+        "vexmovies": {
+            "name": "vexmovies",
+            "domain": "vexmovies.org",
+            "version": "0.0.4",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vexmovies.js",
+            "type": ["movie"]
+        },
         "hollymovies": {
             "name": "hollymovies",
             "domain": "hollymoviehd.com",
@@ -69,13 +76,6 @@
             "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchepisodes4.js",
             "type": ["tv"]
-        },
-        "vexmovies": {
-            "name": "vexmovies",
-            "domain": "vexmovies.org",
-            "version": "0.0.4",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vexmovies.js",
-            "type": ["movie"]
         },
         "dizilab": {
             "name": "dizilab",
