@@ -191,6 +191,12 @@
         }
     },
     "hosts": {
+        "tocloud": {
+            "name": "tocloud",
+            "domain": "tocloud.co",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/hosts/tocloud.js"
+        },
         "streamango": {
             "name": "streamango",
             "domain": "streamango.com",
