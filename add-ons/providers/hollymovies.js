@@ -39,39 +39,45 @@ class HollyMovies {
             urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')) + `+season+${season}`;
         }
 
-        let htmlSearch  = await httpRequest.getHTML(urlSearch, URL.HEADERS());
-        let $           = cheerio.load(htmlSearch);
+        try {
 
-        let itemSearch  = $('.movies-list .ml-item');
+            let htmlSearch  = await httpRequest.getHTML(urlSearch, URL.HEADERS());
+            let $           = cheerio.load(htmlSearch);
 
-        console.log(itemSearch.length);
+            let itemSearch  = $('.movies-list .ml-item');
 
-        itemSearch.each(function() {
+            console.log(itemSearch.length);
 
-            let hrefMovie   =  $(this).find('a').first().attr('href');
-            let titleMovie  = $(this).find('a').first().attr('oldtitle');
-            let yearMovie   = titleMovie.match(/\(([0-9]+)\)/i);
-            yearMovie       = yearMovie != null ? +yearMovie[1] : 0;
-            let seasonMovie = titleMovie.match(/season *([0-9]+)/i);
-            seasonMovie     = seasonMovie != null ? +seasonMovie[1] : false;
-            titleMovie      = titleMovie.replace(/\([0-9]+\)/i, '').trim();
-            titleMovie      = titleMovie.replace(/ *season *[0-9]+/i, '').trim();
+            itemSearch.each(function() {
 
-            console.log(title, titleMovie, hrefMovie, yearMovie, seasonMovie);
-            if( stringHelper.shallowCompare(title, titleMovie) ) {
-                
-                if( type == 'movie' && seasonMovie == false && yearMovie == year ) {
+                let hrefMovie   =  $(this).find('a').first().attr('href');
+                let titleMovie  = $(this).find('a').first().attr('oldtitle');
+                let yearMovie   = titleMovie.match(/\(([0-9]+)\)/i);
+                yearMovie       = yearMovie != null ? +yearMovie[1] : 0;
+                let seasonMovie = titleMovie.match(/season *([0-9]+)/i);
+                seasonMovie     = seasonMovie != null ? +seasonMovie[1] : false;
+                titleMovie      = titleMovie.replace(/\([0-9]+\)/i, '').trim();
+                titleMovie      = titleMovie.replace(/ *season *[0-9]+/i, '').trim();
 
-                    detailUrl = hrefMovie;       
-                    return;
-                } else if( type == 'tv' && seasonMovie == season ) {
+                console.log(title, titleMovie, hrefMovie, yearMovie, seasonMovie);
+                if( stringHelper.shallowCompare(title, titleMovie) ) {
+                    
+                    if( type == 'movie' && seasonMovie == false && yearMovie == year ) {
 
-                    detailUrl = hrefMovie;
-                    return;
+                        detailUrl = hrefMovie;       
+                        return;
+                    } else if( type == 'tv' && seasonMovie == season ) {
+
+                        detailUrl = hrefMovie;
+                        return;
+                    }
                 }
-            }
 
-        });
+            });
+        } catch(error) {
+            console.log(String(error));
+        }
+
 
         this.state.detailUrl = detailUrl;
         return;
@@ -148,7 +154,7 @@ class HollyMovies {
                 }); 
             } else {
 
-                sources             = sources != null ? sources[1] : '';
+                sources = sources != null ? sources[1] : '';
 
                 eval(`arrSources = [${sources}]`);
     

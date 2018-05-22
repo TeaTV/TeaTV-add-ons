@@ -57,10 +57,11 @@ var HollyMovies = function () {
                                     urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')) + ('+season+' + season);
                                 }
 
-                                _context.next = 7;
+                                _context.prev = 5;
+                                _context.next = 8;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS());
 
-                            case 7:
+                            case 8:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch);
                                 itemSearch = $('.movies-list .ml-item');
@@ -93,16 +94,26 @@ var HollyMovies = function () {
                                         }
                                     }
                                 });
+                                _context.next = 18;
+                                break;
+
+                            case 15:
+                                _context.prev = 15;
+                                _context.t0 = _context['catch'](5);
+
+                                console.log(String(_context.t0));
+
+                            case 18:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 14:
+                            case 20:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this);
+                }, _callee, this, [[5, 15]]);
             }));
 
             function searchDetail() {
