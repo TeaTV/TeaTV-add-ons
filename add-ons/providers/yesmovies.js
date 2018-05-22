@@ -43,7 +43,7 @@ class YesMovies {
 
 
         
-        let htmlSearch  = await httpRequest.getCloudflare(hrefSearch);
+        let htmlSearch  = await httpRequest.get(hrefSearch);
         let $           = cheerio.load(htmlSearch.data);
         let itemPage    = $('.movies-list .ml-item');
         let arrInfo     = [];
@@ -70,7 +70,7 @@ class YesMovies {
 
             if( stringHelper.shallowCompare(title, val.titleMovie) ) {
 
-                let htmlWatching    = await httpRequest.getCloudflare(val.hrefMovie);
+                let htmlWatching    = await httpRequest.get(val.hrefMovie);
                 let $_2             = cheerio.load(htmlWatching.data);
                 let linkWatching    = $_2('#mv-info .bwac-btn').attr('href');
 
@@ -95,7 +95,7 @@ class YesMovies {
     async getYear(slug, cheerio, httpRequest) {
 
         let yearMovie        = 0;
-        let htmlGetInfo = await httpRequest.getCloudflare(URL.GET_INFO(slug), {
+        let htmlGetInfo = await httpRequest.get(URL.GET_INFO(slug), {
             'X-Requested-With': 'XMLHttpRequest',
             authority: 'yesmovies.to',
             'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36',
@@ -129,7 +129,7 @@ class YesMovies {
         let detailUrl       = this.state.detailUrl;
         let idMovies        = detailUrl.match(/\-([0-9]+)\/watching\.html/i);
         idMovies            = idMovies != null ? +idMovies[1] : 0;
-        let htmlEmbed       = await httpRequest.getCloudflare(URL.GET_HTML_EMBED(idMovies));
+        let htmlEmbed       = await httpRequest.get(URL.GET_HTML_EMBED(idMovies));
         let $               = cheerio.load(htmlEmbed.data.html);
 
 
@@ -163,7 +163,7 @@ class YesMovies {
 
         let arrPromise = arrId.map(async function(val) {
 
-            let jsonEmbed = await httpRequest.getCloudflare(URL.GET_EMBED(val));
+            let jsonEmbed = await httpRequest.get(URL.GET_EMBED(val));
 
             let linkEmbed = jsonEmbed.data.src;
             linkEmbed && hosts.push({

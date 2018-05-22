@@ -62,7 +62,7 @@ var YesMovies = function () {
                                 }
 
                                 _context3.next = 8;
-                                return httpRequest.getCloudflare(hrefSearch);
+                                return httpRequest.get(hrefSearch);
 
                             case 8:
                                 htmlSearch = _context3.sent;
@@ -119,7 +119,7 @@ var YesMovies = function () {
                                                         }
 
                                                         _context2.next = 6;
-                                                        return httpRequest.getCloudflare(val.hrefMovie);
+                                                        return httpRequest.get(val.hrefMovie);
 
                                                     case 6:
                                                         htmlWatching = _context2.sent;
@@ -180,7 +180,7 @@ var YesMovies = function () {
                             case 0:
                                 yearMovie = 0;
                                 _context4.next = 3;
-                                return httpRequest.getCloudflare(URL.GET_INFO(slug), {
+                                return httpRequest.get(URL.GET_INFO(slug), {
                                     'X-Requested-With': 'XMLHttpRequest',
                                     authority: 'yesmovies.to',
                                     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36',
@@ -246,7 +246,7 @@ var YesMovies = function () {
 
                                 idMovies = idMovies != null ? +idMovies[1] : 0;
                                 _context6.next = 11;
-                                return httpRequest.getCloudflare(URL.GET_HTML_EMBED(idMovies));
+                                return httpRequest.get(URL.GET_HTML_EMBED(idMovies));
 
                             case 11:
                                 htmlEmbed = _context6.sent;
@@ -287,7 +287,7 @@ var YesMovies = function () {
                                                 switch (_context5.prev = _context5.next) {
                                                     case 0:
                                                         _context5.next = 2;
-                                                        return httpRequest.getCloudflare(URL.GET_EMBED(val));
+                                                        return httpRequest.get(URL.GET_EMBED(val));
 
                                                     case 2:
                                                         jsonEmbed = _context5.sent;
