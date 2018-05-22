@@ -67,7 +67,7 @@ var HollyMovies = function () {
                                 itemSearch = $('.movies-list .ml-item');
 
 
-                                console.log(itemSearch.length);
+                                console.log(htmlSearch, itemSearch.length);
 
                                 itemSearch.each(function () {
 
