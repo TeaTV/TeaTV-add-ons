@@ -10,6 +10,8 @@ const URL = {
             'Cache-Control': 'max-age=0',
             'Connection': 'keep-alive',
             'Cookie': 'taboola_rw23=5a1a871d45e;',
+            'Referer': 'http://www.hollymoviehd.com/checking/',
+            'Origin': 'http://www.hollymoviehd.com',
             'Host': 'www.hollymoviehd.com',
             'Upgrade-Insecure-Requests': 1,
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
