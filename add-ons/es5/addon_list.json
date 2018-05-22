@@ -1,5 +1,12 @@
 {
     "providers": {
+        "primewire": {
+            "name": "primewire",
+            "domain": "primewire.ac",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/primeware.js",
+            "type": ["movie", "tv"]
+        },
         "yesmovies": {
             "name": "yesmovies",
             "domain": "yesmovies.to",

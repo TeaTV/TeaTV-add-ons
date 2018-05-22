@@ -3,7 +3,7 @@ const URL = {
     SEARCH: (title, type) => {
 
         if( type == 'movie' ) {
-            return `http://www.primewire.ac/?keywords=${title}`; 
+            return `http://www.primewire.ac/?keywords=${title}&type=movie`; 
             // return `http://www.primewire.ag/index.php?search_keywords=${title}&key=235debe0d7f423b4&search_section=1`; 
         }
         return `http://www.primewire.ac/tv?keywords=${title}`;
@@ -27,7 +27,7 @@ class Primeware {
         let detailUrl   = false;
         let detailUrlTv = false;
 
-        let urlSearch   = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), type);
+        let urlSearch   = URL.SEARCH(encodeURIComponent(title), type);
         let htmlSearch  = await httpRequest.getHTML(urlSearch);
         let $           = cheerio.load(htmlSearch);
         let itemSearch  = $('div.index_item.index_item_ie');

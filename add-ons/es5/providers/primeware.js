@@ -11,7 +11,7 @@ var URL = {
     SEARCH: function SEARCH(title, type) {
 
         if (type == 'movie') {
-            return 'http://www.primewire.ac/?keywords=' + title;
+            return 'http://www.primewire.ac/?keywords=' + title + '&type=movie';
             // return `http://www.primewire.ag/index.php?search_keywords=${title}&key=235debe0d7f423b4&search_section=1`; 
         }
         return 'http://www.primewire.ac/tv?keywords=' + title;
@@ -44,7 +44,7 @@ var Primeware = function () {
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 detailUrl = false;
                                 detailUrlTv = false;
-                                urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), type);
+                                urlSearch = URL.SEARCH(encodeURIComponent(title), type);
                                 _context.next = 7;
                                 return httpRequest.getHTML(urlSearch);
 
