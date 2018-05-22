@@ -37,8 +37,11 @@ class Seehd {
 
         let urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
 
+        console.log(urlSearch, 'search');
         let htmlSearch  = await httpRequest.getCloudflare(urlSearch, URL.HEADERS());
         htmlSearch      = htmlSearch.data;
+
+        console.log(htmlSearch, '1');
         let $           = cheerio.load(htmlSearch);
         let page        = $('.pagination-item').text();
         if( !page ) {
@@ -61,9 +64,10 @@ class Seehd {
         let arrNumber = [];
 
         for( let i = 1; i <= page; i++ ) {
-
             arrNumber.push(i);
         }
+
+        console.log(arrNumber, 'number');
 
         let arrPromise = arrNumber.map(async function(val) {
 
@@ -71,6 +75,7 @@ class Seehd {
             let $           = cheerio.load(htmlSearch.data);
             let itemPage    = $('.movie');
 
+            console.log(itemPage.length, 'page');
             itemPage.each(function() {
                 
                 let hrefMovie   = $(this).find('.post_thumb a').attr('href');

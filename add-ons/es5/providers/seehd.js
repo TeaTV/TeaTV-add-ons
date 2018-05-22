@@ -54,13 +54,18 @@ var Seehd = function () {
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
-                                _context.next = 5;
+
+
+                                console.log(urlSearch, 'search');
+                                _context.next = 6;
                                 return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
 
-                            case 5:
+                            case 6:
                                 htmlSearch = _context.sent;
 
                                 htmlSearch = htmlSearch.data;
+
+                                console.log(htmlSearch, '1');
                                 $ = cheerio.load(htmlSearch);
                                 page = $('.pagination-item').text();
 
@@ -71,13 +76,13 @@ var Seehd = function () {
                                     page = page != null ? +page[1] : 1;
                                 }
 
-                                _context.next = 12;
+                                _context.next = 14;
                                 return this.getDetailUrl(page, this.state);
 
-                            case 12:
+                            case 14:
                                 return _context.abrupt('return');
 
-                            case 13:
+                            case 15:
                             case 'end':
                                 return _context.stop();
                         }
@@ -107,9 +112,10 @@ var Seehd = function () {
 
 
                                 for (i = 1; i <= page; i++) {
-
                                     arrNumber.push(i);
                                 }
+
+                                console.log(arrNumber, 'number');
 
                                 arrPromise = arrNumber.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
@@ -127,6 +133,7 @@ var Seehd = function () {
                                                         itemPage = $('.movie');
 
 
+                                                        console.log(itemPage.length, 'page');
                                                         itemPage.each(function () {
 
                                                             var hrefMovie = $(this).find('.post_thumb a').attr('href');
@@ -156,13 +163,13 @@ var Seehd = function () {
                                                         });
 
                                                         if (!(val == page)) {
-                                                            _context2.next = 8;
+                                                            _context2.next = 9;
                                                             break;
                                                         }
 
                                                         return _context2.abrupt('return');
 
-                                                    case 8:
+                                                    case 9:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
@@ -174,13 +181,13 @@ var Seehd = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 7;
+                                _context3.next = 8;
                                 return Promise.all(arrPromise);
 
-                            case 7:
+                            case 8:
                                 return _context3.abrupt('return');
 
-                            case 8:
+                            case 9:
                             case 'end':
                                 return _context3.stop();
                         }
