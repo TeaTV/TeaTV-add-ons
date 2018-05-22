@@ -48,7 +48,7 @@ class HollyMovies {
 
             let itemSearch  = $('.movies-list .ml-item');
 
-            console.log(htmlSearch, itemSearch.length);
+            console.log(itemSearch.length);
 
             itemSearch.each(function() {
 
