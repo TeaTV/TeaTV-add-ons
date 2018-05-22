@@ -7,6 +7,13 @@
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/yesmovies.js",
             "type": ["movie", "tv"]
         },
+        "m4ufree": {
+            "name": "m4ufree",
+            "domain": "m4ufree.com",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/m4ufree.js",
+            "type": ["movie", "tv"]
+        },
         "vumoo": {
             "name": "vumoo",
             "domain": "vumoo.to",
