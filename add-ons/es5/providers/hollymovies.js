@@ -61,11 +61,11 @@ var HollyMovies = function () {
 
                                 _context.prev = 5;
                                 _context.next = 8;
-                                return httpRequest.getHTML(urlSearch, URL.HEADERS());
+                                return httpRequest.get(urlSearch, URL.HEADERS());
 
                             case 8:
                                 htmlSearch = _context.sent;
-                                $ = cheerio.load(htmlSearch);
+                                $ = cheerio.load(htmlSearch.data);
 
 
                                 console.log(htmlSearch);
