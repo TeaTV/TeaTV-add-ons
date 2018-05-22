@@ -39,6 +39,10 @@ class Seehd {
 
             let urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
 
+            let htmlTest = await httpRequest.getHTML(urlSearch, URL.HEADERS());
+
+            console.log(htmlTest);
+
             console.log(urlSearch, 'search');
             let htmlSearch  = await httpRequest.getCloudflare(urlSearch, URL.HEADERS());
             htmlSearch      = htmlSearch.data;

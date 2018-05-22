@@ -45,7 +45,7 @@ var Seehd = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, urlSearch, htmlSearch, $, page;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, urlSearch, htmlTest, htmlSearch, $, page;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -55,13 +55,20 @@ var Seehd = function () {
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 _context.prev = 2;
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
+                                _context.next = 6;
+                                return httpRequest.getHTML(urlSearch, URL.HEADERS());
 
+                            case 6:
+                                htmlTest = _context.sent;
+
+
+                                console.log(htmlTest);
 
                                 console.log(urlSearch, 'search');
-                                _context.next = 7;
+                                _context.next = 11;
                                 return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
 
-                            case 7:
+                            case 11:
                                 htmlSearch = _context.sent;
 
                                 htmlSearch = htmlSearch.data;
@@ -77,28 +84,28 @@ var Seehd = function () {
                                     page = page != null ? +page[1] : 1;
                                 }
 
-                                _context.next = 15;
+                                _context.next = 19;
                                 return this.getDetailUrl(page, this.state);
 
-                            case 15:
-                                _context.next = 20;
+                            case 19:
+                                _context.next = 24;
                                 break;
 
-                            case 17:
-                                _context.prev = 17;
+                            case 21:
+                                _context.prev = 21;
                                 _context.t0 = _context['catch'](2);
 
                                 console.log(String(_context.t0), 'error');
 
-                            case 20:
+                            case 24:
                                 return _context.abrupt('return');
 
-                            case 21:
+                            case 25:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[2, 17]]);
+                }, _callee, this, [[2, 21]]);
             }));
 
             function searchDetail() {
