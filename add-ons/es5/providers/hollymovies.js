@@ -66,6 +66,8 @@ var HollyMovies = function () {
                                 itemSearch = $('.movies-list .ml-item');
 
 
+                                console.log(itemSearch.length);
+
                                 itemSearch.each(function () {
 
                                     var hrefMovie = $(this).find('a').first().attr('href');
@@ -77,6 +79,7 @@ var HollyMovies = function () {
                                     titleMovie = titleMovie.replace(/\([0-9]+\)/i, '').trim();
                                     titleMovie = titleMovie.replace(/ *season *[0-9]+/i, '').trim();
 
+                                    console.log(title, titleMovie, hrefMovie, yearMovie, seasonMovie);
                                     if (stringHelper.shallowCompare(title, titleMovie)) {
 
                                         if (type == 'movie' && seasonMovie == false && yearMovie == year) {
@@ -94,7 +97,7 @@ var HollyMovies = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 13:
+                            case 14:
                             case 'end':
                                 return _context.stop();
                         }

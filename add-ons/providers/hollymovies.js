@@ -44,6 +44,8 @@ class HollyMovies {
 
         let itemSearch  = $('.movies-list .ml-item');
 
+        console.log(itemSearch.length);
+
         itemSearch.each(function() {
 
             let hrefMovie   =  $(this).find('a').first().attr('href');
@@ -55,8 +57,8 @@ class HollyMovies {
             titleMovie      = titleMovie.replace(/\([0-9]+\)/i, '').trim();
             titleMovie      = titleMovie.replace(/ *season *[0-9]+/i, '').trim();
 
+            console.log(title, titleMovie, hrefMovie, yearMovie, seasonMovie);
             if( stringHelper.shallowCompare(title, titleMovie) ) {
-
                 
                 if( type == 'movie' && seasonMovie == false && yearMovie == year ) {
 
