@@ -193,7 +193,7 @@ var Vumoo = function () {
                                                 switch (_context3.prev = _context3.next) {
                                                     case 0:
                                                         if (!(val.indexOf('http:') == -1 && val.indexOf('https:') == -1)) {
-                                                            _context3.next = 11;
+                                                            _context3.next = 9;
                                                             break;
                                                         }
 
@@ -206,7 +206,6 @@ var Vumoo = function () {
 
                                                         linkDirect = linkDirect.data;
 
-                                                        console.log(linkDirect);process.exit();
                                                         for (item in linkDirect) {
 
                                                             linkDirect[item].file && hosts.push({
@@ -221,10 +220,10 @@ var Vumoo = function () {
                                                                 }
                                                             });
                                                         }
-                                                        _context3.next = 12;
+                                                        _context3.next = 10;
                                                         break;
 
-                                                    case 11:
+                                                    case 9:
                                                         hosts.push({
                                                             provider: {
                                                                 url: detailUrl,
@@ -237,7 +236,7 @@ var Vumoo = function () {
                                                             }
                                                         });
 
-                                                    case 12:
+                                                    case 10:
                                                     case 'end':
                                                         return _context3.stop();
                                                 }

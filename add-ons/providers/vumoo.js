@@ -126,7 +126,6 @@ class Vumoo {
                 let linkDirect  = await httpRequest.get(urlDirect);
                 linkDirect      = linkDirect.data;
 
-                console.log(linkDirect); process.exit();
                 for( let item in linkDirect ) {
                     
                     linkDirect[item].file && hosts.push({
