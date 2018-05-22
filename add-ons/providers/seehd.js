@@ -35,23 +35,29 @@ class Seehd {
         const { httpRequest, cheerio, stringHelper, base64 } = this.libs; 
         let { title, year, season, episode, type } = this.movieInfo;
 
-        let urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
+        try {
 
-        console.log(urlSearch, 'search');
-        let htmlSearch  = await httpRequest.getCloudflare(urlSearch, URL.HEADERS());
-        htmlSearch      = htmlSearch.data;
+            let urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
 
-        console.log(htmlSearch, '1');
-        let $           = cheerio.load(htmlSearch);
-        let page        = $('.pagination-item').text();
-        if( !page ) {
-            page = 1;
-        } else {
-            page = page.match(/page *[0-9]* *of *([0-9]*)/i);
-            page = page != null ? +page[1] : 1;
+            console.log(urlSearch, 'search');
+            let htmlSearch  = await httpRequest.getCloudflare(urlSearch, URL.HEADERS());
+            htmlSearch      = htmlSearch.data;
+
+            console.log(htmlSearch, '1');
+            let $           = cheerio.load(htmlSearch);
+            let page        = $('.pagination-item').text();
+            if( !page ) {
+                page = 1;
+            } else {
+                page = page.match(/page *[0-9]* *of *([0-9]*)/i);
+                page = page != null ? +page[1] : 1;
+            }
+
+            await this.getDetailUrl(page, this.state);
+        } catch(error) {
+            console.log(String(error), 'error');
         }
-
-        await this.getDetailUrl(page, this.state);
+        
 
         return;
     }

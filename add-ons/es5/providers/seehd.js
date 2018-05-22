@@ -53,14 +53,15 @@ var Seehd = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+                                _context.prev = 2;
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
 
 
                                 console.log(urlSearch, 'search');
-                                _context.next = 6;
+                                _context.next = 7;
                                 return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
 
-                            case 6:
+                            case 7:
                                 htmlSearch = _context.sent;
 
                                 htmlSearch = htmlSearch.data;
@@ -76,18 +77,28 @@ var Seehd = function () {
                                     page = page != null ? +page[1] : 1;
                                 }
 
-                                _context.next = 14;
+                                _context.next = 15;
                                 return this.getDetailUrl(page, this.state);
 
-                            case 14:
+                            case 15:
+                                _context.next = 20;
+                                break;
+
+                            case 17:
+                                _context.prev = 17;
+                                _context.t0 = _context['catch'](2);
+
+                                console.log(String(_context.t0), 'error');
+
+                            case 20:
                                 return _context.abrupt('return');
 
-                            case 15:
+                            case 21:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this);
+                }, _callee, this, [[2, 17]]);
             }));
 
             function searchDetail() {
