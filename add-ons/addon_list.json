@@ -1,5 +1,12 @@
 {
     "providers": {
+        "housemovie": {
+            "name": "housemovie",
+            "domain": "housemovie.to",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/providers/housemovie.js",
+            "type": ["movie", "tv"]
+        },
         "primeware": {
             "name": "primeware",
             "domain": "primeware.ag",

@@ -1,14 +1,23 @@
 const URL = {
-    DOMAIN: `http://housemovie.to`,
+    DOMAIN: `https://housemovie.to`,
     SEARCH: (title) => {
-        return `http://housemovie.to/search?q=${title}`
+        return `https://housemovie.to/search?q=${title}`
     },
-    HEADERS: (rerfer, cookie='') => {
+    HEADERS: () => {
         return {
             'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
             'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
             'cache-control': 'max-age=0',
-            'referer': rerfer,
+            'upgrade-insecure-requests': 1,
+            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+        };
+    },
+    HEADERS_COOKIE: (cookie='') => {
+        return {
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'cache-control': 'max-age=0',
+            'accept-encoding': 'deflate, br',
             'upgrade-insecure-requests': 1,
             'cookie': cookie,
             'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
@@ -44,40 +53,31 @@ class HouseMovies {
 
         let urlSearch       = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
 
-        let htmlSearch      = await httpRequest.getHTML(urlSearch, URL.HEADERS(urlSearch));
+        let htmlSearch      = await httpRequest.getHTML(urlSearch, URL.HEADERS());
         let $               = cheerio.load(htmlSearch);
-
 
         let script          = $('script').last().html();
 
-        try {
-            eval(script);
-        } catch(error) {
-            throw new Error(error);
-        }
+        eval(script);
 
 
-        this.state.cookie      = document.cookie.replace(/\;.*/i, '') + ';';
-        console.log(this.state.cookie, 'dongdong-cookie-housemovie');
-        htmlSearch      = await httpRequest.getHTML(urlSearch, URL.HEADERS(urlSearch, this.state.cookie));
+        let cookie = document.cookie.replace(/\;.*/i, '') + ';';
 
+        this.state.cookie   = cookie;
 
-        console.log(htmlSearch, 'dongdong-cookie-htmlSearch');
+        htmlSearch      = await httpRequest.getHTML(urlSearch, URL.HEADERS_COOKIE(cookie));
         $               = cheerio.load(htmlSearch);
-        
-
-        let itemSearch      = $('.items_preview .main_list li');
-        
+            
+        let itemSearch      = $('.fig_holder');
 
         itemSearch.each(function() {
 
-            let hrefMovie   = URL.DOMAIN +  $(this).find('.fig_holder').attr('href');
+            let hrefMovie   = URL.DOMAIN +  $(this).attr('href');
             let titleMovie  = $(this).find('.item_name').text();
             let yearMovie   = $(this).find('.item_ganre').text();
             yearMovie       = yearMovie.match(/([0-9]+)/i);
             yearMovie       = yearMovie != null ? +yearMovie[1] : -1;
             
-
             if( stringHelper.shallowCompare(title, titleMovie) && yearMovie == year ) {
 
                 detailUrl = hrefMovie;
@@ -99,7 +99,7 @@ class HouseMovies {
 
         let detailUrl   = this.state.detailUrl;
 
-        let htmlDetail  = await httpRequest.getHTML(this.state.detailUrl, URL.HEADERS(this.state.detailUrl, this.state.cookie));
+        let htmlDetail  = await httpRequest.getHTML(this.state.detailUrl, URL.HEADERS_COOKIE(this.state.cookie));
         let $           = cheerio.load(htmlDetail);
 
         let itemEmbed   = $('.btn_play');

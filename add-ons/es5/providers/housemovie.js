@@ -7,18 +7,27 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: 'http://housemovie.to',
+    DOMAIN: 'https://housemovie.to',
     SEARCH: function SEARCH(title) {
-        return 'http://housemovie.to/search?q=' + title;
+        return 'https://housemovie.to/search?q=' + title;
     },
-    HEADERS: function HEADERS(rerfer) {
-        var cookie = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+    HEADERS: function HEADERS() {
+        return {
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'cache-control': 'max-age=0',
+            'upgrade-insecure-requests': 1,
+            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+        };
+    },
+    HEADERS_COOKIE: function HEADERS_COOKIE() {
+        var cookie = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
         return {
             'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
             'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
             'cache-control': 'max-age=0',
-            'referer': rerfer,
+            'accept-encoding': 'deflate, br',
             'upgrade-insecure-requests': 1,
             'cookie': cookie,
             'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
@@ -224,7 +233,7 @@ var HouseMovies = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, document, urlSearch, htmlSearch, $, script, itemSearch;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, document, urlSearch, htmlSearch, $, script, cookie, itemSearch;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -241,43 +250,35 @@ var HouseMovies = function () {
                                 };
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
                                 _context.next = 7;
-                                return httpRequest.getHTML(urlSearch, URL.HEADERS(urlSearch));
+                                return httpRequest.getHTML(urlSearch, URL.HEADERS());
 
                             case 7:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch);
                                 script = $('script').last().html();
-                                _context.prev = 10;
+
 
                                 eval(script);
-                                _context.next = 17;
-                                break;
 
-                            case 14:
-                                _context.prev = 14;
-                                _context.t0 = _context['catch'](10);
-                                throw new Error(_context.t0);
+                                cookie = document.cookie.replace(/\;.*/i, '') + ';';
 
-                            case 17:
 
-                                this.state.cookie = document.cookie.replace(/\;.*/i, '') + ';';
-                                console.log(this.state.cookie, 'dongdong-cookie-housemovie');
-                                _context.next = 21;
-                                return httpRequest.getHTML(urlSearch, URL.HEADERS(urlSearch, this.state.cookie));
+                                this.state.cookie = cookie;
 
-                            case 21:
+                                _context.next = 15;
+                                return httpRequest.getHTML(urlSearch, URL.HEADERS_COOKIE(cookie));
+
+                            case 15:
                                 htmlSearch = _context.sent;
 
-
-                                console.log(htmlSearch, 'dongdong-cookie-htmlSearch');
                                 $ = cheerio.load(htmlSearch);
 
-                                itemSearch = $('.items_preview .main_list li');
+                                itemSearch = $('.fig_holder');
 
 
                                 itemSearch.each(function () {
 
-                                    var hrefMovie = URL.DOMAIN + $(this).find('.fig_holder').attr('href');
+                                    var hrefMovie = URL.DOMAIN + $(this).attr('href');
                                     var titleMovie = $(this).find('.item_name').text();
                                     var yearMovie = $(this).find('.item_ganre').text();
                                     yearMovie = yearMovie.match(/([0-9]+)/i);
@@ -293,12 +294,12 @@ var HouseMovies = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 28:
+                            case 21:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[10, 14]]);
+                }, _callee, this);
             }));
 
             function searchDetail() {
@@ -330,7 +331,7 @@ var HouseMovies = function () {
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
                                 _context2.next = 7;
-                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS(this.state.detailUrl, this.state.cookie));
+                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS_COOKIE(this.state.cookie));
 
                             case 7:
                                 htmlDetail = _context2.sent;
