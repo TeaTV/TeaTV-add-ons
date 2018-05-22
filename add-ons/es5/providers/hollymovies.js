@@ -41,7 +41,7 @@ var HollyMovies = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, urlSearch, htmlSearch, $, itemSearch;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, urlSearch, htmlSearch, $, htmlSearch2, itemSearch;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -61,14 +61,19 @@ var HollyMovies = function () {
 
                                 _context.prev = 5;
                                 _context.next = 8;
-                                return httpRequest.get(urlSearch, URL.HEADERS());
+                                return httpRequest.getHTML(urlSearch, URL.HEADERS());
 
                             case 8:
                                 htmlSearch = _context.sent;
-                                $ = cheerio.load(htmlSearch.data);
+                                $ = cheerio.load(htmlSearch);
+                                _context.next = 12;
+                                return httpRequest.getV2(urlSearch, URL.HEADERS());
+
+                            case 12:
+                                htmlSearch2 = _context.sent;
 
 
-                                console.log(htmlSearch);
+                                console.log(htmlSearch2);
                                 itemSearch = $('.movies-list .ml-item');
 
 
@@ -101,27 +106,27 @@ var HollyMovies = function () {
                                         }
                                     }
                                 });
-                                _context.next = 19;
+                                _context.next = 22;
                                 break;
 
-                            case 16:
-                                _context.prev = 16;
+                            case 19:
+                                _context.prev = 19;
                                 _context.t0 = _context['catch'](5);
 
                                 console.log(String(_context.t0));
 
-                            case 19:
+                            case 22:
 
                                 console.log(detailUrl, 'match3');
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 22:
+                            case 25:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[5, 16]]);
+                }, _callee, this, [[5, 19]]);
             }));
 
             function searchDetail() {
