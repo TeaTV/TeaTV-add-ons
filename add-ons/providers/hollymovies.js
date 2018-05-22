@@ -64,8 +64,10 @@ class HollyMovies {
                 console.log(title, titleMovie, hrefMovie, yearMovie, seasonMovie);
                 if( stringHelper.shallowCompare(title, titleMovie) ) {
                     
+                    console.log(title, titleMovie, hrefMovie, 'match1'); 
                     if( type == 'movie' && seasonMovie == false && yearMovie == year ) {
 
+                        console.log(title, titleMovie, hrefMovie, 'match2'); 
                         detailUrl = hrefMovie;       
                         return;
                     } else if( type == 'tv' && seasonMovie == season ) {
@@ -80,7 +82,7 @@ class HollyMovies {
             console.log(String(error));
         }
 
-
+        console.log(detailUrl, 'match3'); 
         this.state.detailUrl = detailUrl;
         return;
     }
@@ -107,10 +109,12 @@ class HollyMovies {
         let $          = cheerio.load(htmlDetail);
         let itemRedirect = $('#player2 > div');
 
+        console.log(itemRedirect.length, 'dong4');
         itemRedirect.each(function() {
 
             let linkRedirect = $(this).find('iframe').attr('data-lazy-src');
 
+            console.log(linkRedirect, 'asdasd');
             if( linkRedirect != undefined ) {
                 
                 if( linkRedirect.indexOf('http:') == -1 && linkRedirect.indexOf('https:') == -1 ) {

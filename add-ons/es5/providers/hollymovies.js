@@ -85,8 +85,10 @@ var HollyMovies = function () {
                                     console.log(title, titleMovie, hrefMovie, yearMovie, seasonMovie);
                                     if (stringHelper.shallowCompare(title, titleMovie)) {
 
+                                        console.log(title, titleMovie, hrefMovie, 'match1');
                                         if (type == 'movie' && seasonMovie == false && yearMovie == year) {
 
+                                            console.log(title, titleMovie, hrefMovie, 'match2');
                                             detailUrl = hrefMovie;
                                             return;
                                         } else if (type == 'tv' && seasonMovie == season) {
@@ -107,10 +109,11 @@ var HollyMovies = function () {
 
                             case 18:
 
+                                console.log(detailUrl, 'match3');
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 20:
+                            case 21:
                             case 'end':
                                 return _context.stop();
                         }
@@ -164,10 +167,12 @@ var HollyMovies = function () {
                                 itemRedirect = $('#player2 > div');
 
 
+                                console.log(itemRedirect.length, 'dong4');
                                 itemRedirect.each(function () {
 
                                     var linkRedirect = $(this).find('iframe').attr('data-lazy-src');
 
+                                    console.log(linkRedirect, 'asdasd');
                                     if (linkRedirect != undefined) {
 
                                         if (linkRedirect.indexOf('http:') == -1 && linkRedirect.indexOf('https:') == -1) {
@@ -272,15 +277,15 @@ var HollyMovies = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 17;
+                                _context3.next = 18;
                                 return Promise.all(arrPromise);
 
-                            case 17:
+                            case 18:
 
                                 this.state.hosts = hosts;
                                 return _context3.abrupt('return');
 
-                            case 19:
+                            case 20:
                             case 'end':
                                 return _context3.stop();
                         }
