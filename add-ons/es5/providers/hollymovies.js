@@ -66,6 +66,9 @@ var HollyMovies = function () {
                             case 8:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch);
+
+
+                                console.log(htmlSearch);
                                 itemSearch = $('.movies-list .ml-item');
 
 
@@ -98,27 +101,27 @@ var HollyMovies = function () {
                                         }
                                     }
                                 });
-                                _context.next = 18;
+                                _context.next = 19;
                                 break;
 
-                            case 15:
-                                _context.prev = 15;
+                            case 16:
+                                _context.prev = 16;
                                 _context.t0 = _context['catch'](5);
 
                                 console.log(String(_context.t0));
 
-                            case 18:
+                            case 19:
 
                                 console.log(detailUrl, 'match3');
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 21:
+                            case 22:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[5, 15]]);
+                }, _callee, this, [[5, 16]]);
             }));
 
             function searchDetail() {

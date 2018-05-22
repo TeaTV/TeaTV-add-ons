@@ -46,6 +46,7 @@ class HollyMovies {
             let htmlSearch  = await httpRequest.getHTML(urlSearch, URL.HEADERS());
             let $           = cheerio.load(htmlSearch);
 
+            console.log(htmlSearch);
             let itemSearch  = $('.movies-list .ml-item');
 
             console.log(itemSearch.length);
