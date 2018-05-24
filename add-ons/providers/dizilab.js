@@ -3,7 +3,15 @@ const URL = {
     SEARCH: (title) => {
         return `http://dizilab.me/arsiv?dizi_adi=${title}`
     },
-    GET_EMBED: `http://dizilab.me/request/php/`  
+    GET_EMBED: `http://dizilab.me/request/php/`,
+    HEADERS: {
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+        'Connection': 'keep-alive',
+        'Host': 'dizilab.me',
+        'Upgrade-Insecure-Requests': 1,
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+    } 
 };
 
 class Dizilab {
@@ -27,7 +35,7 @@ class Dizilab {
         let detailUrl       = false;
         let detailSeason    = false;
         let urlSearch       = URL.SEARCH(encodeURI(title));
-        let resultSearch    = await httpRequest.getCloudflare(urlSearch);
+        let resultSearch    = await httpRequest.getCloudflare(urlSearch, URL.HEADERS);
         let $               = cheerio.load(resultSearch.data)
 
         let itemSearch      = $('.tv-series-single');
@@ -49,7 +57,7 @@ class Dizilab {
 
         if( detailSeason != false ) {
 
-            let htmlSeason = await httpRequest.getCloudflare(detailSeason);
+            let htmlSeason = await httpRequest.getCloudflare(detailSeason, URL.HEADERS);
             let $_2        = cheerio.load(htmlSeason.data);
 
             let itemSeason = $_2('.season');
@@ -88,7 +96,7 @@ class Dizilab {
 
         let detailUrl       = this.state.detailUrl;
         
-        let htmlDetail      = await httpRequest.getCloudflare(this.state.detailUrl);
+        let htmlDetail      = await httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS);
         let $               = cheerio.load(htmlDetail.data);
         let itemEpisode     = $('.tab-menu .hovered .language li');
 

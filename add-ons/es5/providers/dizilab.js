@@ -11,7 +11,15 @@ var URL = {
     SEARCH: function SEARCH(title) {
         return 'http://dizilab.me/arsiv?dizi_adi=' + title;
     },
-    GET_EMBED: 'http://dizilab.me/request/php/'
+    GET_EMBED: 'http://dizilab.me/request/php/',
+    HEADERS: {
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+        'Connection': 'keep-alive',
+        'Host': 'dizilab.me',
+        'Upgrade-Insecure-Requests': 1,
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+    }
 };
 
 var Dizilab = function () {
@@ -49,7 +57,7 @@ var Dizilab = function () {
                                 detailSeason = false;
                                 urlSearch = URL.SEARCH(encodeURI(title));
                                 _context.next = 9;
-                                return httpRequest.getCloudflare(urlSearch);
+                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS);
 
                             case 9:
                                 resultSearch = _context.sent;
@@ -75,7 +83,7 @@ var Dizilab = function () {
                                 }
 
                                 _context.next = 16;
-                                return httpRequest.getCloudflare(detailSeason);
+                                return httpRequest.getCloudflare(detailSeason, URL.HEADERS);
 
                             case 16:
                                 htmlSeason = _context.sent;
@@ -142,7 +150,7 @@ var Dizilab = function () {
                                 arrVideoId = [];
                                 detailUrl = this.state.detailUrl;
                                 _context3.next = 9;
-                                return httpRequest.getCloudflare(this.state.detailUrl);
+                                return httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS);
 
                             case 9:
                                 htmlDetail = _context3.sent;

@@ -144,14 +144,42 @@ class SeehdUno {
 
 exports.default = async (libs, movieInfo, settings) => {
 
-    const seehduno = new SeehdUno({
+        const httpRequest = libs.httpRequest;
+
+    const source = new SeehdUno({
         libs: libs,
         movieInfo: movieInfo,
         settings: settings
     });
-    await seehduno.searchDetail();
-    await seehduno.getHostFromDetail();
-    return seehduno.state.hosts;
+
+    let bodyPost = {
+        name_source: 'SeehdUno',
+        is_link: 0,
+        type: movieInfo.type,
+        season: movieInfo.season,
+        episode: movieInfo.episode,
+        title: movieInfo.title,
+        year: movieInfo.year
+    };
+
+    await source.searchDetail();
+
+    if( !source.state.detailUrl ) {
+        bodyPost.is_link = 0;
+    } else {
+        bodyPost.is_link = 1;
+    }
+    await source.getHostFromDetail();
+
+    if( source.state.hosts.length == 0 ) {
+        bodyPost.is_link = 0;
+    } else {
+        bodyPost.is_link = 1;
+    }
+
+    await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+
+    return source.state.hosts;
 }
 
 

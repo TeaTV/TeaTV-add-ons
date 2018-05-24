@@ -14,8 +14,6 @@ class FreeMovies {
         this.state = {};
     }
 
-
-
     async searchDetail() {
         const { httpRequest, cheerio, stringHelper } = this.libs; 
         let { title, year, season, episode, type } = this.movieInfo;
@@ -32,8 +30,7 @@ class FreeMovies {
 			titleTemp       = titleTemp.replace('Watch Putlocker', '').trim();
 			let yearFree    = titleTemp.match(/\(([^\)]+)/i);
 			yearFree        = yearFree != null ? yearFree[1] : 0;
-            let titleFree   = titleTemp.replace(/\(.*/i, '');
-    
+            let titleFree   = titleTemp.replace(/\(.*/i, '');    
             
             if( stringHelper.shallowCompare(title, titleFree) && +yearFree == year ) {
 

@@ -18,6 +18,8 @@ class Vidnode {
         let html = await httpRequest.getHTML(url, {
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"
         });
+
+
         // if(html.includes(dieStatusText)) return true;
         return html;
     }
@@ -63,7 +65,7 @@ class Vidnode {
                 file: linkcdn, label: val.label, type: "embed" , size: size
             });
         }
-        
+
 
         eval(`arrDirect = [${linkDirect}]`);
 

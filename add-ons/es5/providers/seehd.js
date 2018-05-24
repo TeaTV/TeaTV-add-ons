@@ -358,27 +358,54 @@ var Seehd = function () {
 
 thisSource.function = function () {
     var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(libs, movieInfo, settings) {
-        var seehd;
+        var httpRequest, source, bodyPost;
         return regeneratorRuntime.wrap(function _callee6$(_context6) {
             while (1) {
                 switch (_context6.prev = _context6.next) {
                     case 0:
-                        seehd = new Seehd({
+                        httpRequest = libs.httpRequest;
+                        source = new Seehd({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
-                        _context6.next = 3;
-                        return seehd.searchDetail();
-
-                    case 3:
+                        bodyPost = {
+                            name_source: 'Seehd',
+                            is_link: 0,
+                            type: movieInfo.type,
+                            season: movieInfo.season,
+                            episode: movieInfo.episode,
+                            title: movieInfo.title,
+                            year: movieInfo.year
+                        };
                         _context6.next = 5;
-                        return seehd.getHostFromDetail();
+                        return source.searchDetail();
 
                     case 5:
-                        return _context6.abrupt('return', seehd.state.hosts);
 
-                    case 6:
+                        if (!source.state.detailUrl) {
+                            bodyPost.is_link = 0;
+                        } else {
+                            bodyPost.is_link = 1;
+                        }
+                        _context6.next = 8;
+                        return source.getHostFromDetail();
+
+                    case 8:
+
+                        if (source.state.hosts.length == 0) {
+                            bodyPost.is_link = 0;
+                        } else {
+                            bodyPost.is_link = 1;
+                        }
+
+                        _context6.next = 11;
+                        return httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+
+                    case 11:
+                        return _context6.abrupt('return', source.state.hosts);
+
+                    case 12:
                     case 'end':
                         return _context6.stop();
                 }

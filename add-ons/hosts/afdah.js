@@ -100,8 +100,9 @@ class Afdah {
 
         // you fill the die status text
         // const dieStatusText = "";
-        let html = await httpRequest.getCloudflare(url);
-        html     = html.data;
+        let html = await httpRequest.getHTML(url, {
+            'User-Agent':' Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+        });
         // if(html.includes(dieStatusText)) return true;
         return html;
     }
@@ -121,9 +122,12 @@ class Afdah {
 
         let decryp  = html.match(/decrypt\(\"([^\"]+)/i);
         decryp      = decryp != null ? decryp[1] : '';
+
+
         decryp      = decrypt(decryp);
         decryp      = decryp.match(/sources *: *\[([^\]]+)/i);
         decryp      = decryp != null ? decryp[1] : '';
+
 
         if( decryp != '' ) {
             
@@ -134,14 +138,14 @@ class Afdah {
             let arrPromise  =  decryp.map( async function(value) {
                 
                 let isDie = await httpRequest.isLinkDie(value.file);
-                //link
+                
                 if( isDie != false ) {
 
                     sources.push({
                         label: 'NOR',
                         file: value.file,
                         type: "embed",
-                        size: 2.01
+                        size: (Math.random() * (2.2 - 1.9) + 1.9).toFixed(2)
                     });
                 }
     

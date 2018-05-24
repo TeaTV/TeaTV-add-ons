@@ -5,7 +5,7 @@ const URL = {
     }
 };
 
-class MyTv {
+class Solar {
     constructor(props) {
         this.libs       = props.libs;
         this.movieInfo  = props.movieInfo;
@@ -28,23 +28,32 @@ class MyTv {
 
         let itemSearch  = $('.items .item');
 
+
         itemSearch.each(function() {
 
             let hrefMovie   = $(this).find('a.name').attr('href');
             let titleMovie  = $(this).find('a.name').text();
 
-            let hrefInfo      = URL.DOMAIN + '/' + $(this).find('.inner').attr('data-tip');
+            let hrefInfo      = $(this).find('.inner').attr('data-tip');
 
-            arrInfo.push({hrefMovie, titleMovie, hrefInfo});
+            if( hrefMovie && hrefInfo ) {
+
+                hrefInfo = URL.DOMAIN + '/' + hrefInfo;
+                hrefMovie = URL.DOMAIN + hrefMovie;
+                arrInfo.push({hrefMovie, titleMovie, hrefInfo});
+            }
         });
 
         let arrPromise = arrInfo.map(async (val) => {
 
+
             if( type == 'movie' ) {
 
                 let yearMovie = await this.getYear(httpRequest, cheerio, val.hrefInfo);
+
                 if( stringHelper.shallowCompare(title, val.titleMovie) && year == yearMovie ) {
 
+                     
                     detailUrl = val.hrefMovie;
                     return;
                 }
@@ -62,7 +71,7 @@ class MyTv {
 
         await Promise.all(arrPromise);
 
-        this.state.detailUrl = val.hrefMovie;
+        this.state.detailUrl = detailUrl;
         return;
     }
 
@@ -92,12 +101,17 @@ class MyTv {
         let itemServer  = $('#servers .server');
 
         itemServer.each(function() {
-            let hrefServer = URL.DOMAIN + $(this).find('.active').attr('href');
+            let hrefServer = $(this).find('a.active').attr('href');
 
-            arrServer.push(hrefServer);
+
+            if( hrefServer ) {
+                hrefServer = URL.DOMAIN + hrefServer;
+                arrServer.push(hrefServer);
+            }
+            
         });
 
-        let arrPromise = itemServer.map(async (val) => {
+        let arrPromise = arrServer.map(async (val) => {
 
             try {
 
@@ -116,15 +130,15 @@ class MyTv {
 
 exports.default = async (libs, movieInfo, settings) => {
 
-    const mytv = new MyTv({
+    const solar = new Solar({
         libs: libs,
         movieInfo: movieInfo,
         settings: settings
     });
-    await mytv.searchDetail();
-    await mytv.getHostFromDetail();
-    return mytv.state.hosts;
+    await solar.searchDetail();
+    await solar.getHostFromDetail();
+    return solar.state.hosts;
 }
 
 
-exports.testing = MyTv;
+exports.testing = Solar;

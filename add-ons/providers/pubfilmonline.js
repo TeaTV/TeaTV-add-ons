@@ -36,19 +36,19 @@ class PubfilmOnline {
 
         let detailUrl       = false;
         let urlSearch       = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
-        let htmlSearch      = await httpRequest.get(urlSearch, URL.HEADERS(urlSearch));
+        let htmlSearch      = await httpRequest.getCloudflare(urlSearch, URL.HEADERS(urlSearch));
         try {
             this.state.pipeGuard = htmlSearch.headers['set-cookie'][0].replace('path=/', '').trim();
         } catch(error) {
             this.state.pipeGuard = '';
         }
 
-        htmlSearch          = await httpRequest.getHTML(urlSearch, URL.HEADERS(urlSearch, this.state.pipeGuard)); 
+        htmlSearch          = await httpRequest.getCloudflare(urlSearch, URL.HEADERS(urlSearch, this.state.pipeGuard)); 
+        htmlSearch          = htmlSearch.data;
         let $               = cheerio.load(htmlSearch);
         
         let itemSearch      = $('.search-page .result-item');
 
-        console.log(itemSearch.length);
         itemSearch.each(function() {
 
             let hrefMovie   = $(this).find('.details .title a').attr('href');
@@ -66,7 +66,8 @@ class PubfilmOnline {
 
         if( detailUrl != false && type == 'tv' ) {
 
-            let htmlSeason  = await httpRequest.getHTML(detailUrl, URL.HEADERS(detailUrl, this.state.pipeGuard));
+            let htmlSeason  = await httpRequest.getCloudflare(detailUrl, URL.HEADERS(detailUrl, this.state.pipeGuard));
+            htmlSeason      = htmlSeason.data;
             let $_2         = cheerio.load(htmlSeason);
             let itemSeason  = $_2('.episodios');
 
@@ -92,7 +93,6 @@ class PubfilmOnline {
             });
         }
 
-        console.log(detailUrl);
         this.state.detailUrl                = detailUrl;
         return;
     }
@@ -106,7 +106,8 @@ class PubfilmOnline {
         let hosts = [];
         let arrEmbed = [];
 
-        let htmlDetail  = await httpRequest.getHTML(this.state.detailUrl, URL.HEADERS(this.state.detailUrl, this.state.pipeGuard));
+        let htmlDetail  = await httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS(this.state.detailUrl, this.state.pipeGuard));
+        htmlDetail      = htmlDetail.data;
         let $_2         = cheerio.load(htmlDetail);
 
         let ids         = $_2('.htt_player').attr('data-ids');
@@ -121,10 +122,9 @@ class PubfilmOnline {
             ids:    ids
         };
 
-        console.log(bodyEmbed);
         try {
 
-            let itemEmbed   = await httpRequest.post(URL.EMBED, URL.HEADERS(URL.EMBED, this.state.pipeGuard), bodyEmbed);
+            let itemEmbed   = await httpRequest.postCloudflare(URL.EMBED, URL.HEADERS(URL.EMBED, this.state.pipeGuard), bodyEmbed);
             itemEmbed       = itemEmbed.data;
 
             if( itemEmbed != -1 )  {

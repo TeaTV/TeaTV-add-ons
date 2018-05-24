@@ -55,7 +55,7 @@ var PubfilmOnline = function () {
                                 detailUrl = false;
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
                                 _context.next = 6;
-                                return httpRequest.get(urlSearch, URL.HEADERS(urlSearch));
+                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS(urlSearch));
 
                             case 6:
                                 htmlSearch = _context.sent;
@@ -67,15 +67,16 @@ var PubfilmOnline = function () {
                                 }
 
                                 _context.next = 10;
-                                return httpRequest.getHTML(urlSearch, URL.HEADERS(urlSearch, this.state.pipeGuard));
+                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS(urlSearch, this.state.pipeGuard));
 
                             case 10:
                                 htmlSearch = _context.sent;
+
+                                htmlSearch = htmlSearch.data;
                                 $ = cheerio.load(htmlSearch);
                                 itemSearch = $('.search-page .result-item');
 
 
-                                console.log(itemSearch.length);
                                 itemSearch.each(function () {
 
                                     var hrefMovie = $(this).find('.details .title a').attr('href');
@@ -91,15 +92,17 @@ var PubfilmOnline = function () {
                                 });
 
                                 if (!(detailUrl != false && type == 'tv')) {
-                                    _context.next = 22;
+                                    _context.next = 23;
                                     break;
                                 }
 
                                 _context.next = 18;
-                                return httpRequest.getHTML(detailUrl, URL.HEADERS(detailUrl, this.state.pipeGuard));
+                                return httpRequest.getCloudflare(detailUrl, URL.HEADERS(detailUrl, this.state.pipeGuard));
 
                             case 18:
                                 htmlSeason = _context.sent;
+
+                                htmlSeason = htmlSeason.data;
                                 $_2 = cheerio.load(htmlSeason);
                                 itemSeason = $_2('.episodios');
 
@@ -124,9 +127,8 @@ var PubfilmOnline = function () {
                                     });
                                 });
 
-                            case 22:
+                            case 23:
 
-                                console.log(detailUrl);
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
@@ -167,10 +169,12 @@ var PubfilmOnline = function () {
                                 hosts = [];
                                 arrEmbed = [];
                                 _context2.next = 7;
-                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS(this.state.detailUrl, this.state.pipeGuard));
+                                return httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS(this.state.detailUrl, this.state.pipeGuard));
 
                             case 7:
                                 htmlDetail = _context2.sent;
+
+                                htmlDetail = htmlDetail.data;
                                 $_2 = cheerio.load(htmlDetail);
                                 ids = $_2('.htt_player').attr('data-ids');
                                 nonce = htmlDetail.match(/\"ajax\_get\_video\_info\" *\: *\"([^\"]+)/i);
@@ -183,12 +187,9 @@ var PubfilmOnline = function () {
                                     action: 'ajax_get_video_info',
                                     ids: ids
                                 };
-
-
-                                console.log(bodyEmbed);
                                 _context2.prev = 14;
                                 _context2.next = 17;
-                                return httpRequest.post(URL.EMBED, URL.HEADERS(URL.EMBED, this.state.pipeGuard), bodyEmbed);
+                                return httpRequest.postCloudflare(URL.EMBED, URL.HEADERS(URL.EMBED, this.state.pipeGuard), bodyEmbed);
 
                             case 17:
                                 itemEmbed = _context2.sent;

@@ -7,6 +7,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
+
     DOMAIN: "http://321movies.club",
     SEARCH: function SEARCH(title) {
         return 'http://321movies.club/search-movies/' + title + '.html';
@@ -279,27 +280,54 @@ var ThreeMovies = function () {
 
 thisSource.function = function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
-        var three;
+        var httpRequest, source, bodyPost;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
             while (1) {
                 switch (_context4.prev = _context4.next) {
                     case 0:
-                        three = new ThreeMovies({
+                        httpRequest = libs.httpRequest;
+                        source = new ThreeMovies({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
-                        _context4.next = 3;
-                        return three.searchDetail();
-
-                    case 3:
+                        bodyPost = {
+                            name_source: '321Movies',
+                            is_link: 0,
+                            type: movieInfo.type,
+                            season: movieInfo.season,
+                            episode: movieInfo.episode,
+                            title: movieInfo.title,
+                            year: movieInfo.year
+                        };
                         _context4.next = 5;
-                        return three.getHostFromDetail();
+                        return source.searchDetail();
 
                     case 5:
-                        return _context4.abrupt('return', three.state.hosts);
 
-                    case 6:
+                        if (!source.state.detailUrl) {
+                            bodyPost.is_link = 0;
+                        } else {
+                            bodyPost.is_link = 1;
+                        }
+                        _context4.next = 8;
+                        return source.getHostFromDetail();
+
+                    case 8:
+
+                        if (source.state.hosts.length == 0) {
+                            bodyPost.is_link = 0;
+                        } else {
+                            bodyPost.is_link = 1;
+                        }
+
+                        _context4.next = 11;
+                        return httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+
+                    case 11:
+                        return _context4.abrupt('return', source.state.hosts);
+
+                    case 12:
                     case 'end':
                         return _context4.stop();
                 }

@@ -165,14 +165,42 @@ class Vumoo {
 
 exports.default = async (libs, movieInfo, settings) => {
 
-    const vumoo = new Vumoo({
+        const httpRequest = libs.httpRequest;
+
+    const source = new Vumoo({
         libs: libs,
         movieInfo: movieInfo,
         settings: settings
     });
-    await vumoo.searchDetail();
-    await vumoo.getHostFromDetail();
-    return vumoo.state.hosts;
+
+    let bodyPost = {
+        name_source: 'Vumoo',
+        is_link: 0,
+        type: movieInfo.type,
+        season: movieInfo.season,
+        episode: movieInfo.episode,
+        title: movieInfo.title,
+        year: movieInfo.year
+    };
+
+    await source.searchDetail();
+
+    if( !source.state.detailUrl ) {
+        bodyPost.is_link = 0;
+    } else {
+        bodyPost.is_link = 1;
+    }
+    await source.getHostFromDetail();
+
+    if( source.state.hosts.length == 0 ) {
+        bodyPost.is_link = 0;
+    } else {
+        bodyPost.is_link = 1;
+    }
+
+    await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+
+    return source.state.hosts;
 }
 
 

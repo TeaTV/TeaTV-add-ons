@@ -346,27 +346,54 @@ var YesMovies = function () {
 
 thisSource.function = function () {
     var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(libs, movieInfo, settings) {
-        var yesmovies;
+        var httpRequest, source, bodyPost;
         return regeneratorRuntime.wrap(function _callee7$(_context7) {
             while (1) {
                 switch (_context7.prev = _context7.next) {
                     case 0:
-                        yesmovies = new YesMovies({
+                        httpRequest = libs.httpRequest;
+                        source = new YesMovies({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
-                        _context7.next = 3;
-                        return yesmovies.searchDetail();
-
-                    case 3:
+                        bodyPost = {
+                            name_source: 'YesMovies',
+                            is_link: 0,
+                            type: movieInfo.type,
+                            season: movieInfo.season,
+                            episode: movieInfo.episode,
+                            title: movieInfo.title,
+                            year: movieInfo.year
+                        };
                         _context7.next = 5;
-                        return yesmovies.getHostFromDetail();
+                        return source.searchDetail();
 
                     case 5:
-                        return _context7.abrupt('return', yesmovies.state.hosts);
 
-                    case 6:
+                        if (!source.state.detailUrl) {
+                            bodyPost.is_link = 0;
+                        } else {
+                            bodyPost.is_link = 1;
+                        }
+                        _context7.next = 8;
+                        return source.getHostFromDetail();
+
+                    case 8:
+
+                        if (source.state.hosts.length == 0) {
+                            bodyPost.is_link = 0;
+                        } else {
+                            bodyPost.is_link = 1;
+                        }
+
+                        _context7.next = 11;
+                        return httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+
+                    case 11:
+                        return _context7.abrupt('return', source.state.hosts);
+
+                    case 12:
                     case 'end':
                         return _context7.stop();
                 }

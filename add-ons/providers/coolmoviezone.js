@@ -96,14 +96,42 @@ class CoolMovie {
 
 exports.default = async (libs, movieInfo, settings) => {
 
-    const cool = new CoolMovie({
+    const httpRequest = libs.httpRequest;
+
+    const source = new Coolmovies({
         libs: libs,
         movieInfo: movieInfo,
         settings: settings
     });
-    await cool.searchDetail();
-    await cool.getHostFromDetail();
-    return cool.state.hosts;
+
+    let bodyPost = {
+        name_source: 'Coolmovies',
+        is_link: 0,
+        type: movieInfo.type,
+        season: movieInfo.season,
+        episode: movieInfo.episode,
+        title: movieInfo.title,
+        year: movieInfo.year
+    };
+
+    await source.searchDetail();
+
+    if( !source.state.detailUrl ) {
+        bodyPost.is_link = 0;
+    } else {
+        bodyPost.is_link = 1;
+    }
+    await source.getHostFromDetail();
+
+    if( source.state.hosts.length == 0 ) {
+        bodyPost.is_link = 0;
+    } else {
+        bodyPost.is_link = 1;
+    }
+
+    await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+
+    return source.state.hosts;
 }
 
 

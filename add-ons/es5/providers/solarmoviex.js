@@ -13,9 +13,9 @@ var URL = {
     }
 };
 
-var MyTv = function () {
-    function MyTv(props) {
-        _classCallCheck(this, MyTv);
+var Solar = function () {
+    function Solar(props) {
+        _classCallCheck(this, Solar);
 
         this.libs = props.libs;
         this.movieInfo = props.movieInfo;
@@ -23,7 +23,7 @@ var MyTv = function () {
         this.state = {};
     }
 
-    _createClass(MyTv, [{
+    _createClass(Solar, [{
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
@@ -54,9 +54,14 @@ var MyTv = function () {
                                     var hrefMovie = $(this).find('a.name').attr('href');
                                     var titleMovie = $(this).find('a.name').text();
 
-                                    var hrefInfo = URL.DOMAIN + '/' + $(this).find('.inner').attr('data-tip');
+                                    var hrefInfo = $(this).find('.inner').attr('data-tip');
 
-                                    arrInfo.push({ hrefMovie: hrefMovie, titleMovie: titleMovie, hrefInfo: hrefInfo });
+                                    if (hrefMovie && hrefInfo) {
+
+                                        hrefInfo = URL.DOMAIN + '/' + hrefInfo;
+                                        hrefMovie = URL.DOMAIN + hrefMovie;
+                                        arrInfo.push({ hrefMovie: hrefMovie, titleMovie: titleMovie, hrefInfo: hrefInfo });
+                                    }
                                 });
 
                                 arrPromise = arrInfo.map(function () {
@@ -122,7 +127,7 @@ var MyTv = function () {
 
                             case 14:
 
-                                this.state.detailUrl = val.hrefMovie;
+                                this.state.detailUrl = detailUrl;
                                 return _context2.abrupt('return');
 
                             case 16:
@@ -205,12 +210,15 @@ var MyTv = function () {
 
 
                                 itemServer.each(function () {
-                                    var hrefServer = URL.DOMAIN + $(this).find('.active').attr('href');
+                                    var hrefServer = $(this).find('a.active').attr('href');
 
-                                    arrServer.push(hrefServer);
+                                    if (hrefServer) {
+                                        hrefServer = URL.DOMAIN + hrefServer;
+                                        arrServer.push(hrefServer);
+                                    }
                                 });
 
-                                arrPromise = itemServer.map(function () {
+                                arrPromise = arrServer.map(function () {
                                     var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(val) {
                                         var htmlEmbed, $_2;
                                         return regeneratorRuntime.wrap(function _callee4$(_context4) {
@@ -263,30 +271,30 @@ var MyTv = function () {
         }()
     }]);
 
-    return MyTv;
+    return Solar;
 }();
 
 thisSource.function = function () {
     var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(libs, movieInfo, settings) {
-        var mytv;
+        var solar;
         return regeneratorRuntime.wrap(function _callee6$(_context6) {
             while (1) {
                 switch (_context6.prev = _context6.next) {
                     case 0:
-                        mytv = new MyTv({
+                        solar = new Solar({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
                         _context6.next = 3;
-                        return mytv.searchDetail();
+                        return solar.searchDetail();
 
                     case 3:
                         _context6.next = 5;
-                        return mytv.getHostFromDetail();
+                        return solar.getHostFromDetail();
 
                     case 5:
-                        return _context6.abrupt('return', mytv.state.hosts);
+                        return _context6.abrupt('return', solar.state.hosts);
 
                     case 6:
                     case 'end':
@@ -301,4 +309,4 @@ thisSource.function = function () {
     };
 }();
 
-thisSource.testing = MyTv;
+thisSource.testing = Solar;
