@@ -52,7 +52,7 @@
         "vungtv": {
             "name": "vungtv",
             "domain": "vung.tv",
-            "version": "0.0.7",
+            "version": "0.0.9",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vungtv.js",
             "type": ["tv", "movie"]
         },

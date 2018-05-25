@@ -247,7 +247,7 @@ var Vungtv = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, qs, gibberish, base64, cryptoJs, _movieInfo2, episode, type, random_string, random_string_2, char, i, vungtv, rerfer, hosts, infoDetail, htmlDetail, $, headers, _i, string_cookie, iframe, html_embed, $_2, script, info, id_movie, hash, body_post_f, data_f, body_post_v1, data_direct, item;
+                var _libs2, httpRequest, cheerio, qs, gibberish, base64, cryptoJs, _movieInfo2, episode, type, random_string, random_string_2, random_string_3, char, i, vungtv, rerfer, hosts, infoDetail, htmlDetail, $, headers, _i, string_cookie, iframe, html_embed, $_2, script, info, id_movie, hash, body_post_f, data_f, body_post_v1, data_direct, body_post_v2, item;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -266,21 +266,23 @@ var Vungtv = function () {
                             case 4:
                                 random_string = "";
                                 random_string_2 = "";
+                                random_string_3 = "";
                                 char = 'ABCDEFGHIJKLMNOPQRSsTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
                                 for (i = 0; i < 6; i++) {
                                     random_string += char.charAt(Math.floor(Math.random() * 62));
                                     random_string_2 += char.charAt(Math.floor(Math.random() * 62));
+                                    random_string_3 += char.charAt(Math.floor(Math.random() * 62));
                                 }
 
                                 vungtv = this;
                                 rerfer = '';
                                 hosts = [];
-                                _context2.prev = 11;
-                                _context2.next = 14;
+                                _context2.prev = 12;
+                                _context2.next = 15;
                                 return httpRequest.getV2(this.state.detailUrl, URL.HEADERS());
 
-                            case 14:
+                            case 15:
                                 infoDetail = _context2.sent;
                                 htmlDetail = infoDetail.data;
                                 $ = cheerio.load(htmlDetail);
@@ -295,10 +297,10 @@ var Vungtv = function () {
                                 }
 
                                 iframe = $('#player-holder iframe').attr('src');
-                                _context2.next = 23;
+                                _context2.next = 24;
                                 return httpRequest.getHTML(iframe, URL.HEADER_2(vungtv.state.detailUrl, rerfer));
 
-                            case 23:
+                            case 24:
                                 html_embed = _context2.sent;
                                 $_2 = cheerio.load(html_embed);
                                 script = $_2('script').last().html() + 'hihi';
@@ -312,6 +314,8 @@ var Vungtv = function () {
                                 id_movie = vungtv.state.detailUrl.match(/([0-9]+$)/i);
 
                                 id_movie = id_movie != null ? id_movie[1] : '0';
+
+                                // _f
                                 hash = cryptoJs.MD5(base64.encode('_f' + id_movie + random_string)).toString();
                                 body_post_f = {
                                     type: '_f',
@@ -320,14 +324,14 @@ var Vungtv = function () {
                                     t: random_string,
                                     hash: hash
                                 };
-                                _context2.next = 36;
+                                _context2.next = 37;
                                 return httpRequest.post(URL.DOMAIN_EMBED(id_movie), URL.HEADERS_COOKIE(iframe, rerfer), body_post_f);
 
-                            case 36:
+                            case 37:
                                 data_f = _context2.sent;
 
-                                data_f = data_f.data;
 
+                                // _v1
                                 hash = cryptoJs.MD5(base64.encode('_v1' + id_movie + random_string_2)).toString();
 
                                 body_post_v1 = {
@@ -343,7 +347,23 @@ var Vungtv = function () {
                             case 42:
                                 data_direct = _context2.sent;
 
-                                data_direct = data_direct.data;
+
+                                //_v2
+                                hash = cryptoJs.MD5(base64.encode('_v2' + id_movie + random_string_3)).toString();
+
+                                body_post_v2 = {
+                                    type: '_v2',
+                                    data: id_movie,
+                                    n: 0,
+                                    t: random_string_3,
+                                    hash: hash
+                                };
+                                _context2.next = 47;
+                                return httpRequest.post(URL.DOMAIN_EMBED(id_movie), URL.HEADERS_COOKIE(iframe, rerfer), body_post_v2);
+
+                            case 47:
+                                data_direct = _context2.sent;
+
 
                                 data_direct = base64.decode(data_direct.s);
                                 data_direct = JSON.parse(data_direct);
@@ -362,26 +382,26 @@ var Vungtv = function () {
                                         }
                                     });
                                 }
-                                _context2.next = 52;
+                                _context2.next = 56;
                                 break;
 
-                            case 49:
-                                _context2.prev = 49;
-                                _context2.t0 = _context2['catch'](11);
+                            case 53:
+                                _context2.prev = 53;
+                                _context2.t0 = _context2['catch'](12);
 
                                 console.log(String(_context2.t0), 'vungtv');
 
-                            case 52:
+                            case 56:
 
                                 this.state.hosts = hosts;
                                 return _context2.abrupt('return');
 
-                            case 54:
+                            case 58:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[11, 49]]);
+                }, _callee2, this, [[12, 53]]);
             }));
 
             function getHostFromDetail() {

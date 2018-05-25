@@ -190,10 +190,12 @@ class Vungtv {
 
         let random_string = "";
         let random_string_2 = "";
+        let random_string_3 = "";
         let char = 'ABCDEFGHIJKLMNOPQRSsTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         for (let i = 0; i < 6; i++) { 
             random_string += char.charAt(Math.floor(Math.random() * 62)); 
             random_string_2 += char.charAt(Math.floor(Math.random() * 62)); 
+            random_string_3 += char.charAt(Math.floor(Math.random() * 62)); 
         }
 
         let vungtv        	= this;
@@ -211,6 +213,8 @@ class Vungtv {
             let htmlDetail = infoDetail.data;
             let $           = cheerio.load(htmlDetail);
             let headers     = infoDetail.headers;
+
+
 
             console.log(headers);
             for( let i = 0; i < headers['set-cookie'].length; i++ ) {
@@ -231,8 +235,11 @@ class Vungtv {
 
             eval(`info = ${info}`);
 
+
             let id_movie      = vungtv.state.detailUrl.match(/([0-9]+$)/i);
             id_movie          = id_movie != null ? id_movie[1] : '0';
+
+            // _f
             let hash          = cryptoJs.MD5(base64.encode('_f'+id_movie+random_string)).toString();
 
             let body_post_f     = {
@@ -244,8 +251,8 @@ class Vungtv {
             };
 
             let data_f   = await httpRequest.post(URL.DOMAIN_EMBED(id_movie), URL.HEADERS_COOKIE(iframe,rerfer), body_post_f);
-            data_f       = data_f.data;
 
+            // _v1
             hash          = cryptoJs.MD5(base64.encode('_v1'+id_movie+random_string_2)).toString();
 
             let body_post_v1     = {
@@ -257,7 +264,21 @@ class Vungtv {
             };
             
             let data_direct       = await httpRequest.post(URL.DOMAIN_EMBED(id_movie), URL.HEADERS_COOKIE(iframe ,rerfer), body_post_v1);
-            data_direct           = data_direct.data;
+
+
+            //_v2
+            hash          = cryptoJs.MD5(base64.encode('_v2'+id_movie+random_string_3)).toString();
+
+            let body_post_v2     = {
+                type: '_v2',
+                data: id_movie,
+                n: 0,
+                t: random_string_3,
+                hash: hash
+            };
+            
+            data_direct       = await httpRequest.post(URL.DOMAIN_EMBED(id_movie), URL.HEADERS_COOKIE(iframe ,rerfer), body_post_v2);
+
                 
             data_direct     = base64.decode(data_direct.s);
             data_direct     = JSON.parse(data_direct);      
