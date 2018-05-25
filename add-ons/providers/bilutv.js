@@ -248,13 +248,41 @@ class Bilutv {
 
 exports.default = async (libs, movieInfo, settings) => {
 
-    const bilu = new Bilutv({
+    const httpRequest = libs.httpRequest;
+
+    const source = new Bilutv({
         libs: libs,
         movieInfo: movieInfo,
         settings: settings
     });
-    await bilu.searchDetail();
-    await bilu.getHostFromDetail();
-    return bilu.state.hosts;
+
+    let bodyPost = {
+        name_source: 'Bilutv',
+        is_link: 0,
+        type: movieInfo.type,
+        season: movieInfo.season,
+        episode: movieInfo.episode,
+        title: movieInfo.title,
+        year: movieInfo.year
+    };
+
+    await source.searchDetail();
+
+    if( !source.state.detailUrl ) {
+        bodyPost.is_link = 0;
+    } else {
+        bodyPost.is_link = 1;
+    }
+    await source.getHostFromDetail();
+
+    if( source.state.hosts.length == 0 ) {
+        bodyPost.is_link = 0;
+    } else {
+        bodyPost.is_link = 1;
+    }
+
+    await httpRequest.post('http://afilm.filmhub.io:8889/api/monitor/sources', {}, bodyPost);
+
+    return source.state.hosts;
 }
 

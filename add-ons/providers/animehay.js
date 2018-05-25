@@ -197,13 +197,41 @@ class Animehay {
 
 exports.default = async (libs, movieInfo, settings) => {
 
-    const anime = new Animehay({
+    const httpRequest = libs.httpRequest;
+
+    const source = new Animehay({
         libs: libs,
         movieInfo: movieInfo,
         settings: settings
     });
-    await anime.searchDetail();
-    await anime.getHostFromDetail();
-    return anime.state.hosts;
+
+    let bodyPost = {
+        name_source: 'Animehay',
+        is_link: 0,
+        type: movieInfo.type,
+        season: movieInfo.season,
+        episode: movieInfo.episode,
+        title: movieInfo.title,
+        year: movieInfo.year
+    };
+
+    await source.searchDetail();
+
+    if( !source.state.detailUrl ) {
+        bodyPost.is_link = 0;
+    } else {
+        bodyPost.is_link = 1;
+    }
+    await source.getHostFromDetail();
+
+    if( source.state.hosts.length == 0 ) {
+        bodyPost.is_link = 0;
+    } else {
+        bodyPost.is_link = 1;
+    }
+
+    await httpRequest.post('http://afilm.filmhub.io:8889/api/monitor/sources', {}, bodyPost);
+
+    return source.state.hosts;
 }
 

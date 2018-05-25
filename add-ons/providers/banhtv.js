@@ -272,13 +272,41 @@ class Banhtv {
 
 exports.default = async (libs, movieInfo, settings) => {
 
-    const banh = new Banhtv({
+    const httpRequest = libs.httpRequest;
+
+    const source = new Banhtv({
         libs: libs,
         movieInfo: movieInfo,
         settings: settings
     });
-    await banh.searchDetail();
-    await banh.getHostFromDetail();
-    return banh.state.hosts;
+
+    let bodyPost = {
+        name_source: 'Banhtv',
+        is_link: 0,
+        type: movieInfo.type,
+        season: movieInfo.season,
+        episode: movieInfo.episode,
+        title: movieInfo.title,
+        year: movieInfo.year
+    };
+
+    await source.searchDetail();
+
+    if( !source.state.detailUrl ) {
+        bodyPost.is_link = 0;
+    } else {
+        bodyPost.is_link = 1;
+    }
+    await source.getHostFromDetail();
+
+    if( source.state.hosts.length == 0 ) {
+        bodyPost.is_link = 0;
+    } else {
+        bodyPost.is_link = 1;
+    }
+
+    await httpRequest.post('http://afilm.filmhub.io:8889/api/monitor/sources', {}, bodyPost);
+
+    return source.state.hosts;
 }
 

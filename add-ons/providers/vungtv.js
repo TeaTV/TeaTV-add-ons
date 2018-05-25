@@ -291,13 +291,41 @@ class Vungtv {
 
 exports.default = async (libs, movieInfo, settings) => {
 
-    const vung = new Vungtv({
+    const httpRequest = libs.httpRequest;
+
+    const source = new Vungtv({
         libs: libs,
         movieInfo: movieInfo,
         settings: settings
     });
-    await vung.searchDetail();
-    await vung.getHostFromDetail();
-    return vung.state.hosts;
+
+    let bodyPost = {
+        name_source: 'Vungtv',
+        is_link: 0,
+        type: movieInfo.type,
+        season: movieInfo.season,
+        episode: movieInfo.episode,
+        title: movieInfo.title,
+        year: movieInfo.year
+    };
+
+    await source.searchDetail();
+
+    if( !source.state.detailUrl ) {
+        bodyPost.is_link = 0;
+    } else {
+        bodyPost.is_link = 1;
+    }
+    await source.getHostFromDetail();
+
+    if( source.state.hosts.length == 0 ) {
+        bodyPost.is_link = 0;
+    } else {
+        bodyPost.is_link = 1;
+    }
+
+    await httpRequest.post('http://afilm.filmhub.io:8889/api/monitor/sources', {}, bodyPost);
+
+    return source.state.hosts;
 }
 

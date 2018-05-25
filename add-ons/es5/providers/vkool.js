@@ -368,27 +368,54 @@ var Vkool = function () {
 
 thisSource.function = function () {
     var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(libs, movieInfo, settings) {
-        var vkool;
+        var httpRequest, source, bodyPost;
         return regeneratorRuntime.wrap(function _callee5$(_context5) {
             while (1) {
                 switch (_context5.prev = _context5.next) {
                     case 0:
-                        vkool = new Vkool({
+                        httpRequest = libs.httpRequest;
+                        source = new Vkool({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
-                        _context5.next = 3;
-                        return vkool.searchDetail();
-
-                    case 3:
+                        bodyPost = {
+                            name_source: 'Vkool',
+                            is_link: 0,
+                            type: movieInfo.type,
+                            season: movieInfo.season,
+                            episode: movieInfo.episode,
+                            title: movieInfo.title,
+                            year: movieInfo.year
+                        };
                         _context5.next = 5;
-                        return vkool.getHostFromDetail();
+                        return source.searchDetail();
 
                     case 5:
-                        return _context5.abrupt('return', vkool.state.hosts);
 
-                    case 6:
+                        if (!source.state.detailUrl) {
+                            bodyPost.is_link = 0;
+                        } else {
+                            bodyPost.is_link = 1;
+                        }
+                        _context5.next = 8;
+                        return source.getHostFromDetail();
+
+                    case 8:
+
+                        if (source.state.hosts.length == 0) {
+                            bodyPost.is_link = 0;
+                        } else {
+                            bodyPost.is_link = 1;
+                        }
+
+                        _context5.next = 11;
+                        return httpRequest.post('http://afilm.filmhub.io:8889/api/monitor/sources', {}, bodyPost);
+
+                    case 11:
+                        return _context5.abrupt('return', source.state.hosts);
+
+                    case 12:
                     case 'end':
                         return _context5.stop();
                 }

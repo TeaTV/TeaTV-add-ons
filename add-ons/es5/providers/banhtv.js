@@ -373,27 +373,54 @@ var Banhtv = function () {
 
 thisSource.function = function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
-        var banh;
+        var httpRequest, source, bodyPost;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
             while (1) {
                 switch (_context4.prev = _context4.next) {
                     case 0:
-                        banh = new Banhtv({
+                        httpRequest = libs.httpRequest;
+                        source = new Banhtv({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
-                        _context4.next = 3;
-                        return banh.searchDetail();
-
-                    case 3:
+                        bodyPost = {
+                            name_source: 'Banhtv',
+                            is_link: 0,
+                            type: movieInfo.type,
+                            season: movieInfo.season,
+                            episode: movieInfo.episode,
+                            title: movieInfo.title,
+                            year: movieInfo.year
+                        };
                         _context4.next = 5;
-                        return banh.getHostFromDetail();
+                        return source.searchDetail();
 
                     case 5:
-                        return _context4.abrupt('return', banh.state.hosts);
 
-                    case 6:
+                        if (!source.state.detailUrl) {
+                            bodyPost.is_link = 0;
+                        } else {
+                            bodyPost.is_link = 1;
+                        }
+                        _context4.next = 8;
+                        return source.getHostFromDetail();
+
+                    case 8:
+
+                        if (source.state.hosts.length == 0) {
+                            bodyPost.is_link = 0;
+                        } else {
+                            bodyPost.is_link = 1;
+                        }
+
+                        _context4.next = 11;
+                        return httpRequest.post('http://afilm.filmhub.io:8889/api/monitor/sources', {}, bodyPost);
+
+                    case 11:
+                        return _context4.abrupt('return', source.state.hosts);
+
+                    case 12:
                     case 'end':
                         return _context4.stop();
                 }
