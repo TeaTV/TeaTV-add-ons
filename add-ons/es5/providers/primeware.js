@@ -92,7 +92,7 @@ var Primeware = function () {
                                     var episodeMovie = hrefEpisode.match(/\-episode\-([0-9]+)/i);
                                     episodeMovie = episodeMovie != null ? +episodeMovie[1] : -1;
 
-                                    if (episodeMovie == episode) {
+                                    if (episodeMovie == episode && hrefEpisode.indexOf('javascript') == -1) {
                                         detailUrl = hrefEpisode;
                                     }
                                 });
@@ -192,30 +192,34 @@ var Primeware = function () {
                                                         $_3 = cheerio.load(html_redirect);
                                                         link_embed = $_3('.download').attr('href');
 
-                                                        link_embed = URL.DOMAIN + link_embed;
 
-                                                        arr_redirect.push(link_embed);
-                                                        _context2.next = 12;
+                                                        if (link_embed.indexOf('javascript:') == -1) {
+                                                            link_embed = URL.DOMAIN + link_embed;
+
+                                                            arr_redirect.push(link_embed);
+                                                        }
+
+                                                        _context2.next = 11;
                                                         break;
 
-                                                    case 10:
-                                                        _context2.prev = 10;
+                                                    case 9:
+                                                        _context2.prev = 9;
                                                         _context2.t0 = _context2['catch'](0);
 
-                                                    case 12:
+                                                    case 11:
                                                         if (!(val == arr_redirect.length)) {
-                                                            _context2.next = 14;
+                                                            _context2.next = 13;
                                                             break;
                                                         }
 
                                                         return _context2.abrupt('return');
 
-                                                    case 14:
+                                                    case 13:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
                                             }
-                                        }, _callee2, this, [[0, 10]]);
+                                        }, _callee2, this, [[0, 9]]);
                                     }));
 
                                     return function (_x) {

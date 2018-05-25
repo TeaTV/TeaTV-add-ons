@@ -64,7 +64,7 @@ class Primeware {
                 let episodeMovie    = hrefEpisode.match(/\-episode\-([0-9]+)/i); 
                 episodeMovie        = episodeMovie != null ? +episodeMovie[1] : -1;
 
-                if( episodeMovie == episode ) {
+                if( episodeMovie == episode && hrefEpisode.indexOf('javascript') == -1 ) {
                     detailUrl = hrefEpisode;
                 }
             });
@@ -124,9 +124,13 @@ class Primeware {
                 let $_3             = cheerio.load(html_redirect);
 
                 let link_embed = $_3('.download').attr('href');
-                link_embed      = URL.DOMAIN + link_embed;
 
-                arr_redirect.push(link_embed);
+                if( link_embed.indexOf('javascript:') == -1 ) {
+                    link_embed      = URL.DOMAIN + link_embed;
+
+                    arr_redirect.push(link_embed);
+                }
+                
             } catch(error) {}
 
             if( val == arr_redirect.length ) {
