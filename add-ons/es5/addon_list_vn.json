@@ -62,6 +62,13 @@
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/banhtv.js",
             "type": ["tv", "movie"]
+        },
+        "vuighe": {
+            "name": "vuighe",
+            "domain": "vuighe.net",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vuighe.js",
+            "type": ["tv"]
         }
     },
     "hosts": {
