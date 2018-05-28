@@ -11,8 +11,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var URL = {
-    DOMAIN_MOVIE: "http://afilm.filmhub.io:8889/api/movies/get_link_direct",
-    DOMAIN_TVSHOW: "http://afilm.filmhub.io:8889/api/tvshows/get_link_direct",
+    DOMAIN_MOVIE: "http://afilm.filmhub.io:8000/api/movies/get_link_direct",
+    DOMAIN_TVSHOW: "http://afilm.filmhub.io:8000/api/tvshows/get_link_direct",
     HEADERS: {
         'Accept': 'text/plain, */*; q=0.01',
         'Accept-Encoding': 'deflate',
