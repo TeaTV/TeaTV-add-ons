@@ -225,61 +225,6 @@ var Vuighe = function () {
                                     }
                                 }
 
-                                // let arrPromise = await this.state.detailUrl.map(async (item) =>{
-
-                                //     let list_link   = {
-                                //         link: [] 
-                                //     };
-
-                                //     let html_video  = await httpRequest.getHTML(item, URL.HEADERS);
-                                //     let $           = cheerio.load(html_video);
-
-
-                                //     if( $('#VkoolMovie').length > 0 ) {
-
-                                //         let script      = $('#VkoolMovie').next().html();
-                                //         let listLink    = script.match(/link *\: *\"([^\"]+)/i);
-                                //         listLink        = listLink != null ? listLink[1] : false;
-
-                                //         if( listLink != false ) {
-
-                                //             let linkdatap = listLink.replace(/&/g, '%26');
-
-                                //             let body_post = {
-                                //                 link: linkdatap
-                                //             };
-
-                                //             let result_post = await httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS_RERFER(item), body_post);
-                                //             result_post     = result_post.data;
-
-                                //             list_link       = result_post;
-
-                                //             if (list_link.link && list_link.link.length > 0) {
-                                //                 for ( let item1 in list_link.link ) {
-
-                                //                     let link_direct = gibberish.dec(list_link.link[item1].link, 'decolivkool');
-
-                                //                     link_direct && hosts.push({
-                                //                         provider: {
-                                //                             url: item,
-                                //                             name: "Server 6 - Vietsub"
-                                //                         },
-                                //                         result: {
-                                //                             file: link_direct,
-                                //                             label: list_link.link[item1].label,
-                                //                             type: 'direct'
-                                //                         }
-                                //                     });
-                                //                 }
-                                //             }
-                                //         }
-
-                                //     } 
-                                // });
-
-                                // await Promise.all(arrPromise);
-
-
                                 this.state.hosts = hosts;
                                 return _context2.abrupt('return');
 
