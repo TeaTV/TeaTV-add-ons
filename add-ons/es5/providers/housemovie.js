@@ -249,32 +249,39 @@ var HouseMovies = function () {
                                     }
                                 };
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
-                                _context.next = 7;
+
+
+                                console.log(urlSearch, '1');
+                                _context.next = 8;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS());
 
-                            case 7:
+                            case 8:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch);
                                 script = $('script').last().html();
 
-
+                                console.log(script, '2');
                                 eval(script);
 
                                 cookie = document.cookie.replace(/\;.*/i, '') + ';';
 
 
+                                console.log(cookie, '3');
+
                                 this.state.cookie = cookie;
 
-                                _context.next = 15;
+                                _context.next = 18;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS_COOKIE(cookie));
 
-                            case 15:
+                            case 18:
                                 htmlSearch = _context.sent;
 
                                 $ = cheerio.load(htmlSearch);
 
                                 itemSearch = $('.fig_holder');
 
+
+                                console.log(itemSearch.length, '4');
 
                                 itemSearch.each(function () {
 
@@ -284,6 +291,7 @@ var HouseMovies = function () {
                                     yearMovie = yearMovie.match(/([0-9]+)/i);
                                     yearMovie = yearMovie != null ? +yearMovie[1] : -1;
 
+                                    console.log(hrefMovie, titleMovie, yearMovie, '5');
                                     if (stringHelper.shallowCompare(title, titleMovie) && yearMovie == year) {
 
                                         detailUrl = hrefMovie;
@@ -294,7 +302,7 @@ var HouseMovies = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 21:
+                            case 25:
                             case 'end':
                                 return _context.stop();
                         }
@@ -330,14 +338,18 @@ var HouseMovies = function () {
                             case 3:
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
-                                _context2.next = 7;
+
+
+                                console.log('6');
+                                _context2.next = 8;
                                 return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS_COOKIE(this.state.cookie));
 
-                            case 7:
+                            case 8:
                                 htmlDetail = _context2.sent;
                                 $ = cheerio.load(htmlDetail);
                                 itemEmbed = $('.btn_play');
 
+                                console.log(itemEmbed.length, '7');
 
                                 itemEmbed.each(function () {
 
@@ -346,6 +358,7 @@ var HouseMovies = function () {
                                         var token = $(this).attr('data-player_link');
                                         var linkEmbed = base64.decode(token);
 
+                                        console.log(token, linkEmbed, '8');
                                         linkEmbed && hosts.push({
                                             provider: {
                                                 url: detailUrl,
@@ -363,7 +376,7 @@ var HouseMovies = function () {
                                 this.state.hosts = hosts;
                                 return _context2.abrupt('return');
 
-                            case 13:
+                            case 15:
                             case 'end':
                                 return _context2.stop();
                         }
