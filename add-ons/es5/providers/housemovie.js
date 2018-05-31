@@ -28,7 +28,6 @@ var URL = {
             'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
             'Cache-Control': 'max-age=0',
             'Accept-Encoding': 'deflate, br',
-            'Credentials': 'same-origin',
             'Upgrade-Insecure-Requests': 1,
             'Cookie': cookie,
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
