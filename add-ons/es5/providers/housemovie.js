@@ -271,7 +271,7 @@ var HouseMovies = function () {
 
                                 valueCookie = valueCookie != null ? valueCookie[1] : '';
 
-                                console.log(cookie, '3');
+                                console.log(cookie, valueCookie, '3');
 
                                 this.state.cookie = cookie;
 
