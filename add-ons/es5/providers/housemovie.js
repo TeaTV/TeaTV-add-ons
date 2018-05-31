@@ -281,6 +281,7 @@ var HouseMovies = function () {
                                 itemSearch = $('.fig_holder');
 
 
+                                console.log(htmlSearch, '3.5');
                                 console.log(itemSearch.length, '4');
 
                                 itemSearch.each(function () {
@@ -302,7 +303,7 @@ var HouseMovies = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 25:
+                            case 26:
                             case 'end':
                                 return _context.stop();
                         }
