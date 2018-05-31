@@ -97,6 +97,15 @@
             "type": [
                 "tv"
             ]
+        },
+        "animetvn": {
+            "name": "animetvn",
+            "domain": "animetvn.tv",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/animetvn.js",
+            "type": [
+                "tv"
+            ]
         }
     },
     "hosts": {
