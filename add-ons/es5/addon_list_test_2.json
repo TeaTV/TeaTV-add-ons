@@ -1,10 +1,10 @@
 {
     "providers": {
-        "seehd": {
-            "name": "seehd",
-            "domain": "seehd.pl",
-            "version": "0.0.4",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seehd.js",
+        "housemovie": {
+            "name": "housemovie",
+            "domain": "housemovie.to",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/housemovie.js",
             "type": [
                 "movie",
                 "tv"
