@@ -256,11 +256,11 @@ var HouseMovies = function () {
 
                                 console.log(urlSearch, '1');
                                 _context.next = 8;
-                                return httpRequest.getHTML(urlSearch, URL.HEADERS());
+                                return httpRequest.get(urlSearch, URL.HEADERS());
 
                             case 8:
                                 htmlSearch = _context.sent;
-                                $ = cheerio.load(htmlSearch);
+                                $ = cheerio.load(htmlSearch.data);
                                 script = $('script').last().html();
 
                                 console.log(script, '2');
