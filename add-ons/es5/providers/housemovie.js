@@ -236,7 +236,7 @@ var HouseMovies = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, document, urlSearch, htmlSearch, $, script, cookie, itemSearch;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, document, urlSearch, htmlSearch, $, script, cookie, valueCookie, itemSearch;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -267,16 +267,27 @@ var HouseMovies = function () {
                                 eval(script);
 
                                 cookie = document.cookie.replace(/\;.*/i, '') + ';';
+                                valueCookie = cookie.match(/BPC=([^\;]+)/i);
 
+                                valueCookie = valueCookie != null ? valueCookie[1] : '';
 
                                 console.log(cookie, '3');
 
                                 this.state.cookie = cookie;
 
-                                _context.next = 18;
+                                if (!httpRequest.cookie) {
+                                    _context.next = 21;
+                                    break;
+                                }
+
+                                _context.next = 21;
+                                return httpRequest.cookie.set(urlSearch, 'BPC', valueCookie);
+
+                            case 21:
+                                _context.next = 23;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS_COOKIE(cookie));
 
-                            case 18:
+                            case 23:
                                 htmlSearch = _context.sent;
 
                                 $ = cheerio.load(htmlSearch);
@@ -306,7 +317,7 @@ var HouseMovies = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 26:
+                            case 31:
                             case 'end':
                                 return _context.stop();
                         }
