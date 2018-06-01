@@ -282,7 +282,7 @@ var HouseMovies = function () {
 
                                 console.log(cookie, valueCookie, '1.2.3');
                                 _context.next = 22;
-                                return httpRequest.cookie.set('https://housemovie.to', 'BPC', valueCookie);
+                                return httpRequest.cookie.set('https://housemovie.to/', 'BPC', valueCookie);
 
                             case 22:
                                 _context.next = 24;
