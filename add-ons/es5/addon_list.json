@@ -121,7 +121,7 @@
         "hollymovies": {
             "name": "hollymovies",
             "domain": "hollymoviehd.com",
-            "version": "0.0.19",
+            "version": "0.0.20",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hollymovies.js",
             "type": [
                 "tv",
