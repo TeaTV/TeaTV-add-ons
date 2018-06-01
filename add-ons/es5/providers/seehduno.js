@@ -32,7 +32,7 @@ var SeehdUno = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, htmlSearch, $, page;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, page;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -46,30 +46,26 @@ var SeehdUno = function () {
                                     httpRequest.cookie.clear();
                                 }
 
-                                _context.next = 5;
-                                return httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')));
+                                page = 1;
+                                // let htmlSearch  = await httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')));
+                                // let $           = cheerio.load(htmlSearch.data);
+                                // let page        = $('#paginador .paginado ul li');
 
-                            case 5:
-                                htmlSearch = _context.sent;
-                                $ = cheerio.load(htmlSearch.data);
-                                page = $('#paginador .paginado ul li');
+                                // if( page.length <= 0 ) {
+                                //     page = 1;
+                                // } else {
+                                //     page = page.last().find('a').attr('href');
+                                //     page = page.match(/\/page\/([0-9]+)/i);
+                                //     page = page != null ? +page[1] : 1;
+                                // }
 
-
-                                if (page.length <= 0) {
-                                    page = 1;
-                                } else {
-                                    page = page.last().find('a').attr('href');
-                                    page = page.match(/\/page\/([0-9]+)/i);
-                                    page = page != null ? +page[1] : 1;
-                                }
-
-                                _context.next = 11;
+                                _context.next = 6;
                                 return this.getDetailUrl(page, this.state);
 
-                            case 11:
+                            case 6:
                                 return _context.abrupt('return');
 
-                            case 12:
+                            case 7:
                             case 'end':
                                 return _context.stop();
                         }
@@ -119,6 +115,10 @@ var SeehdUno = function () {
                                 itemSearch = $('.peliculas .items .item');
 
 
+                                if (!!httpRequest.cookie) {
+                                    httpRequest.cookie.clear();
+                                }
+
                                 console.log(itemSearch.length, '2');
                                 itemSearch.each(function () {
 
@@ -160,7 +160,7 @@ var SeehdUno = function () {
                                 // await Promise.all(arrPromise);
                                 return _context2.abrupt('return');
 
-                            case 12:
+                            case 13:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -194,12 +194,17 @@ var SeehdUno = function () {
                                 throw new Error("NOT_FOUND");
 
                             case 3:
+
+                                if (!!httpRequest.cookie) {
+                                    httpRequest.cookie.clear();
+                                }
+
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
-                                _context3.next = 7;
+                                _context3.next = 8;
                                 return httpRequest.getCloudflare(this.state.detailUrl);
 
-                            case 7:
+                            case 8:
                                 htmlDetail = _context3.sent;
                                 $ = cheerio.load(htmlDetail.data);
                                 itemEmbed = $('#player2 .movieplay');
@@ -235,7 +240,7 @@ var SeehdUno = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 13:
+                            case 14:
                             case 'end':
                                 return _context3.stop();
                         }
