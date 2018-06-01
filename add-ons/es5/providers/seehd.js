@@ -163,26 +163,26 @@ var Seehd = function () {
 
                                             if (season == seasonMovie && episode == episodeMovie) {
                                                 state.detailUrl = hrefMovie;
+                                                return;
                                             }
                                         }
                                     }
                                 });
 
-                                if (!(val == page)) {
-                                    _context2.next = 11;
-                                    break;
-                                }
+                                // if( val == page ) {
+                                //     return;
+                                // }
 
-                                return _context2.abrupt('return');
+                                // });
 
-                            case 11:
-                                _context2.next = 13;
+
+                                _context2.next = 11;
                                 return Promise.all(arrPromise);
 
-                            case 13:
+                            case 11:
                                 return _context2.abrupt('return');
 
-                            case 14:
+                            case 12:
                             case 'end':
                                 return _context2.stop();
                         }
