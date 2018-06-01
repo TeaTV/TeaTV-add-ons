@@ -53,22 +53,28 @@ var Seehd = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
-                                _context.prev = 2;
+
+
+                                if (!!httpRequest.cookie) {
+                                    httpRequest.cookie.clear();
+                                }
+
+                                _context.prev = 3;
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
-                                _context.next = 6;
+                                _context.next = 7;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS());
 
-                            case 6:
+                            case 7:
                                 htmlTest = _context.sent;
 
 
                                 console.log(htmlTest);
 
                                 console.log(urlSearch, 'search');
-                                _context.next = 11;
+                                _context.next = 12;
                                 return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
 
-                            case 11:
+                            case 12:
                                 htmlSearch = _context.sent;
 
                                 htmlSearch = htmlSearch.data;
@@ -84,28 +90,28 @@ var Seehd = function () {
                                     page = page != null ? +page[1] : 1;
                                 }
 
-                                _context.next = 19;
+                                _context.next = 20;
                                 return this.getDetailUrl(page, this.state);
 
-                            case 19:
-                                _context.next = 24;
+                            case 20:
+                                _context.next = 25;
                                 break;
 
-                            case 21:
-                                _context.prev = 21;
-                                _context.t0 = _context['catch'](2);
+                            case 22:
+                                _context.prev = 22;
+                                _context.t0 = _context['catch'](3);
 
                                 console.log(String(_context.t0), 'error');
 
-                            case 24:
+                            case 25:
                                 return _context.abrupt('return');
 
-                            case 25:
+                            case 26:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[2, 21]]);
+                }, _callee, this, [[3, 22]]);
             }));
 
             function searchDetail() {

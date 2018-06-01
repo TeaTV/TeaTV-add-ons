@@ -1,13 +1,13 @@
 {
     "providers": {
-        "seehduno": {
-            "name": "seehduno",
-            "domain": "seehd.uno",
-            "version": "0.0.4",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seehduno.js",
+        "seehd": {
+            "name": "seehd",
+            "domain": "seehd.pl",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seehd.js",
             "type": [
-                "tv",
-                "movie"
+                "movie",
+                "tv"
             ]
         }
     },
