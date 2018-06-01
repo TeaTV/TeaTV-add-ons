@@ -227,7 +227,7 @@ var Streamango = function () {
                 throw new Error("ERROR GET LINK STREAMANGO");
 
               case 10:
-                reg = /srces.push\({type:"video\/mp4"(.*);/g;
+                reg = /srces.push *\( *{ *type *: *"video\/mp4"(.*);/g;
                 matchArr = targetedScriptString.match(reg);
 
                 if (!(matchArr == null)) {
@@ -267,12 +267,13 @@ var Streamango = function () {
                             isDie = _context2.sent;
 
 
+                            console.log(isDie);process.exit();
                             if (isDie != false) {
                               val.size = isDie;
                               sources.push(val);
                             }
 
-                          case 4:
+                          case 6:
                           case "end":
                             return _context2.stop();
                         }
