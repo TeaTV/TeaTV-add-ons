@@ -297,7 +297,7 @@ var HouseMovies = function () {
 
 
                                 console.log(htmlSearch, '3.5');
-                                console.log(itemSearch.length, '4');
+                                console.log(itemSearch.length, urlSearch, '4');
 
                                 itemSearch.each(function () {
 
