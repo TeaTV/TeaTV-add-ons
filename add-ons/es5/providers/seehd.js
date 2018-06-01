@@ -111,7 +111,7 @@ var Seehd = function () {
         key: 'getDetailUrl',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(page, state) {
-                var _libs2, httpRequest, cheerio, stringHelper, base64, _movieInfo2, title, year, season, episode, type, htmlSearch, $, itemPage;
+                var _libs2, httpRequest, cheerio, stringHelper, base64, _movieInfo2, title, year, season, episode, type, urlSearch, htmlSearch, $, itemPage;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -130,10 +130,15 @@ var Seehd = function () {
 
                                 // let arrPromise = arrNumber.map(async function(val) {
 
-                                _context2.next = 4;
-                                return httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), 1), URL.HEADERS());
+                                urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), 1);
 
-                            case 4:
+
+                                console.log(urlSearch, '1');
+
+                                _context2.next = 6;
+                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
+
+                            case 6:
                                 htmlSearch = _context2.sent;
                                 $ = cheerio.load(htmlSearch.data);
                                 itemPage = $('.movie');
@@ -176,13 +181,13 @@ var Seehd = function () {
                                 // });
 
 
-                                _context2.next = 11;
+                                _context2.next = 13;
                                 return Promise.all(arrPromise);
 
-                            case 11:
+                            case 13:
                                 return _context2.abrupt('return');
 
-                            case 12:
+                            case 14:
                             case 'end':
                                 return _context2.stop();
                         }
