@@ -267,13 +267,12 @@ var Streamango = function () {
                             isDie = _context2.sent;
 
 
-                            console.log(isDie);process.exit();
                             if (isDie != false) {
                               val.size = isDie;
                               sources.push(val);
                             }
 
-                          case 6:
+                          case 4:
                           case "end":
                             return _context2.stop();
                         }
