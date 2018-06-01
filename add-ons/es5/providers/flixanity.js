@@ -7,10 +7,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "https://flixanity.mobi",
-    SEARCH: 'https://api.flixanity.mobi/api/v1/0A6ru35yevokjaqbb3',
+    DOMAIN: "https://flixanity.io",
+    SEARCH: 'https://api.flixanity.io/api/v1/0A6ru35yevokjaqbb3',
     TOKEN_API_EMBED: 'eCNBuxFGpRmFlWjUJjmjguCJI',
-    EMBED_URL: 'https://flixanity.mobi/ajax/gonlflhyad.php',
+    EMBED_URL: 'https://flixanity.io/ajax/gonlflhyad.php',
     KEY_SL: '9fc895fbb0b23f1c0fb8e5a5fe02f7b5',
     HEADERS: {
         'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
