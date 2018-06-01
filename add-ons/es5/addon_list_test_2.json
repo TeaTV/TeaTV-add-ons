@@ -1,10 +1,10 @@
 {
     "providers": {
-        "housemovie": {
-            "name": "housemovie",
-            "domain": "housemovie.to",
-            "version": "0.0.16",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/housemovie.js",
+        "yesmovies": {
+            "name": "yesmovies",
+            "domain": "yesmovies.to",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/yesmovies.js",
             "type": [
                 "movie",
                 "tv"
