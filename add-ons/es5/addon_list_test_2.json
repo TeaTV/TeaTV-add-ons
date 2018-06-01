@@ -3,7 +3,7 @@
         "housemovie": {
             "name": "housemovie",
             "domain": "housemovie.to",
-            "version": "0.0.15",
+            "version": "0.0.16",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/housemovie.js",
             "type": [
                 "movie",
