@@ -81,7 +81,7 @@ var SeehdUno = function () {
         key: 'getDetailUrl',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(page, state) {
-                var _libs2, httpRequest, cheerio, stringHelper, base64, _movieInfo2, title, year, season, episode, type, htmlSearch, $, itemSearch;
+                var _libs2, httpRequest, cheerio, stringHelper, base64, _movieInfo2, title, year, season, episode, type, urlSearch, htmlSearch, $, itemSearch;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -99,15 +99,21 @@ var SeehdUno = function () {
 
                                 // let arrPromise = arrNumber.map(async function(val) {
 
-                                _context2.next = 4;
-                                return httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), 1));
+                                urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), 1);
 
-                            case 4:
+
+                                console.log(urlSearch, '1');
+
+                                _context2.next = 6;
+                                return httpRequest.getCloudflare(urlSearch);
+
+                            case 6:
                                 htmlSearch = _context2.sent;
                                 $ = cheerio.load(htmlSearch.data);
                                 itemSearch = $('.peliculas .items .item');
 
 
+                                console.log(itemSearch.length, '2');
                                 itemSearch.each(function () {
 
                                     var hrefMovies = $(this).find('a').attr('href');
@@ -120,6 +126,7 @@ var SeehdUno = function () {
                                     titleMovies = titleMovies.replace('Watch', '').replace('Online', '').replace('Free', '').trim();
                                     titleMovies = titleMovies.replace(/\([0-9]+\)/i, '').trim();
 
+                                    console.log(hrefMovies, titleMovies, '3');
                                     if (seasonMovies != false && episodeMovies != false) {
 
                                         titleMovies = titleMovies.replace(/\– *season.*/i, '').trim();
@@ -129,6 +136,7 @@ var SeehdUno = function () {
 
                                         if (type == 'movie' && +yearMovies == year) {
 
+                                            console.log(hrefMovies, '4');
                                             state.detailUrl = hrefMovies;
                                         } else if (type == 'tv' && seasonMovies == season && episodeMovies == episode) {
 
@@ -146,7 +154,7 @@ var SeehdUno = function () {
                                 // await Promise.all(arrPromise);
                                 return _context2.abrupt('return');
 
-                            case 9:
+                            case 12:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -191,6 +199,7 @@ var SeehdUno = function () {
                                 itemEmbed = $('#player2 .movieplay');
 
 
+                                console.log(itemEmbed.length, '5');
                                 itemEmbed.each(function () {
 
                                     var script = $(this).find('script').html();
@@ -203,6 +212,7 @@ var SeehdUno = function () {
                                         var linkEmbed = token.match(/src *\= *\"([^\"]+)/i);
                                         linkEmbed = linkEmbed != null ? linkEmbed[1] : false;
 
+                                        console.log(linkEmbed, '6');
                                         linkEmbed !== false && hosts.push({
                                             provider: {
                                                 url: detailUrl,
@@ -219,7 +229,7 @@ var SeehdUno = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 12:
+                            case 13:
                             case 'end':
                                 return _context3.stop();
                         }

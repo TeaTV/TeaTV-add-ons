@@ -60,32 +60,23 @@ var HollyMovies = function () {
                                 }
 
                                 if (!httpRequest.cookie) {
-                                    _context.next = 9;
+                                    _context.next = 8;
                                     break;
                                 }
 
-                                console.log('taboola_rw23', '5a1a871d45e', '0');
-                                _context.next = 9;
+                                _context.next = 8;
                                 return httpRequest.cookie.set('http://www.hollymoviehd.com/', 'taboola_rw23', '5a1a871d45e');
 
-                            case 9:
-
-                                console.log(urlSearch, '1');
-
-                                _context.prev = 10;
-                                _context.next = 13;
+                            case 8:
+                                _context.prev = 8;
+                                _context.next = 11;
                                 return httpRequest.get(urlSearch, URL.HEADERS());
 
-                            case 13:
+                            case 11:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch.data);
-
-
-                                console.log(htmlSearch, '2-dong');
                                 itemSearch = $('.movies-list .ml-item');
 
-
-                                console.log(itemSearch.length, '3-dong');
 
                                 itemSearch.each(function () {
 
@@ -98,13 +89,10 @@ var HollyMovies = function () {
                                     titleMovie = titleMovie.replace(/\([0-9]+\)/i, '').trim();
                                     titleMovie = titleMovie.replace(/ *season *[0-9]+/i, '').trim();
 
-                                    console.log(title, titleMovie, hrefMovie, yearMovie, seasonMovie, '4');
                                     if (stringHelper.shallowCompare(title, titleMovie)) {
 
-                                        console.log(title, titleMovie, hrefMovie, '5-dong');
                                         if (type == 'movie' && seasonMovie == false && yearMovie == year) {
 
-                                            console.log(title, titleMovie, hrefMovie, '6 -movie');
                                             detailUrl = hrefMovie;
                                             return;
                                         } else if (type == 'tv' && seasonMovie == season) {
@@ -114,27 +102,26 @@ var HollyMovies = function () {
                                         }
                                     }
                                 });
-                                _context.next = 24;
+                                _context.next = 20;
                                 break;
 
-                            case 21:
-                                _context.prev = 21;
-                                _context.t0 = _context['catch'](10);
+                            case 17:
+                                _context.prev = 17;
+                                _context.t0 = _context['catch'](8);
 
                                 console.log(String(_context.t0));
 
-                            case 24:
+                            case 20:
 
-                                console.log(detailUrl, 'match3');
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 27:
+                            case 22:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[10, 21]]);
+                }, _callee, this, [[8, 17]]);
             }));
 
             function searchDetail() {
