@@ -40,10 +40,16 @@ var SeehdUno = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
-                                _context.next = 4;
+
+
+                                if (!!httpRequest.cookie) {
+                                    httpRequest.cookie.clear();
+                                }
+
+                                _context.next = 5;
                                 return httpRequest.getCloudflare(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')));
 
-                            case 4:
+                            case 5:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch.data);
                                 page = $('#paginador .paginado ul li');
@@ -57,13 +63,13 @@ var SeehdUno = function () {
                                     page = page != null ? +page[1] : 1;
                                 }
 
-                                _context.next = 10;
+                                _context.next = 11;
                                 return this.getDetailUrl(page, this.state);
 
-                            case 10:
+                            case 11:
                                 return _context.abrupt('return');
 
-                            case 11:
+                            case 12:
                             case 'end':
                                 return _context.stop();
                         }
