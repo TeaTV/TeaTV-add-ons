@@ -236,7 +236,7 @@ var HouseMovies = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, document, urlSearch, htmlSearch, $, script, cookie, itemSearch;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, document, urlSearch, htmlSearch, $, script, cookie, valueCookie, itemSearch;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -267,22 +267,28 @@ var HouseMovies = function () {
                                 eval(script);
 
                                 cookie = document.cookie.replace(/\;.*/i, '') + ';';
+                                valueCookie = cookie.match(/BPC=([^\;]+)/i);
 
-                                // let valueCookie = cookie.match(/BPC=([^\;]+)/i);
-                                // valueCookie     = valueCookie != null ? valueCookie[1] : '';
+                                valueCookie = valueCookie != null ? valueCookie[1] : '';
 
-                                // console.log(cookie, valueCookie, '3');
+                                console.log(cookie, valueCookie, '3');
 
                                 this.state.cookie = cookie;
 
-                                // if (!!httpRequest.cookie) {
-                                //     await httpRequest.cookie.set(urlSearch, 'BPC', valueCookie);
-                                // }
+                                if (!httpRequest.cookie) {
+                                    _context.next = 22;
+                                    break;
+                                }
 
-                                _context.next = 17;
+                                console.log(cookie, valueCookie, '1.2.3');
+                                _context.next = 22;
+                                return httpRequest.cookie.set('https://housemovie.to', 'BPC', valueCookie);
+
+                            case 22:
+                                _context.next = 24;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS_COOKIE(cookie));
 
-                            case 17:
+                            case 24:
                                 htmlSearch = _context.sent;
 
                                 $ = cheerio.load(htmlSearch);
@@ -312,7 +318,7 @@ var HouseMovies = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 25:
+                            case 32:
                             case 'end':
                                 return _context.stop();
                         }
