@@ -81,11 +81,11 @@ var HollyMovies = function () {
                                 $ = cheerio.load(htmlSearch.data);
 
 
-                                console.log(htmlSearch, '2');
+                                console.log(htmlSearch, '2-dong');
                                 itemSearch = $('.movies-list .ml-item');
 
 
-                                console.log(itemSearch.length, '3');
+                                console.log(itemSearch.length, '3-dong');
 
                                 itemSearch.each(function () {
 
@@ -101,7 +101,7 @@ var HollyMovies = function () {
                                     console.log(title, titleMovie, hrefMovie, yearMovie, seasonMovie, '4');
                                     if (stringHelper.shallowCompare(title, titleMovie)) {
 
-                                        console.log(title, titleMovie, hrefMovie, '5');
+                                        console.log(title, titleMovie, hrefMovie, '5-dong');
                                         if (type == 'movie' && seasonMovie == false && yearMovie == year) {
 
                                             console.log(title, titleMovie, hrefMovie, '6 -movie');
