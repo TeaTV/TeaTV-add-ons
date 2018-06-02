@@ -45,7 +45,7 @@ var Seehd = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, page;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, urlSearch, htmlSearch, $, page;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -60,45 +60,51 @@ var Seehd = function () {
                                 }
 
                                 _context.prev = 3;
-                                page = 1;
-                                // let urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
+                                urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
 
-                                // console.log(urlSearch, 'search');
-                                // let htmlSearch  = await httpRequest.getCloudflare(urlSearch, URL.HEADERS());
-                                // htmlSearch      = htmlSearch.data;
 
-                                // console.log(htmlSearch, '1');
-                                // let $           = cheerio.load(htmlSearch);
-                                // let page        = $('.pagination-item').text();
-                                // if( !page ) {
-                                //     page = 1;
-                                // } else {
-                                //     page = page.match(/page *[0-9]* *of *([0-9]*)/i);
-                                //     page = page != null ? +page[1] : 1;
-                                // }
+                                console.log(urlSearch, 'search');
+                                _context.next = 8;
+                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
 
-                                _context.next = 7;
+                            case 8:
+                                htmlSearch = _context.sent;
+
+                                htmlSearch = htmlSearch.data;
+
+                                console.log(htmlSearch, '1');
+                                $ = cheerio.load(htmlSearch);
+                                page = $('.pagination-item').text();
+
+                                if (!page) {
+                                    page = 1;
+                                } else {
+                                    page = page.match(/page *[0-9]* *of *([0-9]*)/i);
+                                    page = page != null ? +page[1] : 1;
+                                }
+
+                                _context.next = 16;
                                 return this.getDetailUrl(page, this.state);
 
-                            case 7:
-                                _context.next = 12;
+                            case 16:
+                                _context.next = 21;
                                 break;
 
-                            case 9:
-                                _context.prev = 9;
+                            case 18:
+                                _context.prev = 18;
                                 _context.t0 = _context['catch'](3);
 
                                 console.log(String(_context.t0), 'error');
 
-                            case 12:
+                            case 21:
                                 return _context.abrupt('return');
 
-                            case 13:
+                            case 22:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[3, 9]]);
+                }, _callee, this, [[3, 18]]);
             }));
 
             function searchDetail() {
@@ -110,89 +116,105 @@ var Seehd = function () {
     }, {
         key: 'getDetailUrl',
         value: function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(page, state) {
-                var _libs2, httpRequest, cheerio, stringHelper, base64, _movieInfo2, title, year, season, episode, type, urlSearch, htmlSearch, $, itemPage;
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(page, state) {
+                var _libs2, httpRequest, cheerio, stringHelper, base64, _movieInfo2, title, year, season, episode, type, arrNumber, i, arrPromise;
 
-                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
-                        switch (_context2.prev = _context2.next) {
+                        switch (_context3.prev = _context3.next) {
                             case 0:
                                 _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, stringHelper = _libs2.stringHelper, base64 = _libs2.base64;
                                 _movieInfo2 = this.movieInfo, title = _movieInfo2.title, year = _movieInfo2.year, season = _movieInfo2.season, episode = _movieInfo2.episode, type = _movieInfo2.type;
-
-                                // let arrNumber = [];
-
-                                // for( let i = 1; i <= page; i++ ) {
-                                //     arrNumber.push(i);
-                                // }
-
-                                // console.log(arrNumber, 'number');
-
-                                // let arrPromise = arrNumber.map(async function(val) {
-
-                                urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), 1);
+                                arrNumber = [];
 
 
-                                console.log(urlSearch, '1');
+                                for (i = 1; i <= page; i++) {
+                                    arrNumber.push(i);
+                                }
 
-                                _context2.next = 6;
-                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
+                                console.log(arrNumber, 'number');
 
-                            case 6:
-                                htmlSearch = _context2.sent;
-                                $ = cheerio.load(htmlSearch.data);
-                                itemPage = $('.movie');
+                                arrPromise = arrNumber.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
+                                        var urlSearch, htmlSearch, $, itemPage;
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+                                                        urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), 1);
 
 
-                                console.log(itemPage.length, 'page');
-                                itemPage.each(function () {
+                                                        console.log(urlSearch, '1');
 
-                                    var hrefMovie = $(this).find('.post_thumb a').attr('href');
-                                    var titleMovie = $(this).find('a h2').text();
-                                    titleMovie = titleMovie.replace('Watch Online', '').trim();
-                                    var yearMovie = titleMovie.split(' ');
-                                    yearMovie = yearMovie.length > 0 ? yearMovie[yearMovie.length - 1] : 0;
-                                    titleMovie = titleMovie.replace(yearMovie, '').trim();
+                                                        _context2.next = 4;
+                                                        return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
 
-                                    if (stringHelper.shallowCompare(title, titleMovie)) {
+                                                    case 4:
+                                                        htmlSearch = _context2.sent;
+                                                        $ = cheerio.load(htmlSearch.data);
+                                                        itemPage = $('.movie');
 
-                                        if (type == 'movie' && year == +yearMovie) {
 
-                                            state.detailUrl = hrefMovie;
-                                        } else if (type == 'tv') {
+                                                        console.log(itemPage.length, 'page');
+                                                        itemPage.each(function () {
 
-                                            var seasonMovie = yearMovie.match(/S([0-9]+)/i);
-                                            var episodeMovie = yearMovie.match(/E([0-9]+)/i);
-                                            seasonMovie = seasonMovie != null ? +seasonMovie[1] : 0;
-                                            episodeMovie = episodeMovie != null ? +episodeMovie[1] : 0;
+                                                            var hrefMovie = $(this).find('.post_thumb a').attr('href');
+                                                            var titleMovie = $(this).find('a h2').text();
+                                                            titleMovie = titleMovie.replace('Watch Online', '').trim();
+                                                            var yearMovie = titleMovie.split(' ');
+                                                            yearMovie = yearMovie.length > 0 ? yearMovie[yearMovie.length - 1] : 0;
+                                                            titleMovie = titleMovie.replace(yearMovie, '').trim();
 
-                                            if (season == seasonMovie && episode == episodeMovie) {
-                                                state.detailUrl = hrefMovie;
-                                                return;
+                                                            if (stringHelper.shallowCompare(title, titleMovie)) {
+
+                                                                if (type == 'movie' && year == +yearMovie) {
+
+                                                                    state.detailUrl = hrefMovie;
+                                                                } else if (type == 'tv') {
+
+                                                                    var seasonMovie = yearMovie.match(/S([0-9]+)/i);
+                                                                    var episodeMovie = yearMovie.match(/E([0-9]+)/i);
+                                                                    seasonMovie = seasonMovie != null ? +seasonMovie[1] : 0;
+                                                                    episodeMovie = episodeMovie != null ? +episodeMovie[1] : 0;
+
+                                                                    if (season == seasonMovie && episode == episodeMovie) {
+                                                                        state.detailUrl = hrefMovie;
+                                                                    }
+                                                                }
+                                                            }
+                                                        });
+
+                                                        if (!(val == page)) {
+                                                            _context2.next = 11;
+                                                            break;
+                                                        }
+
+                                                        return _context2.abrupt('return');
+
+                                                    case 11:
+                                                    case 'end':
+                                                        return _context2.stop();
+                                                }
                                             }
-                                        }
-                                    }
-                                });
+                                        }, _callee2, this);
+                                    }));
 
-                                // if( val == page ) {
-                                //     return;
-                                // }
-
-                                // });
-
-
-                                _context2.next = 13;
+                                    return function (_x4) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 8;
                                 return Promise.all(arrPromise);
 
-                            case 13:
-                                return _context2.abrupt('return');
+                            case 8:
+                                return _context3.abrupt('return');
 
-                            case 14:
+                            case 9:
                             case 'end':
-                                return _context2.stop();
+                                return _context3.stop();
                         }
                     }
-                }, _callee2, this);
+                }, _callee3, this);
             }));
 
             function getDetailUrl(_x2, _x3) {
@@ -204,19 +226,19 @@ var Seehd = function () {
     }, {
         key: 'getHostFromDetail',
         value: function () {
-            var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+            var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
                 var _this = this;
 
                 var _libs3, httpRequest, cheerio, base64, hosts, arrEmbed, detailUrl, htmlDetail, $, itemEmbed, arrPromise;
 
-                return regeneratorRuntime.wrap(function _callee4$(_context4) {
+                return regeneratorRuntime.wrap(function _callee5$(_context5) {
                     while (1) {
-                        switch (_context4.prev = _context4.next) {
+                        switch (_context5.prev = _context5.next) {
                             case 0:
                                 _libs3 = this.libs, httpRequest = _libs3.httpRequest, cheerio = _libs3.cheerio, base64 = _libs3.base64;
 
                                 if (this.state.detailUrl) {
-                                    _context4.next = 3;
+                                    _context5.next = 3;
                                     break;
                                 }
 
@@ -226,11 +248,11 @@ var Seehd = function () {
                                 hosts = [];
                                 arrEmbed = [];
                                 detailUrl = this.state.detailUrl;
-                                _context4.next = 8;
+                                _context5.next = 8;
                                 return httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS());
 
                             case 8:
-                                htmlDetail = _context4.sent;
+                                htmlDetail = _context5.sent;
 
                                 htmlDetail = htmlDetail.data;
                                 $ = cheerio.load(htmlDetail);
@@ -247,22 +269,22 @@ var Seehd = function () {
                                 });
 
                                 arrPromise = arrEmbed.map(function () {
-                                    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(val) {
+                                    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(val) {
                                         var htmlEmbed, $_3, iframe;
-                                        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                                        return regeneratorRuntime.wrap(function _callee4$(_context4) {
                                             while (1) {
-                                                switch (_context3.prev = _context3.next) {
+                                                switch (_context4.prev = _context4.next) {
                                                     case 0:
                                                         if (!(val.indexOf('seehd.pl/d') != -1)) {
-                                                            _context3.next = 11;
+                                                            _context4.next = 11;
                                                             break;
                                                         }
 
-                                                        _context3.next = 3;
+                                                        _context4.next = 3;
                                                         return httpRequest.getCloudflare(val, URL.HEADERS());
 
                                                     case 3:
-                                                        htmlEmbed = _context3.sent;
+                                                        htmlEmbed = _context4.sent;
 
                                                         htmlEmbed = htmlEmbed.data;
                                                         $_3 = cheerio.load(htmlEmbed);
@@ -284,7 +306,7 @@ var Seehd = function () {
                                                                 type: "embed"
                                                             }
                                                         });
-                                                        _context3.next = 12;
+                                                        _context4.next = 12;
                                                         break;
 
                                                     case 11:
@@ -302,17 +324,17 @@ var Seehd = function () {
 
                                                     case 12:
                                                     case 'end':
-                                                        return _context3.stop();
+                                                        return _context4.stop();
                                                 }
                                             }
-                                        }, _callee3, _this);
+                                        }, _callee4, _this);
                                     }));
 
-                                    return function (_x4) {
-                                        return _ref4.apply(this, arguments);
+                                    return function (_x5) {
+                                        return _ref5.apply(this, arguments);
                                     };
                                 }());
-                                _context4.next = 16;
+                                _context5.next = 16;
                                 return Promise.all(arrPromise);
 
                             case 16:
@@ -321,14 +343,14 @@ var Seehd = function () {
 
                             case 17:
                             case 'end':
-                                return _context4.stop();
+                                return _context5.stop();
                         }
                     }
-                }, _callee4, this);
+                }, _callee5, this);
             }));
 
             function getHostFromDetail() {
-                return _ref3.apply(this, arguments);
+                return _ref4.apply(this, arguments);
             }
 
             return getHostFromDetail;
@@ -339,11 +361,11 @@ var Seehd = function () {
 }();
 
 thisSource.function = function () {
-    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(libs, movieInfo, settings) {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(libs, movieInfo, settings) {
         var httpRequest, source, bodyPost;
-        return regeneratorRuntime.wrap(function _callee5$(_context5) {
+        return regeneratorRuntime.wrap(function _callee6$(_context6) {
             while (1) {
-                switch (_context5.prev = _context5.next) {
+                switch (_context6.prev = _context6.next) {
                     case 0:
                         httpRequest = libs.httpRequest;
                         source = new Seehd({
@@ -360,7 +382,7 @@ thisSource.function = function () {
                             title: movieInfo.title,
                             year: movieInfo.year
                         };
-                        _context5.next = 5;
+                        _context6.next = 5;
                         return source.searchDetail();
 
                     case 5:
@@ -370,7 +392,7 @@ thisSource.function = function () {
                         } else {
                             bodyPost.is_link = 1;
                         }
-                        _context5.next = 8;
+                        _context6.next = 8;
                         return source.getHostFromDetail();
 
                     case 8:
@@ -381,22 +403,22 @@ thisSource.function = function () {
                             bodyPost.is_link = 1;
                         }
 
-                        _context5.next = 11;
+                        _context6.next = 11;
                         return httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
 
                     case 11:
-                        return _context5.abrupt('return', source.state.hosts);
+                        return _context6.abrupt('return', source.state.hosts);
 
                     case 12:
                     case 'end':
-                        return _context5.stop();
+                        return _context6.stop();
                 }
             }
-        }, _callee5, undefined);
+        }, _callee6, undefined);
     }));
 
-    return function (_x5, _x6, _x7) {
-        return _ref5.apply(this, arguments);
+    return function (_x6, _x7, _x8) {
+        return _ref6.apply(this, arguments);
     };
 }();
 
