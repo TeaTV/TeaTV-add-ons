@@ -128,16 +128,6 @@
                 "movie"
             ]
         },
-        "mytv": {
-            "name": "mytv",
-            "domain": "api.teatv.net",
-            "version": "0.0.10",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/mytv.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "seehd": {
             "name": "seehd",
             "domain": "seehd.pl",
