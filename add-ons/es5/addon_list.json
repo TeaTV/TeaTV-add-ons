@@ -1,5 +1,15 @@
 {
     "providers": {
+        "123moviesto": {
+            "name": "123moviesto",
+            "domain": "123moviesto.live",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesto.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
         "moviewatcher": {
             "name": "moviewatcher",
             "domain": "moviewatcher.is",
