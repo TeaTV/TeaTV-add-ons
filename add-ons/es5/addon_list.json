@@ -1,5 +1,15 @@
 {
     "providers": {
+        "moviewatcher": {
+            "name": "moviewatcher",
+            "domain": "moviewatcher.is",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/moviewatcher.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
         "hdonlinecz": {
             "name": "hdonlinecz",
             "domain": "hdonline.cz",
