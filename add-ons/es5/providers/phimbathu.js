@@ -35,7 +35,7 @@ var Phimbathu = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type, videoUrl, detailUrl, tvshowDetailUrl, urlSearch, htmlSearch, $, itemSearch, htmlVideo, $_2, hrefVideo, htmlDetail, _$_, itemEpisode;
+                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type, videoUrl, detailUrl, tvshowDetailUrl, listSeasonMovie, urlSearch, htmlSearch, $, itemSearch, item, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, _item, htmlVideo, $_2, hrefVideo, htmlDetail, _$_, itemEpisode;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -60,11 +60,12 @@ var Phimbathu = function () {
                                 videoUrl = false;
                                 detailUrl = false;
                                 tvshowDetailUrl = false;
+                                listSeasonMovie = [];
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
-                                _context.next = 9;
+                                _context.next = 10;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS);
 
-                            case 9:
+                            case 10:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch);
                                 itemSearch = $('#page-info .item');
@@ -80,6 +81,7 @@ var Phimbathu = function () {
                                     var seasonMovie = titleMovie.match(/season *([0-9]+)/i);
                                     seasonMovie = seasonMovie != null ? +seasonMovie[1] : 0;
                                     titleMovie = titleMovie.replace(/season *[0-9]+ *\(* *[0-9]+ *\)*$/i, '').trim();
+                                    titleMovie = titleMovie.replace(/season *[0-9]+/i, '').trim();
                                     titleMovie = titleMovie.replace(/\( *[0-9]+ *\)/i, '').trim();
                                     var status = $(this).find('.label').text().toLowerCase();
                                     var status_lower = status.trim().replace('ậ', 'a');
@@ -88,28 +90,118 @@ var Phimbathu = function () {
                                         titleMovie = titleVi;
                                     }
 
+                                    console.log(title, titleMovie, seasonMovie);
                                     if (stringHelper.shallowCompare(title, titleMovie)) {
 
                                         if (type == 'movie' && status_lower.indexOf('full') == -1 && status_lower.indexOf('tap') == -1 && year == yearMovie) {
                                             videoUrl = hrefMovie;
                                             return;
-                                        } else if (type == 'tv' && (status_lower.indexOf('full') != -1 || status_lower.indexOf('tap') != -1) && (season == seasonMovie || seasonMovie == 0)) {
+                                        } else if (type == 'tv' && (status_lower.indexOf('full') != -1 || status_lower.indexOf('tap') != -1)) {
 
-                                            videoUrl = hrefMovie;
-                                            return;
+                                            listSeasonMovie.push({ hrefMovie: hrefMovie, seasonMovie: seasonMovie });
                                         }
                                     }
                                 });
 
-                                if (!(videoUrl != false)) {
-                                    _context.next = 21;
+                                _context.t0 = regeneratorRuntime.keys(listSeasonMovie);
+
+                            case 15:
+                                if ((_context.t1 = _context.t0()).done) {
+                                    _context.next = 22;
                                     break;
                                 }
 
-                                _context.next = 16;
+                                item = _context.t1.value;
+
+                                if (!(listSeasonMovie[item].seasonMovie == season)) {
+                                    _context.next = 20;
+                                    break;
+                                }
+
+                                videoUrl = listSeasonMovie[item].hrefMovie;
+                                return _context.abrupt('break', 22);
+
+                            case 20:
+                                _context.next = 15;
+                                break;
+
+                            case 22:
+                                if (videoUrl) {
+                                    _context.next = 50;
+                                    break;
+                                }
+
+                                _iteratorNormalCompletion = true;
+                                _didIteratorError = false;
+                                _iteratorError = undefined;
+                                _context.prev = 26;
+                                _iterator = listSeasonMovie[Symbol.iterator]();
+
+                            case 28:
+                                if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
+                                    _context.next = 36;
+                                    break;
+                                }
+
+                                _item = _step.value;
+
+                                if (!(listSeasonMovie[_item].seasonMovie == 0)) {
+                                    _context.next = 33;
+                                    break;
+                                }
+
+                                videoUrl = listSeasonMovie[_item].hrefMovie;
+                                return _context.abrupt('break', 36);
+
+                            case 33:
+                                _iteratorNormalCompletion = true;
+                                _context.next = 28;
+                                break;
+
+                            case 36:
+                                _context.next = 42;
+                                break;
+
+                            case 38:
+                                _context.prev = 38;
+                                _context.t2 = _context['catch'](26);
+                                _didIteratorError = true;
+                                _iteratorError = _context.t2;
+
+                            case 42:
+                                _context.prev = 42;
+                                _context.prev = 43;
+
+                                if (!_iteratorNormalCompletion && _iterator.return) {
+                                    _iterator.return();
+                                }
+
+                            case 45:
+                                _context.prev = 45;
+
+                                if (!_didIteratorError) {
+                                    _context.next = 48;
+                                    break;
+                                }
+
+                                throw _iteratorError;
+
+                            case 48:
+                                return _context.finish(45);
+
+                            case 49:
+                                return _context.finish(42);
+
+                            case 50:
+                                if (!(videoUrl != false)) {
+                                    _context.next = 58;
+                                    break;
+                                }
+
+                                _context.next = 53;
                                 return httpRequest.getHTML(videoUrl, URL.HEADERS);
 
-                            case 16:
+                            case 53:
                                 htmlVideo = _context.sent;
                                 $_2 = cheerio.load(htmlVideo);
                                 hrefVideo = $_2('.btn-see').attr('href');
@@ -126,16 +218,16 @@ var Phimbathu = function () {
                                     tvshowDetailUrl = hrefVideo;
                                 }
 
-                            case 21:
+                            case 58:
                                 if (!(type == 'tv' && tvshowDetailUrl)) {
-                                    _context.next = 28;
+                                    _context.next = 65;
                                     break;
                                 }
 
-                                _context.next = 24;
+                                _context.next = 61;
                                 return httpRequest.getHTML(tvshowDetailUrl);
 
-                            case 24:
+                            case 61:
                                 htmlDetail = _context.sent;
                                 _$_ = cheerio.load(htmlDetail);
                                 itemEpisode = _$_('#list_episodes a');
@@ -154,17 +246,17 @@ var Phimbathu = function () {
                                     }
                                 });
 
-                            case 28:
+                            case 65:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 30:
+                            case 67:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this);
+                }, _callee, this, [[26, 38, 42, 50], [43,, 45, 49]]);
             }));
 
             function searchDetail() {
@@ -266,7 +358,7 @@ var Phimbathu = function () {
 
                                 arrPromise = arrServer.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
-                                        var jsonThuyetMinh, _item, _item2, _link_direct;
+                                        var jsonThuyetMinh, _item2, _item3, _link_direct;
 
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
@@ -280,10 +372,10 @@ var Phimbathu = function () {
 
                                                         jsonThuyetMinh = JSON.parse(jsonThuyetMinh);
 
-                                                        for (_item in jsonThuyetMinh.sourceLinks) {
+                                                        for (_item2 in jsonThuyetMinh.sourceLinks) {
 
-                                                            for (_item2 in jsonThuyetMinh.sourceLinks[_item].links) {
-                                                                _link_direct = gibberish.dec(jsonThuyetMinh.sourceLinks[_item].links[_item2].file, key);
+                                                            for (_item3 in jsonThuyetMinh.sourceLinks[_item2].links) {
+                                                                _link_direct = gibberish.dec(jsonThuyetMinh.sourceLinks[_item2].links[_item3].file, key);
 
 
                                                                 if (_link_direct) {
@@ -295,7 +387,7 @@ var Phimbathu = function () {
                                                                         },
                                                                         result: {
                                                                             file: _link_direct,
-                                                                            label: jsonThuyetMinh.sourceLinks[_item].links[_item2].label,
+                                                                            label: jsonThuyetMinh.sourceLinks[_item2].links[_item3].label,
                                                                             type: 'direct'
                                                                         }
                                                                     });
