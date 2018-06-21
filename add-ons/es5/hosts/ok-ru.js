@@ -90,9 +90,10 @@ var OK_RU = function () {
                                 _context3.prev = 6;
                                 results = [];
                                 $ = cheerio.load(html);
-                                script = $('.vp_video div[data-module=OKVideo]').attr('data-options');
+                                script = $('div[data-module=OKVideo]').attr('data-options');
 
                                 script = JSON.parse(script);
+
                                 videos = script.flashvars.metadata;
 
                                 videos = JSON.parse(videos);
