@@ -7,8 +7,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "http://afdah.to",
-    SEARCH: 'http://afdah.to/wp-content/themes/afdah/ajax-search2.php',
+    DOMAIN: "https://afdah.to",
+    SEARCH: 'https://afdah.to/wp-content/themes/afdah/ajax-search2.php',
     HEADERS: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
         'Origin': 'http://afdah.to',
