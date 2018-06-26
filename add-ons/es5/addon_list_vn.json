@@ -117,6 +117,14 @@
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ggstream.js"
         },
+        "128.199.107.84": {
+            "name": "128.199.107.84",
+            "domain": [
+                "128.199.107.84"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/files.wordpress.js"
+        },
         "wordpress": {
             "name": "wordpress",
             "domain": [
