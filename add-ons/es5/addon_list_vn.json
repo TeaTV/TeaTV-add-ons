@@ -109,6 +109,14 @@
         }
     },
     "hosts": {
+        "default": {
+            "name": "default",
+            "domain": [
+                "default"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/default.js"
+        },
         "ggstream": {
             "name": "ggstream",
             "domain": [
@@ -286,14 +294,6 @@
             ],
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidushare.js"
-        },
-        "ok-ru": {
-            "name": "ok-ru",
-            "domain": [
-                "ok.ru"
-            ],
-            "version": "0.0.4",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ok-ru.js"
         },
         "rapidvideo": {
             "name": "rapidvideo",
