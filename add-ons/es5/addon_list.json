@@ -50,16 +50,6 @@
                 "tv"
             ]
         },
-        "primewire": {
-            "name": "primewire",
-            "domain": "primewire.ac",
-            "version": "0.0.4",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/primeware.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "yesmovies": {
             "name": "yesmovies",
             "domain": "yesmovies.to",
@@ -283,7 +273,7 @@
                 "oload.site",
                 "oload.win"
             ],
-            "version": "0.0.6",
+            "version": "0.0.7",
             "author": "psyntium",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/openload.js"
         },
