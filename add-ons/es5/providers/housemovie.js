@@ -252,25 +252,22 @@ var HouseMovies = function () {
                                     }
                                 };
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
-
-
-                                console.log(urlSearch, '1');
-                                _context.next = 8;
+                                _context.next = 7;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS());
 
-                            case 8:
+                            case 7:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch);
                                 itemSearch = $('.fig_holder');
 
                                 if (!(itemSearch.length == 0)) {
-                                    _context.next = 29;
+                                    _context.next = 25;
                                     break;
                                 }
 
                                 script = $('script').last().html();
 
-                                console.log(script, '2');
+
                                 eval(script);
 
                                 cookie = document.cookie.replace(/\;.*/i, '') + ';';
@@ -278,34 +275,33 @@ var HouseMovies = function () {
 
                                 valueCookie = valueCookie != null ? valueCookie[1] : '';
 
-                                console.log(cookie, valueCookie, '3');
+                                //console.log(cookie, valueCookie, '3');
 
                                 this.state.cookie = cookie;
 
                                 if (!httpRequest.cookie) {
-                                    _context.next = 24;
+                                    _context.next = 20;
                                     break;
                                 }
 
-                                console.log(cookie, valueCookie, '1.2.3');
-                                _context.next = 24;
+                                _context.next = 20;
                                 return httpRequest.cookie.set('https://housemovie.to/', 'BPC', valueCookie);
 
-                            case 24:
-                                _context.next = 26;
+                            case 20:
+                                _context.next = 22;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS_COOKIE(cookie));
 
-                            case 26:
+                            case 22:
                                 htmlSearch = _context.sent;
 
                                 $ = cheerio.load(htmlSearch);
 
                                 itemSearch = $('.fig_holder');
 
-                            case 29:
+                            case 25:
 
-                                console.log(htmlSearch, '3.5');
-                                console.log(itemSearch.length, urlSearch, '4');
+                                //console.log(htmlSearch, '3.5');
+                                //console.log(itemSearch.length, urlSearch, '4');
 
                                 itemSearch.each(function () {
 
@@ -315,7 +311,6 @@ var HouseMovies = function () {
                                     yearMovie = yearMovie.match(/([0-9]+)/i);
                                     yearMovie = yearMovie != null ? +yearMovie[1] : -1;
 
-                                    console.log(hrefMovie, titleMovie, yearMovie, '5');
                                     if (stringHelper.shallowCompare(title, titleMovie) && yearMovie == year) {
 
                                         detailUrl = hrefMovie;
@@ -326,7 +321,7 @@ var HouseMovies = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 34:
+                            case 28:
                             case 'end':
                                 return _context.stop();
                         }
@@ -344,7 +339,7 @@ var HouseMovies = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, base64, hosts, detailUrl, htmlDetail, $, itemEmbed;
+                var _libs2, httpRequest, cheerio, base64, hosts, detailUrl, htmlDetail, $, itemEmbed, document, script, cookie, valueCookie;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -362,18 +357,59 @@ var HouseMovies = function () {
                             case 3:
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
-
-
-                                console.log('6');
-                                _context2.next = 8;
+                                _context2.next = 7;
                                 return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS_COOKIE(this.state.cookie));
 
-                            case 8:
+                            case 7:
                                 htmlDetail = _context2.sent;
                                 $ = cheerio.load(htmlDetail);
                                 itemEmbed = $('.btn_play');
 
-                                console.log(itemEmbed.length, '7');
+                                if (!(itemEmbed.length == 0)) {
+                                    _context2.next = 26;
+                                    break;
+                                }
+
+                                document = {
+                                    cookie: '',
+                                    location: {
+                                        href: ''
+                                    }
+                                };
+                                script = $('script').last().html();
+
+
+                                eval(script);
+
+                                cookie = document.cookie.replace(/\;.*/i, '') + ';';
+                                valueCookie = cookie.match(/BPC=([^\;]+)/i);
+
+                                valueCookie = valueCookie != null ? valueCookie[1] : '';
+
+                                // console.log(cookie, valueCookie, '3'); process.exit();
+
+                                this.state.cookie = cookie;
+
+                                if (!httpRequest.cookie) {
+                                    _context2.next = 21;
+                                    break;
+                                }
+
+                                _context2.next = 21;
+                                return httpRequest.cookie.set('https://housemovie.to/', 'BPC', valueCookie);
+
+                            case 21:
+                                _context2.next = 23;
+                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS_COOKIE(cookie));
+
+                            case 23:
+                                htmlDetail = _context2.sent;
+
+                                $ = cheerio.load(htmlDetail);
+
+                                itemEmbed = $('.btn_play');
+
+                            case 26:
 
                                 itemEmbed.each(function () {
 
@@ -382,7 +418,7 @@ var HouseMovies = function () {
                                         var token = $(this).attr('data-player_link');
                                         var linkEmbed = base64.decode(token);
 
-                                        console.log(token, linkEmbed, '8');
+                                        //console.log(token, linkEmbed, '8');
                                         linkEmbed && hosts.push({
                                             provider: {
                                                 url: detailUrl,
@@ -400,7 +436,7 @@ var HouseMovies = function () {
                                 this.state.hosts = hosts;
                                 return _context2.abrupt('return');
 
-                            case 15:
+                            case 29:
                             case 'end':
                                 return _context2.stop();
                         }
