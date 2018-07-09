@@ -7,9 +7,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: 'http://www.hollymoviehd.com',
+    DOMAIN: 'http://www2.hollymoviehd.com',
     SEARCH: function SEARCH(title) {
-        return 'http://www.hollymoviehd.com/?zc=search&s=' + title;
+        return 'http://www2.hollymoviehd.com/?zc=search&s=' + title;
     },
     HEADERS: function HEADERS() {
         return {
@@ -17,9 +17,6 @@ var URL = {
             'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
             'Cache-Control': 'max-age=0',
             'Connection': 'keep-alive',
-            'Cookie': 'taboola_rw23=5a1a871d45e;',
-            'Referer': 'http://www.hollymoviehd.com/checking/',
-            'Origin': 'http://www.hollymoviehd.com',
             'Host': 'www.hollymoviehd.com',
             'Upgrade-Insecure-Requests': 1,
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
@@ -59,20 +56,16 @@ var HollyMovies = function () {
                                     urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')) + ('+season+' + season);
                                 }
 
-                                if (!httpRequest.cookie) {
-                                    _context.next = 8;
-                                    break;
-                                }
+                                // if (!!httpRequest.cookie) {
 
+                                //     await httpRequest.cookie.set('http://www2.hollymoviehd.com/', 'taboola_rw23', '5a1a871d45e');
+                                // }
+
+                                _context.prev = 5;
                                 _context.next = 8;
-                                return httpRequest.cookie.set('http://www.hollymoviehd.com/', 'taboola_rw23', '5a1a871d45e');
+                                return httpRequest.get(urlSearch);
 
                             case 8:
-                                _context.prev = 8;
-                                _context.next = 11;
-                                return httpRequest.get(urlSearch, URL.HEADERS());
-
-                            case 11:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch.data);
                                 itemSearch = $('.movies-list .ml-item');
@@ -102,26 +95,26 @@ var HollyMovies = function () {
                                         }
                                     }
                                 });
-                                _context.next = 20;
+                                _context.next = 17;
                                 break;
 
-                            case 17:
-                                _context.prev = 17;
-                                _context.t0 = _context['catch'](8);
+                            case 14:
+                                _context.prev = 14;
+                                _context.t0 = _context['catch'](5);
 
                                 console.log(String(_context.t0));
 
-                            case 20:
+                            case 17:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 22:
+                            case 19:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[8, 17]]);
+                }, _callee, this, [[5, 14]]);
             }));
 
             function searchDetail() {
@@ -162,7 +155,7 @@ var HollyMovies = function () {
                                 }
 
                                 _context3.next = 10;
-                                return httpRequest.getHTML(detailUrl, URL.HEADERS());
+                                return httpRequest.getHTML(detailUrl);
 
                             case 10:
                                 htmlDetail = _context3.sent;
@@ -170,12 +163,11 @@ var HollyMovies = function () {
                                 itemRedirect = $('#player2 > div');
 
 
-                                console.log(itemRedirect.length, '8');
                                 itemRedirect.each(function () {
 
-                                    var linkRedirect = $(this).find('iframe').attr('data-lazy-src');
+                                    var linkRedirect = $(this).find('iframe').attr('src');
 
-                                    console.log(linkRedirect, '9');
+                                    // console.log(linkRedirect, '9');
                                     if (linkRedirect != undefined) {
 
                                         if (linkRedirect.indexOf('http:') == -1 && linkRedirect.indexOf('https:') == -1) {
@@ -280,15 +272,15 @@ var HollyMovies = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 18;
+                                _context3.next = 17;
                                 return Promise.all(arrPromise);
 
-                            case 18:
+                            case 17:
 
                                 this.state.hosts = hosts;
                                 return _context3.abrupt('return');
 
-                            case 20:
+                            case 19:
                             case 'end':
                                 return _context3.stop();
                         }
