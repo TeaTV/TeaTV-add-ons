@@ -151,11 +151,19 @@ var YesMovies = function () {
                                 return Promise.all(arrPromise);
 
                             case 16:
+                                if (detailUrl) {
+                                    _context3.next = 18;
+                                    break;
+                                }
+
+                                throw new Error('NOT FOUND');
+
+                            case 18:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context3.abrupt('return');
 
-                            case 18:
+                            case 20:
                             case 'end':
                                 return _context3.stop();
                         }

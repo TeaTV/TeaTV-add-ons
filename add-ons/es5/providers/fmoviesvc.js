@@ -176,10 +176,18 @@ var FmoviesVc = function () {
                                 }
 
                             case 27:
+                                if (detailUrl) {
+                                    _context2.next = 29;
+                                    break;
+                                }
+
+                                throw new Error('NOT FOUND');
+
+                            case 29:
                                 this.state.detailUrl = detailUrl;
                                 return _context2.abrupt('return');
 
-                            case 29:
+                            case 31:
                             case 'end':
                                 return _context2.stop();
                         }
