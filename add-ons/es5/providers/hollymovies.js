@@ -13,13 +13,7 @@ var URL = {
     },
     HEADERS: function HEADERS() {
         return {
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-            'Cache-Control': 'max-age=0',
-            'Connection': 'keep-alive',
-            'Host': 'www.hollymoviehd.com',
-            'Upgrade-Insecure-Requests': 1,
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/66.0.3359.181 Chrome/66.0.3359.181 Safari/537.36'
         };
     }
 };
@@ -63,7 +57,7 @@ var HollyMovies = function () {
 
                                 _context.prev = 5;
                                 _context.next = 8;
-                                return httpRequest.get(urlSearch);
+                                return httpRequest.getCloudflare(urlSearch);
 
                             case 8:
                                 htmlSearch = _context.sent;
@@ -155,11 +149,11 @@ var HollyMovies = function () {
                                 }
 
                                 _context3.next = 10;
-                                return httpRequest.getHTML(detailUrl);
+                                return httpRequest.getCloudflare(detailUrl);
 
                             case 10:
                                 htmlDetail = _context3.sent;
-                                $ = cheerio.load(htmlDetail);
+                                $ = cheerio.load(htmlDetail.data);
                                 itemRedirect = $('#player2 > div');
 
 
@@ -167,7 +161,7 @@ var HollyMovies = function () {
 
                                     var linkRedirect = $(this).find('iframe').attr('src');
 
-                                    // console.log(linkRedirect, '9');
+                                    //console.log(linkRedirect, '9');
                                     if (linkRedirect != undefined) {
 
                                         if (linkRedirect.indexOf('http:') == -1 && linkRedirect.indexOf('https:') == -1) {
@@ -180,7 +174,7 @@ var HollyMovies = function () {
 
                                 arrPromise = arrRedirect.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
-                                        var arrSources, htmlRedirect, sources, _$, embed, item;
+                                        var arrSources, htmlRedirect, html, sources, _$, embed, item;
 
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
@@ -190,10 +184,7 @@ var HollyMovies = function () {
                                                         htmlRedirect = '';
                                                         _context2.prev = 2;
                                                         _context2.next = 5;
-                                                        return httpRequest.getHTML(val, {
-                                                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36',
-                                                            'Referer': val
-                                                        });
+                                                        return httpRequest.getCloudflare(val);
 
                                                     case 5:
                                                         htmlRedirect = _context2.sent;
@@ -205,10 +196,21 @@ var HollyMovies = function () {
                                                         _context2.t0 = _context2['catch'](2);
 
                                                     case 10:
-                                                        sources = htmlRedirect.match(/player\.setup\(\{\s*sources\: *\[([^\]]+)/i);
+                                                        if (!(htmlRedirect.data == undefined)) {
+                                                            _context2.next = 12;
+                                                            break;
+                                                        }
+
+                                                        return _context2.abrupt('return', false);
+
+                                                    case 12:
+                                                        html = htmlRedirect.data;
+                                                        //console.log(html, val, 'fff');
+
+                                                        sources = html.match(/player\.setup\(\{\s*sources\: *\[([^\]]+)/i);
 
                                                         if (sources == null) {
-                                                            _$ = cheerio.load(htmlRedirect);
+                                                            _$ = cheerio.load(html);
                                                             embed = _$('iframe').attr('src');
 
 
@@ -260,7 +262,7 @@ var HollyMovies = function () {
                                                             }
                                                         }
 
-                                                    case 12:
+                                                    case 15:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
