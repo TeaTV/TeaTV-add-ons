@@ -9,9 +9,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var URL = {
     DOMAIN: 'http://vumoo.to',
     DOMAIN_CDN: 'http://cdn.123moviesapp.net',
-    SEARCH: function SEARCH(title) {
-        return 'http://vumoo.to/search?t=13579&q=' + title;
-    }
+    SEARCH: function SEARCH(title, t) {
+        return 'http://vumoo.to/search?t=' + t + '&q=' + title;
+    },
+    SEARCH_JS: 'http://vumoo.to/javascripts/vumoo-v1.0.0.min.js'
 };
 
 var Vumoo = function () {
@@ -28,7 +29,7 @@ var Vumoo = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, urlSearch, jsonSearch;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, getJs, match, t, detailUrl, urlSearch, jsonSearch;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -36,15 +37,40 @@ var Vumoo = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+                                _context.next = 4;
+                                return httpRequest.get(URL.SEARCH_JS);
+
+                            case 4:
+                                getJs = _context.sent;
+                                match = getJs.data.match(/search\?t=([^"]+)/);
+
+                                if (!(match[1] == undefined)) {
+                                    _context.next = 8;
+                                    break;
+                                }
+
+                                return _context.abrupt('return');
+
+                            case 8:
+                                t = match[1];
                                 detailUrl = false;
-                                urlSearch = URL.SEARCH(encodeURI(title));
-                                _context.next = 6;
+                                urlSearch = URL.SEARCH(encodeURI(title), t);
+                                _context.next = 13;
                                 return httpRequest.get(urlSearch);
 
-                            case 6:
+                            case 13:
                                 jsonSearch = _context.sent;
 
                                 jsonSearch = jsonSearch.data;
+
+                                if (jsonSearch.suggestions) {
+                                    _context.next = 17;
+                                    break;
+                                }
+
+                                throw new Error('NOT SEARCH VUMOO');
+
+                            case 17:
 
                                 jsonSearch.suggestions.forEach(function (val) {
 
@@ -76,7 +102,7 @@ var Vumoo = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 11:
+                            case 20:
                             case 'end':
                                 return _context.stop();
                         }
