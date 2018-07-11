@@ -196,15 +196,6 @@
                 "tv"
             ]
         },
-        "vidics": {
-            "name": "vidics",
-            "domain": "vidics.to",
-            "version": "0.0.5",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vidics.js",
-            "type": [
-                "tv"
-            ]
-        },
         "coolmovie": {
             "name": "coolmoviezone",
             "domain": "coolmoviezone.info",
