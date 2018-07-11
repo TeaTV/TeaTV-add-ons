@@ -1,15 +1,5 @@
 {
     "providers": {
-        "123moviesto": {
-            "name": "123moviesto",
-            "domain": "123moviesto.live",
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesto.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "moviewatcher": {
             "name": "moviewatcher",
             "domain": "moviewatcher.is",
@@ -33,7 +23,7 @@
         "fmoviesvc": {
             "name": "fmoviesvc",
             "domain": "fmovies.vc",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/fmoviesvc.js",
             "type": [
                 "movie",
@@ -43,7 +33,7 @@
         "housemovie": {
             "name": "housemovie",
             "domain": "housemovie.to",
-            "version": "0.0.21",
+            "version": "0.0.22",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/housemovie.js",
             "type": [
                 "movie",
@@ -53,7 +43,7 @@
         "yesmovies": {
             "name": "yesmovies",
             "domain": "yesmovies.to",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/yesmovies.js",
             "type": [
                 "movie",
@@ -73,7 +63,7 @@
         "vumoo": {
             "name": "vumoo",
             "domain": "vumoo.to",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vumoo.js",
             "type": [
                 "movie",
@@ -145,6 +135,16 @@
             "version": "0.0.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vexmovies.js",
             "type": [
+                "movie"
+            ]
+        },
+        "hollymovies": {
+            "name": "hollymovies",
+            "domain": "hollymoviehd.com",
+            "version": "0.0.23",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hollymovies.js",
+            "type": [
+                "tv",
                 "movie"
             ]
         },
