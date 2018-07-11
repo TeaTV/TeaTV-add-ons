@@ -3,7 +3,7 @@
         "moviewatcher": {
             "name": "moviewatcher",
             "domain": "moviewatcher.is",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/moviewatcher.js",
             "type": [
                 "movie",
@@ -315,14 +315,6 @@
             ],
             "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ok-ru.js"
-        },
-        "rapidvideo": {
-            "name": "rapidvideo",
-            "domain": [
-                "rapidvideo.com"
-            ],
-            "version": "0.0.2",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/rapidvideo.js"
         },
         "vidnode": {
             "name": "vidnode",
