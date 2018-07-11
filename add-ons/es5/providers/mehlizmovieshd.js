@@ -118,9 +118,10 @@ var Mehlizmovies = function () {
                                                             eval('linkDirect = [' + fileMp4[1] + ']');
                                                         }
 
-                                                        console.log(linkDirect);process.exit();
+                                                        //console.log(linkDirect); process.exit();
 
-                                                    case 6:
+
+                                                    case 4:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }

@@ -81,7 +81,7 @@ var Google = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, qs, sources, listEncode, id, resultText, _resultText, fmt_stream_map, status, listLink, i;
+                var _libs, httpRequest, cheerio, qs, sources, listEncode, id, resultText, _resultText, fmt_stream_mapub, status, listLink, i;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -101,7 +101,7 @@ var Google = function () {
                                 resultText = _context2.sent;
 
                                 resultText = qs.parse(resultText);
-                                _resultText = resultText, fmt_stream_map = _resultText.fmt_stream_map, status = _resultText.status;
+                                _resultText = resultText, fmt_stream_mapub = _resultText.fmt_stream_mapub, status = _resultText.status;
                                 listLink = fmt_stream_map.split(",");
 
                                 for (i = 0; i < listLink.length; i++) {

@@ -57,7 +57,7 @@ var HollyMovies = function () {
 
                                 _context.prev = 5;
                                 _context.next = 8;
-                                return httpRequest.getCloudflare(urlSearch);
+                                return httpRequest.get(urlSearch, URL.HEADERS());
 
                             case 8:
                                 htmlSearch = _context.sent;
@@ -149,7 +149,7 @@ var HollyMovies = function () {
                                 }
 
                                 _context3.next = 10;
-                                return httpRequest.getCloudflare(detailUrl);
+                                return httpRequest.get(detailUrl, URL.HEADERS());
 
                             case 10:
                                 htmlDetail = _context3.sent;
@@ -181,10 +181,10 @@ var HollyMovies = function () {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
                                                         arrSources = [];
-                                                        htmlRedirect = '';
+                                                        htmlRedirect = {};
                                                         _context2.prev = 2;
                                                         _context2.next = 5;
-                                                        return httpRequest.getCloudflare(val);
+                                                        return httpRequest.getCloudflare(val, URL.HEADERS());
 
                                                     case 5:
                                                         htmlRedirect = _context2.sent;
@@ -196,73 +196,69 @@ var HollyMovies = function () {
                                                         _context2.t0 = _context2['catch'](2);
 
                                                     case 10:
-                                                        if (!(htmlRedirect.data == undefined)) {
-                                                            _context2.next = 12;
-                                                            break;
-                                                        }
 
-                                                        return _context2.abrupt('return', false);
+                                                        if (htmlRedirect !== undefined && htmlRedirect.data !== undefined) {
+                                                            html = htmlRedirect.data;
+                                                            sources = html.match(/sources\: *\[([^\]]+)/i);
+                                                            //console.log(sources, val, 'fff');
 
-                                                    case 12:
-                                                        html = htmlRedirect.data;
-                                                        //console.log(html, val, 'fff');
-
-                                                        sources = html.match(/player\.setup\(\{\s*sources\: *\[([^\]]+)/i);
-
-                                                        if (sources == null) {
-                                                            _$ = cheerio.load(html);
-                                                            embed = _$('iframe').attr('src');
+                                                            if (sources == null) {
+                                                                _$ = cheerio.load(html);
+                                                                embed = _$('iframe').attr('src');
 
 
-                                                            embed && hosts.push({
-                                                                provider: {
-                                                                    url: detailUrl,
-                                                                    name: "hollymovies"
-                                                                },
-                                                                result: {
-                                                                    file: embed,
-                                                                    label: "embed",
-                                                                    type: "embed"
-                                                                }
-                                                            });
-                                                        } else {
+                                                                embed && hosts.push({
+                                                                    provider: {
+                                                                        url: detailUrl,
+                                                                        name: "hollymovies"
+                                                                    },
+                                                                    result: {
+                                                                        file: embed,
+                                                                        label: "embed",
+                                                                        type: "embed"
+                                                                    }
+                                                                });
+                                                            } else {
 
-                                                            sources = sources != null ? sources[1] : '';
+                                                                sources = sources != null ? sources[1] : '';
 
-                                                            eval('arrSources = [' + sources + ']');
+                                                                eval('arrSources = [' + sources + ']');
 
-                                                            for (item in arrSources) {
+                                                                //console.log(arrSources, 'eval'); 
 
-                                                                if (arrSources[item].file.indexOf('google') == -1) {
+                                                                for (item in arrSources) {
 
-                                                                    arrSources[item].file && hosts.push({
-                                                                        provider: {
-                                                                            url: detailUrl,
-                                                                            name: "hollymovies"
-                                                                        },
-                                                                        result: {
-                                                                            file: arrSources[item].file,
-                                                                            label: "embed",
-                                                                            type: "direct"
-                                                                        }
-                                                                    });
-                                                                } else {
-                                                                    arrSources[item].file && hosts.push({
-                                                                        provider: {
-                                                                            url: detailUrl,
-                                                                            name: "hollymovies"
-                                                                        },
-                                                                        result: {
-                                                                            file: arrSources[item].file,
-                                                                            label: "embed",
-                                                                            type: "embed"
-                                                                        }
-                                                                    });
+                                                                    if (arrSources[item].file.indexOf('google') == -1) {
+
+                                                                        arrSources[item].file && hosts.push({
+                                                                            provider: {
+                                                                                url: detailUrl,
+                                                                                name: "hollymovies"
+                                                                            },
+                                                                            result: {
+                                                                                file: arrSources[item].file,
+                                                                                label: "embed",
+                                                                                type: "direct"
+                                                                            }
+                                                                        });
+                                                                    } else {
+                                                                        arrSources[item].file && hosts.push({
+                                                                            provider: {
+                                                                                url: detailUrl,
+                                                                                name: "hollymovies"
+                                                                            },
+                                                                            result: {
+                                                                                file: arrSources[item].file,
+                                                                                label: "embed",
+                                                                                type: "embed"
+                                                                            }
+                                                                        });
+                                                                    }
                                                                 }
                                                             }
                                                         }
 
-                                                    case 15:
+                                                    case 11:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }

@@ -292,7 +292,7 @@ var Cmovies = function () {
                                                         linkRedirect = linkRedirect != null ? linkRedirect[1] : false;
 
                                                         if (!(linkRedirect != false)) {
-                                                            _context5.next = 14;
+                                                            _context5.next = 12;
                                                             break;
                                                         }
 
@@ -306,10 +306,9 @@ var Cmovies = function () {
                                                         token = token != null ? token[1] : '';
 
                                                         htmlToken = JuicyCodes.Run(token);
+                                                        //console.log(htmlToken); process.exit();
 
-                                                        console.log(htmlToken);process.exit();
-
-                                                    case 14:
+                                                    case 12:
                                                     case 'end':
                                                         return _context5.stop();
                                                 }
@@ -325,10 +324,10 @@ var Cmovies = function () {
                                 return Promise.all(arrPromise);
 
                             case 15:
-                                console.log('hihi');process.exit();
+                                //console.log('hihi'); process.exit();
                                 this.state.hosts = hosts;
 
-                            case 18:
+                            case 16:
                             case 'end':
                                 return _context6.stop();
                         }

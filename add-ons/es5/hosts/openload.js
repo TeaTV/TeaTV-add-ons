@@ -147,7 +147,7 @@ var Openload = function () {
 
                             case 18:
                                 if (!(status == 200)) {
-                                    _context2.next = 31;
+                                    _context2.next = 34;
                                     break;
                                 }
 
@@ -158,22 +158,25 @@ var Openload = function () {
 
                             case 23:
                                 isDie = _context2.sent;
-                                _context2.next = 28;
+                                _context2.next = 29;
                                 break;
 
                             case 26:
                                 _context2.prev = 26;
                                 _context2.t1 = _context2["catch"](20);
 
-                            case 28:
+
+                                console.log(String(_context2.t1));
+
+                            case 29:
                                 if (!(isDie == false)) {
-                                    _context2.next = 30;
+                                    _context2.next = 31;
                                     break;
                                 }
 
                                 throw new Error("NOT LINK");
 
-                            case 30:
+                            case 31:
                                 return _context2.abrupt("return", {
                                     host: {
                                         url: url,
@@ -182,7 +185,16 @@ var Openload = function () {
                                     result: [{ file: data, label: "NOR", type: "embed", size: isDie }]
                                 });
 
-                            case 31:
+                            case 34:
+                                return _context2.abrupt("return", {
+                                    host: {
+                                        url: url,
+                                        name: "openload"
+                                    },
+                                    result: []
+                                });
+
+                            case 35:
                             case "end":
                                 return _context2.stop();
                         }
