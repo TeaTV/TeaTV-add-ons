@@ -51,13 +51,6 @@ var RapidVideo = function () {
             return checkLive;
         }()
     }, {
-        key: 'convertToEmbed',
-        value: function convertToEmbed() {
-
-            // convert link detail to link embed
-            // if input is embed then return input
-        }
-    }, {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
@@ -86,13 +79,16 @@ var RapidVideo = function () {
                             case 8:
                                 $ = cheerio.load(html);
                                 _context3.prev = 9;
-                                quality = $('div[style*="height:23px; width:100%; margin:0 auto; color:#FFF; font-size:14px; line-height:23px; border-top:1px solid #0f0f0f;"]').find('a');
+                                quality = $('#home_video div[style*="height:23px; width:100%; margin:0 auto; color:#FFF; font-size:14px; line-height:23px; border-top:1px solid #0f0f0f;"]').find('a');
 
 
                                 quality.each(function () {
 
                                     var linkQuality = $(this).attr('href');
-                                    arrVideoQuality.push(linkQuality);
+
+                                    if (linkQuality.indexOf('http') != -1 && linkQuality.indexOf('&q=') != -1) {
+                                        arrVideoQuality.push(linkQuality);
+                                    }
                                 });
 
                                 arrPromise = arrVideoQuality.map(function () {
