@@ -83,7 +83,7 @@
         "playdk": {
             "name": "playdk",
             "domain": "playdk.net",
-            "version": "0.0.11",
+            "version": "0.0.12",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/playdk.js",
             "type": [
                 "movie",
@@ -135,16 +135,6 @@
             "version": "0.0.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vexmovies.js",
             "type": [
-                "movie"
-            ]
-        },
-        "hollymovies": {
-            "name": "hollymovies",
-            "domain": "hollymoviehd.com",
-            "version": "0.0.23",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hollymovies.js",
-            "type": [
-                "tv",
                 "movie"
             ]
         },
