@@ -251,7 +251,7 @@ var HouseMovies = function () {
                                         href: ''
                                     }
                                 };
-                                urlSearch = URL.SEARCH(encodeURI(title));
+                                urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
                                 _context.next = 7;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS());
 
@@ -358,7 +358,7 @@ var HouseMovies = function () {
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
                                 _context2.next = 7;
-                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS());
+                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS_COOKIE(this.state.cookie));
 
                             case 7:
                                 htmlDetail = _context2.sent;

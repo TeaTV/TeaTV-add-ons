@@ -33,7 +33,7 @@
         "fmoviesvc": {
             "name": "fmoviesvc",
             "domain": "fmovies.vc",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/fmoviesvc.js",
             "type": [
                 "movie",
@@ -43,7 +43,7 @@
         "housemovie": {
             "name": "housemovie",
             "domain": "housemovie.to",
-            "version": "0.0.23",
+            "version": "0.0.22",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/housemovie.js",
             "type": [
                 "movie",

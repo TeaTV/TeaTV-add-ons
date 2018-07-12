@@ -7,21 +7,21 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: 'http://fmovies.vc',
+    DOMAIN: 'http://fmovies.cloud',
     SEARCH: function SEARCH(title) {
-        return 'http://fmovies.vc/movie/search/' + title;
+        return 'http://fmovies.cloud/movie/search/' + title;
     },
     DOMAIN_EPISODE: function DOMAIN_EPISODE(id) {
-        return 'http://fmovies.vc/ajax/movie_episodes/' + id;
+        return 'http://fmovies.cloud/ajax/movie_episodes/' + id;
     },
     DOMAIN_TOKEN: function DOMAIN_TOKEN(eid, mid) {
-        return 'http://fmovies.vc/ajax/movie_token?eid=' + eid + '&mid=' + mid;
+        return 'http://fmovies.cloud/ajax/movie_token?eid=' + eid + '&mid=' + mid;
     },
     DOMAIN_SOURCE: function DOMAIN_SOURCE(eid, x, y) {
-        return 'http://fmovies.vc/ajax/movie_sources/' + eid + '?x=' + x + '&y=' + y;
+        return 'http://fmovies.cloud/ajax/movie_sources/' + eid + '?x=' + x + '&y=' + y;
     },
     DOMAIN_EMBED: function DOMAIN_EMBED(id) {
-        return 'http://fmovies.vc/ajax/movie_embed/' + id;
+        return 'http://fmovies.cloud/ajax/movie_embed/' + id;
     }
 };
 

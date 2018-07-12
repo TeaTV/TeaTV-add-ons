@@ -1,10 +1,10 @@
 {
     "providers": {
-        "playdk": {
-            "name": "playdk",
-            "domain": "playdk.net",
-            "version": "0.0.6",
-            "url": "https://dev.teatv.app/add-ons/es5/providers/playdk.js",
+        "fmoviesvc": {
+            "name": "fmoviesvc",
+            "domain": "fmoviesvc.cloud",
+            "version": "0.0.7",
+            "url": "https://dev.teatv.app/add-ons/es5/providers/fmoviesvc.js",
             "type": [
                 "movie",
                 "tv"
