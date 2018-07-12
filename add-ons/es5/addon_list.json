@@ -3,7 +3,7 @@
         "5movies": {
             "name": "5movies",
             "domain": "5movies.to",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/5movies.js",
             "type": [
                 "movie",

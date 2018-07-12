@@ -25,9 +25,11 @@ var URL = {
             'Upgrade-Insecure-Requests': 1,
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-            'Cookie': 'PHPSESSID=i5rpugvvv1cmfoqcs6lfhcmtr5;'
+            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5'
         };
+    },
+    BING_SEARCH: function BING_SEARCH(title) {
+        return 'https://www.bing.com/search?q=site%3A5movies.to+' + title;
     }
 };
 
@@ -56,11 +58,17 @@ var ThreeMovies = function () {
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 detailUrl = false;
                                 tvshowVideo = false;
-                                urlSearch = URL.SEARCH(encodeURI(title));
-                                _context.next = 7;
+                                urlSearch = '';
+
+                                if (type == 'tv') {
+                                    urlSearch = URL.BING_SEARCH(encodeURI(title));
+                                } else {
+                                    urlSearch = URL.BING_SEARCH(encodeURI(title) + "+" + year);
+                                }
+                                _context.next = 8;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS());
 
-                            case 7:
+                            case 8:
                                 htmlSearch = _context.sent;
 
                                 // let headers = htmlSearch.headers;
@@ -68,8 +76,6 @@ var ThreeMovies = function () {
                                 // let setCookie = headers['set-cookie'];
                                 // let sessid = '';
 
-
-                                // console.log(setCookie); process.exit();
 
                                 // for(let item of setCookie) {
                                 // 	if(item.indexOf('PHPSESSID') != -1) {
@@ -79,45 +85,55 @@ var ThreeMovies = function () {
                                 // 	}
                                 // }
 
-                                // console.log(URL.HEADERS(urlSearch, sessid), sessid, URL.BODY_SEARCH); process.exit();
 
                                 // htmlSearch = await httpRequest.post(urlSearch, URL.HEADERS(urlSearch, sessid), URL.BODY_SEARCH);
 
                                 $ = cheerio.load(htmlSearch);
-                                itemSearch = $('.movie-list');
+                                itemSearch = $('#b_results .b_algo');
 
 
                                 itemSearch.each(function () {
 
-                                    var hrefMovie = $(this).find('a').attr('href');
-                                    var titleMovie = $(this).find('a img').attr('alt');
+                                    var hrefMovie = $(this).find('h2 a').attr('href');
+                                    var titleMovie = $(this).find('h2 a strong').text();
                                     var yearMovie = titleMovie.match(/\( *([0-9]+)/i);
                                     yearMovie = yearMovie != null ? yearMovie[1] : 0;
-                                    titleMovie = titleMovie.replace(/\( *[0-9]+ *\)/i, '');
+                                    titleMovie = titleMovie.replace(/\(* *[0-9]+ *\)*/i, '');
 
-                                    if (hrefMovie.indexOf('http') == -1 && hrefMovie.indexOf('https') == -1) {
-                                        hrefMovie = 'http:' + hrefMovie;
-                                    }
+                                    // let hrefMovie = $(this).find('a').attr('href');
+                                    // let titleMovie = $(this).find('a img').attr('alt');
+                                    // let yearMovie = titleMovie.match(/\( *([0-9]+)/i);
+                                    // yearMovie = yearMovie != null ? yearMovie[1] : 0;
+                                    // titleMovie = titleMovie.replace(/\( *[0-9]+ *\)/i, '');
 
-                                    if (stringHelper.shallowCompare(titleMovie, title)) {
+                                    // if(hrefMovie.indexOf('http') == -1 && hrefMovie.indexOf('https') == -1) {
+                                    // 	hrefMovie = 'http:' + hrefMovie;
+                                    // }
 
+                                    if (titleMovie && stringHelper.shallowCompare(titleMovie, title) && (hrefMovie.indexOf('/movie/') != -1 || hrefMovie.indexOf('/tv/') != -1)) {
+
+                                        // console.log(hrefMovie, titleMovie);
                                         if (type == 'movie' && yearMovie == year) {
                                             detailUrl = hrefMovie;
+                                            return;
                                         } else {
+
+                                            hrefMovie = hrefMovie.replace(/\-s[0-9]+e[0-9]+/i, '');
                                             tvshowVideo = hrefMovie;
+                                            return;
                                         }
                                     }
                                 });
 
                                 if (!(type == 'tv' && tvshowVideo != false)) {
-                                    _context.next = 18;
+                                    _context.next = 19;
                                     break;
                                 }
 
-                                _context.next = 14;
+                                _context.next = 15;
                                 return httpRequest.getHTML(tvshowVideo);
 
-                            case 14:
+                            case 15:
                                 htmlVideo = _context.sent;
                                 $_2 = cheerio.load(htmlVideo);
                                 itemEpisode = $_2('.Season a');
@@ -130,22 +146,22 @@ var ThreeMovies = function () {
                                         hrefEpisode = 'http:' + hrefEpisode;
                                     }
 
-                                    var seasonMovie = hrefMovie.match(/\-s([0-9]+)/i);
+                                    var seasonMovie = hrefEpisode.match(/\-s([0-9]+)/i);
                                     seasonMovie = seasonMovie != null ? seasonMovie[1] : -1;
-                                    var episodeMovie = hrefMovie.match(/\-s[0-9]+e([0-9]+)/i);
+                                    var episodeMovie = hrefEpisode.match(/\-s[0-9]+e([0-9]+)/i);
                                     episodeMovie = episodeMovie != null ? episodeMovie[1] : -1;
 
                                     if (seasonMovie == season && episodeMovie == episode) {
-                                        detailUrl = hrefMovie;
+                                        detailUrl = hrefEpisode;
                                     }
                                 });
 
-                            case 18:
+                            case 19:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 20:
+                            case 21:
                             case 'end':
                                 return _context.stop();
                         }
