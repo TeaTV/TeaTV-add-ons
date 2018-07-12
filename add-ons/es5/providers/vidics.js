@@ -62,8 +62,8 @@ var Vidics = function () {
                                 $ = cheerio.load(htmlSearch);
                                 itemSearch = $('#searchResults .searchResult');
 
+                                //console.log(itemSearch.length);
 
-                                console.log(itemSearch.length);
                                 itemSearch.each(function () {
 
                                     var titleMovie = $(this).find('.searchResultInner h2 a.blue').text();
@@ -76,19 +76,19 @@ var Vidics = function () {
                                 });
 
                                 if (!(detailSeason != false)) {
-                                    _context.next = 25;
+                                    _context.next = 24;
                                     break;
                                 }
 
-                                _context.next = 18;
+                                _context.next = 17;
                                 return httpRequest.getHTML(detailSeason, URL.HEADERS());
 
-                            case 18:
+                            case 17:
                                 htmlDetail = _context.sent;
-                                _context.next = 21;
+                                _context.next = 20;
                                 return httpRequest.getHTML(detailSeason, URL.HEADERS());
 
-                            case 21:
+                            case 20:
                                 htmlDetail = _context.sent;
                                 $_2 = cheerio.load(htmlDetail);
                                 itemSeason = $_2('.episode');
@@ -109,12 +109,12 @@ var Vidics = function () {
                                     }
                                 });
 
-                            case 25:
+                            case 24:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 27:
+                            case 26:
                             case 'end':
                                 return _context.stop();
                         }

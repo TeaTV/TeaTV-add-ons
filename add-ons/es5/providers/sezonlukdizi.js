@@ -179,11 +179,11 @@ var Sezonluk = function () {
 
                             case 17:
 
-                                console.log(hosts);process.exit();
+                                //console.log(hosts); process.exit();
 
                                 this.state.hosts = hosts;
 
-                            case 20:
+                            case 18:
                             case 'end':
                                 return _context3.stop();
                         }

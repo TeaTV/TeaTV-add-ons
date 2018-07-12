@@ -62,17 +62,17 @@ var Seehd = function () {
                                 _context.prev = 3;
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
 
+                                //console.log(urlSearch, 'search');
 
-                                console.log(urlSearch, 'search');
-                                _context.next = 8;
+                                _context.next = 7;
                                 return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
 
-                            case 8:
+                            case 7:
                                 htmlSearch = _context.sent;
 
                                 htmlSearch = htmlSearch.data;
 
-                                console.log(htmlSearch, '1');
+                                //console.log(htmlSearch, '1');
                                 $ = cheerio.load(htmlSearch);
                                 page = $('.pagination-item').text();
 
@@ -83,28 +83,29 @@ var Seehd = function () {
                                     page = page != null ? +page[1] : 1;
                                 }
 
-                                _context.next = 16;
+                                _context.next = 14;
                                 return this.getDetailUrl(page, this.state);
 
-                            case 16:
-                                _context.next = 21;
+                            case 14:
+                                _context.next = 19;
                                 break;
 
-                            case 18:
-                                _context.prev = 18;
+                            case 16:
+                                _context.prev = 16;
                                 _context.t0 = _context['catch'](3);
 
                                 console.log(String(_context.t0), 'error');
+                                //process.exit();
 
-                            case 21:
+                            case 19:
                                 return _context.abrupt('return');
 
-                            case 22:
+                            case 20:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[3, 18]]);
+                }, _callee, this, [[3, 16]]);
             }));
 
             function searchDetail() {
@@ -132,7 +133,7 @@ var Seehd = function () {
                                     arrNumber.push(i);
                                 }
 
-                                console.log(arrNumber, 'number');
+                                //console.log(arrNumber, 'number');
 
                                 arrPromise = arrNumber.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
@@ -143,19 +144,18 @@ var Seehd = function () {
                                                     case 0:
                                                         urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), 1);
 
+                                                        //console.log(urlSearch, '1');
 
-                                                        console.log(urlSearch, '1');
-
-                                                        _context2.next = 4;
+                                                        _context2.next = 3;
                                                         return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
 
-                                                    case 4:
+                                                    case 3:
                                                         htmlSearch = _context2.sent;
                                                         $ = cheerio.load(htmlSearch.data);
                                                         itemPage = $('.movie');
 
+                                                        //console.log(itemPage.length, 'page');
 
-                                                        console.log(itemPage.length, 'page');
                                                         itemPage.each(function () {
 
                                                             var hrefMovie = $(this).find('.post_thumb a').attr('href');
@@ -185,13 +185,13 @@ var Seehd = function () {
                                                         });
 
                                                         if (!(val == page)) {
-                                                            _context2.next = 11;
+                                                            _context2.next = 9;
                                                             break;
                                                         }
 
                                                         return _context2.abrupt('return');
 
-                                                    case 11:
+                                                    case 9:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
@@ -203,13 +203,13 @@ var Seehd = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 8;
+                                _context3.next = 7;
                                 return Promise.all(arrPromise);
 
-                            case 8:
+                            case 7:
                                 return _context3.abrupt('return');
 
-                            case 9:
+                            case 8:
                             case 'end':
                                 return _context3.stop();
                         }

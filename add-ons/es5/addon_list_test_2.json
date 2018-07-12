@@ -3,8 +3,8 @@
         "hollymovies": {
             "name": "hollymovies",
             "domain": "hollymovies.com",
-            "version": "0.0.5",
-            "url": "https://raw.githubusercontent.com/quydo/alo69/master/add-ons/es5/providers/hollymovies.js",
+            "version": "0.0.14",
+            "url": "https://dev.teatv.app/add-ons/es5/providers/hollymovies.js",
             "type": [
                 "movie",
                 "tv"

@@ -162,7 +162,7 @@ thisSource.function = function () {
                 switch (_context3.prev = _context3.next) {
                     case 0:
                         httpRequest = libs.httpRequest;
-                        source = new Coolmovies({
+                        source = new CoolMovie({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings

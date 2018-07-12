@@ -103,13 +103,12 @@ var SeehdUno = function () {
 
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'), 1);
 
+                                //console.log(urlSearch, '1');
 
-                                console.log(urlSearch, '1');
-
-                                _context2.next = 6;
+                                _context2.next = 5;
                                 return httpRequest.getCloudflare(urlSearch);
 
-                            case 6:
+                            case 5:
                                 htmlSearch = _context2.sent;
                                 $ = cheerio.load(htmlSearch.data);
                                 itemSearch = $('.peliculas .items .item');
@@ -119,7 +118,7 @@ var SeehdUno = function () {
                                     httpRequest.cookie.clear();
                                 }
 
-                                console.log(itemSearch.length, '2');
+                                //console.log(itemSearch.length, '2');
                                 itemSearch.each(function () {
 
                                     var hrefMovies = $(this).find('a').attr('href');
@@ -132,7 +131,7 @@ var SeehdUno = function () {
                                     titleMovies = titleMovies.replace('Watch', '').replace('Online', '').replace('Free', '').trim();
                                     titleMovies = titleMovies.replace(/\([0-9]+\)/i, '').trim();
 
-                                    console.log(hrefMovies, titleMovies, '3');
+                                    //console.log(hrefMovies, titleMovies, '3');
                                     if (seasonMovies != false && episodeMovies != false) {
 
                                         titleMovies = titleMovies.replace(/\– *season.*/i, '').trim();
@@ -142,7 +141,7 @@ var SeehdUno = function () {
 
                                         if (type == 'movie' && +yearMovies == year) {
 
-                                            console.log(hrefMovies, '4');
+                                            //console.log(hrefMovies, '4');
                                             state.detailUrl = hrefMovies;
                                         } else if (type == 'tv' && seasonMovies == season && episodeMovies == episode) {
 
@@ -160,7 +159,7 @@ var SeehdUno = function () {
                                 // await Promise.all(arrPromise);
                                 return _context2.abrupt('return');
 
-                            case 13:
+                            case 11:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -209,8 +208,8 @@ var SeehdUno = function () {
                                 $ = cheerio.load(htmlDetail.data);
                                 itemEmbed = $('#player2 .movieplay');
 
+                                //console.log(itemEmbed.length, '5');
 
-                                console.log(itemEmbed.length, '5');
                                 itemEmbed.each(function () {
 
                                     var script = $(this).find('script').html();
@@ -223,7 +222,7 @@ var SeehdUno = function () {
                                         var linkEmbed = token.match(/src *\= *\"([^\"]+)/i);
                                         linkEmbed = linkEmbed != null ? linkEmbed[1] : false;
 
-                                        console.log(linkEmbed, '6');
+                                        //console.log(linkEmbed, '6');
                                         linkEmbed !== false && hosts.push({
                                             provider: {
                                                 url: detailUrl,
@@ -240,7 +239,7 @@ var SeehdUno = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 14:
+                            case 13:
                             case 'end':
                                 return _context3.stop();
                         }

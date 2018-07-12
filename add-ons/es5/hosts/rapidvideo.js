@@ -101,7 +101,6 @@ var RapidVideo = function () {
                                                         label = val.match(/\&q\=(.+)/i);
 
                                                         label = label != null ? label[1] : 'NOR';
-
                                                         _context2.next = 4;
                                                         return httpRequest.getHTML(val);
 

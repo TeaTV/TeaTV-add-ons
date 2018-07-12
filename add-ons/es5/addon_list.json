@@ -194,6 +194,16 @@
             "type": [
                 "movie"
             ]
+        },
+        "hollymovies": {
+            "name": "hollymovies",
+            "domain": "hollymovies.com",
+            "version": "0.0.15",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hollymovies.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
