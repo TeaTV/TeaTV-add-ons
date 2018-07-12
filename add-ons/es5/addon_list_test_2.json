@@ -1,10 +1,10 @@
 {
     "providers": {
-        "hollymovies": {
-            "name": "hollymovies",
-            "domain": "hollymovies.com",
-            "version": "0.0.14",
-            "url": "https://dev.teatv.app/add-ons/es5/providers/hollymovies.js",
+        "playdk": {
+            "name": "playdk",
+            "domain": "playdk.net",
+            "version": "0.0.6",
+            "url": "https://dev.teatv.app/add-ons/es5/providers/playdk.js",
             "type": [
                 "movie",
                 "tv"

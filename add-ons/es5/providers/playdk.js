@@ -181,7 +181,7 @@ var Playdk = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs3, httpRequest, cheerio, base64, detailUrl, hosts, htmlDetail, $, embeds;
+                var _libs3, httpRequest, cheerio, base64, detailUrl, hosts, htmlDetail, $, embeds, sources, arrSources, item;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -225,6 +225,50 @@ var Playdk = function () {
                                             }
                                         });
                                     });
+                                } else {
+                                    sources = htmlDetail.match(/sources\:\s*\n?\[([^\]]+)/i);
+
+                                    if (sources != null) {
+                                        arrSources = [];
+
+
+                                        sources = sources != null ? sources[1] : '';
+
+                                        eval('arrSources = [' + sources + ']');
+
+                                        //console.log(arrSources, 'eval'); 
+
+                                        for (item in arrSources) {
+                                            console.log(arrSources[item].file.indexOf('google'), arrSources[item].file, item);
+
+                                            if (arrSources[item].file.indexOf('google') != -1) {
+
+                                                arrSources[item].file && hosts.push({
+                                                    provider: {
+                                                        url: detailUrl,
+                                                        name: "playdk"
+                                                    },
+                                                    result: {
+                                                        file: arrSources[item].file,
+                                                        label: "embed",
+                                                        type: "direct"
+                                                    }
+                                                });
+                                            } else {
+                                                arrSources[item].file && hosts.push({
+                                                    provider: {
+                                                        url: detailUrl,
+                                                        name: "playdk"
+                                                    },
+                                                    result: {
+                                                        file: arrSources[item].file,
+                                                        label: "embed",
+                                                        type: "embed"
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    }
                                 }
 
                                 this.state.hosts = hosts;
