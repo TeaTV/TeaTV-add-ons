@@ -1,5 +1,15 @@
 {
     "providers": {
+        "5movies": {
+            "name": "5movies",
+            "domain": "5movies.to",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/5movies.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
         "moviewatcher": {
             "name": "moviewatcher",
             "domain": "moviewatcher.is",
@@ -83,7 +93,7 @@
         "playdk": {
             "name": "playdk",
             "domain": "playdk.net",
-            "version": "0.0.12",
+            "version": "0.0.11",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/playdk.js",
             "type": [
                 "movie",
@@ -193,16 +203,6 @@
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/coolmoviezone.js",
             "type": [
                 "movie"
-            ]
-        },
-        "hollymovies": {
-            "name": "hollymovies",
-            "domain": "hollymovies.com",
-            "version": "0.0.15",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hollymovies.js",
-            "type": [
-                "movie",
-                "tv"
             ]
         }
     },
