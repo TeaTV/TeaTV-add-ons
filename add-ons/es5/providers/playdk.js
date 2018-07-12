@@ -239,7 +239,7 @@ var Playdk = function () {
                                         //console.log(arrSources, 'eval'); 
 
                                         for (item in arrSources) {
-                                            console.log(arrSources[item].file.indexOf('google'), arrSources[item].file, item);
+                                            //console.log(arrSources[item].file.indexOf('google'), arrSources[item].file, item);
 
                                             if (arrSources[item].file.indexOf('google') != -1) {
 
