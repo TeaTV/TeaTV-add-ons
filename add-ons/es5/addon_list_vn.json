@@ -137,9 +137,10 @@
             "name": "ggstream",
             "domain": [
                 "s3.ggstream.me",
-                "ss.ggstream.xyz"
+                "ss.ggstream.xyz",
+                "ggstream.xyz"
             ],
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ggstream.js"
         },
         "128.199.107.84": {
