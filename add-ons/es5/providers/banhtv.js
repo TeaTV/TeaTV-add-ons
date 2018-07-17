@@ -8,7 +8,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 URL = {
     SOURCE: 'banhtv',
-    DOMAIN: "http://banhtv.com",
+    DOMAIN: "http://banhtv.net",
     HEADERS: function HEADERS() {
         var rerfer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
@@ -17,17 +17,17 @@ URL = {
             'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
             'Cache-Control': 'max-age=0',
             'Connection': 'keep-alive',
-            'Host': 'banhtv.com',
+            'Host': 'banhtv.net',
             'Referer': rerfer,
             'Upgrade-Insecure-Requests': 1,
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
         };
     },
     SEARCH: function SEARCH(title) {
-        return 'http://banhtv.com/tim-kiem.html?q=' + encodeURI(title);
+        return 'http://banhtv.net/tim-kiem.html?q=' + encodeURI(title);
     },
     DOMAIN_THUYET_MINH: function DOMAIN_THUYET_MINH(id, vietsubId) {
-        return 'http://banhtv.com/ajax/getLinkPlayer/id/' + id + '/index/' + vietsubId;
+        return 'http://banhtv.net/ajax/getLinkPlayer/id/' + id + '/index/' + vietsubId;
     }
 };
 
@@ -268,7 +268,7 @@ var Banhtv = function () {
 
                                 eval('playerSetting =  ' + player);
 
-                                key = 'banhtv.com4590481877' + playerSetting.modelId;
+                                key = 'banhtv.net4590481877' + playerSetting.modelId;
 
                                 for (item in playerSetting.sourceLinks) {
 
