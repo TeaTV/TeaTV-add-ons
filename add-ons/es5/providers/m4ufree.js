@@ -7,14 +7,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "http://m4ufree.club",
+    DOMAIN: "http://123openload.me",
     SEARCH: function SEARCH(title) {
-        return 'http://m4ufree.club/search-movies/' + title + '.html';
+        return 'http://123openload.me/search-movies/' + title + '.html';
     },
     HEADERS: {
         'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
-    }
+    },
+    MAX_LINK: 55
 };
 
 var M4uFree = function () {
@@ -56,17 +57,20 @@ var M4uFree = function () {
                             case 7:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch);
-                                itemSearch = $('.item');
+                                itemSearch = $('.ml-item');
 
 
                                 itemSearch.each(function () {
 
-                                    var hrefM4u = $(this).find('p b a').attr('href');
-                                    var titleM4u = $(this).find('p b a').text();
+                                    var hrefM4u = $(this).find('a').attr('href');
+                                    var mover = $(this).find('a').attr('onmouseover');
+                                    var m = mover.match(/<i>(.*)<\/i>/);
+                                    if (m == undefined) return false;
+
+                                    var titleM4u = m[1];
                                     var checkMovies = titleM4u.match(/ *season *[0-9]+/i);
                                     var seasonNumber = checkMovies != null ? titleM4u.match(/season *([0-9]+)/i) != null ? titleM4u.match(/season *([0-9]+)/i)[1] : 0 : false;
-                                    var infoM4u = $(this).find('p b a').attr('onmouseover');
-                                    var yearM4u = infoM4u.match(/release *\: *([0-9]+)/i);
+                                    var yearM4u = mover.match(/release *\: *([0-9]+)/i);
                                     yearM4u = yearM4u != null ? +yearM4u[1] : 0;
                                     titleM4u = titleM4u.replace(/ *\: *season.*/i, '');
 
@@ -164,9 +168,8 @@ var M4uFree = function () {
 
 
                                 item.each(function () {
-
                                     var links = $(this).find('.server_version a').attr('href');
-                                    arrDetail.push(links);
+                                    if (links.search('other.html') == -1 && arrDetail.length < URL.MAX_LINK) arrDetail.push(links);
                                 });
 
                                 arrPromise = arrDetail.map(function () {
@@ -194,6 +197,7 @@ var M4uFree = function () {
                                                         encode = htmlData.data.match(/Base64\.decode\(\"([^\"]+)/i);
 
                                                         encode = encode != null ? encode[1] : false;
+                                                        //console.log(links);
 
                                                         if (encode) {
                                                             iframes = base64.decode(encode);
