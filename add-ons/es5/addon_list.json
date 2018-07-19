@@ -20,16 +20,6 @@
                 "tv"
             ]
         },
-        "hdonlinecz": {
-            "name": "hdonlinecz",
-            "domain": "hdonline.cz",
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hdonlinecz.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "fmoviesvc": {
             "name": "fmoviesvc",
             "domain": "fmovies.vc",
@@ -103,7 +93,7 @@
         "321movies": {
             "name": "321movies",
             "domain": "321movies.club",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/321movies.js",
             "type": [
                 "movie",
@@ -189,7 +179,7 @@
         "fmoviespe": {
             "name": "fmoviespe",
             "domain": "fmovies.pe",
-            "version": "0.0.7",
+            "version": "0.0.8",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/fmoviespe.js",
             "type": [
                 "movie",
@@ -208,7 +198,7 @@
         "hollymovies": {
             "name": "hollymovies",
             "domain": "hollymovies.com",
-            "version": "0.0.15",
+            "version": "0.0.16",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hollymovies.js",
             "type": [
                 "movie",

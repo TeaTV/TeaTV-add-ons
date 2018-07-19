@@ -73,9 +73,10 @@ var ThreeMovies = function () {
 
                                     if (tip != false) {
                                         var $_2 = cheerio.load(tip);
-                                        var titleMovie = $_2('.tipWrapper b i').text();
+                                        var titleMovie = $_2('b i').text();
                                         var yearMovie = $_2('b:contains(Release)').text();
                                         yearMovie = yearMovie.replace(/Release *\:/i, '').trim();
+                                        //console.log(titleMovie, yearMovie, 'f');
                                         var seasonMovie = titleMovie.match(/season *([0-9]+)/i);
                                         seasonMovie = seasonMovie != null ? +seasonMovie[1] : 0;
                                         titleMovie = titleMovie.replace(/\:* *season *[0-9]+/i, '');

@@ -7,9 +7,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: 'http://www2.hollymoviehd.com',
+    DOMAIN: 'http://www.novamovie.net/',
     SEARCH: function SEARCH(title) {
-        return 'http://www2.hollymoviehd.com/?zc=search&s=' + title;
+        return 'http://www.novamovie.net/?zc=search&s=' + title;
     },
     HEADERS: function HEADERS() {
         return {
