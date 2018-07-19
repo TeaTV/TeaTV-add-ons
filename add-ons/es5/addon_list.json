@@ -52,8 +52,8 @@
         },
         "m4ufree": {
             "name": "m4ufree",
-            "domain": "m4ufree.com",
-            "version": "0.0.4",
+            "domain": "123openload.me",
+            "version": "0.0.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/m4ufree.js",
             "type": [
                 "movie",
