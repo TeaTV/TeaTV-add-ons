@@ -139,7 +139,7 @@ var M4uFree = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs2, httpRequest, cheerio, base64, hosts, arrDetail, detailUrl, htmlDetail, $, item, arrPromise;
+                var _libs2, httpRequest, cheerio, base64, hosts, arrDetail, detailUrl, htmlDetail, $, item, num_links, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -165,11 +165,14 @@ var M4uFree = function () {
                                 htmlDetail = _context3.sent;
                                 $ = cheerio.load(htmlDetail.data);
                                 item = $('#total_version .server_line');
-
+                                num_links = 0;
 
                                 item.each(function () {
                                     var links = $(this).find('.server_version a').attr('href');
-                                    if (links.search('other.html') == -1 && arrDetail.length < URL.MAX_LINK) arrDetail.push(links);
+                                    if (links.search('other.html') == -1) {
+                                        num_links++;
+                                        if (num_links < URL.MAX_LINK) arrDetail.push(links);
+                                    }
                                 });
 
                                 arrPromise = arrDetail.map(function () {
@@ -230,14 +233,14 @@ var M4uFree = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 15;
+                                _context3.next = 16;
                                 return Promise.all(arrPromise);
 
-                            case 15:
+                            case 16:
                                 this.state.hosts = hosts;
                                 return _context3.abrupt('return');
 
-                            case 17:
+                            case 18:
                             case 'end':
                                 return _context3.stop();
                         }
