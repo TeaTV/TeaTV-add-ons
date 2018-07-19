@@ -15,7 +15,7 @@ var URL = {
         'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
     },
-    MAX_LINK: 55
+    MAX_LINK: 25
 };
 
 var M4uFree = function () {
