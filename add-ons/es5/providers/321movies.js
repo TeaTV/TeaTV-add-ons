@@ -51,10 +51,11 @@ var ThreeMovies = function () {
 
                                 if (type == 'movie') {
 
-                                    urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
+                                    urlSearch = URL.SEARCH(title.replace(/\s+/g, '+'));
                                 } else {
-                                    urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+') + ('+season+' + season));
+                                    urlSearch = URL.SEARCH(title.replace(/\s+/g, '+') + ('+season+' + season));
                                 }
+                                //console.log(urlSearch, 'f');
                                 _context.next = 8;
                                 return httpRequest.getHTML(urlSearch);
 
