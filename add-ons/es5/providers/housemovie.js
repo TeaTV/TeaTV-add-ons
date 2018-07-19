@@ -251,7 +251,7 @@ var HouseMovies = function () {
                                         href: ''
                                     }
                                 };
-                                urlSearch = URL.SEARCH(encodeURI(title));
+                                urlSearch = URL.SEARCH(title.replace(/\s+/g, '+'));
                                 _context.next = 7;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS());
 

@@ -1,9 +1,19 @@
 {
     "providers": {
+        "m4ufree": {
+            "name": "m4ufree",
+            "domain": "123openload.me",
+            "version": "0.0.17",
+            "url": "https://dev.teatv.app/add-ons/es5/providers/m4ufree.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
         "hollymovies": {
             "name": "hollymovies",
             "domain": "123openload.me",
-            "version": "0.0.16",
+            "version": "0.0.17",
             "url": "https://dev.teatv.app/add-ons/es5/providers/hollymovies.js",
             "type": [
                 "movie",
