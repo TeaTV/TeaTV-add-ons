@@ -159,7 +159,7 @@ var M4uFree = function () {
                                 arrDetail = [];
                                 detailUrl = this.state.detailUrl;
                                 _context3.next = 8;
-                                return httpRequest.getCloudflare(this.state.detailUrl);
+                                return httpRequest.get(this.state.detailUrl);
 
                             case 8:
                                 htmlDetail = _context3.sent;
@@ -185,7 +185,7 @@ var M4uFree = function () {
                                                         htmlData = { data: '' };
                                                         _context2.prev = 1;
                                                         _context2.next = 4;
-                                                        return httpRequest.getCloudflare(links);
+                                                        return httpRequest.get(links);
 
                                                     case 4:
                                                         htmlData = _context2.sent;

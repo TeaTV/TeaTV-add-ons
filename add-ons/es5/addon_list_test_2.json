@@ -1,13 +1,12 @@
 {
     "providers": {
-        "m4ufree": {
-            "name": "m4ufree",
-            "domain": "123openload.me",
-            "version": "0.0.17",
-            "url": "https://dev.teatv.app/add-ons/es5/providers/m4ufree.js",
+        "m4u": {
+            "name": "m4u",
+            "domain": "m4ufree.com",
+            "version": "0.0.18",
+            "url": "https://dev.teatv.app/add-ons/es5/providers/m4u.js",
             "type": [
-                "movie",
-                "tv"
+                "movie"
             ]
         },
         "hollymovies": {
@@ -15,6 +14,16 @@
             "domain": "123openload.me",
             "version": "0.0.17",
             "url": "https://dev.teatv.app/add-ons/es5/providers/hollymovies.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "m4ufree": {
+            "name": "m4ufree",
+            "domain": "123openload.me",
+            "version": "0.0.18",
+            "url": "https://dev.teatv.app/add-ons/es5/providers/m4ufree.js",
             "type": [
                 "movie",
                 "tv"
