@@ -7,9 +7,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: 'http://coolmoviezone.info',
+    DOMAIN: 'http://coolmoviezone.biz',
     SEARCH: function SEARCH(title) {
-        return 'http://coolmoviezone.info/index.php?s=' + title;
+        return 'http://coolmoviezone.biz/index.php?s=' + title;
     },
     HEADERS: function HEADERS() {
         return {
@@ -47,6 +47,8 @@ var CoolMovie = function () {
 
                             case 6:
                                 htmlSearch = _context.sent;
+
+                                //console.log(htmlSearch);
                                 $ = cheerio.load(htmlSearch);
                                 itemSearch = $('#contentleft a[rel=bookmark]');
 

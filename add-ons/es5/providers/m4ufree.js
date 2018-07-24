@@ -52,15 +52,15 @@ var M4uFree = function () {
                                 }
 
                                 _context.next = 7;
-                                return httpRequest.getHTML(urlSearch);
+                                return httpRequest.get(urlSearch);
 
                             case 7:
                                 htmlSearch = _context.sent;
-                                $ = cheerio.load(htmlSearch);
+                                $ = cheerio.load(htmlSearch.data);
                                 itemSearch = $('.ml-item');
 
 
-                                itemSearch.each(function () {
+                                itemSearch.each(function (i) {
 
                                     var hrefM4u = $(this).find('a').attr('href');
                                     var mover = $(this).find('a').attr('onmouseover');
@@ -159,7 +159,7 @@ var M4uFree = function () {
                                 arrDetail = [];
                                 detailUrl = this.state.detailUrl;
                                 _context3.next = 8;
-                                return httpRequest.get(this.state.detailUrl);
+                                return httpRequest.getCloudflare(this.state.detailUrl);
 
                             case 8:
                                 htmlDetail = _context3.sent;
@@ -185,7 +185,7 @@ var M4uFree = function () {
                                                         htmlData = { data: '' };
                                                         _context2.prev = 1;
                                                         _context2.next = 4;
-                                                        return httpRequest.get(links);
+                                                        return httpRequest.getCloudflare(links);
 
                                                     case 4:
                                                         htmlData = _context2.sent;

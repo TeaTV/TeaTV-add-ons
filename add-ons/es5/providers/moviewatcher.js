@@ -9,7 +9,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var URL = {
     DOMAIN: "https://moviewatcher.is",
     SEARCH: function SEARCH(title) {
-        return 'https://moviewatcher.is/search?query=' + title;
+        return 'https://moviewatcher.is/ajax?query=' + title;
     },
     HEADERS: {
         'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -34,7 +34,7 @@ var MovieWatcher = function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
                 var _this = this;
 
-                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type, videoUrl, detailUrl, arrMovie, urlSearch, htmlSearch, $, itemSearch, arrPromise, htmlVideo, _$, itemSeason;
+                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type, videoUrl, detailUrl, arrMovie, urlSearch, htmlSearch, itemSearch, arrPromise, htmlVideo, $, itemSeason;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -47,18 +47,22 @@ var MovieWatcher = function () {
                                 arrMovie = [];
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
                                 _context2.next = 8;
-                                return httpRequest.getHTML(urlSearch);
+                                return httpRequest.getCloudflare(urlSearch);
 
                             case 8:
                                 htmlSearch = _context2.sent;
-                                $ = cheerio.load(htmlSearch);
-                                itemSearch = $('.one_movie-item');
+
+                                //console.log(htmlSearch, 'ff');
+                                //let $			= cheerio.load(htmlSearch);
+
+                                itemSearch = JSON.parse(htmlSearch);
 
 
-                                itemSearch.each(function () {
+                                itemSearch.each(function (i) {
 
-                                    var hrefMovie = URL.DOMAIN + $(this).find('a').attr('href');
-                                    var titleMovie = $(this).find('.movie-title').text();
+                                    var hrefMovie = URL.DOMAIN + itemSearch[i][4];
+                                    var titleMovie = itemSearch[i][0];
+                                    console.log(titleMovie, 'f');
 
                                     if (stringHelper.shallowCompare(title, titleMovie)) {
 
@@ -71,7 +75,7 @@ var MovieWatcher = function () {
                                 });
 
                                 if (!(type == 'movie' && arrMovie.length > 0)) {
-                                    _context2.next = 16;
+                                    _context2.next = 15;
                                     break;
                                 }
 
@@ -122,27 +126,27 @@ var MovieWatcher = function () {
                                         return _ref2.apply(this, arguments);
                                     };
                                 }());
-                                _context2.next = 16;
+                                _context2.next = 15;
                                 return Promise.all(arrPromise);
 
-                            case 16:
+                            case 15:
                                 if (!(videoUrl && type == 'tv')) {
-                                    _context2.next = 23;
+                                    _context2.next = 22;
                                     break;
                                 }
 
-                                _context2.next = 19;
+                                _context2.next = 18;
                                 return httpRequest.getHTML(videoUrl);
 
-                            case 19:
+                            case 18:
                                 htmlVideo = _context2.sent;
-                                _$ = cheerio.load(htmlVideo);
-                                itemSeason = _$('.episode_1');
+                                $ = cheerio.load(htmlVideo);
+                                itemSeason = $('.episode_1');
 
 
                                 itemSeason.each(function () {
 
-                                    var hrefEpisode = _$(this).attr('href');
+                                    var hrefEpisode = $(this).attr('href');
                                     if (hrefEpisode) {
                                         var hrefEmbed = URL.DOMAIN + hrefEpisode;
 
@@ -159,12 +163,12 @@ var MovieWatcher = function () {
                                     }
                                 });
 
-                            case 23:
+                            case 22:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context2.abrupt('return');
 
-                            case 25:
+                            case 24:
                             case 'end':
                                 return _context2.stop();
                         }

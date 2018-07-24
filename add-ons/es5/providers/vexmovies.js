@@ -37,6 +37,21 @@ var URL = {
             'Upgrade-Insecure-Requests': 1,
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
         };
+    },
+    HEADERS_JSON: function HEADERS_JSON() {
+        var rerfer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+        return {
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'Connection': 'keep-alive',
+            'Referer': rerfer,
+            'Upgrade-Insecure-Requests': 1,
+            'origin': 'https://consistent.stream',
+            'accept-encoding': 'gzip, deflate, br',
+            'content-type': 'application/json;charset=UTF-8',
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+        };
     }
 };
 
@@ -107,7 +122,7 @@ var Vexmovies = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, base64, hosts, detailUrl, htmlDetail, $, embed, htmlDirect, headers, body, $_2, hash, video, bodyForm, encodeJson, item, item2, link;
+                var _libs2, httpRequest, cheerio, base64, hosts, detailUrl, htmlDetail, $, embed, htmlDirect, headers, body, $_2, hash, video, expire, bodyForm, encodeJson, item, item2, link;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -131,7 +146,7 @@ var Vexmovies = function () {
                             case 7:
                                 htmlDetail = _context2.sent;
                                 $ = cheerio.load(htmlDetail);
-                                embed = $('#cap1 iframe').attr('src');
+                                embed = $('.entry-content iframe').attr('src');
                                 _context2.next = 12;
                                 return httpRequest.get(embed, URL.HEADERS(detailUrl));
 
@@ -146,15 +161,17 @@ var Vexmovies = function () {
                                 $_2 = cheerio.load(body);
                                 hash = $_2('#app player').attr('hash');
                                 video = $_2('#app player').attr('video');
+                                expire = $_2('#app player').attr('expire');
                                 bodyForm = {
                                     key: hash,
                                     referrer: detailUrl,
-                                    video: video
+                                    video: video,
+                                    expire: expire
                                 };
-                                _context2.next = 23;
-                                return httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS(embed, headers), bodyForm);
+                                _context2.next = 24;
+                                return httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS_JSON(embed), JSON.stringify(bodyForm));
 
-                            case 23:
+                            case 24:
                                 encodeJson = _context2.sent;
 
                                 encodeJson = encodeJson.data;
@@ -205,7 +222,7 @@ var Vexmovies = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 27:
+                            case 28:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -281,7 +298,7 @@ thisSource.function = function () {
         }, _callee3, undefined);
     }));
 
-    return function (_x4, _x5, _x6) {
+    return function (_x5, _x6, _x7) {
         return _ref3.apply(this, arguments);
     };
 }();
