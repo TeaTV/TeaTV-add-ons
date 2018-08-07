@@ -355,14 +355,6 @@
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/m4ukido.js"
         },
-        "googledrive": {
-            "name": "googledrive",
-            "domain": [
-                "drive.google.com"
-            ],
-            "version": "0.0.4",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/googledrive.js"
-        },
         "googleusercontent": {
             "name": "googleusercontent",
             "domain": [
