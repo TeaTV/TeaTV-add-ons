@@ -16,7 +16,17 @@ var RapidVideo = function () {
     }
 
     _createClass(RapidVideo, [{
-        key: 'checkLive',
+        key: "validURL",
+        value: function validURL(str) {
+            var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+            if (!regex.test(str)) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }, {
+        key: "checkLive",
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
                 var httpRequest, html;
@@ -34,10 +44,10 @@ var RapidVideo = function () {
 
                             case 3:
                                 html = _context.sent;
-                                return _context.abrupt('return', html);
+                                return _context.abrupt("return", html);
 
                             case 5:
-                            case 'end':
+                            case "end":
                                 return _context.stop();
                         }
                     }
@@ -51,10 +61,10 @@ var RapidVideo = function () {
             return checkLive;
         }()
     }, {
-        key: 'getLink',
+        key: "getLink",
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
-                var _libs, httpRequest, cheerio, arrVideoQuality, results, html, $, quality, arrPromise;
+                var _libs, httpRequest, cheerio, arrVideoQuality, results, valid_url, html, $, quality, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -63,22 +73,32 @@ var RapidVideo = function () {
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                 arrVideoQuality = [];
                                 results = [];
-                                _context3.next = 5;
-                                return this.checkLive(url);
+                                valid_url = this.validURL(url);
 
-                            case 5:
-                                html = _context3.sent;
-
-                                if (!(html == false)) {
-                                    _context3.next = 8;
+                                if (!(valid_url == false)) {
+                                    _context3.next = 6;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
+                            case 6:
+                                _context3.next = 8;
+                                return this.checkLive(url);
+
                             case 8:
+                                html = _context3.sent;
+
+                                if (!(html == false)) {
+                                    _context3.next = 11;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 11:
                                 $ = cheerio.load(html);
-                                _context3.prev = 9;
+                                _context3.prev = 12;
                                 quality = $('#home_video div[style*="height:23px; width:100%; margin:0 auto; color:#FFF; font-size:14px; line-height:23px; border-top:1px solid #0f0f0f;"]').find('a');
 
 
@@ -123,7 +143,7 @@ var RapidVideo = function () {
                                                         }
 
                                                     case 11:
-                                                    case 'end':
+                                                    case "end":
                                                         return _context2.stop();
                                                 }
                                             }
@@ -134,11 +154,11 @@ var RapidVideo = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 15;
+                                _context3.next = 18;
                                 return Promise.all(arrPromise);
 
-                            case 15:
-                                return _context3.abrupt('return', {
+                            case 18:
+                                return _context3.abrupt("return", {
                                     host: {
                                         url: url,
                                         name: "rapidvideo"
@@ -146,17 +166,17 @@ var RapidVideo = function () {
                                     result: results
                                 });
 
-                            case 18:
-                                _context3.prev = 18;
-                                _context3.t0 = _context3['catch'](9);
+                            case 21:
+                                _context3.prev = 21;
+                                _context3.t0 = _context3["catch"](12);
                                 throw new Error(_context3.t0);
 
-                            case 21:
-                            case 'end':
+                            case 24:
+                            case "end":
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this, [[9, 18]]);
+                }, _callee3, this, [[12, 21]]);
             }));
 
             function getLink(_x2) {
