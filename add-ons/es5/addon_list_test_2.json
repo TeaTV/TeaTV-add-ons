@@ -3,8 +3,8 @@
         "m4u": {
             "name": "m4u",
             "domain": "m4ufree.com",
-            "version": "0.0.18",
-            "url": "https://dev.teatv.app/add-ons/es5/providers/m4u.js",
+            "version": "0.0.21",
+            "url": "http://dev.teatv.app/add-ons/es5/providers/m4u.js",
             "type": [
                 "movie"
             ]
@@ -13,7 +13,7 @@
             "name": "hollymovies",
             "domain": "123openload.me",
             "version": "0.0.17",
-            "url": "https://dev.teatv.app/add-ons/es5/providers/hollymovies.js",
+            "url": "http://dev.teatv.app/add-ons/es5/providers/hollymovies.js",
             "type": [
                 "movie",
                 "tv"
@@ -22,8 +22,18 @@
         "m4ufree": {
             "name": "m4ufree",
             "domain": "123openload.me",
-            "version": "0.0.18",
-            "url": "https://dev.teatv.app/add-ons/es5/providers/m4ufree.js",
+            "version": "0.0.19",
+            "url": "http://dev.teatv.app/add-ons/es5/providers/m4ufree.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "vexmovies": {
+            "name": "vexmovies",
+            "domain": "vexmovies.org",
+            "version": "0.0.19",
+            "url": "http://dev.teatv.app/add-ons/es5/providers/vexmovies.js",
             "type": [
                 "movie",
                 "tv"
@@ -72,6 +82,14 @@
             ],
             "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/googlevideo.js"
+        },
+        "googledrive": {
+            "name": "googledrive",
+            "domain": [
+                "drive.google.com"
+            ],
+            "version": "0.0.5",
+            "url": "http://dev.teatv.app/add-ons/es5/hosts/drive.google.js"
         },
         "streamango": {
             "name": "streamango",
@@ -122,9 +140,9 @@
                 "oload.info",
                 "oload.site"
             ],
-            "version": "0.0.6",
+            "version": "0.0.8",
             "author": "psyntium",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/openload.js"
+            "url": "http://dev.teatv.app/add-ons/es5/hosts/openload1.js"
         },
         "teamdk": {
             "name": "teamdk",
@@ -196,8 +214,8 @@
             "domain": [
                 "rapidvideo.com"
             ],
-            "version": "0.0.2",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/rapidvideo.js"
+            "version": "0.0.3",
+            "url": "http://dev.teatv.app/add-ons/es5/hosts/rapidvideo.js"
         },
         "vidnode": {
             "name": "vidnode",

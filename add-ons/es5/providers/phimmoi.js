@@ -257,7 +257,7 @@ var Phimmoi = function () {
                                                             bk2[_item].url && hosts.push({
                                                                 provider: {
                                                                     url: phimmoi.state.detailUrl[0],
-                                                                    name: "Server 3 - Vietsub"
+                                                                    name: "Server 3"
                                                                 },
                                                                 result: {
                                                                     file: bk2[_item].url,

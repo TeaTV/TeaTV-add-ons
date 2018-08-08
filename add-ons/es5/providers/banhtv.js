@@ -281,7 +281,7 @@ var Banhtv = function () {
                                             hosts.push({
                                                 provider: {
                                                     url: banhtv.state.detailUrl,
-                                                    name: "Server 5 - Vietsub"
+                                                    name: "Server 5"
                                                 },
                                                 result: {
                                                     file: link_direct,

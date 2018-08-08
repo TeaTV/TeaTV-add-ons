@@ -52,12 +52,13 @@ var M4u = function () {
                                 urlSearch = '';
 
 
-                                urlSearch = URL.SEARCH(title);
+                                urlSearch = URL.SEARCH(stringHelper._replaceSpecialCharacter(title).replace(/\s+/g, '-'));
+                                console.log(urlSearch);
 
-                                _context.next = 7;
+                                _context.next = 8;
                                 return httpRequest.get(urlSearch);
 
-                            case 7:
+                            case 8:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch.data);
                                 itemSearch = $('.item');
@@ -66,7 +67,7 @@ var M4u = function () {
                                 itemSearch.each(function () {
 
                                     var hrefM4u = $(this).find('a').attr('href');
-                                    var h2 = $(this).find('h2').text();
+                                    var h2 = $(this).find('a').attr('title');
                                     var titleM4u = h2.replace(' (' + year + ')', '');
 
                                     if (stringHelper.shallowCompare(title, titleM4u)) {
@@ -77,7 +78,7 @@ var M4u = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 13:
+                            case 14:
                             case 'end':
                                 return _context.stop();
                         }

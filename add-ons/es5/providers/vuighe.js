@@ -212,7 +212,7 @@ var Vuighe = function () {
                                                 json_embed.data.sources[item][item1].src && hosts.push({
                                                     provider: {
                                                         url: vuighe.state.detailUrl,
-                                                        name: "Server 10 - Vietsub"
+                                                        name: "Server 10"
                                                     },
                                                     result: {
                                                         file: json_embed.data.sources[item][item1].src,

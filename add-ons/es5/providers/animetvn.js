@@ -180,7 +180,7 @@ var Animetvn = function () {
                                 iframe && hosts.push({
                                     provider: {
                                         url: anime.state.detailUrl,
-                                        name: "Server 10 - Vietsub"
+                                        name: "Server 10"
                                     },
                                     result: {
                                         file: iframe,
@@ -233,7 +233,7 @@ var Animetvn = function () {
                                                                 linkDirect && hosts.push({
                                                                     provider: {
                                                                         url: anime.state.detailUrl,
-                                                                        name: "Server 10 - Vietsub"
+                                                                        name: "Server 10"
                                                                     },
                                                                     result: {
                                                                         file: linkDirect,

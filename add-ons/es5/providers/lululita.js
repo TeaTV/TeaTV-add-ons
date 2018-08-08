@@ -25,12 +25,12 @@ var URL = {
 };
 
 var SOURCES = (_SOURCES = {
-    'banhtv': 'Source 5 - Vietsub',
-    'animehay': 'Source 7 - Vietsub',
-    'bilutv': 'Source 1 - Vietsub',
-    'hdonline': 'Source 4 - Vietsub',
-    'phimbathu': 'Source 2 - Vietsub'
-}, _defineProperty(_SOURCES, "banhtv", 'Source 5 - Vietsub'), _defineProperty(_SOURCES, 'phimmoi', 'Source 3 - Vietsub'), _defineProperty(_SOURCES, 'vkool', "Source 6 - Vietsub"), _SOURCES);
+    'banhtv': 'Source 5',
+    'animehay': 'Source 7',
+    'bilutv': 'Source 1',
+    'hdonline': 'Source 4',
+    'phimbathu': 'Source 2'
+}, _defineProperty(_SOURCES, "banhtv", 'Source 5'), _defineProperty(_SOURCES, 'phimmoi', 'Source 3'), _defineProperty(_SOURCES, 'vkool', "Source 6"), _SOURCES);
 
 var Lululita = function () {
     function Lululita(props) {

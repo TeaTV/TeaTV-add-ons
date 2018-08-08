@@ -320,7 +320,7 @@ var Phimbathu = function () {
                                             hosts.push({
                                                 provider: {
                                                     url: phimbathu.state.detailUrl,
-                                                    name: "Server 2 - Vietsub"
+                                                    name: "Server 2"
                                                 },
                                                 result: {
                                                     file: link_direct,

@@ -313,7 +313,7 @@ var Vkool = function () {
                                                                 link_direct && hosts.push({
                                                                     provider: {
                                                                         url: item,
-                                                                        name: "Server 6 - Vietsub"
+                                                                        name: "Server 6"
                                                                     },
                                                                     result: {
                                                                         file: link_direct,
