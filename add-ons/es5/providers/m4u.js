@@ -7,11 +7,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "http://m4ufree.com",
+    DOMAIN: "http://m4ufree.tv",
     SEARCH: function SEARCH(title) {
-        return 'http://m4ufree.com/search/' + title + '-m4ufree.html';
+        return 'http://m4ufree.tv/search/' + title + '.html';
+        //return `http://m4ufree.com/search/${title}-m4ufree.html`;
     },
-    AJAX_URL: 'http://m4ufree.com/ajax_new.php',
+    AJAX_URL: 'http://m4ufree.tv/ajax_new.php',
     HEADERS: function HEADERS(ref) {
         return {
             'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',

@@ -255,6 +255,14 @@
             "author": "psyntium",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/openload.js"
         },
+        "okru": {
+            "name": "okru",
+            "domain": [
+                "ok.ru"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ok-ru.js"
+        },
         "teamdk": {
             "name": "teamdk",
             "domain": [
