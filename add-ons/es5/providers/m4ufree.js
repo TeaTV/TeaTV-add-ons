@@ -7,9 +7,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "http://123openload.me",
+    DOMAIN: "http://123-putlocker.com",
     SEARCH: function SEARCH(title) {
-        return 'http://123openload.me/search-movies/' + title + '.html';
+        return 'http://123-putlocker.com/search-movies/' + title + '.html';
     },
     HEADERS: {
         'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -57,7 +57,7 @@ var M4uFree = function () {
                             case 7:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch.data);
-                                itemSearch = $('.ml-item');
+                                itemSearch = $('.list li');
 
 
                                 itemSearch.each(function (i) {

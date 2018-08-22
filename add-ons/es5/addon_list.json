@@ -10,16 +10,6 @@
                 "tv"
             ]
         },
-        "moviewatcher": {
-            "name": "moviewatcher",
-            "domain": "moviewatcher.is",
-            "version": "0.0.2",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/moviewatcher.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "fmoviesvc": {
             "name": "fmoviesvc",
             "domain": "fmovies.vc",
@@ -45,6 +35,26 @@
             "domain": "yesmovies.to",
             "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/yesmovies.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "moviewatcher": {
+            "name": "moviewatcher",
+            "domain": "moviewatcher.is",
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/moviewatcher.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "spacemov": {
+            "name": "spacemov",
+            "domain": "spacemov.sc",
+            "version": "0.0.4",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/spacemov.js",
             "type": [
                 "movie",
                 "tv"
@@ -188,27 +198,8 @@
         "fmoviespe": {
             "name": "fmoviespe",
             "domain": "fmovies.pe",
-            "version": "0.0.8",
+            "version": "0.0.9",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/fmoviespe.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "coolmovie": {
-            "name": "coolmoviezone",
-            "domain": "coolmoviezone.info",
-            "version": "0.0.3",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/coolmoviezone.js",
-            "type": [
-                "movie"
-            ]
-        },
-        "hollymovies": {
-            "name": "hollymovies",
-            "domain": "hollymovies.com",
-            "version": "0.0.16",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hollymovies.js",
             "type": [
                 "movie",
                 "tv"
@@ -272,6 +263,14 @@
             "version": "0.0.7",
             "author": "psyntium",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/openload.js"
+        },
+        "putload": {
+            "name": "putload",
+            "domain": [
+                "putload.tv"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/putload.js"
         },
         "teamdk": {
             "name": "teamdk",

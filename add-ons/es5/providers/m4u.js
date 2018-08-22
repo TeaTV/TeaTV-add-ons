@@ -54,12 +54,12 @@ var M4u = function () {
 
 
                                 urlSearch = URL.SEARCH(stringHelper._replaceSpecialCharacter(title).replace(/\s+/g, '-'));
-                                console.log(urlSearch);
+                                //console.log(urlSearch);
 
-                                _context.next = 8;
+                                _context.next = 7;
                                 return httpRequest.get(urlSearch);
 
-                            case 8:
+                            case 7:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch.data);
                                 itemSearch = $('.item');
@@ -79,7 +79,7 @@ var M4u = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 14:
+                            case 13:
                             case 'end':
                                 return _context.stop();
                         }

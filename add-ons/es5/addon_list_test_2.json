@@ -1,39 +1,10 @@
 {
     "providers": {
-        "m4u": {
-            "name": "m4u",
-            "domain": "m4ufree.com",
-            "version": "0.0.21",
-            "url": "http://dev.teatv.app/add-ons/es5/providers/m4u.js",
-            "type": [
-                "movie"
-            ]
-        },
-        "hollymovies": {
-            "name": "hollymovies",
-            "domain": "123openload.me",
-            "version": "0.0.17",
-            "url": "http://dev.teatv.app/add-ons/es5/providers/hollymovies.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "m4ufree": {
-            "name": "m4ufree",
-            "domain": "123openload.me",
-            "version": "0.0.19",
-            "url": "http://dev.teatv.app/add-ons/es5/providers/m4ufree.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "vexmovies": {
-            "name": "vexmovies",
-            "domain": "vexmovies.org",
-            "version": "0.0.19",
-            "url": "http://dev.teatv.app/add-ons/es5/providers/vexmovies.js",
+        "spacemov": {
+            "name": "spacemov",
+            "domain": "spacemov.sc",
+            "version": "0.0.4",
+            "url": "http://dev.teatv.app/add-ons/es5/providers/spacemov.js",
             "type": [
                 "movie",
                 "tv"
@@ -90,6 +61,14 @@
             ],
             "version": "0.0.5",
             "url": "http://dev.teatv.app/add-ons/es5/hosts/drive.google.js"
+        },
+        "putload": {
+            "name": "putload",
+            "domain": [
+                "putload.tv"
+            ],
+            "version": "0.0.5",
+            "url": "http://dev.teatv.app/add-ons/es5/hosts/putload.js"
         },
         "streamango": {
             "name": "streamango",

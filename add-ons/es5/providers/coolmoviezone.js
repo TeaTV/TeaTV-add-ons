@@ -48,7 +48,7 @@ var CoolMovie = function () {
                             case 6:
                                 htmlSearch = _context.sent;
 
-                                //console.log(htmlSearch);
+                                console.log(htmlSearch);
                                 $ = cheerio.load(htmlSearch);
                                 itemSearch = $('#contentleft a[rel=bookmark]');
 
@@ -70,7 +70,7 @@ var CoolMovie = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 12:
+                            case 13:
                             case 'end':
                                 return _context.stop();
                         }
