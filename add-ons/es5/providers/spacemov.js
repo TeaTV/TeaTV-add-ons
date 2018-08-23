@@ -97,7 +97,7 @@ var Spacemov = function () {
                                     }
                                 });
 
-                                this.state.detailUrl = detailUrl + 'watching/';
+                                if (detailUrl !== false) this.state.detailUrl = detailUrl + 'watching/';else this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
                             case 19:
