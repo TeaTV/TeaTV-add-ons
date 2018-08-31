@@ -60,25 +60,33 @@ var RapidVideo = function () {
                     while (1) {
                         switch (_context3.prev = _context3.next) {
                             case 0:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
-                                arrVideoQuality = [];
-                                results = [];
-                                _context3.next = 5;
-                                return this.checkLive(url);
-
-                            case 5:
-                                html = _context3.sent;
-
-                                if (!(html == false)) {
-                                    _context3.next = 8;
+                                if (!(url.search('https://') == -1 && url.search('http://') == -1)) {
+                                    _context3.next = 2;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
-                            case 8:
+                            case 2:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                arrVideoQuality = [];
+                                results = [];
+                                _context3.next = 7;
+                                return this.checkLive(url);
+
+                            case 7:
+                                html = _context3.sent;
+
+                                if (!(html == false)) {
+                                    _context3.next = 10;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 10:
                                 $ = cheerio.load(html);
-                                _context3.prev = 9;
+                                _context3.prev = 11;
                                 quality = $('#home_video div[style*="height:23px; width:100%; margin:0 auto; color:#FFF; font-size:14px; line-height:23px; border-top:1px solid #0f0f0f;"]').find('a');
 
 
@@ -134,10 +142,10 @@ var RapidVideo = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 15;
+                                _context3.next = 17;
                                 return Promise.all(arrPromise);
 
-                            case 15:
+                            case 17:
                                 return _context3.abrupt('return', {
                                     host: {
                                         url: url,
@@ -146,17 +154,17 @@ var RapidVideo = function () {
                                     result: results
                                 });
 
-                            case 18:
-                                _context3.prev = 18;
-                                _context3.t0 = _context3['catch'](9);
+                            case 20:
+                                _context3.prev = 20;
+                                _context3.t0 = _context3['catch'](11);
                                 throw new Error(_context3.t0);
 
-                            case 21:
+                            case 23:
                             case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this, [[9, 18]]);
+                }, _callee3, this, [[11, 20]]);
             }));
 
             function getLink(_x2) {
