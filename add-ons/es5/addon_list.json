@@ -53,7 +53,7 @@
         "spacemov": {
             "name": "spacemov",
             "domain": "spacemov.sc",
-            "version": "0.0.5",
+            "version": "0.0.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/spacemov.js",
             "type": [
                 "movie",
@@ -195,6 +195,16 @@
                 "movie",
                 "tv"
             ]
+        },
+        "afdah": {
+            "name": "afdah",
+            "domain": "afdah.to",
+            "version": "0.2.9",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/afdah.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
@@ -252,7 +262,7 @@
             "domain": [
                 "putload.tv"
             ],
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/putload.js"
         },
         "teamdk": {
@@ -376,6 +386,22 @@
             ],
             "version": "0.0.24",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidlink.js"
+        },
+        "watchasap": {
+            "name": "watchasap",
+            "domain": [
+                "ca3.watchasap.ru"
+            ],
+            "version": "0.0.6",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ca3.watchasap.ru.js"
+        },
+        "afdah": {
+            "name": "afdah",
+            "domain": [
+                "afdah.to"
+            ],
+            "version": "0.9.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/afdah.js"
         }
     }
 }
