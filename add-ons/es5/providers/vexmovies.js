@@ -154,6 +154,15 @@ var Vexmovies = function () {
                                 htmlDirect = _context2.sent;
                                 headers = htmlDirect.headers;
 
+                                if (!(headers['set-cookie'] == undefined)) {
+                                    _context2.next = 16;
+                                    break;
+                                }
+
+                                throw new Error("NOT_FOUND");
+
+                            case 16:
+
                                 headers = headers['set-cookie'][0];
                                 headers = headers.replace(/\;.*/i, '').trim() + ';';
 
@@ -168,10 +177,10 @@ var Vexmovies = function () {
                                     video: video,
                                     expire: expire
                                 };
-                                _context2.next = 24;
+                                _context2.next = 26;
                                 return httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS_JSON(embed), JSON.stringify(bodyForm));
 
-                            case 24:
+                            case 26:
                                 encodeJson = _context2.sent;
 
                                 encodeJson = encodeJson.data;
@@ -222,7 +231,7 @@ var Vexmovies = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 28:
+                            case 30:
                             case 'end':
                                 return _context2.stop();
                         }
