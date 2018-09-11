@@ -151,7 +151,7 @@
         "vexmovies": {
             "name": "vexmovies",
             "domain": "vexmovies.org",
-            "version": "0.0.6",
+            "version": "0.0.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vexmovies.js",
             "type": [
                 "movie"
@@ -240,7 +240,7 @@
             "domain": [
                 "afdah.to"
             ],
-            "version": "0.0.8",
+            "version": "0.0.9",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/afdah.js"
         },
         "streamango": {
@@ -271,6 +271,14 @@
             ],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/putload.js"
+        },
+        "embedis": {
+            "name": "putload",
+            "domain": [
+                "ca3.watchasap.ru"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/embedis.js"
         },
         "teamdk": {
             "name": "teamdk",

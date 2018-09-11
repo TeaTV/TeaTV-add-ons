@@ -116,13 +116,15 @@ var Afdah = function () {
                                 // const dieStatusText = "";
 
                                 _context.next = 3;
-                                return httpRequest.getHTML(url, {
-                                    'User-Agent': ' Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
-                                });
+                                return httpRequest.post(url, {
+                                    'User-Agent': ' Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+                                    'Referer': url
+
+                                }, { 'play': 'continue', 'x': 0, 'y': 0 });
 
                             case 3:
                                 html = _context.sent;
-                                return _context.abrupt("return", html);
+                                return _context.abrupt("return", html.data);
 
                             case 5:
                             case "end":

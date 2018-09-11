@@ -1,10 +1,10 @@
 {
     "providers": {
-        "spacemov": {
-            "name": "spacemov",
-            "domain": "spacemov.sc",
-            "version": "0.0.4",
-            "url": "http://dev.teatv.app/add-ons/es5/providers/spacemov.js",
+        "screamcr": {
+            "name": "screamcr",
+            "domain": "scr.cr",
+            "version": "0.0.5",
+            "url": "http://dev.teatv.app/add-ons/es5/providers/screamcr.js",
             "type": [
                 "movie",
                 "tv"
@@ -69,6 +69,14 @@
             ],
             "version": "0.0.5",
             "url": "http://dev.teatv.app/add-ons/es5/hosts/putload.js"
+        },
+        "ca3.watchasap.ru": {
+            "name": "EmbedIs",
+            "domain": [
+                "ca3.watchasap.ru"
+            ],
+            "version": "0.0.6",
+            "url": "http://dev.teatv.app/add-ons/es5/hosts/ca3.watchasap.ru.js"
         },
         "streamango": {
             "name": "streamango",
