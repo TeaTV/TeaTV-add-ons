@@ -7,12 +7,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: 'https://series9.co',
+    DOMAIN: 'https://www2.series9.io',
     GET_INFO: function GET_INFO(slug) {
-        return 'https://series9.co' + slug;
+        return 'https://www2.series9.io' + slug;
     },
     SEARCH: function SEARCH(title) {
-        return 'https://api.yesmovie.io/series/ajax/suggest_search?keyword=' + title + '&img=%2F%2Fcdn.themovieseries.net%2F&link_web=https%3A%2F%2Fwww1.series9.io%2F';
+        return 'https://api.ocloud.stream/series/ajax/suggest_search?keyword=' + title + '&img=%2F%2Fcdn.themovieseries.net%2F&link_web=https%3A%2F%2Fwww1.series9.io%2F';
         // return `https://api.yesmovie.io/series//movie/search/${title}`;
     }
 };
