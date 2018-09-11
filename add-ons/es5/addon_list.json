@@ -272,14 +272,6 @@
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/putload.js"
         },
-        "embedis": {
-            "name": "embedis",
-            "domain": [
-                "ca3.watchasap.ru"
-            ],
-            "version": "0.0.2",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/embedis.js"
-        },
         "teamdk": {
             "name": "teamdk",
             "domain": [
