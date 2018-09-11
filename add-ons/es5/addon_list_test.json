@@ -227,6 +227,22 @@
             ],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/212.47.234.139.js"
+        },
+        "watchasap": {
+            "name": "watchasap",
+            "domain": [
+                "ca3.watchasap.ru"
+            ],
+            "version": "0.0.6",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ca3.watchasap.ru.js"
+        },
+        "afdah": {
+            "name": "afdah",
+            "domain": [
+                "afdah.to"
+            ],
+            "version": "0.9.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/afdah.js"
         }
     }
 }

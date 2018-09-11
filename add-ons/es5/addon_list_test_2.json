@@ -3,8 +3,18 @@
         "screamcr": {
             "name": "screamcr",
             "domain": "scr.cr",
-            "version": "0.0.5",
+            "version": "0.0.8",
             "url": "http://dev.teatv.app/add-ons/es5/providers/screamcr.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "afdah": {
+            "name": "afdah",
+            "domain": "afdah.to",
+            "version": "0.0.5",
+            "url": "http://dev.teatv.app/add-ons/es5/providers/afdah.js",
             "type": [
                 "movie",
                 "tv"
@@ -54,6 +64,14 @@
             "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/googlevideo.js"
         },
+        "afdah": {
+            "name": "afdah",
+            "domain": [
+                "afdah.to"
+            ],
+            "version": "0.0.9",
+            "url": "http://dev.teatv.app/add-ons/es5/hosts/afdah.js"
+        },
         "googledrive": {
             "name": "googledrive",
             "domain": [
@@ -70,12 +88,12 @@
             "version": "0.0.5",
             "url": "http://dev.teatv.app/add-ons/es5/hosts/putload.js"
         },
-        "ca3.watchasap.ru": {
-            "name": "EmbedIs",
+        "watchasap": {
+            "name": "watchasap",
             "domain": [
                 "ca3.watchasap.ru"
             ],
-            "version": "0.0.6",
+            "version": "0.1.1",
             "url": "http://dev.teatv.app/add-ons/es5/hosts/ca3.watchasap.ru.js"
         },
         "streamango": {
