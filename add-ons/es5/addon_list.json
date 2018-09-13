@@ -195,13 +195,23 @@
                 "movie",
                 "tv"
             ]
+        },
+        "screamcr": {
+            "name": "screamcr",
+            "domain": "scr.cr",
+            "version": "0.6.9",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/screamcr.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
         "rapidvideo": {
             "name": "rapidvideo",
             "domain": "rapidvideo.com",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/rapidvideo.js"
         },
         "tocloud": {
@@ -392,6 +402,15 @@
             ],
             "version": "0.9.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/afdah.js"
+        },
+        "scream": {
+            "name": "scream",
+            "domain": [
+                "ca3.watchasap.ru",
+                "embedis.azureedge.net"
+            ],
+            "version": "0.9.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/screamcr.js"
         }
     }
 }

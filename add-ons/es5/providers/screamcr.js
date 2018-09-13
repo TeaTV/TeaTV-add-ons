@@ -160,7 +160,7 @@ var Screamcr = function () {
                                                         domain = val['file'].split('/')[2];
                                                         //console.log(domain);
 
-                                                        if (['ca3.watchasap.ru'].includes(domain)) {
+                                                        if (['ca3.watchasap.ru', 'embedis.azureedge.net'].includes(domain)) {
                                                             hosts.push({
                                                                 provider: {
                                                                     url: detailUrl,

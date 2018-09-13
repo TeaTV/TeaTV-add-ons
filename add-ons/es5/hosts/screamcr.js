@@ -6,84 +6,61 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Defaulthost = function () {
-    function Defaulthost(props) {
-        _classCallCheck(this, Defaulthost);
+var Screamcrhost = function () {
+    function Screamcrhost(props) {
+        _classCallCheck(this, Screamcrhost);
 
         this.libs = props.libs;
         this.settings = props.settings;
         this.state = {};
     }
 
-    _createClass(Defaulthost, [{
+    _createClass(Screamcrhost, [{
+        key: 'convertToEmbed',
+        value: function convertToEmbed() {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+        }
+    }, {
         key: 'getLink',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
-                var _libs, httpRequest, cheerio, isEmbed, results, isDie;
+                var _libs, httpRequest, cheerio, results, isDie;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
-                                _context.next = 3;
-                                return httpRequest.getHeader(url);
-
-                            case 3:
-                                isEmbed = _context.sent;
-
-                                if (!(JSON.stringify(isEmbed).indexOf('video/mp4') == -1)) {
-                                    _context.next = 6;
-                                    break;
-                                }
-
-                                return _context.abrupt('return', {
-                                    host: {
-                                        url: url,
-                                        name: "CDN OK"
-                                    },
-                                    result: []
-                                });
-
-                            case 6:
                                 results = [];
                                 isDie = 'NOR';
-                                _context.prev = 8;
-                                _context.next = 11;
-                                return httpRequest.isLinkDie(url);
 
-                            case 11:
-                                isDie = _context.sent;
-                                _context.next = 16;
-                                break;
+                                //try {
+                                //isDie       = await httpRequest.isLinkDie(url);
+                                //} catch(error) {isDie = 1.29}
 
-                            case 14:
-                                _context.prev = 14;
-                                _context.t0 = _context['catch'](8);
+                                // if( isDie != false && isDie != 'NOR' ) {
 
-                            case 16:
-
-                                if (isDie != false && isDie != 'NOR') {
-
-                                    results.push({
-                                        file: url, label: 'NOR', type: "direct", size: isDie
-                                    });
-                                }
+                                results.push({
+                                    file: url, label: 'NOR', type: "direct", size: 1.29
+                                });
+                                // }
 
                                 return _context.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "CDN"
+                                        name: "Scream"
                                     },
                                     result: results
                                 });
 
-                            case 18:
+                            case 5:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[8, 14]]);
+                }, _callee, this);
             }));
 
             function getLink(_x) {
@@ -94,9 +71,9 @@ var Defaulthost = function () {
         }()
     }]);
 
-    return Defaulthost;
+    return Screamcrhost;
 }();
 
 thisSource.function = function (libs, settings) {
-    return new Defaulthost({ libs: libs, settings: settings });
+    return new Screamcrhost({ libs: libs, settings: settings });
 };

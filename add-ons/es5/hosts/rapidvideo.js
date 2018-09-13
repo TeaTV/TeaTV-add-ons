@@ -87,7 +87,7 @@ var RapidVideo = function () {
                             case 10:
                                 $ = cheerio.load(html);
                                 _context3.prev = 11;
-                                quality = $('#home_video div[style*="height:23px; width:100%; margin:0 auto; color:#FFF; font-size:14px; line-height:23px; border-top:1px solid #0f0f0f;"]').find('a');
+                                quality = $('div[style*="height:30px; width:500px; margin:0 auto; color:#FFF; font-size:15px; line-height:30px; float:left;"]').find('a');
 
 
                                 quality.each(function () {

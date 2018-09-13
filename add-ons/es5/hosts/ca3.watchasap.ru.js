@@ -35,32 +35,43 @@ var Watchasap = function () {
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                 results = [];
                                 isDie = 'NOR';
+                                _context.prev = 3;
+                                _context.next = 6;
+                                return httpRequest.isLinkDie(url);
 
-                                // try {
-                                // isDie       = await httpRequest.isLinkDie(url);
-                                // } catch(error) {}
+                            case 6:
+                                isDie = _context.sent;
+                                _context.next = 12;
+                                break;
+
+                            case 9:
+                                _context.prev = 9;
+                                _context.t0 = _context['catch'](3);
+                                isDie = 1.29;
+
+                            case 12:
 
                                 // if( isDie != false && isDie != 'NOR' ) {
 
                                 results.push({
-                                    file: url, label: 'NOR', type: "direct", size: 1
+                                    file: url, label: 'NOR', type: "direct", size: isDie
                                 });
                                 // }
 
                                 return _context.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "WatchASAP"
+                                        name: "Scream"
                                     },
                                     result: results
                                 });
 
-                            case 5:
+                            case 14:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this);
+                }, _callee, this, [[3, 9]]);
             }));
 
             function getLink(_x) {
