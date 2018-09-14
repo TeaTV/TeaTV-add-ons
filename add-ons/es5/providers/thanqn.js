@@ -73,7 +73,7 @@ var Thanqn = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, qs, cryptoJs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, sign, posts, res, i;
+                var _libs2, httpRequest, cheerio, qs, cryptoJs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, ss, ep, sign, posts, res, i;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -92,20 +92,22 @@ var Thanqn = function () {
                             case 4:
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
-                                sign = cryptoJs.MD5(title.toLowerCase() + season + episode + "fapnhaptrensansau").toString();
+                                ss = season;
+                                ep = episode;
+                                sign = cryptoJs.MD5(title.toLowerCase() + ss + ep + "fapnhaptrensansau").toString();
                                 posts = {
                                     'name': title,
-                                    'ss': season,
-                                    'ep': episode,
+                                    'ss': ss,
+                                    'ep': ep,
                                     'hash': sign
                                 };
 
                                 if (type == 'movie') posts.year = year;
 
-                                _context2.next = 11;
+                                _context2.next = 13;
                                 return httpRequest.post(this.state.detailUrl, URL.HEADERS(), posts);
 
-                            case 11:
+                            case 13:
                                 res = _context2.sent;
 
 
@@ -127,7 +129,7 @@ var Thanqn = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 14:
+                            case 16:
                             case 'end':
                                 return _context2.stop();
                         }

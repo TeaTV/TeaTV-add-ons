@@ -229,7 +229,7 @@
         "thanqn": {
             "name": "thanqn",
             "domain": "thanqn.net",
-            "version": "0.7.1",
+            "version": "0.7.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/thanqn.js",
             "type": [
                 "movie",
