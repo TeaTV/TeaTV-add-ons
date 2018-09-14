@@ -245,6 +245,16 @@
                 "movie",
                 "tv"
             ]
+        },
+        "seehdbiz": {
+            "name": "seehdbiz",
+            "domain": "seehd.biz",
+            "version": "0.1.7",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seehdbiz.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {

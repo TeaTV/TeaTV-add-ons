@@ -1,30 +1,10 @@
 {
     "providers": {
-        "scream": {
-            "name": "scream",
-            "domain": "scr.cr",
-            "version": "0.1.8",
-            "url": "http://dev.teatv.app/add-ons/es5/providers/screamcr.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "thanqn": {
             "name": "thanqn",
             "domain": "themoviedb.org",
             "version": "0.1.5",
             "url": "http://dev.teatv.app/add-ons/es5/providers/thanqn.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "movieflixter": {
-            "name": "movieflixter",
-            "domain": "movieflixter.to",
-            "version": "0.0.9",
-            "url": "http://dev.teatv.app/add-ons/es5/providers/movieflixter.js",
             "type": [
                 "movie",
                 "tv"
@@ -40,11 +20,11 @@
                 "tv"
             ]
         },
-        "gomoviesec": {
-            "name": "gomoviesec",
-            "domain": "gomoviesfakec",
-            "version": "0.1.0",
-            "url": "http://dev.teatv.app/add-ons/es5/providers/gomoviesec.js",
+        "seehdbiz": {
+            "name": "seehdbiz",
+            "domain": "seehd.biz",
+            "version": "0.1.7",
+            "url": "http://dev.teatv.app/add-ons/es5/providers/seehdbiz.js",
             "type": [
                 "movie",
                 "tv"
