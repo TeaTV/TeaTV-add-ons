@@ -97,8 +97,8 @@ var Thanqn = function () {
                                 sign = cryptoJs.MD5(title.toLowerCase() + ss + ep + "fapnhaptrensansau").toString();
                                 posts = {
                                     'name': title,
-                                    'ss': ss,
-                                    'ep': ep,
+                                    'ss': season,
+                                    'ep': episode,
                                     'hash': sign
                                 };
 
