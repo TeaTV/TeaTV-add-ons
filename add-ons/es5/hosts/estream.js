@@ -29,19 +29,25 @@ var Estream = function () {
                                 // you fill the die status text
                                 // const dieStatusText = "";
 
-                                _context.next = 3;
+                                _context.prev = 1;
+                                _context.next = 4;
                                 return httpRequest.getHTML(url);
 
-                            case 3:
+                            case 4:
                                 html = _context.sent;
                                 return _context.abrupt("return", html);
 
-                            case 5:
+                            case 8:
+                                _context.prev = 8;
+                                _context.t0 = _context["catch"](1);
+                                throw new Error('LINK DIE');
+
+                            case 11:
                             case "end":
                                 return _context.stop();
                         }
                     }
-                }, _callee, this);
+                }, _callee, this, [[1, 8]]);
             }));
 
             function checkLive(_x) {
@@ -97,6 +103,8 @@ var Estream = function () {
                                     });
                                 });
 
+                                console.log(temp);
+
                                 arrPromise = temp.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
                                         var isDie;
@@ -128,10 +136,10 @@ var Estream = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 13;
+                                _context3.next = 14;
                                 return Promise.all(arrPromise);
 
-                            case 13:
+                            case 14:
                                 return _context3.abrupt("return", {
                                     host: {
                                         url: url,
@@ -140,7 +148,7 @@ var Estream = function () {
                                     result: sources
                                 });
 
-                            case 14:
+                            case 15:
                             case "end":
                                 return _context3.stop();
                         }

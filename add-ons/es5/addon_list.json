@@ -199,8 +199,28 @@
         "screamcr": {
             "name": "screamcr",
             "domain": "scr.cr",
-            "version": "0.6.9",
+            "version": "0.7.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/screamcr.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "cartoonhd": {
+            "name": "cartoonhd.poret",
+            "domain": "scr.cr",
+            "version": "0.7.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/cartoonhd.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "movieflixter": {
+            "name": "movieflixter",
+            "domain": "movieflixter.to",
+            "version": "0.7.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/movieflixter.js",
             "type": [
                 "movie",
                 "tv"
