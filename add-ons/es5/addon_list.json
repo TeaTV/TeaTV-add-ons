@@ -235,6 +235,16 @@
                 "movie",
                 "tv"
             ]
+        },
+        "gomoviesec": {
+            "name": "gomoviesec",
+            "domain": "uychnhau.de",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/gomoviesec.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
@@ -404,7 +414,8 @@
         "fbcdn": {
             "name": "fbcdn",
             "domain": [
-                "video.xx.fbcdn.net"
+                "video.xx.fbcdn.net",
+                "scontent.xx.fbcdn.net"
             ],
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/video.xx.fbcdn.js"

@@ -48,12 +48,9 @@ var GoogleDrive = function () {
 
                             case 3:
                                 html = _context.sent;
-
-                                // if(html.includes(dieStatusText)) return true;
-                                console.log(html);
                                 return _context.abrupt('return', html);
 
-                            case 6:
+                            case 5:
                             case 'end':
                                 return _context.stop();
                         }

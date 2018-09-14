@@ -39,6 +39,16 @@
                 "movie",
                 "tv"
             ]
+        },
+        "gomoviesec": {
+            "name": "gomoviesec",
+            "domain": "gomoviesfakec",
+            "version": "0.1.0",
+            "url": "http://dev.teatv.app/add-ons/es5/providers/gomoviesec.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
@@ -208,9 +218,10 @@
         "fbcdn": {
             "name": "fbcdn",
             "domain": [
-                "video.xx.fbcdn.net"
+                "video.xx.fbcdn.net",
+                "scontent.xx.fbcdn.net"
             ],
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "http://dev.teatv.app/add-ons/es5/hosts/video.xx.fbcdn.js"
         },
         "vidlink": {
