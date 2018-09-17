@@ -265,6 +265,15 @@
                 "movie",
                 "tv"
             ]
+        },
+        "seriesfree": {
+            "name": "seriesfree",
+            "domain": "seriesfree.dit",
+            "version": "0.0.4",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seriesfree.js",
+            "type": [
+                "tv"
+            ]
         }
     },
     "hosts": {
