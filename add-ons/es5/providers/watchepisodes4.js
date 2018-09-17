@@ -76,7 +76,7 @@ var WatchEpisode = function () {
                                 break;
 
                             case 20:
-                                if (!(detailSeason != false && type == 'tvshow')) {
+                                if (!(detailSeason != false && type == 'tv')) {
                                     _context.next = 27;
                                     break;
                                 }

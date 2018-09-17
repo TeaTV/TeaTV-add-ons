@@ -171,7 +171,7 @@
         "watchepisodes4": {
             "name": "watchepisodes4",
             "domain": "watchepisodes4.com",
-            "version": "0.0.6",
+            "version": "0.0.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchepisodes4.js",
             "type": [
                 "tv"
@@ -326,9 +326,9 @@
         "estream": {
             "name": "estream",
             "domain": [
-                "estream.to"
+                "estreamdisable.to"
             ],
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/estream.js"
         },
         "thevideo": {
