@@ -35,7 +35,7 @@ var Spacemov = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, cryptoJs, _movieInfo, title, year, season, episode, type, detailUrl, html, json, $, lis;
+                var _libs, httpRequest, cheerio, stringHelper, cryptoJs, _movieInfo, title, year, season, episode, type, detailUrl, html, _json, $, lis;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -70,7 +70,17 @@ var Spacemov = function () {
                                 html = _context.sent;
 
                             case 13:
-                                json = JSON.parse(html);
+                                _context.prev = 13;
+                                _json = JSON.parse(html);
+                                _context.next = 20;
+                                break;
+
+                            case 17:
+                                _context.prev = 17;
+                                _context.t0 = _context['catch'](13);
+                                throw new Error('INVALID JSON');
+
+                            case 20:
                                 $ = cheerio.load(json['content']);
                                 lis = $('li');
 
@@ -100,12 +110,12 @@ var Spacemov = function () {
                                 if (detailUrl !== false) this.state.detailUrl = detailUrl + 'watching/';else this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 19:
+                            case 25:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this);
+                }, _callee, this, [[13, 17]]);
             }));
 
             function searchDetail() {
