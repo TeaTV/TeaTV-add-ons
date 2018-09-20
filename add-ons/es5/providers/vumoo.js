@@ -42,35 +42,37 @@ var Vumoo = function () {
 
                             case 4:
                                 getJs = _context.sent;
+
+                                console.log(getJs);
                                 match = getJs.data.match(/search\?t=([^"]+)/);
 
                                 if (!(match[1] == undefined)) {
-                                    _context.next = 8;
+                                    _context.next = 9;
                                     break;
                                 }
 
                                 return _context.abrupt('return');
 
-                            case 8:
+                            case 9:
                                 t = match[1];
                                 detailUrl = false;
                                 urlSearch = URL.SEARCH(encodeURI(title), t);
-                                _context.next = 13;
+                                _context.next = 14;
                                 return httpRequest.get(urlSearch);
 
-                            case 13:
+                            case 14:
                                 jsonSearch = _context.sent;
 
                                 jsonSearch = jsonSearch.data;
 
                                 if (jsonSearch.suggestions) {
-                                    _context.next = 17;
+                                    _context.next = 18;
                                     break;
                                 }
 
                                 throw new Error('NOT SEARCH VUMOO');
 
-                            case 17:
+                            case 18:
 
                                 jsonSearch.suggestions.forEach(function (val) {
 
@@ -102,7 +104,7 @@ var Vumoo = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 20:
+                            case 21:
                             case 'end':
                                 return _context.stop();
                         }
@@ -173,7 +175,7 @@ var Vumoo = function () {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
                                                         _context2.next = 2;
-                                                        return httpRequest.getHTML(val);
+                                                        return httpRequest.getHTML(val, { 'User-agent': 'Firefox 59' });
 
                                                     case 2:
                                                         htmlRedirect = _context2.sent;
