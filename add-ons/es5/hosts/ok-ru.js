@@ -91,16 +91,35 @@ var OK_RU = function () {
                                 results = [];
                                 $ = cheerio.load(html);
                                 script = $('div[data-module=OKVideo]').attr('data-options');
+                                _context3.prev = 10;
 
                                 script = JSON.parse(script);
+                                _context3.next = 17;
+                                break;
 
+                            case 14:
+                                _context3.prev = 14;
+                                _context3.t0 = _context3['catch'](10);
+                                throw new Error("LINK DIE");
+
+                            case 17:
                                 videos = script.flashvars.metadata;
+                                _context3.prev = 18;
 
                                 videos = JSON.parse(videos);
+                                _context3.next = 25;
+                                break;
+
+                            case 22:
+                                _context3.prev = 22;
+                                _context3.t1 = _context3['catch'](18);
+                                throw new Error("LINK DIE");
+
+                            case 25:
                                 videos = videos.videos;
 
                                 if (!(videos.length > 0)) {
-                                    _context3.next = 18;
+                                    _context3.next = 30;
                                     break;
                                 }
 
@@ -137,10 +156,10 @@ var OK_RU = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 18;
+                                _context3.next = 30;
                                 return Promise.all(arrPromise);
 
-                            case 18:
+                            case 30:
                                 return _context3.abrupt('return', {
                                     host: {
                                         url: url,
@@ -149,17 +168,17 @@ var OK_RU = function () {
                                     result: results
                                 });
 
-                            case 21:
-                                _context3.prev = 21;
-                                _context3.t0 = _context3['catch'](6);
-                                throw new Error(_context3.t0);
+                            case 33:
+                                _context3.prev = 33;
+                                _context3.t2 = _context3['catch'](6);
+                                throw new Error(_context3.t2);
 
-                            case 24:
+                            case 36:
                             case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this, [[6, 21]]);
+                }, _callee3, this, [[6, 33], [10, 14], [18, 22]]);
             }));
 
             function getLink(_x2) {

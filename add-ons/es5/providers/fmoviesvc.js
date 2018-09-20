@@ -88,7 +88,7 @@ var FmoviesVc = function () {
 
                                     var hrefInfo = $(this).find('a').attr('data-url');
 
-                                    arrSearch.push({ hrefMovie: hrefMovie, titleMovie: titleMovie, yearMovie: yearMovie, seasonMovie: seasonMovie, hrefInfo: hrefInfo });
+                                    if (stringHelper.shallowCompare(title, titleMovie)) arrSearch.push({ hrefMovie: hrefMovie, titleMovie: titleMovie, yearMovie: yearMovie, seasonMovie: seasonMovie, hrefInfo: hrefInfo });
                                 });
 
                                 arrPromise = arrSearch.map(function () {
@@ -98,25 +98,26 @@ var FmoviesVc = function () {
                                                 switch (_context.prev = _context.next) {
                                                     case 0:
                                                         if (val.yearMovie) {
-                                                            _context.next = 6;
+                                                            _context.next = 7;
                                                             break;
                                                         }
 
                                                         if (!val.hrefInfo) {
-                                                            _context.next = 6;
+                                                            _context.next = 7;
                                                             break;
                                                         }
 
                                                         val.hrefInfo = URL.DOMAIN + val.hrefInfo;
-                                                        _context.next = 5;
+                                                        console.log(val.hrefInfo, 'vc');
+                                                        _context.next = 6;
                                                         return getYearMovie(libs, val.hrefInfo);
 
-                                                    case 5:
+                                                    case 6:
                                                         val.yearMovie = _context.sent;
 
-                                                    case 6:
+                                                    case 7:
                                                         if (!(stringHelper.shallowCompare(title, val.titleMovie) && val.hrefMovie)) {
-                                                            _context.next = 17;
+                                                            _context.next = 18;
                                                             break;
                                                         }
 
@@ -124,23 +125,23 @@ var FmoviesVc = function () {
                                                         idMovie = idMovie != null ? idMovie[1] : false;
 
                                                         if (!(type == 'movie' && val.seasonMovie == false && val.yearMovie == year)) {
-                                                            _context.next = 14;
+                                                            _context.next = 15;
                                                             break;
                                                         }
 
                                                         videoUrl = val.hrefMovie;
                                                         return _context.abrupt('return');
 
-                                                    case 14:
+                                                    case 15:
                                                         if (!(type == 'tv' && val.seasonMovie == season)) {
-                                                            _context.next = 17;
+                                                            _context.next = 18;
                                                             break;
                                                         }
 
                                                         videoUrl = val.hrefMovie;
                                                         return _context.abrupt('return');
 
-                                                    case 17:
+                                                    case 18:
                                                     case 'end':
                                                         return _context.stop();
                                                 }
@@ -184,10 +185,18 @@ var FmoviesVc = function () {
                                 throw new Error('NOT FOUND');
 
                             case 29:
+                                if (!(typeof detailUrl !== "string")) {
+                                    _context2.next = 31;
+                                    break;
+                                }
+
+                                throw new Error("NOT_FOUND");
+
+                            case 31:
                                 this.state.detailUrl = detailUrl;
                                 return _context2.abrupt('return');
 
-                            case 31:
+                            case 33:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -285,9 +294,20 @@ var FmoviesVc = function () {
 
                             case 13:
                                 htmlDetail = _context6.sent;
+                                _context6.prev = 14;
 
                                 htmlDetail = JSON.parse(htmlDetail);
+                                _context6.next = 22;
+                                break;
 
+                            case 18:
+                                _context6.prev = 18;
+                                _context6.t0 = _context6['catch'](14);
+
+                                console.log('fmoviesvc htmlerr', detailUrl);
+                                throw new Error('NOT_FOUND');
+
+                            case 22:
                                 $ = cheerio.load(htmlDetail.html);
                                 arrServer = [];
                                 arrServerEmbed = [];
@@ -463,19 +483,19 @@ var FmoviesVc = function () {
                                     }());
                                 }
 
-                                _context6.next = 24;
+                                _context6.next = 31;
                                 return Promise.all(arrPromise);
 
-                            case 24:
+                            case 31:
 
                                 this.state.hosts = hosts;
 
-                            case 25:
+                            case 32:
                             case 'end':
                                 return _context6.stop();
                         }
                     }
-                }, _callee6, this);
+                }, _callee6, this, [[14, 18]]);
             }));
 
             function getHostFromDetail() {
@@ -501,21 +521,25 @@ var FmoviesVc = function () {
                             case 4:
                                 jsonEmbed = _context7.sent;
 
-                                jsonEmbed = JSON.parse(jsonEmbed);
+                                try {
+                                    jsonEmbed = JSON.parse(jsonEmbed);
 
-                                jsonEmbed.src && hosts.push({
-                                    provider: {
-                                        url: detailUrl,
-                                        name: "fmoviesvc"
-                                    },
-                                    result: {
-                                        file: jsonEmbed.src,
-                                        label: "embed",
-                                        type: 'embed'
-                                    }
-                                });
+                                    jsonEmbed.src && hosts.push({
+                                        provider: {
+                                            url: detailUrl,
+                                            name: "fmoviesvc"
+                                        },
+                                        result: {
+                                            file: jsonEmbed.src,
+                                            label: "embed",
+                                            type: 'embed'
+                                        }
+                                    });
+                                } catch (e) {
+                                    console.log('vc errror fmoviesvc detailUrl');
+                                }
 
-                            case 7:
+                            case 6:
                             case 'end':
                                 return _context7.stop();
                         }
@@ -577,13 +601,11 @@ thisSource.function = function () {
                             bodyPost.is_link = 1;
                         }
 
-                        _context8.next = 11;
-                        return httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
 
-                    case 11:
                         return _context8.abrupt('return', source.state.hosts);
 
-                    case 12:
+                    case 10:
                     case 'end':
                         return _context8.stop();
                 }

@@ -13,7 +13,7 @@
         "fmoviesvc": {
             "name": "fmoviesvc",
             "domain": "fmovies.vc",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/fmoviesvc.js",
             "type": [
                 "movie",
@@ -50,16 +50,6 @@
                 "tv"
             ]
         },
-        "spacemov": {
-            "name": "spacemov",
-            "domain": "spacemov.sc",
-            "version": "0.0.7",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/spacemov.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "m4ufree": {
             "name": "m4ufree",
             "domain": "123openload.me",
@@ -82,7 +72,7 @@
         "vumoo": {
             "name": "vumoo",
             "domain": "vumoo.to",
-            "version": "0.0.5",
+            "version": "0.0.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vumoo.js",
             "type": [
                 "movie",
@@ -196,20 +186,10 @@
                 "tv"
             ]
         },
-        "screamcr": {
-            "name": "screamcr",
-            "domain": "scr.cr",
-            "version": "0.7.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/screamcr.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "cartoonhd": {
-            "name": "cartoonhd.poret",
-            "domain": "scr.cr",
-            "version": "0.7.1",
+            "name": "cartoonhd",
+            "domain": "cartoonhd.poret",
+            "version": "0.7.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/cartoonhd.js",
             "type": [
                 "movie",
@@ -239,18 +219,8 @@
         "gomoviesec": {
             "name": "gomoviesec",
             "domain": "uychnhau.de",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/gomoviesec.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "seehdbiz": {
-            "name": "seehdbiz",
-            "domain": "seehd.biz",
-            "version": "0.1.7",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seehdbiz.js",
             "type": [
                 "movie",
                 "tv"
@@ -259,7 +229,7 @@
         "123xfree": {
             "name": "123xfree",
             "domain": "123xfree.dit",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesfree.js",
             "type": [
                 "movie",
@@ -389,7 +359,7 @@
             "domain": [
                 "ok.ru"
             ],
-            "version": "0.0.3",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ok-ru.js"
         },
         "vidnode": {

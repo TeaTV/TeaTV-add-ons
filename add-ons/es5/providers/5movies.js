@@ -78,11 +78,11 @@ var ThreeMovies = function () {
 
 
                                 // for(let item of setCookie) {
-                                // 	if(item.indexOf('PHPSESSID') != -1) {
-                                // 		sessid = item.match(/([^\;]+)/i);
-                                // 		sessid = sessid != null ? sessid[1] +';' : '';
-                                // 		break;
-                                // 	}
+                                //  if(item.indexOf('PHPSESSID') != -1) {
+                                //      sessid = item.match(/([^\;]+)/i);
+                                //      sessid = sessid != null ? sessid[1] +';' : '';
+                                //      break;
+                                //  }
                                 // }
 
 
@@ -107,7 +107,7 @@ var ThreeMovies = function () {
                                     // titleMovie = titleMovie.replace(/\( *[0-9]+ *\)/i, '');
 
                                     // if(hrefMovie.indexOf('http') == -1 && hrefMovie.indexOf('https') == -1) {
-                                    // 	hrefMovie = 'http:' + hrefMovie;
+                                    //  hrefMovie = 'http:' + hrefMovie;
                                     // }
 
                                     if (titleMovie && stringHelper.shallowCompare(titleMovie, title) && (hrefMovie.indexOf('/movie/') != -1 || hrefMovie.indexOf('/tv/') != -1)) {
@@ -143,7 +143,7 @@ var ThreeMovies = function () {
                                     var hrefEpisode = $(this).attr('href');
 
                                     if (hrefEpisode.indexOf('http') == -1 && hrefEpisode.indexOf('https') == -1) {
-                                        hrefEpisode = 'http:' + hrefEpisode;
+                                        hrefEpisode = 'https:' + hrefEpisode;
                                     }
 
                                     var seasonMovie = hrefEpisode.match(/\-s([0-9]+)/i);
@@ -206,14 +206,17 @@ var ThreeMovies = function () {
                             case 8:
                                 htmlDetail = _context3.sent;
                                 $ = cheerio.load(htmlDetail);
-                                itemLk = $('.link-button');
+                                itemLk = $('.links ul');
 
 
                                 itemLk.each(function () {
-                                    var hrefLk = $(this).find('a').attr('href');
-                                    hrefLk = hrefLk.replace('?lk=', '').trim();
+                                    var liName = $(this).find('li.link-name').text();
 
-                                    arr_lk.push(hrefLk);
+                                    if (liName.indexOf('openload') != -1 || liName.indexOf('streamango') != -1) {
+                                        var hrefLk = $(this).find('.link-button a').attr('href');
+                                        hrefLk = hrefLk.replace('?lk=', '').trim();
+                                        arr_lk.push(hrefLk);
+                                    }
                                 });
 
                                 arr_promise = arr_lk.map(function () {
@@ -233,7 +236,7 @@ var ThreeMovies = function () {
                                                         hrefEmbed = hrefEmbed.data;
 
                                                         if (hrefEmbed.indexOf('http') == -1 && hrefEmbed.indexOf('https') == -1) {
-                                                            hrefEmbed = 'http:' + hrefEmbed;
+                                                            hrefEmbed = 'https:' + hrefEmbed;
                                                         }
 
                                                         hrefEmbed && hosts.push({
@@ -335,13 +338,11 @@ thisSource.function = function () {
                             bodyPost.is_link = 1;
                         }
 
-                        _context4.next = 11;
-                        return httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
 
-                    case 11:
                         return _context4.abrupt('return', source.state.hosts);
 
-                    case 12:
+                    case 10:
                     case 'end':
                         return _context4.stop();
                 }

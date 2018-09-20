@@ -159,28 +159,49 @@ var Gomoviesec = function () {
 
                             case 14:
                                 embedHtml = _context2.sent;
-                                js = JSON.parse(embedHtml);
+                                _context2.prev = 15;
 
+                                js = JSON.parse(embedHtml);
+                                _context2.next = 22;
+                                break;
+
+                            case 19:
+                                _context2.prev = 19;
+                                _context2.t0 = _context2['catch'](15);
+                                throw new Error('NOT_FOUND');
+
+                            case 22:
                                 if (js.status) {
-                                    _context2.next = 18;
+                                    _context2.next = 24;
                                     break;
                                 }
 
                                 throw new Error('NO_LINK');
 
-                            case 18:
+                            case 24:
 
                                 if (js.value.indexOf('//') == 0) js.value = 'https:' + js.value;
 
-                                _context2.next = 21;
+                                _context2.next = 27;
                                 return httpRequest.getHTML(js.value, {
                                     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
                                     'Referer': detailUrl
                                 });
 
-                            case 21:
+                            case 27:
                                 playHtml = _context2.sent;
+                                _context2.prev = 28;
+
                                 js1 = JSON.parse(playHtml);
+                                _context2.next = 35;
+                                break;
+
+                            case 32:
+                                _context2.prev = 32;
+                                _context2.t1 = _context2['catch'](28);
+                                throw new Error('NOT_FOUND');
+
+                            case 35:
 
                                 for (i in js1.playlist) {
                                     url = js1.playlist[i].file;
@@ -200,12 +221,12 @@ var Gomoviesec = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 25:
+                            case 37:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this);
+                }, _callee2, this, [[15, 19], [28, 32]]);
             }));
 
             function getHostFromDetail() {

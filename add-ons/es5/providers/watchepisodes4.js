@@ -157,20 +157,22 @@ var WatchEpisode = function () {
                                 itemEmbed.each(function () {
 
                                     var linkEmbed = $(this).find('.watch-button').attr('data-actuallink');
+                                    var hostName = $(this).find('.watch-button').attr('data-hostname');
 
                                     if (linkEmbed.indexOf('https://') != -1 || linkEmbed.indexOf('http://') != -1) {
-
-                                        linkEmbed && hosts.push({
-                                            provider: {
-                                                url: detailUrl,
-                                                name: "episode4"
-                                            },
-                                            result: {
-                                                file: linkEmbed,
-                                                label: "embed",
-                                                type: "embed"
-                                            }
-                                        });
+                                        if (['openload.co', 'streamango.com'].includes(hostName) && hosts.length <= 15) {
+                                            linkEmbed && hosts.push({
+                                                provider: {
+                                                    url: detailUrl,
+                                                    name: "episode4"
+                                                },
+                                                result: {
+                                                    file: linkEmbed,
+                                                    label: "embed",
+                                                    type: "embed"
+                                                }
+                                            });
+                                        }
                                     }
                                 });
 
@@ -240,13 +242,11 @@ thisSource.function = function () {
                             bodyPost.is_link = 1;
                         }
 
-                        _context3.next = 11;
-                        return httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
 
-                    case 11:
                         return _context3.abrupt('return', source.state.hosts);
 
-                    case 12:
+                    case 10:
                     case 'end':
                         return _context3.stop();
                 }

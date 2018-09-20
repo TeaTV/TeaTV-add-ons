@@ -224,7 +224,7 @@ var Streamango = function () {
                   break;
                 }
 
-                throw new Error("ERROR GET LINK STREAMANGO");
+                throw new Error("ERROR GET LINK STREAMANGO - " + url);
 
               case 10:
                 reg = /srces.push *\( *{ *type *: *"video\/mp4"(.*);/g;
@@ -235,7 +235,7 @@ var Streamango = function () {
                   break;
                 }
 
-                throw new Error("ERROR GET LINK STREAMANGO");
+                throw new Error("ERROR GET LINK STREAMANGO 1");
 
               case 14:
                 sources = [];

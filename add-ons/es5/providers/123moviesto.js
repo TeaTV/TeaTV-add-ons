@@ -84,8 +84,18 @@ var Moviesto = function () {
 
                             case 16:
                                 jsonSearch = _context.sent;
+                                _context.prev = 17;
 
                                 jsonSearch = JSON.parse(jsonSearch);
+                                _context.next = 24;
+                                break;
+
+                            case 21:
+                                _context.prev = 21;
+                                _context.t0 = _context['catch'](17);
+                                throw new Error("NOT_FOUND");
+
+                            case 24:
 
                                 for (item in jsonSearch) {
                                     yearMovie = jsonSearch[item].extra.date;
@@ -108,14 +118,14 @@ var Moviesto = function () {
                                 }
 
                                 if (!(type == 'tv' && videoUrl)) {
-                                    _context.next = 26;
+                                    _context.next = 32;
                                     break;
                                 }
 
-                                _context.next = 22;
+                                _context.next = 28;
                                 return httpRequest.getHTML(videoUrl);
 
-                            case 22:
+                            case 28:
                                 htmlVideo = _context.sent;
                                 $_2 = cheerio.load(htmlVideo);
                                 itemEpisode = $_2('.episodios li');
@@ -138,17 +148,17 @@ var Moviesto = function () {
                                     }
                                 });
 
-                            case 26:
+                            case 32:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 28:
+                            case 34:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this);
+                }, _callee, this, [[17, 21]]);
             }));
 
             function searchDetail() {
@@ -353,13 +363,11 @@ thisSource.function = function () {
                             bodyPost.is_link = 1;
                         }
 
-                        _context3.next = 11;
-                        return httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
 
-                    case 11:
                         return _context3.abrupt('return', source.state.hosts);
 
-                    case 12:
+                    case 10:
                     case 'end':
                         return _context3.stop();
                 }

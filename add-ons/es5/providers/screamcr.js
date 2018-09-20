@@ -149,7 +149,18 @@ var Screamcr = function () {
 
                             case 16:
                                 sources = _context3.sent;
+                                _context3.prev = 17;
+
                                 jsonSources = JSON.parse(sources);
+                                _context3.next = 24;
+                                break;
+
+                            case 21:
+                                _context3.prev = 21;
+                                _context3.t0 = _context3['catch'](17);
+                                throw new Error('NOT_FOUND');
+
+                            case 24:
                                 arrPromise = jsonSources['sources'].map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
                                         var domain;
@@ -186,19 +197,19 @@ var Screamcr = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 21;
+                                _context3.next = 27;
                                 return Promise.all(arrPromise);
 
-                            case 21:
+                            case 27:
 
                                 this.state.hosts = hosts;
 
-                            case 22:
+                            case 28:
                             case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this);
+                }, _callee3, this, [[17, 21]]);
             }));
 
             function getHostFromDetail() {

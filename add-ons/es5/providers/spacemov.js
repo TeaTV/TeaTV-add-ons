@@ -35,7 +35,7 @@ var Spacemov = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, cryptoJs, _movieInfo, title, year, season, episode, type, detailUrl, html, _json, $, lis;
+                var _libs, httpRequest, cheerio, stringHelper, cryptoJs, _movieInfo, title, year, season, episode, type, detailUrl, html, json, $, lis;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -71,14 +71,15 @@ var Spacemov = function () {
 
                             case 13:
                                 _context.prev = 13;
-                                _json = JSON.parse(html);
+
+                                json = JSON.parse(html);
                                 _context.next = 20;
                                 break;
 
                             case 17:
                                 _context.prev = 17;
                                 _context.t0 = _context['catch'](13);
-                                throw new Error('INVALID JSON');
+                                throw new Error('NOT_FOUND');
 
                             case 20:
                                 $ = cheerio.load(json['content']);
@@ -279,13 +280,11 @@ thisSource.function = function () {
                             bodyPost.is_link = 1;
                         }
 
-                        _context3.next = 11;
-                        return httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
 
-                    case 11:
                         return _context3.abrupt('return', source.state.hosts);
 
-                    case 12:
+                    case 10:
                     case 'end':
                         return _context3.stop();
                 }
