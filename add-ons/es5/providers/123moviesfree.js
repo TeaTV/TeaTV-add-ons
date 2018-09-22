@@ -194,28 +194,25 @@ var s123MoviesFree = function () {
                                                     case 6:
                                                         playHtml = _context2.sent;
 
-                                                        try {
-                                                            playHtml = JSON.parse(playHtml);
+                                                        playHtml = JSON.parse(playHtml);
+                                                        if (playHtml.data) {
+                                                            last_u = playHtml.data;
 
-                                                            if (playHtml.data) {
-                                                                last_u = playHtml.data;
+                                                            if (last_u.indexOf('//') == 0) last_u = 'https:' + last_u;
+                                                            hosts.push({
+                                                                provider: {
+                                                                    url: detailUrl,
+                                                                    name: "123xfree"
+                                                                },
+                                                                result: {
+                                                                    file: last_u,
+                                                                    label: "embed",
+                                                                    type: "embed"
+                                                                }
+                                                            });
+                                                        }
 
-                                                                if (last_u.indexOf('//') == 0) last_u = 'https:' + last_u;
-                                                                hosts.push({
-                                                                    provider: {
-                                                                        url: detailUrl,
-                                                                        name: "123xfree"
-                                                                    },
-                                                                    result: {
-                                                                        file: last_u,
-                                                                        label: "embed",
-                                                                        type: "embed"
-                                                                    }
-                                                                });
-                                                            }
-                                                        } catch (e) {}
-
-                                                    case 8:
+                                                    case 9:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }

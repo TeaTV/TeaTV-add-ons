@@ -77,21 +77,12 @@ var Vexmovies = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
-
-                                if (!1) {
-                                    _context.next = 4;
-                                    break;
-                                }
-
-                                throw new Error("NOT_FOUND");
-
-                            case 4:
                                 detailUrl = false;
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
-                                _context.next = 8;
+                                _context.next = 6;
                                 return httpRequest.getHTML(urlSearch);
 
-                            case 8:
+                            case 6:
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch);
                                 itemSearch = $('.peliculas .item_1 .item');
@@ -113,7 +104,7 @@ var Vexmovies = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 14:
+                            case 12:
                             case 'end':
                                 return _context.stop();
                         }
@@ -157,7 +148,7 @@ var Vexmovies = function () {
                                 $ = cheerio.load(htmlDetail);
                                 embed = $('.entry-content iframe').attr('src');
                                 _context2.next = 12;
-                                return httpRequest.getHTML(embed, URL.HEADERS(detailUrl));
+                                return httpRequest.get(embed, URL.HEADERS(detailUrl));
 
                             case 12:
                                 htmlDirect = _context2.sent;

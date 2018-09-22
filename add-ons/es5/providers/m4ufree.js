@@ -52,11 +52,11 @@ var M4uFree = function () {
                                 }
 
                                 _context.next = 7;
-                                return httpRequest.getHTML(urlSearch);
+                                return httpRequest.get(urlSearch);
 
                             case 7:
                                 htmlSearch = _context.sent;
-                                $ = cheerio.load(htmlSearch);
+                                $ = cheerio.load(htmlSearch.data);
                                 itemSearch = $('.list li');
 
 
@@ -159,11 +159,11 @@ var M4uFree = function () {
                                 arrDetail = [];
                                 detailUrl = this.state.detailUrl;
                                 _context3.next = 8;
-                                return httpRequest.getHTML(this.state.detailUrl);
+                                return httpRequest.get(this.state.detailUrl);
 
                             case 8:
                                 htmlDetail = _context3.sent;
-                                $ = cheerio.load(htmlDetail);
+                                $ = cheerio.load(htmlDetail.data);
                                 item = $('#total_version .server_line');
                                 num_links = 0;
 
@@ -185,7 +185,7 @@ var M4uFree = function () {
                                                         htmlData = { data: '' };
                                                         _context2.prev = 1;
                                                         _context2.next = 4;
-                                                        return httpRequest.getHTML(links);
+                                                        return httpRequest.get(links);
 
                                                     case 4:
                                                         htmlData = _context2.sent;
@@ -197,7 +197,7 @@ var M4uFree = function () {
                                                         _context2.t0 = _context2['catch'](1);
 
                                                     case 9:
-                                                        encode = htmlData.match(/Base64\.decode\(\"([^\"]+)/i);
+                                                        encode = htmlData.data.match(/Base64\.decode\(\"([^\"]+)/i);
 
                                                         encode = encode != null ? encode[1] : false;
                                                         //console.log(links);

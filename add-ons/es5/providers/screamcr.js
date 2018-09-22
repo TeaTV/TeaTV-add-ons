@@ -12,7 +12,7 @@ var URL = {
         return 'https://scr.cr/search.php?query=' + title;
     },
     GET_SOURCE: function GET_SOURCE(eid) {
-        return 'https://ajax.scr.cr/heartbypass/get-source.php?eid=' + eid + '&hmac=646679318296d72f5285f7cc3e6a6b8c%2F9c2Jt8%3D';
+        return 'https://ajax.embed.is/heartbypass/get-source.php?eid=' + eid + '&hmac=646679318296d72f5285f7cc3e6a6b8c%2F9c2Jt8%3D';
     },
     HEADERS: function HEADERS(referer) {
         return {
@@ -171,17 +171,19 @@ var Screamcr = function () {
                                                         domain = val['file'].split('/')[2];
                                                         //console.log(domain);
 
-                                                        hosts.push({
-                                                            provider: {
-                                                                url: detailUrl,
-                                                                name: "scream"
-                                                            },
-                                                            result: {
-                                                                file: val['file'],
-                                                                label: "embed",
-                                                                type: "direct"
-                                                            }
-                                                        });
+                                                        if (['ca3.watchasap.ru', 'embedis.azureedge.net'].includes(domain)) {
+                                                            hosts.push({
+                                                                provider: {
+                                                                    url: detailUrl,
+                                                                    name: "scream"
+                                                                },
+                                                                result: {
+                                                                    file: val['file'],
+                                                                    label: "embed",
+                                                                    type: "direct"
+                                                                }
+                                                            });
+                                                        }
 
                                                     case 2:
                                                     case 'end':

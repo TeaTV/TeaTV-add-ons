@@ -39,61 +39,52 @@ var WatchEpisode = function () {
                                 detailSeason = false;
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
                                 _context.next = 7;
-                                return httpRequest.getHTML(urlSearch);
+                                return httpRequest.get(urlSearch);
 
                             case 7:
                                 jsonSearch = _context.sent;
-                                _context.prev = 8;
 
-                                jsonSearch = JSON.parse(jsonSearch);
-                                _context.next = 15;
-                                break;
+                                jsonSearch = jsonSearch.data;
 
-                            case 12:
-                                _context.prev = 12;
-                                _context.t0 = _context['catch'](8);
-                                throw new Error('NOT FOUND');
-
-                            case 15:
                                 if (!jsonSearch.series) {
-                                    _context.next = 26;
+                                    _context.next = 20;
                                     break;
                                 }
 
-                                _context.t1 = regeneratorRuntime.keys(jsonSearch.series);
+                                _context.t0 = regeneratorRuntime.keys(jsonSearch.series);
 
-                            case 17:
-                                if ((_context.t2 = _context.t1()).done) {
-                                    _context.next = 26;
+                            case 11:
+                                if ((_context.t1 = _context.t0()).done) {
+                                    _context.next = 20;
                                     break;
                                 }
 
-                                item = _context.t2.value;
+                                item = _context.t1.value;
                                 slug = jsonSearch.series[item].seo;
                                 titleMovie = jsonSearch.series[item].label;
 
                                 if (!stringHelper.shallowCompare(title, titleMovie)) {
-                                    _context.next = 24;
+                                    _context.next = 18;
                                     break;
                                 }
 
                                 detailSeason = URL.DOMAIN + '/' + slug;
-                                return _context.abrupt('break', 26);
+                                return _context.abrupt('break', 20);
 
-                            case 24:
-                                _context.next = 17;
+                            case 18:
+                                _context.next = 11;
                                 break;
 
-                            case 26:
+                            case 20:
                                 if (!(detailSeason != false && type == 'tv')) {
-                                    _context.next = 33;
+                                    _context.next = 27;
                                     break;
                                 }
 
-                                _context.next = 29;
+                                _context.next = 23;
                                 return httpRequest.getHTML(detailSeason);
 
-                            case 29:
+                            case 23:
                                 htmlSeason = _context.sent;
                                 $ = cheerio.load(htmlSeason);
                                 itemSeason = $('.el-item ');
@@ -113,17 +104,17 @@ var WatchEpisode = function () {
                                     }
                                 });
 
-                            case 33:
+                            case 27:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 35:
+                            case 29:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[8, 12]]);
+                }, _callee, this);
             }));
 
             function searchDetail() {

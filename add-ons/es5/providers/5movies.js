@@ -8,12 +8,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var URL = {
 
-    DOMAIN: "https://5movies.to",
+    DOMAIN: "http://5movies.to",
     SEARCH: function SEARCH(title) {
-        return 'https://5movies.to/search.php?q=' + title;
+        return 'http://5movies.to/search.php?q=' + title;
     },
     GET_LINK_EMBED: function GET_LINK_EMBED(lk) {
-        return 'https://5movies.to/getlink.php?Action=get&lk=' + lk;
+        return 'http://5movies.to/getlink.php?Action=get&lk=' + lk;
     },
     HEADERS: function HEADERS() {
         var refer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';

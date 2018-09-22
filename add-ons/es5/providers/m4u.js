@@ -57,11 +57,11 @@ var M4u = function () {
                                 //console.log(urlSearch);
 
                                 _context.next = 7;
-                                return httpRequest.getHTML(urlSearch);
+                                return httpRequest.get(urlSearch);
 
                             case 7:
                                 htmlSearch = _context.sent;
-                                $ = cheerio.load(htmlSearch);
+                                $ = cheerio.load(htmlSearch.data);
                                 itemSearch = $('.item');
 
 
@@ -117,11 +117,11 @@ var M4u = function () {
                                 keys = [];
                                 detailUrl = this.state.detailUrl;
                                 _context3.next = 8;
-                                return httpRequest.getHTML(this.state.detailUrl);
+                                return httpRequest.get(this.state.detailUrl);
 
                             case 8:
                                 htmlDetail = _context3.sent;
-                                $ = cheerio.load(htmlDetail);
+                                $ = cheerio.load(htmlDetail.data);
                                 item = $('.le-server .singlemv');
 
 

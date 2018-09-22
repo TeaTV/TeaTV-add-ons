@@ -123,11 +123,11 @@ var Cartoonhd = function () {
                                 type = this.movieInfo.type;
                                 actionEmbed = type == 'movie' ? 'getMovieEmb' : 'getEpisodeEmb';
                                 _context2.next = 8;
-                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS);
+                                return httpRequest.get(this.state.detailUrl, URL.HEADERS);
 
                             case 8:
                                 htmlDetail = _context2.sent;
-                                elid = htmlDetail.match(/elid *= *\"([^"]*)/);
+                                elid = htmlDetail.data.match(/elid *= *\"([^"]*)/);
 
                                 elid = elid != null ? elid[1] : false;
 

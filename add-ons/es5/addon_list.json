@@ -3,7 +3,7 @@
         "5movies": {
             "name": "5movies",
             "domain": "5movies.to",
-            "version": "0.0.3",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/5movies.js",
             "type": [
                 "movie",
@@ -13,7 +13,7 @@
         "fmoviesvc": {
             "name": "fmoviesvc",
             "domain": "fmovies.vc",
-            "version": "0.0.5",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/fmoviesvc.js",
             "type": [
                 "movie",
@@ -23,7 +23,7 @@
         "housemovie": {
             "name": "housemovie",
             "domain": "housemovie.to",
-            "version": "0.0.25",
+            "version": "0.0.24",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/housemovie.js",
             "type": [
                 "movie",
@@ -33,7 +33,7 @@
         "yesmovies": {
             "name": "yesmovies",
             "domain": "yesmovies.to",
-            "version": "0.0.5",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/yesmovies.js",
             "type": [
                 "movie",
@@ -43,8 +43,18 @@
         "moviewatcher": {
             "name": "moviewatcher",
             "domain": "moviewatcher.is",
-            "version": "0.0.3",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/moviewatcher.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "m4ufree": {
+            "name": "m4ufree",
+            "domain": "123openload.me",
+            "version": "0.0.10",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/m4ufree.js",
             "type": [
                 "movie",
                 "tv"
@@ -53,7 +63,7 @@
         "m4u": {
             "name": "m4u",
             "domain": "m4ufree.tv",
-            "version": "0.0.13",
+            "version": "0.0.12",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/m4u.js",
             "type": [
                 "movie"
@@ -62,7 +72,7 @@
         "vumoo": {
             "name": "vumoo",
             "domain": "vumoo.to",
-            "version": "0.0.8",
+            "version": "0.0.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vumoo.js",
             "type": [
                 "movie",
@@ -72,7 +82,7 @@
         "flixanity": {
             "name": "flixanity",
             "domain": "flixanity.mobi",
-            "version": "0.0.13",
+            "version": "0.0.12",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/flixanity.js",
             "type": [
                 "movie",
@@ -82,8 +92,18 @@
         "playdk": {
             "name": "playdk",
             "domain": "playdk.net",
-            "version": "0.0.13",
+            "version": "0.0.12",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/playdk.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "321movies": {
+            "name": "321movies",
+            "domain": "321movies.club",
+            "version": "0.0.5",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/321movies.js",
             "type": [
                 "movie",
                 "tv"
@@ -92,7 +112,7 @@
         "putlockerhd": {
             "name": "putlockerhd",
             "domain": "putlockerhd.co",
-            "version": "0.0.8",
+            "version": "0.0.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/putlockerhd.js",
             "type": [
                 "movie",
@@ -102,27 +122,46 @@
         "series9": {
             "name": "series9",
             "domain": "series9.io",
-            "version": "0.0.12",
+            "version": "0.0.11",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/series9.js",
             "type": [
                 "tv",
                 "movie"
             ]
         },
+        "vexmovies": {
+            "name": "vexmovies",
+            "domain": "vexmovies.org",
+            "version": "0.0.7",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vexmovies.js",
+            "type": [
+                "movie"
+            ]
+        },
         "seehd": {
             "name": "seehd",
             "domain": "seehd.pl",
-            "version": "0.0.22",
+            "version": "0.0.21",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seehd.js",
             "type": [
                 "movie",
                 "tv"
             ]
         },
+        "seehduno": {
+            "name": "seehduno",
+            "domain": "seehd.uno",
+            "version": "0.0.10",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seehduno.js",
+            "type": [
+                "tv",
+                "movie"
+            ]
+        },
         "watchepisodes4": {
             "name": "watchepisodes4",
             "domain": "watchepisodes4.com",
-            "version": "0.0.8",
+            "version": "0.0.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchepisodes4.js",
             "type": [
                 "tv"
@@ -131,7 +170,7 @@
         "watchseries": {
             "name": "watchseries",
             "domain": "watchseries.sk",
-            "version": "0.0.5",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchseries.js",
             "type": [
                 "tv"
@@ -140,7 +179,7 @@
         "fmoviespe": {
             "name": "fmoviespe",
             "domain": "fmovies.pe",
-            "version": "0.1.0",
+            "version": "0.0.9",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/fmoviespe.js",
             "type": [
                 "movie",
@@ -150,7 +189,7 @@
         "thanqn": {
             "name": "thanqn",
             "domain": "thanqn.net",
-            "version": "0.7.5",
+            "version": "0.7.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/thanqn.js",
             "type": [
                 "movie",
@@ -160,7 +199,7 @@
         "gomoviesec": {
             "name": "gomoviesec",
             "domain": "uychnhau.de",
-            "version": "0.0.3",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/gomoviesec.js",
             "type": [
                 "movie",
@@ -170,7 +209,7 @@
         "123xfree": {
             "name": "123xfree",
             "domain": "123xfree.dit",
-            "version": "0.0.6",
+            "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesfree.js",
             "type": [
                 "movie",
@@ -180,19 +219,10 @@
         "seriesfree": {
             "name": "seriesfree",
             "domain": "seriesfree.dit",
-            "version": "0.0.5",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seriesfree.js",
             "type": [
                 "tv"
-            ]
-        },
-        "gostream": {
-            "name": "gostream",
-            "domain": "gostream.dit",
-            "version": "0.0.9",
-            "url": "http://dev.teatv.app/add-ons/es5/providers/gostream.js",
-            "type": [
-                "movie"
             ]
         }
     },
@@ -261,6 +291,14 @@
             ],
             "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/teamdk.js"
+        },
+        "estream": {
+            "name": "estream",
+            "domain": [
+                "estreamdisable.to"
+            ],
+            "version": "0.0.3",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/estream.js"
         },
         "thevideo": {
             "name": "thevideo",

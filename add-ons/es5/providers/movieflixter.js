@@ -159,9 +159,10 @@ var MovieFlixter = function () {
                                                         $_1 = cheerio.load(html.data);
                                                         iframe = $_1('meta[name="og:url"]').attr('content');
 
+                                                        // console.log(`LINK ${iframe} ${html.data}`)
 
                                                         if (iframe != undefined) {
-                                                            if (iframe.indexOf('openload') != -1 || iframe.indexOf('streamango') != -1) {
+                                                            if (iframe.search('openload.co/') != -1) {
                                                                 hosts.push({
                                                                     provider: {
                                                                         url: detailUrl,
