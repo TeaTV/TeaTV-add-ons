@@ -88,9 +88,11 @@ var YesMovies = function () {
                                                     slugGetInfo = $(this).find('a').attr('data-url');
 
 
-                                                    arrInfo.push({
-                                                        hrefMovie: hrefMovie, titleMovie: titleMovie, seasonMovie: seasonMovie, slugGetInfo: slugGetInfo
-                                                    });
+                                                    if (stringHelper.shallowCompare(title, titleMovie)) {
+                                                        arrInfo.push({
+                                                            hrefMovie: hrefMovie, titleMovie: titleMovie, seasonMovie: seasonMovie, slugGetInfo: slugGetInfo
+                                                        });
+                                                    }
 
                                                 case 9:
                                                 case 'end':
@@ -395,13 +397,11 @@ thisSource.function = function () {
                             bodyPost.is_link = 1;
                         }
 
-                        _context7.next = 11;
-                        return httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
 
-                    case 11:
                         return _context7.abrupt('return', source.state.hosts);
 
-                    case 12:
+                    case 10:
                     case 'end':
                         return _context7.stop();
                 }

@@ -8,12 +8,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var URL = {
 
-    DOMAIN: "http://5movies.to",
+    DOMAIN: "https://5movies.to",
     SEARCH: function SEARCH(title) {
-        return 'http://5movies.to/search.php?q=' + title;
+        return 'https://5movies.to/search.php?q=' + title;
     },
     GET_LINK_EMBED: function GET_LINK_EMBED(lk) {
-        return 'http://5movies.to/getlink.php?Action=get&lk=' + lk;
+        return 'https://5movies.to/getlink.php?Action=get&lk=' + lk;
     },
     HEADERS: function HEADERS() {
         var refer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
@@ -335,13 +335,11 @@ thisSource.function = function () {
                             bodyPost.is_link = 1;
                         }
 
-                        _context4.next = 11;
-                        return httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
 
-                    case 11:
                         return _context4.abrupt('return', source.state.hosts);
 
-                    case 12:
+                    case 10:
                     case 'end':
                         return _context4.stop();
                 }
