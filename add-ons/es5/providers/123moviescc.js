@@ -73,18 +73,8 @@ var s123MoviesCc = function () {
 
                             case 16:
                                 jsonSearch = _context.sent;
-                                _context.prev = 17;
 
                                 jsonSearch = JSON.parse(jsonSearch);
-                                _context.next = 24;
-                                break;
-
-                            case 21:
-                                _context.prev = 21;
-                                _context.t0 = _context['catch'](17);
-                                throw new Error("NOT_FOUND");
-
-                            case 24:
 
                                 for (item in jsonSearch) {
                                     yearMovie = jsonSearch[item].extra.date;
@@ -108,12 +98,12 @@ var s123MoviesCc = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 27:
+                            case 21:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[17, 21]]);
+                }, _callee, this);
             }));
 
             function searchDetail() {

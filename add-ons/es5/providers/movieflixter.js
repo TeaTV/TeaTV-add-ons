@@ -146,7 +146,7 @@ var MovieFlixter = function () {
 
                                 sourcesPromise = sources.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(link) {
-                                        var html, $_1, iframe;
+                                        var html, $_1, iframe, estreamLink;
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
@@ -174,6 +174,27 @@ var MovieFlixter = function () {
                                                                         type: "embed"
                                                                     }
                                                                 });
+                                                            }
+                                                        } else {
+                                                            estreamLink = html.data.match(/top.location = "([^"]+)/);
+
+
+                                                            if (estreamLink !== undefined) {
+                                                                iframe = estreamLink[1];
+
+                                                                if (iframe.search('estream.to/') != -1 && iframe.search('/.html') == -1) {
+                                                                    hosts.push({
+                                                                        provider: {
+                                                                            url: detailUrl,
+                                                                            name: "moviepix"
+                                                                        },
+                                                                        result: {
+                                                                            file: iframe,
+                                                                            label: "embed",
+                                                                            type: "embed"
+                                                                        }
+                                                                    });
+                                                                }
                                                             }
                                                         }
 

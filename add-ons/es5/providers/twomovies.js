@@ -54,30 +54,28 @@ var Twomovies = function () {
                             case 10:
                                 dataSearch = _context.sent;
                                 $ = cheerio.load(dataSearch);
+                                itemSearch = $('.container .cf .separate:nth-child(4)');
+                                titleVal = itemSearch.find('h2').text();
+                                yearVal = titleVal.match(/\(.*\d\)/);
 
-                                //let checkType = $('.divConteiner h1').text();
+                                yearVal = yearVal[0].replace("(", "");
+                                yearVal = yearVal.replace(")", "");
+                                linkDetailVal = 'https://seriesfree.to' + itemSearch.find('a').attr('href');
 
-                                itemSearch = $('.film_content .filmDiv');
-                                titleVal = itemSearch.find('filmganrediv2').text().trim();
-                                yearVal = itemSearch.find('.filmyar').text().trim();
-                                linkDetailVal = 'https://seriesfree.to' + itemSearch.find('a:nth-child(1)').attr('href');
-
-
-                                console.log(yearVal, titleVal, linkDetailVal);
 
                                 if (titleVal.toLowerCase().search(title.toLowerCase()) !== -1 && yearVal == year) {
                                     detailUrl = linkDetailVal;
                                 }
 
                                 if (!detailUrl) {
-                                    _context.next = 25;
+                                    _context.next = 26;
                                     break;
                                 }
 
-                                _context.next = 21;
+                                _context.next = 22;
                                 return httpRequest.getHTML(detailUrl);
 
-                            case 21:
+                            case 22:
                                 searchLink = _context.sent;
                                 $_2 = cheerio.load(searchLink);
                                 totalLinks = $_2('.seasons-grid a');
@@ -89,28 +87,28 @@ var Twomovies = function () {
                                     }
                                 });
 
-                            case 25:
+                            case 26:
 
                                 console.log("AAAAAAAAAAAAAAa " + detailUrl);
                                 this.state.detailUrl = detailUrl;
-                                _context.next = 32;
+                                _context.next = 33;
                                 break;
 
-                            case 29:
-                                _context.prev = 29;
+                            case 30:
+                                _context.prev = 30;
                                 _context.t0 = _context['catch'](6);
 
                                 console.log(String(_context.t0));
 
-                            case 32:
+                            case 33:
                                 return _context.abrupt('return');
 
-                            case 33:
+                            case 34:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[6, 29]]);
+                }, _callee, this, [[6, 30]]);
             }));
 
             function searchDetail() {
@@ -156,82 +154,47 @@ var Twomovies = function () {
                                 sources = [];
 
                                 servers.each(function () {
-                                    var onclick = 'https://www1.two-movies.name' + $(this).attr('href');
+                                    var onclick = 'https://www1.two-movies.name' + $(this).attr('href') + "#confirmed";
+                                    console.log(onclick);
                                     sources.push(onclick);
                                 });
 
                                 sourcesPromise = sources.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(link) {
-                                        var originLink, hash, dataString, headers, newHeader, originLink3, $_1, linkToGet, linkDetail;
+                                        var originLink, $_1, linkDetail, hostsList, i;
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
                                                         _context2.next = 2;
-                                                        return httpRequest.getHTML(link, URL.HEADERS());
+                                                        return httpRequest.getHTML(link);
 
                                                     case 2:
                                                         originLink = _context2.sent;
+                                                        $_1 = cheerio.load(originLink);
+                                                        linkDetail = $_1('#app .serie-details div:nth-child(2) a').attr('href');
+                                                        hostsList = ['docs.google', 'drive.google', 'cdn102.micetop', 'ca3.watchasap.ru', 'ok.ru', 'server-cdn', 'entervideo', 'estream', 'ggstream', 'googlevideo', 'hulu', 'loadvid', 'm4ukido', 'openload', 'putload', 'rapidvideo', 'streamango', 'teamdk', 'thevideo', 'tocloud', 'uploadhaven', 'veehd', 'vidcdn', 'video.xx.fbcdn', 'videozoo', 'vidlink', 'vidlox', 'vidmoly', 'vidnode', 'vidoza', 'vidstreaming', 'vidtodo', 'vidushare', 'vidzi'];
 
-                                                        originLink = JSON.stringify(originLink);
-                                                        hash = originLink.match(/var hash = ([^;]+)/);
 
-                                                        hash = hash[1];
-                                                        hash = hash.replace(/\\/g, "");
-                                                        hash = hash.replace(/\'/g, "");
-                                                        dataString = 'hash=' + hash + '&confirm_continue=I+understand%2C+I+want+to+continue';
-                                                        headers = {
-                                                            'authority': 'www1.two-movies.name',
-                                                            'cache-control': 'max-age=0',
-                                                            'origin': 'https://www1.two-movies.name',
-                                                            'upgrade-insecure-requests': '1',
-                                                            'content-type': 'application/x-www-form-urlencoded',
-                                                            'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.92 Safari/537.36',
-                                                            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                                                            'referer': link,
-                                                            'accept-encoding': 'gzip, deflate, br',
-                                                            'accept-language': 'vi,en-US;q=0.9,en;q=0.8'
-                                                        };
-                                                        _context2.next = 12;
-                                                        return httpRequest.postCloudflare(link, headers, dataString);
-
-                                                    case 12:
-                                                        newHeader = _context2.sent;
-
-                                                        newHeader.headers['accept-encoding'] = "";
-
-                                                        _context2.next = 16;
-                                                        return httpRequest.getCloudflare(link, newHeader);
-
-                                                    case 16:
-                                                        originLink3 = _context2.sent;
-                                                        $_1 = cheerio.load(originLink3.data);
-                                                        linkToGet = $_1('.warningLinkBox');
-
-                                                        linkToGet = linkToGet.find('a').attr('href');
-                                                        linkToGet = linkToGet.match(/https:.*/);
-
-                                                        console.log(linkToGet[0]);
-
-                                                        linkDetail = "";
-
-                                                        if ((linkToGet.indexOf("openload") !== -1 || linkToGet.indexOf("streamango") !== -1 || linkToGet.indexOf("speedvid") !== -1) && hosts.length < 20) {
-                                                            linkDetail = linkToGet[0];
+                                                        for (i = 0; i < hostsList.length; i++) {
+                                                            if (linkDetail) {
+                                                                if (linkDetail.indexOf(hostsList[i]) !== -1) {
+                                                                    hosts.push({
+                                                                        provider: {
+                                                                            url: detailUrl,
+                                                                            name: "seriesfree"
+                                                                        },
+                                                                        result: {
+                                                                            file: linkDetail,
+                                                                            label: "embed",
+                                                                            type: "embed"
+                                                                        }
+                                                                    });
+                                                                }
+                                                            }
                                                         }
 
-                                                        hosts.push({
-                                                            provider: {
-                                                                url: detailUrl,
-                                                                name: "seriesfree"
-                                                            },
-                                                            result: {
-                                                                file: linkDetail,
-                                                                label: "embed",
-                                                                type: "embed"
-                                                            }
-                                                        });
-
-                                                    case 25:
+                                                    case 7:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
@@ -309,11 +272,13 @@ thisSource.function = function () {
                             bodyPost.is_link = 1;
                         }
 
-                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+                        _context4.next = 9;
+                        return httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
 
+                    case 9:
                         return _context4.abrupt('return', source.state.hosts);
 
-                    case 8:
+                    case 10:
                     case 'end':
                         return _context4.stop();
                 }

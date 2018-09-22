@@ -70,18 +70,7 @@ var Spacemov = function () {
                                 html = _context.sent;
 
                             case 13:
-                                _context.prev = 13;
-
                                 json = JSON.parse(html);
-                                _context.next = 20;
-                                break;
-
-                            case 17:
-                                _context.prev = 17;
-                                _context.t0 = _context['catch'](13);
-                                throw new Error('NOT_FOUND');
-
-                            case 20:
                                 $ = cheerio.load(json['content']);
                                 lis = $('li');
 
@@ -111,12 +100,12 @@ var Spacemov = function () {
                                 if (detailUrl !== false) this.state.detailUrl = detailUrl + 'watching/';else this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 25:
+                            case 19:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[13, 17]]);
+                }, _callee, this);
             }));
 
             function searchDetail() {
@@ -280,11 +269,13 @@ thisSource.function = function () {
                             bodyPost.is_link = 1;
                         }
 
-                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+                        _context3.next = 11;
+                        return httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
 
+                    case 11:
                         return _context3.abrupt('return', source.state.hosts);
 
-                    case 10:
+                    case 12:
                     case 'end':
                         return _context3.stop();
                 }

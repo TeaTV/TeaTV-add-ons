@@ -199,11 +199,13 @@ thisSource.function = function () {
                             bodyPost.is_link = 1;
                         }
 
-                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+                        _context3.next = 11;
+                        return httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
 
+                    case 11:
                         return _context3.abrupt('return', source.state.hosts);
 
-                    case 10:
+                    case 12:
                     case 'end':
                         return _context3.stop();
                 }

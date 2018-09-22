@@ -153,28 +153,19 @@ var Vexmovies = function () {
                             case 12:
                                 htmlDirect = _context2.sent;
                                 headers = htmlDirect.headers;
-                                _context2.prev = 14;
 
                                 if (!(headers['set-cookie'] == undefined)) {
-                                    _context2.next = 17;
+                                    _context2.next = 16;
                                     break;
                                 }
 
                                 throw new Error("NOT_FOUND");
 
-                            case 17:
+                            case 16:
 
                                 headers = headers['set-cookie'][0];
                                 headers = headers.replace(/\;.*/i, '').trim() + ';';
-                                _context2.next = 24;
-                                break;
 
-                            case 21:
-                                _context2.prev = 21;
-                                _context2.t0 = _context2['catch'](14);
-                                throw new Error('NOT_FOUND');
-
-                            case 24:
                                 body = htmlDirect.data;
                                 $_2 = cheerio.load(body);
                                 hash = $_2('#app player').attr('hash');
@@ -186,10 +177,10 @@ var Vexmovies = function () {
                                     video: video,
                                     expire: expire
                                 };
-                                _context2.next = 32;
+                                _context2.next = 26;
                                 return httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS_JSON(embed), JSON.stringify(bodyForm));
 
-                            case 32:
+                            case 26:
                                 encodeJson = _context2.sent;
 
                                 encodeJson = encodeJson.data;
@@ -240,12 +231,12 @@ var Vexmovies = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 36:
+                            case 30:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[14, 21]]);
+                }, _callee2, this);
             }));
 
             function getHostFromDetail() {
@@ -302,11 +293,13 @@ thisSource.function = function () {
                             bodyPost.is_link = 1;
                         }
 
-                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+                        _context3.next = 11;
+                        return httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
 
+                    case 11:
                         return _context3.abrupt('return', source.state.hosts);
 
-                    case 10:
+                    case 12:
                     case 'end':
                         return _context3.stop();
                 }
