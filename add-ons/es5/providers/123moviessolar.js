@@ -7,82 +7,95 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "https://scr.cr",
-    SEARCH: function SEARCH(title) {
-        return 'https://scr.cr/search.php?query=' + title;
+    DOMAIN: "https://www.123movies.solar",
+    SEARCH: function SEARCH() {
+        return 'https://www.123movies.solar/index.php?do=search';
     },
-    GET_SOURCE: function GET_SOURCE(eid) {
-        return 'https://ajax.scr.cr/heartbypass/get-source.php?eid=' + eid + '&hmac=646679318296d72f5285f7cc3e6a6b8c%2F9c2Jt8%3D';
-    },
+    DOMAIN_DECODE: '',
     HEADERS: function HEADERS(referer) {
         return {
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
-            'referer': referer
+            'authority': 'www.123movies.solar',
+            'cache-control': 'max-age=0',
+            'origin': 'https://www.123movies.solar',
+            'upgrade-insecure-requests': '1',
+            'content-type': 'application/x-www-form-urlencoded',
+            'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.92 Safari/537.36',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'referer': referer,
+            // 'accept-encoding': 'gzip, deflate, br',
+            'accept-language': 'vi,en-US;q=0.9,en;q=0.8'
         };
     }
 };
 
-var Screamcr = function () {
-    function Screamcr(props) {
-        _classCallCheck(this, Screamcr);
+var S123moviessolar = function () {
+    function S123moviessolar(props) {
+        _classCallCheck(this, S123moviessolar);
 
         this.libs = props.libs;
         this.movieInfo = props.movieInfo;
         this.settings = props.settings;
-
         this.state = {};
     }
 
-    _createClass(Screamcr, [{
+    _createClass(S123moviessolar, [{
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type, detailUrl, videoUrl, urlSearch, html, $;
+                var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, movieflixter, detailUrl, videoUrl, tvshowVideoUrl, dataString, dataSearch, $, yearVal, divHoldData, titleVal;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, qs = _libs.qs;
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+                                movieflixter = this;
                                 detailUrl = false;
                                 videoUrl = false;
-                                urlSearch = URL.SEARCH(encodeURI(title));
-                                _context.next = 7;
-                                return httpRequest.getHTML(urlSearch, URL.HEADERS(URL.DOMAIN));
+                                tvshowVideoUrl = false;
+                                _context.prev = 6;
+                                dataString = 'story=' + title + '&do=search&subaction=search&titleonly=3';
+                                _context.next = 10;
+                                return httpRequest.post(URL.SEARCH(), URL.HEADERS(URL.SEARCH()), dataString);
 
-                            case 7:
-                                html = _context.sent;
-                                $ = cheerio.load(html);
+                            case 10:
+                                dataSearch = _context.sent;
+                                $ = cheerio.load(dataSearch.data);
+                                yearVal = void 0;
+                                divHoldData = $('.ml-item');
+                                titleVal = void 0;
 
 
-                                $('.main-content #top-hot a').each(function () {
+                                divHoldData.each(function () {
+                                    yearVal = $(this).find('.jt-imdb').text();
+                                    titleVal = $(this).find('h2').text();
 
-                                    var titleMovie = $(this).attr('oldtitle');
-                                    var hrefMovie = $(this).attr('href');
-
-                                    var titleMovieFull = titleMovie.replace(/ -?\s+Season\s+[0-9]+/i, '').trim();
-                                    if (stringHelper.shallowCompare(title, titleMovieFull)) {
-                                        if (type == 'movie') {
-                                            detailUrl = URL.DOMAIN + hrefMovie;
-                                        } else if (type == 'tv') {
-                                            var m = titleMovie.match(/Season\s+([0-9])+/i);
-                                            if (m != undefined && m[1] == season) {
-                                                detailUrl = URL.DOMAIN + hrefMovie;
-                                            }
-                                        }
+                                    if (titleVal.toLowerCase().indexOf(title.toLowerCase()) !== -1 && yearVal.toString().indexOf(year) !== -1) {
+                                        detailUrl = $(this).find('a').attr('href');
                                     }
                                 });
 
+                                console.log(detailUrl);
                                 this.state.detailUrl = detailUrl;
+                                _context.next = 23;
+                                break;
+
+                            case 20:
+                                _context.prev = 20;
+                                _context.t0 = _context['catch'](6);
+
+                                console.log(String(_context.t0));
+
+                            case 23:
                                 return _context.abrupt('return');
 
-                            case 12:
+                            case 24:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this);
+                }, _callee, this, [[6, 20]]);
             }));
 
             function searchDetail() {
@@ -95,7 +108,9 @@ var Screamcr = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs2, httpRequest, cheerio, qs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, htmlDetail, $, eid, sources, jsonSources, arrPromise;
+                var _this = this;
+
+                var _libs2, httpRequest, cheerio, qs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, htmlDetail, $, sources, servers, _servers, host, sourcesPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -115,99 +130,92 @@ var Screamcr = function () {
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
                                 _context3.next = 8;
-                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS(detailUrl));
+                                return httpRequest.getHTML(this.state.detailUrl);
 
                             case 8:
                                 htmlDetail = _context3.sent;
                                 $ = cheerio.load(htmlDetail);
-                                eid = false;
+                                sources = [];
 
-                                $('.wpb-content .wpbc-server .ulclear a').each(function () {
-                                    if (type == 'movie') eid = $(this).attr('data-eid');else {
-                                        var ename = $(this).text();
-                                        var m = ename.match(/Episode ([0-9]+):/i);
-                                        if (m != undefined) {
-                                            var seasonEpisode = +m[1] + 0;
 
-                                            if (seasonEpisode == episode) {
-                                                eid = $(this).attr('data-eid');
-                                            }
+                                if (type == "movie") {
+                                    servers = $('#list-eps .le-server');
+
+
+                                    servers.each(function () {
+                                        var hostName = $(this).find('strong').text().toLowerCase();
+                                        var onclick = "";
+                                        if ((hostName.indexOf("openload") !== -1 || hostName.indexOf("streamango") !== -1 || hostName.indexOf("speedvid") !== -1) && sources.length < 20) {
+                                            onclick = 'https:' + $(this).find('a').attr('data-link');
+                                            sources.push(onclick);
                                         }
-                                    }
-                                });
-
-                                if (eid) {
-                                    _context3.next = 14;
-                                    break;
+                                    });
                                 }
 
-                                throw new Error('NOT_FOUND');
+                                if (type == "tv") {
+                                    _servers = $('#list-eps #serie-' + season + '_' + episode);
 
-                            case 14:
-                                _context3.next = 16;
-                                return httpRequest.getHTML(URL.GET_SOURCE(eid), URL.HEADERS(detailUrl));
 
-                            case 16:
-                                sources = _context3.sent;
-                                _context3.prev = 17;
+                                    if (_servers.length > 0) {
+                                        host = _servers.find('a');
 
-                                jsonSources = JSON.parse(sources);
-                                _context3.next = 24;
-                                break;
+                                        host.each(function (index, value) {
+                                            var hostName = value.children[0].data.toLowerCase();
+                                            var onclick = "";
+                                            if ((hostName.indexOf("openload") !== -1 || hostName.indexOf("streamango") !== -1 || hostName.indexOf("speedvid") !== -1) && sources.length < 20) {
+                                                onclick = 'https:' + value.attribs['data-link'];
+                                                sources.push(onclick);
+                                            }
+                                        });
+                                    }
+                                }
 
-                            case 21:
-                                _context3.prev = 21;
-                                _context3.t0 = _context3['catch'](17);
-                                throw new Error('NOT_FOUND');
-
-                            case 24:
-                                arrPromise = jsonSources['sources'].map(function () {
-                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
-                                        var domain;
+                                sourcesPromise = sources.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(link) {
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
-                                                        domain = val['file'].split('/')[2];
-                                                        //console.log(domain);
-
-                                                        hosts.push({
-                                                            provider: {
-                                                                url: detailUrl,
-                                                                name: "scream"
-                                                            },
-                                                            result: {
-                                                                file: val['file'],
-                                                                label: "embed",
-                                                                type: "direct"
+                                                        if (link) {
+                                                            if (hosts.length < 20) {
+                                                                hosts.push({
+                                                                    provider: {
+                                                                        url: detailUrl,
+                                                                        name: "seriesfree"
+                                                                    },
+                                                                    result: {
+                                                                        file: link,
+                                                                        label: "embed",
+                                                                        type: "embed"
+                                                                    }
+                                                                });
                                                             }
-                                                        });
+                                                        }
 
-                                                    case 2:
+                                                    case 1:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
                                             }
-                                        }, _callee2, this);
+                                        }, _callee2, _this);
                                     }));
 
                                     return function (_x) {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 27;
-                                return Promise.all(arrPromise);
+                                _context3.next = 16;
+                                return Promise.all(sourcesPromise);
 
-                            case 27:
-
+                            case 16:
                                 this.state.hosts = hosts;
 
-                            case 28:
+                            case 17:
                             case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this, [[17, 21]]);
+                }, _callee3, this);
             }));
 
             function getHostFromDetail() {
@@ -218,7 +226,7 @@ var Screamcr = function () {
         }()
     }]);
 
-    return Screamcr;
+    return S123moviessolar;
 }();
 
 thisSource.function = function () {
@@ -229,13 +237,13 @@ thisSource.function = function () {
                 switch (_context4.prev = _context4.next) {
                     case 0:
                         httpRequest = libs.httpRequest;
-                        source = new Screamcr({
+                        source = new S123moviessolar({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: 'scream',
+                            name_source: '123moviessolar',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
@@ -281,4 +289,4 @@ thisSource.function = function () {
     };
 }();
 
-thisSource.testing = Screamcr;
+thisSource.testing = S123moviessolar;

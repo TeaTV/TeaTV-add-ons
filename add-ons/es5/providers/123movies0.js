@@ -7,82 +7,123 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "http://www5.123moviesfree.com/",
+    DOMAIN: "https://www3.123movies0.com",
     SEARCH: function SEARCH(title) {
-        return 'http://www5.123moviesfree.com/search/' + title + '.html';
+        return 'https://www3.123movies0.com/movie/search/' + title;
     },
-    HASH_URL: 'http://www5.123moviesfree.com/ip.file/swf/plugins/ipplugins.php',
-    PLAYER_URL: function PLAYER_URL(key, server_id) {
-        return 'http://www5.123moviesfree.com/ip.file/swf/ipplayer/ipplayer.php?u=' + key + '&s=' + server_id + '&n=0';
-    },
+    DOMAIN_DECODE: '',
     HEADERS: function HEADERS(referer) {
         return {
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
-            'referer': referer
+            'authority': 'www3.123movies0.com',
+            'cache-control': 'max-age=0',
+            'origin': 'https://www3.123movies0.com',
+            'upgrade-insecure-requests': '1',
+            'content-type': 'application/x-www-form-urlencoded',
+            'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.92 Safari/537.36',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'referer': referer,
+            // 'accept-encoding': 'gzip, deflate, br',
+            'accept-language': 'vi,en-US;q=0.9,en;q=0.8'
         };
     }
 };
 
-var s123MoviesFree = function () {
-    function s123MoviesFree(props) {
-        _classCallCheck(this, s123MoviesFree);
+var S123movies0 = function () {
+    function S123movies0(props) {
+        _classCallCheck(this, S123movies0);
 
         this.libs = props.libs;
         this.movieInfo = props.movieInfo;
         this.settings = props.settings;
-
         this.state = {};
     }
 
-    _createClass(s123MoviesFree, [{
+    _createClass(S123movies0, [{
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type, detailUrl, videoUrl, urlSearch, htmlSearch, $;
+                var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, movieflixter, detailUrl, videoUrl, tvshowVideoUrl, titleSearch, dataSearch, $, yearVal, divHoldData, titleVal;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, qs = _libs.qs;
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+                                movieflixter = this;
                                 detailUrl = false;
                                 videoUrl = false;
-                                urlSearch = URL.SEARCH(encodeURI(title));
-                                _context.next = 7;
-                                return httpRequest.getHTML(urlSearch);
+                                tvshowVideoUrl = false;
+                                _context.prev = 6;
+                                titleSearch = title.toLowerCase();
 
-                            case 7:
-                                htmlSearch = _context.sent;
-                                $ = cheerio.load(htmlSearch);
+                                titleSearch = titleSearch.replace(/\s/g, "-");
 
-                                $('.movies-list .ml-item .ml-mask').each(function () {
+                                dataSearch = "";
 
-                                    var titleMovie = $(this).attr('title');
-                                    var hrefMovie = $(this).attr('href');
+                                if (!(type == "movie")) {
+                                    _context.next = 14;
+                                    break;
+                                }
 
-                                    var titleMovieFull = titleMovie.replace(/\s-?\s+S[0-9]+/i, '').trim();
-                                    if (stringHelper.shallowCompare(title, titleMovieFull)) {
-                                        if (type == 'movie' && hrefMovie.indexOf(year) != -1) {
-                                            detailUrl = hrefMovie;
-                                        } else if (type == 'tv') {
-                                            var m = titleMovie.match(/ -?\s+S([0-9])+/i);
-                                            if (m != undefined && parseInt(m[1]) == season) {
-                                                detailUrl = hrefMovie;
-                                            }
-                                        }
+                                _context.next = 13;
+                                return httpRequest.getHTML(URL.SEARCH(titleSearch));
+
+                            case 13:
+                                dataSearch = _context.sent;
+
+                            case 14:
+                                if (!(type == "tv")) {
+                                    _context.next = 18;
+                                    break;
+                                }
+
+                                _context.next = 17;
+                                return httpRequest.getHTML(URL.SEARCH(titleSearch + '-season-' + season));
+
+                            case 17:
+                                dataSearch = _context.sent;
+
+                            case 18:
+                                console.log(URL.SEARCH(titleSearch + '-season-' + season));
+
+                                $ = cheerio.load(dataSearch);
+                                yearVal = void 0;
+                                divHoldData = $('.ml-item');
+                                titleVal = void 0;
+
+
+                                divHoldData.each(function () {
+                                    yearVal = $(this).find('.jt-info').eq(1).text();
+                                    titleVal = $(this).find('h2').text();
+
+                                    if (titleVal.toLowerCase().indexOf(title.toLowerCase()) !== -1 && yearVal.toString().indexOf(year) !== -1 && type == 'movie') {
+                                        detailUrl = $(this).find('a').attr('href') + "/watching.html";
+                                    } else if (titleVal.toLowerCase().indexOf(title.toLowerCase()) !== -1) {
+                                        detailUrl = $(this).find('a').attr('href') + "/watching.html";
                                     }
                                 });
 
+                                console.log(detailUrl);
                                 this.state.detailUrl = detailUrl;
+                                _context.next = 31;
+                                break;
+
+                            case 28:
+                                _context.prev = 28;
+                                _context.t0 = _context['catch'](6);
+
+                                console.log(String(_context.t0));
+
+                            case 31:
                                 return _context.abrupt('return');
 
-                            case 12:
+                            case 32:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this);
+                }, _callee, this, [[6, 28]]);
             }));
 
             function searchDetail() {
@@ -95,7 +136,9 @@ var s123MoviesFree = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs2, httpRequest, cheerio, qs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, htmlDetail, $, m, new_url, servers, sources, sourcesPromise;
+                var _this = this;
+
+                var _libs2, httpRequest, cheerio, qs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, htmlDetail, $, sources, servers, checkSeason, _servers, sourcesPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -120,121 +163,87 @@ var s123MoviesFree = function () {
                             case 8:
                                 htmlDetail = _context3.sent;
                                 $ = cheerio.load(htmlDetail);
-
-                                if (!(type == 'tv')) {
-                                    _context3.next = 20;
-                                    break;
-                                }
-
-                                m = htmlDetail.match(/name="epname" value="([^"]+)/);
-
-                                if (!(m != undefined && m[1] != episode)) {
-                                    _context3.next = 20;
-                                    break;
-                                }
-
-                                new_url = false;
-
-                                $('#ip_episode a').each(function () {
-                                    var ep = $(this).attr('data-name');
-                                    if (ep == episode) {
-                                        new_url = $(this).attr('href');
-                                        return;
-                                    }
-                                });
-
-                                if (!new_url) {
-                                    _context3.next = 20;
-                                    break;
-                                }
-
-                                _context3.next = 18;
-                                return httpRequest.getHTML(new_url);
-
-                            case 18:
-                                htmlDetail = _context3.sent;
-
-                                $ = cheerio.load(htmlDetail);
-
-                            case 20:
-                                servers = $('#ip_server li a');
                                 sources = [];
 
 
-                                servers.each(function () {
-                                    var server_id = $(this).attr('data-server');
-                                    var phim_id = $(this).attr('data-film');
-                                    var episode = $(this).attr('data-name');
+                                if (type == "movie") {
+                                    servers = $('#list-eps .le-server');
 
-                                    sources.push({
-                                        'ipplugins': 1,
-                                        'ip_film': phim_id,
-                                        'ip_server': server_id,
-                                        'ip_name': episode,
-                                        'fix': 0
+
+                                    servers.each(function () {
+                                        var hostName = $(this).find('strong').text().toLowerCase();
+                                        var onclick = "";
+
+                                        if (hostName.indexOf("openload") !== -1 && sources.length < 20) {
+                                            onclick = 'https://openload.co/embed/' + $(this).find('a').attr('data-' + 'openload');
+                                        }
+                                        sources.push(onclick);
                                     });
-                                });
+                                }
+
+                                if (type == "tv") {
+                                    checkSeason = this.state.detailUrl.match(/-season-(\d)/);
+
+                                    if (checkSeason[1] == season) {
+                                        _servers = $('#list-eps .le-server');
+
+                                        _servers.each(function () {
+                                            var hostName = $(this).find('strong').text().toLowerCase();
+                                            var onclick = "";
+                                            if (hostName.indexOf("openload") != -1 && sources.length < 20) {
+                                                var checkEpisode = $(this).find('a');
+                                                checkEpisode.each(function (i, e) {
+                                                    if (e.attribs['episode-id'] == episode) {
+                                                        onclick = 'https://openload.co/embed/' + e.attribs['data-' + 'openload'];
+                                                    }
+                                                });
+                                            }
+                                            sources.push(onclick);
+                                        });
+                                    }
+                                }
 
                                 sourcesPromise = sources.map(function () {
-                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(source) {
-                                        var hash, hashKey, playHtml, last_u;
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(link) {
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
-                                                        _context2.next = 2;
-                                                        return httpRequest.post(URL.HASH_URL, {}, source);
-
-                                                    case 2:
-                                                        hash = _context2.sent;
-                                                        hashKey = hash.data.s;
-                                                        _context2.next = 6;
-                                                        return httpRequest.getHTML(URL.PLAYER_URL(hashKey, source.server_id));
-
-                                                    case 6:
-                                                        playHtml = _context2.sent;
-
-                                                        try {
-                                                            playHtml = JSON.parse(playHtml);
-
-                                                            if (playHtml.data) {
-                                                                last_u = playHtml.data;
-
-                                                                if (last_u.indexOf('//') == 0) last_u = 'https:' + last_u;
+                                                        if (link) {
+                                                            if (hosts.length < 20) {
                                                                 hosts.push({
                                                                     provider: {
                                                                         url: detailUrl,
-                                                                        name: "123xfree"
+                                                                        name: "seriesfree"
                                                                     },
                                                                     result: {
-                                                                        file: last_u,
+                                                                        file: link,
                                                                         label: "embed",
                                                                         type: "embed"
                                                                     }
                                                                 });
                                                             }
-                                                        } catch (e) {}
+                                                        }
 
-                                                    case 8:
+                                                    case 1:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
                                             }
-                                        }, _callee2, this);
+                                        }, _callee2, _this);
                                     }));
 
                                     return function (_x) {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 26;
+                                _context3.next = 16;
                                 return Promise.all(sourcesPromise);
 
-                            case 26:
-
+                            case 16:
                                 this.state.hosts = hosts;
 
-                            case 27:
+                            case 17:
                             case 'end':
                                 return _context3.stop();
                         }
@@ -250,7 +259,7 @@ var s123MoviesFree = function () {
         }()
     }]);
 
-    return s123MoviesFree;
+    return S123movies0;
 }();
 
 thisSource.function = function () {
@@ -261,13 +270,13 @@ thisSource.function = function () {
                 switch (_context4.prev = _context4.next) {
                     case 0:
                         httpRequest = libs.httpRequest;
-                        source = new s123MoviesFree({
+                        source = new S123movies0({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: '123xfree',
+                            name_source: '123movies0',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
@@ -313,4 +322,4 @@ thisSource.function = function () {
     };
 }();
 
-thisSource.testing = s123MoviesFree;
+thisSource.testing = S123movies0;

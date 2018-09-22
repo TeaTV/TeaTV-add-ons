@@ -73,21 +73,19 @@ var Estream = function () {
                     while (1) {
                         switch (_context3.prev = _context3.next) {
                             case 0:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
-                                _context3.next = 3;
-                                return this.checkLive(url);
+                                throw new Error("LINK DIE");
 
-                            case 3:
+                            case 4:
                                 html = _context3.sent;
 
                                 if (!(html == false)) {
-                                    _context3.next = 6;
+                                    _context3.next = 7;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
-                            case 6:
+                            case 7:
                                 $ = cheerio.load(html);
                                 sources = [];
                                 temp = [];
@@ -136,10 +134,10 @@ var Estream = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 14;
+                                _context3.next = 15;
                                 return Promise.all(arrPromise);
 
-                            case 14:
+                            case 15:
                                 return _context3.abrupt("return", {
                                     host: {
                                         url: url,
@@ -148,7 +146,7 @@ var Estream = function () {
                                     result: sources
                                 });
 
-                            case 15:
+                            case 16:
                             case "end":
                                 return _context3.stop();
                         }

@@ -7,13 +7,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "https://scr.cr",
+    DOMAIN: "https://seehd.biz/",
     SEARCH: function SEARCH(title) {
-        return 'https://scr.cr/search.php?query=' + title;
+        return 'https://seehd.biz/?s=' + title;
     },
-    GET_SOURCE: function GET_SOURCE(eid) {
-        return 'https://ajax.scr.cr/heartbypass/get-source.php?eid=' + eid + '&hmac=646679318296d72f5285f7cc3e6a6b8c%2F9c2Jt8%3D';
-    },
+    DOMAIN_DECODE: '',
     HEADERS: function HEADERS(referer) {
         return {
             'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
@@ -22,9 +20,9 @@ var URL = {
     }
 };
 
-var Screamcr = function () {
-    function Screamcr(props) {
-        _classCallCheck(this, Screamcr);
+var Seehdbiz = function () {
+    function Seehdbiz(props) {
+        _classCallCheck(this, Seehdbiz);
 
         this.libs = props.libs;
         this.movieInfo = props.movieInfo;
@@ -33,56 +31,77 @@ var Screamcr = function () {
         this.state = {};
     }
 
-    _createClass(Screamcr, [{
+    _createClass(Seehdbiz, [{
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type, detailUrl, videoUrl, urlSearch, html, $;
+                var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, movieflixter, detailUrl, videoUrl, tvshowVideoUrl, urlSearch, dataSearch, $, itemSearch;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, qs = _libs.qs;
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+                                movieflixter = this;
                                 detailUrl = false;
                                 videoUrl = false;
-                                urlSearch = URL.SEARCH(encodeURI(title));
-                                _context.next = 7;
-                                return httpRequest.getHTML(urlSearch, URL.HEADERS(URL.DOMAIN));
+                                tvshowVideoUrl = false;
+                                _context.prev = 6;
+                                urlSearch = URL.SEARCH(title);
+                                _context.next = 10;
+                                return httpRequest.getHTML(urlSearch);
 
-                            case 7:
-                                html = _context.sent;
-                                $ = cheerio.load(html);
+                            case 10:
+                                dataSearch = _context.sent;
+                                $ = cheerio.load(dataSearch);
+                                itemSearch = $('.item_1 .item');
 
+                                itemSearch.each(function () {
+                                    var yearVal = $(this).find('.year').text();
+                                    var titleVal = $(this).find('h2').text();
 
-                                $('.main-content #top-hot a').each(function () {
+                                    var linkDetailVal = $(this).find('a:nth-child(1)').attr('href');
+                                    var typeVal = titleVal.search('Season') !== -1 ? 'tv' : 'movie';
+                                    var seasonVal = titleVal.match(/Season.[0-9]*/);
+                                    var episodeVal = titleVal.match(/Episode.[0-9]*/);
+                                    if (seasonVal && episodeVal) {
+                                        seasonVal = seasonVal.match(/\d/);
+                                        episodeVal = episodeVal.match(/\d/);
+                                    }
 
-                                    var titleMovie = $(this).attr('oldtitle');
-                                    var hrefMovie = $(this).attr('href');
+                                    if (typeVal == 'movie') {
+                                        if (yearVal == year && titleVal.toLowerCase().search(title.toLowerCase()) !== -1 && typeVal == type) {
+                                            detailUrl = linkDetailVal;
+                                        }
+                                    }
 
-                                    var titleMovieFull = titleMovie.replace(/ -?\s+Season\s+[0-9]+/i, '').trim();
-                                    if (stringHelper.shallowCompare(title, titleMovieFull)) {
-                                        if (type == 'movie') {
-                                            detailUrl = URL.DOMAIN + hrefMovie;
-                                        } else if (type == 'tv') {
-                                            var m = titleMovie.match(/Season\s+([0-9])+/i);
-                                            if (m != undefined && m[1] == season) {
-                                                detailUrl = URL.DOMAIN + hrefMovie;
-                                            }
+                                    if (typeVal == 'tv') {
+                                        if (yearVal == year && titleVal.toLowerCase().search(title.toLowerCase()) !== -1 && typeVal == type && seasonVal == season && episodeVal == episode) {
+                                            detailUrl = linkDetailVal;
                                         }
                                     }
                                 });
+                                _context.next = 19;
+                                break;
+
+                            case 16:
+                                _context.prev = 16;
+                                _context.t0 = _context['catch'](6);
+
+                                console.log(String(_context.t0));
+
+                            case 19:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 12:
+                            case 21:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this);
+                }, _callee, this, [[6, 16]]);
             }));
 
             function searchDetail() {
@@ -95,7 +114,7 @@ var Screamcr = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs2, httpRequest, cheerio, qs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, htmlDetail, $, eid, sources, jsonSources, arrPromise;
+                var _libs2, httpRequest, cheerio, qs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, htmlDetail, $, servers, sources, sourcesPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -115,73 +134,51 @@ var Screamcr = function () {
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
                                 _context3.next = 8;
-                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS(detailUrl));
+                                return httpRequest.getHTML(this.state.detailUrl);
 
                             case 8:
                                 htmlDetail = _context3.sent;
                                 $ = cheerio.load(htmlDetail);
-                                eid = false;
+                                servers = $(".movieplay script");
+                                sources = [];
 
-                                $('.wpb-content .wpbc-server .ulclear a').each(function () {
-                                    if (type == 'movie') eid = $(this).attr('data-eid');else {
-                                        var ename = $(this).text();
-                                        var m = ename.match(/Episode ([0-9]+):/i);
-                                        if (m != undefined) {
-                                            var seasonEpisode = +m[1] + 0;
+                                servers.each(function () {
+                                    var onclick = '';
+                                    if (type == 'tv') onclick = $(this).find('button').attr('onclick');else onclick = $(this).text();
 
-                                            if (seasonEpisode == episode) {
-                                                eid = $(this).attr('data-eid');
-                                            }
-                                        }
+                                    var rawLink = onclick.split(";");
+                                    rawLink = rawLink[0].slice(4);
+                                    rawLink = rawLink.replace(/'/g, "");
+                                    rawLink = unescape(rawLink.replace(/@/g, '%'));
+                                    if (rawLink) {
+                                        rawLink = rawLink.match(/src="([^"]+)/);
+                                        // console.log(rawLink[1]);
+                                        sources.push(rawLink[1]);
                                     }
                                 });
 
-                                if (eid) {
-                                    _context3.next = 14;
-                                    break;
-                                }
-
-                                throw new Error('NOT_FOUND');
-
-                            case 14:
-                                _context3.next = 16;
-                                return httpRequest.getHTML(URL.GET_SOURCE(eid), URL.HEADERS(detailUrl));
-
-                            case 16:
-                                sources = _context3.sent;
-                                _context3.prev = 17;
-
-                                jsonSources = JSON.parse(sources);
-                                _context3.next = 24;
-                                break;
-
-                            case 21:
-                                _context3.prev = 21;
-                                _context3.t0 = _context3['catch'](17);
-                                throw new Error('NOT_FOUND');
-
-                            case 24:
-                                arrPromise = jsonSources['sources'].map(function () {
-                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
-                                        var domain;
+                                sourcesPromise = sources.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(link) {
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
-                                                        domain = val['file'].split('/')[2];
-                                                        //console.log(domain);
+                                                        console.log(link);
 
-                                                        hosts.push({
-                                                            provider: {
-                                                                url: detailUrl,
-                                                                name: "scream"
-                                                            },
-                                                            result: {
-                                                                file: val['file'],
-                                                                label: "embed",
-                                                                type: "direct"
-                                                            }
-                                                        });
+                                                        // console.log(`LINK ${iframe} ${html.data}`)
+                                                        if (link != undefined) {
+                                                            hosts.push({
+                                                                provider: {
+                                                                    url: detailUrl,
+                                                                    name: "seehdbiz"
+                                                                },
+                                                                result: {
+                                                                    file: link,
+                                                                    label: "embed",
+                                                                    type: "embed"
+                                                                }
+                                                            });
+                                                        }
 
                                                     case 2:
                                                     case 'end':
@@ -195,19 +192,18 @@ var Screamcr = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 27;
-                                return Promise.all(arrPromise);
+                                _context3.next = 16;
+                                return Promise.all(sourcesPromise);
 
-                            case 27:
-
+                            case 16:
                                 this.state.hosts = hosts;
 
-                            case 28:
+                            case 17:
                             case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this, [[17, 21]]);
+                }, _callee3, this);
             }));
 
             function getHostFromDetail() {
@@ -218,7 +214,7 @@ var Screamcr = function () {
         }()
     }]);
 
-    return Screamcr;
+    return Seehdbiz;
 }();
 
 thisSource.function = function () {
@@ -229,13 +225,13 @@ thisSource.function = function () {
                 switch (_context4.prev = _context4.next) {
                     case 0:
                         httpRequest = libs.httpRequest;
-                        source = new Screamcr({
+                        source = new Seehdbiz({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: 'scream',
+                            name_source: 'seehdbiz',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
@@ -281,4 +277,4 @@ thisSource.function = function () {
     };
 }();
 
-thisSource.testing = Screamcr;
+thisSource.testing = Seehdbiz;

@@ -37,7 +37,7 @@ var Playdk = function () {
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 _context.next = 4;
-                                return httpRequest.get(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')));
+                                return httpRequest.getHTML(URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+')));
 
                             case 4:
                                 htmlSearch = _context.sent;

@@ -6,190 +6,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-// const URL = {
-//     DOMAIN: "https://seriesfree.to/",
-//     SEARCH: (title) => {
-//         return `https://seriesfree.to/search/${title}`;
-//     },
-//     DOMAIN_DECODE: '',
-//     HEADERS: (referer) => {
-//         return {
-//             'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
-//             'referer': referer
-//         }
-//     }
-// };
-
-
-// class Seriesfree {
-//     constructor(props) {
-//         this.libs = props.libs;
-//         this.movieInfo = props.movieInfo;
-//         this.settings = props.settings;
-//         this.state = {};
-//     }
-
-
-//     async searchDetail() {
-//         const {
-//             httpRequest,
-//             cheerio,
-//             stringHelper
-//         } = this.libs;
-//         let {
-//             title,
-//             year,
-//             season,
-//             episode,
-//             type
-//         } = this.movieInfo;
-
-//         let movieflixter = this;
-
-//         let detailUrl = false;
-//         let videoUrl = false;
-//         let tvshowVideoUrl = false;
-
-//         try {
-
-//             let urlSearch = URL.SEARCH(title);
-//             let dataSearch = await httpRequest.getHTML(urlSearch);
-//             let $ = cheerio.load(dataSearch);
-
-//             let itemSearch = $('.container .cf .separate:nth-child(4)');
-//             let titleVal = itemSearch.find('h2').text();
-//             let linkDetailVal = 'https://seriesfree.to' + itemSearch.find('a').attr('href');
-
-//             if (titleVal.toLowerCase().search(title.toLowerCase()) !== -1) {
-//                 detailUrl = linkDetailVal;
-//             }
-
-//             if (detailUrl) {
-//                 let searchLink = await httpRequest.getHTML(detailUrl);
-//                 let $_2 = cheerio.load(searchLink);
-//                 let totalLinks = $_2('.seasons-grid a');
-//                 totalLinks.each(function () {
-//                     let checkCondition = $(this).attr('href');
-//                     if (checkCondition.indexOf(`s${season}_e${episode}`) !== -1) {
-//                         detailUrl = 'https://seriesfree.to' + checkCondition;
-//                     }
-//                 });
-//             }
-//             this.state.detailUrl = detailUrl;
-//         } catch (error) {
-//             console.log(String(error));
-//         }
-
-
-//         return;
-//     }
-
-//     async getHostFromDetail() {
-//         const {
-//             httpRequest,
-//             cheerio,
-//             qs
-//         } = this.libs;
-//         const {
-//             title,
-//             year,
-//             season,
-//             episode,
-//             type
-//         } = this.movieInfo;
-//         if (!this.state.detailUrl) throw new Error("NOT_FOUND");
-
-//         let hosts = [];
-//         let detailUrl = this.state.detailUrl;
-//         let htmlDetail = await httpRequest.getHTML(this.state.detailUrl);
-//         let $ = cheerio.load(htmlDetail);
-
-//         let servers = $(".tabs .links tr td:nth-child(2) a");
-//         let sources = [];
-//         servers.each(function () {
-//             let onclick = 'https://seriesfree.to' + $(this).attr('href');
-//             sources.push(onclick);
-//         });
-
-//         let sourcesPromise = sources.map(async (link) => {
-//             let originLink = await httpRequest.getHTML(link);
-//             let $_1 = cheerio.load(originLink);
-
-//             let linkDetail = $_1('#app .serie-details div:nth-child(2) a').attr('href');
-//             let hostsList = ["openload", "streamango", "speedvid"];
-
-//             for (let i = 0; i < hostsList.length; i++) {
-//                 if (linkDetail) {
-//                     if (linkDetail.indexOf(hostsList[i]) !== -1 && hosts.length < 20) {
-//                         hosts.push({
-//                             provider: {
-//                                 url: detailUrl,
-//                                 name: "seriesfree"
-//                             },
-//                             result: {
-//                                 file: linkDetail,
-//                                 label: "embed",
-//                                 type: "embed"
-//                             }
-//                         });
-//                     }
-//                 }
-//             }
-//         });
-
-//         await Promise.all(sourcesPromise);
-//         this.state.hosts = hosts;
-//     }
-
-// }
-
-// thisSource.function = async (libs, movieInfo, settings) => {
-
-//     const httpRequest = libs.httpRequest;
-
-//     const source = new Seriesfree({
-//         libs: libs,
-//         movieInfo: movieInfo,
-//         settings: settings
-//     });
-
-//     let bodyPost = {
-//         name_source: 'seriesfree',
-//         is_link: 0,
-//         type: movieInfo.type,
-//         season: movieInfo.season,
-//         episode: movieInfo.episode,
-//         title: movieInfo.title,
-//         year: movieInfo.year
-//     };
-
-//     await source.searchDetail();
-
-//     if (!source.state.detailUrl) {
-//         bodyPost.is_link = 0;
-//     } else {
-//         bodyPost.is_link = 1;
-//     }
-//     await source.getHostFromDetail();
-
-//     if (source.state.hosts.length == 0) {
-//         bodyPost.is_link = 0;
-//     } else {
-//         bodyPost.is_link = 1;
-//     }
-
-//     //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
-
-//     return source.state.hosts;
-// }
-
-// thisSource.testing = Seriesfree;
-
-
 var URL = {
-    DOMAIN: "https://seriesfree.to/",
+    DOMAIN: "https://www1.two-movies.name/",
     SEARCH: function SEARCH(title) {
-        return 'https://seriesfree.to/search/' + title;
+        return 'https://www1.two-movies.name/search/?criteria=all&search_query=' + title;
     },
     DOMAIN_DECODE: '',
     HEADERS: function HEADERS(referer) {
@@ -200,9 +20,9 @@ var URL = {
     }
 };
 
-var Seriesfree = function () {
-    function Seriesfree(props) {
-        _classCallCheck(this, Seriesfree);
+var Twomovies = function () {
+    function Twomovies(props) {
+        _classCallCheck(this, Twomovies);
 
         this.libs = props.libs;
         this.movieInfo = props.movieInfo;
@@ -210,11 +30,11 @@ var Seriesfree = function () {
         this.state = {};
     }
 
-    _createClass(Seriesfree, [{
+    _createClass(Twomovies, [{
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, movieflixter, detailUrl, videoUrl, tvshowVideoUrl, urlSearch, dataSearch, $, itemSearch, titleVal, linkDetailVal, searchLink, $_2, totalLinks;
+                var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, movieflixter, detailUrl, videoUrl, tvshowVideoUrl, urlSearch, dataSearch, $, itemSearch, titleVal, yearVal, linkDetailVal, searchLink, $_2, totalLinks;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -234,24 +54,30 @@ var Seriesfree = function () {
                             case 10:
                                 dataSearch = _context.sent;
                                 $ = cheerio.load(dataSearch);
-                                itemSearch = $('.container .cf .separate:nth-child(4)');
-                                titleVal = itemSearch.find('h2').text();
-                                linkDetailVal = 'https://seriesfree.to' + itemSearch.find('a').attr('href');
+
+                                //let checkType = $('.divConteiner h1').text();
+
+                                itemSearch = $('.film_content .filmDiv');
+                                titleVal = itemSearch.find('filmganrediv2').text().trim();
+                                yearVal = itemSearch.find('.filmyar').text().trim();
+                                linkDetailVal = 'https://seriesfree.to' + itemSearch.find('a:nth-child(1)').attr('href');
 
 
-                                if (titleVal.toLowerCase().search(title.toLowerCase()) !== -1) {
+                                console.log(yearVal, titleVal, linkDetailVal);
+
+                                if (titleVal.toLowerCase().search(title.toLowerCase()) !== -1 && yearVal == year) {
                                     detailUrl = linkDetailVal;
                                 }
 
                                 if (!detailUrl) {
-                                    _context.next = 23;
+                                    _context.next = 25;
                                     break;
                                 }
 
-                                _context.next = 19;
+                                _context.next = 21;
                                 return httpRequest.getHTML(detailUrl);
 
-                            case 19:
+                            case 21:
                                 searchLink = _context.sent;
                                 $_2 = cheerio.load(searchLink);
                                 totalLinks = $_2('.seasons-grid a');
@@ -263,26 +89,28 @@ var Seriesfree = function () {
                                     }
                                 });
 
-                            case 23:
+                            case 25:
+
+                                console.log("AAAAAAAAAAAAAAa " + detailUrl);
                                 this.state.detailUrl = detailUrl;
-                                _context.next = 29;
+                                _context.next = 32;
                                 break;
 
-                            case 26:
-                                _context.prev = 26;
+                            case 29:
+                                _context.prev = 29;
                                 _context.t0 = _context['catch'](6);
 
                                 console.log(String(_context.t0));
 
-                            case 29:
+                            case 32:
                                 return _context.abrupt('return');
 
-                            case 30:
+                            case 33:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[6, 26]]);
+                }, _callee, this, [[6, 29]]);
             }));
 
             function searchDetail() {
@@ -306,68 +134,104 @@ var Seriesfree = function () {
                                 _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, qs = _libs2.qs;
                                 _movieInfo2 = this.movieInfo, title = _movieInfo2.title, year = _movieInfo2.year, season = _movieInfo2.season, episode = _movieInfo2.episode, type = _movieInfo2.type;
 
+                                this.state.detailUrl = "https://www1.two-movies.name/watch_movie/Avengers_Infinity_War_2018";
+
                                 if (this.state.detailUrl) {
-                                    _context3.next = 4;
+                                    _context3.next = 5;
                                     break;
                                 }
 
                                 throw new Error("NOT_FOUND");
 
-                            case 4:
+                            case 5:
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
-                                _context3.next = 8;
+                                _context3.next = 9;
                                 return httpRequest.getHTML(this.state.detailUrl);
 
-                            case 8:
+                            case 9:
                                 htmlDetail = _context3.sent;
                                 $ = cheerio.load(htmlDetail);
-                                servers = $(".tabs .links tr");
+                                servers = $("#fbody tr .vlink");
                                 sources = [];
 
                                 servers.each(function () {
-                                    var hostName = $(this).find('td:nth-child(1)').text();
-                                    var onclick = "";
-                                    if ((hostName.indexOf("openload") !== -1 || hostName.indexOf("streamango") !== -1 || hostName.indexOf("speedvid") !== -1) && sources.length < 15) {
-                                        onclick = 'https://seriesfree.to' + $(this).find('td:nth-child(2) a').attr('href');
-                                        console.log(onclick);
-                                        sources.push(onclick);
-                                    }
+                                    var onclick = 'https://www1.two-movies.name' + $(this).attr('href');
+                                    sources.push(onclick);
                                 });
 
-                                console.log(sources.length);
                                 sourcesPromise = sources.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(link) {
-                                        var originLink, $_1, linkDetail;
+                                        var originLink, hash, dataString, headers, newHeader, originLink3, $_1, linkToGet, linkDetail;
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
                                                         _context2.next = 2;
-                                                        return httpRequest.getHTML(link);
+                                                        return httpRequest.getHTML(link, URL.HEADERS());
 
                                                     case 2:
                                                         originLink = _context2.sent;
-                                                        $_1 = cheerio.load(originLink);
-                                                        linkDetail = $_1('#app .serie-details div:nth-child(2) a').attr('href');
 
-                                                        if (linkDetail) {
-                                                            if (hosts.length < 15) {
-                                                                hosts.push({
-                                                                    provider: {
-                                                                        url: detailUrl,
-                                                                        name: "seriesfree"
-                                                                    },
-                                                                    result: {
-                                                                        file: linkDetail,
-                                                                        label: "embed",
-                                                                        type: "embed"
-                                                                    }
-                                                                });
-                                                            }
+                                                        originLink = JSON.stringify(originLink);
+                                                        hash = originLink.match(/var hash = ([^;]+)/);
+
+                                                        hash = hash[1];
+                                                        hash = hash.replace(/\\/g, "");
+                                                        hash = hash.replace(/\'/g, "");
+                                                        dataString = 'hash=' + hash + '&confirm_continue=I+understand%2C+I+want+to+continue';
+                                                        headers = {
+                                                            'authority': 'www1.two-movies.name',
+                                                            'cache-control': 'max-age=0',
+                                                            'origin': 'https://www1.two-movies.name',
+                                                            'upgrade-insecure-requests': '1',
+                                                            'content-type': 'application/x-www-form-urlencoded',
+                                                            'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.92 Safari/537.36',
+                                                            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                                                            'referer': link,
+                                                            'accept-encoding': 'gzip, deflate, br',
+                                                            'accept-language': 'vi,en-US;q=0.9,en;q=0.8'
+                                                        };
+                                                        _context2.next = 12;
+                                                        return httpRequest.postCloudflare(link, headers, dataString);
+
+                                                    case 12:
+                                                        newHeader = _context2.sent;
+
+                                                        newHeader.headers['accept-encoding'] = "";
+
+                                                        _context2.next = 16;
+                                                        return httpRequest.getCloudflare(link, newHeader);
+
+                                                    case 16:
+                                                        originLink3 = _context2.sent;
+                                                        $_1 = cheerio.load(originLink3.data);
+                                                        linkToGet = $_1('.warningLinkBox');
+
+                                                        linkToGet = linkToGet.find('a').attr('href');
+                                                        linkToGet = linkToGet.match(/https:.*/);
+
+                                                        console.log(linkToGet[0]);
+
+                                                        linkDetail = "";
+
+                                                        if ((linkToGet.indexOf("openload") !== -1 || linkToGet.indexOf("streamango") !== -1 || linkToGet.indexOf("speedvid") !== -1) && hosts.length < 20) {
+                                                            linkDetail = linkToGet[0];
                                                         }
 
-                                                    case 6:
+                                                        hosts.push({
+                                                            provider: {
+                                                                url: detailUrl,
+                                                                name: "seriesfree"
+                                                            },
+                                                            result: {
+                                                                file: linkDetail,
+                                                                label: "embed",
+                                                                type: "embed"
+                                                            }
+                                                        });
+
+                                                    case 25:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
@@ -401,10 +265,10 @@ var Seriesfree = function () {
         }()
     }]);
 
-    return Seriesfree;
+    return Twomovies;
 }();
 
-exports.default = function () {
+thisSource.function = function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
         var httpRequest, source, bodyPost;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
@@ -412,13 +276,13 @@ exports.default = function () {
                 switch (_context4.prev = _context4.next) {
                     case 0:
                         httpRequest = libs.httpRequest;
-                        source = new Seriesfree({
+                        source = new Twomovies({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: 'seriesfree',
+                            name_source: 'twomovies',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
@@ -426,20 +290,18 @@ exports.default = function () {
                             title: movieInfo.title,
                             year: movieInfo.year
                         };
-                        _context4.next = 5;
-                        return source.searchDetail();
 
-                    case 5:
+                        // await source.searchDetail();
 
                         if (!source.state.detailUrl) {
                             bodyPost.is_link = 0;
                         } else {
                             bodyPost.is_link = 1;
                         }
-                        _context4.next = 8;
+                        _context4.next = 6;
                         return source.getHostFromDetail();
 
-                    case 8:
+                    case 6:
 
                         if (source.state.hosts.length == 0) {
                             bodyPost.is_link = 0;
@@ -451,7 +313,7 @@ exports.default = function () {
 
                         return _context4.abrupt('return', source.state.hosts);
 
-                    case 10:
+                    case 8:
                     case 'end':
                         return _context4.stop();
                 }
@@ -464,4 +326,4 @@ exports.default = function () {
     };
 }();
 
-exports.testing = Seriesfree;
+thisSource.testing = Twomovies;

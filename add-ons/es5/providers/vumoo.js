@@ -38,41 +38,48 @@ var Vumoo = function () {
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 _context.next = 4;
-                                return httpRequest.get(URL.SEARCH_JS);
+                                return httpRequest.getHTML(URL.SEARCH_JS);
 
                             case 4:
                                 getJs = _context.sent;
-
-                                console.log(getJs);
-                                match = getJs.data.match(/search\?t=([^"]+)/);
+                                match = getJs.match(/search\?t=([^"]+)/);
 
                                 if (!(match[1] == undefined)) {
-                                    _context.next = 9;
+                                    _context.next = 8;
                                     break;
                                 }
 
                                 return _context.abrupt('return');
 
-                            case 9:
+                            case 8:
                                 t = match[1];
                                 detailUrl = false;
                                 urlSearch = URL.SEARCH(encodeURI(title), t);
-                                _context.next = 14;
-                                return httpRequest.get(urlSearch);
+                                _context.next = 13;
+                                return httpRequest.getHTML(urlSearch);
 
-                            case 14:
+                            case 13:
                                 jsonSearch = _context.sent;
+                                _context.prev = 14;
 
-                                jsonSearch = jsonSearch.data;
+                                jsonSearch = JSON.parse(jsonSearch);
+                                _context.next = 21;
+                                break;
 
+                            case 18:
+                                _context.prev = 18;
+                                _context.t0 = _context['catch'](14);
+                                throw new Error('NOT SEARCH VUMOO JS');
+
+                            case 21:
                                 if (jsonSearch.suggestions) {
-                                    _context.next = 18;
+                                    _context.next = 23;
                                     break;
                                 }
 
                                 throw new Error('NOT SEARCH VUMOO');
 
-                            case 18:
+                            case 23:
 
                                 jsonSearch.suggestions.forEach(function (val) {
 
@@ -104,12 +111,12 @@ var Vumoo = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 21:
+                            case 26:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this);
+                }, _callee, this, [[14, 18]]);
             }));
 
             function searchDetail() {
@@ -221,37 +228,39 @@ var Vumoo = function () {
                                                 switch (_context3.prev = _context3.next) {
                                                     case 0:
                                                         if (!(val.indexOf('http:') == -1 && val.indexOf('https:') == -1)) {
-                                                            _context3.next = 9;
+                                                            _context3.next = 8;
                                                             break;
                                                         }
 
                                                         urlDirect = URL.DOMAIN_CDN + val;
                                                         _context3.next = 4;
-                                                        return httpRequest.get(urlDirect);
+                                                        return httpRequest.getHTML(urlDirect);
 
                                                     case 4:
                                                         linkDirect = _context3.sent;
 
-                                                        linkDirect = linkDirect.data;
+                                                        try {
+                                                            linkDirect = JSON.parse(linkDirect);
 
-                                                        for (item in linkDirect) {
+                                                            for (item in linkDirect) {
 
-                                                            linkDirect[item].file && hosts.push({
-                                                                provider: {
-                                                                    url: detailUrl,
-                                                                    name: "vumoo"
-                                                                },
-                                                                result: {
-                                                                    file: linkDirect[item].file,
-                                                                    label: "embed",
-                                                                    type: "direct"
-                                                                }
-                                                            });
-                                                        }
-                                                        _context3.next = 10;
+                                                                linkDirect[item].file && hosts.push({
+                                                                    provider: {
+                                                                        url: detailUrl,
+                                                                        name: "vumoo"
+                                                                    },
+                                                                    result: {
+                                                                        file: linkDirect[item].file,
+                                                                        label: "embed",
+                                                                        type: "direct"
+                                                                    }
+                                                                });
+                                                            }
+                                                        } catch (e) {}
+                                                        _context3.next = 9;
                                                         break;
 
-                                                    case 9:
+                                                    case 8:
                                                         hosts.push({
                                                             provider: {
                                                                 url: detailUrl,
@@ -264,7 +273,7 @@ var Vumoo = function () {
                                                             }
                                                         });
 
-                                                    case 10:
+                                                    case 9:
                                                     case 'end':
                                                         return _context3.stop();
                                                 }

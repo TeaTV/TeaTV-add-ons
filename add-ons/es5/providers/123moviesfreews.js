@@ -7,35 +7,42 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "http://movieflixter.to",
+    DOMAIN: "https://www.123moviesfree.ws/",
     SEARCH: function SEARCH(title) {
-        return 'http://movieflixter.to/search?q=' + title;
+        return "https://www.123moviesfree.ws/?s=" + title;
     },
     DOMAIN_DECODE: '',
-    HEADERS: function HEADERS(referer) {
+    HEADERS: function HEADERS() {
+        var referer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+
         return {
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
-            'referer': referer
+            'origin': 'https://consistent.stream',
+            'accept-language': 'vi,en-US;q=0.9,en;q=0.8',
+            'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.92 Safari/537.36',
+            'content-type': 'application/json;charset=UTF-8',
+            'access-control-allow-origin': 'XMLHttpRequest',
+            'accept': 'application/json, text/plain, */*',
+            'referer': referer,
+            'authority': 'consistent.stream'
         };
     }
 };
 
-var MovieFlixter = function () {
-    function MovieFlixter(props) {
-        _classCallCheck(this, MovieFlixter);
+var S123moviesfreews = function () {
+    function S123moviesfreews(props) {
+        _classCallCheck(this, S123moviesfreews);
 
         this.libs = props.libs;
         this.movieInfo = props.movieInfo;
         this.settings = props.settings;
-
         this.state = {};
     }
 
-    _createClass(MovieFlixter, [{
-        key: 'searchDetail',
+    _createClass(S123moviesfreews, [{
+        key: "searchDetail",
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, detailUrl, videoUrl, tvshowVideoUrl, urlSearch, dataSearch, $, itemSearch;
+                var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, movieflixter, detailUrl, videoUrl, tvshowVideoUrl, titleSearch, dataSearch, $, linkDetailVal, titleVal, typeVal;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -43,60 +50,46 @@ var MovieFlixter = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+                                movieflixter = this;
                                 detailUrl = false;
                                 videoUrl = false;
                                 tvshowVideoUrl = false;
-                                _context.prev = 5;
-                                urlSearch = URL.SEARCH(title);
-                                _context.next = 9;
-                                return httpRequest.getHTML(urlSearch);
+                                _context.prev = 6;
+                                titleSearch = title.replace(/\s/g, "+");
+                                _context.next = 10;
+                                return httpRequest.getHTML(URL.SEARCH(titleSearch));
 
-                            case 9:
+                            case 10:
                                 dataSearch = _context.sent;
-
-                                // console.log(dataSearch);
                                 $ = cheerio.load(dataSearch);
-                                itemSearch = $('#content .movie_cell');
+                                linkDetailVal = $('.ml-item').eq(0).find('a:nth-child(1)').attr('href');
+                                titleVal = $('.ml-item').eq(0).find('h2:nth-child(1)').text();
+                                typeVal = linkDetailVal.indexOf('series') !== -1 ? 'tv' : 'movie';
 
 
-                                itemSearch.each(function () {
-                                    var yearVal = $(this).find('.year').text();
-                                    yearVal = yearVal.replace("(", "");
-                                    yearVal = yearVal.replace(")", "");
+                                if (titleVal.toLowerCase().indexOf(title.toLowerCase()) !== -1 && typeVal == type) {
+                                    detailUrl = linkDetailVal;
+                                }
 
-                                    var titleVal = $(this).find('a:nth-child(1)').attr('title');
-                                    var linkDetailVal = URL.DOMAIN + $(this).find('a:nth-child(1)').attr('href');
-                                    var typeVal = void 0;
-                                    if (linkDetailVal.search('movie') !== -1) {
-                                        typeVal = 'movie';
-                                    } else {
-                                        typeVal = 'tv';
-                                    }
-
-                                    if (yearVal == year && type == typeVal && title == titleVal) {
-                                        detailUrl = linkDetailVal;
-                                    }
-                                });
-                                _context.next = 18;
+                                this.state.detailUrl = detailUrl;
+                                _context.next = 22;
                                 break;
 
-                            case 15:
-                                _context.prev = 15;
-                                _context.t0 = _context['catch'](5);
+                            case 19:
+                                _context.prev = 19;
+                                _context.t0 = _context["catch"](6);
 
                                 console.log(String(_context.t0));
 
-                            case 18:
+                            case 22:
+                                return _context.abrupt("return");
 
-                                this.state.detailUrl = detailUrl;
-                                return _context.abrupt('return');
-
-                            case 20:
-                            case 'end':
+                            case 23:
+                            case "end":
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[5, 15]]);
+                }, _callee, this, [[6, 19]]);
             }));
 
             function searchDetail() {
@@ -106,69 +99,108 @@ var MovieFlixter = function () {
             return searchDetail;
         }()
     }, {
-        key: 'getHostFromDetail',
+        key: "getHostFromDetail",
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs2, httpRequest, cheerio, qs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, htmlDetail, $, servers, sources, sourcesPromise;
+                var _this = this;
+
+                var _libs2, httpRequest, cheerio, qs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, sources, url, $, link, rawHtml, seasonVal, linkRaw, htmlRaw, $_1, sourcesPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
                         switch (_context3.prev = _context3.next) {
                             case 0:
+                                _context3.prev = 0;
                                 _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, qs = _libs2.qs;
                                 _movieInfo2 = this.movieInfo, title = _movieInfo2.title, year = _movieInfo2.year, season = _movieInfo2.season, episode = _movieInfo2.episode, type = _movieInfo2.type;
 
                                 if (this.state.detailUrl) {
-                                    _context3.next = 4;
+                                    _context3.next = 5;
                                     break;
                                 }
 
                                 throw new Error("NOT_FOUND");
 
-                            case 4:
+                            case 5:
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
-                                _context3.next = 8;
+                                sources = [];
+                                _context3.next = 10;
                                 return httpRequest.getHTML(this.state.detailUrl);
 
-                            case 8:
-                                htmlDetail = _context3.sent;
-                                $ = cheerio.load(htmlDetail);
-                                servers = $(".stream_links").eq(1).find('tr td:nth-child(1)');
-                                sources = [];
+                            case 10:
+                                url = _context3.sent;
+                                $ = cheerio.load(url);
+                                link = void 0;
 
-                                servers.each(function () {
-                                    var onclick = '';
-                                    if (type == 'tv') onclick = $(this).find('button').attr('onclick');else onclick = $(this).find('a:nth-child(1)');
 
-                                    sources.push('http://movieflixter.to' + onclick.attr('href'));
+                                if (type == "movie") {
+                                    link = $('.movieplay').find('iframe:nth-child(1)').attr('src');
+                                }
+
+                                if (!(type == "tv")) {
+                                    _context3.next = 25;
+                                    break;
+                                }
+
+                                rawHtml = $('#seasons .tvseason');
+                                seasonVal = "";
+                                linkRaw = void 0;
+
+                                rawHtml.each(function () {
+                                    seasonVal = $(this).find('strong').text();
+                                    if (seasonVal.indexOf(season) !== -1) {
+                                        seasonVal = season;
+                                    }
+
+                                    if (seasonVal == season) {
+                                        var episodeList = $(this).find('a');
+                                        episodeList.each(function () {
+                                            var episodeVal = $(this).text();
+                                            episodeVal = episodeVal.match(/\d.+/);
+
+                                            if (episodeVal[0] == episode) {
+                                                linkRaw = $(this).attr('href');
+                                            }
+                                        });
+                                    }
                                 });
+
+                                if (!linkRaw) {
+                                    _context3.next = 25;
+                                    break;
+                                }
+
+                                _context3.next = 22;
+                                return httpRequest.getHTML(linkRaw);
+
+                            case 22:
+                                htmlRaw = _context3.sent;
+                                $_1 = cheerio.load(htmlRaw);
+
+                                link = $_1('.movieplay').find('iframe:nth-child(1)').attr('src');
+
+                            case 25:
+
+                                if (link && link.indexOf('openload') !== -1 || link.indexOf('streamango') !== -1) {
+                                    sources.push(link);
+                                }
 
                                 sourcesPromise = sources.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(link) {
-                                        var html, $_1, iframe;
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
-                                                        _context2.next = 2;
-                                                        return httpRequest.get(link);
-
-                                                    case 2:
-                                                        html = _context2.sent;
-                                                        $_1 = cheerio.load(html.data);
-                                                        iframe = $_1('meta[name="og:url"]').attr('content');
-
-
-                                                        if (iframe != undefined) {
-                                                            if (iframe.indexOf('openload') != -1 || iframe.indexOf('streamango') != -1) {
+                                                        if (link) {
+                                                            if (hosts.length < 15) {
                                                                 hosts.push({
                                                                     provider: {
                                                                         url: detailUrl,
-                                                                        name: "movieflixter"
+                                                                        name: "seriesfree"
                                                                     },
                                                                     result: {
-                                                                        file: iframe,
+                                                                        file: link,
                                                                         label: "embed",
                                                                         type: "embed"
                                                                     }
@@ -176,30 +208,37 @@ var MovieFlixter = function () {
                                                             }
                                                         }
 
-                                                    case 6:
-                                                    case 'end':
+                                                    case 1:
+                                                    case "end":
                                                         return _context2.stop();
                                                 }
                                             }
-                                        }, _callee2, this);
+                                        }, _callee2, _this);
                                     }));
 
-                                    return function (_x) {
+                                    return function (_x2) {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 16;
+                                _context3.next = 29;
                                 return Promise.all(sourcesPromise);
 
-                            case 16:
+                            case 29:
                                 this.state.hosts = hosts;
+                                _context3.next = 35;
+                                break;
 
-                            case 17:
-                            case 'end':
+                            case 32:
+                                _context3.prev = 32;
+                                _context3.t0 = _context3["catch"](0);
+                                throw new Error(_context3.t0);
+
+                            case 35:
+                            case "end":
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this);
+                }, _callee3, this, [[0, 32]]);
             }));
 
             function getHostFromDetail() {
@@ -210,7 +249,7 @@ var MovieFlixter = function () {
         }()
     }]);
 
-    return MovieFlixter;
+    return S123moviesfreews;
 }();
 
 thisSource.function = function () {
@@ -221,13 +260,13 @@ thisSource.function = function () {
                 switch (_context4.prev = _context4.next) {
                     case 0:
                         httpRequest = libs.httpRequest;
-                        source = new MovieFlixter({
+                        source = new S123moviesfreews({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: 'moviepix',
+                            name_source: '123freews',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
@@ -258,19 +297,19 @@ thisSource.function = function () {
 
                         //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
 
-                        return _context4.abrupt('return', source.state.hosts);
+                        return _context4.abrupt("return", source.state.hosts);
 
                     case 10:
-                    case 'end':
+                    case "end":
                         return _context4.stop();
                 }
             }
         }, _callee4, undefined);
     }));
 
-    return function (_x2, _x3, _x4) {
+    return function (_x3, _x4, _x5) {
         return _ref4.apply(this, arguments);
     };
 }();
 
-thisSource.testing = MovieFlixter;
+thisSource.testing = S123moviesfreews;

@@ -106,11 +106,11 @@ var SeehdUno = function () {
                                 //console.log(urlSearch, '1');
 
                                 _context2.next = 5;
-                                return httpRequest.getCloudflare(urlSearch);
+                                return httpRequest.getHTML(urlSearch);
 
                             case 5:
                                 htmlSearch = _context2.sent;
-                                $ = cheerio.load(htmlSearch.data);
+                                $ = cheerio.load(htmlSearch);
                                 itemSearch = $('.peliculas .items .item');
 
 
@@ -201,11 +201,11 @@ var SeehdUno = function () {
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
                                 _context3.next = 8;
-                                return httpRequest.getCloudflare(this.state.detailUrl);
+                                return httpRequest.getHTML(this.state.detailUrl);
 
                             case 8:
                                 htmlDetail = _context3.sent;
-                                $ = cheerio.load(htmlDetail.data);
+                                $ = cheerio.load(htmlDetail);
                                 itemEmbed = $('#player2 .movieplay');
 
                                 //console.log(itemEmbed.length, '5');

@@ -62,11 +62,11 @@ var YesMovies = function () {
                                 }
 
                                 _context3.next = 8;
-                                return httpRequest.get(hrefSearch);
+                                return httpRequest.getHTML(hrefSearch);
 
                             case 8:
                                 htmlSearch = _context3.sent;
-                                $ = cheerio.load(htmlSearch.data);
+                                $ = cheerio.load(htmlSearch);
                                 itemPage = $('.movies-list .ml-item');
                                 arrInfo = [];
 
@@ -119,11 +119,11 @@ var YesMovies = function () {
                                                         }
 
                                                         _context2.next = 6;
-                                                        return httpRequest.get(val.hrefMovie);
+                                                        return httpRequest.getHTML(val.hrefMovie);
 
                                                     case 6:
                                                         htmlWatching = _context2.sent;
-                                                        $_2 = cheerio.load(htmlWatching.data);
+                                                        $_2 = cheerio.load(htmlWatching);
                                                         linkWatching = $_2('#mv-info .bwac-btn').attr('href');
 
 
@@ -188,7 +188,7 @@ var YesMovies = function () {
                             case 0:
                                 yearMovie = 0;
                                 _context4.next = 3;
-                                return httpRequest.get(URL.GET_INFO(slug), {
+                                return httpRequest.getHTML(URL.GET_INFO(slug), {
                                     'X-Requested-With': 'XMLHttpRequest',
                                     authority: 'yesmovies.to',
                                     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36',
@@ -197,7 +197,7 @@ var YesMovies = function () {
 
                             case 3:
                                 htmlGetInfo = _context4.sent;
-                                $ = cheerio.load(htmlGetInfo.data);
+                                $ = cheerio.load(htmlGetInfo);
                                 itemInfo = $('.jt-info');
 
 
@@ -254,11 +254,23 @@ var YesMovies = function () {
 
                                 idMovies = idMovies != null ? +idMovies[1] : 0;
                                 _context6.next = 11;
-                                return httpRequest.get(URL.GET_HTML_EMBED(idMovies));
+                                return httpRequest.getHTML(URL.GET_HTML_EMBED(idMovies));
 
                             case 11:
                                 htmlEmbed = _context6.sent;
-                                $ = cheerio.load(htmlEmbed.data.html);
+                                _context6.prev = 12;
+
+                                htmlEmbed = JSON.parse(htmlEmbed);
+                                _context6.next = 19;
+                                break;
+
+                            case 16:
+                                _context6.prev = 16;
+                                _context6.t0 = _context6['catch'](12);
+                                throw new Error('NOT_FOUND');
+
+                            case 19:
+                                $ = cheerio.load(htmlEmbed.html);
 
 
                                 if (type == 'movie') {
@@ -295,23 +307,26 @@ var YesMovies = function () {
                                                 switch (_context5.prev = _context5.next) {
                                                     case 0:
                                                         _context5.next = 2;
-                                                        return httpRequest.get(URL.GET_EMBED(val));
+                                                        return httpRequest.getHTML(URL.GET_EMBED(val));
 
                                                     case 2:
                                                         jsonEmbed = _context5.sent;
-                                                        linkEmbed = jsonEmbed.data.src;
+                                                        linkEmbed = void 0;
 
-                                                        linkEmbed && hosts.push({
-                                                            provider: {
-                                                                url: detailUrl,
-                                                                name: "yesmovies"
-                                                            },
-                                                            result: {
-                                                                file: linkEmbed,
-                                                                label: "embed",
-                                                                type: "embed"
-                                                            }
-                                                        });
+                                                        try {
+                                                            linkEmbed = JSON.parse(jsonEmbed);
+                                                            linkEmbed && hosts.push({
+                                                                provider: {
+                                                                    url: detailUrl,
+                                                                    name: "yesmovies"
+                                                                },
+                                                                result: {
+                                                                    file: linkEmbed.src,
+                                                                    label: "embed",
+                                                                    type: "embed"
+                                                                }
+                                                            });
+                                                        } catch (e) {}
 
                                                     case 5:
                                                     case 'end':
@@ -325,20 +340,20 @@ var YesMovies = function () {
                                         return _ref6.apply(this, arguments);
                                     };
                                 }());
-                                _context6.next = 17;
+                                _context6.next = 24;
                                 return Promise.all(arrPromise);
 
-                            case 17:
+                            case 24:
 
                                 this.state.hosts = hosts;
                                 return _context6.abrupt('return');
 
-                            case 19:
+                            case 26:
                             case 'end':
                                 return _context6.stop();
                         }
                     }
-                }, _callee6, this);
+                }, _callee6, this, [[12, 16]]);
             }));
 
             function getHostFromDetail() {

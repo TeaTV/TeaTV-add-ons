@@ -65,12 +65,11 @@ var Seehd = function () {
                                 //console.log(urlSearch, 'search');
 
                                 _context.next = 7;
-                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
+                                return httpRequest.getHTML(urlSearch, URL.HEADERS());
 
                             case 7:
                                 htmlSearch = _context.sent;
 
-                                htmlSearch = htmlSearch.data;
 
                                 //console.log(htmlSearch, '1');
                                 $ = cheerio.load(htmlSearch);
@@ -83,29 +82,29 @@ var Seehd = function () {
                                     page = page != null ? +page[1] : 1;
                                 }
 
-                                _context.next = 14;
+                                _context.next = 13;
                                 return this.getDetailUrl(page, this.state);
 
-                            case 14:
-                                _context.next = 19;
+                            case 13:
+                                _context.next = 18;
                                 break;
 
-                            case 16:
-                                _context.prev = 16;
+                            case 15:
+                                _context.prev = 15;
                                 _context.t0 = _context['catch'](3);
 
                                 console.log(String(_context.t0), 'error');
                                 //process.exit();
 
-                            case 19:
+                            case 18:
                                 return _context.abrupt('return');
 
-                            case 20:
+                            case 19:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[3, 16]]);
+                }, _callee, this, [[3, 15]]);
             }));
 
             function searchDetail() {
@@ -147,11 +146,11 @@ var Seehd = function () {
                                                         //console.log(urlSearch, '1');
 
                                                         _context2.next = 3;
-                                                        return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
+                                                        return httpRequest.getHTML(urlSearch, URL.HEADERS());
 
                                                     case 3:
                                                         htmlSearch = _context2.sent;
-                                                        $ = cheerio.load(htmlSearch.data);
+                                                        $ = cheerio.load(htmlSearch);
                                                         itemPage = $('.movie');
 
                                                         //console.log(itemPage.length, 'page');
@@ -249,12 +248,10 @@ var Seehd = function () {
                                 arrEmbed = [];
                                 detailUrl = this.state.detailUrl;
                                 _context5.next = 8;
-                                return httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS());
+                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS());
 
                             case 8:
                                 htmlDetail = _context5.sent;
-
-                                htmlDetail = htmlDetail.data;
                                 $ = cheerio.load(htmlDetail);
                                 itemEmbed = $('.tabcontent');
 
@@ -276,17 +273,15 @@ var Seehd = function () {
                                                 switch (_context4.prev = _context4.next) {
                                                     case 0:
                                                         if (!(val.indexOf('seehd.pl/d') != -1)) {
-                                                            _context4.next = 11;
+                                                            _context4.next = 10;
                                                             break;
                                                         }
 
                                                         _context4.next = 3;
-                                                        return httpRequest.getCloudflare(val, URL.HEADERS());
+                                                        return httpRequest.getHTML(val, URL.HEADERS());
 
                                                     case 3:
                                                         htmlEmbed = _context4.sent;
-
-                                                        htmlEmbed = htmlEmbed.data;
                                                         $_3 = cheerio.load(htmlEmbed);
                                                         iframe = $_3('iframe').attr('src');
 
@@ -306,10 +301,10 @@ var Seehd = function () {
                                                                 type: "embed"
                                                             }
                                                         });
-                                                        _context4.next = 12;
+                                                        _context4.next = 11;
                                                         break;
 
-                                                    case 11:
+                                                    case 10:
                                                         val && hosts.push({
                                                             provider: {
                                                                 url: detailUrl,
@@ -322,7 +317,7 @@ var Seehd = function () {
                                                             }
                                                         });
 
-                                                    case 12:
+                                                    case 11:
                                                     case 'end':
                                                         return _context4.stop();
                                                 }
@@ -334,14 +329,14 @@ var Seehd = function () {
                                         return _ref5.apply(this, arguments);
                                     };
                                 }());
-                                _context5.next = 16;
+                                _context5.next = 15;
                                 return Promise.all(arrPromise);
 
-                            case 16:
+                            case 15:
 
                                 this.state.hosts = hosts;
 
-                            case 17:
+                            case 16:
                             case 'end':
                                 return _context5.stop();
                         }

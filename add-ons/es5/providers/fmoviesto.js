@@ -7,12 +7,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "https://scr.cr",
+    DOMAIN: "https://www3.fmovies.to",
     SEARCH: function SEARCH(title) {
-        return 'https://scr.cr/search.php?query=' + title;
+        return 'https://www3.fmovies.to/ajax/film/search?keyword=' + title;
     },
-    GET_SOURCE: function GET_SOURCE(eid) {
-        return 'https://ajax.scr.cr/heartbypass/get-source.php?eid=' + eid + '&hmac=646679318296d72f5285f7cc3e6a6b8c%2F9c2Jt8%3D';
+    HASH_URL: 'http://www5.123moviesfree.com/ip.file/swf/plugins/ipplugins.php',
+    PLAYER_URL: function PLAYER_URL(key, server_id) {
+        return 'http://www5.123moviesfree.com/ip.file/swf/ipplayer/ipplayer.php?u=' + key + '&s=' + server_id + '&n=0';
     },
     HEADERS: function HEADERS(referer) {
         return {
@@ -22,9 +23,9 @@ var URL = {
     }
 };
 
-var Screamcr = function () {
-    function Screamcr(props) {
-        _classCallCheck(this, Screamcr);
+var s123MoviesFree = function () {
+    function s123MoviesFree(props) {
+        _classCallCheck(this, s123MoviesFree);
 
         this.libs = props.libs;
         this.movieInfo = props.movieInfo;
@@ -33,11 +34,11 @@ var Screamcr = function () {
         this.state = {};
     }
 
-    _createClass(Screamcr, [{
+    _createClass(s123MoviesFree, [{
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type, detailUrl, videoUrl, urlSearch, html, $;
+                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type, detailUrl, videoUrl, urlSearch, htmlSearch, html, $;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -49,40 +50,51 @@ var Screamcr = function () {
                                 videoUrl = false;
                                 urlSearch = URL.SEARCH(encodeURI(title));
                                 _context.next = 7;
-                                return httpRequest.getHTML(urlSearch, URL.HEADERS(URL.DOMAIN));
+                                return httpRequest.getHTML(urlSearch);
 
                             case 7:
-                                html = _context.sent;
+                                htmlSearch = _context.sent;
+                                html = void 0;
+                                _context.prev = 9;
+
+                                html = JSON.parse(htmlSearch).html;
+                                _context.next = 16;
+                                break;
+
+                            case 13:
+                                _context.prev = 13;
+                                _context.t0 = _context['catch'](9);
+                                throw new Error('NOT_FOUND');
+
+                            case 16:
                                 $ = cheerio.load(html);
 
+                                $('.item').each(function () {
 
-                                $('.main-content #top-hot a').each(function () {
+                                    var titleMovie = $(this).find('.name').text().trim();
+                                    var hrefMovie = $(this).find('.name').attr('href');
+                                    var yearMovie = $(this).find('.year').parent().text().trim();
 
-                                    var titleMovie = $(this).attr('oldtitle');
-                                    var hrefMovie = $(this).attr('href');
-
-                                    var titleMovieFull = titleMovie.replace(/ -?\s+Season\s+[0-9]+/i, '').trim();
-                                    if (stringHelper.shallowCompare(title, titleMovieFull)) {
-                                        if (type == 'movie') {
-                                            detailUrl = URL.DOMAIN + hrefMovie;
+                                    if (type == 'tv') titleMovie = titleMovie + ' ' + season;
+                                    if (stringHelper.shallowCompare(title, titleMovie)) {
+                                        if (type == 'movie' && yearMovie.indexOf(year) != -1) {
+                                            detailUrl = hrefMovie;
                                         } else if (type == 'tv') {
-                                            var m = titleMovie.match(/Season\s+([0-9])+/i);
-                                            if (m != undefined && m[1] == season) {
-                                                detailUrl = URL.DOMAIN + hrefMovie;
-                                            }
+                                            detailUrl = hrefMovie;
                                         }
                                     }
                                 });
 
+                                if (detailUrl.indexOf('http') != 0) detailUrl = URL.DOMAIN + detailUrl;
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 12:
+                            case 21:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this);
+                }, _callee, this, [[9, 13]]);
             }));
 
             function searchDetail() {
@@ -95,7 +107,7 @@ var Screamcr = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs2, httpRequest, cheerio, qs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, htmlDetail, $, eid, sources, jsonSources, arrPromise;
+                var _libs2, httpRequest, cheerio, qs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, htmlDetail, $, m, new_url, servers, sources, sourcesPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -115,75 +127,108 @@ var Screamcr = function () {
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
                                 _context3.next = 8;
-                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS(detailUrl));
+                                return httpRequest.getHTML(this.state.detailUrl);
 
                             case 8:
                                 htmlDetail = _context3.sent;
                                 $ = cheerio.load(htmlDetail);
-                                eid = false;
 
-                                $('.wpb-content .wpbc-server .ulclear a').each(function () {
-                                    if (type == 'movie') eid = $(this).attr('data-eid');else {
-                                        var ename = $(this).text();
-                                        var m = ename.match(/Episode ([0-9]+):/i);
-                                        if (m != undefined) {
-                                            var seasonEpisode = +m[1] + 0;
-
-                                            if (seasonEpisode == episode) {
-                                                eid = $(this).attr('data-eid');
-                                            }
-                                        }
-                                    }
-                                });
-
-                                if (eid) {
-                                    _context3.next = 14;
+                                if (!(type == 'tv')) {
+                                    _context3.next = 20;
                                     break;
                                 }
 
-                                throw new Error('NOT_FOUND');
+                                m = htmlDetail.match(/name="epname" value="([^"]+)/);
 
-                            case 14:
-                                _context3.next = 16;
-                                return httpRequest.getHTML(URL.GET_SOURCE(eid), URL.HEADERS(detailUrl));
+                                if (!(m != undefined && m[1] != episode)) {
+                                    _context3.next = 20;
+                                    break;
+                                }
 
-                            case 16:
-                                sources = _context3.sent;
-                                _context3.prev = 17;
+                                new_url = false;
 
-                                jsonSources = JSON.parse(sources);
-                                _context3.next = 24;
-                                break;
+                                $('#ip_episode a').each(function () {
+                                    var ep = $(this).attr('data-name');
+                                    if (ep == episode) {
+                                        new_url = $(this).attr('href');
+                                        return;
+                                    }
+                                });
 
-                            case 21:
-                                _context3.prev = 21;
-                                _context3.t0 = _context3['catch'](17);
-                                throw new Error('NOT_FOUND');
+                                if (!new_url) {
+                                    _context3.next = 20;
+                                    break;
+                                }
 
-                            case 24:
-                                arrPromise = jsonSources['sources'].map(function () {
-                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
-                                        var domain;
+                                _context3.next = 18;
+                                return httpRequest.getHTML(new_url);
+
+                            case 18:
+                                htmlDetail = _context3.sent;
+
+                                $ = cheerio.load(htmlDetail);
+
+                            case 20:
+                                servers = $('#ip_server li a');
+                                sources = [];
+
+
+                                servers.each(function () {
+                                    var server_id = $(this).attr('data-server');
+                                    var phim_id = $(this).attr('data-film');
+                                    var episode = $(this).attr('data-name');
+
+                                    sources.push({
+                                        'ipplugins': 1,
+                                        'ip_film': phim_id,
+                                        'ip_server': server_id,
+                                        'ip_name': episode,
+                                        'fix': 0
+                                    });
+                                });
+
+                                sourcesPromise = sources.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(source) {
+                                        var hash, hashKey, playHtml, last_u;
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
-                                                        domain = val['file'].split('/')[2];
-                                                        //console.log(domain);
-
-                                                        hosts.push({
-                                                            provider: {
-                                                                url: detailUrl,
-                                                                name: "scream"
-                                                            },
-                                                            result: {
-                                                                file: val['file'],
-                                                                label: "embed",
-                                                                type: "direct"
-                                                            }
-                                                        });
+                                                        _context2.next = 2;
+                                                        return httpRequest.post(URL.HASH_URL, {}, source);
 
                                                     case 2:
+                                                        hash = _context2.sent;
+                                                        hashKey = hash.data.s;
+                                                        _context2.next = 6;
+                                                        return httpRequest.getHTML(URL.PLAYER_URL(hashKey, source.server_id));
+
+                                                    case 6:
+                                                        playHtml = _context2.sent;
+
+                                                        try {
+                                                            playHtml = JSON.parse(playHtml);
+                                                        } catch (e) {
+                                                            playHtml = { data: false };
+                                                        }
+                                                        if (playHtml.data) {
+                                                            last_u = playHtml.data;
+
+                                                            if (last_u.indexOf('//') == 0) last_u = 'https:' + last_u;
+                                                            hosts.push({
+                                                                provider: {
+                                                                    url: detailUrl,
+                                                                    name: "123xfree"
+                                                                },
+                                                                result: {
+                                                                    file: last_u,
+                                                                    label: "embed",
+                                                                    type: "embed"
+                                                                }
+                                                            });
+                                                        }
+
+                                                    case 9:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
@@ -195,19 +240,19 @@ var Screamcr = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 27;
-                                return Promise.all(arrPromise);
+                                _context3.next = 26;
+                                return Promise.all(sourcesPromise);
 
-                            case 27:
+                            case 26:
 
                                 this.state.hosts = hosts;
 
-                            case 28:
+                            case 27:
                             case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this, [[17, 21]]);
+                }, _callee3, this);
             }));
 
             function getHostFromDetail() {
@@ -218,7 +263,7 @@ var Screamcr = function () {
         }()
     }]);
 
-    return Screamcr;
+    return s123MoviesFree;
 }();
 
 thisSource.function = function () {
@@ -229,13 +274,13 @@ thisSource.function = function () {
                 switch (_context4.prev = _context4.next) {
                     case 0:
                         httpRequest = libs.httpRequest;
-                        source = new Screamcr({
+                        source = new s123MoviesFree({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: 'scream',
+                            name_source: '123xfree',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
@@ -281,4 +326,4 @@ thisSource.function = function () {
     };
 }();
 
-thisSource.testing = Screamcr;
+thisSource.testing = s123MoviesFree;
