@@ -206,14 +206,14 @@ var ThreeMovies = function () {
                             case 8:
                                 htmlDetail = _context3.sent;
                                 $ = cheerio.load(htmlDetail);
-                                itemLk = $('.link-button');
+                                itemLk = $('.links ul');
 
 
                                 itemLk.each(function () {
-                                    var hrefLk = $(this).find('a').attr('href');
+                                    var hrefLk = $(this).find('.link-button').find('a').attr('href');
+                                    var hostName = $(this).find('.link-name').text().trim();
                                     hrefLk = hrefLk.replace('?lk=', '').trim();
-
-                                    arr_lk.push(hrefLk);
+                                    if (['streamango.com', 'openload.co'].includes(hostName) && arr_lk.length < 10) arr_lk.push(hrefLk);
                                 });
 
                                 arr_promise = arr_lk.map(function () {
