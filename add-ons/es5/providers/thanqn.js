@@ -94,11 +94,11 @@ var Thanqn = function () {
                                 detailUrl = this.state.detailUrl;
                                 ss = season;
                                 ep = episode;
-                                sign = cryptoJs.MD5(title.toLowerCase() + ss + ep + "fapnhaptrensansau").toString();
+                                sign = cryptoJs.MD5(title.toLowerCase() + ss + "fapnhaptrensansau" + ep).toString();
                                 posts = {
                                     'name': title,
-                                    'ss': season,
-                                    'ep': episode,
+                                    'ss': type == 'tv' ? season : 0,
+                                    'ep': type == 'tv' ? episode : 0,
                                     'hash': sign
                                 };
 
