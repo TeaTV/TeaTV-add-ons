@@ -173,7 +173,7 @@ var Vumoo = function () {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
                                                         _context2.next = 2;
-                                                        return httpRequest.getHTML(val, { 'user-agent': 'firefox 49', 'referer': detailUrl });
+                                                        return httpRequest.getHTML(val, { 'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/66.0.3359.181 Chrome/66.0.3359.181 Safari/537.36', 'referer': detailUrl });
 
                                                     case 2:
                                                         htmlRedirect = _context2.sent;

@@ -62,7 +62,7 @@
         "vumoo": {
             "name": "vumoo",
             "domain": "vumoo.to",
-            "version": "0.4.0",
+            "version": "0.4.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vumoo.js",
             "type": [
                 "movie",
@@ -131,7 +131,7 @@
         "watchepisodes4": {
             "name": "watchepisodes4",
             "domain": "watchepisodes4.com",
-            "version": "0.4.0",
+            "version": "0.4.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchepisodes4.js",
             "type": [
                 "tv"
@@ -153,6 +153,24 @@
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/fmoviespe.js",
             "type": [
                 "movie",
+                "tv"
+            ]
+        },
+        "gostream": {
+            "name": "gostream",
+            "domain": "gostream.dit",
+            "version": "0.5.0",
+            "url": "http://dev.teatv.app/add-ons/es5/providers/gostream.js",
+            "type": [
+                "movie"
+            ]
+        },
+        "123moviessolar": {
+            "name": "123moviessolar",
+            "domain": "123moviessolar.dit",
+            "version": "0.1.2",
+            "url": "http://dev.teatv.app/add-ons/es5/providers/123moviessolar.js",
+            "type": [
                 "tv"
             ]
         }

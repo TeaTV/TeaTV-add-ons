@@ -7,13 +7,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "http://www5.123moviesfree.com/",
+    DOMAIN: "http://www6.123moviesfree.com/",
     SEARCH: function SEARCH(title) {
-        return 'http://www5.123moviesfree.com/search/' + title + '.html';
+        return 'http://www6.123moviesfree.com/search/' + title + '.html';
     },
-    HASH_URL: 'http://www5.123moviesfree.com/ip.file/swf/plugins/ipplugins.php',
+    HASH_URL: 'http://www6.123moviesfree.com/ip.file/swf/plugins/ipplugins.php',
     PLAYER_URL: function PLAYER_URL(key, server_id) {
-        return 'http://www5.123moviesfree.com/ip.file/swf/ipplayer/ipplayer.php?u=' + key + '&s=' + server_id + '&n=0';
+        return 'http://www6.123moviesfree.com/ip.file/swf/ipplayer/ipplayer.php?u=' + key + '&s=' + server_id + '&n=0';
     },
     HEADERS: function HEADERS(referer) {
         return {
@@ -183,7 +183,7 @@ var s123MoviesFree = function () {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
                                                         _context2.next = 2;
-                                                        return httpRequest.post(URL.HASH_URL, {}, source);
+                                                        return httpRequest.post(URL.HASH_URL, { 'content-type': 'application/x-www-form-urlencoded' }, source);
 
                                                     case 2:
                                                         hash = _context2.sent;

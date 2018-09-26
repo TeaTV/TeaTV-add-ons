@@ -328,7 +328,7 @@ var Seriesfree = function () {
                                 servers.each(function () {
                                     var hostName = $(this).find('td:nth-child(1)').text();
                                     var onclick = "";
-                                    if ((hostName.indexOf("openload") !== -1 || hostName.indexOf("streamango") !== -1 || hostName.indexOf("speedvid") !== -1) && sources.length < 20) {
+                                    if ((hostName.indexOf("openload") !== -1 || hostName.indexOf("streamango") !== -1 || hostName.indexOf("speedvid") !== -1) && sources.length < 5) {
                                         onclick = 'https://seriesfree.to' + $(this).find('td:nth-child(2) a').attr('href');
                                         console.log(onclick);
                                         sources.push(onclick);
@@ -352,7 +352,7 @@ var Seriesfree = function () {
                                                         linkDetail = $_1('#app .serie-details div:nth-child(2) a').attr('href');
 
                                                         if (linkDetail) {
-                                                            if (hosts.length < 20) {
+                                                            if (hosts.length < 5) {
                                                                 hosts.push({
                                                                     provider: {
                                                                         url: detailUrl,

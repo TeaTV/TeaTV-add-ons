@@ -160,17 +160,20 @@ var WatchEpisode = function () {
 
                                     if (linkEmbed.indexOf('https://') != -1 || linkEmbed.indexOf('http://') != -1) {
 
-                                        linkEmbed && hosts.push({
-                                            provider: {
-                                                url: detailUrl,
-                                                name: "episode4"
-                                            },
-                                            result: {
-                                                file: linkEmbed,
-                                                label: "embed",
-                                                type: "embed"
-                                            }
-                                        });
+                                        if ((linkEmbed.indexOf('openload.co') != -1 || linkEmbed.indexOf('streamango.com') != -1) && hosts.length < 15) {
+
+                                            linkEmbed && hosts.push({
+                                                provider: {
+                                                    url: detailUrl,
+                                                    name: "episode4"
+                                                },
+                                                result: {
+                                                    file: linkEmbed,
+                                                    label: "embed",
+                                                    type: "embed"
+                                                }
+                                            });
+                                        }
                                     }
                                 });
 

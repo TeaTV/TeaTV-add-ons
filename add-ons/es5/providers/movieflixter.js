@@ -134,14 +134,19 @@ var MovieFlixter = function () {
                             case 8:
                                 htmlDetail = _context3.sent;
                                 $ = cheerio.load(htmlDetail);
-                                servers = $(".stream_links").eq(1).find('tr td:nth-child(1)');
+                                servers = $(".stream_links").eq(1).find('tr');
                                 sources = [];
 
                                 servers.each(function () {
                                     var onclick = '';
-                                    if (type == 'tv') onclick = $(this).find('button').attr('onclick');else onclick = $(this).find('a:nth-child(1)');
+                                    var host = $(this).find('td:nth-child(2)').text().trim();
+                                    if (['openload.co', 'streamango.com'].includes(host) && sources.length < 4) {
+                                        if (type == 'tv') onclick = $(this).find('button').attr('onclick');else onclick = $(this).find('td:nth-child(1)').find('a');
 
-                                    sources.push('http://movieflixter.to' + onclick.attr('href'));
+                                        console.log(onclick.attr('href'), 'f');
+
+                                        sources.push('http://movieflixter.to' + onclick.attr('href'));
+                                    }
                                 });
 
                                 sourcesPromise = sources.map(function () {
