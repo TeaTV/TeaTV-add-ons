@@ -72,19 +72,29 @@ var Openload = function () {
                                 // you fill the die status text
                                 // const dieStatusText = "";
 
-                                _context.next = 3;
+                                _context.prev = 1;
+                                _context.next = 4;
                                 return httpRequest.getHTML(url);
 
-                            case 3:
+                            case 4:
                                 html = _context.sent;
+                                _context.next = 10;
+                                break;
+
+                            case 7:
+                                _context.prev = 7;
+                                _context.t0 = _context["catch"](1);
+                                throw new Error('NOT_FOUND');
+
+                            case 10:
                                 return _context.abrupt("return", html);
 
-                            case 5:
+                            case 11:
                             case "end":
                                 return _context.stop();
                         }
                     }
-                }, _callee, this);
+                }, _callee, this, [[1, 7]]);
             }));
 
             function checkLive(_x) {

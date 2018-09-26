@@ -155,45 +155,6 @@
                 "movie",
                 "tv"
             ]
-        },
-        "thanqn": {
-            "name": "thanqn",
-            "domain": "thanqn.net",
-            "version": "0.4.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/thanqn.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "gomoviesec": {
-            "name": "gomoviesec",
-            "domain": "uychnhau.de",
-            "version": "0.4.0",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/gomoviesec.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "123xfree": {
-            "name": "123xfree",
-            "domain": "123xfree.dit",
-            "version": "0.4.0",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesfree.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "seriesfree": {
-            "name": "seriesfree",
-            "domain": "seriesfree.dit",
-            "version": "0.4.0",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seriesfree.js",
-            "type": [
-                "tv"
-            ]
         }
     },
     "hosts": {
@@ -369,14 +330,6 @@
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/video.xx.fbcdn.js"
         },
-        "watchasap": {
-            "name": "watchasap",
-            "domain": [
-                "ca3.watchasap.ru"
-            ],
-            "version": "0.0.6",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ca3.watchasap.ru.js"
-        },
         "afdah": {
             "name": "afdah",
             "domain": [
@@ -384,15 +337,6 @@
             ],
             "version": "0.9.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/afdah.js"
-        },
-        "scream": {
-            "name": "scream",
-            "domain": [
-                "ca3.watchasap.ru",
-                "embedis.azureedge.net"
-            ],
-            "version": "0.9.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/screamcr.js"
         }
     }
 }

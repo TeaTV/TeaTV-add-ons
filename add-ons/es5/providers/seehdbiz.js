@@ -49,11 +49,21 @@ var Seehdbiz = function () {
                                 tvshowVideoUrl = false;
                                 _context.prev = 6;
                                 urlSearch = URL.SEARCH(title);
-                                _context.next = 10;
+                                _context.prev = 8;
+                                _context.next = 11;
                                 return httpRequest.getHTML(urlSearch);
 
-                            case 10:
+                            case 11:
                                 dataSearch = _context.sent;
+                                _context.next = 17;
+                                break;
+
+                            case 14:
+                                _context.prev = 14;
+                                _context.t0 = _context['catch'](8);
+                                throw new Error('NOT_FOUND');
+
+                            case 17:
                                 $ = cheerio.load(dataSearch);
                                 itemSearch = $('.item_1 .item');
 
@@ -83,26 +93,26 @@ var Seehdbiz = function () {
                                         }
                                     }
                                 });
-                                _context.next = 19;
+                                _context.next = 25;
                                 break;
 
-                            case 16:
-                                _context.prev = 16;
-                                _context.t0 = _context['catch'](6);
+                            case 22:
+                                _context.prev = 22;
+                                _context.t1 = _context['catch'](6);
 
-                                console.log(String(_context.t0));
+                                console.log(String(_context.t1));
 
-                            case 19:
+                            case 25:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 21:
+                            case 27:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[6, 16]]);
+                }, _callee, this, [[6, 22], [8, 14]]);
             }));
 
             function searchDetail() {
@@ -134,11 +144,21 @@ var Seehdbiz = function () {
                             case 4:
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
-                                _context3.next = 8;
+                                _context3.prev = 6;
+                                _context3.next = 9;
                                 return httpRequest.getHTML(this.state.detailUrl);
 
-                            case 8:
+                            case 9:
                                 htmlDetail = _context3.sent;
+                                _context3.next = 15;
+                                break;
+
+                            case 12:
+                                _context3.prev = 12;
+                                _context3.t0 = _context3['catch'](6);
+                                throw new Error('NOT_FOUND');
+
+                            case 15:
                                 $ = cheerio.load(htmlDetail);
                                 servers = $(".movieplay script");
                                 sources = [];
@@ -191,18 +211,18 @@ var Seehdbiz = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 16;
+                                _context3.next = 22;
                                 return Promise.all(sourcesPromise);
 
-                            case 16:
+                            case 22:
                                 this.state.hosts = hosts;
 
-                            case 17:
+                            case 23:
                             case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this);
+                }, _callee3, this, [[6, 12]]);
             }));
 
             function getHostFromDetail() {
