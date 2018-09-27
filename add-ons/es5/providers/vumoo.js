@@ -172,10 +172,11 @@ var Vumoo = function () {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
-                                                        _context2.next = 2;
+                                                        console.log(val);
+                                                        _context2.next = 3;
                                                         return httpRequest.getHTML(val, { 'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/66.0.3359.181 Chrome/66.0.3359.181 Safari/537.36', 'referer': detailUrl });
 
-                                                    case 2:
+                                                    case 3:
                                                         htmlRedirect = _context2.sent;
                                                         token = htmlRedirect.match(/embedVal\=\"([^\"]+)/i);
 
@@ -195,7 +196,7 @@ var Vumoo = function () {
                                                             } catch (error) {}
                                                         }
 
-                                                    case 6:
+                                                    case 7:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
