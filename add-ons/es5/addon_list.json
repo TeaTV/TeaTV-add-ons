@@ -196,10 +196,31 @@
         "movieflixter": {
             "name": "movieflixter",
             "domain": "movieflixter.dit",
-            "version": "0.1.4",
+            "version": "0.1.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/movieflixter.js",
             "type": [
-                "tv"
+                "tv",
+                "movie"
+            ]
+        },
+        "gomoviesec": {
+            "name": "gomoviesec",
+            "domain": "gomoviesec.dit",
+            "version": "0.1.9",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/gomoviesec.js",
+            "type": [
+                "tv",
+                "movie"
+            ]
+        },
+        "123moviesfree": {
+            "name": "123xfree",
+            "domain": "123moviesfree.dit",
+            "version": "0.1.9",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesfree.js",
+            "type": [
+                "tv",
+                "movie"
             ]
         }
     },
