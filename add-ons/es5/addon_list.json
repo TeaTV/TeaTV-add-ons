@@ -393,9 +393,10 @@
             "domain": [
                 "video.xx.fbcdn.net",
                 "scontent.xx.fbcdn.net",
-                "fbcdn.net"
+                "fbcdn.net",
+                "instagram.com"
             ],
-            "version": "0.0.3",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/video.xx.fbcdn.js"
         },
         "afdah": {
