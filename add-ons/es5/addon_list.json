@@ -392,9 +392,10 @@
             "name": "fbcdn",
             "domain": [
                 "video.xx.fbcdn.net",
-                "scontent.xx.fbcdn.net"
+                "scontent.xx.fbcdn.net",
+                "fbcdn.net"
             ],
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/video.xx.fbcdn.js"
         },
         "afdah": {
