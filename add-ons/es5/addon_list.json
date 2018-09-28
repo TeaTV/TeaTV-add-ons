@@ -213,10 +213,10 @@
                 "movie"
             ]
         },
-        "123moviesfree": {
+        "123xfree": {
             "name": "123xfree",
-            "domain": "123moviesfree.dit",
-            "version": "0.1.9",
+            "domain": "123xfree.dit",
+            "version": "0.2.0",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesfree.js",
             "type": [
                 "tv",
