@@ -287,9 +287,20 @@ var FmoviesVc = function () {
 
                             case 13:
                                 htmlDetail = _context6.sent;
+                                _context6.prev = 14;
 
                                 htmlDetail = JSON.parse(htmlDetail);
+                                _context6.next = 22;
+                                break;
 
+                            case 18:
+                                _context6.prev = 18;
+                                _context6.t0 = _context6['catch'](14);
+
+                                console.log('fmoviesvc, invalid JSON', _context6.t0);
+                                throw new Error('INVALID_JSON');
+
+                            case 22:
                                 $ = cheerio.load(htmlDetail.html);
                                 arrServer = [];
                                 arrServerEmbed = [];
@@ -465,19 +476,19 @@ var FmoviesVc = function () {
                                     }());
                                 }
 
-                                _context6.next = 24;
+                                _context6.next = 31;
                                 return Promise.all(arrPromise);
 
-                            case 24:
+                            case 31:
 
                                 this.state.hosts = hosts;
 
-                            case 25:
+                            case 32:
                             case 'end':
                                 return _context6.stop();
                         }
                     }
-                }, _callee6, this);
+                }, _callee6, this, [[14, 18]]);
             }));
 
             function getHostFromDetail() {
@@ -503,21 +514,26 @@ var FmoviesVc = function () {
                             case 4:
                                 jsonEmbed = _context7.sent;
 
-                                jsonEmbed = JSON.parse(jsonEmbed);
 
-                                jsonEmbed.src && hosts.push({
-                                    provider: {
-                                        url: detailUrl,
-                                        name: "fmoviesvc"
-                                    },
-                                    result: {
-                                        file: jsonEmbed.src,
-                                        label: "embed",
-                                        type: 'embed'
-                                    }
-                                });
+                                try {
+                                    jsonEmbed = JSON.parse(jsonEmbed);
 
-                            case 7:
+                                    jsonEmbed.src && hosts.push({
+                                        provider: {
+                                            url: detailUrl,
+                                            name: "fmoviesvc"
+                                        },
+                                        result: {
+                                            file: jsonEmbed.src,
+                                            label: "embed",
+                                            type: 'embed'
+                                        }
+                                    });
+                                } catch (e) {
+                                    console.log('fmoviesvc, getEmbed, no json parse', e);
+                                }
+
+                            case 6:
                             case 'end':
                                 return _context7.stop();
                         }
