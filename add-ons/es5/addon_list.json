@@ -33,7 +33,7 @@
         "yesmovies": {
             "name": "yesmovies",
             "domain": "yesmovies.to",
-            "version": "0.4.0",
+            "version": "0.4.9",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/yesmovies.js",
             "type": [
                 "movie",
@@ -206,7 +206,7 @@
         "gomoviesec": {
             "name": "gomoviesec",
             "domain": "gomoviesec.dit",
-            "version": "0.1.9",
+            "version": "0.2.9",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/gomoviesec.js",
             "type": [
                 "tv",

@@ -296,11 +296,24 @@ var YesMovies = function () {
                                             while (1) {
                                                 switch (_context5.prev = _context5.next) {
                                                     case 0:
-                                                        _context5.next = 2;
+                                                        jsonEmbed = void 0;
+                                                        _context5.prev = 1;
+                                                        _context5.next = 4;
                                                         return httpRequest.get(URL.GET_EMBED(val));
 
-                                                    case 2:
+                                                    case 4:
                                                         jsonEmbed = _context5.sent;
+                                                        _context5.next = 11;
+                                                        break;
+
+                                                    case 7:
+                                                        _context5.prev = 7;
+                                                        _context5.t0 = _context5['catch'](1);
+
+                                                        console.log('yesmovies, can not get html from embed', _context5.t0);
+                                                        jsonEmbed = { data: { src: false } };
+
+                                                    case 11:
                                                         linkEmbed = jsonEmbed.data.src;
 
                                                         linkEmbed && hosts.push({
@@ -315,12 +328,12 @@ var YesMovies = function () {
                                                             }
                                                         });
 
-                                                    case 5:
+                                                    case 13:
                                                     case 'end':
                                                         return _context5.stop();
                                                 }
                                             }
-                                        }, _callee5, this);
+                                        }, _callee5, this, [[1, 7]]);
                                     }));
 
                                     return function (_x6) {
