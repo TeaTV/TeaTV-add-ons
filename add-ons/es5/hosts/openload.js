@@ -131,7 +131,9 @@ var Openload = function () {
 
                             case 11:
                                 token = cryptoJs.MD5(html + "teatv-openload").toString();
-                                _context2.next = 14;
+                                apiResponse = void 0;
+                                _context2.prev = 13;
+                                _context2.next = 16;
                                 return httpRequest.post("https://api.teatv.net/api/v2/get_opl", {
                                     "Content-Type": "application/json"
                                 }, JSON.stringify({
@@ -139,9 +141,19 @@ var Openload = function () {
                                     token: token
                                 }));
 
-                            case 14:
+                            case 16:
                                 apiResponse = _context2.sent;
+                                _context2.next = 23;
+                                break;
 
+                            case 19:
+                                _context2.prev = 19;
+                                _context2.t1 = _context2["catch"](13);
+
+                                console.log('teatv.net, error json getopl', _context2.t1);
+                                throw new Error('ERROR REQUEST');
+
+                            case 23:
 
                                 // let isDie = await httpRequest.isLinkDie(apiResponse.data.data);
                                 // if( isDie == false ) throw new Error("LINK DIE");
@@ -149,44 +161,44 @@ var Openload = function () {
                                 _apiResponse$data = apiResponse.data, status = _apiResponse$data.status, data = _apiResponse$data.data, error = _apiResponse$data.error;
 
                                 if (!error) {
-                                    _context2.next = 18;
+                                    _context2.next = 26;
                                     break;
                                 }
 
                                 throw new Error(error);
 
-                            case 18:
+                            case 26:
                                 if (!(status == 200)) {
-                                    _context2.next = 34;
+                                    _context2.next = 42;
                                     break;
                                 }
 
                                 isDie = false;
-                                _context2.prev = 20;
-                                _context2.next = 23;
+                                _context2.prev = 28;
+                                _context2.next = 31;
                                 return httpRequest.isLinkDie(data);
 
-                            case 23:
+                            case 31:
                                 isDie = _context2.sent;
-                                _context2.next = 29;
+                                _context2.next = 37;
                                 break;
 
-                            case 26:
-                                _context2.prev = 26;
-                                _context2.t1 = _context2["catch"](20);
+                            case 34:
+                                _context2.prev = 34;
+                                _context2.t2 = _context2["catch"](28);
 
 
-                                console.log(String(_context2.t1));
+                                console.log(String(_context2.t2));
 
-                            case 29:
+                            case 37:
                                 if (!(isDie == false)) {
-                                    _context2.next = 31;
+                                    _context2.next = 39;
                                     break;
                                 }
 
                                 throw new Error("NOT LINK");
 
-                            case 31:
+                            case 39:
                                 return _context2.abrupt("return", {
                                     host: {
                                         url: url,
@@ -195,7 +207,7 @@ var Openload = function () {
                                     result: [{ file: data, label: "NOR", type: "embed", size: isDie }]
                                 });
 
-                            case 34:
+                            case 42:
                                 return _context2.abrupt("return", {
                                     host: {
                                         url: url,
@@ -204,12 +216,12 @@ var Openload = function () {
                                     result: []
                                 });
 
-                            case 35:
+                            case 43:
                             case "end":
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[2, 8], [20, 26]]);
+                }, _callee2, this, [[2, 8], [13, 19], [28, 34]]);
             }));
 
             function getUsingAPI(_x2) {

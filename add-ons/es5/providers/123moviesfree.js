@@ -182,19 +182,38 @@ var s123MoviesFree = function () {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
-                                                        _context2.next = 2;
+                                                        hash = void 0;
+                                                        _context2.prev = 1;
+                                                        _context2.next = 4;
                                                         return httpRequest.post(URL.HASH_URL, { 'content-type': 'application/x-www-form-urlencoded' }, source);
 
-                                                    case 2:
+                                                    case 4:
                                                         hash = _context2.sent;
+                                                        _context2.next = 11;
+                                                        break;
+
+                                                    case 7:
+                                                        _context2.prev = 7;
+                                                        _context2.t0 = _context2['catch'](1);
+
+                                                        console.log('123moviesfree, hash, json error', _context2.t0);
+                                                        hash = { data: { s: '1' } };
+
+                                                    case 11:
                                                         hashKey = hash.data.s;
-                                                        _context2.next = 6;
+                                                        _context2.next = 14;
                                                         return httpRequest.getHTML(URL.PLAYER_URL(hashKey, source.server_id));
 
-                                                    case 6:
+                                                    case 14:
                                                         playHtml = _context2.sent;
 
-                                                        playHtml = JSON.parse(playHtml);
+                                                        try {
+                                                            playHtml = JSON.parse(playHtml);
+                                                        } catch (e) {
+                                                            console.log('123moviesfree, source, json error', e);
+                                                            playHtml = { data: false };
+                                                        }
+
                                                         if (playHtml.data) {
                                                             last_u = playHtml.data;
 
@@ -212,12 +231,12 @@ var s123MoviesFree = function () {
                                                             });
                                                         }
 
-                                                    case 9:
+                                                    case 17:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
                                             }
-                                        }, _callee2, this);
+                                        }, _callee2, this, [[1, 7]]);
                                     }));
 
                                     return function (_x) {
