@@ -30,7 +30,7 @@ var OK_RU = function () {
                                 // const dieStatusText = "";
 
                                 _context.next = 3;
-                                return httpRequest.getCloudflare(url);
+                                return httpRequest.get(url);
 
                             case 3:
                                 html = _context.sent;

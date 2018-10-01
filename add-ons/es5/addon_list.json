@@ -156,15 +156,6 @@
                 "tv"
             ]
         },
-        "gostream": {
-            "name": "gostream",
-            "domain": "gostream.dit",
-            "version": "0.5.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/gostream.js",
-            "type": [
-                "movie"
-            ]
-        },
         "123moviessolar": {
             "name": "123moviessolar",
             "domain": "123moviessolar.dit",
@@ -337,7 +328,7 @@
             "domain": [
                 "ok.ru"
             ],
-            "version": "0.0.4",
+            "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ok-ru.js"
         },
         "vidnode": {
