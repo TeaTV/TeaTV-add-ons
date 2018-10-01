@@ -24,34 +24,42 @@ var RapidVideo = function () {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
+                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                                    _context.next = 2;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 2:
                                 httpRequest = this.libs.httpRequest;
 
                                 // you fill the die status text
                                 // const dieStatusText = "";
 
-                                _context.prev = 1;
-                                _context.next = 4;
+                                _context.prev = 3;
+                                _context.next = 6;
                                 return httpRequest.getHTML(url);
 
-                            case 4:
+                            case 6:
                                 html = _context.sent;
-                                _context.next = 10;
+                                _context.next = 12;
                                 break;
 
-                            case 7:
-                                _context.prev = 7;
-                                _context.t0 = _context['catch'](1);
+                            case 9:
+                                _context.prev = 9;
+                                _context.t0 = _context['catch'](3);
                                 throw new Error('NOT_FOUND');
 
-                            case 10:
+                            case 12:
                                 return _context.abrupt('return', html);
 
-                            case 11:
+                            case 13:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[1, 7]]);
+                }, _callee, this, [[3, 9]]);
             }));
 
             function checkLive(_x) {

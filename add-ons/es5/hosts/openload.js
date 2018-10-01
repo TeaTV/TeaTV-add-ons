@@ -59,7 +59,7 @@ var Openload = function () {
     // }
 
     _createClass(Openload, [{
-        key: "checkLive",
+        key: 'checkLive',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
                 var httpRequest, html;
@@ -67,34 +67,42 @@ var Openload = function () {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
+                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                                    _context.next = 2;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 2:
                                 httpRequest = this.libs.httpRequest;
 
                                 // you fill the die status text
                                 // const dieStatusText = "";
 
-                                _context.prev = 1;
-                                _context.next = 4;
+                                _context.prev = 3;
+                                _context.next = 6;
                                 return httpRequest.getHTML(url);
 
-                            case 4:
+                            case 6:
                                 html = _context.sent;
-                                _context.next = 10;
+                                _context.next = 12;
                                 break;
 
-                            case 7:
-                                _context.prev = 7;
-                                _context.t0 = _context["catch"](1);
+                            case 9:
+                                _context.prev = 9;
+                                _context.t0 = _context['catch'](3);
                                 throw new Error('NOT_FOUND');
 
-                            case 10:
-                                return _context.abrupt("return", html);
+                            case 12:
+                                return _context.abrupt('return', html);
 
-                            case 11:
-                            case "end":
+                            case 13:
+                            case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[1, 7]]);
+                }, _callee, this, [[3, 9]]);
             }));
 
             function checkLive(_x) {
@@ -104,7 +112,7 @@ var Openload = function () {
             return checkLive;
         }()
     }, {
-        key: "getUsingAPI",
+        key: 'getUsingAPI',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
                 var _libs, httpRequest, cryptoJs, html, token, apiResponse, _apiResponse$data, status, data, error, isDie;
@@ -126,7 +134,7 @@ var Openload = function () {
 
                             case 8:
                                 _context2.prev = 8;
-                                _context2.t0 = _context2["catch"](2);
+                                _context2.t0 = _context2['catch'](2);
                                 throw new Error("LINK DIE");
 
                             case 11:
@@ -148,7 +156,7 @@ var Openload = function () {
 
                             case 19:
                                 _context2.prev = 19;
-                                _context2.t1 = _context2["catch"](13);
+                                _context2.t1 = _context2['catch'](13);
 
                                 console.log('teatv.net, error json getopl', _context2.t1);
                                 throw new Error('ERROR REQUEST');
@@ -185,7 +193,7 @@ var Openload = function () {
 
                             case 34:
                                 _context2.prev = 34;
-                                _context2.t2 = _context2["catch"](28);
+                                _context2.t2 = _context2['catch'](28);
 
 
                                 console.log(String(_context2.t2));
@@ -199,7 +207,7 @@ var Openload = function () {
                                 throw new Error("NOT LINK");
 
                             case 39:
-                                return _context2.abrupt("return", {
+                                return _context2.abrupt('return', {
                                     host: {
                                         url: url,
                                         name: "openload"
@@ -208,7 +216,7 @@ var Openload = function () {
                                 });
 
                             case 42:
-                                return _context2.abrupt("return", {
+                                return _context2.abrupt('return', {
                                     host: {
                                         url: url,
                                         name: "openload"
@@ -217,7 +225,7 @@ var Openload = function () {
                                 });
 
                             case 43:
-                            case "end":
+                            case 'end':
                                 return _context2.stop();
                         }
                     }
@@ -231,14 +239,14 @@ var Openload = function () {
             return getUsingAPI;
         }()
     }, {
-        key: "convertToEmbed",
+        key: 'convertToEmbed',
         value: function convertToEmbed() {
 
             // convert link detail to link embed
             // if input is embed then return input
         }
     }, {
-        key: "getLink",
+        key: 'getLink',
         value: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
                 var _libs2, httpRequest, cheerio, data;
@@ -254,15 +262,15 @@ var Openload = function () {
 
                             case 4:
                                 data = _context3.sent;
-                                return _context3.abrupt("return", data);
+                                return _context3.abrupt('return', data);
 
                             case 8:
                                 _context3.prev = 8;
-                                _context3.t0 = _context3["catch"](1);
+                                _context3.t0 = _context3['catch'](1);
                                 throw new Error(_context3.t0);
 
                             case 11:
-                            case "end":
+                            case 'end':
                                 return _context3.stop();
                         }
                     }
