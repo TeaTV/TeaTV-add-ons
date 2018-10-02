@@ -406,6 +406,14 @@
             ],
             "version": "0.7.0",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/default.js"
+        },
+        "googlevideo": {
+            "name": "googlevideo",
+            "domain": [
+                "googlevideo.com"
+            ],
+            "version": "0.0.9",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/googlevideo.js"
         }
     }
 }
