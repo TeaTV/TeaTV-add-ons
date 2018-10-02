@@ -65,7 +65,7 @@ var Seehd = function () {
                                 //console.log(urlSearch, 'search');
 
                                 _context.next = 7;
-                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
+                                return httpRequest.get(urlSearch, URL.HEADERS());
 
                             case 7:
                                 htmlSearch = _context.sent;
@@ -147,7 +147,7 @@ var Seehd = function () {
                                                         //console.log(urlSearch, '1');
 
                                                         _context2.next = 3;
-                                                        return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
+                                                        return httpRequest.get(urlSearch, URL.HEADERS());
 
                                                     case 3:
                                                         htmlSearch = _context2.sent;
@@ -249,7 +249,7 @@ var Seehd = function () {
                                 arrEmbed = [];
                                 detailUrl = this.state.detailUrl;
                                 _context5.next = 8;
-                                return httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS());
+                                return httpRequest.get(this.state.detailUrl, URL.HEADERS());
 
                             case 8:
                                 htmlDetail = _context5.sent;
@@ -281,7 +281,7 @@ var Seehd = function () {
                                                         }
 
                                                         _context4.next = 3;
-                                                        return httpRequest.getCloudflare(val, URL.HEADERS());
+                                                        return httpRequest.get(val, URL.HEADERS());
 
                                                     case 3:
                                                         htmlEmbed = _context4.sent;

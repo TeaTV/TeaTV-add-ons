@@ -127,14 +127,14 @@ var Gostream = function () {
                                 detailUrl = this.state.detailUrl;
                                 sources = [];
                                 _context3.next = 11;
-                                return httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS(this.state.detailUrl));
+                                return httpRequest.get(this.state.detailUrl, URL.HEADERS(this.state.detailUrl));
 
                             case 11:
                                 url = _context3.sent;
                                 $ = cheerio.load(url.data);
                                 link = $('.movieplay').find('iframe:nth-child(1)').attr('src');
                                 _context3.next = 16;
-                                return httpRequest.getCloudflare(link, URL.HEADERS(this.state.detailUrl));
+                                return httpRequest.get(link, URL.HEADERS(this.state.detailUrl));
 
                             case 16:
                                 keyExpired = _context3.sent;

@@ -181,7 +181,7 @@ var S123moviessolar = function () {
                                                                 hosts.push({
                                                                     provider: {
                                                                         url: detailUrl,
-                                                                        name: "seriesfree"
+                                                                        name: "123Solar"
                                                                     },
                                                                     result: {
                                                                         file: link,
