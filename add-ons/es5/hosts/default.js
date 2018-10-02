@@ -26,13 +26,16 @@ var Defaulthost = function () {
                         switch (_context.prev = _context.next) {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+
+
+                                console.log('dis-default', url);
                                 throw new Error('NOT_FOUND');
 
-                            case 4:
+                            case 5:
                                 isEmbed = _context.sent;
 
                                 if (!(JSON.stringify(isEmbed).indexOf('video/mp4') == -1)) {
-                                    _context.next = 7;
+                                    _context.next = 8;
                                     break;
                                 }
 
@@ -44,23 +47,23 @@ var Defaulthost = function () {
                                     result: []
                                 });
 
-                            case 7:
+                            case 8:
                                 results = [];
                                 isDie = 'NOR';
-                                _context.prev = 9;
-                                _context.next = 12;
+                                _context.prev = 10;
+                                _context.next = 13;
                                 return httpRequest.isLinkDie(url);
 
-                            case 12:
+                            case 13:
                                 isDie = _context.sent;
-                                _context.next = 17;
+                                _context.next = 18;
                                 break;
 
-                            case 15:
-                                _context.prev = 15;
-                                _context.t0 = _context['catch'](9);
+                            case 16:
+                                _context.prev = 16;
+                                _context.t0 = _context['catch'](10);
 
-                            case 17:
+                            case 18:
 
                                 if (isDie != false && isDie != 'NOR') {
 
@@ -77,12 +80,12 @@ var Defaulthost = function () {
                                     result: results
                                 });
 
-                            case 19:
+                            case 20:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[9, 15]]);
+                }, _callee, this, [[10, 16]]);
             }));
 
             function getLink(_x) {

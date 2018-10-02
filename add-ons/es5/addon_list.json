@@ -404,7 +404,7 @@
             "domain": [
                 "default.to"
             ],
-            "version": "0.6.9",
+            "version": "0.7.0",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/default.js"
         }
     }
