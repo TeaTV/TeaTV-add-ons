@@ -102,17 +102,17 @@ var Thanqn = function () {
                                     'ss': type == 'tv' ? season : 0,
                                     'ep': type == 'tv' ? episode : 0,
                                     'hash': sign,
-                                    'year': year
+                                    'year': type == 'movie' ? year : 0
                                 };
 
+                                //console.log(posts);
 
-                                console.log(posts);
                                 if (type == 'movie') posts.year = year;
 
-                                _context2.next = 14;
+                                _context2.next = 13;
                                 return httpRequest.post(this.state.detailUrl, URL.HEADERS(), posts);
 
-                            case 14:
+                            case 13:
                                 res = _context2.sent;
 
 
@@ -134,7 +134,7 @@ var Thanqn = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 17:
+                            case 16:
                             case 'end':
                                 return _context2.stop();
                         }
