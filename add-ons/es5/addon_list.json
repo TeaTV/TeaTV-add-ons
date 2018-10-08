@@ -159,7 +159,7 @@
         "thanqn": {
             "name": "thanqn",
             "domain": "thanqn.dit",
-            "version": "0.1.4",
+            "version": "0.1.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/thanqn.js",
             "type": [
                 "tv",

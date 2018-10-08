@@ -94,20 +94,25 @@ var Thanqn = function () {
                                 detailUrl = this.state.detailUrl;
                                 ss = season;
                                 ep = episode;
-                                sign = cryptoJs.MD5(title.toLowerCase() + ss + "fapnhaptrensansau" + ep).toString();
+                                sign = cryptoJs.MD5(title.toLowerCase() + ss.toString() + "fapnhaptrensansau" + ep.toString()).toString();
+                                //console.log(title.toLowerCase() + ss.toString() + "fapnhaptrensansau" + ep.toString(), 'f');
+
                                 posts = {
                                     'name': title,
                                     'ss': type == 'tv' ? season : 0,
                                     'ep': type == 'tv' ? episode : 0,
-                                    'hash': sign
+                                    'hash': sign,
+                                    'year': year
                                 };
 
+
+                                console.log(posts);
                                 if (type == 'movie') posts.year = year;
 
-                                _context2.next = 13;
+                                _context2.next = 14;
                                 return httpRequest.post(this.state.detailUrl, URL.HEADERS(), posts);
 
-                            case 13:
+                            case 14:
                                 res = _context2.sent;
 
 
@@ -129,7 +134,7 @@ var Thanqn = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 16:
+                            case 17:
                             case 'end':
                                 return _context2.stop();
                         }

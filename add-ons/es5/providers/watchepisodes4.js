@@ -160,7 +160,7 @@ var WatchEpisode = function () {
 
                                     if (linkEmbed.indexOf('https://') != -1 || linkEmbed.indexOf('http://') != -1) {
 
-                                        if ((linkEmbed.indexOf('openload.co') != -1 || linkEmbed.indexOf('streamango.com') != -1) && hosts.length < 15) {
+                                        if ((linkEmbed.indexOf('openload.co') != -1 || linkEmbed.indexOf('streamango.com') != -1) && hosts.length < 10) {
 
                                             linkEmbed && hosts.push({
                                                 provider: {

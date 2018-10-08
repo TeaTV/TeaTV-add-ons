@@ -140,7 +140,7 @@ var MovieFlixter = function () {
                                 servers.each(function () {
                                     var onclick = '';
                                     var host = $(this).find('td:nth-child(2)').text().trim();
-                                    if (['openload.co', 'streamango.com'].includes(host) && sources.length < 4) {
+                                    if (['openload.co', 'streamango.com'].includes(host) && sources.length < 8) {
                                         if (type == 'tv') onclick = $(this).find('button').attr('onclick');else onclick = $(this).find('td:nth-child(1)').find('a');
 
                                         console.log(onclick.attr('href'), 'f');
