@@ -42,20 +42,15 @@ var Thanqn = function () {
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, qs = _libs.qs;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
 
-                                if (!(type == 'movie' && parseInt(year) < 2016)) {
-                                    _context.next = 5;
-                                    break;
-                                }
-
-                                this.state.detailUrl = false;
-                                return _context.abrupt('return');
-
-                            case 5:
+                                /*if(type == 'movie' && parseInt(year) < 2016) {
+                                    this.state.detailUrl = false;
+                                    return;
+                                }*/
 
                                 this.state.detailUrl = URL.SEARCH();
                                 return _context.abrupt('return');
 
-                            case 7:
+                            case 4:
                             case 'end':
                                 return _context.stop();
                         }
