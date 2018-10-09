@@ -159,11 +159,11 @@
         "thanqn": {
             "name": "thanqn",
             "domain": "thanqn.dit",
-            "version": "0.1.7",
+            "version": "0.1.8",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/thanqn.js",
             "type": [
-                "tv",
-                "movie"
+                "movie",
+                "tv"
             ]
         },
         "seriesfree": {
@@ -329,7 +329,7 @@
             "domain": [
                 "ok.ru"
             ],
-            "version": "0.0.5",
+            "version": "0.0.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ok-ru.js"
         },
         "vidnode": {

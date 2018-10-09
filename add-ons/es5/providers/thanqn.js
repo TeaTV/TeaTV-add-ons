@@ -42,7 +42,7 @@ var Thanqn = function () {
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, qs = _libs.qs;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
 
-                                if (!(type == 'movie' && year < 2017)) {
+                                if (!(type == 'movie' && parseInt(year) < 2016)) {
                                     _context.next = 5;
                                     break;
                                 }

@@ -72,54 +72,56 @@ var OK_RU = function () {
                     while (1) {
                         switch (_context3.prev = _context3.next) {
                             case 0:
+                                if (url.indexOf('//') === 0) url = 'https:' + url;
+
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
-                                _context3.next = 3;
+                                _context3.next = 4;
                                 return this.checkLive(url);
 
-                            case 3:
+                            case 4:
                                 html = _context3.sent;
 
                                 if (!(html == false)) {
-                                    _context3.next = 6;
+                                    _context3.next = 7;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
-                            case 6:
-                                _context3.prev = 6;
+                            case 7:
+                                _context3.prev = 7;
                                 results = [];
                                 $ = cheerio.load(html);
                                 script = $('div[data-module=OKVideo]').attr('data-options');
-                                _context3.prev = 10;
+                                _context3.prev = 11;
 
                                 script = JSON.parse(script);
-                                _context3.next = 17;
+                                _context3.next = 18;
                                 break;
 
-                            case 14:
-                                _context3.prev = 14;
-                                _context3.t0 = _context3['catch'](10);
+                            case 15:
+                                _context3.prev = 15;
+                                _context3.t0 = _context3['catch'](11);
                                 throw new Error("LINK DIE");
 
-                            case 17:
+                            case 18:
                                 videos = script.flashvars.metadata;
-                                _context3.prev = 18;
+                                _context3.prev = 19;
 
                                 videos = JSON.parse(videos);
-                                _context3.next = 25;
+                                _context3.next = 26;
                                 break;
 
-                            case 22:
-                                _context3.prev = 22;
-                                _context3.t1 = _context3['catch'](18);
+                            case 23:
+                                _context3.prev = 23;
+                                _context3.t1 = _context3['catch'](19);
                                 throw new Error("LINK DIE");
 
-                            case 25:
+                            case 26:
                                 videos = videos.videos;
 
                                 if (!(videos.length > 0)) {
-                                    _context3.next = 30;
+                                    _context3.next = 31;
                                     break;
                                 }
 
@@ -156,10 +158,10 @@ var OK_RU = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 30;
+                                _context3.next = 31;
                                 return Promise.all(arrPromise);
 
-                            case 30:
+                            case 31:
                                 return _context3.abrupt('return', {
                                     host: {
                                         url: url,
@@ -168,17 +170,17 @@ var OK_RU = function () {
                                     result: results
                                 });
 
-                            case 33:
-                                _context3.prev = 33;
-                                _context3.t2 = _context3['catch'](6);
+                            case 34:
+                                _context3.prev = 34;
+                                _context3.t2 = _context3['catch'](7);
                                 throw new Error(_context3.t2);
 
-                            case 36:
+                            case 37:
                             case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this, [[6, 33], [10, 14], [18, 22]]);
+                }, _callee3, this, [[7, 34], [11, 15], [19, 23]]);
             }));
 
             function getLink(_x2) {
