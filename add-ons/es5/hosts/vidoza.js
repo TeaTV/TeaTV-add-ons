@@ -66,81 +66,77 @@ var Vidoza = function () {
     }, {
         key: "getLink",
         value: function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
-                var _this = this;
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cheerio, sources, html, m, isDie;
 
-                var _libs, httpRequest, cheerio, sources, html, startIndex, player, data, arrPromise;
-
-                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
-                        switch (_context3.prev = _context3.next) {
+                        switch (_context2.prev = _context2.next) {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                 sources = [];
-                                _context3.next = 4;
+                                _context2.next = 4;
                                 return this.checkLive(url);
 
                             case 4:
-                                html = _context3.sent;
+                                html = _context2.sent;
 
                                 if (!(html == false)) {
-                                    _context3.next = 7;
+                                    _context2.next = 7;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
                             case 7:
-                                startIndex = html.indexOf('jwplayer("vplayer").setup');
 
-                                html = html.substring(startIndex);
-                                html = html.substring(0, html.indexOf(".setVolume("));
-                                html = html.replace('jwplayer("vplayer").setup', "player = ");
-                                html += ";";
-
+                                /*
+                                let startIndex  = html.indexOf('jwplayer("vplayer").setup');
+                                html            = html.substring(startIndex);
+                                html            = html.substring(0, html.indexOf(".setVolume("));
+                                html            = html.replace('jwplayer("vplayer").setup', "player = ");
+                                html            += ";";
+                                 var player;
                                 eval(html);
-                                data = player.sources;
-                                arrPromise = data.map(function () {
-                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
-                                        var isDie;
-                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                                            while (1) {
-                                                switch (_context2.prev = _context2.next) {
-                                                    case 0:
-                                                        _context2.next = 2;
-                                                        return httpRequest.isLinkDie(val.file);
+                                let data = player.sources;
+                                 let arrPromise = data.map( async val => {
+                                    
+                                    let isDie = await httpRequest.isLinkDie(val.file);
+                                     if( isDie != false ) {
+                                         sources.push({
+                                            label: val.file.indexOf("mp4") !== -1 ? val.label : "NOR",
+                                            file: val.file,
+                                            type: "embed",
+                                            size: isDie
+                                        });
+                                    }
+                                
+                                 });
+                                 await Promise.all(arrPromise);
+                                */
 
-                                                    case 2:
-                                                        isDie = _context2.sent;
+                                m = html.match(/source src="([^"]+)/);
 
+                                if (!(m != undefined)) {
+                                    _context2.next = 13;
+                                    break;
+                                }
 
-                                                        if (isDie != false) {
+                                _context2.next = 11;
+                                return httpRequest.isLinkDie(m[1]);
 
-                                                            sources.push({
-                                                                label: val.file.indexOf("mp4") !== -1 ? val.label : "NOR",
-                                                                file: val.file,
-                                                                type: "embed",
-                                                                size: isDie
-                                                            });
-                                                        }
+                            case 11:
+                                isDie = _context2.sent;
 
-                                                    case 4:
-                                                    case "end":
-                                                        return _context2.stop();
-                                                }
-                                            }
-                                        }, _callee2, _this);
-                                    }));
+                                sources.push({
+                                    label: m[1].indexOf("mp4") !== -1 ? 'NOR' : "NOR",
+                                    file: m[1],
+                                    type: "direct",
+                                    size: isDie
+                                });
 
-                                    return function (_x3) {
-                                        return _ref3.apply(this, arguments);
-                                    };
-                                }());
-                                _context3.next = 17;
-                                return Promise.all(arrPromise);
-
-                            case 17:
-                                return _context3.abrupt("return", {
+                            case 13:
+                                return _context2.abrupt("return", {
                                     host: {
                                         url: url,
                                         name: "vidoza"
@@ -148,12 +144,12 @@ var Vidoza = function () {
                                     result: sources
                                 });
 
-                            case 18:
+                            case 14:
                             case "end":
-                                return _context3.stop();
+                                return _context2.stop();
                         }
                     }
-                }, _callee3, this);
+                }, _callee2, this);
             }));
 
             function getLink(_x2) {

@@ -7,158 +7,184 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var VidLox = function () {
-    function VidLox(props) {
-        _classCallCheck(this, VidLox);
+  function VidLox(props) {
+    _classCallCheck(this, VidLox);
 
-        this.libs = props.libs;
-        this.settings = props.settings;
-        this.state = {};
+    this.libs = props.libs;
+    this.settings = props.settings;
+    this.state = {};
+  }
+
+  _createClass(VidLox, [{
+    key: "checkLive",
+    value: function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+        var httpRequest, html;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                httpRequest = this.libs.httpRequest;
+
+                // you fill the die status text
+                // const dieStatusText = "";
+
+                _context.next = 3;
+                return httpRequest.getHTML(url);
+
+              case 3:
+                html = _context.sent;
+
+                if (!html.includes("Video Was Deleted")) {
+                  _context.next = 6;
+                  break;
+                }
+
+                return _context.abrupt("return", false);
+
+              case 6:
+                return _context.abrupt("return", html);
+
+              case 7:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function checkLive(_x) {
+        return _ref.apply(this, arguments);
+      }
+
+      return checkLive;
+    }()
+  }, {
+    key: "convertToEmbed",
+    value: function convertToEmbed(url) {
+
+      // convert link detail to link embed
+      // if input is embed then return input
+
+      // let id = url.match(/\/embed\-([^\-]+)/i);
+      // id = url != null ? url[1] : false;
+
+      // if( id == false ) return url;
+
     }
+  }, {
+    key: "getLink",
+    value: function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+        var _libs, httpRequest, cheerio, newUrl, _parts, html, ClapprThumbnailsPlugin, LevelSelector, thumbs, ClapprSubtitle, player, result, isDie, isDie1, isDie2;
 
-    _createClass(VidLox, [{
-        key: "checkLive",
-        value: function () {
-            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
-                var httpRequest, html;
-                return regeneratorRuntime.wrap(function _callee$(_context) {
-                    while (1) {
-                        switch (_context.prev = _context.next) {
-                            case 0:
-                                httpRequest = this.libs.httpRequest;
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                newUrl = url;
 
-                                // you fill the die status text
-                                // const dieStatusText = "";
 
-                                _context.next = 3;
-                                return httpRequest.getHTML(url);
+                if (!newUrl.includes("embed")) {
 
-                            case 3:
-                                html = _context.sent;
+                  // https://vidlox.tv/vunb9b0ihb8d
+                  _parts = newUrl.split("/");
 
-                                if (!html.includes("Video Was Deleted")) {
-                                    _context.next = 6;
-                                    break;
-                                }
+                  _parts[_parts.length - 1] = "embed-" + _parts[_parts.length - 1];
+                  newUrl = _parts.join("/");
+                }
+                _context2.next = 5;
+                return this.checkLive(newUrl);
 
-                                return _context.abrupt("return", false);
+              case 5:
+                html = _context2.sent;
 
-                            case 6:
-                                return _context.abrupt("return", html);
+                if (!(html == false)) {
+                  _context2.next = 8;
+                  break;
+                }
 
-                            case 7:
-                            case "end":
-                                return _context.stop();
-                        }
-                    }
-                }, _callee, this);
-            }));
+                throw new Error("LINK DIE");
 
-            function checkLive(_x) {
-                return _ref.apply(this, arguments);
+              case 8:
+
+                html = html.substring(html.indexOf("var player = new Clappr.Player"));
+                html = html.substring(0, 3 + html.indexOf("});"));
+
+                ClapprThumbnailsPlugin = "", LevelSelector = "", thumbs = "", ClapprSubtitle = "";
+
+
+                html = html.replace("new Clappr.Player", "");
+                html = html.replace("var player", "player");
+
+                eval(html); // player
+                result = void 0;
+
+
+                if (!player.sources.length > 0) result = [{ label: "Error", file: "Link dead" }];
+
+                if (!(player.sources.length === 2)) {
+                  _context2.next = 21;
+                  break;
+                }
+
+                _context2.next = 19;
+                return httpRequest.isLinkDie(player.sources[1]);
+
+              case 19:
+                isDie = _context2.sent;
+
+                result = [{ label: "NOR", file: player.sources[1], type: 'direct', size: isDie }];
+
+              case 21:
+                if (!(player.sources.length === 3)) {
+                  _context2.next = 29;
+                  break;
+                }
+
+                _context2.next = 24;
+                return httpRequest.isLinkDie(player.sources[2]);
+
+              case 24:
+                isDie1 = _context2.sent;
+                _context2.next = 27;
+                return httpRequest.isLinkDie(player.sources[1]);
+
+              case 27:
+                isDie2 = _context2.sent;
+
+
+                result = [{ label: "NOR", file: player.sources[2], type: 'direct', size: isDie1 }, { label: "SD", file: player.sources[1], type: 'direct', size: isDie2 }];
+
+              case 29:
+                return _context2.abrupt("return", {
+                  host: {
+                    url: url,
+                    name: "vidlox"
+                  },
+                  result: result
+                });
+
+              case 30:
+              case "end":
+                return _context2.stop();
             }
+          }
+        }, _callee2, this);
+      }));
 
-            return checkLive;
-        }()
-    }, {
-        key: "convertToEmbed",
-        value: function convertToEmbed(url) {
+      function getLink(_x2) {
+        return _ref2.apply(this, arguments);
+      }
 
-            // convert link detail to link embed
-            // if input is embed then return input
+      return getLink;
+    }()
+  }]);
 
-            // let id = url.match(/\/embed\-([^\-]+)/i);
-            // id = url != null ? url[1] : false;
-
-            // if( id == false ) return url;
-
-        }
-    }, {
-        key: "getLink",
-        value: function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, newUrl, _parts, html, ClapprThumbnailsPlugin, LevelSelector, thumbs, ClapprSubtitle, player, result;
-
-                return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                    while (1) {
-                        switch (_context2.prev = _context2.next) {
-                            case 0:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
-                                newUrl = url;
-
-
-                                if (!newUrl.includes("embed")) {
-
-                                    // https://vidlox.tv/vunb9b0ihb8d
-                                    _parts = newUrl.split("/");
-
-                                    _parts[_parts.length - 1] = "embed-" + _parts[_parts.length - 1];
-                                    newUrl = _parts.join("/");
-                                }
-                                _context2.next = 5;
-                                return this.checkLive(newUrl);
-
-                            case 5:
-                                html = _context2.sent;
-
-                                if (!(html == false)) {
-                                    _context2.next = 8;
-                                    break;
-                                }
-
-                                throw new Error("LINK DIE");
-
-                            case 8:
-
-                                html = html.substring(html.indexOf("var player = new Clappr.Player"));
-                                html = html.substring(0, 3 + html.indexOf("});"));
-
-                                ClapprThumbnailsPlugin = "", LevelSelector = "", thumbs = "", ClapprSubtitle = "";
-
-
-                                html = html.replace("new Clappr.Player", "");
-                                html = html.replace("var player", "player");
-
-                                eval(html); // player
-                                result = void 0;
-
-
-                                if (!player.sources.length > 0) result = [{ label: "Error", file: "Link dead" }];
-                                if (player.sources.length === 2) {
-                                    result = [{ label: "NOR", file: player.sources[1], type: 'embed', size: 'NOR' }];
-                                }
-
-                                if (player.sources.length === 3) {
-
-                                    result = [{ label: "NOR", file: player.sources[2], type: 'embed', size: 'NOR' }, { label: "SD", file: player.sources[1], type: 'embed', size: 'NOR' }];
-                                }
-
-                                return _context2.abrupt("return", {
-                                    host: {
-                                        url: url,
-                                        name: "vidlox"
-                                    },
-                                    result: result
-                                });
-
-                            case 19:
-                            case "end":
-                                return _context2.stop();
-                        }
-                    }
-                }, _callee2, this);
-            }));
-
-            function getLink(_x2) {
-                return _ref2.apply(this, arguments);
-            }
-
-            return getLink;
-        }()
-    }]);
-
-    return VidLox;
+  return VidLox;
 }();
 
 thisSource.function = function (libs, settings) {
-    return new VidLox({ libs: libs, settings: settings });
+  return new VidLox({ libs: libs, settings: settings });
 };

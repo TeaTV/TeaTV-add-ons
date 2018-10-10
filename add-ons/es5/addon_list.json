@@ -300,14 +300,6 @@
             "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/thevideo.js"
         },
-        "vidoza": {
-            "name": "vidoza",
-            "domain": [
-                "vidoza.net"
-            ],
-            "version": "0.0.2",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidoza.js"
-        },
         "vidstreaming": {
             "name": "vidstreaming",
             "domain": [
@@ -414,6 +406,22 @@
             ],
             "version": "0.0.9",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/googlevideo.js"
+        },
+        "vidlox": {
+            "name": "vidlox",
+            "domain": [
+                "vidlox.me"
+            ],
+            "version": "0.0.3",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidlox.js"
+        },
+        "vidoza": {
+            "name": "vidoza",
+            "domain": [
+                "vidoza.net"
+            ],
+            "version": "0.0.3",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidoza.js"
         }
     }
 }
