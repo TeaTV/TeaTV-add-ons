@@ -214,6 +214,36 @@
                 "tv",
                 "movie"
             ]
+        },
+        "2dll": {
+            "name": "2dll",
+            "domain": "2dll.dit",
+            "version": "0.0.5",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/2dllws.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "rlsbb": {
+            "name": "rlsbb",
+            "domain": "rlsbb.dit",
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/rlsbb.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "wfree": {
+            "name": "wfree",
+            "domain": "wfree.dit",
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/wfreeac.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
@@ -422,6 +452,16 @@
             ],
             "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidoza.js"
+        },
+        "realdebit": {
+            "name": "realdebit",
+            "domain": [
+                "uploadgig.com",
+                "rapidgator.net",
+                "nitroflare.com"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/realdebit.js"
         }
     }
 }

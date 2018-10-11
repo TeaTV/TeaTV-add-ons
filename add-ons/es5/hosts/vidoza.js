@@ -118,14 +118,15 @@ var Vidoza = function () {
                                 m = html.match(/source src="([^"]+)/);
 
                                 if (!(m != undefined)) {
-                                    _context2.next = 13;
+                                    _context2.next = 14;
                                     break;
                                 }
 
-                                _context2.next = 11;
+                                console.log(m[1]);
+                                _context2.next = 12;
                                 return httpRequest.isLinkDie(m[1]);
 
-                            case 11:
+                            case 12:
                                 isDie = _context2.sent;
 
                                 sources.push({
@@ -135,7 +136,7 @@ var Vidoza = function () {
                                     size: isDie
                                 });
 
-                            case 13:
+                            case 14:
                                 return _context2.abrupt("return", {
                                     host: {
                                         url: url,
@@ -144,7 +145,7 @@ var Vidoza = function () {
                                     result: sources
                                 });
 
-                            case 14:
+                            case 15:
                             case "end":
                                 return _context2.stop();
                         }
