@@ -65,7 +65,7 @@ var Twodllws = function () {
                                 urlSearch = void 0;
 
                                 if (type == 'movie') {
-                                    urlSearch = URL.SEARCH(title.replace(' ', '+') + '+' + year);
+                                    urlSearch = URL.SEARCH(title.replace(/[\s:'-]+/, '+') + '+' + year);
                                 } else {
                                     if (season < 10) season = '0' + season;
                                     if (episode < 10) episode = '0' + episode;

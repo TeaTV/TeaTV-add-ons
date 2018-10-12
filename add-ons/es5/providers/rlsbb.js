@@ -76,7 +76,7 @@ var Rlsbb = function () {
 								} else {
 									if (season < 10) season = '0' + season;
 									if (episode < 10) episode = '0' + episode;
-									urlSearch = URL.SEARCH(title.replace(/\s+/g, '+') + '+s' + season + 'e' + episode);
+									urlSearch = URL.SEARCH(title.replace(/[\s':-]/g, '+') + '+s' + season + 'e' + episode);
 									console.log(urlSearch);
 								}
 								_context.next = 12;
