@@ -212,7 +212,7 @@ var Openload = function () {
                                         url: url,
                                         name: "openload"
                                     },
-                                    result: [{ file: data, label: "NOR", type: "embed", size: isDie }]
+                                    result: [{ file: data, label: "NOR", type: "direct", size: isDie }]
                                 });
 
                             case 42:

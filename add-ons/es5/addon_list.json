@@ -224,6 +224,26 @@
                 "movie",
                 "tv"
             ]
+        },
+        "2dll": {
+            "name": "2dll",
+            "domain": "2dll.dit",
+            "version": "0.0.4",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/2dllws.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "rlsbb": {
+            "name": "rlsbb",
+            "domain": "rlsbb.dit",
+            "version": "0.0.4",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/rlsbb.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
@@ -272,7 +292,7 @@
                 "oload.site",
                 "oload.win"
             ],
-            "version": "0.1.9",
+            "version": "0.2.0",
             "author": "psyntium",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/openload.js"
         },

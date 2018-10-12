@@ -48,18 +48,27 @@ var Rlsbb = function () {
 		key: 'searchDetail',
 		value: function () {
 			var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-				var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, detailUrl, videoUrl, tvshowVideoUrl, urlSearch, dataSearch, js, results, slug, i, m, post_name, prefix;
+				var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, realdebit, detailUrl, videoUrl, tvshowVideoUrl, urlSearch, dataSearch, js, results, slug, i, m, post_name, prefix;
 
 				return regeneratorRuntime.wrap(function _callee$(_context) {
 					while (1) {
 						switch (_context.prev = _context.next) {
 							case 0:
 								_libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper;
-								_movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+								_movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type, realdebit = _movieInfo.realdebit;
+
+								if (!(realdebit == undefined)) {
+									_context.next = 4;
+									break;
+								}
+
+								throw new Error("NO REAL DEBITCH HIHI");
+
+							case 4:
 								detailUrl = [];
 								videoUrl = false;
 								tvshowVideoUrl = false;
-								_context.prev = 5;
+								_context.prev = 7;
 								urlSearch = void 0;
 
 								if (type == 'movie') {
@@ -70,10 +79,10 @@ var Rlsbb = function () {
 									urlSearch = URL.SEARCH(title.replace(/\s+/g, '+') + '+s' + season + 'e' + episode);
 									console.log(urlSearch);
 								}
-								_context.next = 10;
+								_context.next = 12;
 								return httpRequest.getHTML(urlSearch);
 
-							case 10:
+							case 12:
 								dataSearch = _context.sent;
 								js = JSON.parse(dataSearch);
 								results = js['results'];
@@ -94,26 +103,26 @@ var Rlsbb = function () {
 										if (post_name.indexOf(slug) === 0 && post_name.indexOf(prefix) != -1) detailUrl.push(post_name);
 									}
 								}
-								_context.next = 20;
+								_context.next = 22;
 								break;
 
-							case 17:
-								_context.prev = 17;
-								_context.t0 = _context['catch'](5);
+							case 19:
+								_context.prev = 19;
+								_context.t0 = _context['catch'](7);
 
 								console.log(String(_context.t0));
 
-							case 20:
+							case 22:
 
 								this.state.detailUrl = detailUrl;
 								return _context.abrupt('return');
 
-							case 22:
+							case 24:
 							case 'end':
 								return _context.stop();
 						}
 					}
-				}, _callee, this, [[5, 17]]);
+				}, _callee, this, [[7, 19]]);
 			}));
 
 			function searchDetail() {

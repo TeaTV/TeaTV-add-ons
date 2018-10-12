@@ -144,7 +144,7 @@ var RapidVideo = function () {
                                                         if (isDie != false) {
 
                                                             results.push({
-                                                                file: linkDirect, label: label, type: "embed", size: isDie
+                                                                file: linkDirect, label: label, type: "direct", size: isDie
                                                             });
                                                         }
 

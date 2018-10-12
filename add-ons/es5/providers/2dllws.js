@@ -40,18 +40,27 @@ var Twodllws = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, detailUrl, videoUrl, tvshowVideoUrl, supported, urlSearch, dataSearch, hrefs, i, u, domain;
+                var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, realdebit, detailUrl, videoUrl, tvshowVideoUrl, supported, urlSearch, dataSearch, hrefs, i, u, domain;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper;
-                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type, realdebit = _movieInfo.realdebit;
+
+                                if (!(realdebit == undefined)) {
+                                    _context.next = 4;
+                                    break;
+                                }
+
+                                throw new Error("NO REAL DEBITCH HIHI");
+
+                            case 4:
                                 detailUrl = [];
                                 videoUrl = false;
                                 tvshowVideoUrl = false;
-                                _context.prev = 5;
+                                _context.prev = 7;
                                 supported = ['rapidgator.net', 'ul.to', 'nitroflare.com'];
                                 urlSearch = void 0;
 
@@ -64,10 +73,10 @@ var Twodllws = function () {
                                     console.log(urlSearch);
                                 }
 
-                                _context.next = 11;
+                                _context.next = 13;
                                 return httpRequest.getHTML(urlSearch);
 
-                            case 11:
+                            case 13:
                                 dataSearch = _context.sent;
                                 hrefs = dataSearch.match(/href="([^"]+)/g);
 
@@ -78,26 +87,26 @@ var Twodllws = function () {
                                     if (supported.includes(domain)) detailUrl.push(u);
                                 }
 
-                                _context.next = 19;
+                                _context.next = 21;
                                 break;
 
-                            case 16:
-                                _context.prev = 16;
-                                _context.t0 = _context['catch'](5);
+                            case 18:
+                                _context.prev = 18;
+                                _context.t0 = _context['catch'](7);
 
                                 console.log(String(_context.t0));
 
-                            case 19:
+                            case 21:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 21:
+                            case 23:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[5, 16]]);
+                }, _callee, this, [[7, 18]]);
             }));
 
             function searchDetail() {
