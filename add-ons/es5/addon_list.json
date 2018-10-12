@@ -228,7 +228,7 @@
         "2dll": {
             "name": "2dll",
             "domain": "2dll.dit",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/2dllws.js",
             "type": [
                 "movie",
@@ -238,7 +238,7 @@
         "rlsbb": {
             "name": "rlsbb",
             "domain": "rlsbb.dit",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/rlsbb.js",
             "type": [
                 "movie",

@@ -20,13 +20,13 @@ var URL = {
 	}
 };
 
-getDomain = function getDomain(url) {
+var getDomain = function getDomain(url) {
 	var m = url.match(/\/\/([^\/]+)/);
 	if (m == null) return 'xyzzyx.com';
 	return m[1] != undefined ? m[1] : 'xyzzyx.com';
 };
 
-firstChar = function firstChar(str, separator) {
+var firstChar = function firstChar(str, separator) {
 	var matches = str.match(/\b(\w)/g);
 	var acronym = matches.join(separator);
 
@@ -48,16 +48,16 @@ var Rlsbb = function () {
 		key: 'searchDetail',
 		value: function () {
 			var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-				var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, realdebit, detailUrl, videoUrl, tvshowVideoUrl, urlSearch, dataSearch, js, results, slug, i, m, post_name, prefix;
+				var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, realdebrid, detailUrl, videoUrl, tvshowVideoUrl, urlSearch, dataSearch, js, results, slug, i, m, post_name, prefix;
 
 				return regeneratorRuntime.wrap(function _callee$(_context) {
 					while (1) {
 						switch (_context.prev = _context.next) {
 							case 0:
 								_libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper;
-								_movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type, realdebit = _movieInfo.realdebit;
+								_movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type, realdebrid = _movieInfo.realdebrid;
 
-								if (!(realdebit == undefined)) {
+								if (!(realdebrid == undefined)) {
 									_context.next = 4;
 									break;
 								}

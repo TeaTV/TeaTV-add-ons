@@ -40,16 +40,16 @@ var Twodllws = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, realdebit, detailUrl, videoUrl, tvshowVideoUrl, supported, urlSearch, dataSearch, hrefs, i, u, domain;
+                var _libs, httpRequest, cheerio, stringHelper, _movieInfo, title, year, season, episode, type, realdebrid, detailUrl, videoUrl, tvshowVideoUrl, supported, urlSearch, dataSearch, hrefs, i, u, domain;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper;
-                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type, realdebit = _movieInfo.realdebit;
+                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type, realdebrid = _movieInfo.realdebrid;
 
-                                if (!(realdebit == undefined)) {
+                                if (!(realdebrid == undefined)) {
                                     _context.next = 4;
                                     break;
                                 }
