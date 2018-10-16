@@ -130,7 +130,11 @@ var Vidoza = function () {
                                     break;
                                 }
 
-                                console.log(m[1]);
+                                if (!(m[1].search('https://') != -1 && m[1].search('http://') != -1)) {
+                                    _context2.next = 16;
+                                    break;
+                                }
+
                                 _context2.next = 14;
                                 return httpRequest.isLinkDie(m[1]);
 
