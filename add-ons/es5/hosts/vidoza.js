@@ -16,7 +16,7 @@ var Vidoza = function () {
     }
 
     _createClass(Vidoza, [{
-        key: "checkLive",
+        key: 'checkLive',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
                 var httpRequest, html;
@@ -34,10 +34,10 @@ var Vidoza = function () {
 
                             case 3:
                                 html = _context.sent;
-                                return _context.abrupt("return", html);
+                                return _context.abrupt('return', html);
 
                             case 5:
-                            case "end":
+                            case 'end':
                                 return _context.stop();
                         }
                     }
@@ -51,7 +51,7 @@ var Vidoza = function () {
             return checkLive;
         }()
     }, {
-        key: "convertToEmbed",
+        key: 'convertToEmbed',
         value: function convertToEmbed(url) {
 
             // convert link detail to link embed
@@ -64,7 +64,7 @@ var Vidoza = function () {
 
         }
     }, {
-        key: "getLink",
+        key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
                 var _libs, httpRequest, cheerio, sources, html, m, isDie;
@@ -73,22 +73,30 @@ var Vidoza = function () {
                     while (1) {
                         switch (_context2.prev = _context2.next) {
                             case 0:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
-                                sources = [];
-                                _context2.next = 4;
-                                return this.checkLive(url);
-
-                            case 4:
-                                html = _context2.sent;
-
-                                if (!(html == false)) {
-                                    _context2.next = 7;
+                                if (!(url.search('https://') == -1 && url.search('http://') == -1)) {
+                                    _context2.next = 2;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
-                            case 7:
+                            case 2:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                sources = [];
+                                _context2.next = 6;
+                                return this.checkLive(url);
+
+                            case 6:
+                                html = _context2.sent;
+
+                                if (!(html == false)) {
+                                    _context2.next = 9;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 9:
 
                                 /*
                                 let startIndex  = html.indexOf('jwplayer("vplayer").setup');
@@ -118,15 +126,15 @@ var Vidoza = function () {
                                 m = html.match(/source src="([^"]+)/);
 
                                 if (!(m != undefined)) {
-                                    _context2.next = 14;
+                                    _context2.next = 16;
                                     break;
                                 }
 
                                 console.log(m[1]);
-                                _context2.next = 12;
+                                _context2.next = 14;
                                 return httpRequest.isLinkDie(m[1]);
 
-                            case 12:
+                            case 14:
                                 isDie = _context2.sent;
 
                                 sources.push({
@@ -136,8 +144,8 @@ var Vidoza = function () {
                                     size: isDie
                                 });
 
-                            case 14:
-                                return _context2.abrupt("return", {
+                            case 16:
+                                return _context2.abrupt('return', {
                                     host: {
                                         url: url,
                                         name: "vidoza"
@@ -145,8 +153,8 @@ var Vidoza = function () {
                                     result: sources
                                 });
 
-                            case 15:
-                            case "end":
+                            case 17:
+                            case 'end':
                                 return _context2.stop();
                         }
                     }

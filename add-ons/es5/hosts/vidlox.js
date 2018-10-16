@@ -16,7 +16,7 @@ var VidLox = function () {
   }
 
   _createClass(VidLox, [{
-    key: "checkLive",
+    key: 'checkLive',
     value: function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
         var httpRequest, html;
@@ -40,13 +40,13 @@ var VidLox = function () {
                   break;
                 }
 
-                return _context.abrupt("return", false);
+                return _context.abrupt('return', false);
 
               case 6:
-                return _context.abrupt("return", html);
+                return _context.abrupt('return', html);
 
               case 7:
-              case "end":
+              case 'end':
                 return _context.stop();
             }
           }
@@ -60,7 +60,7 @@ var VidLox = function () {
       return checkLive;
     }()
   }, {
-    key: "convertToEmbed",
+    key: 'convertToEmbed',
     value: function convertToEmbed(url) {
 
       // convert link detail to link embed
@@ -73,7 +73,7 @@ var VidLox = function () {
 
     }
   }, {
-    key: "getLink",
+    key: 'getLink',
     value: function () {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
         var _libs, httpRequest, cheerio, newUrl, _parts, html, ClapprThumbnailsPlugin, LevelSelector, thumbs, ClapprSubtitle, player, result, isDie, isDie1, isDie2;
@@ -82,6 +82,14 @@ var VidLox = function () {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
+                if (!(url.search('https://') == -1 && url.search('http://') == -1)) {
+                  _context2.next = 2;
+                  break;
+                }
+
+                throw new Error("LINK DIE");
+
+              case 2:
                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                 newUrl = url;
 
@@ -94,20 +102,20 @@ var VidLox = function () {
                   _parts[_parts.length - 1] = "embed-" + _parts[_parts.length - 1];
                   newUrl = _parts.join("/");
                 }
-                _context2.next = 5;
+                _context2.next = 7;
                 return this.checkLive(newUrl);
 
-              case 5:
+              case 7:
                 html = _context2.sent;
 
                 if (!(html == false)) {
-                  _context2.next = 8;
+                  _context2.next = 10;
                   break;
                 }
 
                 throw new Error("LINK DIE");
 
-              case 8:
+              case 10:
 
                 html = html.substring(html.indexOf("var player = new Clappr.Player"));
                 html = html.substring(0, 3 + html.indexOf("});"));
@@ -125,40 +133,40 @@ var VidLox = function () {
                 if (!player.sources.length > 0) result = [{ label: "Error", file: "Link dead" }];
 
                 if (!(player.sources.length === 2)) {
-                  _context2.next = 21;
+                  _context2.next = 23;
                   break;
                 }
 
-                _context2.next = 19;
+                _context2.next = 21;
                 return httpRequest.isLinkDie(player.sources[1]);
 
-              case 19:
+              case 21:
                 isDie = _context2.sent;
 
                 result = [{ label: "NOR", file: player.sources[1], type: 'direct', size: isDie }];
 
-              case 21:
+              case 23:
                 if (!(player.sources.length === 3)) {
-                  _context2.next = 29;
+                  _context2.next = 31;
                   break;
                 }
 
-                _context2.next = 24;
+                _context2.next = 26;
                 return httpRequest.isLinkDie(player.sources[2]);
 
-              case 24:
+              case 26:
                 isDie1 = _context2.sent;
-                _context2.next = 27;
+                _context2.next = 29;
                 return httpRequest.isLinkDie(player.sources[1]);
 
-              case 27:
+              case 29:
                 isDie2 = _context2.sent;
 
 
                 result = [{ label: "NOR", file: player.sources[2], type: 'direct', size: isDie1 }, { label: "SD", file: player.sources[1], type: 'direct', size: isDie2 }];
 
-              case 29:
-                return _context2.abrupt("return", {
+              case 31:
+                return _context2.abrupt('return', {
                   host: {
                     url: url,
                     name: "vidlox"
@@ -166,8 +174,8 @@ var VidLox = function () {
                   result: result
                 });
 
-              case 30:
-              case "end":
+              case 32:
+              case 'end':
                 return _context2.stop();
             }
           }
