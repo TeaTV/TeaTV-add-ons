@@ -29,7 +29,7 @@ var Vumoo = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, getJs, htmlFull, match, t, detailUrl, urlSearch, jsonSearch;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, getJs, match, t, detailUrl, urlSearch, jsonSearch;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -42,49 +42,35 @@ var Vumoo = function () {
 
                             case 4:
                                 getJs = _context.sent;
-                                _context.next = 7;
-                                return httpRequest.get('http://pilarovalle.com/watch/movie-upgrade-2018-putlocker-81470');
-
-                            case 7:
-                                htmlFull = _context.sent;
-
-                                if (htmlFull) {
-                                    _context.next = 10;
-                                    break;
-                                }
-
-                                throw new Error('NO VUMOO');
-
-                            case 10:
                                 match = getJs.data.match(/search\?t=([^"]+)/);
 
                                 if (!(match[1] == undefined)) {
-                                    _context.next = 13;
+                                    _context.next = 8;
                                     break;
                                 }
 
                                 return _context.abrupt('return');
 
-                            case 13:
+                            case 8:
                                 t = match[1];
                                 detailUrl = false;
                                 urlSearch = URL.SEARCH(encodeURI(title), t);
-                                _context.next = 18;
+                                _context.next = 13;
                                 return httpRequest.get(urlSearch);
 
-                            case 18:
+                            case 13:
                                 jsonSearch = _context.sent;
 
                                 jsonSearch = jsonSearch.data;
 
                                 if (jsonSearch.suggestions) {
-                                    _context.next = 22;
+                                    _context.next = 17;
                                     break;
                                 }
 
                                 throw new Error('NOT SEARCH VUMOO');
 
-                            case 22:
+                            case 17:
 
                                 jsonSearch.suggestions.forEach(function (val) {
 
@@ -116,7 +102,7 @@ var Vumoo = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 25:
+                            case 20:
                             case 'end':
                                 return _context.stop();
                         }
