@@ -185,16 +185,6 @@
                 "movie"
             ]
         },
-        "gomoviesec": {
-            "name": "gomoviesec",
-            "domain": "gomoviesec.dit",
-            "version": "0.3.0",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/gomoviesec.js",
-            "type": [
-                "tv",
-                "movie"
-            ]
-        },
         "123moviesfree": {
             "name": "123moviesfree",
             "domain": "123moviesfree.dit",
