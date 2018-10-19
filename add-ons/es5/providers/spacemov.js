@@ -7,9 +7,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "https://spacemov.sc/",
+    DOMAIN: "https://www0.spacemov.is/",
     SEARCH: function SEARCH(title) {
-        return 'https://spacemov.sc/wp-admin/admin-ajax.php?action=search_suggestions&keyword=' + title;
+        return 'https://www0.spacemov.is/wp-admin/admin-ajax.php?action=search_suggestions&keyword=' + title;
     },
     HEADERS: {
         'Origin': '',
@@ -145,7 +145,7 @@ var Spacemov = function () {
                             case 10:
                                 htmlDetail = _context2.sent;
                                 $ = cheerio.load(htmlDetail);
-                                itemServer = $('.episode-item');
+                                itemServer = $('.les-content a');
 
 
                                 itemServer.each(function () {
@@ -163,13 +163,13 @@ var Spacemov = function () {
                                             }
                                         });
 
-                                        if ($(this).attr('data-openload')) hosts.push({
+                                        if ($(this).attr('data-svv1')) hosts.push({
                                             provider: {
                                                 url: detailUrl,
                                                 name: "spacemov"
                                             },
                                             result: {
-                                                file: $(this).attr('data-openload'),
+                                                file: $(this).attr('data-svv1'),
                                                 label: "embed",
                                                 type: "embed"
                                             }
@@ -190,13 +190,13 @@ var Spacemov = function () {
                                                 }
                                             });
 
-                                            if ($(this).attr('data-openload')) hosts.push({
+                                            if ($(this).attr('data-svv1')) hosts.push({
                                                 provider: {
                                                     url: detailUrl,
                                                     name: "spacemov"
                                                 },
                                                 result: {
-                                                    file: $(this).attr('data-openload'),
+                                                    file: $(this).attr('data-svv1'),
                                                     label: "embed",
                                                     type: "embed"
                                                 }

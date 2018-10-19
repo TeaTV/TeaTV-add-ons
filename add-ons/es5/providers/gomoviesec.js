@@ -11,10 +11,12 @@ var URL = {
     SEARCH: function SEARCH(title) {
         return 'https://gomovies.ec/movie/search/' + title;
     },
-    HEADERS: function HEADERS(referer) {
+    HEADERS: function HEADERS() {
+        var time = Math.round(+new Date());
         return {
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
-            'referer': referer
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_' + time + ') AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Referer': 'https://gomovies.ec/' + time
         };
     }, EMBED: function EMBED(ep) {
         return 'https://gomovies.ec/ajax/v2_get_sources?id=' + ep;
@@ -49,11 +51,11 @@ var Gomoviesec = function () {
                                 _context.prev = 3;
                                 urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title));
                                 _context.next = 7;
-                                return httpRequest.getHTML(urlSearch);
+                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
 
                             case 7:
                                 dataSearch = _context.sent;
-                                $ = cheerio.load(dataSearch);
+                                $ = cheerio.load(dataSearch.data);
                                 as = $('.movies-list .ml-item a');
 
 
@@ -131,15 +133,15 @@ var Gomoviesec = function () {
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
                                 _context2.next = 8;
-                                return httpRequest.getHTML(this.state.detailUrl);
+                                return httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS());
 
                             case 8:
                                 htmlDetail = _context2.sent;
-                                $ = cheerio.load(htmlDetail);
+                                $ = cheerio.load(htmlDetail.data);
                                 episode_id = false;
 
                                 if (type == 'movie') {
-                                    s = htmlDetail.match(/episode_id: ([0-9]+)/);
+                                    s = htmlDetail.data.match(/episode_id: ([0-9]+)/);
 
                                     if (s != undefined) episode_id = s[1];
                                 } else {
@@ -155,14 +157,15 @@ var Gomoviesec = function () {
                                 }
 
                                 _context2.next = 14;
-                                return httpRequest.getHTML(URL.EMBED(episode_id));
+                                return httpRequest.getCloudflare(URL.EMBED(episode_id), URL.HEADERS());
 
                             case 14:
                                 embedHtml = _context2.sent;
                                 js = void 0;
                                 _context2.prev = 16;
 
-                                js = JSON.parse(embedHtml);
+                                //js = JSON.parse(embedHtml.data);
+                                js = embedHtml.data;
                                 _context2.next = 24;
                                 break;
 

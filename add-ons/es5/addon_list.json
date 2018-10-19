@@ -122,7 +122,7 @@
         "watchepisodes4": {
             "name": "watchepisodes4",
             "domain": "watchepisodes4.com",
-            "version": "0.4.1",
+            "version": "0.4.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchepisodes4.js",
             "type": [
                 "tv"
@@ -188,7 +188,7 @@
         "gomoviesec": {
             "name": "gomoviesec",
             "domain": "gomoviesec.dit",
-            "version": "0.2.9",
+            "version": "0.3.0",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/gomoviesec.js",
             "type": [
                 "tv",
@@ -240,6 +240,36 @@
             "domain": "rlsbb.dit",
             "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/rlsbb.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "spacemov": {
+            "name": "spacemov",
+            "domain": "spacemov.dit",
+            "version": "0.0.9",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/spacemov.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "scnsrc": {
+            "name": "scnsrc",
+            "domain": "scnsrc.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/scnsrc.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "thanrd": {
+            "name": "thanrd",
+            "domain": "thanrd.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/thanrd.js",
             "type": [
                 "movie",
                 "tv"

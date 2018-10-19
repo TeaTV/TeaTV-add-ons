@@ -13,6 +13,12 @@ var URL = {
     }
 };
 
+var getDomain = function getDomain(url) {
+    var m = url.match(/\/\/([^\/]+)/);
+    if (m == null) return 'xyzzyx.com';
+    return m[1] != undefined ? m[1] : 'xyzzyx.com';
+};
+
 var WatchEpisode = function () {
     function WatchEpisode(props) {
         _classCallCheck(this, WatchEpisode);
@@ -160,7 +166,9 @@ var WatchEpisode = function () {
 
                                     if (linkEmbed.indexOf('https://') != -1 || linkEmbed.indexOf('http://') != -1) {
 
-                                        if ((linkEmbed.indexOf('openload.co') != -1 || linkEmbed.indexOf('streamango.com') != -1) && hosts.length < 10) {
+                                        var hosts_allowed = ['openload.co', 'streamango.com', 'vidlox.me', 'vidoza.net'];
+
+                                        if (hosts_allowed.includes(getDomain(linkEmbed)) && hosts.length < 20) {
 
                                             linkEmbed && hosts.push({
                                                 provider: {

@@ -12,10 +12,11 @@ var URL = {
         return 'https://seehd.biz/?s=' + title;
     },
     DOMAIN_DECODE: '',
-    HEADERS: function HEADERS(referer) {
+    HEADERS: function HEADERS() {
         return {
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
-            'referer': referer
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_' + Math.round(+new Date()) + ') AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Referer': 'http://www.scnsrc.me/' + Math.round(+new Date())
         };
     }
 };
@@ -51,7 +52,7 @@ var Seehdbiz = function () {
                                 urlSearch = URL.SEARCH(title);
                                 _context.prev = 8;
                                 _context.next = 11;
-                                return httpRequest.getHTML(urlSearch);
+                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
 
                             case 11:
                                 dataSearch = _context.sent;
@@ -64,7 +65,7 @@ var Seehdbiz = function () {
                                 throw new Error('NOT_FOUND');
 
                             case 17:
-                                $ = cheerio.load(dataSearch);
+                                $ = cheerio.load(dataSearch.data);
                                 itemSearch = $('.item_1 .item');
 
                                 itemSearch.each(function () {
@@ -146,7 +147,7 @@ var Seehdbiz = function () {
                                 detailUrl = this.state.detailUrl;
                                 _context3.prev = 6;
                                 _context3.next = 9;
-                                return httpRequest.getHTML(this.state.detailUrl);
+                                return httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS());
 
                             case 9:
                                 htmlDetail = _context3.sent;
@@ -159,7 +160,7 @@ var Seehdbiz = function () {
                                 throw new Error('NOT_FOUND');
 
                             case 15:
-                                $ = cheerio.load(htmlDetail);
+                                $ = cheerio.load(htmlDetail.data);
                                 servers = $(".movieplay script");
                                 sources = [];
 
