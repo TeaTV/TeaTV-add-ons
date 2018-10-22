@@ -7,14 +7,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "https://www.123movies.solar",
+    DOMAIN: "https://www1.123movies.solar",
     SEARCH: function SEARCH() {
-        return 'https://www.123movies.solar/index.php?do=search';
+        return 'https://www1.123movies.solar/index.php?do=search';
     },
     DOMAIN_DECODE: '',
     HEADERS: function HEADERS(referer) {
         return {
-            'authority': 'www.123movies.solar',
+            'authority': 'www1.123movies.solar',
             'cache-control': 'max-age=0',
             'origin': 'https://www.123movies.solar',
             'upgrade-insecure-requests': '1',
