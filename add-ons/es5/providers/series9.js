@@ -44,7 +44,9 @@ var Series9 = function () {
                                 detailUrl = false;
                                 title1 = title;
 
-                                if (title1.indexOf('Marvel') != -1) title1 = title1.replace(/Marvel'?s?\s/, '');
+                                if (title1.indexOf('Marvel') != -1) {
+                                    title1 = title1.replace(/Marvel'?s?\s/, '');
+                                }
 
                                 if (type == 'movie') {
 

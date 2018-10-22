@@ -41,7 +41,7 @@ var FmoviesVc = function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
                 var _this = this;
 
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, getYearMovie, libs, detailUrl, videoSeason, videoUrl, urlSearch, idMovie, arrSearch, htmlSearch, $, itemSearch, arrPromise, htmlVideo, $_2, hrefWatching;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, getYearMovie, libs, detailUrl, videoSeason, videoUrl, urlSearch, idMovie, title1, arrSearch, htmlSearch, $, itemSearch, arrPromise, htmlVideo, $_2, hrefWatching;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -56,6 +56,10 @@ var FmoviesVc = function () {
                                 videoUrl = false;
                                 urlSearch = '';
                                 idMovie = false;
+                                title1 = title;
+
+                                if (title1.indexOf('Marvel') != -1) title1 = title1.replace(/Marvel'?s?\s/, '');
+
                                 arrSearch = [];
 
 
@@ -66,10 +70,10 @@ var FmoviesVc = function () {
                                     urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+') + ('+season+' + season));
                                 }
 
-                                _context2.next = 13;
+                                _context2.next = 15;
                                 return httpRequest.getHTML(urlSearch);
 
-                            case 13:
+                            case 15:
                                 htmlSearch = _context2.sent;
                                 $ = cheerio.load(htmlSearch);
                                 itemSearch = $('.movies-list .ml-item');
@@ -88,7 +92,7 @@ var FmoviesVc = function () {
 
                                     var hrefInfo = $(this).find('a').attr('data-url');
 
-                                    if (stringHelper.shallowCompare(title, titleMovie)) {
+                                    if (stringHelper.shallowCompare(title, titleMovie) || stringHelper.shallowCompare(title1, titleMovie)) {
                                         arrSearch.push({ hrefMovie: hrefMovie, titleMovie: titleMovie, yearMovie: yearMovie, seasonMovie: seasonMovie, hrefInfo: hrefInfo });
                                     }
                                 });
@@ -154,19 +158,19 @@ var FmoviesVc = function () {
                                         return _ref2.apply(this, arguments);
                                     };
                                 }());
-                                _context2.next = 20;
+                                _context2.next = 22;
                                 return Promise.all(arrPromise);
 
-                            case 20:
+                            case 22:
                                 if (!videoUrl) {
-                                    _context2.next = 27;
+                                    _context2.next = 29;
                                     break;
                                 }
 
-                                _context2.next = 23;
+                                _context2.next = 25;
                                 return httpRequest.getHTML(videoUrl);
 
-                            case 23:
+                            case 25:
                                 htmlVideo = _context2.sent;
                                 $_2 = cheerio.load(htmlVideo);
                                 hrefWatching = $_2('#mv-info a').attr('href');
@@ -177,19 +181,19 @@ var FmoviesVc = function () {
                                     detailUrl = hrefWatching;
                                 }
 
-                            case 27:
+                            case 29:
                                 if (detailUrl) {
-                                    _context2.next = 29;
+                                    _context2.next = 31;
                                     break;
                                 }
 
                                 throw new Error('NOT FOUND');
 
-                            case 29:
+                            case 31:
                                 this.state.detailUrl = detailUrl;
                                 return _context2.abrupt('return');
 
-                            case 31:
+                            case 33:
                             case 'end':
                                 return _context2.stop();
                         }

@@ -43,7 +43,7 @@ var WatchEpisode = function () {
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 detailUrl = false;
                                 detailSeason = false;
-                                urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
+                                urlSearch = URL.SEARCH(title.replace(/[\s]/, '+'));
                                 _context.next = 7;
                                 return httpRequest.get(urlSearch);
 
