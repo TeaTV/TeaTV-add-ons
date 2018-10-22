@@ -3,7 +3,7 @@
         "5movies": {
             "name": "5movies",
             "domain": "5movies.to",
-            "version": "0.4.0",
+            "version": "0.4.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/5movies.js",
             "type": [
                 "movie",
@@ -35,16 +35,6 @@
             "domain": "yesmovies.to",
             "version": "0.4.9",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/yesmovies.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "moviewatcher": {
-            "name": "moviewatcher",
-            "domain": "moviewatcher.is",
-            "version": "0.4.0",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/moviewatcher.js",
             "type": [
                 "movie",
                 "tv"

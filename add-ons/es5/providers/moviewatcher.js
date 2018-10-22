@@ -13,7 +13,7 @@ var URL = {
     },
     HEADERS: {
         'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_' + Math.round(+new Date()) + ' AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
     },
     BING_SEARCH: function BING_SEARCH(title) {
         return 'https://www.bing.com/search?q=site%3Amoviewatcher.is+' + title;
@@ -150,11 +150,10 @@ var MovieWatcher = function () {
                                 itemSearch.each(function () {
 
                                     var hrefMovie = $(this).find('h2 a').attr('href');
-                                    var titleMovie = $(this).find('h2 a strong').first().text();
-                                    var yearMovie = titleMovie.match(/\(([0-9]+)/i);
+                                    var titleMovie = $(this).find('h2 a').first().text().toLowerCase();
+                                    var yearMovie = titleMovie.match(/([0-9]+)/i);
                                     yearMovie = yearMovie != null ? yearMovie[1] : 0;
-                                    titleMovie = titleMovie.replace(/\s+\(([0-9]+).*$/i, '');
-                                    console.log(titleMovie, '---', yearMovie, hrefMovie);
+                                    //console.log(titleMovie, '---', yearMovie, hrefMovie)
 
                                     // let hrefMovie = $(this).find('a').attr('href');
                                     // let titleMovie = $(this).find('a img').attr('alt');
@@ -166,9 +165,9 @@ var MovieWatcher = function () {
                                     //  hrefMovie = 'http:' + hrefMovie;
                                     // }
 
-                                    if (titleMovie && stringHelper.shallowCompare(titleMovie, title)) {
+                                    if (titleMovie && titleMovie.indexOf(title.toLowerCase()) == 0) {
 
-                                        // console.log(hrefMovie, titleMovie);
+                                        console.log(hrefMovie, titleMovie, 'year', year, yearMovie);
                                         if (type == 'movie' && yearMovie == year) {
                                             detailUrl = hrefMovie;
                                             return;
@@ -243,6 +242,8 @@ var MovieWatcher = function () {
                     while (1) {
                         switch (_context3.prev = _context3.next) {
                             case 0:
+
+                                //this.state.detailUrl = 'https://moviewatcher.is/352542/the-nun-2018';
                                 _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, qs = _libs2.qs;
 
                                 if (this.state.detailUrl) {
@@ -262,6 +263,10 @@ var MovieWatcher = function () {
                             case 8:
                                 htmlDetail = _context3.sent;
                                 $ = cheerio.load(htmlDetail);
+
+
+                                console.log(htmlDetail);
+
                                 iframe = $('.addplayer iframe').attr('src');
 
 
@@ -276,6 +281,8 @@ var MovieWatcher = function () {
                                         type: "direct"
                                     }
                                 });
+
+                                console.log(hosts);
 
                                 itemRedirect = $('.full-torrent1');
 
@@ -337,15 +344,15 @@ var MovieWatcher = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 17;
+                                _context3.next = 19;
                                 return Promise.all(arrPromise);
 
-                            case 17:
+                            case 19:
 
                                 this.state.hosts = hosts;
                                 return _context3.abrupt('return');
 
-                            case 19:
+                            case 21:
                             case 'end':
                                 return _context3.stop();
                         }

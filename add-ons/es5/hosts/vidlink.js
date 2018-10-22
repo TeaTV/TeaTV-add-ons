@@ -128,7 +128,7 @@ var VidLink = function () {
         key: 'getEmbed',
         value: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(url) {
-                var _libs2, httpRequest, cheerio, sources, temp, window, postResponse, item, _url, size, arrPromise;
+                var _libs2, httpRequest, cheerio, sources, temp, window, postResponse, c35, item, _url, size, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee4$(_context4) {
                     while (1) {
@@ -157,6 +157,7 @@ var VidLink = function () {
                                 throw new Error("LINK DIE");
 
                             case 10:
+                                c35 = void 0;
 
                                 eval(postResponse);
                                 postResponse = window.srcs;
@@ -218,23 +219,23 @@ var VidLink = function () {
                                         return _ref4.apply(this, arguments);
                                     };
                                 }());
-                                _context4.next = 16;
+                                _context4.next = 17;
                                 return Promise.all(arrPromise);
 
-                            case 16:
+                            case 17:
                                 return _context4.abrupt('return', sources);
 
-                            case 19:
-                                _context4.prev = 19;
+                            case 20:
+                                _context4.prev = 20;
                                 _context4.t0 = _context4['catch'](4);
                                 throw new Error(_context4.t0);
 
-                            case 22:
+                            case 23:
                             case 'end':
                                 return _context4.stop();
                         }
                     }
-                }, _callee4, this, [[4, 19]]);
+                }, _callee4, this, [[4, 20]]);
             }));
 
             function getEmbed(_x3) {

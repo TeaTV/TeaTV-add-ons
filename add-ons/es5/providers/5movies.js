@@ -95,7 +95,7 @@ var ThreeMovies = function () {
                                 itemSearch.each(function () {
 
                                     var hrefMovie = $(this).find('h2 a').attr('href');
-                                    var titleMovie = $(this).find('h2 a strong').text();
+                                    var titleMovie = $(this).find('h2 a').text().toLowerCase();
                                     var yearMovie = titleMovie.match(/\( *([0-9]+)/i);
                                     yearMovie = yearMovie != null ? yearMovie[1] : 0;
                                     titleMovie = titleMovie.replace(/\(* *[0-9]+ *\)*/i, '');
@@ -110,7 +110,7 @@ var ThreeMovies = function () {
                                     // 	hrefMovie = 'http:' + hrefMovie;
                                     // }
 
-                                    if (titleMovie && stringHelper.shallowCompare(titleMovie, title) && (hrefMovie.indexOf('/movie/') != -1 || hrefMovie.indexOf('/tv/') != -1)) {
+                                    if (titleMovie && titleMovie.indexOf(title.toLowerCase() != -1) && (hrefMovie.indexOf('/movie/') != -1 || hrefMovie.indexOf('/tv/') != -1)) {
 
                                         // console.log(hrefMovie, titleMovie);
                                         if (type == 'movie' && yearMovie == year) {
@@ -210,10 +210,12 @@ var ThreeMovies = function () {
 
 
                                 itemLk.each(function () {
-                                    var hrefLk = $(this).find('.link-button').find('a').attr('href');
+                                    var hrefLk = $(this).find('.link-button').html();
                                     var hostName = $(this).find('.link-name').text().trim();
-                                    hrefLk = hrefLk.replace('?lk=', '').trim();
-                                    if (['streamango.com', 'openload.co'].includes(hostName) && arr_lk.length < 5) arr_lk.push(hrefLk);
+                                    var m = hrefLk.match(/getlink\(&apos;([^&]+)/);
+                                    if (m != undefined) {
+                                        if (['streamango.com', 'openload.co', 'vidoza.net', 'vidlox.me'].includes(hostName) && arr_lk.length < 10) arr_lk.push(m[1]);
+                                    }
                                 });
 
                                 arr_promise = arr_lk.map(function () {
