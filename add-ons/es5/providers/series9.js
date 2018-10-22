@@ -31,7 +31,7 @@ var Series9 = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, getYear, urlSearch, detailUrl, htmlSearch, $, itemSearch, arrInfo, arrPromise;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, getYear, urlSearch, detailUrl, title1, htmlSearch, $, itemSearch, arrInfo, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -42,20 +42,22 @@ var Series9 = function () {
                                 getYear = this.getYear;
                                 urlSearch = false;
                                 detailUrl = false;
+                                title1 = title;
 
+                                if (title1.indexOf('Marvel') != -1) title1 = title1.replace(/Marvel'?s?\s/, '');
 
                                 if (type == 'movie') {
 
-                                    urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title));
+                                    urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title1));
                                 } else {
 
-                                    urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title) + ('-season-' + season));
+                                    urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title1) + ('-season-' + season));
                                 }
 
-                                _context3.next = 8;
+                                _context3.next = 10;
                                 return httpRequest.getHTML(urlSearch);
 
-                            case 8:
+                            case 10:
                                 htmlSearch = _context3.sent;
 
                                 htmlSearch = JSON.parse(htmlSearch);
@@ -80,7 +82,7 @@ var Series9 = function () {
                                                     titleMovie = titleMovie.replace(/\- *season.*/i, '');
                                                     titleMovie = titleMovie.trim();
 
-                                                    if (stringHelper.shallowCompare(title, titleMovie)) {
+                                                    if (stringHelper.shallowCompare(title1, titleMovie)) {
 
                                                         if (type == 'movie' && !seasonMovie) {
                                                             arrInfo.push(hrefMovie);
@@ -140,15 +142,15 @@ var Series9 = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 18;
+                                _context3.next = 20;
                                 return Promise.all(arrPromise);
 
-                            case 18:
+                            case 20:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context3.abrupt('return');
 
-                            case 20:
+                            case 22:
                             case 'end':
                                 return _context3.stop();
                         }
