@@ -254,6 +254,25 @@
                 "movie",
                 "tv"
             ]
+        },
+        "darewatch": {
+            "name": "darewatch",
+            "domain": "darewatch.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/darewatch.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "popcorns": {
+            "name": "popcorns",
+            "domain": "popcorns.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hdpopcornsco.js",
+            "type": [
+                "movie"
+            ]
         }
     },
     "hosts": {
@@ -356,13 +375,13 @@
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidushare.js"
         },
-        "ok-ru": {
-            "name": "ok-ru",
+        "okru": {
+            "name": "okru",
             "domain": [
                 "ok.ru"
             ],
-            "version": "0.0.6",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ok-ru.js"
+            "version": "0.1.9",
+            "url": "hhttps://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ok-ru.js"
         },
         "vidnode": {
             "name": "vidnode",
@@ -436,7 +455,7 @@
             "domain": [
                 "default.to"
             ],
-            "version": "0.7.0",
+            "version": "0.7.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/default.js"
         },
         "googlevideo": {
@@ -460,7 +479,7 @@
             "domain": [
                 "vidoza.net"
             ],
-            "version": "0.0.6",
+            "version": "0.0.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidoza.js"
         },
         "realdebit": {

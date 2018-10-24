@@ -6,74 +6,51 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Defaulthost = function () {
-    function Defaulthost(props) {
-        _classCallCheck(this, Defaulthost);
+var PopcornsSV = function () {
+    function PopcornsSV(props) {
+        _classCallCheck(this, PopcornsSV);
 
         this.libs = props.libs;
         this.settings = props.settings;
         this.state = {};
     }
 
-    _createClass(Defaulthost, [{
+    _createClass(PopcornsSV, [{
+        key: 'convertToEmbed',
+        value: function convertToEmbed() {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+        }
+    }, {
         key: 'getLink',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
-                var _libs, httpRequest, cheerio, isEmbed, results, isDie;
+                var _libs, httpRequest, cheerio, results, isDie;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
-                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
-                                    _context.next = 2;
-                                    break;
-                                }
-
-                                throw new Error('NOT_FOUND');
-
-                            case 2:
-                                throw new Error('NOT_FOUND');
-
-                            case 7:
-                                _context.next = 9;
-                                return httpRequest.getHeader(url);
-
-                            case 9:
-                                isEmbed = _context.sent;
-
-                                if (!(JSON.stringify(isEmbed).indexOf('video/mp4') == -1)) {
-                                    _context.next = 12;
-                                    break;
-                                }
-
-                                return _context.abrupt('return', {
-                                    host: {
-                                        url: url,
-                                        name: "CDN OK"
-                                    },
-                                    result: []
-                                });
-
-                            case 12:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                 results = [];
                                 isDie = 'NOR';
-                                _context.prev = 14;
-                                _context.next = 17;
+                                _context.prev = 3;
+                                _context.next = 6;
                                 return httpRequest.isLinkDie(url);
 
-                            case 17:
+                            case 6:
                                 isDie = _context.sent;
-                                _context.next = 22;
+                                _context.next = 11;
                                 break;
 
-                            case 20:
-                                _context.prev = 20;
-                                _context.t0 = _context['catch'](14);
+                            case 9:
+                                _context.prev = 9;
+                                _context.t0 = _context['catch'](3);
 
-                            case 22:
+                            case 11:
 
-                                if (isDie != false && isDie != 'NOR') {
+                                if (isDie != false) {
 
                                     results.push({
                                         file: url, label: 'NOR', type: "direct", size: isDie
@@ -83,17 +60,17 @@ var Defaulthost = function () {
                                 return _context.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "CDN"
+                                        name: "PopcornsSV"
                                     },
                                     result: results
                                 });
 
-                            case 24:
+                            case 13:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[14, 20]]);
+                }, _callee, this, [[3, 9]]);
             }));
 
             function getLink(_x) {
@@ -104,9 +81,9 @@ var Defaulthost = function () {
         }()
     }]);
 
-    return Defaulthost;
+    return PopcornsSV;
 }();
 
 thisSource.function = function (libs, settings) {
-    return new Defaulthost({ libs: libs, settings: settings });
+    return new PopcornsSV({ libs: libs, settings: settings });
 };

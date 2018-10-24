@@ -126,19 +126,20 @@ var Vidoza = function () {
                                 m = html.match(/source src="([^"]+)/);
 
                                 if (!(m != undefined)) {
-                                    _context2.next = 16;
+                                    _context2.next = 17;
                                     break;
                                 }
 
-                                if (!(m[1].search('https://') != -1 && m[1].search('http://') != -1)) {
-                                    _context2.next = 16;
+                                if (!(m[1].search('https://') != -1 || m[1].search('http://') != -1)) {
+                                    _context2.next = 17;
                                     break;
                                 }
 
-                                _context2.next = 14;
+                                console.log('vidozaaaa', m[1]);
+                                _context2.next = 15;
                                 return httpRequest.isLinkDie(m[1]);
 
-                            case 14:
+                            case 15:
                                 isDie = _context2.sent;
 
                                 sources.push({
@@ -148,7 +149,7 @@ var Vidoza = function () {
                                     size: isDie
                                 });
 
-                            case 16:
+                            case 17:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -157,7 +158,7 @@ var Vidoza = function () {
                                     result: sources
                                 });
 
-                            case 17:
+                            case 18:
                             case 'end':
                                 return _context2.stop();
                         }

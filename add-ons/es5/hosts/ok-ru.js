@@ -138,15 +138,16 @@ var OK_RU = function () {
                                                     case 2:
                                                         isDie = _context2.sent;
 
+                                                        console.log(isDie, 'okru-size');
 
                                                         if (isDie != false) {
 
                                                             results.push({
-                                                                file: val.url, label: val.name, type: "embed", size: isDie
+                                                                file: val.url, label: val.name, type: "direct", size: isDie
                                                             });
                                                         }
 
-                                                    case 4:
+                                                    case 5:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
@@ -165,7 +166,7 @@ var OK_RU = function () {
                                 return _context3.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "ok-ru"
+                                        name: "okru"
                                     },
                                     result: results
                                 });

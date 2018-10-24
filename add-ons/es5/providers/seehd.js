@@ -162,8 +162,10 @@ var Seehd = function () {
                                                             var titleMovie = $(this).find('a h2').text();
                                                             titleMovie = titleMovie.replace('Watch Online', '').trim();
                                                             var yearMovie = titleMovie.split(' ');
+                                                            console.log(titleMovie, yearMovie);
                                                             yearMovie = yearMovie.length > 0 ? yearMovie[yearMovie.length - 1] : 0;
                                                             titleMovie = titleMovie.replace(yearMovie, '').trim();
+                                                            console.log(titleMovie, yearMovie, 'f');
 
                                                             if (stringHelper.shallowCompare(title, titleMovie)) {
 
