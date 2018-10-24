@@ -381,7 +381,7 @@
                 "ok.ru"
             ],
             "version": "0.1.9",
-            "url": "hhttps://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ok-ru.js"
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ok-ru.js"
         },
         "vidnode": {
             "name": "vidnode",
