@@ -491,6 +491,14 @@
             ],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/realdebit.js"
+        },
+        "hdpopcornscosv": {
+            "name": "hdpopcornscosv",
+            "domain": [
+                "85.93.91.137"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/hdpopcornscosv.js"
         }
     }
 }
