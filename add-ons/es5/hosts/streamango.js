@@ -219,43 +219,51 @@ var Streamango = function () {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
+                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                  _context3.next = 2;
+                  break;
+                }
+
+                throw new Error('NOT_FOUND');
+
+              case 2:
                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
-                _context3.next = 3;
+                _context3.next = 5;
                 return this.checkLive(url);
 
-              case 3:
+              case 5:
                 html = _context3.sent;
 
                 if (!(html == false)) {
-                  _context3.next = 6;
+                  _context3.next = 8;
                   break;
                 }
 
                 throw new Error("LINK DIE");
 
-              case 6:
+              case 8:
                 $ = cheerio.load(html);
                 targetedScriptString = $('script:contains("var srces")').html();
 
                 if (!(targetedScriptString == null)) {
-                  _context3.next = 10;
+                  _context3.next = 12;
                   break;
                 }
 
                 throw new Error("ERROR GET LINK STREAMANGO - " + url);
 
-              case 10:
+              case 12:
                 reg = /srces.push *\( *{ *type *: *"video\/mp4"(.*);/g;
                 matchArr = targetedScriptString.match(reg);
 
                 if (!(matchArr == null)) {
-                  _context3.next = 14;
+                  _context3.next = 16;
                   break;
                 }
 
                 throw new Error("ERROR GET LINK STREAMANGO 1");
 
-              case 14:
+              case 16:
                 sources = [];
                 srces = [];
 
@@ -302,10 +310,10 @@ var Streamango = function () {
                     return _ref3.apply(this, arguments);
                   };
                 }());
-                _context3.next = 21;
+                _context3.next = 23;
                 return Promise.all(arrPromise);
 
-              case 21:
+              case 23:
                 return _context3.abrupt("return", {
                   host: {
                     url: url,
@@ -314,7 +322,7 @@ var Streamango = function () {
                   result: resultArr
                 });
 
-              case 22:
+              case 24:
               case "end":
                 return _context3.stop();
             }

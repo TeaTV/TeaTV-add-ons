@@ -268,7 +268,7 @@
         "popcorns": {
             "name": "popcorns",
             "domain": "popcorns.dit",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hdpopcornsco.js",
             "type": [
                 "movie"
@@ -307,7 +307,7 @@
         "streamango": {
             "name": "streamango",
             "domain": "streamango.com",
-            "version": "0.0.5",
+            "version": "0.0.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/streamango.js"
         },
         "openload": {
