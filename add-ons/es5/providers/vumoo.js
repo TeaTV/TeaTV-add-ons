@@ -120,13 +120,13 @@ var Vumoo = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
-                var _libs2, httpRequest, cheerio, base64, cryptoJs, axios, _movieInfo2, episode, type, js, run, hosts, arrRedirect, arrLinkEmbed, detailUrl, htmlDetail, $, itemServer, arrPromise, arrPromiseEmbed;
+                var _libs2, httpRequest, cheerio, base64, cryptoJs, axios, qs, _movieInfo2, episode, type, js, run, hosts, arrRedirect, arrLinkEmbed, detailUrl, htmlDetail, $, itemServer, arrPromise, arrPromiseEmbed;
 
                 return regeneratorRuntime.wrap(function _callee4$(_context4) {
                     while (1) {
                         switch (_context4.prev = _context4.next) {
                             case 0:
-                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64, cryptoJs = _libs2.cryptoJs, axios = _libs2.axios;
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64, cryptoJs = _libs2.cryptoJs, axios = _libs2.axios, qs = _libs2.qs;
                                 _movieInfo2 = this.movieInfo, episode = _movieInfo2.episode, type = _movieInfo2.type;
 
                                 if (this.state.detailUrl) {
