@@ -73,15 +73,16 @@ var Vidoza = function () {
                     while (1) {
                         switch (_context2.prev = _context2.next) {
                             case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+
                                 if (!(url.search('https://') == -1 && url.search('http://') == -1)) {
-                                    _context2.next = 2;
+                                    _context2.next = 3;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
-                            case 2:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                            case 3:
                                 sources = [];
                                 _context2.next = 6;
                                 return this.checkLive(url);
@@ -126,20 +127,28 @@ var Vidoza = function () {
                                 m = html.match(/source src="([^"]+)/);
 
                                 if (!(m != undefined)) {
-                                    _context2.next = 17;
+                                    _context2.next = 19;
                                     break;
                                 }
 
                                 if (!(m[1].search('https://') != -1 || m[1].search('http://') != -1)) {
-                                    _context2.next = 17;
+                                    _context2.next = 19;
                                     break;
                                 }
 
+                                if (!(m[1].indexOf('640x360_universal_july16.mp4') != -1)) {
+                                    _context2.next = 14;
+                                    break;
+                                }
+
+                                throw new Error('FUCKING Vidoza');
+
+                            case 14:
                                 console.log('vidozaaaa', m[1]);
-                                _context2.next = 15;
+                                _context2.next = 17;
                                 return httpRequest.isLinkDie(m[1]);
 
-                            case 15:
+                            case 17:
                                 isDie = _context2.sent;
 
                                 sources.push({
@@ -149,7 +158,7 @@ var Vidoza = function () {
                                     size: isDie
                                 });
 
-                            case 17:
+                            case 19:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -158,7 +167,7 @@ var Vidoza = function () {
                                     result: sources
                                 });
 
-                            case 18:
+                            case 20:
                             case 'end':
                                 return _context2.stop();
                         }

