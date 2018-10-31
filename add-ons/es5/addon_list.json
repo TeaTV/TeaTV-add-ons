@@ -52,7 +52,7 @@
         "vumoo": {
             "name": "vumoo",
             "domain": "vumoo.to",
-            "version": "0.4.9",
+            "version": "0.5.0",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vumoo.js",
             "type": [
                 "movie",
@@ -62,7 +62,7 @@
         "flixanity": {
             "name": "flixanity",
             "domain": "flixanity.mobi",
-            "version": "0.4.3",
+            "version": "0.4.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/flixanity.js",
             "type": [
                 "movie",
@@ -151,6 +151,16 @@
             "domain": "thanqn.dit",
             "version": "0.1.9",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/thanqn.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "umbo": {
+            "name": "umbo",
+            "domain": "umbo.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/umbo.js",
             "type": [
                 "movie",
                 "tv"

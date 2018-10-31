@@ -55,6 +55,9 @@ var Gomoviesec = function () {
 
                             case 7:
                                 dataSearch = _context.sent;
+
+                                process.exit();
+                                //console.log(dataSearch);
                                 $ = cheerio.load(dataSearch.data);
                                 as = $('.movies-list .ml-item a');
 
@@ -79,28 +82,28 @@ var Gomoviesec = function () {
                                         }
                                     }
                                 });
-                                _context.next = 16;
+                                _context.next = 17;
                                 break;
 
-                            case 13:
-                                _context.prev = 13;
+                            case 14:
+                                _context.prev = 14;
                                 _context.t0 = _context['catch'](3);
 
                                 console.log(String(_context.t0));
 
-                            case 16:
+                            case 17:
 
                                 if (detailUrl) detailUrl = detailUrl + 'watching.html';
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 19:
+                            case 20:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[3, 13]]);
+                }, _callee, this, [[3, 14]]);
             }));
 
             function searchDetail() {

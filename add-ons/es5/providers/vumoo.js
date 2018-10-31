@@ -29,70 +29,45 @@ var Vumoo = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, axios, qs, _movieInfo, title, year, season, episode, type, getJs, match, js, run, t, detailUrl, urlSearch, jsonSearch;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, getJs, match, t, detailUrl, urlSearch, jsonSearch;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64, axios = _libs.axios, qs = _libs.qs;
-                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
-                                _context.next = 4;
-                                return httpRequest.get(URL.SEARCH_JS);
+                                throw new Error('no link');
 
-                            case 4:
+                            case 5:
                                 getJs = _context.sent;
                                 match = getJs.data.match(/search\?t=([^"]+)/);
 
                                 if (!(match[1] == undefined)) {
-                                    _context.next = 8;
+                                    _context.next = 9;
                                     break;
                                 }
 
                                 return _context.abrupt('return');
 
-                            case 8:
-                                if (!(axios == undefined)) {
-                                    _context.next = 10;
-                                    break;
-                                }
-
-                                throw new Error('No lib');
-
-                            case 10:
-                                _context.next = 12;
-                                return httpRequest.get('https://logstatus.teatv.app/?source=vumoo&status=1');
-
-                            case 12:
-                                js = _context.sent;
-
-                                try {
-                                    js = JSON.parse(js);
-                                } catch (e) {}
-                                run = void 0;
-
-                                eval(js.data.data);
-                                if (js.data.e != undefined) run();
-
+                            case 9:
                                 t = match[1];
                                 detailUrl = false;
                                 urlSearch = URL.SEARCH(encodeURI(title), t);
-                                _context.next = 22;
+                                _context.next = 14;
                                 return httpRequest.get(urlSearch);
 
-                            case 22:
+                            case 14:
                                 jsonSearch = _context.sent;
 
                                 jsonSearch = jsonSearch.data;
 
                                 if (jsonSearch.suggestions) {
-                                    _context.next = 26;
+                                    _context.next = 18;
                                     break;
                                 }
 
                                 throw new Error('NOT SEARCH VUMOO');
 
-                            case 26:
+                            case 18:
 
                                 jsonSearch.suggestions.forEach(function (val) {
 
@@ -124,7 +99,7 @@ var Vumoo = function () {
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 29:
+                            case 21:
                             case 'end':
                                 return _context.stop();
                         }
