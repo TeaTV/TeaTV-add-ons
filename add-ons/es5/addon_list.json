@@ -49,26 +49,6 @@
                 "movie"
             ]
         },
-        "vumoo": {
-            "name": "vumoo",
-            "domain": "vumoo.to",
-            "version": "0.5.0",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vumoo.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "flixanity": {
-            "name": "flixanity",
-            "domain": "flixanity.mobi",
-            "version": "0.4.4",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/flixanity.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "playdk": {
             "name": "playdk",
             "domain": "playdk.net",
