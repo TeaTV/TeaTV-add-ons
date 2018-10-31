@@ -136,16 +136,6 @@
                 "tv"
             ]
         },
-        "umbo": {
-            "name": "umbo",
-            "domain": "umbo.dit",
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/umbo.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "seriesfree": {
             "name": "seriesfree",
             "domain": "seriesfree.dit",
