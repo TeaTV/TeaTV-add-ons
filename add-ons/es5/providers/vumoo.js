@@ -35,6 +35,8 @@ var Vumoo = function () {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
+                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 throw new Error('no link');
 
                             case 5:
