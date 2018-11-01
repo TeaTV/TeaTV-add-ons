@@ -157,6 +157,20 @@ var Streamango = function () {
   }
 
   _createClass(Streamango, [{
+    key: "getQuality",
+    value: function getQuality(url) {
+      var qualities = ['CAM', 'TS', 'HDTS', 'DVDRip', 'HDTV', 'HDRip', 'WEB-DL', 'WEBRip', 'BRRip', 'Blu-ray', 'BDRip', 'WEB'];
+
+      for (var i in qualities) {
+        var quality = qualities[i];
+        if (url.toLowerCase().indexOf(quality.toLowerCase()) != -1) {
+          return quality;
+        }
+      }
+
+      return false;
+    }
+  }, {
     key: "checkLive",
     value: function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
@@ -213,6 +227,8 @@ var Streamango = function () {
     key: "getLink",
     value: function () {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
+        var _this = this;
+
         var _libs, httpRequest, cheerio, html, $, targetedScriptString, reg, matchArr, sources, srces, resultArr, arrPromise;
 
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
@@ -273,11 +289,15 @@ var Streamango = function () {
                 });
 
                 resultArr = srces.map(function (val, index) {
-                  return {
+                  var quality = _this.getQuality(url);
+                  var s = {
                     file: "https:" + val.src,
                     label: val.height + "p",
                     type: "direct"
                   };
+
+                  if (quality) s.source_label = quality;
+                  return s;
                 });
                 arrPromise = resultArr.map(function () {
                   var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {

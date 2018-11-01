@@ -59,6 +59,20 @@ var Openload = function () {
     // }
 
     _createClass(Openload, [{
+        key: 'getQuality',
+        value: function getQuality(url) {
+            var qualities = ['CAM', 'TS', 'HDTS', 'DVDRip', 'HDTV', 'HDRip', 'WEB-DL', 'WEBRip', 'BRRip', 'Blu-ray', 'BDRip', 'WEB'];
+
+            for (var i in qualities) {
+                var quality = qualities[i];
+                if (url.toLowerCase().indexOf(quality.toLowerCase()) != -1) {
+                    return quality;
+                }
+            }
+
+            return false;
+        }
+    }, {
         key: 'checkLive',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
@@ -115,13 +129,13 @@ var Openload = function () {
         key: 'getUsingAPI',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cryptoJs, html, token, apiResponse, _apiResponse$data, status, data, error, isDie;
+                var _libs, httpRequest, cryptoJs, cheerio, html, token, apiResponse, _apiResponse$data, status, data, error, isDie, $, title, quality, s;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
                         switch (_context2.prev = _context2.next) {
                             case 0:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cryptoJs = _libs.cryptoJs;
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cryptoJs = _libs.cryptoJs, cheerio = _libs.cheerio;
                                 html = false;
                                 _context2.prev = 2;
                                 _context2.next = 5;
@@ -168,54 +182,62 @@ var Openload = function () {
 
                                 _apiResponse$data = apiResponse.data, status = _apiResponse$data.status, data = _apiResponse$data.data, error = _apiResponse$data.error;
 
+                                console.log(data, status);
+
                                 if (!error) {
-                                    _context2.next = 26;
+                                    _context2.next = 27;
                                     break;
                                 }
 
                                 throw new Error(error);
 
-                            case 26:
+                            case 27:
                                 if (!(status == 200)) {
-                                    _context2.next = 42;
+                                    _context2.next = 48;
                                     break;
                                 }
 
                                 isDie = false;
-                                _context2.prev = 28;
-                                _context2.next = 31;
+                                _context2.prev = 29;
+                                _context2.next = 32;
                                 return httpRequest.isLinkDie(data);
 
-                            case 31:
+                            case 32:
                                 isDie = _context2.sent;
-                                _context2.next = 37;
+                                _context2.next = 38;
                                 break;
 
-                            case 34:
-                                _context2.prev = 34;
-                                _context2.t2 = _context2['catch'](28);
+                            case 35:
+                                _context2.prev = 35;
+                                _context2.t2 = _context2['catch'](29);
 
 
                                 console.log(String(_context2.t2));
 
-                            case 37:
+                            case 38:
                                 if (!(isDie == false)) {
-                                    _context2.next = 39;
+                                    _context2.next = 40;
                                     break;
                                 }
 
                                 throw new Error("NOT LINK");
 
-                            case 39:
+                            case 40:
+                                $ = cheerio.load(html);
+                                title = $(".title").text();
+                                quality = this.getQuality(title);
+                                s = { file: data, label: "NOR", type: "direct", size: isDie };
+
+                                if (quality) s.source_label = quality;
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
                                         name: "openload"
                                     },
-                                    result: [{ file: data, label: "NOR", type: "direct", size: isDie }]
+                                    result: [s]
                                 });
 
-                            case 42:
+                            case 48:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -224,12 +246,12 @@ var Openload = function () {
                                     result: []
                                 });
 
-                            case 43:
+                            case 49:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[2, 8], [13, 19], [28, 34]]);
+                }, _callee2, this, [[2, 8], [13, 19], [29, 35]]);
             }));
 
             function getUsingAPI(_x2) {

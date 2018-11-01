@@ -41,9 +41,36 @@ var Flixanity = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, qs = _libs.qs;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
-                                throw new Error('no link');
 
-                            case 6:
+                                /*
+                                let dataBody = {
+                                    sl: URL.KEY_SL,
+                                    q: stringHelper.convertToSearchQueryString(title, '-')
+                                };
+                                 let resultSearch = await httpRequest.post(URL.SEARCH, {'content-type' : 'application/json; charset=utf-8'}, JSON.stringify(dataBody));
+                                 if( resultSearch.data == null ) return;
+                                 resultSearch.data.forEach((item) => {
+                                     if( stringHelper.shallowCompare(item.title, title) ) {
+                                         if( item.type == 'movie' && type == 'movie' && item.year == year ) {
+                                             this.state.detailUrl = URL.DOMAIN + item.permalink;
+                                        } else if( item.type == 'show' && type == 'tv' ) {
+                                            
+                                            this.state.detailUrl = `${URL.DOMAIN}${item.permalink}/season/${season}/episode/${episode}`;
+                                        }
+                                    }
+                                    
+                                });
+                                */
+
+                                if (type == 'movie') {
+                                    this.state.detailUrl = URL.DOMAIN + '/movie/' + stringHelper.convertToSearchQueryString(title, '-');
+                                } else {
+                                    this.state.detailUrl = URL.DOMAIN + '/tv-show/' + stringHelper.convertToSearchQueryString(title, '-') + '/season/' + season + '/episode/' + episode;
+                                }
+
+                                return _context.abrupt('return');
+
+                            case 4:
                             case 'end':
                                 return _context.stop();
                         }

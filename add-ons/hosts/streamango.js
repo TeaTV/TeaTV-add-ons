@@ -207,6 +207,7 @@ class Streamango {
       this.state    = {};
   }
 
+
   async checkLive(url) {
 
     let { httpRequest } = this.libs;
@@ -243,9 +244,10 @@ class Streamango {
     });
     
     let resultArr = srces.map((val, index) => {
+        let quality = this.getQuality(url);
         return {
             file: "https:" + val.src,
-            label: val.height + "p",
+            label: quality?quality:val.height + "p",
             type: "direct"
         };
     });

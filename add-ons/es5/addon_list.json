@@ -136,6 +136,16 @@
                 "tv"
             ]
         },
+        "umbo": {
+            "name": "umbo",
+            "domain": "umbo.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/umbo.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
         "seriesfree": {
             "name": "seriesfree",
             "domain": "seriesfree.dit",
@@ -287,7 +297,7 @@
         "streamango": {
             "name": "streamango",
             "domain": "streamango.com",
-            "version": "0.0.6",
+            "version": "0.0.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/streamango.js"
         },
         "openload": {
@@ -301,7 +311,7 @@
                 "oload.site",
                 "oload.win"
             ],
-            "version": "0.2.2",
+            "version": "0.2.3",
             "author": "psyntium",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/openload.js"
         },
@@ -459,7 +469,7 @@
             "domain": [
                 "vidoza.net"
             ],
-            "version": "0.9.8",
+            "version": "1.0.0",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidoza.js"
         },
         "realdebit": {

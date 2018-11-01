@@ -16,6 +16,20 @@ var Vidoza = function () {
     }
 
     _createClass(Vidoza, [{
+        key: 'getQuality',
+        value: function getQuality(url) {
+            var qualities = ['CAM', 'TS', 'HDTS', 'DVDRip', 'HDTV', 'HDRip', 'WEB-DL', 'WEBRip', 'BRRip', 'Blu-ray', 'BDRip', 'WEB'];
+
+            for (var i in qualities) {
+                var quality = qualities[i];
+                if (url.toLowerCase().indexOf(quality.toLowerCase()) != -1) {
+                    return quality;
+                }
+            }
+
+            return false;
+        }
+    }, {
         key: 'checkLive',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
@@ -67,7 +81,7 @@ var Vidoza = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, sources, html, m, isDie;
+                var _libs, httpRequest, cheerio, sources, html, m, isDie, $, title, quality, s;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -127,12 +141,12 @@ var Vidoza = function () {
                                 m = html.match(/source src="([^"]+)/);
 
                                 if (!(m != undefined)) {
-                                    _context2.next = 19;
+                                    _context2.next = 23;
                                     break;
                                 }
 
                                 if (!(m[1].search('https://') != -1 || m[1].search('http://') != -1)) {
-                                    _context2.next = 19;
+                                    _context2.next = 23;
                                     break;
                                 }
 
@@ -144,21 +158,25 @@ var Vidoza = function () {
                                 throw new Error('FUCKING Vidoza');
 
                             case 14:
-                                console.log('vidozaaaa', m[1]);
-                                _context2.next = 17;
+                                _context2.next = 16;
                                 return httpRequest.isLinkDie(m[1]);
 
-                            case 17:
+                            case 16:
                                 isDie = _context2.sent;
-
-                                sources.push({
-                                    label: m[1].indexOf("mp4") !== -1 ? 'NOR' : "NOR",
+                                $ = cheerio.load(html);
+                                title = $('title').text();
+                                quality = this.getQuality(title);
+                                s = {
+                                    label: "NOR",
                                     file: m[1],
                                     type: "direct",
                                     size: isDie
-                                });
+                                };
 
-                            case 19:
+                                if (quality) s.source_label = quality;
+                                sources.push(s);
+
+                            case 23:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -167,7 +185,7 @@ var Vidoza = function () {
                                     result: sources
                                 });
 
-                            case 20:
+                            case 24:
                             case 'end':
                                 return _context2.stop();
                         }
