@@ -263,6 +263,15 @@
             "type": [
                 "movie"
             ]
+        },
+        "flixanity": {
+            "name": "flixanity",
+            "domain": "flixanity.io",
+            "version": "1.6.9",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/flixanity.js",
+            "type": [
+                "movie"
+            ]
         }
     },
     "hosts": {
