@@ -132,7 +132,7 @@ var Flixanity = function () {
                                 // let resultApi = await httpRequest.postCloudflare(URL.EMBED_URL, {}, dataBody);
 
                                 _context2.next = 15;
-                                return httpRequest.post(URL.EMBED_URL, {}, dataBody);
+                                return httpRequest.post(URL.EMBED_URL, { 'User-Agent': 'Firefox 59' }, dataBody);
 
                             case 15:
                                 resultApi = _context2.sent;
