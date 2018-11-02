@@ -119,7 +119,7 @@ var Putload = function () {
 
                                 if (size != false && size != 'NOR' && size != NaN) {
                                     sources.push({
-                                        file: linkcdn, label: 'NOR', type: "embed", size: size
+                                        file: linkcdn, label: 'NOR', type: "direct", size: size
                                     });
                                 }
 
@@ -141,7 +141,7 @@ var Putload = function () {
                                     sources.push({
                                         label: 'NOR',
                                         file: linkHls,
-                                        type: "embed",
+                                        type: "direct",
                                         size: (Math.random() * (2.2 - 1.9) + 1.9).toFixed(2)
                                     });
                                 }
