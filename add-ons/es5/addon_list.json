@@ -306,7 +306,7 @@
         "streamango": {
             "name": "streamango",
             "domain": "streamango.com",
-            "version": "0.0.7",
+            "version": "0.0.8",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/streamango.js"
         },
         "openload": {
@@ -320,7 +320,7 @@
                 "oload.site",
                 "oload.win"
             ],
-            "version": "0.2.3",
+            "version": "0.2.4",
             "author": "psyntium",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/openload.js"
         },
@@ -345,7 +345,7 @@
             "domain": [
                 "estreamdisable.to"
             ],
-            "version": "0.0.3",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/estream.js"
         },
         "thevideo": {
@@ -478,7 +478,7 @@
             "domain": [
                 "vidoza.net"
             ],
-            "version": "1.0.0",
+            "version": "1.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidoza.js"
         },
         "realdebit": {
