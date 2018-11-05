@@ -272,6 +272,34 @@
             "type": [
                 "movie"
             ]
+        },
+        "watchhdmovie": {
+            "name": "watchhdmovie",
+            "domain": "watchhdmovie.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchhdmovie.js",
+            "type": [
+                "movie"
+            ]
+        },
+        "filmxyz": {
+            "name": "filmxyz",
+            "domain": "filmxyz.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/filmxy.js",
+            "type": [
+                "movie"
+            ]
+        },
+        "gostream123tv": {
+            "name": "gostream123tv",
+            "domain": "gostream123tv.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123gostreamtv.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
