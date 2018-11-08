@@ -291,11 +291,11 @@
                 "movie"
             ]
         },
-        "gostream123tv": {
-            "name": "gostream123tv",
-            "domain": "gostream123tv.dit",
+        "streamlikers": {
+            "name": "streamlikers",
+            "domain": "streamlikers.dit",
             "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123gostreamtv.js",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/streamlikers.js",
             "type": [
                 "movie",
                 "tv"
