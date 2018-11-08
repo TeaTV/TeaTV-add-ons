@@ -300,6 +300,16 @@
                 "movie",
                 "tv"
             ]
+        },
+        "insidefilm": {
+            "name": "insidefilm",
+            "domain": "insidefilm.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/insidefilm.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
