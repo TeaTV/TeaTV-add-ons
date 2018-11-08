@@ -49,7 +49,7 @@ var Streamlikers = function () {
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, qs = _libs.qs;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 detailUrl = false;
-                                urlSearch = URL.SEARCH(title.replace(/\s/g, '+'));
+                                urlSearch = URL.SEARCH(title.replace(/\s/g, '+') + new Date().getTime());
                                 _context.next = 6;
                                 return httpRequest.getHTML(urlSearch, URL.HEADERS(URL.DOMAIN));
 
