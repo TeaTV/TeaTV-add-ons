@@ -291,10 +291,10 @@
                 "movie"
             ]
         },
-        "streamlikers": {
-            "name": "streamlikers",
+        "slikers": {
+            "name": "slikers",
             "domain": "streamlikers.dit",
-            "version": "0.0.3",
+            "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/streamlikers.js",
             "type": [
                 "movie",

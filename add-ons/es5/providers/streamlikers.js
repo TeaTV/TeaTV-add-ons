@@ -11,10 +11,11 @@ var URL = {
     SEARCH: function SEARCH(title) {
         return 'http://www.streamlikers.com/?s=' + title;
     },
-    HEADERS: function HEADERS(referer) {
+    HEADERS: function HEADERS(time) {
         return {
-            'User-Agent': 'Firefox 59',
-            'Referer': referer
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_' + time + ') AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Referer': 'http://www.streamlikers.com/' + Math.round(+new Date())
         };
     }
 };
@@ -51,16 +52,17 @@ var Streamlikers = function () {
                                 detailUrl = false;
                                 urlSearch = URL.SEARCH(title.replace(/\s/g, '+') + new Date().getTime());
                                 _context.next = 6;
-                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS(URL.DOMAIN));
+                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS(Math.round(+new Date())));
 
                             case 6:
                                 resultSearch = _context.sent;
-                                $ = cheerio.load(resultSearch);
+                                $ = cheerio.load(resultSearch.data);
 
                                 $('.movies-list-full .ml-item a').each(function () {
 
                                     var hrefMovie = $(this).attr('href');
                                     var titleMovie = $(this).attr('oldtitle');
+                                    console.log(hrefMovie, titleMovie);
                                     if (stringHelper.shallowCompare(title, titleMovie)) detailUrl = hrefMovie;
                                 });
 
@@ -94,7 +96,7 @@ var Streamlikers = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, qs, hosts, type, htmlDetail, detailUrl, alloweds, m;
+                var _libs2, httpRequest, cheerio, qs, hosts, type, htmlDetail, detailUrl, alloweds, $, src;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -113,16 +115,33 @@ var Streamlikers = function () {
                                 hosts = [];
                                 type = this.movieInfo.type;
                                 _context2.next = 7;
-                                return httpRequest.getCloudflare(this.state.detailUrl);
+                                return httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS(Math.round(+new Date())));
 
                             case 7:
                                 htmlDetail = _context2.sent;
                                 detailUrl = this.state.detailUrl;
-                                alloweds = ['vidoza.net', 'streamango.com', 'www.rapidvideo.com', 'ok.ru'];
-                                m = htmlDetail.split('&quot;');
-                                throw new Error('NOT_FOUND');
+                                alloweds = ['vidoza.net', 'streamango.com', 'www.rapidvideo.com', 'openload.co'];
+                                $ = cheerio.load(htmlDetail.data);
+                                src = $('.movieplay iframe').attr('src');
 
-                            case 13:
+
+                                if (alloweds.includes(getDomain(src))) {
+                                    hosts.push({
+                                        provider: {
+                                            url: this.state.detailUrl,
+                                            name: "slikers"
+                                        },
+                                        result: {
+                                            file: src,
+                                            label: "embed",
+                                            type: "embed"
+                                        }
+                                    });
+                                }
+
+                                this.state.hosts = hosts;
+
+                            case 14:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -155,7 +174,7 @@ thisSource.function = function () {
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: 'Streamlikers',
+                            name_source: 'slikers',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
