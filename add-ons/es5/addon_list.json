@@ -294,7 +294,7 @@
         "streamlikers": {
             "name": "streamlikers",
             "domain": "streamlikers.dit",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/streamlikers.js",
             "type": [
                 "movie",

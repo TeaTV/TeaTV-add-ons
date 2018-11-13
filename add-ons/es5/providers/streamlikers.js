@@ -51,7 +51,7 @@ var Streamlikers = function () {
                                 detailUrl = false;
                                 urlSearch = URL.SEARCH(title.replace(/\s/g, '+') + new Date().getTime());
                                 _context.next = 6;
-                                return httpRequest.getHTML(urlSearch, URL.HEADERS(URL.DOMAIN));
+                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS(URL.DOMAIN));
 
                             case 6:
                                 resultSearch = _context.sent;
@@ -113,7 +113,7 @@ var Streamlikers = function () {
                                 hosts = [];
                                 type = this.movieInfo.type;
                                 _context2.next = 7;
-                                return httpRequest.getHTML(this.state.detailUrl);
+                                return httpRequest.getCloudflare(this.state.detailUrl);
 
                             case 7:
                                 htmlDetail = _context2.sent;
