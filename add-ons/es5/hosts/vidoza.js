@@ -18,7 +18,7 @@ var Vidoza = function () {
     _createClass(Vidoza, [{
         key: 'getQuality',
         value: function getQuality(url) {
-            var qualities = ['DVDRip', 'HDTV', 'HDRip', 'WEB-DL', 'WEBRip', 'BRRip', 'Bluray', 'Blu-ray', 'BDRip', 'WEB', 'HDTS', 'TS', 'CAM'];
+            var qualities = ['DVDRip', 'HDTV', 'HDRip', 'WEB-DL', 'WEBRip', 'BRRip', 'Blu ray', 'Bluray', 'Blu-ray', 'BDRip', 'WEB', 'HDTS', 'TS', 'CAM'];
 
             for (var i in qualities) {
                 var quality = qualities[i];
