@@ -300,16 +300,6 @@
                 "movie",
                 "tv"
             ]
-        },
-        "insidefilm": {
-            "name": "insidefilm",
-            "domain": "insidefilm.dit",
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/insidefilm.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
         }
     },
     "hosts": {
@@ -344,7 +334,7 @@
         "streamango": {
             "name": "streamango",
             "domain": "streamango.com",
-            "version": "0.0.8",
+            "version": "0.0.9",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/streamango.js"
         },
         "openload": {
@@ -358,7 +348,7 @@
                 "oload.site",
                 "oload.win"
             ],
-            "version": "0.2.4",
+            "version": "0.2.5",
             "author": "psyntium",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/openload.js"
         },
@@ -516,7 +506,7 @@
             "domain": [
                 "vidoza.net"
             ],
-            "version": "1.0.1",
+            "version": "1.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidoza.js"
         },
         "realdebit": {
