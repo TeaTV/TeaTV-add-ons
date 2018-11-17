@@ -170,7 +170,7 @@ var Vidoza = function () {
                                     label: "NOR",
                                     file: m[1],
                                     type: "direct",
-                                    size: isDie
+                                    size: isDie ? isDie : ""
                                 };
 
                                 if (quality) s.source_label = quality;
