@@ -195,11 +195,21 @@
                 "tv"
             ]
         },
-        "2dll": {
-            "name": "2dll",
-            "domain": "2dll.dit",
-            "version": "0.0.6",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/2dllws.js",
+        "ddlvalley": {
+            "name": "ddlvalley",
+            "domain": "ddlvalley.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/ddlvalley.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "wrzcraft": {
+            "name": "wrzcraft",
+            "domain": "wrzcraft.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/wrzcraft.js",
             "type": [
                 "movie",
                 "tv"
