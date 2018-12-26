@@ -255,16 +255,6 @@
                 "tv"
             ]
         },
-        "darewatch": {
-            "name": "darewatch",
-            "domain": "darewatch.dit",
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/darewatch.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "popcorns": {
             "name": "popcorns",
             "domain": "popcorns.dit",
@@ -295,7 +285,7 @@
         "filmxyz": {
             "name": "filmxyz",
             "domain": "filmxyz.dit",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/filmxy.js",
             "type": [
                 "movie"
