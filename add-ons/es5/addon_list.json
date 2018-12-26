@@ -482,9 +482,9 @@
         "afdah": {
             "name": "afdah",
             "domain": [
-                "afdah.to"
+                "afdah.info"
             ],
-            "version": "0.9.1",
+            "version": "0.9.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/afdah.js"
         },
         "default": {
