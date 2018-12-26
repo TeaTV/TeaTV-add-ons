@@ -309,6 +309,16 @@
                 "movie",
                 "tv"
             ]
+        },
+        "afdah": {
+            "name": "afdah",
+            "domain": "afdah.dit",
+            "version": "0.6.9",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/afdah.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
