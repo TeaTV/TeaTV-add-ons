@@ -291,6 +291,15 @@
                 "movie"
             ]
         },
+        "scream": {
+            "name": "scream",
+            "domain": "scream.dit",
+            "version": "0.6.9",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/screamcr.js",
+            "type": [
+                "movie"
+            ]
+        },
         "ffilms": {
             "name": "ffilms",
             "domain": "ffilms.dit",
