@@ -140,10 +140,10 @@ var MovieFlixter = function () {
                                 servers.each(function () {
                                     var onclick = '';
                                     var host = $(this).find('td:nth-child(2)').text().trim();
-                                    console.log(host, 'f');
                                     if (['openload.co', 'streamango.com', 'vidoza.net', 'vidlox.me'].includes(host) && sources.length < 10) {
                                         if (type == 'tv') onclick = $(this).find('button').attr('onclick');else onclick = $(this).find('td:nth-child(1)').find('a');
 
+                                        console.log(host, 'http://movieflixter.to' + onclick.attr('href'));
                                         sources.push('http://movieflixter.to' + onclick.attr('href'));
                                     }
                                 });

@@ -7,11 +7,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "https://afdah.to",
-    SEARCH: 'https://afdah.to/wp-content/themes/afdah/ajax-search2.php',
+    DOMAIN: "https://afdah.info",
+    SEARCH: 'https://afdah.info/wp-content/themes/afdah/ajax-search2.php',
     HEADERS: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'Origin': 'http://afdah.to',
+        'Origin': 'https://afdah.info',
         'Accept-Language': 'vi-VN,vi;q=0.8,fr-FR;q=0.6,fr;q=0.4,en-US;q=0.2,en;q=0.2',
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
         'Accept': '*/*',
@@ -190,7 +190,7 @@ thisSource.function = function () {
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: 'Afdah',
+                            name_source: 'afdah',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,

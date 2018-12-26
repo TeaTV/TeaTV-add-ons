@@ -172,7 +172,7 @@ var Afdah = function () {
                                 throw new Error("LINK DIE");
 
                             case 6:
-                                decryp = html.match(/decrypt\(\"([^\"]+)/i);
+                                decryp = html.match(/salt\(\"([^\"]+)/i);
 
                                 decryp = decryp != null ? decryp[1] : '';
 
@@ -189,7 +189,6 @@ var Afdah = function () {
 
 
                                 decryp = eval("[" + decryp + "]");
-
                                 arrPromise = decryp.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(value) {
                                         var isDie;
@@ -197,10 +196,12 @@ var Afdah = function () {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
-                                                        _context2.next = 2;
+
+                                                        if (value.file.indexOf('http') != 0) value.file = 'https://afdah.info' + value.file;
+                                                        _context2.next = 3;
                                                         return httpRequest.isLinkDie(value.file);
 
-                                                    case 2:
+                                                    case 3:
                                                         isDie = _context2.sent;
 
 
@@ -214,7 +215,7 @@ var Afdah = function () {
                                                             });
                                                         }
 
-                                                    case 4:
+                                                    case 5:
                                                     case "end":
                                                         return _context2.stop();
                                                 }

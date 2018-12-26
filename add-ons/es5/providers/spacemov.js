@@ -7,12 +7,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "https://www0.spacemov.is/",
+    DOMAIN: "https://ww.spacemov.is/",
     SEARCH: function SEARCH(title) {
-        return 'https://www0.spacemov.is/wp-admin/admin-ajax.php?action=search_suggestions&keyword=' + title;
+        return 'https://ww.spacemov.is/search-query/' + title;
     },
     HEADERS: {
-        'Origin': '',
+        'Referer': 'spacemov',
         'Accept-Language': 'vi-VN,vi;q=0.8,fr-FR;q=0.6,fr;q=0.4,en-US;q=0.2,en;q=0.2',
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
         'Accept': '*/*',
@@ -35,7 +35,7 @@ var Spacemov = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, cryptoJs, _movieInfo, title, year, season, episode, type, detailUrl, html, json, $, lis;
+                var _libs, httpRequest, cheerio, stringHelper, cryptoJs, _movieInfo, title, year, season, episode, type, detailUrl, html, $, lis;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -48,37 +48,18 @@ var Spacemov = function () {
                                 // your code here
 
                                 html = void 0;
+                                _context.next = 6;
+                                return httpRequest.getHTML(URL.SEARCH(title.replace(/[ '",-]+/g, '+')), URL.HEADERS);
 
-                                if (!(type == 'movie')) {
-                                    _context.next = 10;
-                                    break;
-                                }
-
-                                _context.next = 7;
-                                return httpRequest.getHTML(URL.SEARCH(encodeURI(title)));
-
-                            case 7:
+                            case 6:
                                 html = _context.sent;
-                                _context.next = 13;
-                                break;
-
-                            case 10:
-                                _context.next = 12;
-                                return httpRequest.getHTML(URL.SEARCH(encodeURI(title + ' - Season ' + season)));
-
-                            case 12:
-                                html = _context.sent;
-
-                            case 13:
-                                json = JSON.parse(html);
-                                $ = cheerio.load(json['content']);
-                                lis = $('li');
+                                $ = cheerio.load(html);
+                                lis = $('.movies-list-full .ml-item');
 
 
                                 lis.each(function () {
-
-                                    var hrefMovie = $('.ss-title').first().attr('href');
-                                    var titleMovie = $('.ss-title').first().text();
+                                    var titleMovie = $(this).find('.mli-info h2').text();
+                                    var hrefMovie = $(this).find('a').first().attr('href');
                                     var seasonMovie = titleMovie.match(/ *season *([0-9]+)/i);
                                     seasonMovie = seasonMovie != null ? +seasonMovie[1] : false;
 
@@ -86,9 +67,10 @@ var Spacemov = function () {
                                         titleMovie = titleMovie.replace(/ - *season.*/i, '');
                                     }
 
+                                    console.log(titleMovie, hrefMovie);
+
                                     if (stringHelper.shallowCompare(title, titleMovie)) {
                                         if (type == 'movie' && hrefMovie.search(year) != -1) {
-
                                             detailUrl = hrefMovie;
                                         } else if (type == 'tv' && seasonMovie == season) {
 
@@ -100,7 +82,7 @@ var Spacemov = function () {
                                 if (detailUrl !== false) this.state.detailUrl = detailUrl + 'watching/';else this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 19:
+                            case 12:
                             case 'end':
                                 return _context.stop();
                         }
@@ -175,7 +157,7 @@ var Spacemov = function () {
                                             }
                                         });
                                     } else {
-                                        var e = $(this).find('a').attr('title');
+                                        var e = $(this).attr('title');
                                         var m = e.match(/([0-9]+):/);
                                         if (m != undefined && m[1] == episode) {
                                             if ($(this).attr('data-drive')) hosts.push({

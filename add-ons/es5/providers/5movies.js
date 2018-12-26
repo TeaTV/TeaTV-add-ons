@@ -158,6 +158,7 @@ var ThreeMovies = function () {
 
                             case 19:
 
+                                //detailUrl = 'https://5movies.to/movie/avengers-infinity-war-86034/?lk=c38RyZWFtcGxheS50by9yeWdkaDhzYnNvseXY=';
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
@@ -212,7 +213,7 @@ var ThreeMovies = function () {
                                 itemLk.each(function () {
                                     var hrefLk = $(this).find('.link-button').html();
                                     var hostName = $(this).find('.link-name').text().trim();
-                                    var m = hrefLk.match(/getlink\(&apos;([^&]+)/);
+                                    var m = hrefLk.match(/lk=([^"]+)/);
                                     if (m != undefined) {
                                         if (['streamango.com', 'openload.co', 'vidoza.net', 'vidlox.me'].includes(hostName) && arr_lk.length < 10) arr_lk.push(m[1]);
                                     }

@@ -3,7 +3,7 @@
         "5movies": {
             "name": "5movies",
             "domain": "5movies.to",
-            "version": "0.4.1",
+            "version": "0.4.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/5movies.js",
             "type": [
                 "movie",
@@ -158,7 +158,7 @@
         "movieflixter": {
             "name": "movieflixter",
             "domain": "movieflixter.dit",
-            "version": "0.1.6",
+            "version": "0.1.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/movieflixter.js",
             "type": [
                 "tv",
@@ -228,7 +228,7 @@
         "spacemov": {
             "name": "spacemov",
             "domain": "spacemov.dit",
-            "version": "0.0.9",
+            "version": "0.1.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/spacemov.js",
             "type": [
                 "movie",
@@ -277,7 +277,7 @@
         "flixanity": {
             "name": "flixanity",
             "domain": "flixanity.io",
-            "version": "1.7.1",
+            "version": "1.7.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/flixanity.js",
             "type": [
                 "movie"
@@ -295,7 +295,7 @@
         "filmxyz": {
             "name": "filmxyz",
             "domain": "filmxyz.dit",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/filmxy.js",
             "type": [
                 "movie"
@@ -306,6 +306,16 @@
             "domain": "streamlikers.dit",
             "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/streamlikers.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "ffilms": {
+            "name": "ffilms",
+            "domain": "ffilms.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/ffilms.js",
             "type": [
                 "movie",
                 "tv"
