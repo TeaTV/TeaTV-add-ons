@@ -291,14 +291,13 @@
                 "movie"
             ]
         },
-        "slikers": {
-            "name": "slikers",
-            "domain": "streamlikers.dit",
-            "version": "0.0.5",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/streamlikers.js",
+        "scream": {
+            "name": "scream",
+            "domain": "scream.dit",
+            "version": "0.6.9",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/scream.js",
             "type": [
-                "movie",
-                "tv"
+                "movie"
             ]
         },
         "ffilms": {

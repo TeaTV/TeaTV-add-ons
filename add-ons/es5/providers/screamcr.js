@@ -11,8 +11,8 @@ var URL = {
     SEARCH: function SEARCH(title) {
         return 'https://scr.cr/search.php?query=' + title;
     },
-    GET_SOURCE: function GET_SOURCE(eid) {
-        return 'https://ajax.embed.is/heartbypass/get-source.php?eid=' + eid + '&hmac=646679318296d72f5285f7cc3e6a6b8c%2F9c2Jt8%3D';
+    GET_SOURCE: function GET_SOURCE(mid, slug, t) {
+        return 'https://scr.cr/ALPHA-source.php?eid=&get=' + slug + '&mid=' + mid + '&type=movie&t=' + t;
     },
     HEADERS: function HEADERS(referer) {
         return {
@@ -95,7 +95,7 @@ var Screamcr = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs2, httpRequest, cheerio, qs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, htmlDetail, $, eid, sources, jsonSources, arrPromise;
+                var _libs2, httpRequest, cheerio, qs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, m, mid, slug, ts, t, sources, jsonSources, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -114,65 +114,37 @@ var Screamcr = function () {
                             case 4:
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
-                                _context3.next = 8;
-                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS(detailUrl));
+                                m = detailUrl.match(/\/([0-9]+)-(.*)/);
+                                mid = m[1];
+                                slug = m[2];
+                                ts = Math.floor(Date.now() / 1000);
+                                t = ts % 10000;
+                                _context3.next = 13;
+                                return httpRequest.getHTML(URL.GET_SOURCE(mid, slug, t), URL.HEADERS(detailUrl));
 
-                            case 8:
-                                htmlDetail = _context3.sent;
-                                $ = cheerio.load(htmlDetail);
-                                eid = false;
-
-                                $('.wpb-content .wpbc-server .ulclear a').each(function () {
-                                    if (type == 'movie') eid = $(this).attr('data-eid');else {
-                                        var ename = $(this).text();
-                                        var m = ename.match(/Episode ([0-9]+):/i);
-                                        if (m != undefined) {
-                                            var seasonEpisode = +m[1] + 0;
-
-                                            if (seasonEpisode == episode) {
-                                                eid = $(this).attr('data-eid');
-                                            }
-                                        }
-                                    }
-                                });
-
-                                if (eid) {
-                                    _context3.next = 14;
-                                    break;
-                                }
-
-                                throw new Error('NOT_FOUND');
-
-                            case 14:
-                                _context3.next = 16;
-                                return httpRequest.getHTML(URL.GET_SOURCE(eid), URL.HEADERS(detailUrl));
-
-                            case 16:
+                            case 13:
                                 sources = _context3.sent;
                                 jsonSources = JSON.parse(sources);
                                 arrPromise = jsonSources['sources'].map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
-                                        var domain;
+                                        var s;
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
-                                                        domain = val['file'].split('/')[2];
-                                                        //console.log(domain);
+                                                        s = val['file'];
 
-                                                        if (['ca3.watchasap.ru', 'embedis.azureedge.net'].includes(domain)) {
-                                                            hosts.push({
-                                                                provider: {
-                                                                    url: detailUrl,
-                                                                    name: "scream"
-                                                                },
-                                                                result: {
-                                                                    file: val['file'],
-                                                                    label: "embed",
-                                                                    type: "direct"
-                                                                }
-                                                            });
-                                                        }
+                                                        if (s.indexOf('googleusercontent') != -1) hosts.push({
+                                                            provider: {
+                                                                url: detailUrl,
+                                                                name: "scream"
+                                                            },
+                                                            result: {
+                                                                file: val['file'],
+                                                                label: "embed",
+                                                                type: "direct"
+                                                            }
+                                                        });
 
                                                     case 2:
                                                     case 'end':
@@ -186,14 +158,14 @@ var Screamcr = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 21;
+                                _context3.next = 18;
                                 return Promise.all(arrPromise);
 
-                            case 21:
+                            case 18:
 
                                 this.state.hosts = hosts;
 
-                            case 22:
+                            case 19:
                             case 'end':
                                 return _context3.stop();
                         }
