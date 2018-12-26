@@ -7,10 +7,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "https://flixanity.xyz",
-    SEARCH: 'https://api.flixanity.xyz/api/v1/0A6ru35yevokjaqbb3',
+    DOMAIN: "https://flixanity.site",
+    SEARCH: 'https://api.flixanity.site/api/v1/0A6ru35yevokjaqbb3',
     TOKEN_API_EMBED: 'eCNBuxFGpRmFlWjUJjmjguCJI',
-    EMBED_URL: 'https://flixanity.xyz/ajax/gonlflhyad.php',
+    EMBED_URL: 'https://flixanity.site/ajax/gonlflhyad.php',
     KEY_SL: '9fc895fbb0b23f1c0fb8e5a5fe02f7b5',
     HEADERS: {
         'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -33,7 +33,9 @@ var Flixanity = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type;
+                var _this = this;
+
+                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type, dataBody, resultSearch;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -41,36 +43,52 @@ var Flixanity = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, qs = _libs.qs;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
-
-                                /*
-                                let dataBody = {
+                                dataBody = {
                                     sl: URL.KEY_SL,
                                     q: stringHelper.convertToSearchQueryString(title, '-')
                                 };
-                                 let resultSearch = await httpRequest.post(URL.SEARCH, {'content-type' : 'application/json; charset=utf-8'}, JSON.stringify(dataBody));
-                                 if( resultSearch.data == null ) return;
-                                 resultSearch.data.forEach((item) => {
-                                     if( stringHelper.shallowCompare(item.title, title) ) {
-                                         if( item.type == 'movie' && type == 'movie' && item.year == year ) {
-                                             this.state.detailUrl = URL.DOMAIN + item.permalink;
-                                        } else if( item.type == 'show' && type == 'tv' ) {
-                                            
-                                            this.state.detailUrl = `${URL.DOMAIN}${item.permalink}/season/${season}/episode/${episode}`;
-                                        }
-                                    }
-                                    
-                                });
-                                */
+                                _context.next = 5;
+                                return httpRequest.post(URL.SEARCH, { 'content-type': 'application/json; charset=utf-8' }, JSON.stringify(dataBody));
 
-                                if (type == 'movie') {
-                                    this.state.detailUrl = URL.DOMAIN + '/movie/' + stringHelper.convertToSearchQueryString(title, '-');
-                                } else {
-                                    this.state.detailUrl = URL.DOMAIN + '/tv-show/' + stringHelper.convertToSearchQueryString(title, '-') + '/season/' + season + '/episode/' + episode;
+                            case 5:
+                                resultSearch = _context.sent;
+
+                                if (!(resultSearch.data == null)) {
+                                    _context.next = 8;
+                                    break;
                                 }
 
                                 return _context.abrupt('return');
 
-                            case 4:
+                            case 8:
+
+                                resultSearch.data.forEach(function (item) {
+
+                                    if (stringHelper.shallowCompare(item.title, title)) {
+
+                                        if (item.type == 'movie' && type == 'movie' && item.year == year) {
+
+                                            _this.state.detailUrl = URL.DOMAIN + item.permalink;
+                                        } else if (item.type == 'show' && type == 'tv') {
+
+                                            _this.state.detailUrl = '' + URL.DOMAIN + item.permalink + '/season/' + season + '/episode/' + episode;
+                                        }
+                                    }
+                                });
+
+                                /*
+                                if(type == 'movie') {
+                                    this.state.detailUrl = URL.DOMAIN + '/movie/' + stringHelper.convertToSearchQueryString(title, '-');
+                                } else {
+                                    this.state.detailUrl = URL.DOMAIN + '/tv-show/' + stringHelper.convertToSearchQueryString(title, '-') + '/season/' + season + '/episode/' + episode;
+                                }
+                                */
+
+                                console.log(this.state.detailUrl);
+
+                                return _context.abrupt('return');
+
+                            case 11:
                             case 'end':
                                 return _context.stop();
                         }
