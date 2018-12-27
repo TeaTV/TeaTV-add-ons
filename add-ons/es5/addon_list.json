@@ -558,9 +558,15 @@
         "direct": {
             "name": "direct",
             "domain": [
-                "unlimited4.me"
+                "unlimited4.me",
+                "dl5.filmha.co",
+                "dl8.heyserver.in",
+                "dl3.yoozdl.com",
+                "mika-prod.com",
+                "dl.muvie.ir",
+                "58.84.34.39"
             ],
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/direct.js"
         }
     }
