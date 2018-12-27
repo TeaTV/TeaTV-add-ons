@@ -143,7 +143,7 @@ var Afdah = function () {
                                             hosts.push({
                                                 provider: {
                                                     url: detailUrl,
-                                                    name: "afdah"
+                                                    name: "afak"
                                                 },
                                                 result: {
                                                     file: embed,

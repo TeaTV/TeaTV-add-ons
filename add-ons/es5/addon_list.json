@@ -313,7 +313,7 @@
         "afdah": {
             "name": "afdah",
             "domain": "afdah.dit",
-            "version": "0.6.9",
+            "version": "0.7.0",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/afdah.js",
             "type": [
                 "movie",
@@ -493,7 +493,7 @@
             "domain": [
                 "afdah.info"
             ],
-            "version": "0.9.2",
+            "version": "0.9.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/afdah.js"
         },
         "default": {

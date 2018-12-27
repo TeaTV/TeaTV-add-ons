@@ -210,7 +210,7 @@ var Afdah = function () {
                                                             sources.push({
                                                                 label: 'NOR',
                                                                 file: value.file,
-                                                                type: "embed",
+                                                                type: "direct",
                                                                 size: (Math.random() * (2.2 - 1.9) + 1.9).toFixed(2)
                                                             });
                                                         }
@@ -234,7 +234,7 @@ var Afdah = function () {
                                 return _context3.abrupt("return", {
                                     host: {
                                         url: url,
-                                        name: "afdah"
+                                        name: "afak"
                                     },
                                     result: sources
                                 });
