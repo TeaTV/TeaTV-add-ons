@@ -234,7 +234,7 @@ var Afdah = function () {
                                 return _context3.abrupt("return", {
                                     host: {
                                         url: url,
-                                        name: "afak"
+                                        name: "Googlevideo"
                                     },
                                     result: sources
                                 });
