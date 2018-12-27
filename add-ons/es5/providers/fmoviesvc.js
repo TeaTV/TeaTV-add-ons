@@ -301,7 +301,7 @@ var FmoviesVc = function () {
                                 _context6.prev = 18;
                                 _context6.t0 = _context6['catch'](14);
 
-                                console.log('fmoviesvc, invalid JSON', _context6.t0);
+                                console.log('fmoviesvc, invalid JSON');
                                 throw new Error('INVALID_JSON');
 
                             case 22:
@@ -534,7 +534,7 @@ var FmoviesVc = function () {
                                         }
                                     });
                                 } catch (e) {
-                                    console.log('fmoviesvc, getEmbed, no json parse', e);
+                                    console.log('fmoviesvc, getEmbed, no json parse');
                                 }
 
                             case 6:

@@ -319,6 +319,15 @@
                 "movie",
                 "tv"
             ]
+        },
+        "ajaxmovie": {
+            "name": "ajaxmovie",
+            "domain": "ajaxmovie.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/azmovie.js",
+            "type": [
+                "movie"
+            ]
         }
     },
     "hosts": {
@@ -545,6 +554,14 @@
             ],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/hdpopcornscosv.js"
+        },
+        "direct": {
+            "name": "direct",
+            "domain": [
+                "unlimited4.me"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/direct.js"
         }
     }
 }

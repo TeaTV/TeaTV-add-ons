@@ -6,16 +6,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Wordpress = function () {
-    function Wordpress(props) {
-        _classCallCheck(this, Wordpress);
+var Direct = function () {
+    function Direct(props) {
+        _classCallCheck(this, Direct);
 
         this.libs = props.libs;
         this.settings = props.settings;
         this.state = {};
     }
 
-    _createClass(Wordpress, [{
+    _createClass(Direct, [{
         key: 'convertToEmbed',
         value: function convertToEmbed() {
 
@@ -81,9 +81,9 @@ var Wordpress = function () {
         }()
     }]);
 
-    return Wordpress;
+    return Direct;
 }();
 
 thisSource.function = function (libs, settings) {
-    return new Wordpress({ libs: libs, settings: settings });
+    return new Direct({ libs: libs, settings: settings });
 };
