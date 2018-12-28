@@ -328,6 +328,16 @@
             "type": [
                 "movie"
             ]
+        },
+        "onemovies": {
+            "name": "onemovies",
+            "domain": "onemovies.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/1movies.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
@@ -559,14 +569,35 @@
             "name": "direct",
             "domain": [
                 "unlimited4.me",
-                "dl5.filmha.co",
-                "dl8.heyserver.in",
-                "dl3.yoozdl.com",
+                "filmha.co",
+                "heyserver.in",
+                "yoozdl.com",
                 "mika-prod.com",
                 "dl.muvie.ir",
-                "58.84.34.39"
+                "58.84.34.39",
+                "uploadha.me",
+                "upload08.com",
+                "uploadt.com",
+                "hexmovie.net",
+                "filmaneh.com",
+                "128.69.203.82",
+                "likecool.com",
+                "cloudeware.co.uk",
+                "79.127.126.110",
+                "sitemovie.ir",
+                "tehmovies.pro",
+                "tinydl.info",
+                "mihanpix.com",
+                "film2serial.ir",
+                "lavinmovie.net",
+                "film2movie.biz",
+                "lavinmovie.net",
+                "mojoo.ir",
+                "dlb3d.xyz",
+                "melimedia.net",
+                "farshow.ir"
             ],
-            "version": "0.0.2",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/direct.js"
         }
     }

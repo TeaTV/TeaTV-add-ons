@@ -33,52 +33,67 @@ var Defaulthost = function () {
                                 throw new Error('NOT_FOUND');
 
                             case 2:
-                                throw new Error('NOT_FOUND');
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
 
-                            case 7:
-                                _context.next = 9;
+
+                                console.log('dis-default', url);
+
+                                if (!(url.indexOf('mp4') == -1 && url.indexOf('mkv') == -1)) {
+                                    _context.next = 6;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND_URL');
+
+                            case 6:
+                                _context.next = 8;
                                 return httpRequest.getHeader(url);
 
-                            case 9:
+                            case 8:
                                 isEmbed = _context.sent;
 
-                                if (!(JSON.stringify(isEmbed).indexOf('video/mp4') == -1)) {
-                                    _context.next = 12;
+                                if (!(JSON.stringify(isEmbed).indexOf('video/mp4') == -1 && JSON.stringify(isEmbed).indexOf('application/octet-stream') == -1)) {
+                                    _context.next = 11;
                                     break;
                                 }
 
                                 return _context.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "CDN OK"
+                                        name: "Direct"
                                     },
                                     result: []
                                 });
 
-                            case 12:
+                            case 11:
                                 results = [];
                                 isDie = 'NOR';
-                                _context.prev = 14;
-                                _context.next = 17;
+                                _context.prev = 13;
+                                _context.next = 16;
                                 return httpRequest.isLinkDie(url);
 
-                            case 17:
+                            case 16:
                                 isDie = _context.sent;
                                 _context.next = 22;
                                 break;
 
-                            case 20:
-                                _context.prev = 20;
-                                _context.t0 = _context['catch'](14);
+                            case 19:
+                                _context.prev = 19;
+                                _context.t0 = _context['catch'](13);
+                                throw new Error('NOT_FOUND_ERR');
 
                             case 22:
 
-                                if (isDie != false && isDie != 'NOR') {
+                                console.log('isDie', isDie);
 
-                                    results.push({
-                                        file: url, label: 'NOR', type: "direct", size: isDie
-                                    });
+                                if (!(isDie != false && isDie != 'NOR')) {
+                                    _context.next = 26;
+                                    break;
                                 }
+
+                                results.push({
+                                    file: url, label: 'NOR', type: "direct", size: isDie
+                                });
 
                                 return _context.abrupt('return', {
                                     host: {
@@ -88,12 +103,15 @@ var Defaulthost = function () {
                                     result: results
                                 });
 
-                            case 24:
+                            case 26:
+                                throw new Error('NOT_FOUND');
+
+                            case 27:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[14, 20]]);
+                }, _callee, this, [[13, 19]]);
             }));
 
             function getLink(_x) {
