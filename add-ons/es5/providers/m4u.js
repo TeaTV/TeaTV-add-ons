@@ -97,7 +97,7 @@ var M4u = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs2, httpRequest, cheerio, base64, hosts, keys, detailUrl, htmlDetail, $, item, arrPromise;
+                var _libs2, httpRequest, cheerio, base64, hosts, keys, detailUrl, url, htmlDetail, $, item, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -116,10 +116,20 @@ var M4u = function () {
                                 hosts = [];
                                 keys = [];
                                 detailUrl = this.state.detailUrl;
-                                _context3.next = 8;
+                                url = detailUrl;
+
+                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                                    _context3.next = 9;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 9:
+                                _context3.next = 11;
                                 return httpRequest.get(this.state.detailUrl);
 
-                            case 8:
+                            case 11:
                                 htmlDetail = _context3.sent;
                                 $ = cheerio.load(htmlDetail.data);
                                 item = $('.le-server .singlemv');
@@ -167,14 +177,22 @@ var M4u = function () {
 
                                                     case 15:
                                                         if (!(linkEmbed.search('openx.tv') != -1)) {
-                                                            _context2.next = 22;
+                                                            _context2.next = 24;
                                                             break;
                                                         }
 
-                                                        _context2.next = 18;
-                                                        return httpRequest.getRedirectUrl(linkEmbed);
+                                                        if (!(linkEmbed.indexOf('http://') != 0 && linkEmbed.indexOf('https://') != 0)) {
+                                                            _context2.next = 18;
+                                                            break;
+                                                        }
+
+                                                        throw new Error('NOT_FOUND');
 
                                                     case 18:
+                                                        _context2.next = 20;
+                                                        return httpRequest.getRedirectUrl(linkEmbed);
+
+                                                    case 20:
                                                         reUrl = _context2.sent;
 
                                                         reUrl && hosts.push({
@@ -188,10 +206,10 @@ var M4u = function () {
                                                                 type: "embed"
                                                             }
                                                         });
-                                                        _context2.next = 23;
+                                                        _context2.next = 25;
                                                         break;
 
-                                                    case 22:
+                                                    case 24:
                                                         linkEmbed && hosts.push({
                                                             provider: {
                                                                 url: detailUrl,
@@ -204,7 +222,7 @@ var M4u = function () {
                                                             }
                                                         });
 
-                                                    case 23:
+                                                    case 25:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
@@ -216,14 +234,14 @@ var M4u = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 15;
+                                _context3.next = 18;
                                 return Promise.all(arrPromise);
 
-                            case 15:
+                            case 18:
                                 this.state.hosts = hosts;
                                 return _context3.abrupt('return');
 
-                            case 17:
+                            case 20:
                             case 'end':
                                 return _context3.stop();
                         }
