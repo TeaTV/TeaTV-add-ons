@@ -285,7 +285,7 @@
         "filmxyz": {
             "name": "filmxyz",
             "domain": "filmxyz.dit",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/filmxy.js",
             "type": [
                 "movie"
@@ -294,7 +294,7 @@
         "scream": {
             "name": "scream",
             "domain": "scream.dit",
-            "version": "0.6.9",
+            "version": "0.7.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/screamcr.js",
             "type": [
                 "movie"
@@ -303,7 +303,7 @@
         "ffilms": {
             "name": "ffilms",
             "domain": "ffilms.dit",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/ffilms.js",
             "type": [
                 "movie",
@@ -332,7 +332,7 @@
         "onemovies": {
             "name": "onemovies",
             "domain": "onemovies.dit",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/1movies.js",
             "type": [
                 "movie",
@@ -520,7 +520,7 @@
             "domain": [
                 "default.to"
             ],
-            "version": "0.7.1",
+            "version": "0.7.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/default.js"
         },
         "googlevideo": {
@@ -597,7 +597,7 @@
                 "melimedia.net",
                 "farshow.ir"
             ],
-            "version": "0.0.4",
+            "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/direct.js"
         }
     }

@@ -119,7 +119,7 @@ var Filmxy = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, qs, hosts, type, htmlDetail, detailUrl, alloweds, m, i, l;
+                var _libs2, httpRequest, cheerio, qs, hosts, type, htmlDetail, detailUrl, url, alloweds, m, i, l;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -143,6 +143,16 @@ var Filmxy = function () {
                             case 7:
                                 htmlDetail = _context2.sent;
                                 detailUrl = this.state.detailUrl;
+                                url = detailUrl;
+
+                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                                    _context2.next = 12;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 12:
                                 alloweds = ['vidoza.net', 'streamango.com', 'www.rapidvideo.com', 'ok.ru'];
                                 m = htmlDetail.split('&quot;');
 
@@ -167,7 +177,7 @@ var Filmxy = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 13:
+                            case 16:
                             case 'end':
                                 return _context2.stop();
                         }

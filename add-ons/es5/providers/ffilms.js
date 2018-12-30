@@ -79,7 +79,7 @@ var Ffilm = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs2, httpRequest, cheerio, base64, hosts, keys, detailUrl, htmlDetail, $, item, arrPromise;
+                var _libs2, httpRequest, cheerio, base64, hosts, keys, detailUrl, url, htmlDetail, $, item, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -98,10 +98,20 @@ var Ffilm = function () {
                                 hosts = [];
                                 keys = [];
                                 detailUrl = this.state.detailUrl;
-                                _context3.next = 8;
+                                url = detailUrl;
+
+                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                                    _context3.next = 9;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 9:
+                                _context3.next = 11;
                                 return httpRequest.get(this.state.detailUrl);
 
-                            case 8:
+                            case 11:
                                 htmlDetail = _context3.sent;
                                 $ = cheerio.load(htmlDetail.data);
                                 item = $('iframe');
@@ -143,14 +153,14 @@ var Ffilm = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 15;
+                                _context3.next = 18;
                                 return Promise.all(arrPromise);
 
-                            case 15:
+                            case 18:
                                 this.state.hosts = hosts;
                                 return _context3.abrupt('return');
 
-                            case 17:
+                            case 20:
                             case 'end':
                                 return _context3.stop();
                         }

@@ -139,7 +139,7 @@ var Onemovies = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
-                var _libs2, httpRequest, cheerio, base64, utf8, _movieInfo2, episode, type, hosts, arrRedirect, detailUrl, htmlDetail, $, itemRedirect, replace, arrPromise;
+                var _libs2, httpRequest, cheerio, base64, utf8, _movieInfo2, episode, type, hosts, arrRedirect, detailUrl, url, htmlDetail, $, itemRedirect, replace, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee4$(_context4) {
                     while (1) {
@@ -159,10 +159,20 @@ var Onemovies = function () {
                                 hosts = [];
                                 arrRedirect = [];
                                 detailUrl = this.state.detailUrl;
-                                _context4.next = 9;
+                                url = detailUrl;
+
+                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                                    _context4.next = 10;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 10:
+                                _context4.next = 12;
                                 return httpRequest.getHTML(this.state.detailUrl);
 
-                            case 9:
+                            case 12:
                                 htmlDetail = _context4.sent;
                                 $ = cheerio.load(htmlDetail);
                                 itemRedirect = $('#selectServer option');
@@ -235,13 +245,13 @@ var Onemovies = function () {
                                         return _ref4.apply(this, arguments);
                                     };
                                 }());
-                                _context4.next = 18;
+                                _context4.next = 21;
                                 return Promise.all(arrPromise);
 
-                            case 18:
+                            case 21:
                                 this.state.hosts = hosts;
 
-                            case 19:
+                            case 22:
                             case 'end':
                                 return _context4.stop();
                         }

@@ -33,27 +33,17 @@ var Defaulthost = function () {
                                 throw new Error('NOT_FOUND');
 
                             case 2:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                throw new Error('NOT_FOUND');
 
-
-                                console.log('dis-default', url);
-
-                                if (!(url.indexOf('mp4') == -1 && url.indexOf('mkv') == -1)) {
-                                    _context.next = 6;
-                                    break;
-                                }
-
-                                throw new Error('NOT_FOUND_URL');
-
-                            case 6:
-                                _context.next = 8;
+                            case 7:
+                                _context.next = 9;
                                 return httpRequest.getHeader(url);
 
-                            case 8:
+                            case 9:
                                 isEmbed = _context.sent;
 
                                 if (!(JSON.stringify(isEmbed).indexOf('video/mp4') == -1 && JSON.stringify(isEmbed).indexOf('application/octet-stream') == -1)) {
-                                    _context.next = 11;
+                                    _context.next = 12;
                                     break;
                                 }
 
@@ -65,29 +55,29 @@ var Defaulthost = function () {
                                     result: []
                                 });
 
-                            case 11:
+                            case 12:
                                 results = [];
                                 isDie = 'NOR';
-                                _context.prev = 13;
-                                _context.next = 16;
+                                _context.prev = 14;
+                                _context.next = 17;
                                 return httpRequest.isLinkDie(url);
 
-                            case 16:
+                            case 17:
                                 isDie = _context.sent;
-                                _context.next = 22;
+                                _context.next = 23;
                                 break;
 
-                            case 19:
-                                _context.prev = 19;
-                                _context.t0 = _context['catch'](13);
+                            case 20:
+                                _context.prev = 20;
+                                _context.t0 = _context['catch'](14);
                                 throw new Error('NOT_FOUND_ERR');
 
-                            case 22:
+                            case 23:
 
                                 console.log('isDie', isDie);
 
                                 if (!(isDie != false && isDie != 'NOR')) {
-                                    _context.next = 26;
+                                    _context.next = 27;
                                     break;
                                 }
 
@@ -103,15 +93,15 @@ var Defaulthost = function () {
                                     result: results
                                 });
 
-                            case 26:
+                            case 27:
                                 throw new Error('NOT_FOUND');
 
-                            case 27:
+                            case 28:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[13, 19]]);
+                }, _callee, this, [[14, 20]]);
             }));
 
             function getLink(_x) {

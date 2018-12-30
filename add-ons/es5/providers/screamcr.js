@@ -95,7 +95,7 @@ var Screamcr = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs2, httpRequest, cheerio, qs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, m, mid, slug, ts, t, sources, jsonSources, arrPromise;
+                var _libs2, httpRequest, cheerio, qs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, url, m, mid, slug, ts, t, sources, jsonSources, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -114,15 +114,28 @@ var Screamcr = function () {
                             case 4:
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
+                                url = detailUrl;
+
+                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                                    _context3.next = 9;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 9:
                                 m = detailUrl.match(/\/([0-9]+)-(.*)/);
                                 mid = m[1];
                                 slug = m[2];
                                 ts = Math.floor(Date.now() / 1000);
                                 t = ts % 10000;
-                                _context3.next = 13;
+
+
+                                console.log(URL.GET_SOURCE(mid, slug, t));
+                                _context3.next = 17;
                                 return httpRequest.getHTML(URL.GET_SOURCE(mid, slug, t), URL.HEADERS(detailUrl));
 
-                            case 13:
+                            case 17:
                                 sources = _context3.sent;
                                 jsonSources = JSON.parse(sources);
                                 arrPromise = jsonSources['sources'].map(function () {
@@ -158,14 +171,14 @@ var Screamcr = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 18;
+                                _context3.next = 22;
                                 return Promise.all(arrPromise);
 
-                            case 18:
+                            case 22:
 
                                 this.state.hosts = hosts;
 
-                            case 19:
+                            case 23:
                             case 'end':
                                 return _context3.stop();
                         }

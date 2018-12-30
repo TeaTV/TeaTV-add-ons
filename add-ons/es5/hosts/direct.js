@@ -32,23 +32,31 @@ var Direct = function () {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
+                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                                    _context.next = 2;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 2:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                 results = [];
                                 isDie = 'NOR';
-                                _context.prev = 3;
-                                _context.next = 6;
+                                _context.prev = 5;
+                                _context.next = 8;
                                 return httpRequest.isLinkDie(url);
 
-                            case 6:
+                            case 8:
                                 isDie = _context.sent;
-                                _context.next = 11;
+                                _context.next = 13;
                                 break;
 
-                            case 9:
-                                _context.prev = 9;
-                                _context.t0 = _context['catch'](3);
-
                             case 11:
+                                _context.prev = 11;
+                                _context.t0 = _context['catch'](5);
+
+                            case 13:
 
                                 if (isDie != false && isDie != 'NOR') {
 
@@ -65,12 +73,12 @@ var Direct = function () {
                                     result: results
                                 });
 
-                            case 13:
+                            case 15:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[3, 9]]);
+                }, _callee, this, [[5, 11]]);
             }));
 
             function getLink(_x) {
