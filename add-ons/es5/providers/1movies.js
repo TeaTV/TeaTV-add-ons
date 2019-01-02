@@ -221,7 +221,7 @@ var Onemovies = function () {
 
                                                         js = JSON.parse(js);
 
-                                                        hosts.push({
+                                                        js['playlist'] != undefined && hosts.push({
                                                             provider: {
                                                                 url: detailUrl,
                                                                 name: "Onemovie"
