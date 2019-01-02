@@ -338,6 +338,16 @@
                 "movie",
                 "tv"
             ]
+        },
+        "123moviesfreews": {
+            "name": "123freews",
+            "domain": "123freews.dit",
+            "version": "1.1.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesfreews.js",
+            "type": [
+                "tv",
+                "movie"
+            ]
         }
     },
     "hosts": {
@@ -587,9 +597,10 @@
                 "mojoo.ir",
                 "dlb3d.xyz",
                 "melimedia.net",
-                "farshow.ir"
+                "farshow.ir",
+                "watchmega.to"
             ],
-            "version": "0.0.5",
+            "version": "0.0.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/direct.js"
         }
     }

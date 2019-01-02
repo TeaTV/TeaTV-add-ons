@@ -61,6 +61,9 @@ var S123moviesfreews = function () {
 
                             case 10:
                                 dataSearch = _context.sent;
+
+                                console.log(dataSearch);
+
                                 $ = cheerio.load(dataSearch);
                                 linkDetailVal = $('.ml-item').eq(0).find('a:nth-child(1)').attr('href');
                                 titleVal = $('.ml-item').eq(0).find('h2:nth-child(1)').text();
@@ -72,24 +75,24 @@ var S123moviesfreews = function () {
                                 }
 
                                 this.state.detailUrl = detailUrl;
-                                _context.next = 22;
+                                _context.next = 23;
                                 break;
 
-                            case 19:
-                                _context.prev = 19;
+                            case 20:
+                                _context.prev = 20;
                                 _context.t0 = _context["catch"](6);
 
                                 console.log(String(_context.t0));
 
-                            case 22:
+                            case 23:
                                 return _context.abrupt("return");
 
-                            case 23:
+                            case 24:
                             case "end":
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[6, 19]]);
+                }, _callee, this, [[6, 20]]);
             }));
 
             function searchDetail() {
@@ -197,7 +200,7 @@ var S123moviesfreews = function () {
                                                                 hosts.push({
                                                                     provider: {
                                                                         url: detailUrl,
-                                                                        name: "seriesfree"
+                                                                        name: "123freews"
                                                                     },
                                                                     result: {
                                                                         file: link,
