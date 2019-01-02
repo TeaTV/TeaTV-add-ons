@@ -43,7 +43,7 @@
         "m4u": {
             "name": "m4u",
             "domain": "m4ufree.tv",
-            "version": "0.4.1",
+            "version": "0.4.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/m4u.js",
             "type": [
                 "movie"
@@ -313,7 +313,7 @@
         "afdah": {
             "name": "afdah",
             "domain": "afdah.dit",
-            "version": "0.7.0",
+            "version": "0.7.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/afdah.js",
             "type": [
                 "movie",

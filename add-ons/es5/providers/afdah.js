@@ -88,7 +88,7 @@ var Afdah = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, hosts, detailUrl, htmlDetail, $, servers;
+                var _libs2, httpRequest, cheerio, hosts, detailUrl, htmlDetail, $;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -112,52 +112,27 @@ var Afdah = function () {
                             case 7:
                                 htmlDetail = _context2.sent;
                                 $ = cheerio.load(htmlDetail.data);
-                                servers = ['cont_1', 'cont_3', 'cont_4', 'cont_5'];
 
 
-                                servers.forEach(function (item) {
+                                $('iframe').each(function () {
 
-                                    if (item == 'cont_5') {
-
-                                        $('#cont_5 div table').each(function () {
-
-                                            var embed = $(this).find('a').attr('href');
-                                            hosts.push({
-                                                provider: {
-                                                    url: detailUrl,
-                                                    name: "afdah"
-                                                },
-                                                result: {
-                                                    file: embed,
-                                                    label: "embed",
-                                                    type: "embed"
-                                                }
-                                            });
-                                        });
-                                    } else {
-
-                                        var embed = $('#' + item + ' .jw-player').attr('data-id');
-                                        if (embed != undefined) {
-
-                                            embed = URL.DOMAIN + embed;
-                                            hosts.push({
-                                                provider: {
-                                                    url: detailUrl,
-                                                    name: "afak"
-                                                },
-                                                result: {
-                                                    file: embed,
-                                                    label: "embed",
-                                                    type: "embed"
-                                                }
-                                            });
+                                    var ifsrc = $(this).attr('src');
+                                    if (ifsrc.indexOf('/trailer/') == -1) hosts.push({
+                                        provider: {
+                                            url: detailUrl,
+                                            name: "afdah"
+                                        },
+                                        result: {
+                                            file: ifsrc,
+                                            label: "embed",
+                                            type: "embed"
                                         }
-                                    }
+                                    });
                                 });
 
                                 this.state.hosts = hosts;
 
-                            case 12:
+                            case 11:
                             case 'end':
                                 return _context2.stop();
                         }
