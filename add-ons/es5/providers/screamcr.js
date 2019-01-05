@@ -147,7 +147,7 @@ var Screamcr = function () {
                                                     case 0:
                                                         s = val['file'];
 
-                                                        if (s.indexOf('googleusercontent') != -1) hosts.push({
+                                                        if (s.indexOf('google') != -1) hosts.push({
                                                             provider: {
                                                                 url: detailUrl,
                                                                 name: "scream"

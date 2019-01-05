@@ -20,30 +20,10 @@
                 "tv"
             ]
         },
-        "housemovie": {
-            "name": "housemovie",
-            "domain": "housemovie.to",
-            "version": "0.4.0",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/housemovie.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "yesmovies": {
-            "name": "yesmovies",
-            "domain": "yesmovies.to",
-            "version": "0.4.9",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/yesmovies.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "m4u": {
             "name": "m4u",
             "domain": "m4ufree.tv",
-            "version": "0.4.4",
+            "version": "0.4.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/m4u.js",
             "type": [
                 "movie"
@@ -120,7 +100,7 @@
         "123moviessolar": {
             "name": "123moviessolar",
             "domain": "123moviessolar.dit",
-            "version": "0.1.5",
+            "version": "0.1.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviessolar.js",
             "type": [
                 "tv"
@@ -160,16 +140,6 @@
             "domain": "movieflixter.dit",
             "version": "0.1.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/movieflixter.js",
-            "type": [
-                "tv",
-                "movie"
-            ]
-        },
-        "123moviesfree": {
-            "name": "123moviesfree",
-            "domain": "123moviesfree.dit",
-            "version": "1.1.9",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesfree.js",
             "type": [
                 "tv",
                 "movie"
@@ -291,15 +261,6 @@
                 "movie"
             ]
         },
-        "scream": {
-            "name": "scream",
-            "domain": "scream.dit",
-            "version": "0.7.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/screamcr.js",
-            "type": [
-                "movie"
-            ]
-        },
         "ffilms": {
             "name": "ffilms",
             "domain": "ffilms.dit",
@@ -346,6 +307,15 @@
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesfreews.js",
             "type": [
                 "tv",
+                "movie"
+            ]
+        },
+        "screamcr": {
+            "name": "screamcr",
+            "domain": "screamcr.dit",
+            "version": "1.1.3",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/screamcr.js",
+            "type": [
                 "movie"
             ]
         }

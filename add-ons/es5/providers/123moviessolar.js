@@ -9,14 +9,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var URL = {
     DOMAIN: "https://www3.123movies.solar",
     SEARCH: function SEARCH() {
-        return 'https://www3.123movies.solar/22706-little-women.html';
+        return 'https://www3.123movies.solar/';
     },
     DOMAIN_DECODE: '',
     HEADERS: function HEADERS() {
         return {
             'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.92 Safari/537.36',
-            'accept-encoding': 'gzip, deflate',
-            'referer': 'https://www3.123movies.solar/22706-little-women.html'
+            'accept-encoding': 'gzip, deflate'
         };
     }
 };
@@ -72,31 +71,30 @@ var S123moviessolar = function () {
                                     titleVal = $(this).find('h2').text();
                                     console.log(titleVal);
 
-                                    if (titleVal.toLowerCase().indexOf(title.toLowerCase()) !== -1) {
+                                    if (titleVal.toLowerCase() == title.toLowerCase()) {
                                         detailUrl = $(this).find('a').attr('href');
                                     }
                                 });
 
-                                console.log(detailUrl);
                                 this.state.detailUrl = detailUrl;
-                                _context.next = 24;
+                                _context.next = 23;
                                 break;
 
-                            case 21:
-                                _context.prev = 21;
+                            case 20:
+                                _context.prev = 20;
                                 _context.t0 = _context['catch'](6);
 
                                 console.log(String(_context.t0));
 
-                            case 24:
+                            case 23:
                                 return _context.abrupt('return');
 
-                            case 25:
+                            case 24:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[6, 21]]);
+                }, _callee, this, [[6, 20]]);
             }));
 
             function searchDetail() {
