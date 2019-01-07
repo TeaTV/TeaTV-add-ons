@@ -23,10 +23,11 @@
         "m4u": {
             "name": "m4u",
             "domain": "m4ufree.tv",
-            "version": "0.4.5",
+            "version": "0.4.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/m4u.js",
             "type": [
-                "movie"
+                "movie",
+                "tv"
             ]
         },
         "playdk": {
@@ -318,6 +319,15 @@
             "type": [
                 "movie"
             ]
+        },
+        "yitivi": {
+            "name": "yitivi",
+            "domain": "yitivi.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/yifytv.js",
+            "type": [
+                "movie"
+            ]
         }
     },
     "hosts": {
@@ -455,9 +465,10 @@
         "googleusercontent": {
             "name": "googleusercontent",
             "domain": [
-                "googleusercontent.com"
+                "googleusercontent.com",
+                "googleapis.com"
             ],
-            "version": "0.0.3",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/googleusercontent.js"
         },
         "212.47.226.206": {
