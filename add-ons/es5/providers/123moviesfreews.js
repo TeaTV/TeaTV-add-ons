@@ -62,7 +62,7 @@ var S123moviesfreews = function () {
                             case 10:
                                 dataSearch = _context.sent;
 
-                                console.log(dataSearch);
+                                //console.log(dataSearch);
 
                                 $ = cheerio.load(dataSearch);
                                 linkDetailVal = $('.ml-item').eq(0).find('a:nth-child(1)').attr('href');
@@ -75,24 +75,24 @@ var S123moviesfreews = function () {
                                 }
 
                                 this.state.detailUrl = detailUrl;
-                                _context.next = 23;
+                                _context.next = 22;
                                 break;
 
-                            case 20:
-                                _context.prev = 20;
+                            case 19:
+                                _context.prev = 19;
                                 _context.t0 = _context["catch"](6);
 
                                 console.log(String(_context.t0));
 
-                            case 23:
+                            case 22:
                                 return _context.abrupt("return");
 
-                            case 24:
+                            case 23:
                             case "end":
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[6, 20]]);
+                }, _callee, this, [[6, 19]]);
             }));
 
             function searchDetail() {

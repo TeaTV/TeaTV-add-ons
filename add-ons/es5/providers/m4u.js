@@ -133,6 +133,8 @@ var M4u = function () {
 
                             case 12:
                                 htmlDetail = _context3.sent;
+
+                                //console.log('m4u', htmlDetail.data.substr(0, 200));
                                 html = htmlDetail.data.match(/name="csrf-token" content="([^"]+)/);
 
                                 if (!(html == null)) {
@@ -202,8 +204,7 @@ var M4u = function () {
 
                                 arrPromise = keys.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(links) {
-                                        var htmlData, posts, html, linkEmbed, h, m, _js, _key, _slug, _value, _post, _pHtml, _d, _links, _s, _quality, reUrl;
-
+                                        var htmlData, posts, html, linkEmbed, reUrl;
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
@@ -229,19 +230,21 @@ var M4u = function () {
 
                                                     case 12:
                                                         html = htmlData.data;
-                                                        linkEmbed = html.match(/src\=\"([^\"]+)/i);
+                                                        //console.log(html, 'ff', htmlData, 'linkEmbed');
 
-                                                        linkEmbed = linkEmbed != null ? linkEmbed[1] : false;
-
-                                                        if (linkEmbed) {
-                                                            _context2.next = 17;
+                                                        if (!(html == undefined)) {
+                                                            _context2.next = 15;
                                                             break;
                                                         }
 
                                                         return _context2.abrupt('return', false);
 
-                                                    case 17:
-                                                        if (!(linkEmbed.indexOf('http://') != 0 && linkEmbed.indexOf('https://') != 0)) {
+                                                    case 15:
+                                                        linkEmbed = html.match(/src\=\"([^\"]+)/i);
+
+                                                        linkEmbed = linkEmbed != null ? linkEmbed[1] : false;
+
+                                                        if (linkEmbed) {
                                                             _context2.next = 19;
                                                             break;
                                                         }
@@ -249,76 +252,31 @@ var M4u = function () {
                                                         return _context2.abrupt('return', false);
 
                                                     case 19:
+                                                        if (!(linkEmbed.indexOf('http://') != 0 && linkEmbed.indexOf('https://') != 0)) {
+                                                            _context2.next = 21;
+                                                            break;
+                                                        }
+
+                                                        return _context2.abrupt('return', false);
+
+                                                    case 21:
                                                         if (!(linkEmbed.search('them4ufree.com') != -1)) {
-                                                            _context2.next = 45;
+                                                            _context2.next = 25;
                                                             break;
                                                         }
 
                                                         return _context2.abrupt('return', false);
 
-                                                    case 23:
-                                                        h = _context2.sent;
-                                                        m = h.match(/Player\(([^\)]+)/);
-
-                                                        if (!(m == undefined)) {
-                                                            _context2.next = 27;
-                                                            break;
-                                                        }
-
-                                                        return _context2.abrupt('return', false);
-
-                                                    case 27:
-                                                        _js = JSON.parse(m[1]);
-                                                        _key = _js['key'];
-                                                        _slug = 'slug';
-                                                        _value = _js['value'];
-                                                        _post = {
-                                                            'key': _key,
-                                                            'type': _slug,
-                                                            'value': _value
-                                                        };
-                                                        _context2.next = 34;
-                                                        return httpRequest.post('https://multi.hydrax.net/vip', URL.HEADERS(linkEmbed), _post);
-
-                                                    case 34:
-                                                        _pHtml = _context2.sent;
-                                                        _d = _pHtml.data;
-                                                        _links = [];
-                                                        _s = 'https://' + _d['servers'][0] + '/';
-                                                        _quality = false;
-
-
-                                                        if (_d['hd'] != undefined) {
-                                                            _quality = _d['hd'];
-                                                            _links.push(_s + _quality['expired'] + '/' + _quality['multiData'][0]['file']);
-                                                        }
-
-                                                        if (_d['sd'] != undefined) {
-                                                            _quality = _d['sd'];
-                                                            _links.push(_s + _quality['expired'] + '/' + _quality['multiData'][0]['file']);
-                                                        }
-
-                                                        if (_quality) {
-                                                            _context2.next = 43;
-                                                            break;
-                                                        }
-
-                                                        return _context2.abrupt('return', false);
-
-                                                    case 43:
-                                                        _context2.next = 53;
-                                                        break;
-
-                                                    case 45:
+                                                    case 25:
                                                         if (!(linkEmbed.search('openx.tv') != -1)) {
-                                                            _context2.next = 52;
+                                                            _context2.next = 32;
                                                             break;
                                                         }
 
-                                                        _context2.next = 48;
+                                                        _context2.next = 28;
                                                         return httpRequest.getRedirectUrl(linkEmbed);
 
-                                                    case 48:
+                                                    case 28:
                                                         reUrl = _context2.sent;
 
                                                         reUrl && hosts.push({
@@ -332,10 +290,10 @@ var M4u = function () {
                                                                 type: "embed"
                                                             }
                                                         });
-                                                        _context2.next = 53;
+                                                        _context2.next = 33;
                                                         break;
 
-                                                    case 52:
+                                                    case 32:
                                                         linkEmbed && hosts.push({
                                                             provider: {
                                                                 url: detailUrl,
@@ -344,11 +302,11 @@ var M4u = function () {
                                                             result: {
                                                                 file: linkEmbed,
                                                                 label: "embed",
-                                                                type: "embed"
+                                                                type: linkEmbed.indexOf('drive.google') != -1 ? "direct" : "embed"
                                                             }
                                                         });
 
-                                                    case 53:
+                                                    case 33:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
@@ -364,6 +322,7 @@ var M4u = function () {
                                 return Promise.all(arrPromise);
 
                             case 39:
+                                //console.log(hosts, 'hostsm4u');
                                 this.state.hosts = hosts;
                                 return _context3.abrupt('return');
 

@@ -20,10 +20,10 @@
                 "tv"
             ]
         },
-        "m4u": {
-            "name": "m4u",
+        "m4ufree": {
+            "name": "m4ufree",
             "domain": "m4ufree.tv",
-            "version": "0.4.6",
+            "version": "0.4.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/m4u.js",
             "type": [
                 "movie",
@@ -547,6 +547,14 @@
             ],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/hdpopcornscosv.js"
+        },
+        "googledrive": {
+            "name": "GoogleDrive",
+            "domain": [
+                "drive.google.com"
+            ],
+            "version": "0.6.9",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/drive.google.js"
         },
         "direct": {
             "name": "direct",
