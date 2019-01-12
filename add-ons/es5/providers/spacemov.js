@@ -7,9 +7,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "https://ww.spacemov.is/",
+    DOMAIN: "https://spacemov.cc/",
     SEARCH: function SEARCH(title) {
-        return 'https://ww.spacemov.is/search-query/' + title;
+        return 'https://spacemov.cc/search-query/' + title;
     },
     HEADERS: {
         'Referer': 'spacemov',
