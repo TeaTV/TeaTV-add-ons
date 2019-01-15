@@ -275,7 +275,7 @@
         "afdah": {
             "name": "afdah",
             "domain": "afdah.dit",
-            "version": "0.7.2",
+            "version": "0.7.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/afdah.js",
             "type": [
                 "movie",
@@ -325,6 +325,15 @@
             "domain": "yitivi.dit",
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/yifytv.js",
+            "type": [
+                "movie"
+            ]
+        },
+        "davich": {
+            "name": "davich",
+            "domain": "davich.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/davix.js",
             "type": [
                 "movie"
             ]
