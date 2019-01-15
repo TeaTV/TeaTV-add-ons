@@ -571,7 +571,8 @@
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/tdn.js",
             "type": [
-                "movie"
+                "movie",
+                "tv"
             ]
         },
         "direct": {
