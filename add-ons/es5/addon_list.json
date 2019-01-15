@@ -23,7 +23,7 @@
         "m4ufree": {
             "name": "m4ufree",
             "domain": "m4ufree.tv",
-            "version": "0.4.7",
+            "version": "0.4.8",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/m4u.js",
             "type": [
                 "movie",
@@ -265,7 +265,7 @@
         "ffilms": {
             "name": "ffilms",
             "domain": "ffilms.dit",
-            "version": "0.0.2",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/ffilms.js",
             "type": [
                 "movie",
@@ -275,7 +275,7 @@
         "afdah": {
             "name": "afdah",
             "domain": "afdah.dit",
-            "version": "0.7.3",
+            "version": "0.7.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/afdah.js",
             "type": [
                 "movie",
@@ -512,7 +512,7 @@
             "domain": [
                 "afdah.info"
             ],
-            "version": "0.9.4",
+            "version": "0.9.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/afdah.js"
         },
         "googlevideo": {
@@ -562,7 +562,7 @@
             "domain": [
                 "drive.google.com"
             ],
-            "version": "0.6.9",
+            "version": "0.7.0",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/drive.google.js"
         },
         "direct": {

@@ -135,7 +135,7 @@ var Ffilm = function () {
                                                                 name: "ffilms"
                                                             },
                                                             result: {
-                                                                file: url,
+                                                                file: url.replace('/preview', '/edit'),
                                                                 label: "embed",
                                                                 type: "embed"
                                                             }

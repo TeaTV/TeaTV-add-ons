@@ -300,7 +300,7 @@ var M4u = function () {
                                                                 name: "m4ufree"
                                                             },
                                                             result: {
-                                                                file: linkEmbed,
+                                                                file: linkEmbed.replace('/preview', '/edit'),
                                                                 label: "embed",
                                                                 type: linkEmbed.indexOf('drive.google') != -1 ? "direct" : "embed"
                                                             }
