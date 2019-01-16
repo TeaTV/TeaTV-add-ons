@@ -572,7 +572,7 @@
             "domain": [
                 "drive.google.com"
             ],
-            "version": "0.7.2",
+            "version": "0.7.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/drive.google.js"
         },
         "direct": {

@@ -103,13 +103,16 @@ var GoogleDrive = function () {
                                 html = _context2.sent;
 
                                 if (!(html.indexOf('fmt_stream_map') == -1)) {
-                                    _context2.next = 8;
+                                    _context2.next = 9;
                                     break;
                                 }
 
+                                console.log('drive_log, drive error', url);
                                 throw new Error('NOT_FOUND');
 
-                            case 8:
+                            case 9:
+                                console.log('drive_log, drive ok', url);
+
                                 sources = [];
 
                                 sources.push({
@@ -127,7 +130,7 @@ var GoogleDrive = function () {
                                     result: sources
                                 });
 
-                            case 11:
+                            case 13:
                             case 'end':
                                 return _context2.stop();
                         }
