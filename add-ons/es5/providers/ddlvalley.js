@@ -12,11 +12,9 @@ var URL = {
     SEARCH: function SEARCH(title) {
         return 'https://www.ddlvalley.me?q=' + title;
     },
-    HEADERS: function HEADERS(time) {
+    HEADERS: function HEADERS() {
         return {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_' + time + ') AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-            'Referer': 'http://www.Ddlvalley.me/' + Math.round(+new Date())
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
         };
     },
     BING_SEARCH: function BING_SEARCH(title) {
@@ -96,8 +94,8 @@ var Ddlvalley = function () {
                                 if (type == 'tv') find = title.replace(/[\s':"]+/g, '-').toLowerCase() + "-s" + ss + 'e' + ep;else find = title.replace(/[\s':"]+/g, '-').toLowerCase() + '-' + year;
 
                                 itemSearch.each(function () {
-
                                     var hrefMovie = $(this).find('h2 a').attr('href');
+                                    console.log(hrefMovie);
                                     if (hrefMovie.indexOf(find) != -1 && urls.length < 3) urls.push(hrefMovie);
                                 });
 
