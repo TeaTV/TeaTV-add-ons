@@ -81,13 +81,35 @@ var GoogleDrive = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, qs, sources;
+                var _libs, httpRequest, cheerio, qs, html, sources;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
                         switch (_context2.prev = _context2.next) {
                             case 0:
+                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                                    _context2.next = 2;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 2:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, qs = _libs.qs;
+                                _context2.next = 5;
+                                return httpRequest.getHTML(url);
+
+                            case 5:
+                                html = _context2.sent;
+
+                                if (!(html.indexOf('fmt_stream_map') == -1)) {
+                                    _context2.next = 8;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 8:
                                 sources = [];
 
                                 sources.push({
@@ -105,7 +127,7 @@ var GoogleDrive = function () {
                                     result: sources
                                 });
 
-                            case 4:
+                            case 11:
                             case 'end':
                                 return _context2.stop();
                         }
