@@ -600,22 +600,22 @@
             ],
             "version": "0.0.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/direct.js"
+        },
+        "uptostream": {
+            "name": "uptostream",
+            "domain": [
+                "uptostream.com"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/uptostream.js"
+        },
+        "Xopcast": {
+            "name": "Xopcast",
+            "domain": [
+                "xopcast.xyz"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/xopcast.js"
         }
-    },
-    "uptostream": {
-        "name": "uptostream",
-        "domain": [
-            "uptostream.com"
-        ],
-        "version": "0.0.1",
-        "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/uptostream.js"
-    },
-    "Xopcast": {
-        "name": "Xopcast",
-        "domain": [
-            "xopcast.xyz"
-        ],
-        "version": "0.0.1",
-        "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/xopcast.js"
     }
 }
