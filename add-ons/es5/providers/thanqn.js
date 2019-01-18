@@ -142,17 +142,31 @@ var Thanqn = function () {
                                     });
                                 }
 
+                                if (title == 'aquaman' && year == 2018) {
+                                    hosts.push({
+                                        provider: {
+                                            url: 'https://themoviedb.org',
+                                            name: "thanqn"
+                                        },
+                                        result: {
+                                            file: 'http://dk.xopcast.xyz/hls/aquaman-s0e0-2018.mp4/master.m3u8',
+                                            label: "embed",
+                                            type: "embed"
+                                        }
+                                    });
+                                }
+
                                 if (!(type == 'movie' && false)) {
-                                    _context2.next = 21;
+                                    _context2.next = 22;
                                     break;
                                 }
 
-                                _context2.next = 19;
+                                _context2.next = 20;
                                 return httpRequest.post('https://qwerty.teatv.net/cors_get/links', URL.HEADERS(), {
                                     'title': title, 'year': year
                                 });
 
-                            case 19:
+                            case 20:
                                 _res = _context2.sent;
 
 
@@ -172,11 +186,11 @@ var Thanqn = function () {
                                     }
                                 }
 
-                            case 21:
+                            case 22:
 
                                 this.state.hosts = hosts;
 
-                            case 22:
+                            case 23:
                             case 'end':
                                 return _context2.stop();
                         }
