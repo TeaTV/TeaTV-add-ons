@@ -127,17 +127,32 @@ var Thanqn = function () {
                                     }
                                 }
 
+                                // test
+                                if (title == 'Vikings' && season == 5 && episode == 16) {
+                                    hosts.push({
+                                        provider: {
+                                            url: 'https://themoviedb.org',
+                                            name: "thanqn"
+                                        },
+                                        result: {
+                                            file: 'http://dk.xopcast.xyz/hls/vikings-s05e16.mp4/master.m3u8',
+                                            label: "embed",
+                                            type: "embed"
+                                        }
+                                    });
+                                }
+
                                 if (!(type == 'movie' && false)) {
-                                    _context2.next = 20;
+                                    _context2.next = 21;
                                     break;
                                 }
 
-                                _context2.next = 18;
+                                _context2.next = 19;
                                 return httpRequest.post('https://qwerty.teatv.net/cors_get/links', URL.HEADERS(), {
                                     'title': title, 'year': year
                                 });
 
-                            case 18:
+                            case 19:
                                 _res = _context2.sent;
 
 
@@ -157,11 +172,11 @@ var Thanqn = function () {
                                     }
                                 }
 
-                            case 20:
+                            case 21:
 
                                 this.state.hosts = hosts;
 
-                            case 21:
+                            case 22:
                             case 'end':
                                 return _context2.stop();
                         }
