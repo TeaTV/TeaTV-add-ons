@@ -142,7 +142,7 @@ var Thanqn = function () {
                                     });
                                 }
 
-                                if (title == 'aquaman' && year == 2018) {
+                                if (title.toLowerCase() == 'aquaman' && year == 2018) {
                                     hosts.push({
                                         provider: {
                                             url: 'https://themoviedb.org',
