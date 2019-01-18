@@ -110,7 +110,7 @@
         "thanqn": {
             "name": "thanqn",
             "domain": "thanqn.dit",
-            "version": "0.2.3",
+            "version": "0.2.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/thanqn.js",
             "type": [
                 "movie",
@@ -612,9 +612,10 @@
         "Xopcast": {
             "name": "Xopcast",
             "domain": [
-                "xopcast.xyz"
+                "xopcast.xyz",
+                "gsopcast.xyz"
             ],
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/xopcast.js"
         }
     }

@@ -135,7 +135,7 @@ var Thanqn = function () {
                                             name: "thanqn"
                                         },
                                         result: {
-                                            file: 'http://dk.xopcast.xyz/hls/vikings-s05e16.mp4/master.m3u8',
+                                            file: 'http://dk.gsopcast.xyz/hls/vikings-s05e16.mp4/master.m3u8',
                                             label: "embed",
                                             type: "embed"
                                         }
@@ -149,7 +149,7 @@ var Thanqn = function () {
                                             name: "thanqn"
                                         },
                                         result: {
-                                            file: 'http://dk.xopcast.xyz/hls/aquaman-s0e0-2018.mp4/master.m3u8',
+                                            file: 'http://dk.gsopcast.xyz/hls/aquaman-s0e0-2018.mp4/master.m3u8',
                                             label: "embed",
                                             type: "embed"
                                         }
