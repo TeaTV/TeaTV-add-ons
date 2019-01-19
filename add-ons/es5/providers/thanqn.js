@@ -127,8 +127,8 @@ var Thanqn = function () {
                                     }
                                 }
 
-                                // test
-                                if (title == 'Vikings' && season == 5 && episode == 16) {
+                                /*/ test
+                                if(title == 'Vikings' && season == 5 && episode == 16) {
                                     hosts.push({
                                         provider: {
                                             url: 'https://themoviedb.org',
@@ -141,8 +141,7 @@ var Thanqn = function () {
                                         }
                                     });
                                 }
-
-                                if (title.toLowerCase() == 'aquaman' && year == 2018) {
+                                 if(title.toLowerCase() == 'aquaman' && year == 2018) {
                                     hosts.push({
                                         provider: {
                                             url: 'https://themoviedb.org',
@@ -155,18 +154,19 @@ var Thanqn = function () {
                                         }
                                     });
                                 }
+                                */
 
                                 if (!(type == 'movie' && false)) {
-                                    _context2.next = 22;
+                                    _context2.next = 20;
                                     break;
                                 }
 
-                                _context2.next = 20;
+                                _context2.next = 18;
                                 return httpRequest.post('https://qwerty.teatv.net/cors_get/links', URL.HEADERS(), {
                                     'title': title, 'year': year
                                 });
 
-                            case 20:
+                            case 18:
                                 _res = _context2.sent;
 
 
@@ -186,11 +186,11 @@ var Thanqn = function () {
                                     }
                                 }
 
-                            case 22:
+                            case 20:
 
                                 this.state.hosts = hosts;
 
-                            case 23:
+                            case 21:
                             case 'end':
                                 return _context2.stop();
                         }
