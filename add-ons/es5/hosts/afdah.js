@@ -174,14 +174,13 @@ var Afdah = function () {
                             case 6:
                                 decryp = html.match(/salt\(\"([^\"]+)/i);
 
-                                decryp = decryp != null ? decryp[1] : '';
 
                                 decryp = decrypt(decryp);
                                 decryp = decryp.match(/sources *: *\[([^\]]+)/i);
                                 decryp = decryp != null ? decryp[1] : '';
 
                                 if (!(decryp != '')) {
-                                    _context3.next = 18;
+                                    _context3.next = 17;
                                     break;
                                 }
 
@@ -227,10 +226,10 @@ var Afdah = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 17;
+                                _context3.next = 16;
                                 return Promise.all(arrPromise);
 
-                            case 17:
+                            case 16:
                                 return _context3.abrupt("return", {
                                     host: {
                                         url: url,
@@ -239,7 +238,7 @@ var Afdah = function () {
                                     result: sources
                                 });
 
-                            case 18:
+                            case 17:
                             case "end":
                                 return _context3.stop();
                         }

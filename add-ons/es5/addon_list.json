@@ -337,6 +337,24 @@
             "type": [
                 "movie"
             ]
+        },
+        "animevlf": {
+            "name": "animevlf",
+            "domain": "animevlf.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/animeflv.js",
+            "type": [
+                "tv"
+            ]
+        },
+        "gogoanimes": {
+            "name": "gogoanimes",
+            "domain": "gogoanimes.dit",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/gogoanimes.js",
+            "type": [
+                "tv"
+            ]
         }
     },
     "hosts": {
@@ -596,9 +614,10 @@
                 "dlb3d.xyz",
                 "melimedia.net",
                 "farshow.ir",
-                "watchmega.to"
+                "watchmega.to",
+                "amazonaws.com"
             ],
-            "version": "0.0.6",
+            "version": "0.0.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/direct.js"
         },
         "uptostream": {
