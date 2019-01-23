@@ -355,16 +355,6 @@
             "type": [
                 "tv"
             ]
-        },
-        "tdn": {
-            "name": "tdn",
-            "domain": "tdn.dit",
-            "version": "0.0.9",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/tdn.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
         }
     },
     "hosts": {
