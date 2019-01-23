@@ -68,7 +68,7 @@ var Thanqn = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, qs, cryptoJs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, ss, ep, sign, posts, res, i, _res, _i;
+                var _libs2, httpRequest, cheerio, qs, cryptoJs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, ss, ep, sign, posts, res, i;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -156,41 +156,32 @@ var Thanqn = function () {
                                 }
                                 */
 
-                                if (!(type == 'movie')) {
-                                    _context2.next = 20;
-                                    break;
-                                }
-
-                                _context2.next = 18;
-                                return httpRequest.post('https://qwerty.teatv.net/cors_get/links', URL.HEADERS(), {
-                                    'title': title, 'year': year
-                                });
-
-                            case 18:
-                                _res = _context2.sent;
-
-
-                                if (_res.data.status && _res.data.links.length > 0) {
-                                    for (_i in _res.data.links) {
-                                        hosts.push({
-                                            provider: {
-                                                url: 'https://themoviedb.org',
-                                                name: "thanqn"
-                                            },
-                                            result: {
-                                                file: _res.data.links[_i].link,
-                                                label: "embed",
-                                                type: "embed"
-                                            }
-                                        });
+                                /*
+                                if(type == 'movie') {
+                                    let res          = await httpRequest.post('https://qwerty.teatv.net/cors_get/links', URL.HEADERS(), {
+                                        'title': title, 'year': year
+                                    });
+                                     if(res.data.status && res.data.links.length > 0) {
+                                        for(let i in res.data.links) {
+                                            hosts.push({
+                                                provider: {
+                                                    url: 'https://themoviedb.org',
+                                                    name: "thanqn"
+                                                },
+                                                result: {
+                                                    file: res.data.links[i].link,
+                                                    label: "embed",
+                                                    type: "embed"
+                                                }
+                                            });
+                                        }
                                     }
                                 }
-
-                            case 20:
+                                */
 
                                 this.state.hosts = hosts;
 
-                            case 21:
+                            case 16:
                             case 'end':
                                 return _context2.stop();
                         }

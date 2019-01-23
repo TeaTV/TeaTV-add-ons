@@ -184,18 +184,9 @@ thisSource.function = function () {
                         return source.getHostFromDetail();
 
                     case 8:
-
-                        if (source.state.hosts.length == 0) {
-                            bodyPost.is_link = 0;
-                        } else {
-                            bodyPost.is_link = 1;
-                        }
-
-                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
-
                         return _context3.abrupt('return', source.state.hosts);
 
-                    case 10:
+                    case 9:
                     case 'end':
                         return _context3.stop();
                 }
