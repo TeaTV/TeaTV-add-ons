@@ -525,14 +525,6 @@
             "version": "0.6.9",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/video.xx.fbcdn.js"
         },
-        "afdah": {
-            "name": "afdah",
-            "domain": [
-                "afdah.info"
-            ],
-            "version": "0.9.5",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/afdah.js"
-        },
         "googlevideo": {
             "name": "googlevideo",
             "domain": [
