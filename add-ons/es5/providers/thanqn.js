@@ -156,7 +156,7 @@ var Thanqn = function () {
                                 }
                                 */
 
-                                if (!(type == 'movie' && false)) {
+                                if (!(type == 'movie')) {
                                     _context2.next = 20;
                                     break;
                                 }
