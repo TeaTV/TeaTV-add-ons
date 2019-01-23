@@ -389,7 +389,7 @@
         "streamango": {
             "name": "streamango",
             "domain": "streamango.com",
-            "version": "0.0.9",
+            "version": "0.1.0",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/streamango.js"
         },
         "openload": {

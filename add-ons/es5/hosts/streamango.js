@@ -179,7 +179,7 @@ var Streamango = function () {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                if (!(url.indexOf('https://') != 0)) {
                   _context.next = 2;
                   break;
                 }
@@ -235,7 +235,7 @@ var Streamango = function () {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                if (!(url.indexOf('https://') != 0)) {
                   _context3.next = 2;
                   break;
                 }
