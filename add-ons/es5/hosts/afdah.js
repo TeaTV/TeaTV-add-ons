@@ -175,7 +175,7 @@ var Afdah = function () {
                                 decryp = html.match(/salt\(\"([^\"]+)/i);
 
 
-                                decryp = decrypt(decryp);
+                                decryp = decrypt(decryp[1]);
                                 decryp = decryp.match(/sources *: *\[([^\]]+)/i);
                                 decryp = decryp != null ? decryp[1] : '';
 
