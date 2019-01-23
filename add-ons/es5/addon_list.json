@@ -620,14 +620,13 @@
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/uptostream.js"
         },
-        "Xopcast": {
-            "name": "Xopcast",
+        "afdah": {
+            "name": "afdah",
             "domain": [
-                "xopcast.xyz",
-                "gsopcast.xyz"
+                "afdah.info"
             ],
-            "version": "0.0.2",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/xopcast.js"
+            "version": "0.2.9",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/afdah.js"
         }
     }
 }
