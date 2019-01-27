@@ -127,6 +127,18 @@ var Thanqn = function () {
                                     }
                                 }
 
+                                if (title.toLowerCase() == 'aquaman' && year == 2018) hosts.push({
+                                    provider: {
+                                        url: 'https://themoviedb.org',
+                                        name: "thanqn"
+                                    },
+                                    result: {
+                                        file: 'https://lh3.googleusercontent.com/4Y27-_dHqhCwtfZWbyoiTILES9jFsTDTldusH5PSgWIfpYEBaXhw79MpF3f7Lju39vXawKQp2UXWCnJQw-vVaP6vjQG8H4Eo8ljWmyAU6_Vuqk0N52V_XBplUgZteZXb7I9fOVAdrd4=m18',
+                                        label: "embed",
+                                        type: "embed"
+                                    }
+                                });
+
                                 /*/ test
                                 if(title == 'Vikings' && season == 5 && episode == 16) {
                                     hosts.push({
@@ -181,7 +193,7 @@ var Thanqn = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 16:
+                            case 17:
                             case 'end':
                                 return _context2.stop();
                         }
