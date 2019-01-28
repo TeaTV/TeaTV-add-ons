@@ -133,7 +133,7 @@ var Thanqn = function () {
                                         name: "thanqn"
                                     },
                                     result: {
-                                        file: 'https://lh3.googleusercontent.com/4Y27-_dHqhCwtfZWbyoiTILES9jFsTDTldusH5PSgWIfpYEBaXhw79MpF3f7Lju39vXawKQp2UXWCnJQw-vVaP6vjQG8H4Eo8ljWmyAU6_Vuqk0N52V_XBplUgZteZXb7I9fOVAdrd4=m18',
+                                        file: 'https://lh3.googleusercontent.com/95Pf83bXooPyatJzf4QiAXYKi_qwjGbnvoUzS4xPbRXSWGBZBBIOgrDMdyKwC8rPePVEJ50E9X3FlR7_T4yVpu-B60kUd23p-IswoCYo-g-CD3ZzhT-G4eW9vOrApFnjTV8irbGbLoi7kjS1LlkkcxQEC2GJ5jWKUkinEQM3g19M82c0zBVOrhtkzNQnp8P30Wa6FNza42UPHxZRWfKnpGy0ylWzAHx5IXD4fYdLR3V6itIKq_UwDZ9KkQAtWHPDYTRTQtlQWIBsfD4tcYJ_T1nCa7Psrp83YuIrBe9GoTsWASZ_JFpmOX6OG1zRiWWVq-2_fELshnAE3hy0jMmvYAqkuKa326MlmAGlK_sWuZbYnt4EWa5Xpwvss-I8dfMyAmorlfLatH_UNh0qgxA0_NvKMYvumnlZhA_UfG_WuBpJp_47f_rcp9N4U4s9Y2R6-aFndZGZZ8vLa7nNaemsTtcI72ZUMSJO3Hk4Tosa3Esx4FRNVg8gs448zOV5RxpNjwP82Pad0Icy_9pcyz4uABG6b7XJ132xB3eGSaySNraQiX7Z8gCT_hBjkaDgz1K6CuqGkZC4rs2gnsNAsaWCA0Jlu1Uiyj_iAJsqlg1ou84Wevplo5U9PPWk7CaOOa-N3naPW9Ircn3hJ2o2fZmTboecW4bKHCJfn5G9FlDeLyfyuwNxUE1ciNYoiDnIlp7KKkW6kdhgRTXKq0DmEuQ=m18',
                                         label: "embed",
                                         type: "embed"
                                     }
