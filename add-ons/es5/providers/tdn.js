@@ -9,7 +9,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var URL = {
     DOMAIN: "https://qwerty.teatv.net/",
     SEARCH: function SEARCH(title, nonce) {
-        return 'https://qwerty.teatv.net/api/gd';
+        return 'https://qwerty.teatv.net/api/gp';
     },
     HEADERS: function HEADERS(referer) {
         return {
@@ -119,7 +119,18 @@ var Tdn = function () {
                                                 name: "tdn"
                                             },
                                             result: {
-                                                file: res.data.links[i].link,
+                                                file: res.data.links[i].link + '=m18',
+                                                label: "embed",
+                                                type: "embed"
+                                            }
+                                        });
+                                        hosts.push({
+                                            provider: {
+                                                url: 'https://themoviedb.org',
+                                                name: "tdn"
+                                            },
+                                            result: {
+                                                file: res.data.links[i].link + '=m22',
                                                 label: "embed",
                                                 type: "embed"
                                             }
