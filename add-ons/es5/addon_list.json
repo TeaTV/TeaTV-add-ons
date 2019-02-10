@@ -369,7 +369,7 @@
         "tdn": {
             "name": "tdn",
             "domain": "tdn.dit",
-            "version": "0.3.3",
+            "version": "0.3.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/tdn.js",
             "type": [
                 "tv",

@@ -68,7 +68,7 @@ var Tdn = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, qs, cryptoJs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, ss, ep, sign, posts, res, i;
+                var _libs2, httpRequest, cheerio, qs, cryptoJs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, ss, ep, sign, posts, res, i, l, h, m, j, u;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -110,37 +110,56 @@ var Tdn = function () {
                             case 13:
                                 res = _context2.sent;
 
-
-                                if (res.data.status && res.data.links.length > 0) {
-                                    for (i in res.data.links) {
-                                        hosts.push({
-                                            provider: {
-                                                url: 'https://themoviedb.org',
-                                                name: "tdn"
-                                            },
-                                            result: {
-                                                file: res.data.links[i].link + '=m18',
-                                                label: "embed",
-                                                type: "embed"
-                                            }
-                                        });
-                                        hosts.push({
-                                            provider: {
-                                                url: 'https://themoviedb.org',
-                                                name: "tdn"
-                                            },
-                                            result: {
-                                                file: res.data.links[i].link + '=m22',
-                                                label: "embed",
-                                                type: "embed"
-                                            }
-                                        });
-                                    }
+                                if (!(res.data.status && res.data.links.length > 0)) {
+                                    _context2.next = 30;
+                                    break;
                                 }
+
+                                _context2.t0 = regeneratorRuntime.keys(res.data.links);
+
+                            case 16:
+                                if ((_context2.t1 = _context2.t0()).done) {
+                                    _context2.next = 30;
+                                    break;
+                                }
+
+                                i = _context2.t1.value;
+                                l = res.data.links[i].link;
+                                _context2.next = 21;
+                                return httpRequest.getHTML(l, URL.HEADERS());
+
+                            case 21:
+                                h = _context2.sent;
+
+                                h = h.split('data:function(){return ')[1];
+                                h = h.split('}});</script>')[0];
+                                h = JSON.parse(h);
+                                h = JSON.stringify(h[11]).replace(/%3D/g, '=').replace(/%3A/g, ':').replace(/%2F/g, '/');
+                                m = h.match(/url=([^&]+)/g);
+
+                                for (j = 0; j < m.length; j++) {
+                                    u = m[j].split('url=')[1];
+
+                                    hosts.push({
+                                        provider: {
+                                            url: 'https://themoviedb.org',
+                                            name: "tdn"
+                                        },
+                                        result: {
+                                            file: u,
+                                            label: "embed",
+                                            type: "embed"
+                                        }
+                                    });
+                                }
+                                _context2.next = 16;
+                                break;
+
+                            case 30:
 
                                 this.state.hosts = hosts;
 
-                            case 16:
+                            case 31:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -161,7 +180,7 @@ var Tdn = function () {
 
 thisSource.function = function () {
     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(libs, movieInfo, settings) {
-        var httpRequest, source, bodyPost;
+        var httpRequest, source, bodyPost, res, js, hosts;
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
             while (1) {
                 switch (_context3.prev = _context3.next) {
@@ -182,22 +201,51 @@ thisSource.function = function () {
                             year: movieInfo.year
                         };
                         _context3.next = 5;
-                        return source.searchDetail();
+                        return httpRequest.post('https://vtt.teatv.net/source/get', {}, bodyPost);
 
                     case 5:
+                        res = _context3.sent;
+                        js = void 0, hosts = [];
 
-                        if (!source.state.detailUrl) {
-                            bodyPost.is_link = 0;
-                        } else {
-                            bodyPost.is_link = 1;
+
+                        try {
+                            res = res['data'];
+                            if (res['status']) {
+                                hosts = JSON.parse(res['hosts']);
+                            }
+                        } catch (err) {
+                            console.log('err', err);
                         }
-                        _context3.next = 8;
+
+                        if (!(hosts.length == 0)) {
+                            _context3.next = 19;
+                            break;
+                        }
+
+                        _context3.next = 11;
+                        return source.searchDetail();
+
+                    case 11:
+                        _context3.next = 13;
                         return source.getHostFromDetail();
 
-                    case 8:
-                        return _context3.abrupt('return', source.state.hosts);
+                    case 13:
+                        hosts = source.state.hosts;
 
-                    case 9:
+                        if (!(hosts.length > 0)) {
+                            _context3.next = 19;
+                            break;
+                        }
+
+                        bodyPost['hosts'] = JSON.stringify(hosts);
+                        bodyPost['expired'] = 1800;
+                        _context3.next = 19;
+                        return httpRequest.post('https://vtt.teatv.net/source/set', {}, bodyPost);
+
+                    case 19:
+                        return _context3.abrupt('return', hosts);
+
+                    case 20:
                     case 'end':
                         return _context3.stop();
                 }
