@@ -7,9 +7,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "https://www.123movies.vision",
+    DOMAIN: "https://www1.123movies.vision",
     SEARCH: function SEARCH() {
-        return 'https://www.123movies.vision/';
+        return 'https://www1.123movies.vision/index.php?do=search';
     },
     DOMAIN_DECODE: '',
     HEADERS: function HEADERS() {
@@ -51,7 +51,9 @@ var S123moviessolar = function () {
                                     'story': title.toLowerCase(),
                                     'do': 'search',
                                     'subaction': 'search',
-                                    'title': 3
+                                    'full_search': 0,
+                                    'result_from': 1,
+                                    'search_start': 0
                                 };
                                 _context.next = 10;
                                 return httpRequest.post(URL.SEARCH(), URL.HEADERS(), dataString);

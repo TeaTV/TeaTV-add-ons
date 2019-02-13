@@ -24,6 +24,12 @@ var URL = {
 
 };
 
+var sleep = function sleep(milliseconds) {
+    return new Promise(function (resolve) {
+        return setInterval(resolve, milliseconds);
+    });
+};
+
 var Gomoviesec = function () {
     function Gomoviesec(props) {
         _classCallCheck(this, Gomoviesec);
@@ -46,15 +52,15 @@ var Gomoviesec = function () {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper;
-                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
-                                detailUrl = false;
-                                _context.prev = 3;
-                                urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title));
-                                _context.next = 7;
-                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS());
+                                console.log('hahaheheeh');
+                                _context.next = 3;
+                                return sleep(10000);
 
-                            case 7:
+                            case 3:
+                                console.log('hahaha');
+                                throw new Error('dis');
+
+                            case 12:
                                 dataSearch = _context.sent;
 
                                 if (dataSearch.cookies) this.cookies = dataSearch.cookies;
@@ -84,28 +90,28 @@ var Gomoviesec = function () {
                                         }
                                     }
                                 });
-                                _context.next = 17;
+                                _context.next = 22;
                                 break;
 
-                            case 14:
-                                _context.prev = 14;
-                                _context.t0 = _context['catch'](3);
+                            case 19:
+                                _context.prev = 19;
+                                _context.t0 = _context['catch'](8);
 
                                 console.log(String(_context.t0));
 
-                            case 17:
+                            case 22:
 
                                 if (detailUrl) detailUrl = detailUrl + 'watching.html';
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 20:
+                            case 25:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[3, 14]]);
+                }, _callee, this, [[8, 19]]);
             }));
 
             function searchDetail() {
@@ -225,7 +231,7 @@ var Gomoviesec = function () {
                                                         js['playlist'] != undefined && hosts.push({
                                                             provider: {
                                                                 url: detailUrl,
-                                                                name: "GauMovi"
+                                                                name: "gaumovi"
                                                             },
                                                             result: {
                                                                 file: js['playlist'][0]['file'],
@@ -237,7 +243,7 @@ var Gomoviesec = function () {
                                                         js['fb'] != undefined && hosts.push({
                                                             provider: {
                                                                 url: detailUrl,
-                                                                name: "GauMovi"
+                                                                name: "gaumovi"
                                                             },
                                                             result: {
                                                                 file: js['fb'],

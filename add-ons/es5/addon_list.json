@@ -22,9 +22,9 @@
         },
         "m4ufree": {
             "name": "m4ufree",
-            "domain": "m4ufree.tv",
-            "version": "0.4.8",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/m4u.js",
+            "domain": "m4ufree.fun",
+            "version": "0.4.9",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/m4ufree.js",
             "type": [
                 "movie",
                 "tv"
@@ -101,7 +101,7 @@
         "123moviessolar": {
             "name": "123moviessolar",
             "domain": "123moviessolar.dit",
-            "version": "0.1.7",
+            "version": "0.1.8",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviessolar.js",
             "type": [
                 "tv"
