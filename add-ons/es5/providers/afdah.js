@@ -8,7 +8,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var URL = {
     DOMAIN: "https://afdah.info",
-    SEARCH: 'https://afdah.info/wp-content/themes/afdah/ajax-search2.php',
+    SEARCH: 'https://search.afdah.info/',
     HEADERS: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
         'Origin': 'https://afdah.info',

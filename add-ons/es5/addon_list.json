@@ -275,7 +275,7 @@
         "afdah": {
             "name": "afdah",
             "domain": "afdah.dit",
-            "version": "0.7.4",
+            "version": "0.7.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/afdah.js",
             "type": [
                 "movie",
