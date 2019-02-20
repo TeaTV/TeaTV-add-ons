@@ -209,7 +209,7 @@
         "scnsrc": {
             "name": "scnsrc",
             "domain": "scnsrc.dit",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/scnsrc.js",
             "type": [
                 "movie",
@@ -647,6 +647,15 @@
             ],
             "version": "0.9.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/afdah.js"
+        },
+        "vidtodo": {
+            "name": "vidtodo",
+            "domain": [
+                "vidtodo.",
+                "vidtodoo."
+            ],
+            "version": "0.2.0",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidtodo.js"
         }
     }
 }

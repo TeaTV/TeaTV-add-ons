@@ -25,7 +25,7 @@ var URL = _defineProperty({
         };
     },
     BING_SEARCH: function BING_SEARCH(title) {
-        return 'https://www.bing.com/search?q=site%3Awww.scnsrc.me+' + title;
+        return 'https://www.bing.com/search?q=site%3Awww.scnsrc.me+"' + title + '"';
     }
 }, 'SEARCH', function SEARCH(title) {
     return 'http://www.scnsrc.me/?s=' + title + '&x=0&y=0';
@@ -175,27 +175,81 @@ var Scnsrc = function () {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
-
-                                                        console.log(link, 'link');
-                                                        _context2.next = 3;
+                                                        _context2.next = 2;
                                                         return httpRequest.getHTML(link, URL.HEADERS());
 
-                                                    case 3:
+                                                    case 2:
                                                         dataSearch = _context2.sent;
-                                                        hrefs = dataSearch.match(/href="([^"]+)/g);
+                                                        hrefs = dataSearch.match(/href="?([^("?\s?)]+)/g);
+                                                        i = 0;
 
-                                                        for (i = 0; i < hrefs.length; i++) {
-                                                            u = hrefs[i].split('"');
-
-                                                            if (u != null) {
-                                                                u = u[1];
-                                                                domain = getDomain(u);
-
-                                                                if (supported.includes(domain)) urls.push(u);
-                                                            }
+                                                    case 5:
+                                                        if (!(i < hrefs.length)) {
+                                                            _context2.next = 25;
+                                                            break;
                                                         }
 
-                                                    case 6:
+                                                        u = hrefs[i].split('"');
+
+                                                        if (u == undefined) u = hrefs[i].split('=');
+
+                                                        if (!(u != null && u != undefined)) {
+                                                            _context2.next = 22;
+                                                            break;
+                                                        }
+
+                                                        if (u.length == 2) u = u[1].replace(/href="?/, "");else u = u[0].replace(/href="?/, "");
+
+                                                        if (!(u == undefined || u.length < 70)) {
+                                                            _context2.next = 12;
+                                                            break;
+                                                        }
+
+                                                        return _context2.abrupt('continue', 22);
+
+                                                    case 12:
+                                                        if (!(u.indexOf('part') != -1)) {
+                                                            _context2.next = 14;
+                                                            break;
+                                                        }
+
+                                                        return _context2.abrupt('continue', 22);
+
+                                                    case 14:
+                                                        if (!(u.indexOf('sample') != -1)) {
+                                                            _context2.next = 16;
+                                                            break;
+                                                        }
+
+                                                        return _context2.abrupt('continue', 22);
+
+                                                    case 16:
+                                                        if (!(u.indexOf('.rar') != -1)) {
+                                                            _context2.next = 18;
+                                                            break;
+                                                        }
+
+                                                        return _context2.abrupt('continue', 22);
+
+                                                    case 18:
+                                                        if (!(u.indexOf('.mp4') == -1 && u.indexOf('.avi') == -1 && u.indexOf('.mkv') == -1)) {
+                                                            _context2.next = 20;
+                                                            break;
+                                                        }
+
+                                                        return _context2.abrupt('continue', 22);
+
+                                                    case 20:
+                                                        domain = getDomain(u);
+
+                                                        if (supported.includes(domain)) urls.push(u);
+
+                                                    case 22:
+                                                        i++;
+                                                        _context2.next = 5;
+                                                        break;
+
+                                                    case 25:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
@@ -216,10 +270,10 @@ var Scnsrc = function () {
                                     u = urls[i];
                                     ulower = u.toLowerCase();
                                     tlower = title.toLowerCase();
-                                    finds = [tlower.replace(/[\s:'"]+/ig, '.'), tlower.replace(/[\s:'"]+/ig, '-'), tlower.replace(/[\s:'"]+/ig, '_'), firstChar(tlower, '.'), firstChar(tlower, '_'), firstChar(tlower, '-')];
+                                    finds = [tlower.replace(/[\s:'"]+/ig, '.'), tlower.replace(/[\s:'"]+/ig, '-'), tlower.replace(/[\s:'"]+/ig, '_'), firstChar(tlower, '.'), firstChar(tlower, '_'), firstChar(tlower, '-'), firstChar(tlower, '') + '.' + year];
 
                                     for (f in finds) {
-                                        if (ulower.indexOf(finds[f]) != -1 && ulower.indexOf('part') == -1) {
+                                        if (ulower.indexOf(finds[f].toLowerCase()) != -1 && ulower.indexOf('part') == -1) {
                                             if (hosts.length < 15 && (ulower.indexOf('mp4') != -1 || ulower.indexOf('mkv') != -1)) hosts.push({
                                                 provider: {
                                                     url: u,
@@ -258,7 +312,7 @@ var Scnsrc = function () {
 
 thisSource.function = function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
-        var httpRequest, source, bodyPost;
+        var httpRequest, source, bodyPost, res, js, hosts;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
             while (1) {
                 switch (_context4.prev = _context4.next) {
@@ -279,31 +333,51 @@ thisSource.function = function () {
                             year: movieInfo.year
                         };
                         _context4.next = 5;
-                        return source.searchDetail();
+                        return httpRequest.post('https://vtt.teatv.net/source/get', {}, bodyPost);
 
                     case 5:
+                        res = _context4.sent;
+                        js = void 0, hosts = [];
 
-                        if (!source.state.detailUrl) {
-                            bodyPost.is_link = 0;
-                        } else {
-                            bodyPost.is_link = 1;
+
+                        try {
+                            res = res['data'];
+                            if (res['status']) {
+                                hosts = JSON.parse(res['hosts']);
+                            }
+                        } catch (err) {
+                            console.log('err', err);
                         }
-                        _context4.next = 8;
+
+                        if (!(hosts.length == 0)) {
+                            _context4.next = 19;
+                            break;
+                        }
+
+                        _context4.next = 11;
+                        return source.searchDetail();
+
+                    case 11:
+                        _context4.next = 13;
                         return source.getHostFromDetail();
 
-                    case 8:
+                    case 13:
+                        hosts = source.state.hosts;
 
-                        if (source.state.hosts.length == 0) {
-                            bodyPost.is_link = 0;
-                        } else {
-                            bodyPost.is_link = 1;
+                        if (!(hosts.length > 0)) {
+                            _context4.next = 19;
+                            break;
                         }
 
-                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+                        bodyPost['hosts'] = JSON.stringify(hosts);
+                        bodyPost['expired'] = 3600;
+                        _context4.next = 19;
+                        return httpRequest.post('https://vtt.teatv.net/source/set', {}, bodyPost);
 
-                        return _context4.abrupt('return', source.state.hosts);
+                    case 19:
+                        return _context4.abrupt('return', hosts);
 
-                    case 10:
+                    case 20:
                     case 'end':
                         return _context4.stop();
                 }
