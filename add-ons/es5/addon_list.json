@@ -647,15 +647,6 @@
             ],
             "version": "0.9.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/afdah.js"
-        },
-        "vidtodo": {
-            "name": "vidtodo",
-            "domain": [
-                "vidtodo.",
-                "vidtodoo."
-            ],
-            "version": "0.2.0",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidtodo.js"
         }
     }
 }
