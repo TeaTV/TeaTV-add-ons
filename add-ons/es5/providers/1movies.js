@@ -219,21 +219,23 @@ var Onemovies = function () {
                                                     case 6:
                                                         js = _context3.sent;
 
-                                                        js = JSON.parse(js);
+                                                        try {
+                                                            js = JSON.parse(js);
 
-                                                        js['playlist'] != undefined && hosts.push({
-                                                            provider: {
-                                                                url: detailUrl,
-                                                                name: "Onemovie"
-                                                            },
-                                                            result: {
-                                                                file: js['playlist'][0]['file'],
-                                                                label: "embed",
-                                                                type: 'direct'
-                                                            }
-                                                        });
+                                                            js['playlist'] != undefined && hosts.push({
+                                                                provider: {
+                                                                    url: detailUrl,
+                                                                    name: "Onemovie"
+                                                                },
+                                                                result: {
+                                                                    file: js['playlist'][0]['file'],
+                                                                    label: "embed",
+                                                                    type: 'direct'
+                                                                }
+                                                            });
+                                                        } catch (e) {}
 
-                                                    case 9:
+                                                    case 8:
                                                     case 'end':
                                                         return _context3.stop();
                                                 }
