@@ -449,9 +449,13 @@ exports.default = function () {
 
                         //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
 
+                        if (movieInfo.ss != undefined) {
+                            movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, source.state.hosts);
+                        }
+
                         return _context4.abrupt('return', source.state.hosts);
 
-                    case 10:
+                    case 11:
                     case 'end':
                         return _context4.stop();
                 }

@@ -369,7 +369,7 @@
         "tdn": {
             "name": "tdn",
             "domain": "tdn.dit",
-            "version": "0.3.4",
+            "version": "0.3.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/tdn.js",
             "type": [
                 "tv",
@@ -627,9 +627,10 @@
                 "melimedia.net",
                 "farshow.ir",
                 "watchmega.to",
-                "amazonaws.com"
+                "amazonaws.com",
+                "lavinmovie.net"
             ],
-            "version": "0.0.7",
+            "version": "0.0.8",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/direct.js"
         },
         "uptostream": {

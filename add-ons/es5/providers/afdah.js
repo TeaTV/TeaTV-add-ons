@@ -216,9 +216,14 @@ thisSource.function = function () {
                         return httpRequest.post('https://vtt.teatv.net/source/set', {}, bodyPost);
 
                     case 19:
+
+                        if (movieInfo.ss != undefined) {
+                            movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
+                        }
+
                         return _context3.abrupt('return', hosts);
 
-                    case 20:
+                    case 21:
                     case 'end':
                         return _context3.stop();
                 }
