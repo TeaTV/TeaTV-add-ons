@@ -9,9 +9,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var URL = {
     DOMAIN: "https://daxiv.com",
     SEARCH: function SEARCH(title, token) {
-        return "https://daxiv.com/category?search=" + title + "&ddos=" + token;
+        return "https://moxox.com/category?search=" + title + "&ddos=" + token;
     },
-    DDOS_TOKEN: "https://api.daxiv.com/ddos",
+    DDOS_TOKEN: "https://api.daxiv.com/caonimabi",
     HEADERS: function HEADERS(referer) {
         return {
             'User-Agent': 'Firefox 59',

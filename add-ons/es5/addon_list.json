@@ -311,15 +311,6 @@
                 "movie"
             ]
         },
-        "screamcr": {
-            "name": "screamcr",
-            "domain": "screamcr.dit",
-            "version": "1.1.4",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/screamcr.js",
-            "type": [
-                "movie"
-            ]
-        },
         "yitivi": {
             "name": "yitivi",
             "domain": "yitivi.dit",
@@ -332,7 +323,7 @@
         "davich": {
             "name": "davich",
             "domain": "davich.dit",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/davix.js",
             "type": [
                 "movie"
