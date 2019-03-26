@@ -169,7 +169,7 @@ var WatchSeries = function () {
 
 thisSource.function = function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
-        var httpRequest, source, bodyPost;
+        var httpRequest, source, bodyPost, res, js, hosts;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
             while (1) {
                 switch (_context4.prev = _context4.next) {
@@ -190,35 +190,56 @@ thisSource.function = function () {
                             year: movieInfo.year
                         };
                         _context4.next = 5;
-                        return source.searchDetail();
+                        return httpRequest.post('https://vtt.teatv.net/source/get', {}, bodyPost);
 
                     case 5:
+                        res = _context4.sent;
+                        js = void 0, hosts = [];
 
-                        if (!source.state.detailUrl) {
-                            bodyPost.is_link = 0;
-                        } else {
-                            bodyPost.is_link = 1;
-                        }
-                        _context4.next = 8;
-                        return source.getHostFromDetail();
 
-                    case 8:
-
-                        if (source.state.hosts.length == 0) {
-                            bodyPost.is_link = 0;
-                        } else {
-                            bodyPost.is_link = 1;
+                        try {
+                            res = res['data'];
+                            if (res['status']) {
+                                hosts = JSON.parse(res['hosts']);
+                            }
+                        } catch (err) {
+                            console.log('err', err);
                         }
 
-                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
-
-                        if (movieInfo.ss != undefined) {
-                            movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, source.state.hosts);
+                        if (!(hosts.length == 0)) {
+                            _context4.next = 19;
+                            break;
                         }
 
-                        return _context4.abrupt('return', source.state.hosts);
+                        _context4.next = 11;
+                        return source.searchDetail();
 
                     case 11:
+                        _context4.next = 13;
+                        return source.getHostFromDetail();
+
+                    case 13:
+                        hosts = source.state.hosts;
+
+                        if (!(hosts.length > 0)) {
+                            _context4.next = 19;
+                            break;
+                        }
+
+                        bodyPost['hosts'] = JSON.stringify(hosts);
+                        bodyPost['expired'] = 3600;
+                        _context4.next = 19;
+                        return httpRequest.post('https://vtt.teatv.net/source/set', {}, bodyPost);
+
+                    case 19:
+
+                        if (movieInfo.ss != undefined) {
+                            movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
+                        }
+
+                        return _context4.abrupt('return', hosts);
+
+                    case 21:
                     case 'end':
                         return _context4.stop();
                 }

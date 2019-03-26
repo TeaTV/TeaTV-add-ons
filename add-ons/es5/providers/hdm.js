@@ -22,6 +22,15 @@ var URL = {
     },
     DOMAIN_EMBED: function DOMAIN_EMBED(id) {
         return 'https://hdo.to/ajax/movie/get_embed/' + id;
+    },
+    HEADERS: function HEADERS() {
+        return {
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+            'cache-control': 'max-age=0',
+            'upgrade-insecure-requests': 1,
+            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36'
+        };
     }
 };
 
@@ -66,10 +75,12 @@ var Hdm = function () {
                                     urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+') + ('+season+' + season));
                                 }
 
-                                _context2.next = 13;
-                                return httpRequest.getHTML(urlSearch);
+                                console.log(urlSearch);
 
-                            case 13:
+                                _context2.next = 14;
+                                return httpRequest.getHTML(urlSearch, URL.HEADERS());
+
+                            case 14:
                                 htmlSearch = _context2.sent;
                                 $ = cheerio.load(htmlSearch);
                                 itemSearch = $('.ulclear .movie-item');
@@ -134,23 +145,23 @@ var Hdm = function () {
                                         return _ref2.apply(this, arguments);
                                     };
                                 }());
-                                _context2.next = 20;
+                                _context2.next = 21;
                                 return Promise.all(arrPromise);
 
-                            case 20:
+                            case 21:
                                 if (detailUrl) {
-                                    _context2.next = 22;
+                                    _context2.next = 23;
                                     break;
                                 }
 
                                 throw new Error('NOT FOUND');
 
-                            case 22:
+                            case 23:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context2.abrupt('return');
 
-                            case 24:
+                            case 25:
                             case 'end':
                                 return _context2.stop();
                         }

@@ -351,14 +351,19 @@ thisSource.function = function () {
                         }
 
                         bodyPost['hosts'] = JSON.stringify(hosts);
-                        bodyPost['expired'] = 1800;
+                        bodyPost['expired'] = 3600;
                         _context4.next = 19;
                         return httpRequest.post('https://vtt.teatv.net/source/set', {}, bodyPost);
 
                     case 19:
+
+                        if (movieInfo.ss != undefined) {
+                            movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
+                        }
+
                         return _context4.abrupt('return', hosts);
 
-                    case 20:
+                    case 21:
                     case 'end':
                         return _context4.stop();
                 }

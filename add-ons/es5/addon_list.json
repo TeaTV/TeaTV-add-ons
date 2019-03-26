@@ -23,7 +23,7 @@
         "m4ufree": {
             "name": "m4ufree",
             "domain": "m4ufree.fun",
-            "version": "0.4.9",
+            "version": "0.5.0",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/m4ufree.js",
             "type": [
                 "movie",
@@ -53,7 +53,7 @@
         "series9": {
             "name": "series9",
             "domain": "series9.io",
-            "version": "0.4.1",
+            "version": "0.4.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/series9.js",
             "type": [
                 "tv",
@@ -73,7 +73,7 @@
         "watchepisodes4": {
             "name": "watchepisodes4",
             "domain": "watchepisodes4.com",
-            "version": "0.4.3",
+            "version": "0.4.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchepisodes4.js",
             "type": [
                 "tv"
@@ -82,7 +82,7 @@
         "watchseries": {
             "name": "watchseries",
             "domain": "watchseries.sk",
-            "version": "0.4.1",
+            "version": "0.4.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchseries.js",
             "type": [
                 "tv"
@@ -91,7 +91,7 @@
         "fmoviespe": {
             "name": "fmoviespe",
             "domain": "fmovies.pe",
-            "version": "0.4.0",
+            "version": "0.4.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/fmoviespe.js",
             "type": [
                 "movie",
@@ -130,7 +130,7 @@
         "seriesfree": {
             "name": "seriesfree",
             "domain": "seriesfree.dit",
-            "version": "0.1.4",
+            "version": "0.1.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seriesfree.js",
             "type": [
                 "tv"
@@ -238,7 +238,7 @@
         "flixanity": {
             "name": "flixanity",
             "domain": "flixanity.io",
-            "version": "1.7.2",
+            "version": "1.7.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/flixanity.js",
             "type": [
                 "movie"
@@ -294,7 +294,7 @@
         "onemovies": {
             "name": "onemovies",
             "domain": "onemovies.dit",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/1movies.js",
             "type": [
                 "movie",
@@ -314,7 +314,7 @@
         "yitivi": {
             "name": "yitivi",
             "domain": "yitivi.dit",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/yifytv.js",
             "type": [
                 "movie"
@@ -362,6 +362,16 @@
             "domain": "tdn.dit",
             "version": "0.3.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/tdn.js",
+            "type": [
+                "tv",
+                "movie"
+            ]
+        },
+        "123moviesfree": {
+            "name": "123moviesfree",
+            "domain": "123moviesfree.dit",
+            "version": "0.1.5",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesfree.js",
             "type": [
                 "tv",
                 "movie"

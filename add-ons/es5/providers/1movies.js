@@ -274,27 +274,77 @@ var Onemovies = function () {
 
 thisSource.function = function () {
     var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(libs, movieInfo, settings) {
-        var onemovies;
+        var httpRequest, source, bodyPost, res, js, hosts;
         return regeneratorRuntime.wrap(function _callee5$(_context5) {
             while (1) {
                 switch (_context5.prev = _context5.next) {
                     case 0:
-                        onemovies = new Onemovies({
+                        httpRequest = libs.httpRequest;
+                        source = new Onemovies({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
-                        _context5.next = 3;
-                        return onemovies.searchDetail();
-
-                    case 3:
+                        bodyPost = {
+                            name_source: 'onemovies',
+                            is_link: 0,
+                            type: movieInfo.type,
+                            season: movieInfo.season,
+                            episode: movieInfo.episode,
+                            title: movieInfo.title,
+                            year: movieInfo.year
+                        };
                         _context5.next = 5;
-                        return onemovies.getHostFromDetail();
+                        return httpRequest.post('https://vtt.teatv.net/source/get', {}, bodyPost);
 
                     case 5:
-                        return _context5.abrupt('return', onemovies.state.hosts);
+                        res = _context5.sent;
+                        js = void 0, hosts = [];
 
-                    case 6:
+
+                        try {
+                            res = res['data'];
+                            if (res['status']) {
+                                hosts = JSON.parse(res['hosts']);
+                            }
+                        } catch (err) {
+                            console.log('err', err);
+                        }
+
+                        if (!(hosts.length == 0)) {
+                            _context5.next = 19;
+                            break;
+                        }
+
+                        _context5.next = 11;
+                        return source.searchDetail();
+
+                    case 11:
+                        _context5.next = 13;
+                        return source.getHostFromDetail();
+
+                    case 13:
+                        hosts = source.state.hosts;
+
+                        if (!(hosts.length > 0)) {
+                            _context5.next = 19;
+                            break;
+                        }
+
+                        bodyPost['hosts'] = JSON.stringify(hosts);
+                        bodyPost['expired'] = 1800;
+                        _context5.next = 19;
+                        return httpRequest.post('https://vtt.teatv.net/source/set', {}, bodyPost);
+
+                    case 19:
+
+                        if (movieInfo.ss != undefined) {
+                            movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
+                        }
+
+                        return _context5.abrupt('return', hosts);
+
+                    case 21:
                     case 'end':
                         return _context5.stop();
                 }
