@@ -143,7 +143,7 @@ var PutlockerHd = function () {
 
 thisSource.function = function () {
     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(libs, movieInfo, settings) {
-        var httpRequest, source, bodyPost;
+        var httpRequest, source, bodyPost, res, js, hosts;
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
             while (1) {
                 switch (_context3.prev = _context3.next) {
@@ -164,31 +164,56 @@ thisSource.function = function () {
                             year: movieInfo.year
                         };
                         _context3.next = 5;
-                        return source.searchDetail();
+                        return httpRequest.post('https://vtt.teatv.net/source/get', {}, bodyPost);
 
                     case 5:
+                        res = _context3.sent;
+                        js = void 0, hosts = [];
 
-                        if (!source.state.detailUrl) {
-                            bodyPost.is_link = 0;
-                        } else {
-                            bodyPost.is_link = 1;
+
+                        try {
+                            res = res['data'];
+                            if (res['status']) {
+                                hosts = JSON.parse(res['hosts']);
+                            }
+                        } catch (err) {
+                            console.log('err', err);
                         }
-                        _context3.next = 8;
+
+                        if (!(hosts.length == 0)) {
+                            _context3.next = 19;
+                            break;
+                        }
+
+                        _context3.next = 11;
+                        return source.searchDetail();
+
+                    case 11:
+                        _context3.next = 13;
                         return source.getHostFromDetail();
 
-                    case 8:
+                    case 13:
+                        hosts = source.state.hosts;
 
-                        if (source.state.hosts.length == 0) {
-                            bodyPost.is_link = 0;
-                        } else {
-                            bodyPost.is_link = 1;
+                        if (!(hosts.length > 0)) {
+                            _context3.next = 19;
+                            break;
                         }
 
-                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+                        bodyPost['hosts'] = JSON.stringify(hosts);
+                        bodyPost['expired'] = 3600;
+                        _context3.next = 19;
+                        return httpRequest.post('https://vtt.teatv.net/source/set', {}, bodyPost);
 
-                        return _context3.abrupt('return', source.state.hosts);
+                    case 19:
 
-                    case 10:
+                        if (movieInfo.ss != undefined) {
+                            movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
+                        }
+
+                        return _context3.abrupt('return', hosts);
+
+                    case 21:
                     case 'end':
                         return _context3.stop();
                 }

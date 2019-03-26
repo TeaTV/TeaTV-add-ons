@@ -332,7 +332,7 @@ thisSource.function = function () {
                         }
 
                         bodyPost['hosts'] = JSON.stringify(hosts);
-                        bodyPost['expired'] = 1800;
+                        bodyPost['expired'] = 3600;
                         _context5.next = 19;
                         return httpRequest.post('https://vtt.teatv.net/source/set', {}, bodyPost);
 
