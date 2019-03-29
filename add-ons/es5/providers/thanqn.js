@@ -110,6 +110,7 @@ var Thanqn = function () {
                             case 13:
                                 res = _context2.sent;
 
+                                console.log('quydo', posts, res);
 
                                 if (res.data.status && res.data.links.length > 0) {
                                     for (i in res.data.links) {
@@ -181,7 +182,7 @@ var Thanqn = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 16:
+                            case 17:
                             case 'end':
                                 return _context2.stop();
                         }

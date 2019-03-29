@@ -171,7 +171,7 @@ thisSource.function = function () {
                             year: movieInfo.year
                         };
                         _context3.next = 5;
-                        return httpRequest.post('https://vtt.teatv.net/source/get', {}, bodyPost);
+                        return httpRequest.post('https://vvv.teatv.net/source/get', {}, bodyPost);
 
                     case 5:
                         res = _context3.sent;
@@ -210,7 +210,7 @@ thisSource.function = function () {
                         bodyPost['hosts'] = JSON.stringify(hosts);
                         bodyPost['expired'] = 1800;
                         _context3.next = 19;
-                        return httpRequest.post('https://vtt.teatv.net/source/set', {}, bodyPost);
+                        return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
 
                     case 19:
 

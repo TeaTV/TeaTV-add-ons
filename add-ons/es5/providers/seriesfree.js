@@ -427,7 +427,7 @@ exports.default = function () {
                             year: movieInfo.year
                         };
                         _context4.next = 5;
-                        return httpRequest.post('https://vtt.teatv.net/source/get', {}, bodyPost);
+                        return httpRequest.post('https://vvv.teatv.net/source/get', {}, bodyPost);
 
                     case 5:
                         res = _context4.sent;
@@ -466,7 +466,7 @@ exports.default = function () {
                         bodyPost['hosts'] = JSON.stringify(hosts);
                         bodyPost['expired'] = 3600;
                         _context4.next = 19;
-                        return httpRequest.post('https://vtt.teatv.net/source/set', {}, bodyPost);
+                        return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
 
                     case 19:
 
