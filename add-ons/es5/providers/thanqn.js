@@ -117,7 +117,7 @@ var Thanqn = function () {
                                         hosts.push({
                                             provider: {
                                                 url: 'https://themoviedb.org',
-                                                name: "thanqn"
+                                                name: "Teatv.xyz"
                                             },
                                             result: {
                                                 file: res.data.links[i].link,
