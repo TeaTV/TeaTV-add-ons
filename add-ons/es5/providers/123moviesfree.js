@@ -308,32 +308,42 @@ thisSource.function = function () {
                             console.log('err', err);
                         }
 
+                        if (movieInfo.checker != undefined) hosts = [];
+
                         if (!(hosts.length == 0)) {
-                            _context4.next = 19;
+                            _context4.next = 22;
                             break;
                         }
 
-                        _context4.next = 11;
+                        _context4.next = 12;
                         return source.searchDetail();
 
-                    case 11:
-                        _context4.next = 13;
+                    case 12:
+                        _context4.next = 14;
                         return source.getHostFromDetail();
 
-                    case 13:
+                    case 14:
                         hosts = source.state.hosts;
 
+                        if (!(movieInfo.checker != undefined)) {
+                            _context4.next = 17;
+                            break;
+                        }
+
+                        return _context4.abrupt('return', hosts);
+
+                    case 17:
                         if (!(hosts.length > 0)) {
-                            _context4.next = 19;
+                            _context4.next = 22;
                             break;
                         }
 
                         bodyPost['hosts'] = JSON.stringify(hosts);
                         bodyPost['expired'] = 3600;
-                        _context4.next = 19;
+                        _context4.next = 22;
                         return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
 
-                    case 19:
+                    case 22:
 
                         if (movieInfo.ss != undefined) {
                             movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
@@ -341,7 +351,7 @@ thisSource.function = function () {
 
                         return _context4.abrupt('return', hosts);
 
-                    case 21:
+                    case 24:
                     case 'end':
                         return _context4.stop();
                 }

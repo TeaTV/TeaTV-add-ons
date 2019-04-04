@@ -7,13 +7,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "https://www3.watchfree.ac/",
+    DOMAIN: "http://www0.123movies.ag/",
     SEARCH: function SEARCH(title) {
-        return 'https://www3.watchfree.ac/search/' + title + '.html';
+        return 'http://www0.123movies.ag/search/' + title + '.html';
     },
-    HASH_URL: 'https://www3.watchfree.ac/ip.file/swf/plugins/ipplugins.php',
+    HASH_URL: 'http://www0.123movies.ag/ip.file/swf/plugins/ipplugins.php',
     PLAYER_URL: function PLAYER_URL(key, server_id) {
-        return 'https://www3.watchfree.ac/ip.file/swf/ipplayer/ipplayer.php?u=' + key + '&s=' + server_id + '&n=0';
+        return 'http://www0.123movies.ag/ip.file/swf/ipplayer/ipplayer.php?u=' + key + '&s=' + server_id + '&n=0';
     },
     HEADERS: function HEADERS(referer) {
         return {
@@ -23,9 +23,9 @@ var URL = {
     }
 };
 
-var s123MoviesFree = function () {
-    function s123MoviesFree(props) {
-        _classCallCheck(this, s123MoviesFree);
+var s123MoviesAg = function () {
+    function s123MoviesAg(props) {
+        _classCallCheck(this, s123MoviesAg);
 
         this.libs = props.libs;
         this.movieInfo = props.movieInfo;
@@ -34,7 +34,7 @@ var s123MoviesFree = function () {
         this.state = {};
     }
 
-    _createClass(s123MoviesFree, [{
+    _createClass(s123MoviesAg, [{
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
@@ -48,7 +48,7 @@ var s123MoviesFree = function () {
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 detailUrl = false;
                                 videoUrl = false;
-                                urlSearch = URL.SEARCH(encodeURI(title));
+                                urlSearch = URL.SEARCH(title.replace(/[\s:'-]+/, '+'));
                                 _context.next = 7;
                                 return httpRequest.getHTML(urlSearch);
 
@@ -56,17 +56,17 @@ var s123MoviesFree = function () {
                                 htmlSearch = _context.sent;
                                 $ = cheerio.load(htmlSearch);
 
-                                $('body .item a').each(function () {
+                                $('.movies-list .ml-item .ml-mask').each(function () {
 
-                                    var titleMovie = $(this).find('span').text();
+                                    var titleMovie = $(this).attr('title');
                                     var hrefMovie = $(this).attr('href');
 
-                                    var titleMovieFull = titleMovie.replace(/\s+Season\s+[0-9]+/i, '').trim();
+                                    var titleMovieFull = titleMovie.replace(/\s-?\s+S[0-9]+/i, '').trim();
                                     if (stringHelper.shallowCompare(title, titleMovieFull)) {
                                         if (type == 'movie' && hrefMovie.indexOf(year) != -1) {
                                             detailUrl = hrefMovie;
                                         } else if (type == 'tv') {
-                                            var m = titleMovie.match(/\s+Season\s+([0-9])+/i);
+                                            var m = titleMovie.match(/ -?\s+S([0-9])+/i);
                                             if (m != undefined && parseInt(m[1]) == season) {
                                                 detailUrl = hrefMovie;
                                             }
@@ -157,7 +157,7 @@ var s123MoviesFree = function () {
                                 $ = cheerio.load(htmlDetail);
 
                             case 20:
-                                servers = $('#servers-list li a');
+                                servers = $('#ip_server li a');
                                 sources = [];
 
 
@@ -182,38 +182,29 @@ var s123MoviesFree = function () {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
-                                                        hash = void 0;
-                                                        _context2.prev = 1;
-                                                        _context2.next = 4;
-                                                        return httpRequest.post(URL.HASH_URL, { 'content-type': 'application/x-www-form-urlencoded' }, source);
+                                                        _context2.next = 2;
+                                                        return httpRequest.post(URL.HASH_URL, {}, source);
 
-                                                    case 4:
+                                                    case 2:
                                                         hash = _context2.sent;
-                                                        _context2.next = 11;
-                                                        break;
-
-                                                    case 7:
-                                                        _context2.prev = 7;
-                                                        _context2.t0 = _context2['catch'](1);
-
-                                                        console.log('123moviesfree, hash, json error', _context2.t0);
-                                                        hash = { data: { s: '1' } };
-
-                                                    case 11:
                                                         hashKey = hash.data.s;
-                                                        _context2.next = 14;
+                                                        _context2.next = 6;
                                                         return httpRequest.getHTML(URL.PLAYER_URL(hashKey, source.server_id));
 
-                                                    case 14:
+                                                    case 6:
                                                         playHtml = _context2.sent;
+                                                        _context2.prev = 7;
 
-                                                        try {
-                                                            playHtml = JSON.parse(playHtml);
-                                                        } catch (e) {
-                                                            console.log('123moviesfree, source, json error', e);
-                                                            playHtml = { data: false };
-                                                        }
+                                                        playHtml = JSON.parse(playHtml);
+                                                        _context2.next = 14;
+                                                        break;
 
+                                                    case 11:
+                                                        _context2.prev = 11;
+                                                        _context2.t0 = _context2['catch'](7);
+                                                        throw new Error('NOT_FOUND');
+
+                                                    case 14:
                                                         if (playHtml.data) {
                                                             last_u = playHtml.data;
 
@@ -221,7 +212,7 @@ var s123MoviesFree = function () {
                                                             hosts.push({
                                                                 provider: {
                                                                     url: detailUrl,
-                                                                    name: "watchfree"
+                                                                    name: "123Movag"
                                                                 },
                                                                 result: {
                                                                     file: last_u,
@@ -231,12 +222,12 @@ var s123MoviesFree = function () {
                                                             });
                                                         }
 
-                                                    case 17:
+                                                    case 15:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
                                             }
-                                        }, _callee2, this, [[1, 7]]);
+                                        }, _callee2, this, [[7, 11]]);
                                     }));
 
                                     return function (_x) {
@@ -266,24 +257,24 @@ var s123MoviesFree = function () {
         }()
     }]);
 
-    return s123MoviesFree;
+    return s123MoviesAg;
 }();
 
 thisSource.function = function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
-        var httpRequest, source, bodyPost, res, js, hosts;
+        var httpRequest, source, bodyPost;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
             while (1) {
                 switch (_context4.prev = _context4.next) {
                     case 0:
                         httpRequest = libs.httpRequest;
-                        source = new s123MoviesFree({
+                        source = new s123MoviesAg({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: 'watchfree',
+                            name_source: '123moviesag',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
@@ -292,66 +283,31 @@ thisSource.function = function () {
                             year: movieInfo.year
                         };
                         _context4.next = 5;
-                        return httpRequest.post('https://vvv.teatv.net/source/get', {}, bodyPost);
-
-                    case 5:
-                        res = _context4.sent;
-                        js = void 0, hosts = [];
-
-
-                        try {
-                            res = res['data'];
-                            if (res['status']) {
-                                hosts = JSON.parse(res['hosts']);
-                            }
-                        } catch (err) {
-                            console.log('err', err);
-                        }
-
-                        if (movieInfo.checker != undefined) hosts = [];
-
-                        if (!(hosts.length == 0)) {
-                            _context4.next = 22;
-                            break;
-                        }
-
-                        _context4.next = 12;
                         return source.searchDetail();
 
-                    case 12:
-                        _context4.next = 14;
+                    case 5:
+
+                        if (!source.state.detailUrl) {
+                            bodyPost.is_link = 0;
+                        } else {
+                            bodyPost.is_link = 1;
+                        }
+                        _context4.next = 8;
                         return source.getHostFromDetail();
 
-                    case 14:
-                        hosts = source.state.hosts;
+                    case 8:
 
-                        if (!(movieInfo.checker != undefined)) {
-                            _context4.next = 17;
-                            break;
+                        if (source.state.hosts.length == 0) {
+                            bodyPost.is_link = 0;
+                        } else {
+                            bodyPost.is_link = 1;
                         }
 
-                        return _context4.abrupt('return', hosts);
+                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
 
-                    case 17:
-                        if (!(hosts.length > 0)) {
-                            _context4.next = 22;
-                            break;
-                        }
+                        return _context4.abrupt('return', source.state.hosts);
 
-                        bodyPost['hosts'] = JSON.stringify(hosts);
-                        bodyPost['expired'] = 3600;
-                        _context4.next = 22;
-                        return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
-
-                    case 22:
-
-                        if (movieInfo.ss != undefined) {
-                            movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
-                        }
-
-                        return _context4.abrupt('return', hosts);
-
-                    case 24:
+                    case 10:
                     case 'end':
                         return _context4.stop();
                 }
@@ -364,4 +320,4 @@ thisSource.function = function () {
     };
 }();
 
-thisSource.testing = s123MoviesFree;
+thisSource.testing = s123MoviesAg;

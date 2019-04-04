@@ -311,32 +311,48 @@ thisSource.function = function () {
                             console.log('err', err);
                         }
 
-                        if (!(hosts.length == 0)) {
-                            _context5.next = 19;
+                        if (!(movieInfo.checker != undefined)) {
+                            _context5.next = 10;
                             break;
                         }
 
-                        _context5.next = 11;
+                        return _context5.abrupt('return', hosts);
+
+                    case 10:
+                        if (!(hosts.length == 0)) {
+                            _context5.next = 23;
+                            break;
+                        }
+
+                        _context5.next = 13;
                         return source.searchDetail();
 
-                    case 11:
-                        _context5.next = 13;
+                    case 13:
+                        _context5.next = 15;
                         return source.getHostFromDetail();
 
-                    case 13:
+                    case 15:
                         hosts = source.state.hosts;
 
+                        if (!(movieInfo.checker != undefined)) {
+                            _context5.next = 18;
+                            break;
+                        }
+
+                        return _context5.abrupt('return', hosts);
+
+                    case 18:
                         if (!(hosts.length > 0)) {
-                            _context5.next = 19;
+                            _context5.next = 23;
                             break;
                         }
 
                         bodyPost['hosts'] = JSON.stringify(hosts);
                         bodyPost['expired'] = 3600;
-                        _context5.next = 19;
+                        _context5.next = 23;
                         return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
 
-                    case 19:
+                    case 23:
 
                         if (movieInfo.ss != undefined) {
                             movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
@@ -344,7 +360,7 @@ thisSource.function = function () {
 
                         return _context5.abrupt('return', hosts);
 
-                    case 21:
+                    case 25:
                     case 'end':
                         return _context5.stop();
                 }

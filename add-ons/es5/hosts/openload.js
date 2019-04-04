@@ -6,6 +6,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var jsdom = require('jsdom');
+var JSDOM = jsdom.JSDOM;
+
+var jqueryPath = './jquery.min.js';
+var fs = require('fs');
+
 var Openload = function () {
     function Openload(props) {
         _classCallCheck(this, Openload);
@@ -14,49 +20,6 @@ var Openload = function () {
         this.settings = props.settings;
         this.state = {};
     }
-
-    // async getOpenload(url) {
-
-    //     const { httpRequest, jsdom }    = this.libs;
-    //     const { JSDOM }                 = jsdom;
-    //     const jqueryUrl                 = "http://code.jquery.com/jquery-1.11.0.min.js";
-    //     let html                        = await httpRequest.getHTML(url);
-
-    //     if (html.indexOf('<h3>We’re Sorry!</h3>') > -1) throw new Error("Invalid fileId");
-
-
-    //     let jquery  = await httpRequest.getHTML(jqueryUrl);
-    //     const dom   = new JSDOM(html, {
-    //         runScripts: "outside-only"
-    //     });
-
-    //     const window = dom.window;
-    //     window.eval(jquery);
-
-    //     var script = html.substring(html.indexOf("ﾟωﾟﾉ= /｀ｍ´"));
-    //     script = script.substring(0, script.indexOf("</script>"));
-    //     window.eval(script);
-    //     script = script.substring(script.indexOf("$(document)"));
-    //     script = script.substring(script.indexOf("var"))
-    //     script = script.substring(0, script.indexOf("ﾟωﾟ"))
-    //     script = script.substring(0, script.lastIndexOf("});"))
-    //     script = script.replace("document.createTextNode.toString().indexOf('[native code')", "1");
-    //     script = script.replace("_0x3d7b02=[];", "");
-    //     window.eval(script);
-
-    //     let streamUrl   = window.document.getElementById("streamurj").innerHTML;
-    //     let opl         = "https://openload.co/stream/" + streamUrl + "?mime=true";
-    //     let isDie       = await httpRequest.isLinkDie(opl);
-
-    //     if( isDie == false ) throw new Error("NOT LINK");
-    //     return {
-    //         host: {
-    //             url: url,
-    //             name: "openload"
-    //         },
-    //         result: [{ file: opl, label: "NOR", type: "embed", size: isDie }]
-    //     }
-    // }
 
     _createClass(Openload, [{
         key: 'getQuality',
@@ -157,6 +120,7 @@ var Openload = function () {
                                 _context2.prev = 13;
                                 _context2.next = 16;
                                 return httpRequest.post("https://api.teatv.net/api/v2/get_opl", {
+                                    //apiResponse   = await httpRequest.post("http://localhost:3000/api/v2/get_opl", {
                                     "Content-Type": "application/json"
                                 }, JSON.stringify({
                                     data: html,
@@ -176,53 +140,47 @@ var Openload = function () {
                                 throw new Error('ERROR REQUEST');
 
                             case 23:
-
-                                // let isDie = await httpRequest.isLinkDie(apiResponse.data.data);
-                                // if( isDie == false ) throw new Error("LINK DIE");
-
                                 _apiResponse$data = apiResponse.data, status = _apiResponse$data.status, data = _apiResponse$data.data, error = _apiResponse$data.error;
 
-                                console.log(data, status);
-
                                 if (!error) {
-                                    _context2.next = 27;
+                                    _context2.next = 26;
                                     break;
                                 }
 
                                 throw new Error(error);
 
-                            case 27:
+                            case 26:
                                 if (!(status == 200)) {
-                                    _context2.next = 48;
+                                    _context2.next = 47;
                                     break;
                                 }
 
                                 isDie = false;
-                                _context2.prev = 29;
-                                _context2.next = 32;
+                                _context2.prev = 28;
+                                _context2.next = 31;
                                 return httpRequest.isLinkDie(data);
 
-                            case 32:
+                            case 31:
                                 isDie = _context2.sent;
-                                _context2.next = 38;
+                                _context2.next = 37;
                                 break;
 
-                            case 35:
-                                _context2.prev = 35;
-                                _context2.t2 = _context2['catch'](29);
+                            case 34:
+                                _context2.prev = 34;
+                                _context2.t2 = _context2['catch'](28);
 
 
                                 console.log(String(_context2.t2));
 
-                            case 38:
+                            case 37:
                                 if (!(isDie == false)) {
-                                    _context2.next = 40;
+                                    _context2.next = 39;
                                     break;
                                 }
 
                                 throw new Error("NOT LINK");
 
-                            case 40:
+                            case 39:
                                 $ = cheerio.load(html);
                                 title = $(".title").text();
                                 quality = this.getQuality(title);
@@ -237,7 +195,7 @@ var Openload = function () {
                                     result: [s]
                                 });
 
-                            case 48:
+                            case 47:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -246,12 +204,12 @@ var Openload = function () {
                                     result: []
                                 });
 
-                            case 49:
+                            case 48:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[2, 8], [13, 19], [29, 35]]);
+                }, _callee2, this, [[2, 8], [13, 19], [28, 34]]);
             }));
 
             function getUsingAPI(_x2) {

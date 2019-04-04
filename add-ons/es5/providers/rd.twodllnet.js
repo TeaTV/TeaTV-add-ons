@@ -6,30 +6,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var URL = _defineProperty({
-
-    DOMAIN: "https://5movies.to",
+var URL = {
+    DOMAIN: 'https://twoddl.net/',
     SEARCH: function SEARCH(title) {
-        return 'https://5movies.to/search.php?q=' + title;
-    },
-    GET_LINK_EMBED: function GET_LINK_EMBED(lk) {
-        return 'https://5movies.to/getlink.php?Action=get&lk=' + lk;
-    },
-    HEADERS: function HEADERS(time) {
-        return {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_' + time + ') AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-            'Referer': 'http://www.scnsrc.me/' + Math.round(+new Date())
-        };
-    },
-    BING_SEARCH: function BING_SEARCH(title) {
-        return 'https://www.bing.com/search?q=site%3Awww.scnsrc.me+"' + title + '"';
+        return 'https://twoddl.net/?s=' + title;
     }
-}, 'SEARCH', function SEARCH(title) {
-    return 'http://www.scnsrc.me/?s=' + title + '&x=0&y=0';
-});
+};
 
 var getDomain = function getDomain(url) {
     var m = url.match(/\/\/([^\/]+)/);
@@ -44,28 +26,27 @@ var firstChar = function firstChar(str, separator) {
     return acronym;
 };
 
-var Scnsrc = function () {
-    function Scnsrc(props) {
-        _classCallCheck(this, Scnsrc);
+var Twoddlnet = function () {
+    function Twoddlnet(props) {
+        _classCallCheck(this, Twoddlnet);
 
         this.libs = props.libs;
         this.movieInfo = props.movieInfo;
         this.settings = props.settings;
-
         this.state = {};
     }
 
-    _createClass(Scnsrc, [{
+    _createClass(Twoddlnet, [{
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, cryptoJs, qs, _movieInfo, title, year, season, episode, type, realdebrid, detailUrl, tvshowVideo, urlSearch, ep, ss, htmlSearch, $, itemSearch, urls, find;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, realdebrid, detailUrl, title1, urlSearch, searchHtml, $;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, cryptoJs = _libs.cryptoJs, qs = _libs.qs;
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type, realdebrid = _movieInfo.realdebrid;
 
                                 if (!(realdebrid == undefined)) {
@@ -76,50 +57,45 @@ var Scnsrc = function () {
                                 throw new Error("NO REAL DEBITCH HIHI");
 
                             case 4:
-                                detailUrl = false;
-                                tvshowVideo = false;
-                                urlSearch = '';
-                                ep = void 0, ss = void 0;
-
+                                detailUrl = [];
+                                title1 = title;
 
                                 if (type == 'tv') {
-                                    ss = season < 10 ? '0' + season : season;
-                                    ep = episode < 10 ? '0' + episode : episode;
-                                    urlSearch = URL.BING_SEARCH(encodeURI(title + "+s" + ss + 'e' + ep));
-                                    urlSearch = URL.SEARCH(encodeURI(title + "+s" + ss + 'e' + ep));
-                                } else {
-                                    urlSearch = URL.SEARCH(encodeURI(title) + "+" + year);
+                                    if (season < 10) season = '0' + season;
+                                    if (episode < 10) episode = '0' + episode;
+                                    title1 = title1 + '+s' + season + 'e' + episode;
                                 }
 
-                                //let htmlSearch 		= await httpRequest.getHTML(urlSearch, URL.HEADERS());
-                                //let itemSearch =  $('#b_results .b_algo');
-                                _context.next = 11;
-                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS(Math.round(+new Date())));
+                                urlSearch = URL.SEARCH(title1);
+                                _context.next = 10;
+                                return httpRequest.getHTML(urlSearch);
 
-                            case 11:
-                                htmlSearch = _context.sent;
-                                $ = cheerio.load(htmlSearch.data);
-                                //console.log(htmlSearch);
+                            case 10:
+                                searchHtml = _context.sent;
+                                $ = cheerio.load(searchHtml);
 
-                                itemSearch = $('.content .post');
-                                urls = [];
-                                find = void 0;
+                                $('.container .row .postpage_movie').each(function () {
+                                    var t = stringHelper.convertToSearchQueryString(title).toLowerCase();
+                                    var u = $(this).find('a').first().attr('href');
 
-                                if (type == 'tv') find = title.replace(/[\s':"]+/g, '-').toLowerCase() + "-s" + ss + 'e' + ep;else find = title.replace(/[\s':"]+/g, '-').toLowerCase() + '-' + year;
+                                    if (type == 'movie' && u.indexOf(t + '-' + year) != -1) detailUrl.push(u);
 
-                                //console.log(find, 'find');
-
-                                itemSearch.each(function () {
-                                    var hrefMovie = $(this).find('h2 a').attr('href');
-                                    //console.log(hrefMovie, find, 'f');
-
-                                    if (hrefMovie.indexOf(find) != -1 && urls.length < 3) urls.push(hrefMovie);
+                                    if (type == 'tv' && u.indexOf(t) != -1 && u.indexOf('s' + season + 'e' + episode) != -1) detailUrl.push(u);
                                 });
 
-                                this.state.detailUrl = urls;
+                                this.state.detailUrl = detailUrl;
+
+                                if (!(detailUrl.length == 0)) {
+                                    _context.next = 16;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 16:
                                 return _context.abrupt('return');
 
-                            case 20:
+                            case 17:
                             case 'end':
                                 return _context.stop();
                         }
@@ -155,15 +131,6 @@ var Scnsrc = function () {
 
                             case 4:
                                 detailUrl = this.state.detailUrl;
-
-                                if (!(detailUrl.length == 0)) {
-                                    _context3.next = 7;
-                                    break;
-                                }
-
-                                throw new Error('NOT_FOUND');
-
-                            case 7:
                                 arr_lk = [];
                                 urls = [];
                                 hosts = [];
@@ -176,7 +143,7 @@ var Scnsrc = function () {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
                                                         _context2.next = 2;
-                                                        return httpRequest.getHTML(link, URL.HEADERS());
+                                                        return httpRequest.getHTML(link);
 
                                                     case 2:
                                                         dataSearch = _context2.sent;
@@ -261,10 +228,10 @@ var Scnsrc = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 14;
+                                _context3.next = 12;
                                 return Promise.all(detailPromises);
 
-                            case 14:
+                            case 12:
 
                                 for (i = 0; i < urls.length; i++) {
                                     u = urls[i];
@@ -277,7 +244,7 @@ var Scnsrc = function () {
                                             if (hosts.length < 15 && (ulower.indexOf('mp4') != -1 || ulower.indexOf('mkv') != -1)) hosts.push({
                                                 provider: {
                                                     url: u,
-                                                    name: "Scnsrc"
+                                                    name: "Twoddlnet"
                                                 },
                                                 result: {
                                                     file: u,
@@ -291,7 +258,7 @@ var Scnsrc = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 16:
+                            case 14:
                             case 'end':
                                 return _context3.stop();
                         }
@@ -307,7 +274,7 @@ var Scnsrc = function () {
         }()
     }]);
 
-    return Scnsrc;
+    return Twoddlnet;
 }();
 
 thisSource.function = function () {
@@ -318,13 +285,13 @@ thisSource.function = function () {
                 switch (_context4.prev = _context4.next) {
                     case 0:
                         httpRequest = libs.httpRequest;
-                        source = new Scnsrc({
+                        source = new Twoddlnet({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: 'Scnsrc',
+                            name_source: 'Twoddlnet',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
@@ -352,7 +319,7 @@ thisSource.function = function () {
                         if (movieInfo.checker != undefined) hosts = [];
 
                         if (!(hosts.length == 0)) {
-                            _context4.next = 20;
+                            _context4.next = 22;
                             break;
                         }
 
@@ -366,20 +333,33 @@ thisSource.function = function () {
                     case 14:
                         hosts = source.state.hosts;
 
+                        if (!(movieInfo.checker != undefined)) {
+                            _context4.next = 17;
+                            break;
+                        }
+
+                        return _context4.abrupt('return', hosts);
+
+                    case 17:
                         if (!(hosts.length > 0)) {
-                            _context4.next = 20;
+                            _context4.next = 22;
                             break;
                         }
 
                         bodyPost['hosts'] = JSON.stringify(hosts);
-                        bodyPost['expired'] = 3600;
-                        _context4.next = 20;
+                        bodyPost['expired'] = 86400;
+                        _context4.next = 22;
                         return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
 
-                    case 20:
+                    case 22:
+
+                        if (movieInfo.ss != undefined) {
+                            movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
+                        }
+
                         return _context4.abrupt('return', hosts);
 
-                    case 21:
+                    case 24:
                     case 'end':
                         return _context4.stop();
                 }
@@ -392,4 +372,4 @@ thisSource.function = function () {
     };
 }();
 
-thisSource.testing = Scnsrc;
+thisSource.testing = Twoddlnet;

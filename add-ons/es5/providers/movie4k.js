@@ -7,28 +7,30 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: 'https://putlockerhd.co',
+    DOMAIN: 'https://www1.movie4k.is/',
     SEARCH: function SEARCH(title) {
-        return 'https://putlockerhd.co/results?q=' + title;
+        return 'https://www1.movie4k.is/?s=' + title;
+    },
+    EPISODE_URL: function EPISODE_URL(title, season, episode) {
+        return 'https://www1.movie4k.is/episode/' + title + '-s' + season + 'e' + episode;
     }
 };
 
-var PutlockerHd = function () {
-    function PutlockerHd(props) {
-        _classCallCheck(this, PutlockerHd);
+var Movie4k = function () {
+    function Movie4k(props) {
+        _classCallCheck(this, Movie4k);
 
         this.libs = props.libs;
         this.movieInfo = props.movieInfo;
         this.settings = props.settings;
-
         this.state = {};
     }
 
-    _createClass(PutlockerHd, [{
+    _createClass(Movie4k, [{
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, urlSearch, htmlSearch, $, itemSearch;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, urlSearch, searchHtml, $;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -37,33 +39,40 @@ var PutlockerHd = function () {
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
                                 detailUrl = false;
-                                urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
-                                _context.next = 6;
+
+                                if (!(type == 'tv')) {
+                                    _context.next = 9;
+                                    break;
+                                }
+
+                                if (season < 10) season = '0' + season;
+                                if (episode < 10) episode = '0' + episode;
+                                detailUrl = URL.EPISODE_URL(title, season, episode);
+                                _context.next = 15;
+                                break;
+
+                            case 9:
+                                urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title));
+                                _context.next = 12;
                                 return httpRequest.getHTML(urlSearch);
 
-                            case 6:
-                                htmlSearch = _context.sent;
-                                $ = cheerio.load(htmlSearch);
-                                itemSearch = $('.video_container');
+                            case 12:
+                                searchHtml = _context.sent;
+                                $ = cheerio.load(searchHtml);
 
-
-                                itemSearch.each(function () {
-
-                                    var titleMovies = $(this).find('.video_title h3 a').html();
-                                    var hrefMovies = URL.DOMAIN + $(this).find('.video_title h3 a').attr('href');
-                                    var yearMovies = $(this).find('.video_title h3 a').attr('title');
-                                    yearMovies = yearMovies.match(/\(([0-9]+)/i);
-                                    yearMovies = yearMovies != null ? +yearMovies[1] : 0;
-
-                                    if (stringHelper.shallowCompare(title, titleMovies) && yearMovies == year) {
-                                        detailUrl = hrefMovies;
-                                    }
+                                $('.peliculas .items .item').each(function () {
+                                    var u = $(this).find('a').attr('href');
+                                    var n = $(this).find('.fixyear h2').text();
+                                    var y = $(this).find('.year').text();
+                                    if (stringHelper.shallowCompare(title, n) && year == y) detailUrl = u;
                                 });
+
+                            case 15:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 12:
+                            case 17:
                             case 'end':
                                 return _context.stop();
                         }
@@ -81,7 +90,7 @@ var PutlockerHd = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, base64, hosts, htmlDetail, $, linkEmbed;
+                var _libs2, httpRequest, cheerio, base64, hosts, arrRedirect, detailUrl, htmlSearch, $;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -98,31 +107,34 @@ var PutlockerHd = function () {
 
                             case 3:
                                 hosts = [];
-                                _context2.next = 6;
+                                arrRedirect = [];
+                                detailUrl = this.state.detailUrl;
+                                _context2.next = 8;
                                 return httpRequest.getHTML(this.state.detailUrl);
 
-                            case 6:
-                                htmlDetail = _context2.sent;
-                                $ = cheerio.load(htmlDetail);
-                                linkEmbed = htmlDetail.match(/var *frame_url *\= *\"([^\"]+)/i);
+                            case 8:
+                                htmlSearch = _context2.sent;
+                                $ = cheerio.load(htmlSearch);
 
-                                linkEmbed = linkEmbed != false ? 'http:' + linkEmbed[1] : false;
 
-                                linkEmbed !== false && hosts.push({
-                                    provider: {
-                                        url: this.state.detailUrl,
-                                        name: "putlockerhd"
-                                    },
-                                    result: {
-                                        file: linkEmbed,
-                                        label: "embed",
-                                        type: "embed"
-                                    }
+                                $('iframe').each(function (val) {
+                                    hosts.push({
+                                        provider: {
+                                            url: detailUrl,
+                                            name: "Movie69k"
+                                        },
+                                        result: {
+                                            file: $(this).attr('src'),
+                                            label: "embed",
+                                            type: "embed"
+                                        }
+                                    });
                                 });
 
                                 this.state.hosts = hosts;
+                                return _context2.abrupt('return');
 
-                            case 12:
+                            case 13:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -138,7 +150,7 @@ var PutlockerHd = function () {
         }()
     }]);
 
-    return PutlockerHd;
+    return Movie4k;
 }();
 
 thisSource.function = function () {
@@ -149,13 +161,13 @@ thisSource.function = function () {
                 switch (_context3.prev = _context3.next) {
                     case 0:
                         httpRequest = libs.httpRequest;
-                        source = new PutlockerHd({
+                        source = new Movie4k({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: 'PutlockerHd',
+                            name_source: 'Movie4k',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
@@ -236,4 +248,4 @@ thisSource.function = function () {
     };
 }();
 
-thisSource.testing = PutlockerHd;
+thisSource.testing = Movie4k;
