@@ -6,11 +6,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var jsdom = require('jsdom');
-var JSDOM = jsdom.JSDOM;
-
-var jqueryPath = './jquery.min.js';
-var fs = require('fs');
+//const jsdom = require('jsdom');
+//const { JSDOM } = jsdom;
+//const jqueryPath = './jquery.min.js';
+//const fs = require('fs');
 
 var Openload = function () {
     function Openload(props) {
