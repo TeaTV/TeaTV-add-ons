@@ -90,8 +90,6 @@ var Thanqn = function () {
                                 ss = season;
                                 ep = episode;
                                 sign = cryptoJs.MD5(title.toLowerCase() + ss.toString() + "fapnhaptrensansau" + ep.toString()).toString();
-                                //console.log(title.toLowerCase() + ss.toString() + "fapnhaptrensansau" + ep.toString(), 'f');
-
                                 posts = {
                                     'name': title,
                                     'ss': type == 'tv' ? season : 0,
