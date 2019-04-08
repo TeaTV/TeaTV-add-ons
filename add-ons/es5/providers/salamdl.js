@@ -7,20 +7,27 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "https://qwerty.teatv.net/",
-    SEARCH: function SEARCH(title, nonce) {
-        return 'https://qwerty.teatv.net/api/gp';
+    DOMAIN: "https://salamdl.info/",
+    SEARCH: function SEARCH(title, year) {
+        return 'https://salamdl.info/' + title + '-' + year + '/';
     },
     HEADERS: function HEADERS(referer) {
         return {
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+            'User-Agent': 'Firefox 59',
+            'Referer': referer
         };
     }
 };
 
-var Tdn = function () {
-    function Tdn(props) {
-        _classCallCheck(this, Tdn);
+var getDomain = function getDomain(url) {
+    var m = url.match(/\/\/([^\/]+)/);
+    if (m == null) return 'xyzzyx.com';
+    return m[1] != undefined ? m[1] : 'xyzzyx.com';
+};
+
+var Salamdl = function () {
+    function Salamdl(props) {
+        _classCallCheck(this, Salamdl);
 
         this.libs = props.libs;
         this.movieInfo = props.movieInfo;
@@ -29,11 +36,11 @@ var Tdn = function () {
         this.state = {};
     }
 
-    _createClass(Tdn, [{
+    _createClass(Salamdl, [{
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type;
+                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type, detailUrl;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -42,11 +49,22 @@ var Tdn = function () {
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, qs = _libs.qs;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
 
+                                if (!(type == 'tv')) {
+                                    _context.next = 4;
+                                    break;
+                                }
 
-                                this.state.detailUrl = URL.SEARCH();
-                                return _context.abrupt('return');
+                                throw new Error('NOT_FOUND');
 
                             case 4:
+                                detailUrl = URL.SEARCH(stringHelper.convertToSearchQueryString(title), year);
+
+
+                                this.state.detailUrl = detailUrl;
+
+                                return _context.abrupt('return');
+
+                            case 7:
                             case 'end':
                                 return _context.stop();
                         }
@@ -64,79 +82,39 @@ var Tdn = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, qs, cryptoJs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, ss, ep, sign, posts, res, i, l, h, m, j, u;
+                var _libs2, httpRequest, cheerio, qs, type, detailUrl, htmlDetail, $, hosts;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
                         switch (_context2.prev = _context2.next) {
                             case 0:
-                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, qs = _libs2.qs, cryptoJs = _libs2.cryptoJs;
-                                _movieInfo2 = this.movieInfo, title = _movieInfo2.title, year = _movieInfo2.year, season = _movieInfo2.season, episode = _movieInfo2.episode, type = _movieInfo2.type;
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, qs = _libs2.qs;
 
                                 if (this.state.detailUrl) {
-                                    _context2.next = 4;
+                                    _context2.next = 3;
                                     break;
                                 }
 
                                 throw new Error("NOT_FOUND");
 
-                            case 4:
-                                hosts = [];
+                            case 3:
+                                type = this.movieInfo.type;
                                 detailUrl = this.state.detailUrl;
-                                ss = season;
-                                ep = episode;
-                                sign = cryptoJs.MD5(title.toLowerCase() + ss.toString() + "aloha" + ep.toString()).toString();
-                                posts = {
-                                    'name': title,
-                                    'ss': type == 'tv' ? season : 0,
-                                    'ep': type == 'tv' ? episode : 0,
-                                    'hash': sign,
-                                    'year': type == 'movie' ? year : 0
-                                };
+                                _context2.next = 7;
+                                return httpRequest.getHTML(detailUrl);
+
+                            case 7:
+                                htmlDetail = _context2.sent;
+                                $ = cheerio.load(htmlDetail);
+                                hosts = [];
 
 
-                                if (type == 'movie') posts.year = year;
-
-                                _context2.next = 13;
-                                return httpRequest.post(this.state.detailUrl, URL.HEADERS(), posts);
-
-                            case 13:
-                                res = _context2.sent;
-
-                                if (!(res.data.status && res.data.links.length > 0)) {
-                                    _context2.next = 30;
-                                    break;
-                                }
-
-                                _context2.t0 = regeneratorRuntime.keys(res.data.links);
-
-                            case 16:
-                                if ((_context2.t1 = _context2.t0()).done) {
-                                    _context2.next = 30;
-                                    break;
-                                }
-
-                                i = _context2.t1.value;
-                                l = res.data.links[i].link;
-                                _context2.next = 21;
-                                return httpRequest.getHTML(l, URL.HEADERS());
-
-                            case 21:
-                                h = _context2.sent;
-
-                                h = h.split('data:function(){return ')[1];
-                                h = h.split('}});</script>')[0];
-                                h = JSON.parse(h);
-                                h = JSON.stringify(h[11]).replace(/%3D/g, '=').replace(/%3A/g, ':').replace(/%2F/g, '/');
-                                m = h.match(/url=([^&]+)/g);
-
-                                for (j = 0; j < m.length; j++) {
-                                    u = m[j].split('url=')[1];
-
-                                    hosts.push({
+                                $('#linkbox li a').each(function () {
+                                    var u = $(this).attr('href');
+                                    if (u.toLowerCase().indexOf('trailer') == -1 && u.match(/\.(mkv|mp4)$/)) hosts.push({
                                         provider: {
-                                            url: 'https://themoviedb.org',
-                                            name: "tdn"
+                                            url: detailUrl,
+                                            name: "Salamdl"
                                         },
                                         result: {
                                             file: u,
@@ -144,15 +122,11 @@ var Tdn = function () {
                                             type: "embed"
                                         }
                                     });
-                                }
-                                _context2.next = 16;
-                                break;
-
-                            case 30:
+                                });
 
                                 this.state.hosts = hosts;
 
-                            case 31:
+                            case 12:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -168,7 +142,7 @@ var Tdn = function () {
         }()
     }]);
 
-    return Tdn;
+    return Salamdl;
 }();
 
 thisSource.function = function () {
@@ -179,20 +153,19 @@ thisSource.function = function () {
                 switch (_context3.prev = _context3.next) {
                     case 0:
                         httpRequest = libs.httpRequest;
-                        source = new Tdn({
+                        source = new Salamdl({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: 'Tdn',
+                            name_source: 'Salamdl',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
                             episode: movieInfo.episode,
                             title: movieInfo.title,
-                            year: movieInfo.year,
-                            hash: libs.cryptoJs.MD5(movieInfo.title.toLowerCase() + movieInfo.season.toString() + "aloha" + movieInfo.episode.toString()).toString()
+                            year: movieInfo.year
                         };
                         _context3.next = 5;
                         return httpRequest.post('https://vvv.teatv.net/source/get', {}, bodyPost);
@@ -242,7 +215,7 @@ thisSource.function = function () {
                         }
 
                         bodyPost['hosts'] = JSON.stringify(hosts);
-                        bodyPost['expired'] = 1800;
+                        bodyPost['expired'] = 3600;
                         _context3.next = 22;
                         return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
 
@@ -267,4 +240,4 @@ thisSource.function = function () {
     };
 }();
 
-thisSource.testing = Tdn;
+thisSource.testing = Salamdl;
