@@ -417,7 +417,7 @@
         "movie4k": {
             "name": "movie4k",
             "domain": "movie4k.dis",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/movie4k.js",
             "type": [
                 "movie",
@@ -466,7 +466,7 @@
         "anonembed": {
             "name": "anonembed",
             "domain": "anonembed.dis",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/anonembed.js",
             "type": [
                 "movie",
