@@ -452,6 +452,26 @@
             "type": [
                 "movie"
             ]
+        },
+        "cinewhale": {
+            "name": "cinewhale",
+            "domain": "cinewhale.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/cinewhale.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "anonembed": {
+            "name": "anonembed",
+            "domain": "anonembed.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/anonembed.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
@@ -745,6 +765,14 @@
             ],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/fastplay.js"
+        },
+        "vcdn": {
+            "name": "vcdn",
+            "domain": [
+                "vcdn.io"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vcdn.js"
         }
     }
 }
