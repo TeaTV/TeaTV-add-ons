@@ -7,47 +7,21 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: 'http://1movies.pl',
+    DOMAIN: 'https://www.f2movies.to/',
     SEARCH: function SEARCH(title) {
-        return 'http://1movies.pl/movies/search?s=' + title;
+        return 'https://www.f2movies.to/search/' + title + '.html';
     },
-    HEADERS: function HEADERS() {
-        return {
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-            'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-            'cache-control': 'max-age=0',
-            'upgrade-insecure-requests': 1,
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36',
-            'referer': 'http://1movies.pl/'
-        };
+    AJAX_URL: function AJAX_URL(id, server, type) {
+        return 'https://www.f2movies.to/ajax/' + type + '/' + id + '-' + server;
+    },
+    SERVER_LIST: function SERVER_LIST(id, mid) {
+        return 'https://www.f2movies.to/ajax/v4_movie_episodes/' + id + '/' + mid;
     }
 };
 
-var _0x7487 = ['replace', 'banner', 'Juice', 'indexOf', 'Close', "\x52\x75\x6e", 'charCodeAt', 'log', "", 'g', "\x25\x63", 'getElementById', 'color:blue', 'Log', 'remove', 'font-weight:bold;color:red', 'length', ' - %chttps://juicycodes.com', '[^A-Za-z0-9+\\/=]', 'charAt', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=', 'fromCharCode', 'utf8'];var JuicyCodes = { 'Juice': _0x7487[20], 'Run': function Run(e) {
-        var t = _0x7487[8],
-            n,
-            r,
-            i,
-            s,
-            o,
-            u,
-            a,
-            f = 0;for (e = e[_0x7487[0]](new RegExp(_0x7487[18], _0x7487[9]), _0x7487[8]); f < e[_0x7487[16]];) {
-            s = this[_0x7487[2]][_0x7487[3]](e[_0x7487[19]](f++)), o = this[_0x7487[2]][_0x7487[3]](e[_0x7487[19]](f++)), u = this[_0x7487[2]][_0x7487[3]](e[_0x7487[19]](f++)), a = this[_0x7487[2]][_0x7487[3]](e[_0x7487[19]](f++)), n = s << 2 | o >> 4, r = (15 & o) << 4 | u >> 2, i = (3 & u) << 6 | a, t += String[_0x7487[21]](n), 64 != u && (t += String[_0x7487[21]](r)), 64 != a && (t += String[_0x7487[21]](i));
-        }return JuicyCodes[_0x7487[22]](t);
-    }, 'Log': function Log(a) {
-        console[_0x7487[7]](_0x7487[10] + a + _0x7487[17], _0x7487[15], _0x7487[12]);
-    }, 'Close': function Close() {
-        var a = document[_0x7487[11]](_0x7487[1]);return a[_0x7487[14]](), !1;
-    }, 'utf8': function utf8(a) {
-        for (var b = _0x7487[8], c = 0, d = c1 = c2 = 0; c < a[_0x7487[16]];) {
-            d = a[_0x7487[6]](c), d < 128 ? (b += String[_0x7487[21]](d), c++) : d > 191 && d < 224 ? (c2 = a[_0x7487[6]](c + 1), b += String[_0x7487[21]]((31 & d) << 6 | 63 & c2), c += 2) : (c2 = a[_0x7487[6]](c + 1), c3 = a[_0x7487[6]](c + 2), b += String[_0x7487[21]]((15 & d) << 12 | (63 & c2) << 6 | 63 & c3), c += 3);
-        }return b;
-    } };
-
-var Onemovies = function () {
-    function Onemovies(props) {
-        _classCallCheck(this, Onemovies);
+var F2movies = function () {
+    function F2movies(props) {
+        _classCallCheck(this, F2movies);
 
         this.libs = props.libs;
         this.movieInfo = props.movieInfo;
@@ -55,11 +29,11 @@ var Onemovies = function () {
         this.state = {};
     }
 
-    _createClass(Onemovies, [{
+    _createClass(F2movies, [{
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, getYear, detailUrl, urlSearch, htmlSearch, $, itemSearch, arrInfo;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, htmlSearch, $, itemSearch;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -67,25 +41,14 @@ var Onemovies = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
-                                getYear = this.getYear;
                                 detailUrl = false;
-                                urlSearch = '';
+                                _context2.next = 5;
+                                return httpRequest.getHTML(URL.SEARCH(stringHelper.convertToSearchQueryString(title)));
 
-
-                                if (type == 'tv') {
-                                    urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+') + ('+season+' + season));
-                                } else {
-                                    urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
-                                }
-
-                                _context2.next = 8;
-                                return httpRequest.getHTML(urlSearch);
-
-                            case 8:
+                            case 5:
                                 htmlSearch = _context2.sent;
                                 $ = cheerio.load(htmlSearch);
-                                itemSearch = $('.list_movies .item_movie');
-                                arrInfo = [];
+                                itemSearch = $('.film_list .film_list-wrap .flw-item');
 
 
                                 itemSearch.each(_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
@@ -94,22 +57,26 @@ var Onemovies = function () {
                                         while (1) {
                                             switch (_context.prev = _context.next) {
                                                 case 0:
-                                                    hrefMovie = $(this).find('a').first().attr('href');
-                                                    titleMovie = $(this).find('.thumb').attr('title');
+                                                    hrefMovie = $(this).find('.film-detail .film-name a').attr('href');
+                                                    titleMovie = $(this).find('.film-detail .film-name a').text();
                                                     seasonMovie = titleMovie.match(/\- *season *([0-9]+)/i);
-                                                    yearMovie = titleMovie.match(/([0-9]{4})/);
 
-                                                    yearMovie = yearMovie != null ? yearMovie[1] : false;
                                                     seasonMovie = seasonMovie != null ? +seasonMovie[1] : false;
                                                     titleMovie = titleMovie.replace(/\([0-9]+\)/i, '');
                                                     titleMovie = titleMovie.replace(/\- *season.*/i, '');
                                                     titleMovie = titleMovie.trim();
 
                                                     if (stringHelper.shallowCompare(title, titleMovie)) {
-                                                        if (type == 'movie' && year == yearMovie) detailUrl = hrefMovie;else if (type == 'tv') detailUrl = hrefMovie;
+                                                        if (type == 'movie') {
+                                                            yearMovie = $(this).find('.film-infor span').first().text();
+
+                                                            if (yearMovie == year) detailUrl = hrefMovie;
+                                                        } else if (seasonMovie == season) {
+                                                            detailUrl = hrefMovie;
+                                                        }
                                                     }
 
-                                                case 10:
+                                                case 8:
                                                 case 'end':
                                                     return _context.stop();
                                             }
@@ -117,11 +84,10 @@ var Onemovies = function () {
                                     }, _callee, this);
                                 })));
 
-                                this.state.detailUrl = detailUrl;
-
+                                this.state.detailUrl = detailUrl.replace('.html', '/watching.html');
                                 return _context2.abrupt('return');
 
-                            case 15:
+                            case 11:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -139,14 +105,16 @@ var Onemovies = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
-                var _libs2, httpRequest, cheerio, base64, utf8, _movieInfo2, episode, type, hosts, arrRedirect, detailUrl, url, htmlDetail, $, itemRedirect, replace, arrPromise;
+                var _this = this;
+
+                var _libs2, httpRequest, cheerio, base64, _movieInfo2, title, year, season, episode, type, hosts, arrId, detailUrl, htmlDetail, m, id, mid, sourceHtml, $, itemEpisode, servers, serverPromise;
 
                 return regeneratorRuntime.wrap(function _callee4$(_context4) {
                     while (1) {
                         switch (_context4.prev = _context4.next) {
                             case 0:
-                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64, utf8 = _libs2.utf8;
-                                _movieInfo2 = this.movieInfo, episode = _movieInfo2.episode, type = _movieInfo2.type;
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64;
+                                _movieInfo2 = this.movieInfo, title = _movieInfo2.title, year = _movieInfo2.year, season = _movieInfo2.season, episode = _movieInfo2.episode, type = _movieInfo2.type;
 
                                 if (this.state.detailUrl) {
                                     _context4.next = 4;
@@ -157,103 +125,130 @@ var Onemovies = function () {
 
                             case 4:
                                 hosts = [];
-                                arrRedirect = [];
+                                arrId = [];
                                 detailUrl = this.state.detailUrl;
-                                url = detailUrl;
+                                _context4.next = 9;
+                                return httpRequest.getHTML(detailUrl);
 
-                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
-                                    _context4.next = 10;
-                                    break;
-                                }
-
-                                throw new Error('NOT_FOUND');
-
-                            case 10:
-                                _context4.next = 12;
-                                return httpRequest.getHTML(this.state.detailUrl);
-
-                            case 12:
+                            case 9:
                                 htmlDetail = _context4.sent;
-                                $ = cheerio.load(htmlDetail);
-                                itemRedirect = $('#selectServer option');
-                                replace = false;
+                                m = htmlDetail.match(/id: "([^"]+)/);
+                                id = m[1];
+
+                                m = htmlDetail.match(/movie_id: "([^"]+)/);
+                                mid = m[1];
+                                _context4.next = 16;
+                                return httpRequest.getHTML(URL.SERVER_LIST(id, mid));
+
+                            case 16:
+                                sourceHtml = _context4.sent;
+
+                                sourceHtml = JSON.parse(sourceHtml);
+                                $ = cheerio.load(sourceHtml.html);
+                                itemEpisode = $('.dp-s-line');
+                                servers = [];
 
 
-                                if (type == 'tv') {
-                                    $('.ep_link a').each(function () {
-                                        var href = $(this).attr('href');
-                                        var ep = $(this).text().replace(/episode /i, '');
+                                if (type == 'movie') {
+                                    itemEpisode.each(function () {
+                                        var id = $(this).find('li.nav-item').attr('data-id');
+                                        var server = $(this).find('li.nav-item').attr('data-server');
+                                        var onclick = $(this).find('li.nav-item').attr('onclick');
+                                        var type = onclick.indexOf('embed') != -1 ? 'movie_embed' : 'movie_sources';
+                                        servers.push({
+                                            id: id,
+                                            server: server,
+                                            type: type
+                                        });
+                                    });
+                                } else if (type == 'tv') {
 
-                                        if (+ep == episode) {
-                                            var m = href.match(/=([0-9]+)/);
-                                            if (m != undefined) replace = +m[1];
-                                        }
+                                    itemEpisode = $('.dp-s-line li');
+
+                                    itemEpisode.each(function () {
+                                        var id = $(this).attr('data-id');
+                                        var server = $(this).attr('data-server');
+                                        var onclick = $(this).attr('onclick');
+                                        var type = onclick.indexOf('embed') != -1 ? 'movie_embed' : 'movie_sources';
+                                        var title1 = $(this).find('a').text();
+                                        var m = title1.match(/Episode\s(\d+):/);
+                                        if (m != undefined && parseInt(m[1]) == episode) servers.push({
+                                            id: id,
+                                            server: server,
+                                            type: type
+                                        });
                                     });
                                 }
 
-                                itemRedirect.each(function () {
-                                    var linkRedirect = $(this).attr('value');
-                                    var server = $(this).text().toLowerCase();
-                                    var m = linkRedirect.match(/episode_id=([0-9]+)/);
-                                    var episode_id = m[1];
-                                    if (replace) episode_id = replace;
-                                    arrRedirect.push({ e: episode_id, s: server });
-                                });
-
-                                arrPromise = arrRedirect.map(function () {
-                                    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(val) {
-                                        var htmlRedirect, js;
+                                serverPromise = servers.map(function () {
+                                    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(s) {
+                                        var u, h, sources, i;
                                         return regeneratorRuntime.wrap(function _callee3$(_context3) {
                                             while (1) {
                                                 switch (_context3.prev = _context3.next) {
                                                     case 0:
-                                                        _context3.next = 2;
-                                                        return httpRequest.getHTML(URL.DOMAIN + '/ajax/movie/load_player_v4?s=' + val.s + '&id=' + val.e, URL.HEADERS());
+                                                        u = URL.AJAX_URL(s.id, s.server, s.type);
+                                                        _context3.next = 3;
+                                                        return httpRequest.getHTML(u);
 
-                                                    case 2:
-                                                        htmlRedirect = _context3.sent;
-                                                        js = JSON.parse(htmlRedirect);
-                                                        _context3.next = 6;
-                                                        return httpRequest.getHTML(js.value, URL.HEADERS());
-
-                                                    case 6:
-                                                        js = _context3.sent;
+                                                    case 3:
+                                                        h = _context3.sent;
 
                                                         try {
-                                                            js = JSON.parse(js);
-
-                                                            js['playlist'] != undefined && hosts.push({
+                                                            h = JSON.parse(h);
+                                                        } catch (e) {}
+                                                        if (h.status != undefined) {
+                                                            hosts.push({
                                                                 provider: {
                                                                     url: detailUrl,
-                                                                    name: "Onemovie"
+                                                                    name: "F2movies"
                                                                 },
                                                                 result: {
-                                                                    file: js['playlist'][0]['file'],
+                                                                    file: h.src,
                                                                     label: "embed",
-                                                                    type: 'direct'
+                                                                    type: "embed"
                                                                 }
                                                             });
-                                                        } catch (e) {}
+                                                        } else {
+                                                            sources = h['playlist'][0]['sources'];
 
-                                                    case 8:
+                                                            for (i in sources) {
+                                                                hosts.push({
+                                                                    provider: {
+                                                                        url: detailUrl,
+                                                                        name: "F2movies"
+                                                                    },
+                                                                    result: {
+                                                                        file: sources[i].file,
+                                                                        label: "embed",
+                                                                        type: "embed"
+                                                                    }
+                                                                });
+                                                            }
+                                                        }
+
+                                                    case 6:
                                                     case 'end':
                                                         return _context3.stop();
                                                 }
                                             }
-                                        }, _callee3, this);
+                                        }, _callee3, _this);
                                     }));
 
                                     return function (_x) {
                                         return _ref4.apply(this, arguments);
                                     };
                                 }());
-                                _context4.next = 21;
-                                return Promise.all(arrPromise);
+                                _context4.next = 25;
+                                return Promise.all(serverPromise);
 
-                            case 21:
+                            case 25:
+
                                 this.state.hosts = hosts;
 
-                            case 22:
+                                return _context4.abrupt('return');
+
+                            case 27:
                             case 'end':
                                 return _context4.stop();
                         }
@@ -269,7 +264,7 @@ var Onemovies = function () {
         }()
     }]);
 
-    return Onemovies;
+    return F2movies;
 }();
 
 thisSource.function = function () {
@@ -280,13 +275,13 @@ thisSource.function = function () {
                 switch (_context5.prev = _context5.next) {
                     case 0:
                         httpRequest = libs.httpRequest;
-                        source = new Onemovies({
+                        source = new F2movies({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: 'onemovies',
+                            name_source: 'F2movies',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
@@ -312,48 +307,42 @@ thisSource.function = function () {
                             console.log('err', err);
                         }
 
-                        if (!(movieInfo.checker != undefined)) {
-                            _context5.next = 10;
-                            break;
-                        }
+                        if (movieInfo.checker != undefined) hosts = [];
 
-                        return _context5.abrupt('return', hosts);
-
-                    case 10:
                         if (!(hosts.length == 0)) {
-                            _context5.next = 23;
+                            _context5.next = 22;
                             break;
                         }
 
-                        _context5.next = 13;
+                        _context5.next = 12;
                         return source.searchDetail();
 
-                    case 13:
-                        _context5.next = 15;
+                    case 12:
+                        _context5.next = 14;
                         return source.getHostFromDetail();
 
-                    case 15:
+                    case 14:
                         hosts = source.state.hosts;
 
                         if (!(movieInfo.checker != undefined)) {
-                            _context5.next = 18;
+                            _context5.next = 17;
                             break;
                         }
 
                         return _context5.abrupt('return', hosts);
 
-                    case 18:
+                    case 17:
                         if (!(hosts.length > 0)) {
-                            _context5.next = 23;
+                            _context5.next = 22;
                             break;
                         }
 
                         bodyPost['hosts'] = JSON.stringify(hosts);
                         bodyPost['expired'] = 10800;
-                        _context5.next = 23;
+                        _context5.next = 22;
                         return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
 
-                    case 23:
+                    case 22:
 
                         if (movieInfo.ss != undefined) {
                             movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
@@ -361,7 +350,7 @@ thisSource.function = function () {
 
                         return _context5.abrupt('return', hosts);
 
-                    case 25:
+                    case 24:
                     case 'end':
                         return _context5.stop();
                 }
@@ -374,4 +363,4 @@ thisSource.function = function () {
     };
 }();
 
-thisSource.testing = Onemovies;
+thisSource.testing = F2movies;

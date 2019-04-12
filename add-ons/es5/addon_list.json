@@ -407,7 +407,7 @@
         "twodllnet": {
             "name": "twodllnet",
             "domain": "twodllnet.dis",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/rd.twodllnet.js",
             "type": [
                 "movie",
@@ -427,7 +427,7 @@
         "123moviesag": {
             "name": "123moviesag",
             "domain": "123moviesag.dis",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesag.js",
             "type": [
                 "movie",
@@ -437,7 +437,7 @@
         "miradetodo": {
             "name": "miradetodo",
             "domain": "miradetodo.dis",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/miradetodo.js",
             "type": [
                 "movie",
@@ -447,7 +447,7 @@
         "salamdl": {
             "name": "salamdl",
             "domain": "salamdl.dis",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/salamdl.js",
             "type": [
                 "movie"
@@ -456,7 +456,7 @@
         "cinewhale": {
             "name": "cinewhale",
             "domain": "cinewhale.dis",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/cinewhale.js",
             "type": [
                 "movie",
@@ -468,6 +468,16 @@
             "domain": "anonembed.dis",
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/anonembed.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "f2movies": {
+            "name": "f2movies",
+            "domain": "f2movies.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/f2movies.js",
             "type": [
                 "movie",
                 "tv"

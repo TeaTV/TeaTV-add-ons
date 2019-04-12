@@ -280,7 +280,8 @@ thisSource.function = function () {
                             season: movieInfo.season,
                             episode: movieInfo.episode,
                             title: movieInfo.title,
-                            year: movieInfo.year
+                            year: movieInfo.year,
+                            hash: libs.cryptoJs.MD5(movieInfo.title.toLowerCase() + movieInfo.season.toString() + "aloha" + movieInfo.episode.toString()).toString()
                         };
                         _context4.next = 5;
                         return source.searchDetail();

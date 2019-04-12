@@ -7,9 +7,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: 'https://twoddl.net/',
+    DOMAIN: 'https://2ddl.vg/',
     SEARCH: function SEARCH(title) {
-        return 'https://twoddl.net/?s=' + title;
+        return 'https://2ddl.vg/?s=' + title;
     }
 };
 
@@ -297,7 +297,8 @@ thisSource.function = function () {
                             season: movieInfo.season,
                             episode: movieInfo.episode,
                             title: movieInfo.title,
-                            year: movieInfo.year
+                            year: movieInfo.year,
+                            hash: libs.cryptoJs.MD5(movieInfo.title.toLowerCase() + movieInfo.season.toString() + "aloha" + movieInfo.episode.toString()).toString()
                         };
                         _context4.next = 5;
                         return httpRequest.post('https://vvv.teatv.net/source/get', {}, bodyPost);
