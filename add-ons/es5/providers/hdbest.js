@@ -203,7 +203,7 @@ var Hdbest = function () {
 
 thisSource.function = function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
-        var httpRequest, source, bodyPost;
+        var httpRequest, source, bodyPost, res, js, hosts;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
             while (1) {
                 switch (_context4.prev = _context4.next) {
@@ -215,23 +215,68 @@ thisSource.function = function () {
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: 'projectfreetv',
+                            name_source: 'hdbest',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
                             episode: movieInfo.episode,
                             title: movieInfo.title,
-                            year: movieInfo.year
+                            year: movieInfo.year,
+                            hash: libs.cryptoJs.MD5(movieInfo.title.toLowerCase() + movieInfo.season.toString() + "aloha" + movieInfo.episode.toString()).toString()
                         };
                         _context4.next = 5;
-                        return source.searchDetail();
+                        return httpRequest.post('https://vvv.teatv.net/source/get', {}, bodyPost);
 
                     case 5:
-                        _context4.next = 7;
+                        res = _context4.sent;
+                        js = void 0, hosts = [];
+
+
+                        try {
+                            res = res['data'];
+                            if (res['status']) {
+                                hosts = JSON.parse(res['hosts']);
+                            }
+                        } catch (err) {
+                            console.log('err', err);
+                        }
+
+                        if (movieInfo.checker != undefined) hosts = [];
+
+                        if (!(hosts.length == 0)) {
+                            _context4.next = 22;
+                            break;
+                        }
+
+                        _context4.next = 12;
+                        return source.searchDetail();
+
+                    case 12:
+                        _context4.next = 14;
                         return source.getHostFromDetail();
 
-                    case 7:
+                    case 14:
                         hosts = source.state.hosts;
+
+                        if (!(movieInfo.checker != undefined)) {
+                            _context4.next = 17;
+                            break;
+                        }
+
+                        return _context4.abrupt('return', hosts);
+
+                    case 17:
+                        if (!(hosts.length > 0)) {
+                            _context4.next = 22;
+                            break;
+                        }
+
+                        bodyPost['hosts'] = JSON.stringify(hosts);
+                        bodyPost['expired'] = 86400;
+                        _context4.next = 22;
+                        return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
+
+                    case 22:
 
                         if (movieInfo.ss != undefined) {
                             movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
@@ -239,7 +284,7 @@ thisSource.function = function () {
 
                         return _context4.abrupt('return', hosts);
 
-                    case 10:
+                    case 24:
                     case 'end':
                         return _context4.stop();
                 }
