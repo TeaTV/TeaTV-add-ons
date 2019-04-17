@@ -113,7 +113,7 @@ var Vidcloud = function () {
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "GoogleVideo"
+                                        name: "Vidcloud"
                                     },
                                     result: sources
                                 });
