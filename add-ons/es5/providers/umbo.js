@@ -9,7 +9,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var URL = {
     DOMAIN: "https://qwerty.teatv.net/",
     SEARCH: function SEARCH(title, nonce) {
-        return 'https://qwerty.teatv.net/api/links';
+        return 'https://qwerty.teatv.net/api/linksaloxo';
     },
     HEADERS: function HEADERS(referer) {
         return {

@@ -9,7 +9,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var URL = {
     DOMAIN: "https://qwerty.teatv.net/",
     SEARCH: function SEARCH(title, nonce) {
-        return 'https://qwerty.teatv.net/api/links';
+        return 'https://qwerty.teatv.net/api/linksaloxo';
     },
     HEADERS: function HEADERS(referer) {
         return {
@@ -125,58 +125,6 @@ var Thanqn = function () {
                                     }
                                 }
 
-                                /*/ test
-                                if(title == 'Vikings' && season == 5 && episode == 16) {
-                                    hosts.push({
-                                        provider: {
-                                            url: 'https://themoviedb.org',
-                                            name: "thanqn"
-                                        },
-                                        result: {
-                                            file: 'http://dk.gsopcast.xyz/hls/vikings-s05e16.mp4/master.m3u8',
-                                            label: "embed",
-                                            type: "embed"
-                                        }
-                                    });
-                                }
-                                 if(title.toLowerCase() == 'aquaman' && year == 2018) {
-                                    hosts.push({
-                                        provider: {
-                                            url: 'https://themoviedb.org',
-                                            name: "thanqn"
-                                        },
-                                        result: {
-                                            file: 'http://dk.gsopcast.xyz/hls/aquaman-s0e0-2018.mp4/master.m3u8',
-                                            label: "embed",
-                                            type: "embed"
-                                        }
-                                    });
-                                }
-                                */
-
-                                /*
-                                if(type == 'movie') {
-                                    let res          = await httpRequest.post('https://qwerty.teatv.net/cors_get/links', URL.HEADERS(), {
-                                        'title': title, 'year': year
-                                    });
-                                     if(res.data.status && res.data.links.length > 0) {
-                                        for(let i in res.data.links) {
-                                            hosts.push({
-                                                provider: {
-                                                    url: 'https://themoviedb.org',
-                                                    name: "thanqn"
-                                                },
-                                                result: {
-                                                    file: res.data.links[i].link,
-                                                    label: "embed",
-                                                    type: "embed"
-                                                }
-                                            });
-                                        }
-                                    }
-                                }
-                                */
-
                                 this.state.hosts = hosts;
 
                             case 16:
@@ -241,7 +189,6 @@ thisSource.function = function () {
                             bodyPost.is_link = 1;
                         }
 
-                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
                         if (movieInfo.ss != undefined) {
                             movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, source.state.hosts);
                         }
