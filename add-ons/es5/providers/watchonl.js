@@ -157,7 +157,7 @@ var Watchonl = function () {
 
 thisSource.function = function () {
     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(libs, movieInfo, settings) {
-        var httpRequest, source, bodyPost;
+        var httpRequest, source, bodyPost, res, js, hosts;
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
             while (1) {
                 switch (_context3.prev = _context3.next) {
@@ -169,7 +169,7 @@ thisSource.function = function () {
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: 'projectfreetv',
+                            name_source: 'watchonl',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
@@ -178,14 +178,58 @@ thisSource.function = function () {
                             year: movieInfo.year
                         };
                         _context3.next = 5;
-                        return source.searchDetail();
+                        return httpRequest.post('https://vvv.teatv.net/source/get', {}, bodyPost);
 
                     case 5:
-                        _context3.next = 7;
+                        res = _context3.sent;
+                        js = void 0, hosts = [];
+
+
+                        try {
+                            res = res['data'];
+                            if (res['status']) {
+                                hosts = JSON.parse(res['hosts']);
+                            }
+                        } catch (err) {
+                            console.log('err', err);
+                        }
+
+                        if (movieInfo.checker != undefined) hosts = [];
+
+                        if (!(hosts.length == 0)) {
+                            _context3.next = 22;
+                            break;
+                        }
+
+                        _context3.next = 12;
+                        return source.searchDetail();
+
+                    case 12:
+                        _context3.next = 14;
                         return source.getHostFromDetail();
 
-                    case 7:
+                    case 14:
                         hosts = source.state.hosts;
+
+                        if (!(movieInfo.checker != undefined)) {
+                            _context3.next = 17;
+                            break;
+                        }
+
+                        return _context3.abrupt('return', hosts);
+
+                    case 17:
+                        if (!(hosts.length > 0)) {
+                            _context3.next = 22;
+                            break;
+                        }
+
+                        bodyPost['hosts'] = JSON.stringify(hosts);
+                        bodyPost['expired'] = 86400;
+                        _context3.next = 22;
+                        return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
+
+                    case 22:
 
                         if (movieInfo.ss != undefined) {
                             movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
@@ -193,7 +237,7 @@ thisSource.function = function () {
 
                         return _context3.abrupt('return', hosts);
 
-                    case 10:
+                    case 24:
                     case 'end':
                         return _context3.stop();
                 }

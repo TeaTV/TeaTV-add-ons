@@ -6,16 +6,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Vidzi = function () {
-    function Vidzi(props) {
-        _classCallCheck(this, Vidzi);
+var Vevio = function () {
+    function Vevio(props) {
+        _classCallCheck(this, Vevio);
 
         this.libs = props.libs;
         this.settings = props.settings;
         this.state = {};
     }
 
-    _createClass(Vidzi, [{
+    _createClass(Vevio, [{
         key: 'checkLive',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
@@ -25,12 +25,8 @@ var Vidzi = function () {
                         switch (_context.prev = _context.next) {
                             case 0:
                                 httpRequest = this.libs.httpRequest;
-
-                                // you fill the die status text
-                                // const dieStatusText = "";
-
                                 _context.next = 3;
-                                return httpRequest.getHTML(url);
+                                return httpRequest.post(url);
 
                             case 3:
                                 html = _context.sent;
@@ -51,23 +47,10 @@ var Vidzi = function () {
             return checkLive;
         }()
     }, {
-        key: 'convertToEmbed',
-        value: function convertToEmbed(url) {
-
-            // convert link detail to link embed
-            // if input is embed then return input
-
-            // let id = url.match(/\/embed\-([^\-]+)/i);
-            // id = url != null ? url[1] : false;
-
-            // if( id == false ) return url;
-
-        }
-    }, {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
-                var _libs, httpRequest, cheerio, sources, temp, html, $, evalhtml, test, m, x1, sv, hls, hlskey, domain, direct, hlslink, data, arrPromise;
+                var _libs, httpRequest, cheerio, sources, s, id, u, html, data, results, keys, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -75,86 +58,55 @@ var Vidzi = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                 sources = [];
-                                temp = [];
-                                _context3.next = 5;
-                                return this.checkLive(url);
+                                s = url.split('/');
+                                id = s[s.length - 1];
+                                u = 'https://vev.io/api/serve/video/' + id;
+                                _context3.next = 7;
+                                return httpRequest.post(u, {
+                                    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/73.0.3683.75 Chrome/73.0',
+                                    'Referer': 'https://vev.io/' + id,
+                                    'Content-type': 'application/json',
+                                    'Accept': 'application/json',
+                                    'Authority': 'https://vev.io'
+                                }, {});
 
-                            case 5:
+                            case 7:
                                 html = _context3.sent;
-                                $ = cheerio.load(html);
 
                                 if (!(html == false)) {
-                                    _context3.next = 9;
+                                    _context3.next = 11;
                                     break;
                                 }
 
-                                throw new Error("LINK DIE");
+                                console.log('Vevio no link');
+                                throw new Error("Vevio LINK DIE");
 
-                            case 9:
-                                evalhtml = $('script:contains(jwplayer.key)').next().html();
-
-                                evalhtml = evalhtml.trim();
-                                evalhtml += 'teatv';
-
-                                test = evalhtml.replace('eval(', '').trim().replace(')teatv', '').trim();
-                                _context3.prev = 13;
-                                m = test.match(/mp4\|([^\|]+)/);
-                                x1 = m[1];
-
-
-                                m = test.match(/file\|([^\|]+)/);
-                                sv = m[1];
-
-
-                                m = test.match(/\|([a-z0-9]+)\|([a-z0-9]+)\|sources/);
-                                hls = m[1];
-                                hlskey = m[2];
-                                domain = 'https://' + sv + '.vidzi.tv/';
-                                direct = domain + x1 + '/v.mp4';
-                                hlslink = '' + domain + hlskey + '/' + hls + ',' + x1 + ',.urlset/master.m3u8';
-                                data = [direct, hlslink];
-                                _context3.next = 30;
-                                break;
-
-                            case 27:
-                                _context3.prev = 27;
-                                _context3.t0 = _context3['catch'](13);
-                                return _context3.abrupt('return', {
-                                    host: {
-                                        url: url,
-                                        name: "vidzi"
-                                    },
-                                    result: []
-                                });
-
-                            case 30:
-                                arrPromise = data.map(function () {
+                            case 11:
+                                data = html.data.qualities;
+                                results = [];
+                                keys = Object.keys(data);
+                                arrPromise = keys.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
                                         var isDie;
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
+                                                        _context2.next = 2;
+                                                        return httpRequest.isLinkDie(data[val]);
 
-                                                        console.log(val);
-
-                                                        _context2.next = 3;
-                                                        return httpRequest.isLinkDie(val);
-
-                                                    case 3:
+                                                    case 2:
                                                         isDie = _context2.sent;
 
 
                                                         if (isDie != false) {
-                                                            sources.push({
-                                                                label: 'NOR',
-                                                                file: val,
-                                                                type: "direct",
-                                                                size: isDie
+
+                                                            results.push({
+                                                                file: data[val], label: 'NOR', type: "direct", size: isDie
                                                             });
                                                         }
 
-                                                    case 5:
+                                                    case 4:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
@@ -166,24 +118,24 @@ var Vidzi = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 33;
+                                _context3.next = 17;
                                 return Promise.all(arrPromise);
 
-                            case 33:
+                            case 17:
                                 return _context3.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "vidzi"
+                                        name: "Vevio"
                                     },
-                                    result: sources
+                                    result: results
                                 });
 
-                            case 34:
+                            case 18:
                             case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this, [[13, 27]]);
+                }, _callee3, this);
             }));
 
             function getLink(_x2) {
@@ -194,9 +146,9 @@ var Vidzi = function () {
         }()
     }]);
 
-    return Vidzi;
+    return Vevio;
 }();
 
 thisSource.function = function (libs, settings) {
-    return new Vidzi({ libs: libs, settings: settings });
+    return new Vevio({ libs: libs, settings: settings });
 };

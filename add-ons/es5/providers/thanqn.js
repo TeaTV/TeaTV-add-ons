@@ -94,6 +94,7 @@ var Thanqn = function () {
                                     'name': title,
                                     'ss': type == 'tv' ? season : 0,
                                     'ep': type == 'tv' ? episode : 0,
+                                    'newkey': title.indexOf(year) != -1 ? title.indexOf(year) : title.indexOf(season),
                                     'hash': sign,
                                     'year': type == 'movie' ? year : 0
                                 };

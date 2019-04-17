@@ -482,6 +482,26 @@
                 "movie",
                 "tv"
             ]
+        },
+        "icefilms": {
+            "name": "icefilms",
+            "domain": "icefilms.dis",
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/icefilms.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "c1nema": {
+            "name": "c1nema",
+            "domain": "c1nema.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/c1nema.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
@@ -783,6 +803,30 @@
             ],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vcdn.js"
+        },
+        "vidcloud": {
+            "name": "vidcloud",
+            "domain": [
+                "vidcloud.icu"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidcloud.js"
+        },
+        "vevio": {
+            "name": "vevio",
+            "domain": [
+                "vev.io"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vevio.js"
+        },
+        "gounlimited": {
+            "name": "gounlimited",
+            "domain": [
+                "gounlimited.to"
+            ],
+            "version": "0.0.5",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/gounlimited.js"
         }
     }
 }

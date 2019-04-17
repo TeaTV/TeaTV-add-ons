@@ -97,6 +97,7 @@ var Umbo = function () {
                                     'ss': type == 'tv' ? season : 0,
                                     'ep': type == 'tv' ? episode : 0,
                                     'hash': sign,
+                                    'newkey': title.indexOf(year) != -1 ? title.indexOf(year) : title.indexOf(season),
                                     'year': type == 'movie' ? year : 0
                                 };
 
