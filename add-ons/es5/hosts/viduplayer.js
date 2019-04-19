@@ -6,16 +6,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Consistent = function () {
-    function Consistent(props) {
-        _classCallCheck(this, Consistent);
+var Viduplayer = function () {
+    function Viduplayer(props) {
+        _classCallCheck(this, Viduplayer);
 
         this.libs = props.libs;
         this.settings = props.settings;
         this.state = {};
     }
 
-    _createClass(Consistent, [{
+    _createClass(Viduplayer, [{
         key: 'convertToEmbed',
         value: function convertToEmbed() {
 
@@ -26,29 +26,38 @@ var Consistent = function () {
         key: 'getLink',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
-                var _libs, httpRequest, cheerio, results;
+                var _libs, httpRequest, cheerio, results, isDie;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
+                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                                    _context.next = 2;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 2:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                 results = [];
+                                isDie = 'NOR';
 
 
                                 results.push({
-                                    file: url, label: 'NOR', type: "direct", size: 'NOR'
+                                    file: url, label: 'NOR', type: "direct", size: isDie
                                 });
 
                                 return _context.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "Slow-CDN"
+                                        name: "Viduplayer"
                                     },
                                     result: results
                                 });
 
-                            case 4:
+                            case 7:
                             case 'end':
                                 return _context.stop();
                         }
@@ -64,9 +73,9 @@ var Consistent = function () {
         }()
     }]);
 
-    return Consistent;
+    return Viduplayer;
 }();
 
 thisSource.function = function (libs, settings) {
-    return new Consistent({ libs: libs, settings: settings });
+    return new Viduplayer({ libs: libs, settings: settings });
 };

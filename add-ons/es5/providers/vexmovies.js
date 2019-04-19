@@ -42,14 +42,8 @@ var URL = {
         var rerfer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
         return {
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-            'Connection': 'keep-alive',
             'Referer': rerfer,
-            'Upgrade-Insecure-Requests': 1,
-            'origin': 'https://consistent.stream',
-            'accept-encoding': 'gzip, deflate, br',
-            'content-type': 'application/json;charset=UTF-8',
+            'content-type': 'application/json',
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
         };
     }
@@ -69,42 +63,20 @@ var Vexmovies = function () {
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, urlSearch, htmlSearch, $, itemSearch;
+                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, qs = _libs.qs;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
-                                detailUrl = false;
-                                urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
-                                _context.next = 6;
-                                return httpRequest.getHTML(urlSearch);
-
-                            case 6:
-                                htmlSearch = _context.sent;
-                                $ = cheerio.load(htmlSearch);
-                                itemSearch = $('.peliculas .item_1 .item');
 
 
-                                itemSearch.each(function () {
-
-                                    var titleMovie = $(this).find('.fixyear h2').text();
-                                    var yearMovie = $(this).find('.fixyear .year').text();
-                                    var hrefMovies = $(this).find('a').first().attr('href');
-
-                                    if (stringHelper.shallowCompare(title, titleMovie) && +yearMovie == year) {
-
-                                        detailUrl = hrefMovies;
-                                        return;
-                                    }
-                                });
-
-                                this.state.detailUrl = detailUrl;
+                                this.state.detailUrl = URL.DOMAIN + '/' + stringHelper.convertToSearchQueryString(title);
                                 return _context.abrupt('return');
 
-                            case 12:
+                            case 4:
                             case 'end':
                                 return _context.stop();
                         }
@@ -122,51 +94,23 @@ var Vexmovies = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, base64, hosts, detailUrl, htmlDetail, $, embed, htmlDirect, headers, body, $_2, hash, video, expire, bodyForm, encodeJson, item, item2, link;
+                var _libs2, httpRequest, cheerio, base64, stringHelper, title, hosts, detailUrl, embed, htmlDirect, body, $_2, hash, video, expire, bodyForm, encodeJson, item, item2, link;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
                         switch (_context2.prev = _context2.next) {
                             case 0:
-                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64;
-
-                                if (this.state.detailUrl) {
-                                    _context2.next = 3;
-                                    break;
-                                }
-
-                                throw new Error("NOT_FOUND");
-
-                            case 3:
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64, stringHelper = _libs2.stringHelper;
+                                title = this.movieInfo.title;
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
+                                embed = 'https://consistent.stream/titles/' + stringHelper.convertToSearchQueryString(title);
                                 _context2.next = 7;
-                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS(detailUrl));
+                                return httpRequest.getHTML(embed, URL.HEADERS(detailUrl));
 
                             case 7:
-                                htmlDetail = _context2.sent;
-                                $ = cheerio.load(htmlDetail);
-                                embed = $('.entry-content iframe').attr('src');
-                                _context2.next = 12;
-                                return httpRequest.get(embed, URL.HEADERS(detailUrl));
-
-                            case 12:
                                 htmlDirect = _context2.sent;
-                                headers = htmlDirect.headers;
-
-                                if (!(headers['set-cookie'] == undefined)) {
-                                    _context2.next = 16;
-                                    break;
-                                }
-
-                                throw new Error("NOT_FOUND");
-
-                            case 16:
-
-                                headers = headers['set-cookie'][0];
-                                headers = headers.replace(/\;.*/i, '').trim() + ';';
-
-                                body = htmlDirect.data;
+                                body = htmlDirect;
                                 $_2 = cheerio.load(body);
                                 hash = $_2('#app player').attr('hash');
                                 video = $_2('#app player').attr('video');
@@ -177,14 +121,13 @@ var Vexmovies = function () {
                                     video: video,
                                     expire: expire
                                 };
-                                _context2.next = 26;
+                                _context2.next = 16;
                                 return httpRequest.post(URL.DOMAIN_EMBED, URL.HEADERS_JSON(embed), JSON.stringify(bodyForm));
 
-                            case 26:
+                            case 16:
                                 encodeJson = _context2.sent;
 
                                 encodeJson = encodeJson.data;
-
                                 // try {
                                 //     encodeJson = JSON.parse(encodeJson);
                                 // } catch(error) {
@@ -221,7 +164,7 @@ var Vexmovies = function () {
                                                     result: {
                                                         file: link,
                                                         label: "embed",
-                                                        type: "direct"
+                                                        type: "embed"
                                                     }
                                                 });
                                             }
@@ -231,7 +174,7 @@ var Vexmovies = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 30:
+                            case 20:
                             case 'end':
                                 return _context2.stop();
                         }

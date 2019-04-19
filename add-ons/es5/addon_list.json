@@ -294,7 +294,7 @@
         "onemovies": {
             "name": "onemovies",
             "domain": "onemovies.dis",
-            "version": "0.0.6",
+            "version": "0.0.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/1movies.js",
             "type": [
                 "movie",
@@ -502,6 +502,43 @@
                 "movie",
                 "tv"
             ]
+        },
+        "vexmovies": {
+            "name": "vexmovies",
+            "domain": "vexmovies.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vexmovies.js",
+            "type": [
+                "movie"
+            ]
+        },
+        "tv21": {
+            "name": "tv21",
+            "domain": "tv21.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/tv21.js",
+            "type": [
+                "movie"
+            ]
+        },
+        "vkl21hd": {
+            "name": "vkl21hd",
+            "domain": "vkl21hd.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vkl21hd.js",
+            "type": [
+                "movie"
+            ]
+        },
+        "bioskopkeren": {
+            "name": "bioskopkeren",
+            "domain": "bioskopkeren.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/bioskopkeren.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
@@ -530,7 +567,7 @@
             "domain": [
                 "consistent.stream"
             ],
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/consistent.js"
         },
         "streamango": {
@@ -827,6 +864,15 @@
             ],
             "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/gounlimited.js"
+        },
+        "viduplayer": {
+            "name": "viduplayer",
+            "domain": [
+                "viduplayer.com",
+                "openstream.io"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/viduplayer.js"
         }
     }
 }

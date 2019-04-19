@@ -194,6 +194,7 @@ var Onemovies = function () {
                                 itemRedirect.each(function () {
                                     var linkRedirect = $(this).attr('value');
                                     var server = $(this).text().toLowerCase();
+                                    if (server != 'oserver') return;
                                     var m = linkRedirect.match(/episode_id=([0-9]+)/);
                                     var episode_id = m[1];
                                     if (replace) episode_id = replace;
@@ -312,48 +313,42 @@ thisSource.function = function () {
                             console.log('err', err);
                         }
 
-                        if (!(movieInfo.checker != undefined)) {
-                            _context5.next = 10;
-                            break;
-                        }
+                        if (movieInfo.checker != undefined) hosts = [];
 
-                        return _context5.abrupt('return', hosts);
-
-                    case 10:
                         if (!(hosts.length == 0)) {
-                            _context5.next = 23;
+                            _context5.next = 22;
                             break;
                         }
 
-                        _context5.next = 13;
+                        _context5.next = 12;
                         return source.searchDetail();
 
-                    case 13:
-                        _context5.next = 15;
+                    case 12:
+                        _context5.next = 14;
                         return source.getHostFromDetail();
 
-                    case 15:
+                    case 14:
                         hosts = source.state.hosts;
 
                         if (!(movieInfo.checker != undefined)) {
-                            _context5.next = 18;
+                            _context5.next = 17;
                             break;
                         }
 
                         return _context5.abrupt('return', hosts);
 
-                    case 18:
+                    case 17:
                         if (!(hosts.length > 0)) {
-                            _context5.next = 23;
+                            _context5.next = 22;
                             break;
                         }
 
                         bodyPost['hosts'] = JSON.stringify(hosts);
-                        bodyPost['expired'] = 10800;
-                        _context5.next = 23;
+                        bodyPost['expired'] = 7200;
+                        _context5.next = 22;
                         return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
 
-                    case 23:
+                    case 22:
 
                         if (movieInfo.ss != undefined) {
                             movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
@@ -361,7 +356,7 @@ thisSource.function = function () {
 
                         return _context5.abrupt('return', hosts);
 
-                    case 25:
+                    case 24:
                     case 'end':
                         return _context5.stop();
                 }

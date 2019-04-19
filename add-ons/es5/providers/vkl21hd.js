@@ -7,21 +7,42 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: 'http://www.watchepisodes4.com',
-    SEARCH: function SEARCH(title) {
-        return 'http://www.watchepisodes4.com/search/ajax_search?q=' + title;
+    DOMAIN: 'http://lk21hd.com/',
+    SEARCH: function SEARCH(title, year) {
+        return 'http://lk21hd.com/' + title + '-' + year;
+    },
+    AJAX_URL: function AJAX_URL() {
+        return 'http://lk21hd.com/wp-admin/admin-ajax.php';
     }
 };
 
-var getDomain = function getDomain(url) {
-    var m = url.match(/\/\/([^\/]+)/);
-    if (m == null) return 'xyzzyx.com';
-    return m[1] != undefined ? m[1] : 'xyzzyx.com';
-};
+function fuckfuck(p, a, c, k, _e, d) {
+    _e = function e(c) {
+        return (c < a ? '' : _e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36));
+    };
+    if (!''.replace(/^/, String)) {
+        while (c--) {
+            d[_e(c)] = k[c] || _e(c);
+        }
+        k = [function (e) {
+            return d[e];
+        }];
+        _e = function _e() {
+            return '\\w+';
+        };
+        c = 1;
+    };
+    while (c--) {
+        if (k[c]) {
+            p = p.replace(new RegExp('\\b' + _e(c) + '\\b', 'g'), k[c]);
+        }
+    }
+    return p;
+}
 
-var WatchEpisode = function () {
-    function WatchEpisode(props) {
-        _classCallCheck(this, WatchEpisode);
+var Vkl21hd = function () {
+    function Vkl21hd(props) {
+        _classCallCheck(this, Vkl21hd);
 
         this.libs = props.libs;
         this.movieInfo = props.movieInfo;
@@ -29,11 +50,11 @@ var WatchEpisode = function () {
         this.state = {};
     }
 
-    _createClass(WatchEpisode, [{
+    _createClass(Vkl21hd, [{
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, detailSeason, urlSearch, jsonSearch, item, slug, titleMovie, htmlSeason, $, itemSeason;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -41,81 +62,13 @@ var WatchEpisode = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
-                                detailUrl = false;
-                                detailSeason = false;
-                                urlSearch = URL.SEARCH(title.replace(/[\s]/, '+'));
-                                _context.next = 7;
-                                return httpRequest.get(urlSearch);
+                                detailUrl = URL.SEARCH(stringHelper.convertToSearchQueryString(title), year);
 
-                            case 7:
-                                jsonSearch = _context.sent;
-
-                                jsonSearch = jsonSearch.data;
-
-                                if (!jsonSearch.series) {
-                                    _context.next = 20;
-                                    break;
-                                }
-
-                                _context.t0 = regeneratorRuntime.keys(jsonSearch.series);
-
-                            case 11:
-                                if ((_context.t1 = _context.t0()).done) {
-                                    _context.next = 20;
-                                    break;
-                                }
-
-                                item = _context.t1.value;
-                                slug = jsonSearch.series[item].seo;
-                                titleMovie = jsonSearch.series[item].label;
-
-                                if (!stringHelper.shallowCompare(title, titleMovie)) {
-                                    _context.next = 18;
-                                    break;
-                                }
-
-                                detailSeason = URL.DOMAIN + '/' + slug;
-                                return _context.abrupt('break', 20);
-
-                            case 18:
-                                _context.next = 11;
-                                break;
-
-                            case 20:
-                                if (!(detailSeason != false && type == 'tv')) {
-                                    _context.next = 27;
-                                    break;
-                                }
-
-                                _context.next = 23;
-                                return httpRequest.getHTML(detailSeason);
-
-                            case 23:
-                                htmlSeason = _context.sent;
-                                $ = cheerio.load(htmlSeason);
-                                itemSeason = $('.el-item ');
-
-
-                                itemSeason.each(function () {
-
-                                    var hrefMovie = $(this).find('a').attr('href');
-                                    var seasonMovie = $(this).find('.season').text().replace(/season */i, '').trim();
-                                    var episodeMovie = $(this).find('.episode').text().replace(/episode */i, '').trim();
-                                    seasonMovie = +seasonMovie;
-                                    episodeMovie = +episodeMovie;
-
-                                    if (seasonMovie == season && episodeMovie == episode) {
-
-                                        detailUrl = hrefMovie;
-                                    }
-                                });
-
-                            case 27:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 29:
+                            case 5:
                             case 'end':
                                 return _context.stop();
                         }
@@ -133,68 +86,111 @@ var WatchEpisode = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var _libs2, httpRequest, cheerio, base64, _, hosts, detailUrl, htmlEpisode, $, itemEmbed;
+                var _libs2, httpRequest, cheerio, base64, _movieInfo2, title, year, season, episode, type, hosts, arrId, detailUrl, htmlDetail, m, postId, posts, postHTML, $_1, ifSrc, ifHtml, ff, a, reg, urls, $;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
                         switch (_context2.prev = _context2.next) {
                             case 0:
-                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64, _ = _libs2._;
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64;
+                                _movieInfo2 = this.movieInfo, title = _movieInfo2.title, year = _movieInfo2.year, season = _movieInfo2.season, episode = _movieInfo2.episode, type = _movieInfo2.type;
 
                                 if (this.state.detailUrl) {
-                                    _context2.next = 3;
+                                    _context2.next = 4;
                                     break;
                                 }
 
                                 throw new Error("NOT_FOUND");
 
-                            case 3:
+                            case 4:
                                 hosts = [];
+                                arrId = [];
                                 detailUrl = this.state.detailUrl;
-                                _context2.next = 7;
-                                return httpRequest.getHTML(this.state.detailUrl);
+                                _context2.next = 9;
+                                return httpRequest.getHTML(detailUrl);
 
-                            case 7:
-                                htmlEpisode = _context2.sent;
-                                $ = cheerio.load(htmlEpisode);
-                                itemEmbed = $('.ldr-item');
+                            case 9:
+                                htmlDetail = _context2.sent;
+                                m = htmlDetail.match(/postid-(\d+)/);
+                                postId = m[1];
+                                posts = {
+                                    action: 'muvipro_player_content',
+                                    tab: 'player1',
+                                    post_id: postId
+                                };
+                                _context2.next = 15;
+                                return httpRequest.post(URL.AJAX_URL(), {}, posts);
 
+                            case 15:
+                                postHTML = _context2.sent;
+                                _context2.prev = 16;
+                                $_1 = cheerio.load(postHTML.data);
+                                ifSrc = $_1('iframe').attr('src');
 
-                                itemEmbed.each(function () {
+                                ifSrc = ifSrc.indexOf('//') == 0 ? 'https:' + ifSrc : ifSrc;
 
-                                    var linkEmbed = $(this).find('.watch-button').attr('data-actuallink');
+                                _context2.next = 22;
+                                return httpRequest.getHTML(ifSrc);
 
-                                    if (linkEmbed.indexOf('https://') != -1 || linkEmbed.indexOf('http://') != -1) {
+                            case 22:
+                                ifHtml = _context2.sent;
+                                ff = ifHtml.split('return p}')[1];
 
-                                        var hosts_allowed = ['openload.co', 'streamango.com', 'vidlox.me', 'vidoza.net'];
+                                ff = 'a = fuckfuck' + ff.split('{}))')[0] + '{})';
+                                a = void 0;
 
-                                        if (hosts_allowed.includes(getDomain(linkEmbed)) && hosts.length < 20) {
+                                eval(ff);
+                                reg = /file":"([^"]+)/g;
 
-                                            linkEmbed && hosts.push({
-                                                provider: {
-                                                    url: detailUrl,
-                                                    name: "episode4"
-                                                },
-                                                result: {
-                                                    file: linkEmbed,
-                                                    label: "embed",
-                                                    type: "embed"
-                                                }
-                                            });
+                                while (m = reg.exec(a)) {
+                                    hosts.push({
+                                        provider: {
+                                            url: detailUrl,
+                                            name: "Vkl21hd"
+                                        },
+                                        result: {
+                                            file: m[1],
+                                            label: "embed",
+                                            type: "embed"
                                         }
-                                    }
-                                });
+                                    });
+                                }
+                                _context2.next = 33;
+                                break;
 
-                                hosts = _.dropRight(hosts, hosts.length - 100);
+                            case 31:
+                                _context2.prev = 31;
+                                _context2.t0 = _context2['catch'](16);
+
+                            case 33:
+                                urls = [];
+                                $ = cheerio.load(htmlDetail);
+
+
+                                $('.gmr-download-list li a').each(function () {
+                                    hosts.push({
+                                        provider: {
+                                            url: detailUrl,
+                                            name: "Vkl21hd"
+                                        },
+                                        result: {
+                                            file: $(this).attr('href').replace('oload.stream', 'openload.co'),
+                                            label: "embed",
+                                            type: "embed"
+                                        }
+                                    });
+                                });
 
                                 this.state.hosts = hosts;
 
-                            case 13:
+                                return _context2.abrupt('return');
+
+                            case 38:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this);
+                }, _callee2, this, [[16, 31]]);
             }));
 
             function getHostFromDetail() {
@@ -205,7 +201,7 @@ var WatchEpisode = function () {
         }()
     }]);
 
-    return WatchEpisode;
+    return Vkl21hd;
 }();
 
 thisSource.function = function () {
@@ -216,13 +212,13 @@ thisSource.function = function () {
                 switch (_context3.prev = _context3.next) {
                     case 0:
                         httpRequest = libs.httpRequest;
-                        source = new WatchEpisode({
+                        source = new Vkl21hd({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: 'WatchEpisode',
+                            name_source: 'Vkl21hd',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
@@ -279,7 +275,7 @@ thisSource.function = function () {
                         }
 
                         bodyPost['hosts'] = JSON.stringify(hosts);
-                        bodyPost['expired'] = 86400;
+                        bodyPost['expired'] = 7200;
                         _context3.next = 22;
                         return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
 
@@ -304,4 +300,4 @@ thisSource.function = function () {
     };
 }();
 
-thisSource.testing = WatchEpisode;
+thisSource.testing = Vkl21hd;
