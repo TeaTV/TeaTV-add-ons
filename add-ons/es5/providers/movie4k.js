@@ -16,9 +16,9 @@ var URL = {
     }
 };
 
-var Movie4k = function () {
-    function Movie4k(props) {
-        _classCallCheck(this, Movie4k);
+var Movie69k = function () {
+    function Movie69k(props) {
+        _classCallCheck(this, Movie69k);
 
         this.libs = props.libs;
         this.movieInfo = props.movieInfo;
@@ -26,11 +26,11 @@ var Movie4k = function () {
         this.state = {};
     }
 
-    _createClass(Movie4k, [{
+    _createClass(Movie69k, [{
         key: 'searchDetail',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, urlSearch, searchHtml, $;
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, titleSearch, detailUrl, urlSearch, searchHtml, $, ss, ep;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
@@ -38,41 +38,43 @@ var Movie4k = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
                                 _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+                                titleSearch = title.replace(/\s+Season\s+\d/g, '');
                                 detailUrl = false;
 
-                                if (!(type == 'tv')) {
-                                    _context.next = 9;
+                                if (!(type == 'movie')) {
+                                    _context.next = 13;
                                     break;
                                 }
 
-                                if (season < 10) season = '0' + season;
-                                if (episode < 10) episode = '0' + episode;
-                                detailUrl = URL.EPISODE_URL(title, season, episode);
-                                _context.next = 15;
-                                break;
-
-                            case 9:
-                                urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title));
-                                _context.next = 12;
+                                urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
+                                _context.next = 8;
                                 return httpRequest.getHTML(urlSearch);
 
-                            case 12:
+                            case 8:
                                 searchHtml = _context.sent;
                                 $ = cheerio.load(searchHtml);
 
-                                $('.peliculas .items .item').each(function () {
+                                $('.peliculas .item').each(function () {
                                     var u = $(this).find('a').attr('href');
                                     var n = $(this).find('.fixyear h2').text();
                                     var y = $(this).find('.year').text();
                                     if (stringHelper.shallowCompare(title, n) && year == y) detailUrl = u;
                                 });
+                                _context.next = 16;
+                                break;
 
-                            case 15:
+                            case 13:
+                                ss = season < 10 ? '0' + season : season;
+                                ep = episode < 10 ? '0' + episode : episode;
+
+                                detailUrl = URL.EPISODE_URL(stringHelper.convertToSearchQueryString(titleSearch, '-'), ss, ep);
+
+                            case 16:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 17:
+                            case 18:
                             case 'end':
                                 return _context.stop();
                         }
@@ -150,7 +152,7 @@ var Movie4k = function () {
         }()
     }]);
 
-    return Movie4k;
+    return Movie69k;
 }();
 
 thisSource.function = function () {
@@ -161,13 +163,13 @@ thisSource.function = function () {
                 switch (_context3.prev = _context3.next) {
                     case 0:
                         httpRequest = libs.httpRequest;
-                        source = new Movie4k({
+                        source = new Movie69k({
                             libs: libs,
                             movieInfo: movieInfo,
                             settings: settings
                         });
                         bodyPost = {
-                            name_source: 'Movie4k',
+                            name_source: 'Movie69k',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
@@ -249,4 +251,4 @@ thisSource.function = function () {
     };
 }();
 
-thisSource.testing = Movie4k;
+thisSource.testing = Movie69k;

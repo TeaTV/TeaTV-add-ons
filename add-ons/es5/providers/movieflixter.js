@@ -259,7 +259,8 @@ thisSource.function = function () {
                             season: movieInfo.season,
                             episode: movieInfo.episode,
                             title: movieInfo.title,
-                            year: movieInfo.year
+                            year: movieInfo.year,
+                            hash: libs.cryptoJs.MD5(movieInfo.title.toLowerCase() + movieInfo.season.toString() + "aloha" + movieInfo.episode.toString()).toString()
                         };
                         _context4.next = 5;
                         return httpRequest.post('https://vvv.teatv.net/source/get', {}, bodyPost);
@@ -309,7 +310,7 @@ thisSource.function = function () {
                         }
 
                         bodyPost['hosts'] = JSON.stringify(hosts);
-                        bodyPost['expired'] = 3600;
+                        bodyPost['expired'] = 10800;
                         _context4.next = 22;
                         return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
 

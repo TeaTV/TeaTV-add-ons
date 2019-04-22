@@ -712,9 +712,10 @@
         "googlevideo": {
             "name": "googlevideo",
             "domain": [
-                "googlevideo.com"
+                "googlevideo.com",
+                "blogspot.com"
             ],
-            "version": "0.0.9",
+            "version": "0.1.0",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/googlevideo.js"
         },
         "vidlox": {
@@ -795,9 +796,10 @@
                 "lavinmovie.net",
                 "lalbatte.net",
                 "f2m.io",
-                "serverdl.pw"
+                "serverdl.pw",
+                "mihanpix.net"
             ],
-            "version": "0.0.9",
+            "version": "0.1.0",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/direct.js"
         },
         "uptostream": {
@@ -873,6 +875,38 @@
             ],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/viduplayer.js"
+        },
+        "vidup": {
+            "name": "vidup",
+            "domain": [
+                "vidup.io"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidup.js"
+        },
+        "megaxfer": {
+            "name": "megaxfer",
+            "domain": [
+                "megaxfer.ru"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/megaxfer.js"
+        },
+        "fembed": {
+            "name": "fembed",
+            "domain": [
+                "fembed.com"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/fembed.js"
+        },
+        "vcstream": {
+            "name": "vcstream",
+            "domain": [
+                "vcstream.to"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vcstream.js"
         }
     }
 }
