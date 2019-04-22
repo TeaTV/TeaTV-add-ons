@@ -539,6 +539,16 @@
                 "movie",
                 "tv"
             ]
+        },
+        "hdmo": {
+            "name": "hdmo",
+            "domain": "hdmo.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hdmo.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
