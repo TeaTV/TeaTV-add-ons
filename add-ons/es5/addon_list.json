@@ -360,7 +360,7 @@
         "tdn": {
             "name": "tdn",
             "domain": "tdn.dis",
-            "version": "0.3.6",
+            "version": "0.3.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/tdn.js",
             "type": [
                 "tv",
