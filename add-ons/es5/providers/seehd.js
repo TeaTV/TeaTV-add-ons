@@ -364,7 +364,7 @@ var Seehd = function () {
 
 thisSource.function = function () {
     var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(libs, movieInfo, settings) {
-        var httpRequest, source, bodyPost;
+        var httpRequest, source, bodyPost, res, js, hosts;
         return regeneratorRuntime.wrap(function _callee6$(_context6) {
             while (1) {
                 switch (_context6.prev = _context6.next) {
@@ -382,34 +382,70 @@ thisSource.function = function () {
                             season: movieInfo.season,
                             episode: movieInfo.episode,
                             title: movieInfo.title,
-                            year: movieInfo.year
+                            year: movieInfo.year,
+                            hash: libs.cryptoJs.MD5(movieInfo.title.toLowerCase() + movieInfo.season.toString() + "aloha" + movieInfo.episode.toString()).toString()
                         };
                         _context6.next = 5;
-                        return source.searchDetail();
+                        return httpRequest.post('https://vvv.teatv.net/source/get', {}, bodyPost);
 
                     case 5:
+                        res = _context6.sent;
+                        js = void 0, hosts = [];
 
-                        if (!source.state.detailUrl) {
-                            bodyPost.is_link = 0;
-                        } else {
-                            bodyPost.is_link = 1;
+
+                        try {
+                            res = res['data'];
+                            if (res['status']) {
+                                hosts = JSON.parse(res['hosts']);
+                            }
+                        } catch (err) {
+                            console.log('err', err);
                         }
-                        _context6.next = 8;
+
+                        if (movieInfo.checker != undefined) hosts = [];
+
+                        if (!(hosts.length == 0)) {
+                            _context6.next = 22;
+                            break;
+                        }
+
+                        _context6.next = 12;
+                        return source.searchDetail();
+
+                    case 12:
+                        _context6.next = 14;
                         return source.getHostFromDetail();
 
-                    case 8:
+                    case 14:
+                        hosts = source.state.hosts;
 
-                        if (source.state.hosts.length == 0) {
-                            bodyPost.is_link = 0;
-                        } else {
-                            bodyPost.is_link = 1;
+                        if (!(movieInfo.checker != undefined)) {
+                            _context6.next = 17;
+                            break;
                         }
 
-                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+                        return _context6.abrupt('return', hosts);
 
-                        return _context6.abrupt('return', source.state.hosts);
+                    case 17:
+                        if (!(hosts.length > 0)) {
+                            _context6.next = 22;
+                            break;
+                        }
 
-                    case 10:
+                        bodyPost['hosts'] = JSON.stringify(hosts);
+                        bodyPost['expired'] = 86400;
+                        _context6.next = 22;
+                        return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
+
+                    case 22:
+
+                        if (movieInfo.ss != undefined) {
+                            movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
+                        }
+
+                        return _context6.abrupt('return', hosts);
+
+                    case 24:
                     case 'end':
                         return _context6.stop();
                 }

@@ -242,6 +242,7 @@ thisSource.function = function () {
                         }
 
                         if (movieInfo.checker != undefined) hosts = [];
+                        //hosts = []; // debug
 
                         if (!(hosts.length == 0)) {
                             _context4.next = 22;

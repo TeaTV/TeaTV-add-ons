@@ -63,7 +63,7 @@
         "seehd": {
             "name": "seehd",
             "domain": "seehd.pl",
-            "version": "0.4.2",
+            "version": "0.4.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seehd.js",
             "type": [
                 "movie",
@@ -486,7 +486,7 @@
         "icefilms": {
             "name": "icefilms",
             "domain": "icefilms.dis",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/icefilms.js",
             "type": [
                 "movie",
@@ -519,25 +519,6 @@
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/tv21.js",
             "type": [
                 "movie"
-            ]
-        },
-        "vkl21hd": {
-            "name": "vkl21hd",
-            "domain": "vkl21hd.dis",
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vkl21hd.js",
-            "type": [
-                "movie"
-            ]
-        },
-        "bioskopkeren": {
-            "name": "bioskopkeren",
-            "domain": "bioskopkeren.dis",
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/bioskopkeren.js",
-            "type": [
-                "movie",
-                "tv"
             ]
         },
         "hdmo": {
