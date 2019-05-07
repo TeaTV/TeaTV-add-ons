@@ -99,7 +99,6 @@ var Afdah = function () {
         this.libs = props.libs;
         this.settings = props.settings;
         this.state = {};
-        this.cacheHost = false;
     }
 
     _createClass(Afdah, [{
@@ -131,7 +130,6 @@ var Afdah = function () {
                                         'User-Agent': u['User-Agent'],
                                         'Referer': url
                                     };
-                                    this.cacheHost = true;
                                 } catch (e) {}
 
                                 _context.next = 5;
@@ -190,7 +188,7 @@ var Afdah = function () {
 
                                 console.log(u);
 
-                                if (!(allowCache && this.cacheHost)) {
+                                if (!allowCache) {
                                     _context3.next = 23;
                                     break;
                                 }
@@ -308,7 +306,7 @@ var Afdah = function () {
                                 return Promise.all(arrPromise);
 
                             case 37:
-                                if (!(sources.length > 0 && allowCache && this.cacheHost)) {
+                                if (!(sources.length > 0 && allowCache)) {
                                     _context3.next = 44;
                                     break;
                                 }
