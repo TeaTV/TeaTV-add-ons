@@ -81,6 +81,11 @@ var Tdn = function () {
                                 throw new Error("NOT_FOUND");
 
                             case 4:
+
+                                if (type == 'movie') {
+                                    season = 0;episode = 0;
+                                }
+
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
                                 ss = season;
@@ -97,31 +102,31 @@ var Tdn = function () {
 
                                 if (type == 'movie') posts.year = year;
 
-                                _context2.next = 13;
+                                _context2.next = 14;
                                 return httpRequest.post(this.state.detailUrl, URL.HEADERS(), posts);
 
-                            case 13:
+                            case 14:
                                 res = _context2.sent;
 
                                 if (!(res.data.status && res.data.links.length > 0)) {
-                                    _context2.next = 30;
+                                    _context2.next = 31;
                                     break;
                                 }
 
                                 _context2.t0 = regeneratorRuntime.keys(res.data.links);
 
-                            case 16:
+                            case 17:
                                 if ((_context2.t1 = _context2.t0()).done) {
-                                    _context2.next = 30;
+                                    _context2.next = 31;
                                     break;
                                 }
 
                                 i = _context2.t1.value;
                                 l = res.data.links[i].link;
-                                _context2.next = 21;
+                                _context2.next = 22;
                                 return httpRequest.getHTML(l, URL.HEADERS());
 
-                            case 21:
+                            case 22:
                                 h = _context2.sent;
 
                                 h = h.split('data:function(){return ')[1];
@@ -145,14 +150,14 @@ var Tdn = function () {
                                         }
                                     });
                                 }
-                                _context2.next = 16;
+                                _context2.next = 17;
                                 break;
 
-                            case 30:
+                            case 31:
 
                                 this.state.hosts = hosts;
 
-                            case 31:
+                            case 32:
                             case 'end':
                                 return _context2.stop();
                         }
