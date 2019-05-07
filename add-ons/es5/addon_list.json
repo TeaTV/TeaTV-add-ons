@@ -513,15 +513,6 @@
                 "tv"
             ]
         },
-        "vexmovies": {
-            "name": "vexmovies",
-            "domain": "vexmovies.dis",
-            "version": "0.0.4",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vexmovies.js",
-            "type": [
-                "movie"
-            ]
-        },
         "tv21": {
             "name": "tv21",
             "domain": "tv21.dis",
