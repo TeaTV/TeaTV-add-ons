@@ -1,1 +1,141 @@
-var _0x5f2c=['state','checkLive','mark','wrap','prev','httpRequest','sent','abrupt','return','end','convertToEmbed','cheerio','indexOf','http:','LINK\x20DIE','load','video','attr','isLinkDie','NOR','embed','vidstreaming','function','length','enumerable','configurable','value','defineProperty','apply','done','resolve','next','throw','libs','settings'];(function(_0x422e6c,_0x45ba8b){var _0x841d2d=function(_0x54fcc6){while(--_0x54fcc6){_0x422e6c['push'](_0x422e6c['shift']());}};_0x841d2d(++_0x45ba8b);}(_0x5f2c,0x175));var _0x1fd7=function(_0x52faae,_0x5d541a){_0x52faae=_0x52faae-0x0;var _0x2d2bfb=_0x5f2c[_0x52faae];return _0x2d2bfb;};var _createClass=function(){function _0x535764(_0x43d19,_0x350bcf){for(var _0x56b181=0x0;_0x56b181<_0x350bcf[_0x1fd7('0x0')];_0x56b181++){var _0x3ca2ef=_0x350bcf[_0x56b181];_0x3ca2ef[_0x1fd7('0x1')]=_0x3ca2ef['enumerable']||![];_0x3ca2ef[_0x1fd7('0x2')]=!![];if(_0x1fd7('0x3')in _0x3ca2ef)_0x3ca2ef['writable']=!![];Object[_0x1fd7('0x4')](_0x43d19,_0x3ca2ef['key'],_0x3ca2ef);}}return function(_0x15ddcd,_0x292b8c,_0xdc670d){if(_0x292b8c)_0x535764(_0x15ddcd['prototype'],_0x292b8c);if(_0xdc670d)_0x535764(_0x15ddcd,_0xdc670d);return _0x15ddcd;};}();function _asyncToGenerator(_0x5ec4c0){return function(){var _0x27365a=_0x5ec4c0[_0x1fd7('0x5')](this,arguments);return new Promise(function(_0x592ab1,_0x3db506){function _0x226602(_0x5d688e,_0x2712e1){try{var _0xd1b07b=_0x27365a[_0x5d688e](_0x2712e1);var _0x4c86d7=_0xd1b07b[_0x1fd7('0x3')];}catch(_0x1fa886){_0x3db506(_0x1fa886);return;}if(_0xd1b07b[_0x1fd7('0x6')]){_0x592ab1(_0x4c86d7);}else{return Promise[_0x1fd7('0x7')](_0x4c86d7)['then'](function(_0x282f57){_0x226602(_0x1fd7('0x8'),_0x282f57);},function(_0x534f69){_0x226602(_0x1fd7('0x9'),_0x534f69);});}}return _0x226602(_0x1fd7('0x8'));});};}function _classCallCheck(_0x58d4e5,_0x1061e5){if(!(_0x58d4e5 instanceof _0x1061e5)){throw new TypeError('Cannot\x20call\x20a\x20class\x20as\x20a\x20function');}}var Vidstreaming=function(){function _0x581a00(_0x5328a0){_classCallCheck(this,_0x581a00);this['libs']=_0x5328a0[_0x1fd7('0xa')];this[_0x1fd7('0xb')]=_0x5328a0['settings'];this[_0x1fd7('0xc')]={};}_createClass(_0x581a00,[{'key':_0x1fd7('0xd'),'value':function(){var _0x333ce3=_asyncToGenerator(regeneratorRuntime[_0x1fd7('0xe')](function _callee(_0x3fbcd7){var _0x47b8f5,_0x21a436;return regeneratorRuntime[_0x1fd7('0xf')](function _callee$(_0x16987c){while(0x1){switch(_0x16987c[_0x1fd7('0x10')]=_0x16987c['next']){case 0x0:_0x47b8f5=this[_0x1fd7('0xa')][_0x1fd7('0x11')];_0x16987c[_0x1fd7('0x8')]=0x3;return _0x47b8f5['getHTML'](_0x3fbcd7);case 0x3:_0x21a436=_0x16987c[_0x1fd7('0x12')];return _0x16987c[_0x1fd7('0x13')](_0x1fd7('0x14'),_0x21a436);case 0x5:case _0x1fd7('0x15'):return _0x16987c['stop']();}}},_callee,this);}));function _0x328781(_0x11cf68){return _0x333ce3[_0x1fd7('0x5')](this,arguments);}return _0x328781;}()},{'key':_0x1fd7('0x16'),'value':function convertToEmbed(_0xbb5a9b){}},{'key':'getLink','value':function(){var _0xbc5174=_asyncToGenerator(regeneratorRuntime['mark'](function _callee2(_0x311eb0){var _0x446757,_0x337a92,_0x49cdd8,_0x412c76,_0x3ef377,_0x48814e,_0x4a735e,_0x54f690;return regeneratorRuntime[_0x1fd7('0xf')](function _callee2$(_0xcb7889){while(0x1){switch(_0xcb7889[_0x1fd7('0x10')]=_0xcb7889[_0x1fd7('0x8')]){case 0x0:_0x446757=this[_0x1fd7('0xa')],_0x337a92=_0x446757[_0x1fd7('0x11')],_0x49cdd8=_0x446757[_0x1fd7('0x17')];if(_0x311eb0[_0x1fd7('0x18')]('//')===0x0){_0x311eb0=_0x1fd7('0x19')+_0x311eb0;}_0x412c76=[];_0xcb7889['next']=0x5;return this[_0x1fd7('0xd')](link);case 0x5:_0x3ef377=_0xcb7889[_0x1fd7('0x12')];if(!(_0x3ef377==![])){_0xcb7889[_0x1fd7('0x8')]=0x8;break;}throw new Error(_0x1fd7('0x1a'));case 0x8:_0x48814e=cheeri[_0x1fd7('0x1b')](_0x3ef377);_0x4a735e=_0x48814e(_0x1fd7('0x1c'))[_0x1fd7('0x1d')]('src');_0xcb7889[_0x1fd7('0x8')]=0xc;return _0x337a92[_0x1fd7('0x1e')](_0x4a735e);case 0xc:_0x54f690=_0xcb7889[_0x1fd7('0x12')];if(_0x54f690!=![]){_0x412c76=[{'file':_0x4a735e,'label':_0x1fd7('0x1f'),'type':_0x1fd7('0x20'),'size':_0x54f690}];}else{_0x412c76=[];}return _0xcb7889[_0x1fd7('0x13')](_0x1fd7('0x14'),{'host':{'url':_0x311eb0,'name':_0x1fd7('0x21')},'result':_0x412c76});case 0xf:case _0x1fd7('0x15'):return _0xcb7889['stop']();}}},_callee2,this);}));function _0x2a4ee3(_0x218503){return _0xbc5174[_0x1fd7('0x5')](this,arguments);}return _0x2a4ee3;}()}]);return _0x581a00;}();thisSource[_0x1fd7('0x22')]=function(_0x33b52a,_0x5e82f7){return new Vidstreaming({'libs':_0x33b52a,'settings':_0x5e82f7});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Vidstreaming = function () {
+    function Vidstreaming(props) {
+        _classCallCheck(this, Vidstreaming);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Vidstreaming, [{
+        key: "checkLive",
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+
+                                // you fill the die status text
+                                // const dieStatusText = "";
+
+                                _context.next = 3;
+                                return httpRequest.getHTML(url);
+
+                            case 3:
+                                html = _context.sent;
+                                return _context.abrupt("return", html);
+
+                            case 5:
+                            case "end":
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: "convertToEmbed",
+        value: function convertToEmbed(url) {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+
+            // let id = url.match(/\/embed\-([^\-]+)/i);
+            // id = url != null ? url[1] : false;
+
+            // if( id == false ) return url;
+
+        }
+    }, {
+        key: "getLink",
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cheerio, sources, html, $, file, isDie;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+
+
+                                if (url.indexOf("//") === 0) {
+                                    url = "http:" + url;
+                                }
+                                sources = [];
+                                _context2.next = 5;
+                                return this.checkLive(link);
+
+                            case 5:
+                                html = _context2.sent;
+
+                                if (!(html == false)) {
+                                    _context2.next = 8;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 8:
+                                $ = cheeri.load(html);
+                                file = $("video").attr("src");
+                                _context2.next = 12;
+                                return httpRequest.isLinkDie(file);
+
+                            case 12:
+                                isDie = _context2.sent;
+
+
+                                if (isDie != false) {
+                                    sources = [{ file: file, label: "NOR", type: 'embed', size: isDie }];
+                                } else {
+                                    sources = [];
+                                }
+
+                                return _context2.abrupt("return", {
+                                    host: {
+                                        url: url,
+                                        name: "vidstreaming"
+                                    },
+                                    result: sources
+                                });
+
+                            case 15:
+                            case "end":
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Vidstreaming;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Vidstreaming({ libs: libs, settings: settings });
+};

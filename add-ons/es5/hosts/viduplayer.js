@@ -1,1 +1,81 @@
-var _0x55d9=['defineProperty','key','prototype','apply','done','resolve','then','next','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','convertToEmbed','getLink','prev','http://','indexOf','https://','httpRequest','cheerio','NOR','push','abrupt','return','Viduplayer','stop','function','length','configurable'];(function(_0x52db01,_0x4e95de){var _0x57b669=function(_0x2716f9){while(--_0x2716f9){_0x52db01['push'](_0x52db01['shift']());}};_0x57b669(++_0x4e95de);}(_0x55d9,0x116));var _0x45da=function(_0x5194bf,_0x2dce24){_0x5194bf=_0x5194bf-0x0;var _0x2b5753=_0x55d9[_0x5194bf];return _0x2b5753;};var _createClass=function(){function _0x26dd0a(_0x5bff9d,_0x363a83){for(var _0x149b9d=0x0;_0x149b9d<_0x363a83[_0x45da('0x0')];_0x149b9d++){var _0x564cf5=_0x363a83[_0x149b9d];_0x564cf5['enumerable']=_0x564cf5['enumerable']||![];_0x564cf5[_0x45da('0x1')]=!![];if('value'in _0x564cf5)_0x564cf5['writable']=!![];Object[_0x45da('0x2')](_0x5bff9d,_0x564cf5[_0x45da('0x3')],_0x564cf5);}}return function(_0xc0c093,_0xa68b2b,_0x2f042b){if(_0xa68b2b)_0x26dd0a(_0xc0c093[_0x45da('0x4')],_0xa68b2b);if(_0x2f042b)_0x26dd0a(_0xc0c093,_0x2f042b);return _0xc0c093;};}();function _asyncToGenerator(_0xfd85e1){return function(){var _0x5a3308=_0xfd85e1[_0x45da('0x5')](this,arguments);return new Promise(function(_0x3d313d,_0x1eff3c){function _0x1a930a(_0x355923,_0x1eedcf){try{var _0x1fde3b=_0x5a3308[_0x355923](_0x1eedcf);var _0x14fd6=_0x1fde3b['value'];}catch(_0xc6bb21){_0x1eff3c(_0xc6bb21);return;}if(_0x1fde3b[_0x45da('0x6')]){_0x3d313d(_0x14fd6);}else{return Promise[_0x45da('0x7')](_0x14fd6)[_0x45da('0x8')](function(_0x2b1ddd){_0x1a930a('next',_0x2b1ddd);},function(_0x1a55d5){_0x1a930a('throw',_0x1a55d5);});}}return _0x1a930a(_0x45da('0x9'));});};}function _classCallCheck(_0xb7e51d,_0x422c1d){if(!(_0xb7e51d instanceof _0x422c1d)){throw new TypeError(_0x45da('0xa'));}}var Viduplayer=function(){function _0x47dece(_0x25b526){_classCallCheck(this,_0x47dece);this['libs']=_0x25b526[_0x45da('0xb')];this[_0x45da('0xc')]=_0x25b526[_0x45da('0xc')];this['state']={};}_createClass(_0x47dece,[{'key':_0x45da('0xd'),'value':function convertToEmbed(){}},{'key':_0x45da('0xe'),'value':function(){var _0x53b91=_asyncToGenerator(regeneratorRuntime['mark'](function _callee(_0x646ad8){var _0x536443,_0x452508,_0x4943df,_0x226dff,_0x34b831;return regeneratorRuntime['wrap'](function _callee$(_0x5bc3f6){while(0x1){switch(_0x5bc3f6[_0x45da('0xf')]=_0x5bc3f6['next']){case 0x0:if(!(_0x646ad8['indexOf'](_0x45da('0x10'))!=0x0&&_0x646ad8[_0x45da('0x11')](_0x45da('0x12'))!=0x0)){_0x5bc3f6[_0x45da('0x9')]=0x2;break;}throw new Error('NOT_FOUND');case 0x2:_0x536443=this[_0x45da('0xb')],_0x452508=_0x536443[_0x45da('0x13')],_0x4943df=_0x536443[_0x45da('0x14')];_0x226dff=[];_0x34b831=_0x45da('0x15');_0x226dff[_0x45da('0x16')]({'file':_0x646ad8,'label':_0x45da('0x15'),'type':'direct','size':_0x34b831});return _0x5bc3f6[_0x45da('0x17')](_0x45da('0x18'),{'host':{'url':_0x646ad8,'name':_0x45da('0x19')},'result':_0x226dff});case 0x7:case'end':return _0x5bc3f6[_0x45da('0x1a')]();}}},_callee,this);}));function _0x46c771(_0x14910f){return _0x53b91['apply'](this,arguments);}return _0x46c771;}()}]);return _0x47dece;}();thisSource[_0x45da('0x1b')]=function(_0xaab3ba,_0x2425fb){return new Viduplayer({'libs':_0xaab3ba,'settings':_0x2425fb});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Viduplayer = function () {
+    function Viduplayer(props) {
+        _classCallCheck(this, Viduplayer);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Viduplayer, [{
+        key: 'convertToEmbed',
+        value: function convertToEmbed() {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var _libs, httpRequest, cheerio, results, isDie;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                                    _context.next = 2;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 2:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                results = [];
+                                isDie = 'NOR';
+
+
+                                results.push({
+                                    file: url, label: 'NOR', type: "direct", size: isDie
+                                });
+
+                                return _context.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "Viduplayer"
+                                    },
+                                    result: results
+                                });
+
+                            case 7:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function getLink(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Viduplayer;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Viduplayer({ libs: libs, settings: settings });
+};

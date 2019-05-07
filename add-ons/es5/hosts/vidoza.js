@@ -1,1 +1,209 @@
-var _0x1311=['value','writable','key','prototype','apply','done','resolve','then','next','throw','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','getQuality','DVDRip','HDTV','HDRip','WEB-DL','WEBRip','Blu\x20ray','Blu-ray','BDRip','WEB','CAM','toLowerCase','indexOf','checkLive','mark','wrap','prev','getHTML','sent','abrupt','end','stop','getLink','httpRequest','cheerio','search','http://','LINK\x20DIE','match','https://','640x360_universal_july16.mp4','isLinkDie','load','title','text','NOR','source_label','push','return','vidoza','enumerable','configurable'];(function(_0x3e2128,_0x35f94a){var _0xf15012=function(_0xbe3ad3){while(--_0xbe3ad3){_0x3e2128['push'](_0x3e2128['shift']());}};_0xf15012(++_0x35f94a);}(_0x1311,0xa6));var _0x5acd=function(_0x4c40c3,_0x4da223){_0x4c40c3=_0x4c40c3-0x0;var _0x3c9517=_0x1311[_0x4c40c3];return _0x3c9517;};var _createClass=function(){function _0xad9645(_0x29e75d,_0x2b5c51){for(var _0x18ff68=0x0;_0x18ff68<_0x2b5c51['length'];_0x18ff68++){var _0x4a6a48=_0x2b5c51[_0x18ff68];_0x4a6a48[_0x5acd('0x0')]=_0x4a6a48[_0x5acd('0x0')]||![];_0x4a6a48[_0x5acd('0x1')]=!![];if(_0x5acd('0x2')in _0x4a6a48)_0x4a6a48[_0x5acd('0x3')]=!![];Object['defineProperty'](_0x29e75d,_0x4a6a48[_0x5acd('0x4')],_0x4a6a48);}}return function(_0x2a64bc,_0x23e070,_0x3c29fa){if(_0x23e070)_0xad9645(_0x2a64bc[_0x5acd('0x5')],_0x23e070);if(_0x3c29fa)_0xad9645(_0x2a64bc,_0x3c29fa);return _0x2a64bc;};}();function _asyncToGenerator(_0x4530ca){return function(){var _0x15d6bf=_0x4530ca[_0x5acd('0x6')](this,arguments);return new Promise(function(_0x54159b,_0x372027){function _0x2f1ec5(_0xe7510a,_0x5a1295){try{var _0x15b38c=_0x15d6bf[_0xe7510a](_0x5a1295);var _0x143469=_0x15b38c[_0x5acd('0x2')];}catch(_0x20da03){_0x372027(_0x20da03);return;}if(_0x15b38c[_0x5acd('0x7')]){_0x54159b(_0x143469);}else{return Promise[_0x5acd('0x8')](_0x143469)[_0x5acd('0x9')](function(_0x1bc2a9){_0x2f1ec5(_0x5acd('0xa'),_0x1bc2a9);},function(_0x360262){_0x2f1ec5(_0x5acd('0xb'),_0x360262);});}}return _0x2f1ec5(_0x5acd('0xa'));});};}function _classCallCheck(_0xc6b520,_0x403970){if(!(_0xc6b520 instanceof _0x403970)){throw new TypeError(_0x5acd('0xc'));}}var Vidoza=function(){function _0x3cce3b(_0x572e3c){_classCallCheck(this,_0x3cce3b);this[_0x5acd('0xd')]=_0x572e3c[_0x5acd('0xd')];this['settings']=_0x572e3c[_0x5acd('0xe')];this[_0x5acd('0xf')]={};}_createClass(_0x3cce3b,[{'key':_0x5acd('0x10'),'value':function getQuality(_0x16d271){var _0x2daade=[_0x5acd('0x11'),_0x5acd('0x12'),_0x5acd('0x13'),_0x5acd('0x14'),_0x5acd('0x15'),'BRRip',_0x5acd('0x16'),'Bluray',_0x5acd('0x17'),_0x5acd('0x18'),_0x5acd('0x19'),'HDTS','TS',_0x5acd('0x1a')];for(var _0x5946d2 in _0x2daade){var _0x5b5b42=_0x2daade[_0x5946d2];if(_0x16d271[_0x5acd('0x1b')]()[_0x5acd('0x1c')](_0x5b5b42[_0x5acd('0x1b')]())!=-0x1){return _0x5b5b42;}}return![];}},{'key':_0x5acd('0x1d'),'value':function(){var _0x25ec7c=_asyncToGenerator(regeneratorRuntime[_0x5acd('0x1e')](function _callee(_0x1d4a54){var _0x22b5d8,_0x3d829f;return regeneratorRuntime[_0x5acd('0x1f')](function _callee$(_0x4bb016){while(0x1){switch(_0x4bb016[_0x5acd('0x20')]=_0x4bb016['next']){case 0x0:_0x22b5d8=this[_0x5acd('0xd')]['httpRequest'];_0x4bb016[_0x5acd('0xa')]=0x3;return _0x22b5d8[_0x5acd('0x21')](_0x1d4a54);case 0x3:_0x3d829f=_0x4bb016[_0x5acd('0x22')];return _0x4bb016[_0x5acd('0x23')]('return',_0x3d829f);case 0x5:case _0x5acd('0x24'):return _0x4bb016[_0x5acd('0x25')]();}}},_callee,this);}));function _0x1ca342(_0x551715){return _0x25ec7c[_0x5acd('0x6')](this,arguments);}return _0x1ca342;}()},{'key':'convertToEmbed','value':function convertToEmbed(_0x613e11){}},{'key':_0x5acd('0x26'),'value':function(){var _0x1e89f7=_asyncToGenerator(regeneratorRuntime[_0x5acd('0x1e')](function _callee2(_0x16721a){var _0x4bdb66,_0x3411ca,_0x4f3f91,_0x214604,_0x2463fe,_0x3ee922,_0x551115,_0xbd3ce,_0x8d2b22,_0x10413b,_0x470afc;return regeneratorRuntime[_0x5acd('0x1f')](function _callee2$(_0x5dad3a){while(0x1){switch(_0x5dad3a[_0x5acd('0x20')]=_0x5dad3a[_0x5acd('0xa')]){case 0x0:_0x4bdb66=this['libs'],_0x3411ca=_0x4bdb66[_0x5acd('0x27')],_0x4f3f91=_0x4bdb66[_0x5acd('0x28')];if(!(_0x16721a[_0x5acd('0x29')]('https://')==-0x1&&_0x16721a[_0x5acd('0x29')](_0x5acd('0x2a'))==-0x1)){_0x5dad3a[_0x5acd('0xa')]=0x3;break;}throw new Error(_0x5acd('0x2b'));case 0x3:_0x214604=[];_0x5dad3a[_0x5acd('0xa')]=0x6;return this['checkLive'](_0x16721a);case 0x6:_0x2463fe=_0x5dad3a[_0x5acd('0x22')];if(!(_0x2463fe==![])){_0x5dad3a[_0x5acd('0xa')]=0x9;break;}throw new Error(_0x5acd('0x2b'));case 0x9:_0x3ee922=_0x2463fe[_0x5acd('0x2c')](/source src="([^"]+)/);if(!(_0x3ee922!=undefined)){_0x5dad3a[_0x5acd('0xa')]=0x17;break;}if(!(_0x3ee922[0x1][_0x5acd('0x29')](_0x5acd('0x2d'))!=-0x1||_0x3ee922[0x1][_0x5acd('0x29')](_0x5acd('0x2a'))!=-0x1)){_0x5dad3a[_0x5acd('0xa')]=0x17;break;}if(!(_0x3ee922[0x1][_0x5acd('0x1c')](_0x5acd('0x2e'))!=-0x1)){_0x5dad3a['next']=0xe;break;}throw new Error('FUCKING\x20Vidoza');case 0xe:_0x5dad3a['next']=0x10;return _0x3411ca[_0x5acd('0x2f')](_0x3ee922[0x1]);case 0x10:_0x551115=_0x5dad3a[_0x5acd('0x22')];_0xbd3ce=_0x4f3f91[_0x5acd('0x30')](_0x2463fe);_0x8d2b22=_0xbd3ce(_0x5acd('0x31'))[_0x5acd('0x32')]();_0x10413b=this[_0x5acd('0x10')](_0x8d2b22);_0x470afc={'label':_0x5acd('0x33'),'file':_0x3ee922[0x1],'type':'direct','size':_0x551115?_0x551115:''};if(_0x10413b)_0x470afc[_0x5acd('0x34')]=_0x10413b;_0x214604[_0x5acd('0x35')](_0x470afc);case 0x17:return _0x5dad3a[_0x5acd('0x23')](_0x5acd('0x36'),{'host':{'url':_0x16721a,'name':_0x5acd('0x37')},'result':_0x214604});case 0x18:case'end':return _0x5dad3a[_0x5acd('0x25')]();}}},_callee2,this);}));function _0x2a4d6b(_0x435959){return _0x1e89f7[_0x5acd('0x6')](this,arguments);}return _0x2a4d6b;}()}]);return _0x3cce3b;}();thisSource['function']=function(_0x25e5f6,_0x1b253f){return new Vidoza({'libs':_0x25e5f6,'settings':_0x1b253f});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Vidoza = function () {
+    function Vidoza(props) {
+        _classCallCheck(this, Vidoza);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Vidoza, [{
+        key: 'getQuality',
+        value: function getQuality(url) {
+            var qualities = ['DVDRip', 'HDTV', 'HDRip', 'WEB-DL', 'WEBRip', 'BRRip', 'Blu ray', 'Bluray', 'Blu-ray', 'BDRip', 'WEB', 'HDTS', 'TS', 'CAM'];
+
+            for (var i in qualities) {
+                var quality = qualities[i];
+                if (url.toLowerCase().indexOf(quality.toLowerCase()) != -1) {
+                    return quality;
+                }
+            }
+
+            return false;
+        }
+    }, {
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+
+                                // you fill the die status text
+                                // const dieStatusText = "";
+
+                                _context.next = 3;
+                                return httpRequest.getHTML(url);
+
+                            case 3:
+                                html = _context.sent;
+                                return _context.abrupt('return', html);
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'convertToEmbed',
+        value: function convertToEmbed(url) {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+
+            // let id = url.match(/\/embed\-([^\-]+)/i);
+            // id = url != null ? url[1] : false;
+
+            // if( id == false ) return url;
+
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cheerio, sources, html, m, isDie, $, title, quality, s;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+
+                                if (!(url.search('https://') == -1 && url.search('http://') == -1)) {
+                                    _context2.next = 3;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 3:
+                                sources = [];
+                                _context2.next = 6;
+                                return this.checkLive(url);
+
+                            case 6:
+                                html = _context2.sent;
+
+                                if (!(html == false)) {
+                                    _context2.next = 9;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 9:
+
+                                /*
+                                let startIndex  = html.indexOf('jwplayer("vplayer").setup');
+                                html            = html.substring(startIndex);
+                                html            = html.substring(0, html.indexOf(".setVolume("));
+                                html            = html.replace('jwplayer("vplayer").setup', "player = ");
+                                html            += ";";
+                                 var player;
+                                eval(html);
+                                let data = player.sources;
+                                 let arrPromise = data.map( async val => {
+                                    
+                                    let isDie = await httpRequest.isLinkDie(val.file);
+                                     if( isDie != false ) {
+                                         sources.push({
+                                            label: val.file.indexOf("mp4") !== -1 ? val.label : "NOR",
+                                            file: val.file,
+                                            type: "embed",
+                                            size: isDie
+                                        });
+                                    }
+                                
+                                 });
+                                 await Promise.all(arrPromise);
+                                */
+
+                                m = html.match(/source src="([^"]+)/);
+
+                                if (!(m != undefined)) {
+                                    _context2.next = 23;
+                                    break;
+                                }
+
+                                if (!(m[1].search('https://') != -1 || m[1].search('http://') != -1)) {
+                                    _context2.next = 23;
+                                    break;
+                                }
+
+                                if (!(m[1].indexOf('640x360_universal_july16.mp4') != -1)) {
+                                    _context2.next = 14;
+                                    break;
+                                }
+
+                                throw new Error('FUCKING Vidoza');
+
+                            case 14:
+                                _context2.next = 16;
+                                return httpRequest.isLinkDie(m[1]);
+
+                            case 16:
+                                isDie = _context2.sent;
+                                $ = cheerio.load(html);
+                                title = $('title').text();
+                                quality = this.getQuality(title);
+                                s = {
+                                    label: "NOR",
+                                    file: m[1],
+                                    type: "direct",
+                                    size: isDie ? isDie : ""
+                                };
+
+                                if (quality) s.source_label = quality;
+                                sources.push(s);
+
+                            case 23:
+                                return _context2.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "vidoza"
+                                    },
+                                    result: sources
+                                });
+
+                            case 24:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Vidoza;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Vidoza({ libs: libs, settings: settings });
+};

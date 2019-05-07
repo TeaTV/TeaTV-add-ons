@@ -1,1 +1,89 @@
-var _0x2a2b=['return','m4ukido','end','apply','function','length','enumerable','configurable','value','key','prototype','done','next','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','mark','wrap','prev','NOR','sent','catch','direct','abrupt'];(function(_0x51aef8,_0x20b2ea){var _0x275396=function(_0x5c31c9){while(--_0x5c31c9){_0x51aef8['push'](_0x51aef8['shift']());}};_0x275396(++_0x20b2ea);}(_0x2a2b,0x69));var _0x34b4=function(_0x5d82ad,_0x14d2bc){_0x5d82ad=_0x5d82ad-0x0;var _0x116139=_0x2a2b[_0x5d82ad];return _0x116139;};var _createClass=function(){function _0x84a8c9(_0x51af50,_0x29f632){for(var _0x392849=0x0;_0x392849<_0x29f632[_0x34b4('0x0')];_0x392849++){var _0x302e0b=_0x29f632[_0x392849];_0x302e0b[_0x34b4('0x1')]=_0x302e0b['enumerable']||![];_0x302e0b[_0x34b4('0x2')]=!![];if(_0x34b4('0x3')in _0x302e0b)_0x302e0b['writable']=!![];Object['defineProperty'](_0x51af50,_0x302e0b[_0x34b4('0x4')],_0x302e0b);}}return function(_0x539d53,_0x54b865,_0x10ba38){if(_0x54b865)_0x84a8c9(_0x539d53[_0x34b4('0x5')],_0x54b865);if(_0x10ba38)_0x84a8c9(_0x539d53,_0x10ba38);return _0x539d53;};}();function _asyncToGenerator(_0x193241){return function(){var _0x27c2cf=_0x193241['apply'](this,arguments);return new Promise(function(_0x5a9ded,_0x51d955){function _0x52f7af(_0x450761,_0x581a01){try{var _0x168b2c=_0x27c2cf[_0x450761](_0x581a01);var _0xd81de6=_0x168b2c[_0x34b4('0x3')];}catch(_0x4a2959){_0x51d955(_0x4a2959);return;}if(_0x168b2c[_0x34b4('0x6')]){_0x5a9ded(_0xd81de6);}else{return Promise['resolve'](_0xd81de6)['then'](function(_0x744b33){_0x52f7af(_0x34b4('0x7'),_0x744b33);},function(_0x317502){_0x52f7af('throw',_0x317502);});}}return _0x52f7af(_0x34b4('0x7'));});};}function _classCallCheck(_0x341cbe,_0xb75a03){if(!(_0x341cbe instanceof _0xb75a03)){throw new TypeError(_0x34b4('0x8'));}}var M4ukido=function(){function _0x34c265(_0x4ff7ad){_classCallCheck(this,_0x34c265);this[_0x34b4('0x9')]=_0x4ff7ad['libs'];this[_0x34b4('0xa')]=_0x4ff7ad[_0x34b4('0xa')];this[_0x34b4('0xb')]={};}_createClass(_0x34c265,[{'key':'convertToEmbed','value':function convertToEmbed(){}},{'key':'getLink','value':function(){var _0x2bb571=_asyncToGenerator(regeneratorRuntime[_0x34b4('0xc')](function _callee(_0x2c7e5e){var _0x2d5020,_0xb6be57,_0x5f1a9b,_0x153447,_0x558486;return regeneratorRuntime[_0x34b4('0xd')](function _callee$(_0x246f99){while(0x1){switch(_0x246f99[_0x34b4('0xe')]=_0x246f99[_0x34b4('0x7')]){case 0x0:_0x2d5020=this[_0x34b4('0x9')],_0xb6be57=_0x2d5020['httpRequest'],_0x5f1a9b=_0x2d5020['cheerio'];_0x153447=[];_0x558486=_0x34b4('0xf');_0x246f99['prev']=0x3;_0x246f99[_0x34b4('0x7')]=0x6;return _0xb6be57['isLinkDie'](_0x2c7e5e);case 0x6:_0x558486=_0x246f99[_0x34b4('0x10')];_0x246f99[_0x34b4('0x7')]=0xb;break;case 0x9:_0x246f99[_0x34b4('0xe')]=0x9;_0x246f99['t0']=_0x246f99[_0x34b4('0x11')](0x3);case 0xb:if(_0x558486!=![]){_0x153447['push']({'file':_0x2c7e5e,'label':'NOR','type':_0x34b4('0x12'),'size':_0x558486});}return _0x246f99[_0x34b4('0x13')](_0x34b4('0x14'),{'host':{'url':_0x2c7e5e,'name':_0x34b4('0x15')},'result':_0x153447});case 0xd:case _0x34b4('0x16'):return _0x246f99['stop']();}}},_callee,this,[[0x3,0x9]]);}));function _0x45aeae(_0x3599ab){return _0x2bb571[_0x34b4('0x17')](this,arguments);}return _0x45aeae;}()}]);return _0x34c265;}();thisSource[_0x34b4('0x18')]=function(_0x43ada4,_0x5abeb4){return new M4ukido({'libs':_0x43ada4,'settings':_0x5abeb4});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var M4ukido = function () {
+    function M4ukido(props) {
+        _classCallCheck(this, M4ukido);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(M4ukido, [{
+        key: 'convertToEmbed',
+        value: function convertToEmbed() {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var _libs, httpRequest, cheerio, results, isDie;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                results = [];
+                                isDie = 'NOR';
+                                _context.prev = 3;
+                                _context.next = 6;
+                                return httpRequest.isLinkDie(url);
+
+                            case 6:
+                                isDie = _context.sent;
+                                _context.next = 11;
+                                break;
+
+                            case 9:
+                                _context.prev = 9;
+                                _context.t0 = _context['catch'](3);
+
+                            case 11:
+
+                                if (isDie != false) {
+
+                                    results.push({
+                                        file: url, label: 'NOR', type: "direct", size: isDie
+                                    });
+                                }
+
+                                return _context.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "m4ukido"
+                                    },
+                                    result: results
+                                });
+
+                            case 13:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this, [[3, 9]]);
+            }));
+
+            function getLink(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return M4ukido;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new M4ukido({ libs: libs, settings: settings });
+};

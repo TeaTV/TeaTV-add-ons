@@ -1,1 +1,204 @@
-var _0x2723=['resolve','then','next','throw','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','https://123gostream.tv','https://123gostream.tv/all?name=','Firefox\x2059','match','xyzzyx.com','libs','movieInfo','settings','state','searchDetail','mark','wrap','prev','cheerio','title','season','episode','SEARCH','replace','%20','getHTML','HEADERS','DOMAIN','sent','.films-block\x20.film-card\x20.cover-plus-inform-block','each','find','attr','href','indexOf','NOT_FOUND1','detailUrl','abrupt','end','stop','getHostFromDetail','NOT_FOUND','vidoza.net','streamango.com','www.rapidvideo.com','ok.ru','split','&quot;','function','httpRequest','Gostream123tv','type','year','is_link','hosts','return','testing','enumerable','configurable','value','writable','key','prototype','apply','done'];(function(_0x39b05c,_0x2b347e){var _0x4f284e=function(_0x43258d){while(--_0x43258d){_0x39b05c['push'](_0x39b05c['shift']());}};_0x4f284e(++_0x2b347e);}(_0x2723,0x1bf));var _0x3f83=function(_0x3ad583,_0x327efd){_0x3ad583=_0x3ad583-0x0;var _0x291f28=_0x2723[_0x3ad583];return _0x291f28;};var _createClass=function(){function _0x5469e4(_0x557848,_0x35b271){for(var _0x25d987=0x0;_0x25d987<_0x35b271['length'];_0x25d987++){var _0x1bcb7f=_0x35b271[_0x25d987];_0x1bcb7f[_0x3f83('0x0')]=_0x1bcb7f[_0x3f83('0x0')]||![];_0x1bcb7f[_0x3f83('0x1')]=!![];if(_0x3f83('0x2')in _0x1bcb7f)_0x1bcb7f[_0x3f83('0x3')]=!![];Object['defineProperty'](_0x557848,_0x1bcb7f[_0x3f83('0x4')],_0x1bcb7f);}}return function(_0x5f525d,_0xca9f04,_0x5fd070){if(_0xca9f04)_0x5469e4(_0x5f525d[_0x3f83('0x5')],_0xca9f04);if(_0x5fd070)_0x5469e4(_0x5f525d,_0x5fd070);return _0x5f525d;};}();function _asyncToGenerator(_0x3c976f){return function(){var _0x194ae5=_0x3c976f[_0x3f83('0x6')](this,arguments);return new Promise(function(_0xc6fc0c,_0x469824){function _0x240a84(_0x5b0441,_0x5f4b79){try{var _0xfebb3=_0x194ae5[_0x5b0441](_0x5f4b79);var _0x331a51=_0xfebb3[_0x3f83('0x2')];}catch(_0x2a0a46){_0x469824(_0x2a0a46);return;}if(_0xfebb3[_0x3f83('0x7')]){_0xc6fc0c(_0x331a51);}else{return Promise[_0x3f83('0x8')](_0x331a51)[_0x3f83('0x9')](function(_0x2d1975){_0x240a84(_0x3f83('0xa'),_0x2d1975);},function(_0x20a2c1){_0x240a84(_0x3f83('0xb'),_0x20a2c1);});}}return _0x240a84(_0x3f83('0xa'));});};}function _classCallCheck(_0x331ec6,_0x26d618){if(!(_0x331ec6 instanceof _0x26d618)){throw new TypeError(_0x3f83('0xc'));}}var URL={'DOMAIN':_0x3f83('0xd'),'SEARCH':function SEARCH(_0xd22021){return _0x3f83('0xe')+_0xd22021;},'HEADERS':function HEADERS(_0x1a0587){return{'User-Agent':_0x3f83('0xf'),'Referer':_0x1a0587};}};var getDomain=function getDomain(_0x1ea03d){var _0x18dc6a=_0x1ea03d[_0x3f83('0x10')](/\/\/([^\/]+)/);if(_0x18dc6a==null)return _0x3f83('0x11');return _0x18dc6a[0x1]!=undefined?_0x18dc6a[0x1]:_0x3f83('0x11');};var Gostream123tv=function(){function _0x411a4f(_0x5dc489){_classCallCheck(this,_0x411a4f);this['libs']=_0x5dc489[_0x3f83('0x12')];this[_0x3f83('0x13')]=_0x5dc489[_0x3f83('0x13')];this[_0x3f83('0x14')]=_0x5dc489[_0x3f83('0x14')];this[_0x3f83('0x15')]={};}_createClass(_0x411a4f,[{'key':_0x3f83('0x16'),'value':function(){var _0x561b70=_asyncToGenerator(regeneratorRuntime[_0x3f83('0x17')](function _callee(){var _0x5b5ebe,_0x22e23a,_0x11c806,_0x227213,_0x59e177,_0x14cd5d,_0x50d83b,_0x4a8d42,_0x3768be,_0x2e1e8f,_0x4e1a6b,_0x94dffd,_0xad86fe,_0x2f6d9d,_0x311cdc;return regeneratorRuntime[_0x3f83('0x18')](function _callee$(_0x4fc964){while(0x1){switch(_0x4fc964[_0x3f83('0x19')]=_0x4fc964[_0x3f83('0xa')]){case 0x0:_0x5b5ebe=this[_0x3f83('0x12')],_0x22e23a=_0x5b5ebe['httpRequest'],_0x11c806=_0x5b5ebe[_0x3f83('0x1a')],_0x227213=_0x5b5ebe['stringHelper'],_0x59e177=_0x5b5ebe['qs'];_0x14cd5d=this[_0x3f83('0x13')],_0x50d83b=_0x14cd5d[_0x3f83('0x1b')],_0x4a8d42=_0x14cd5d['year'],_0x3768be=_0x14cd5d[_0x3f83('0x1c')],_0x2e1e8f=_0x14cd5d[_0x3f83('0x1d')],_0x4e1a6b=_0x14cd5d['type'];_0x94dffd=![];_0xad86fe=URL[_0x3f83('0x1e')](_0x50d83b[_0x3f83('0x1f')](/\s/g,_0x3f83('0x20')));_0x4fc964[_0x3f83('0xa')]=0x6;return _0x22e23a[_0x3f83('0x21')](_0xad86fe,URL[_0x3f83('0x22')](URL[_0x3f83('0x23')]));case 0x6:_0x2f6d9d=_0x4fc964[_0x3f83('0x24')];_0x311cdc=_0x11c806['load'](_0x2f6d9d);_0x311cdc(_0x3f83('0x25'))[_0x3f83('0x26')](function(){var _0x2eed13=_0x311cdc(this)[_0x3f83('0x27')]('a')[_0x3f83('0x28')](_0x3f83('0x29'));var _0x4ca4f4=_0x50d83b[_0x3f83('0x1f')](/[:\s]+/g,'-');if(_0x2eed13['indexOf'](_0x4ca4f4['toLowerCase']())!=-0x1)_0x94dffd=URL[_0x3f83('0x23')]+_0x2eed13;});if(!(!_0x94dffd||_0x94dffd[_0x3f83('0x2a')]('http')==-0x1)){_0x4fc964[_0x3f83('0xa')]=0xb;break;}throw new Error(_0x3f83('0x2b'));case 0xb:this[_0x3f83('0x15')][_0x3f83('0x2c')]=_0x94dffd;return _0x4fc964[_0x3f83('0x2d')]('return');case 0xd:case _0x3f83('0x2e'):return _0x4fc964[_0x3f83('0x2f')]();}}},_callee,this);}));function _0x847db3(){return _0x561b70['apply'](this,arguments);}return _0x847db3;}()},{'key':_0x3f83('0x30'),'value':function(){var _0x512e93=_asyncToGenerator(regeneratorRuntime[_0x3f83('0x17')](function _callee2(){var _0x34515b,_0x8abf07,_0x19c261,_0x1faaae,_0x1d02f3,_0xa23da2,_0x505bd5,_0x279b00,_0x10bc28,_0x57f111;return regeneratorRuntime[_0x3f83('0x18')](function _callee2$(_0x1873f6){while(0x1){switch(_0x1873f6['prev']=_0x1873f6[_0x3f83('0xa')]){case 0x0:_0x34515b=this[_0x3f83('0x12')],_0x8abf07=_0x34515b['httpRequest'],_0x19c261=_0x34515b[_0x3f83('0x1a')],_0x1faaae=_0x34515b['qs'];if(this['state'][_0x3f83('0x2c')]){_0x1873f6[_0x3f83('0xa')]=0x3;break;}throw new Error(_0x3f83('0x31'));case 0x3:_0x1d02f3=[];_0xa23da2=this['movieInfo']['type'];_0x1873f6[_0x3f83('0xa')]=0x7;return _0x8abf07[_0x3f83('0x21')](this['state'][_0x3f83('0x2c')]);case 0x7:_0x505bd5=_0x1873f6[_0x3f83('0x24')];_0x279b00=this[_0x3f83('0x15')][_0x3f83('0x2c')];_0x10bc28=[_0x3f83('0x32'),_0x3f83('0x33'),_0x3f83('0x34'),_0x3f83('0x35')];_0x57f111=_0x505bd5[_0x3f83('0x36')](_0x3f83('0x37'));throw new Error(_0x3f83('0x31'));case 0xd:case _0x3f83('0x2e'):return _0x1873f6[_0x3f83('0x2f')]();}}},_callee2,this);}));function _0x112cdf(){return _0x512e93[_0x3f83('0x6')](this,arguments);}return _0x112cdf;}()}]);return _0x411a4f;}();thisSource[_0x3f83('0x38')]=function(){var _0x1795c6=_asyncToGenerator(regeneratorRuntime[_0x3f83('0x17')](function _callee3(_0x2990cf,_0x43debc,_0xf3d1c1){var _0x18cd8b,_0x1afe17,_0x5d22ef;return regeneratorRuntime[_0x3f83('0x18')](function _callee3$(_0x48459a){while(0x1){switch(_0x48459a[_0x3f83('0x19')]=_0x48459a[_0x3f83('0xa')]){case 0x0:_0x18cd8b=_0x2990cf[_0x3f83('0x39')];_0x1afe17=new Gostream123tv({'libs':_0x2990cf,'movieInfo':_0x43debc,'settings':_0xf3d1c1});_0x5d22ef={'name_source':_0x3f83('0x3a'),'is_link':0x0,'type':_0x43debc[_0x3f83('0x3b')],'season':_0x43debc[_0x3f83('0x1c')],'episode':_0x43debc[_0x3f83('0x1d')],'title':_0x43debc['title'],'year':_0x43debc[_0x3f83('0x3c')]};_0x48459a[_0x3f83('0xa')]=0x5;return _0x1afe17[_0x3f83('0x16')]();case 0x5:if(!_0x1afe17[_0x3f83('0x15')][_0x3f83('0x2c')]){_0x5d22ef[_0x3f83('0x3d')]=0x0;}else{_0x5d22ef[_0x3f83('0x3d')]=0x1;}_0x48459a[_0x3f83('0xa')]=0x8;return _0x1afe17[_0x3f83('0x30')]();case 0x8:if(_0x1afe17[_0x3f83('0x15')][_0x3f83('0x3e')]['length']==0x0){_0x5d22ef['is_link']=0x0;}else{_0x5d22ef[_0x3f83('0x3d')]=0x1;}return _0x48459a[_0x3f83('0x2d')](_0x3f83('0x3f'),_0x1afe17['state'][_0x3f83('0x3e')]);case 0xa:case _0x3f83('0x2e'):return _0x48459a['stop']();}}},_callee3,undefined);}));return function(_0x52eda0,_0x468d62,_0x209ee8){return _0x1795c6[_0x3f83('0x6')](this,arguments);};}();thisSource[_0x3f83('0x40')]=Gostream123tv;
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var URL = {
+    DOMAIN: "https://123gostream.tv",
+    SEARCH: function SEARCH(title) {
+        return 'https://123gostream.tv/all?name=' + title;
+    },
+    HEADERS: function HEADERS(referer) {
+        return {
+            'User-Agent': 'Firefox 59',
+            'Referer': referer
+        };
+    }
+};
+
+var getDomain = function getDomain(url) {
+    var m = url.match(/\/\/([^\/]+)/);
+    if (m == null) return 'xyzzyx.com';
+    return m[1] != undefined ? m[1] : 'xyzzyx.com';
+};
+
+var Gostream123tv = function () {
+    function Gostream123tv(props) {
+        _classCallCheck(this, Gostream123tv);
+
+        this.libs = props.libs;
+        this.movieInfo = props.movieInfo;
+        this.settings = props.settings;
+
+        this.state = {};
+    }
+
+    _createClass(Gostream123tv, [{
+        key: 'searchDetail',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type, detailUrl, urlSearch, resultSearch, $;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, qs = _libs.qs;
+                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+                                detailUrl = false;
+                                urlSearch = URL.SEARCH(title.replace(/\s/g, '%20'));
+                                _context.next = 6;
+                                return httpRequest.getHTML(urlSearch, URL.HEADERS(URL.DOMAIN));
+
+                            case 6:
+                                resultSearch = _context.sent;
+                                $ = cheerio.load(resultSearch);
+
+                                $('.films-block .film-card .cover-plus-inform-block').each(function () {
+
+                                    var hrefMovie = $(this).find('a').attr('href');
+                                    var titleMovie = title.replace(/[:\s]+/g, '-');
+                                    if (hrefMovie.indexOf(titleMovie.toLowerCase()) != -1) detailUrl = URL.DOMAIN + hrefMovie;
+                                });
+
+                                if (!(!detailUrl || detailUrl.indexOf('http') == -1)) {
+                                    _context.next = 11;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND1');
+
+                            case 11:
+                                this.state.detailUrl = detailUrl;
+
+                                return _context.abrupt('return');
+
+                            case 13:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function searchDetail() {
+                return _ref.apply(this, arguments);
+            }
+
+            return searchDetail;
+        }()
+    }, {
+        key: 'getHostFromDetail',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+                var _libs2, httpRequest, cheerio, qs, hosts, type, htmlDetail, detailUrl, alloweds, m;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, qs = _libs2.qs;
+
+                                if (this.state.detailUrl) {
+                                    _context2.next = 3;
+                                    break;
+                                }
+
+                                throw new Error("NOT_FOUND");
+
+                            case 3:
+                                hosts = [];
+                                type = this.movieInfo.type;
+                                _context2.next = 7;
+                                return httpRequest.getHTML(this.state.detailUrl);
+
+                            case 7:
+                                htmlDetail = _context2.sent;
+                                detailUrl = this.state.detailUrl;
+                                alloweds = ['vidoza.net', 'streamango.com', 'www.rapidvideo.com', 'ok.ru'];
+                                m = htmlDetail.split('&quot;');
+                                throw new Error('NOT_FOUND');
+
+                            case 13:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function getHostFromDetail() {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getHostFromDetail;
+        }()
+    }]);
+
+    return Gostream123tv;
+}();
+
+thisSource.function = function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(libs, movieInfo, settings) {
+        var httpRequest, source, bodyPost;
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+            while (1) {
+                switch (_context3.prev = _context3.next) {
+                    case 0:
+                        httpRequest = libs.httpRequest;
+                        source = new Gostream123tv({
+                            libs: libs,
+                            movieInfo: movieInfo,
+                            settings: settings
+                        });
+                        bodyPost = {
+                            name_source: 'Gostream123tv',
+                            is_link: 0,
+                            type: movieInfo.type,
+                            season: movieInfo.season,
+                            episode: movieInfo.episode,
+                            title: movieInfo.title,
+                            year: movieInfo.year
+                        };
+                        _context3.next = 5;
+                        return source.searchDetail();
+
+                    case 5:
+
+                        if (!source.state.detailUrl) {
+                            bodyPost.is_link = 0;
+                        } else {
+                            bodyPost.is_link = 1;
+                        }
+                        _context3.next = 8;
+                        return source.getHostFromDetail();
+
+                    case 8:
+
+                        if (source.state.hosts.length == 0) {
+                            bodyPost.is_link = 0;
+                        } else {
+                            bodyPost.is_link = 1;
+                        }
+
+                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+
+                        return _context3.abrupt('return', source.state.hosts);
+
+                    case 10:
+                    case 'end':
+                        return _context3.stop();
+                }
+            }
+        }, _callee3, undefined);
+    }));
+
+    return function (_x, _x2, _x3) {
+        return _ref3.apply(this, arguments);
+    };
+}();
+
+thisSource.testing = Gostream123tv;

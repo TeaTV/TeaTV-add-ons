@@ -1,1 +1,149 @@
-var _0x58c1=['http://','LINK\x20DIE','cheerio','match','NOR','direct','Megaxfer','length','enumerable','configurable','value','apply','done','resolve','then','next','throw','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','mark','wrap','prev','httpRequest','getHTML','sent','includes','Video\x20Was\x20Deleted','abrupt','return','end','stop','convertToEmbed','getLink','search','https://'];(function(_0x1b03ee,_0x3cee50){var _0x566561=function(_0x2c8985){while(--_0x2c8985){_0x1b03ee['push'](_0x1b03ee['shift']());}};_0x566561(++_0x3cee50);}(_0x58c1,0x1c3));var _0x553b=function(_0xad9a51,_0x31e6de){_0xad9a51=_0xad9a51-0x0;var _0x3bb82e=_0x58c1[_0xad9a51];return _0x3bb82e;};var _createClass=function(){function _0x531859(_0x392ce9,_0x342101){for(var _0x591bec=0x0;_0x591bec<_0x342101[_0x553b('0x0')];_0x591bec++){var _0x4b18de=_0x342101[_0x591bec];_0x4b18de['enumerable']=_0x4b18de[_0x553b('0x1')]||![];_0x4b18de[_0x553b('0x2')]=!![];if(_0x553b('0x3')in _0x4b18de)_0x4b18de['writable']=!![];Object['defineProperty'](_0x392ce9,_0x4b18de['key'],_0x4b18de);}}return function(_0x28966f,_0x49a614,_0x2d70b6){if(_0x49a614)_0x531859(_0x28966f['prototype'],_0x49a614);if(_0x2d70b6)_0x531859(_0x28966f,_0x2d70b6);return _0x28966f;};}();function _asyncToGenerator(_0x7755a1){return function(){var _0x2875dd=_0x7755a1[_0x553b('0x4')](this,arguments);return new Promise(function(_0x42fcf7,_0x30855f){function _0x1979b9(_0x15e09f,_0x1b67bf){try{var _0x5debbd=_0x2875dd[_0x15e09f](_0x1b67bf);var _0xc04bc0=_0x5debbd[_0x553b('0x3')];}catch(_0x42d1c3){_0x30855f(_0x42d1c3);return;}if(_0x5debbd[_0x553b('0x5')]){_0x42fcf7(_0xc04bc0);}else{return Promise[_0x553b('0x6')](_0xc04bc0)[_0x553b('0x7')](function(_0x255025){_0x1979b9(_0x553b('0x8'),_0x255025);},function(_0x1355b0){_0x1979b9(_0x553b('0x9'),_0x1355b0);});}}return _0x1979b9(_0x553b('0x8'));});};}function _classCallCheck(_0x279cf6,_0x2d84e8){if(!(_0x279cf6 instanceof _0x2d84e8)){throw new TypeError(_0x553b('0xa'));}}var Megaxfer=function(){function _0x35ab23(_0x2cf255){_classCallCheck(this,_0x35ab23);this[_0x553b('0xb')]=_0x2cf255[_0x553b('0xb')];this['settings']=_0x2cf255[_0x553b('0xc')];this[_0x553b('0xd')]={};}_createClass(_0x35ab23,[{'key':'checkLive','value':function(){var _0x2f5b74=_asyncToGenerator(regeneratorRuntime[_0x553b('0xe')](function _callee(_0x4c8f85){var _0x225279,_0x43c37f;return regeneratorRuntime[_0x553b('0xf')](function _callee$(_0xd21a21){while(0x1){switch(_0xd21a21[_0x553b('0x10')]=_0xd21a21['next']){case 0x0:_0x225279=this[_0x553b('0xb')][_0x553b('0x11')];_0xd21a21[_0x553b('0x8')]=0x3;return _0x225279[_0x553b('0x12')](_0x4c8f85);case 0x3:_0x43c37f=_0xd21a21[_0x553b('0x13')];if(!_0x43c37f[_0x553b('0x14')](_0x553b('0x15'))){_0xd21a21[_0x553b('0x8')]=0x6;break;}return _0xd21a21[_0x553b('0x16')](_0x553b('0x17'),![]);case 0x6:return _0xd21a21[_0x553b('0x16')](_0x553b('0x17'),_0x43c37f);case 0x7:case _0x553b('0x18'):return _0xd21a21[_0x553b('0x19')]();}}},_callee,this);}));function _0x5c31a9(_0x2d4fe7){return _0x2f5b74[_0x553b('0x4')](this,arguments);}return _0x5c31a9;}()},{'key':_0x553b('0x1a'),'value':function convertToEmbed(_0x14d7d6){}},{'key':_0x553b('0x1b'),'value':function(){var _0x47207f=_asyncToGenerator(regeneratorRuntime[_0x553b('0xe')](function _callee2(_0x3625ec){var _0xb5979,_0x329111,_0x304715,_0x49c04b,_0x108588,_0x18e93a,_0xbeee08;return regeneratorRuntime[_0x553b('0xf')](function _callee2$(_0x28d504){while(0x1){switch(_0x28d504[_0x553b('0x10')]=_0x28d504['next']){case 0x0:if(!(_0x3625ec[_0x553b('0x1c')](_0x553b('0x1d'))==-0x1&&_0x3625ec[_0x553b('0x1c')](_0x553b('0x1e'))==-0x1)){_0x28d504[_0x553b('0x8')]=0x2;break;}throw new Error(_0x553b('0x1f'));case 0x2:_0xb5979=this[_0x553b('0xb')],_0x329111=_0xb5979['httpRequest'],_0x304715=_0xb5979[_0x553b('0x20')];_0x49c04b=_0x3625ec;_0x28d504[_0x553b('0x8')]=0x6;return this['checkLive'](_0x49c04b);case 0x6:_0x108588=_0x28d504[_0x553b('0x13')];if(!(_0x108588==![])){_0x28d504[_0x553b('0x8')]=0x9;break;}throw new Error(_0x553b('0x1f'));case 0x9:_0x18e93a=_0x108588[_0x553b('0x21')](/urlVideo = '([^']+)/);if(!(_0x18e93a==undefined)){_0x28d504[_0x553b('0x8')]=0xc;break;}throw new Error(_0x553b('0x1f'));case 0xc:_0xbeee08=[{'label':_0x553b('0x22'),'file':_0x18e93a[0x1],'type':_0x553b('0x23'),'size':_0x553b('0x22')}];return _0x28d504['abrupt'](_0x553b('0x17'),{'host':{'url':_0x3625ec,'name':_0x553b('0x24')},'result':_0xbeee08});case 0xe:case _0x553b('0x18'):return _0x28d504[_0x553b('0x19')]();}}},_callee2,this);}));function _0x506a09(_0x366d5c){return _0x47207f[_0x553b('0x4')](this,arguments);}return _0x506a09;}()}]);return _0x35ab23;}();thisSource['function']=function(_0x8a67f1,_0x23a828){return new Megaxfer({'libs':_0x8a67f1,'settings':_0x23a828});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Megaxfer = function () {
+    function Megaxfer(props) {
+        _classCallCheck(this, Megaxfer);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Megaxfer, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+
+                                // you fill the die status text
+                                // const dieStatusText = "";
+
+                                _context.next = 3;
+                                return httpRequest.getHTML(url);
+
+                            case 3:
+                                html = _context.sent;
+
+                                if (!html.includes("Video Was Deleted")) {
+                                    _context.next = 6;
+                                    break;
+                                }
+
+                                return _context.abrupt('return', false);
+
+                            case 6:
+                                return _context.abrupt('return', html);
+
+                            case 7:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'convertToEmbed',
+        value: function convertToEmbed(url) {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+
+            // let id = url.match(/\/embed\-([^\-]+)/i);
+            // id = url != null ? url[1] : false;
+
+            // if( id == false ) return url;
+
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cheerio, newUrl, html, m, result;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                if (!(url.search('https://') == -1 && url.search('http://') == -1)) {
+                                    _context2.next = 2;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 2:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                newUrl = url;
+                                _context2.next = 6;
+                                return this.checkLive(newUrl);
+
+                            case 6:
+                                html = _context2.sent;
+
+                                if (!(html == false)) {
+                                    _context2.next = 9;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 9:
+                                m = html.match(/urlVideo = '([^']+)/);
+
+                                if (!(m == undefined)) {
+                                    _context2.next = 12;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 12:
+                                result = [{ label: "NOR", file: m[1], type: 'direct', size: 'NOR' }];
+                                return _context2.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "Megaxfer"
+                                    },
+                                    result: result
+                                });
+
+                            case 14:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Megaxfer;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Megaxfer({ libs: libs, settings: settings });
+};

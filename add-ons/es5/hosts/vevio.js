@@ -1,1 +1,154 @@
-var _0x56f6=['value','done','then','next','libs','settings','state','checkLive','mark','wrap','prev','httpRequest','post','sent','abrupt','return','end','stop','getLink','cheerio','https://vev.io/api/serve/video/','Mozilla/5.0\x20(X11;\x20Linux\x20x86_64)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Ubuntu\x20Chromium/73.0.3683.75\x20Chrome/73.0','https://vev.io/','application/json','https://vev.io','log','Vevio\x20no\x20link','data','keys','isLinkDie','push','Vevio','function','enumerable','configurable','writable','key','prototype','apply'];(function(_0xfc7cd7,_0x58c7ad){var _0x4ee6de=function(_0x757898){while(--_0x757898){_0xfc7cd7['push'](_0xfc7cd7['shift']());}};_0x4ee6de(++_0x58c7ad);}(_0x56f6,0x1a7));var _0x588b=function(_0x5c837f,_0x459ecc){_0x5c837f=_0x5c837f-0x0;var _0x5f10df=_0x56f6[_0x5c837f];return _0x5f10df;};var _createClass=function(){function _0x18543c(_0x2e8be8,_0x5e3f47){for(var _0x13dcc4=0x0;_0x13dcc4<_0x5e3f47['length'];_0x13dcc4++){var _0x5a52fd=_0x5e3f47[_0x13dcc4];_0x5a52fd[_0x588b('0x0')]=_0x5a52fd[_0x588b('0x0')]||![];_0x5a52fd[_0x588b('0x1')]=!![];if('value'in _0x5a52fd)_0x5a52fd[_0x588b('0x2')]=!![];Object['defineProperty'](_0x2e8be8,_0x5a52fd[_0x588b('0x3')],_0x5a52fd);}}return function(_0x49e6e3,_0x2b5f78,_0x144dd9){if(_0x2b5f78)_0x18543c(_0x49e6e3[_0x588b('0x4')],_0x2b5f78);if(_0x144dd9)_0x18543c(_0x49e6e3,_0x144dd9);return _0x49e6e3;};}();function _asyncToGenerator(_0x572d7b){return function(){var _0x38f539=_0x572d7b[_0x588b('0x5')](this,arguments);return new Promise(function(_0x305290,_0x3f9dc1){function _0x4ac25e(_0x1e0fc8,_0xf1bb37){try{var _0x48818d=_0x38f539[_0x1e0fc8](_0xf1bb37);var _0x256167=_0x48818d[_0x588b('0x6')];}catch(_0x310fc6){_0x3f9dc1(_0x310fc6);return;}if(_0x48818d[_0x588b('0x7')]){_0x305290(_0x256167);}else{return Promise['resolve'](_0x256167)[_0x588b('0x8')](function(_0xcd524a){_0x4ac25e(_0x588b('0x9'),_0xcd524a);},function(_0x1d0894){_0x4ac25e('throw',_0x1d0894);});}}return _0x4ac25e(_0x588b('0x9'));});};}function _classCallCheck(_0x287834,_0x57acee){if(!(_0x287834 instanceof _0x57acee)){throw new TypeError('Cannot\x20call\x20a\x20class\x20as\x20a\x20function');}}var Vevio=function(){function _0x198cc7(_0x2fd1b6){_classCallCheck(this,_0x198cc7);this['libs']=_0x2fd1b6[_0x588b('0xa')];this['settings']=_0x2fd1b6[_0x588b('0xb')];this[_0x588b('0xc')]={};}_createClass(_0x198cc7,[{'key':_0x588b('0xd'),'value':function(){var _0x46a197=_asyncToGenerator(regeneratorRuntime[_0x588b('0xe')](function _callee(_0x4c0f7b){var _0x1abcd9,_0x33a0ec;return regeneratorRuntime[_0x588b('0xf')](function _callee$(_0x1b3c12){while(0x1){switch(_0x1b3c12[_0x588b('0x10')]=_0x1b3c12[_0x588b('0x9')]){case 0x0:_0x1abcd9=this[_0x588b('0xa')][_0x588b('0x11')];_0x1b3c12[_0x588b('0x9')]=0x3;return _0x1abcd9[_0x588b('0x12')](_0x4c0f7b);case 0x3:_0x33a0ec=_0x1b3c12[_0x588b('0x13')];return _0x1b3c12[_0x588b('0x14')](_0x588b('0x15'),_0x33a0ec);case 0x5:case _0x588b('0x16'):return _0x1b3c12[_0x588b('0x17')]();}}},_callee,this);}));function _0x2f8328(_0x42f4ad){return _0x46a197[_0x588b('0x5')](this,arguments);}return _0x2f8328;}()},{'key':_0x588b('0x18'),'value':function(){var _0x229c47=_asyncToGenerator(regeneratorRuntime['mark'](function _callee3(_0x1e6178){var _0x5dac98,_0x33a8b9,_0x3112d1,_0x31a39e,_0x5bbcce,_0x4a00d0,_0x3779ae,_0x1fd834,_0x56a7fe,_0x290b70,_0x3e4d67,_0x432ad7;return regeneratorRuntime[_0x588b('0xf')](function _callee3$(_0x46eaf1){while(0x1){switch(_0x46eaf1[_0x588b('0x10')]=_0x46eaf1['next']){case 0x0:_0x5dac98=this[_0x588b('0xa')],_0x33a8b9=_0x5dac98[_0x588b('0x11')],_0x3112d1=_0x5dac98[_0x588b('0x19')];_0x31a39e=[];_0x5bbcce=_0x1e6178['split']('/');_0x4a00d0=_0x5bbcce[_0x5bbcce['length']-0x1];_0x3779ae=_0x588b('0x1a')+_0x4a00d0;_0x46eaf1[_0x588b('0x9')]=0x7;return _0x33a8b9[_0x588b('0x12')](_0x3779ae,{'User-Agent':_0x588b('0x1b'),'Referer':_0x588b('0x1c')+_0x4a00d0,'Content-type':_0x588b('0x1d'),'Accept':_0x588b('0x1d'),'Authority':_0x588b('0x1e')},{});case 0x7:_0x1fd834=_0x46eaf1[_0x588b('0x13')];if(!(_0x1fd834==![])){_0x46eaf1[_0x588b('0x9')]=0xb;break;}console[_0x588b('0x1f')](_0x588b('0x20'));throw new Error('Vevio\x20LINK\x20DIE');case 0xb:_0x56a7fe=_0x1fd834[_0x588b('0x21')]['qualities'];_0x290b70=[];_0x3e4d67=Object[_0x588b('0x22')](_0x56a7fe);_0x432ad7=_0x3e4d67['map'](function(){var _0x52354d=_asyncToGenerator(regeneratorRuntime[_0x588b('0xe')](function _callee2(_0x91de7a){var _0x5d81aa;return regeneratorRuntime[_0x588b('0xf')](function _callee2$(_0x321ea2){while(0x1){switch(_0x321ea2[_0x588b('0x10')]=_0x321ea2[_0x588b('0x9')]){case 0x0:_0x321ea2[_0x588b('0x9')]=0x2;return _0x33a8b9[_0x588b('0x23')](_0x56a7fe[_0x91de7a]);case 0x2:_0x5d81aa=_0x321ea2[_0x588b('0x13')];if(_0x5d81aa!=![]){_0x290b70[_0x588b('0x24')]({'file':_0x56a7fe[_0x91de7a],'label':'NOR','type':'direct','size':_0x5d81aa});}case 0x4:case'end':return _0x321ea2[_0x588b('0x17')]();}}},_callee2,this);}));return function(_0x1bbe54){return _0x52354d[_0x588b('0x5')](this,arguments);};}());_0x46eaf1['next']=0x11;return Promise['all'](_0x432ad7);case 0x11:return _0x46eaf1[_0x588b('0x14')](_0x588b('0x15'),{'host':{'url':_0x1e6178,'name':_0x588b('0x25')},'result':_0x290b70});case 0x12:case _0x588b('0x16'):return _0x46eaf1[_0x588b('0x17')]();}}},_callee3,this);}));function _0x42186e(_0x1074c2){return _0x229c47['apply'](this,arguments);}return _0x42186e;}()}]);return _0x198cc7;}();thisSource[_0x588b('0x26')]=function(_0x129cdc,_0x3e2309){return new Vevio({'libs':_0x129cdc,'settings':_0x3e2309});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Vevio = function () {
+    function Vevio(props) {
+        _classCallCheck(this, Vevio);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Vevio, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+                                _context.next = 3;
+                                return httpRequest.post(url);
+
+                            case 3:
+                                html = _context.sent;
+                                return _context.abrupt('return', html);
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
+                var _libs, httpRequest, cheerio, sources, s, id, u, html, data, results, keys, arrPromise;
+
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                sources = [];
+                                s = url.split('/');
+                                id = s[s.length - 1];
+                                u = 'https://vev.io/api/serve/video/' + id;
+                                _context3.next = 7;
+                                return httpRequest.post(u, {
+                                    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/73.0.3683.75 Chrome/73.0',
+                                    'Referer': 'https://vev.io/' + id,
+                                    'Content-type': 'application/json',
+                                    'Accept': 'application/json',
+                                    'Authority': 'https://vev.io'
+                                }, {});
+
+                            case 7:
+                                html = _context3.sent;
+
+                                if (!(html == false)) {
+                                    _context3.next = 11;
+                                    break;
+                                }
+
+                                console.log('Vevio no link');
+                                throw new Error("Vevio LINK DIE");
+
+                            case 11:
+                                data = html.data.qualities;
+                                results = [];
+                                keys = Object.keys(data);
+                                arrPromise = keys.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
+                                        var isDie;
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+                                                        _context2.next = 2;
+                                                        return httpRequest.isLinkDie(data[val]);
+
+                                                    case 2:
+                                                        isDie = _context2.sent;
+
+
+                                                        if (isDie != false) {
+
+                                                            results.push({
+                                                                file: data[val], label: 'NOR', type: "direct", size: isDie
+                                                            });
+                                                        }
+
+                                                    case 4:
+                                                    case 'end':
+                                                        return _context2.stop();
+                                                }
+                                            }
+                                        }, _callee2, this);
+                                    }));
+
+                                    return function (_x3) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 17;
+                                return Promise.all(arrPromise);
+
+                            case 17:
+                                return _context3.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "Vevio"
+                                    },
+                                    result: results
+                                });
+
+                            case 18:
+                            case 'end':
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Vevio;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Vevio({ libs: libs, settings: settings });
+};

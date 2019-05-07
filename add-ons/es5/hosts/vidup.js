@@ -1,1 +1,154 @@
-var _0x4711=['prev','post','sent','abrupt','return','end','stop','httpRequest','cheerio','split','length','https://vidup.io/api/serve/video/','Mozilla/5.0\x20(X11;\x20Linux\x20x86_64)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Ubuntu\x20Chromium/73.0.3683.75\x20Chrome/73.0','https://vidup.io/','application/json','log','Vidup\x20no\x20link','Vidup\x20LINK\x20DIE','data','keys','map','push','NOR','all','enumerable','configurable','value','writable','defineProperty','key','prototype','apply','done','next','throw','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','checkLive','mark','wrap'];(function(_0x83d446,_0x494748){var _0x18212a=function(_0x4e0bef){while(--_0x4e0bef){_0x83d446['push'](_0x83d446['shift']());}};_0x18212a(++_0x494748);}(_0x4711,0xea));var _0x3ef4=function(_0x325fbf,_0x3abfd8){_0x325fbf=_0x325fbf-0x0;var _0x29340b=_0x4711[_0x325fbf];return _0x29340b;};var _createClass=function(){function _0x11fafb(_0x3e0fbe,_0x3bf618){for(var _0x1788a9=0x0;_0x1788a9<_0x3bf618['length'];_0x1788a9++){var _0x2d2fbd=_0x3bf618[_0x1788a9];_0x2d2fbd[_0x3ef4('0x0')]=_0x2d2fbd[_0x3ef4('0x0')]||![];_0x2d2fbd[_0x3ef4('0x1')]=!![];if(_0x3ef4('0x2')in _0x2d2fbd)_0x2d2fbd[_0x3ef4('0x3')]=!![];Object[_0x3ef4('0x4')](_0x3e0fbe,_0x2d2fbd[_0x3ef4('0x5')],_0x2d2fbd);}}return function(_0x4869a5,_0x9f99a9,_0x38e998){if(_0x9f99a9)_0x11fafb(_0x4869a5[_0x3ef4('0x6')],_0x9f99a9);if(_0x38e998)_0x11fafb(_0x4869a5,_0x38e998);return _0x4869a5;};}();function _asyncToGenerator(_0x4793fd){return function(){var _0x2102f1=_0x4793fd[_0x3ef4('0x7')](this,arguments);return new Promise(function(_0x575160,_0x1cc66e){function _0x1b6b85(_0x340a1e,_0xea9bd3){try{var _0x5e27ee=_0x2102f1[_0x340a1e](_0xea9bd3);var _0x3e1658=_0x5e27ee[_0x3ef4('0x2')];}catch(_0x61e17b){_0x1cc66e(_0x61e17b);return;}if(_0x5e27ee[_0x3ef4('0x8')]){_0x575160(_0x3e1658);}else{return Promise['resolve'](_0x3e1658)['then'](function(_0x3e9d81){_0x1b6b85(_0x3ef4('0x9'),_0x3e9d81);},function(_0x22dfbe){_0x1b6b85(_0x3ef4('0xa'),_0x22dfbe);});}}return _0x1b6b85(_0x3ef4('0x9'));});};}function _classCallCheck(_0x4c8972,_0x165b98){if(!(_0x4c8972 instanceof _0x165b98)){throw new TypeError(_0x3ef4('0xb'));}}var Vidup=function(){function _0x197b28(_0x34dddb){_classCallCheck(this,_0x197b28);this[_0x3ef4('0xc')]=_0x34dddb[_0x3ef4('0xc')];this[_0x3ef4('0xd')]=_0x34dddb['settings'];this[_0x3ef4('0xe')]={};}_createClass(_0x197b28,[{'key':_0x3ef4('0xf'),'value':function(){var _0x25b037=_asyncToGenerator(regeneratorRuntime[_0x3ef4('0x10')](function _callee(_0x5a4b66){var _0x565915,_0x3c9a98;return regeneratorRuntime[_0x3ef4('0x11')](function _callee$(_0x3dd27a){while(0x1){switch(_0x3dd27a[_0x3ef4('0x12')]=_0x3dd27a[_0x3ef4('0x9')]){case 0x0:_0x565915=this[_0x3ef4('0xc')]['httpRequest'];_0x3dd27a[_0x3ef4('0x9')]=0x3;return _0x565915[_0x3ef4('0x13')](_0x5a4b66);case 0x3:_0x3c9a98=_0x3dd27a[_0x3ef4('0x14')];return _0x3dd27a[_0x3ef4('0x15')](_0x3ef4('0x16'),_0x3c9a98);case 0x5:case _0x3ef4('0x17'):return _0x3dd27a[_0x3ef4('0x18')]();}}},_callee,this);}));function _0x3e2a0c(_0x133ce2){return _0x25b037[_0x3ef4('0x7')](this,arguments);}return _0x3e2a0c;}()},{'key':'getLink','value':function(){var _0x313126=_asyncToGenerator(regeneratorRuntime[_0x3ef4('0x10')](function _callee3(_0x386b9e){var _0x4e12b7,_0x42179c,_0x1a9224,_0x23c990,_0x5e9163,_0x40347c,_0x1b60f9,_0x2f64bc,_0x53726f,_0x2a9c6e,_0x4e1080,_0x39e88b;return regeneratorRuntime['wrap'](function _callee3$(_0x124fdc){while(0x1){switch(_0x124fdc[_0x3ef4('0x12')]=_0x124fdc[_0x3ef4('0x9')]){case 0x0:_0x4e12b7=this[_0x3ef4('0xc')],_0x42179c=_0x4e12b7[_0x3ef4('0x19')],_0x1a9224=_0x4e12b7[_0x3ef4('0x1a')];_0x23c990=[];_0x5e9163=_0x386b9e[_0x3ef4('0x1b')]('/');_0x40347c=_0x5e9163[_0x5e9163[_0x3ef4('0x1c')]-0x1];_0x1b60f9=_0x3ef4('0x1d')+_0x40347c;_0x124fdc['next']=0x7;return _0x42179c[_0x3ef4('0x13')](_0x1b60f9,{'User-Agent':_0x3ef4('0x1e'),'Referer':_0x3ef4('0x1f')+_0x40347c,'Content-type':_0x3ef4('0x20'),'Accept':_0x3ef4('0x20'),'Authority':'https://vidup.io'},{});case 0x7:_0x2f64bc=_0x124fdc[_0x3ef4('0x14')];if(!(_0x2f64bc==![])){_0x124fdc[_0x3ef4('0x9')]=0xb;break;}console[_0x3ef4('0x21')](_0x3ef4('0x22'));throw new Error(_0x3ef4('0x23'));case 0xb:_0x53726f=_0x2f64bc[_0x3ef4('0x24')]['qualities'];_0x2a9c6e=[];_0x4e1080=Object[_0x3ef4('0x25')](_0x53726f);_0x39e88b=_0x4e1080[_0x3ef4('0x26')](function(){var _0xcabb40=_asyncToGenerator(regeneratorRuntime[_0x3ef4('0x10')](function _callee2(_0x3ae241){var _0x1f2d0f;return regeneratorRuntime[_0x3ef4('0x11')](function _callee2$(_0x1325d0){while(0x1){switch(_0x1325d0['prev']=_0x1325d0[_0x3ef4('0x9')]){case 0x0:_0x1325d0['next']=0x2;return _0x42179c['isLinkDie'](_0x53726f[_0x3ae241]);case 0x2:_0x1f2d0f=_0x1325d0[_0x3ef4('0x14')];if(_0x1f2d0f!=![]){_0x2a9c6e[_0x3ef4('0x27')]({'file':_0x53726f[_0x3ae241],'label':_0x3ef4('0x28'),'type':'direct','size':_0x1f2d0f});}case 0x4:case _0x3ef4('0x17'):return _0x1325d0['stop']();}}},_callee2,this);}));return function(_0x1bd727){return _0xcabb40['apply'](this,arguments);};}());_0x124fdc[_0x3ef4('0x9')]=0x11;return Promise[_0x3ef4('0x29')](_0x39e88b);case 0x11:return _0x124fdc['abrupt']('return',{'host':{'url':_0x386b9e,'name':'Vidup'},'result':_0x2a9c6e});case 0x12:case _0x3ef4('0x17'):return _0x124fdc['stop']();}}},_callee3,this);}));function _0x573310(_0x1bb415){return _0x313126['apply'](this,arguments);}return _0x573310;}()}]);return _0x197b28;}();thisSource['function']=function(_0x35eae9,_0x3c44aa){return new Vidup({'libs':_0x35eae9,'settings':_0x3c44aa});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Vidup = function () {
+    function Vidup(props) {
+        _classCallCheck(this, Vidup);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Vidup, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+                                _context.next = 3;
+                                return httpRequest.post(url);
+
+                            case 3:
+                                html = _context.sent;
+                                return _context.abrupt('return', html);
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
+                var _libs, httpRequest, cheerio, sources, s, id, u, html, data, results, keys, arrPromise;
+
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                sources = [];
+                                s = url.split('/');
+                                id = s[s.length - 1];
+                                u = 'https://vidup.io/api/serve/video/' + id;
+                                _context3.next = 7;
+                                return httpRequest.post(u, {
+                                    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/73.0.3683.75 Chrome/73.0',
+                                    'Referer': 'https://vidup.io/' + id,
+                                    'Content-type': 'application/json',
+                                    'Accept': 'application/json',
+                                    'Authority': 'https://vidup.io'
+                                }, {});
+
+                            case 7:
+                                html = _context3.sent;
+
+                                if (!(html == false)) {
+                                    _context3.next = 11;
+                                    break;
+                                }
+
+                                console.log('Vidup no link');
+                                throw new Error("Vidup LINK DIE");
+
+                            case 11:
+                                data = html.data.qualities;
+                                results = [];
+                                keys = Object.keys(data);
+                                arrPromise = keys.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
+                                        var isDie;
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+                                                        _context2.next = 2;
+                                                        return httpRequest.isLinkDie(data[val]);
+
+                                                    case 2:
+                                                        isDie = _context2.sent;
+
+
+                                                        if (isDie != false) {
+
+                                                            results.push({
+                                                                file: data[val], label: 'NOR', type: "direct", size: isDie
+                                                            });
+                                                        }
+
+                                                    case 4:
+                                                    case 'end':
+                                                        return _context2.stop();
+                                                }
+                                            }
+                                        }, _callee2, this);
+                                    }));
+
+                                    return function (_x3) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 17;
+                                return Promise.all(arrPromise);
+
+                            case 17:
+                                return _context3.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "Vidup"
+                                    },
+                                    result: results
+                                });
+
+                            case 18:
+                            case 'end':
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Vidup;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Vidup({ libs: libs, settings: settings });
+};

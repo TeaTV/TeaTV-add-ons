@@ -1,1 +1,199 @@
-var _0x4a7d=['next','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','mark','wrap','prev','indexOf','http://','https://','NOT_FOUND','httpRequest','sent','abrupt','catch','LINK\x20DIE','end','stop','apply','convertToEmbed','getLink','checkLive','getHTML','&page=embed','status','html','parse','file','isLinkDie','push','direct','toFixed','return','vcstream','function','enumerable','configurable','value','writable','prototype','done','then'];(function(_0x25349d,_0x46cbbb){var _0x10b991=function(_0x1fb053){while(--_0x1fb053){_0x25349d['push'](_0x25349d['shift']());}};_0x10b991(++_0x46cbbb);}(_0x4a7d,0x1d2));var _0x2d13=function(_0x1ab790,_0x429d7c){_0x1ab790=_0x1ab790-0x0;var _0x14d2a8=_0x4a7d[_0x1ab790];return _0x14d2a8;};var _createClass=function(){function _0x3ba097(_0x456ea5,_0x36e21c){for(var _0x3fee49=0x0;_0x3fee49<_0x36e21c['length'];_0x3fee49++){var _0x50a43c=_0x36e21c[_0x3fee49];_0x50a43c[_0x2d13('0x0')]=_0x50a43c[_0x2d13('0x0')]||![];_0x50a43c[_0x2d13('0x1')]=!![];if(_0x2d13('0x2')in _0x50a43c)_0x50a43c[_0x2d13('0x3')]=!![];Object['defineProperty'](_0x456ea5,_0x50a43c['key'],_0x50a43c);}}return function(_0x4b13c5,_0x4974bd,_0x2994af){if(_0x4974bd)_0x3ba097(_0x4b13c5[_0x2d13('0x4')],_0x4974bd);if(_0x2994af)_0x3ba097(_0x4b13c5,_0x2994af);return _0x4b13c5;};}();function _asyncToGenerator(_0x232f09){return function(){var _0x886a24=_0x232f09['apply'](this,arguments);return new Promise(function(_0x3f1534,_0x2fec3b){function _0x4f3959(_0x27ed6c,_0x217ec7){try{var _0x1fd6e7=_0x886a24[_0x27ed6c](_0x217ec7);var _0x2e3bc0=_0x1fd6e7['value'];}catch(_0x4c61f5){_0x2fec3b(_0x4c61f5);return;}if(_0x1fd6e7[_0x2d13('0x5')]){_0x3f1534(_0x2e3bc0);}else{return Promise['resolve'](_0x2e3bc0)[_0x2d13('0x6')](function(_0x407632){_0x4f3959(_0x2d13('0x7'),_0x407632);},function(_0x4bc139){_0x4f3959('throw',_0x4bc139);});}}return _0x4f3959(_0x2d13('0x7'));});};}function _classCallCheck(_0x2f552d,_0x259293){if(!(_0x2f552d instanceof _0x259293)){throw new TypeError(_0x2d13('0x8'));}}var Vcstream=function(){function _0x3cfab9(_0x27ce26){_classCallCheck(this,_0x3cfab9);this[_0x2d13('0x9')]=_0x27ce26[_0x2d13('0x9')];this[_0x2d13('0xa')]=_0x27ce26[_0x2d13('0xa')];this[_0x2d13('0xb')]={};}_createClass(_0x3cfab9,[{'key':'checkLive','value':function(){var _0x3447da=_asyncToGenerator(regeneratorRuntime[_0x2d13('0xc')](function _callee(_0x5d95bb){var _0x4cbb2c,_0x2bc828;return regeneratorRuntime[_0x2d13('0xd')](function _callee$(_0x4d9990){while(0x1){switch(_0x4d9990[_0x2d13('0xe')]=_0x4d9990[_0x2d13('0x7')]){case 0x0:if(!(_0x5d95bb[_0x2d13('0xf')](_0x2d13('0x10'))!=0x0&&_0x5d95bb[_0x2d13('0xf')](_0x2d13('0x11'))!=0x0)){_0x4d9990[_0x2d13('0x7')]=0x2;break;}throw new Error(_0x2d13('0x12'));case 0x2:_0x4cbb2c=this[_0x2d13('0x9')][_0x2d13('0x13')];_0x4d9990[_0x2d13('0xe')]=0x3;_0x4d9990[_0x2d13('0x7')]=0x6;return _0x4cbb2c['getHTML'](_0x5d95bb);case 0x6:_0x2bc828=_0x4d9990[_0x2d13('0x14')];return _0x4d9990[_0x2d13('0x15')]('return',_0x2bc828);case 0xa:_0x4d9990['prev']=0xa;_0x4d9990['t0']=_0x4d9990[_0x2d13('0x16')](0x3);throw new Error(_0x2d13('0x17'));case 0xd:case _0x2d13('0x18'):return _0x4d9990[_0x2d13('0x19')]();}}},_callee,this,[[0x3,0xa]]);}));function _0x48bd32(_0x1346f3){return _0x3447da[_0x2d13('0x1a')](this,arguments);}return _0x48bd32;}()},{'key':_0x2d13('0x1b'),'value':function convertToEmbed(){}},{'key':_0x2d13('0x1c'),'value':function(){var _0x5f3fec=_asyncToGenerator(regeneratorRuntime[_0x2d13('0xc')](function _callee2(_0xe2b5af){var _0x2ea1aa,_0x3b3e1b,_0x2f4124,_0x53605c,_0x2439b9,_0x40aa85,_0x332b03,_0x46de22,_0x53c5ce,_0x873fc0,_0x3c6ca3;return regeneratorRuntime['wrap'](function _callee2$(_0x2aa6b6){while(0x1){switch(_0x2aa6b6['prev']=_0x2aa6b6[_0x2d13('0x7')]){case 0x0:_0x2ea1aa=this[_0x2d13('0x9')],_0x3b3e1b=_0x2ea1aa[_0x2d13('0x13')],_0x2f4124=_0x2ea1aa['cheerio'];_0x2aa6b6['next']=0x3;return this[_0x2d13('0x1d')](_0xe2b5af);case 0x3:_0x53605c=_0x2aa6b6[_0x2d13('0x14')];if(!(_0x53605c==![])){_0x2aa6b6[_0x2d13('0x7')]=0x6;break;}throw new Error('LINK\x20DIE');case 0x6:_0x2439b9=[];_0x40aa85=_0x53605c['match'](/fileID = '([^']+)/);if(!(_0x40aa85==undefined)){_0x2aa6b6[_0x2d13('0x7')]=0xa;break;}throw new Error(_0x2d13('0x12'));case 0xa:_0x332b03=_0x40aa85[0x1];_0x2aa6b6[_0x2d13('0x7')]=0xd;return _0x3b3e1b[_0x2d13('0x1e')]('https://vcstream.to/player?fid='+_0x332b03+_0x2d13('0x1f'));case 0xd:_0x53605c=_0x2aa6b6['sent'];_0x46de22=void 0x0;_0x2aa6b6[_0x2d13('0xe')]=0xf;_0x46de22=JSON['parse'](_0x53605c);_0x2aa6b6[_0x2d13('0x7')]=0x16;break;case 0x13:_0x2aa6b6[_0x2d13('0xe')]=0x13;_0x2aa6b6['t0']=_0x2aa6b6['catch'](0xf);throw new Error(_0x2d13('0x12'));case 0x16:if(_0x46de22[_0x2d13('0x20')]){_0x2aa6b6['next']=0x18;break;}throw new Error(_0x2d13('0x12'));case 0x18:_0x53605c=_0x46de22[_0x2d13('0x21')];_0x40aa85=_0x53605c['match'](/sources = ([^,]+)/);if(!(_0x40aa85==undefined)){_0x2aa6b6[_0x2d13('0x7')]=0x1c;break;}throw new Error('NOT_FOUND');case 0x1c:_0x53c5ce=_0x40aa85[0x1];_0x46de22=JSON[_0x2d13('0x22')](_0x53c5ce);_0x873fc0=_0x46de22[0x0][_0x2d13('0x23')];_0x2aa6b6[_0x2d13('0x7')]=0x21;return _0x3b3e1b[_0x2d13('0x24')](_0x873fc0);case 0x21:_0x3c6ca3=_0x2aa6b6[_0x2d13('0x14')];if(_0x3c6ca3!=![]){_0x2439b9[_0x2d13('0x25')]({'label':'NOR','file':_0x873fc0,'type':_0x2d13('0x26'),'size':(Math['random']()*(2.2-1.9)+1.9)[_0x2d13('0x27')](0x2)});}return _0x2aa6b6[_0x2d13('0x15')](_0x2d13('0x28'),{'host':{'url':_0xe2b5af,'name':_0x2d13('0x29')},'result':_0x2439b9});case 0x24:case _0x2d13('0x18'):return _0x2aa6b6[_0x2d13('0x19')]();}}},_callee2,this,[[0xf,0x13]]);}));function _0x4459ba(_0x395325){return _0x5f3fec['apply'](this,arguments);}return _0x4459ba;}()}]);return _0x3cfab9;}();thisSource[_0x2d13('0x2a')]=function(_0x2eaa36,_0x9a744b){return new Vcstream({'libs':_0x2eaa36,'settings':_0x9a744b});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Vcstream = function () {
+    function Vcstream(props) {
+        _classCallCheck(this, Vcstream);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Vcstream, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                                    _context.next = 2;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 2:
+                                httpRequest = this.libs.httpRequest;
+
+                                // you fill the die status text
+                                // const dieStatusText = "";
+
+                                _context.prev = 3;
+                                _context.next = 6;
+                                return httpRequest.getHTML(url);
+
+                            case 6:
+                                html = _context.sent;
+                                return _context.abrupt('return', html);
+
+                            case 10:
+                                _context.prev = 10;
+                                _context.t0 = _context['catch'](3);
+                                throw new Error('LINK DIE');
+
+                            case 13:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this, [[3, 10]]);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'convertToEmbed',
+        value: function convertToEmbed() {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cheerio, html, sources, m, fid, js, s, playLink, isDie;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                _context2.next = 3;
+                                return this.checkLive(url);
+
+                            case 3:
+                                html = _context2.sent;
+
+                                if (!(html == false)) {
+                                    _context2.next = 6;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 6:
+                                sources = [];
+                                m = html.match(/fileID = '([^']+)/);
+
+                                if (!(m == undefined)) {
+                                    _context2.next = 10;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 10:
+                                fid = m[1];
+                                _context2.next = 13;
+                                return httpRequest.getHTML('https://vcstream.to/player?fid=' + fid + '&page=embed');
+
+                            case 13:
+                                html = _context2.sent;
+                                js = void 0;
+                                _context2.prev = 15;
+
+                                js = JSON.parse(html);
+                                _context2.next = 22;
+                                break;
+
+                            case 19:
+                                _context2.prev = 19;
+                                _context2.t0 = _context2['catch'](15);
+                                throw new Error('NOT_FOUND');
+
+                            case 22:
+                                if (js.status) {
+                                    _context2.next = 24;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 24:
+
+                                html = js.html;
+                                m = html.match(/sources = ([^,]+)/);
+
+                                if (!(m == undefined)) {
+                                    _context2.next = 28;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 28:
+                                s = m[1];
+
+                                js = JSON.parse(s);
+
+                                playLink = js[0].file;
+                                _context2.next = 33;
+                                return httpRequest.isLinkDie(playLink);
+
+                            case 33:
+                                isDie = _context2.sent;
+
+
+                                if (isDie != false) {
+                                    sources.push({
+                                        label: 'NOR',
+                                        file: playLink,
+                                        type: "direct",
+                                        size: (Math.random() * (2.2 - 1.9) + 1.9).toFixed(2)
+                                    });
+                                }
+
+                                return _context2.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "vcstream"
+                                    },
+                                    result: sources
+                                });
+
+                            case 36:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this, [[15, 19]]);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Vcstream;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Vcstream({ libs: libs, settings: settings });
+};

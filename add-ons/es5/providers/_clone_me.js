@@ -1,1 +1,144 @@
-var _0x359b=['prototype','apply','value','done','then','next','throw','Mozilla/5.0\x20(Macintosh;\x20Intel\x20Mac\x20OS\x20X\x2010_11_6)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/61.0.3163.100\x20Safari/537.36','*/*','XMLHttpRequest','libs','movieInfo','settings','wrap','prev','httpRequest','cheerio','stringHelper','cryptoJs','year','episode','state','detailUrl','return','end','stop','getHostFromDetail','NOT_FOUND','mark','searchDetail','abrupt','hosts','length','configurable','writable','defineProperty','key'];(function(_0x4051a5,_0x252cf4){var _0xb14442=function(_0x4f96c8){while(--_0x4f96c8){_0x4051a5['push'](_0x4051a5['shift']());}};_0xb14442(++_0x252cf4);}(_0x359b,0x1dc));var _0x5ea2=function(_0xd5067a,_0x56b73f){_0xd5067a=_0xd5067a-0x0;var _0x2f95dc=_0x359b[_0xd5067a];return _0x2f95dc;};var _createClass=function(){function _0x13982d(_0x29d76b,_0x11b1a3){for(var _0x198a8d=0x0;_0x198a8d<_0x11b1a3[_0x5ea2('0x0')];_0x198a8d++){var _0x1d46d6=_0x11b1a3[_0x198a8d];_0x1d46d6['enumerable']=_0x1d46d6['enumerable']||![];_0x1d46d6[_0x5ea2('0x1')]=!![];if('value'in _0x1d46d6)_0x1d46d6[_0x5ea2('0x2')]=!![];Object[_0x5ea2('0x3')](_0x29d76b,_0x1d46d6[_0x5ea2('0x4')],_0x1d46d6);}}return function(_0x1ffa4f,_0x4e7d61,_0x27ab6f){if(_0x4e7d61)_0x13982d(_0x1ffa4f[_0x5ea2('0x5')],_0x4e7d61);if(_0x27ab6f)_0x13982d(_0x1ffa4f,_0x27ab6f);return _0x1ffa4f;};}();function _asyncToGenerator(_0x53b8ab){return function(){var _0x4a8b2e=_0x53b8ab[_0x5ea2('0x6')](this,arguments);return new Promise(function(_0x4e2b00,_0x2efe22){function _0x419403(_0x5961e5,_0x573e21){try{var _0x2ecff6=_0x4a8b2e[_0x5961e5](_0x573e21);var _0x133cb2=_0x2ecff6[_0x5ea2('0x7')];}catch(_0x565271){_0x2efe22(_0x565271);return;}if(_0x2ecff6[_0x5ea2('0x8')]){_0x4e2b00(_0x133cb2);}else{return Promise['resolve'](_0x133cb2)[_0x5ea2('0x9')](function(_0xf7b308){_0x419403(_0x5ea2('0xa'),_0xf7b308);},function(_0x4572a2){_0x419403(_0x5ea2('0xb'),_0x4572a2);});}}return _0x419403(_0x5ea2('0xa'));});};}function _classCallCheck(_0x1b2d8c,_0x54e694){if(!(_0x1b2d8c instanceof _0x54e694)){throw new TypeError('Cannot\x20call\x20a\x20class\x20as\x20a\x20function');}}var URL={'DOMAIN':'','SEARCH':'','HEADERS':{'Origin':'','Accept-Language':'vi-VN,vi;q=0.8,fr-FR;q=0.6,fr;q=0.4,en-US;q=0.2,en;q=0.2','User-Agent':_0x5ea2('0xc'),'Accept':_0x5ea2('0xd'),'X-Requested-With':_0x5ea2('0xe')}};var CloneMe=function(){function _0x93f1dd(_0x508f97){_classCallCheck(this,_0x93f1dd);this[_0x5ea2('0xf')]=_0x508f97[_0x5ea2('0xf')];this['movieInfo']=_0x508f97[_0x5ea2('0x10')];this[_0x5ea2('0x11')]=_0x508f97['settings'];this['state']={};}_createClass(_0x93f1dd,[{'key':'searchDetail','value':function(){var _0x230746=_asyncToGenerator(regeneratorRuntime['mark'](function _callee(){var _0x5c8adf,_0x540287,_0x2ba745,_0x491f65,_0x56eabe,_0x1a6336,_0x53c89e,_0x16ceed,_0x188e41,_0xc2e3cb,_0x3458ba,_0x337b9d;return regeneratorRuntime[_0x5ea2('0x12')](function _callee$(_0x1b0251){while(0x1){switch(_0x1b0251[_0x5ea2('0x13')]=_0x1b0251[_0x5ea2('0xa')]){case 0x0:_0x5c8adf=this[_0x5ea2('0xf')],_0x540287=_0x5c8adf[_0x5ea2('0x14')],_0x2ba745=_0x5c8adf[_0x5ea2('0x15')],_0x491f65=_0x5c8adf[_0x5ea2('0x16')],_0x56eabe=_0x5c8adf[_0x5ea2('0x17')];_0x1a6336=this[_0x5ea2('0x10')],_0x53c89e=_0x1a6336['title'],_0x16ceed=_0x1a6336[_0x5ea2('0x18')],_0x188e41=_0x1a6336['season'],_0xc2e3cb=_0x1a6336[_0x5ea2('0x19')],_0x3458ba=_0x1a6336['type'];_0x337b9d=![];this[_0x5ea2('0x1a')][_0x5ea2('0x1b')]=_0x337b9d;return _0x1b0251['abrupt'](_0x5ea2('0x1c'));case 0x5:case _0x5ea2('0x1d'):return _0x1b0251[_0x5ea2('0x1e')]();}}},_callee,this);}));function _0x11f30b(){return _0x230746[_0x5ea2('0x6')](this,arguments);}return _0x11f30b;}()},{'key':_0x5ea2('0x1f'),'value':function(){var _0x5c8186=_asyncToGenerator(regeneratorRuntime['mark'](function _callee2(){var _0x31fba0,_0x17c89f,_0x136356;return regeneratorRuntime['wrap'](function _callee2$(_0x27d247){while(0x1){switch(_0x27d247['prev']=_0x27d247[_0x5ea2('0xa')]){case 0x0:_0x31fba0=this[_0x5ea2('0xf')],_0x17c89f=_0x31fba0['httpRequest'],_0x136356=_0x31fba0[_0x5ea2('0x15')];if(this[_0x5ea2('0x1a')][_0x5ea2('0x1b')]){_0x27d247[_0x5ea2('0xa')]=0x3;break;}throw new Error(_0x5ea2('0x20'));case 0x3:console['log'](this[_0x5ea2('0x1a')]['detailUrl']);this[_0x5ea2('0x1a')]['hosts']=hosts;case 0x5:case _0x5ea2('0x1d'):return _0x27d247[_0x5ea2('0x1e')]();}}},_callee2,this);}));function _0x544db7(){return _0x5c8186[_0x5ea2('0x6')](this,arguments);}return _0x544db7;}()}]);return _0x93f1dd;}();thisSource['function']=function(){var _0x1d4174=_asyncToGenerator(regeneratorRuntime[_0x5ea2('0x21')](function _callee3(_0x495831,_0x39450b,_0x501da8){var _0x3be37f;return regeneratorRuntime['wrap'](function _callee3$(_0x6109b3){while(0x1){switch(_0x6109b3[_0x5ea2('0x13')]=_0x6109b3[_0x5ea2('0xa')]){case 0x0:_0x3be37f=new CloneMe({'libs':_0x495831,'movieInfo':_0x39450b,'settings':_0x501da8});_0x6109b3[_0x5ea2('0xa')]=0x3;return _0x3be37f[_0x5ea2('0x22')]();case 0x3:_0x6109b3['next']=0x5;return _0x3be37f[_0x5ea2('0x1f')]();case 0x5:return _0x6109b3[_0x5ea2('0x23')](_0x5ea2('0x1c'),_0x3be37f[_0x5ea2('0x1a')][_0x5ea2('0x24')]);case 0x6:case _0x5ea2('0x1d'):return _0x6109b3['stop']();}}},_callee3,undefined);}));return function(_0x5c0d3d,_0x687d4e,_0x1f9f98){return _0x1d4174['apply'](this,arguments);};}();
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var URL = {
+    DOMAIN: "",
+    SEARCH: "",
+    HEADERS: {
+        'Origin': '',
+        'Accept-Language': 'vi-VN,vi;q=0.8,fr-FR;q=0.6,fr;q=0.4,en-US;q=0.2,en;q=0.2',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+        'Accept': '*/*',
+        'X-Requested-With': 'XMLHttpRequest'
+    }
+};
+
+var CloneMe = function () {
+    function CloneMe(props) {
+        _classCallCheck(this, CloneMe);
+
+        this.libs = props.libs;
+        this.movieInfo = props.movieInfo;
+        this.settings = props.settings;
+
+        this.state = {};
+    }
+
+    _createClass(CloneMe, [{
+        key: "searchDetail",
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+                var _libs, httpRequest, cheerio, stringHelper, cryptoJs, _movieInfo, title, year, season, episode, type, detailUrl;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, cryptoJs = _libs.cryptoJs;
+                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+                                detailUrl = false;
+
+                                // your code here
+
+
+                                this.state.detailUrl = detailUrl;
+                                return _context.abrupt("return");
+
+                            case 5:
+                            case "end":
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function searchDetail() {
+                return _ref.apply(this, arguments);
+            }
+
+            return searchDetail;
+        }()
+    }, {
+        key: "getHostFromDetail",
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+                var _libs2, httpRequest, cheerio;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio;
+
+                                if (this.state.detailUrl) {
+                                    _context2.next = 3;
+                                    break;
+                                }
+
+                                throw new Error("NOT_FOUND");
+
+                            case 3:
+                                console.log(this.state.detailUrl);
+
+                                // you code here
+
+                                this.state.hosts = hosts;
+
+                            case 5:
+                            case "end":
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function getHostFromDetail() {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getHostFromDetail;
+        }()
+    }]);
+
+    return CloneMe;
+}();
+
+thisSource.function = function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(libs, movieInfo, settings) {
+        var cloneMe;
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+            while (1) {
+                switch (_context3.prev = _context3.next) {
+                    case 0:
+                        cloneMe = new CloneMe({
+                            libs: libs,
+                            movieInfo: movieInfo,
+                            settings: settings
+                        });
+                        _context3.next = 3;
+                        return cloneMe.searchDetail();
+
+                    case 3:
+                        _context3.next = 5;
+                        return cloneMe.getHostFromDetail();
+
+                    case 5:
+                        return _context3.abrupt("return", cloneMe.state.hosts);
+
+                    case 6:
+                    case "end":
+                        return _context3.stop();
+                }
+            }
+        }, _callee3, undefined);
+    }));
+
+    return function (_x, _x2, _x3) {
+        return _ref3.apply(this, arguments);
+    };
+}();

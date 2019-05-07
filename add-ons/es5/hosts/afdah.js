@@ -1,1 +1,355 @@
-var _0x3616=['return','data','end','stop','convertToEmbed','getLink','cheerio','cryptoJs','/embed/','/embed3/','match','log','movie','MD5','0aloha0','toString','https://vvv.teatv.net/source/get','sent','status','Googlevideo','parse','hosts','catch','err','LINK\x20DIE','map','file','indexOf','https://afdah.info','direct','toFixed','apply','all','stringify','bPost','https://vvv.teatv.net/source/set','length','enumerable','configurable','writable','key','prototype','value','resolve','next','charAt','charCodeAt','abcdefghijklmnopqrstuvwxyz','toUpperCase','libs','settings','state','cacheHost','checkLive','mark','wrap','prev','httpRequest','\x20Mozilla/5.0\x20(Macintosh;\x20Intel\x20Mac\x20OS\x20X\x2010_13_1)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/66.0.3359.181\x20Safari/537.36','url','cookie','post','continue','abrupt'];(function(_0x27d3d9,_0x1b050f){var _0x3acfde=function(_0x4c7c50){while(--_0x4c7c50){_0x27d3d9['push'](_0x27d3d9['shift']());}};_0x3acfde(++_0x1b050f);}(_0x3616,0xa4));var _0x35fb=function(_0x151d68,_0x429398){_0x151d68=_0x151d68-0x0;var _0xe40d1a=_0x3616[_0x151d68];return _0xe40d1a;};var _createClass=function(){function _0x333c8d(_0x196c5f,_0x1fa1db){for(var _0x1e29e8=0x0;_0x1e29e8<_0x1fa1db[_0x35fb('0x0')];_0x1e29e8++){var _0x385827=_0x1fa1db[_0x1e29e8];_0x385827[_0x35fb('0x1')]=_0x385827[_0x35fb('0x1')]||![];_0x385827[_0x35fb('0x2')]=!![];if('value'in _0x385827)_0x385827[_0x35fb('0x3')]=!![];Object['defineProperty'](_0x196c5f,_0x385827[_0x35fb('0x4')],_0x385827);}}return function(_0x29bf40,_0x56cbed,_0x12ec62){if(_0x56cbed)_0x333c8d(_0x29bf40[_0x35fb('0x5')],_0x56cbed);if(_0x12ec62)_0x333c8d(_0x29bf40,_0x12ec62);return _0x29bf40;};}();function _asyncToGenerator(_0x55176b){return function(){var _0x4b913a=_0x55176b['apply'](this,arguments);return new Promise(function(_0x10fb11,_0x4fdef2){function _0xb9b2f9(_0x4c3465,_0x48d0ec){try{var _0x1e6329=_0x4b913a[_0x4c3465](_0x48d0ec);var _0x2de389=_0x1e6329[_0x35fb('0x6')];}catch(_0x392932){_0x4fdef2(_0x392932);return;}if(_0x1e6329['done']){_0x10fb11(_0x2de389);}else{return Promise[_0x35fb('0x7')](_0x2de389)['then'](function(_0x491495){_0xb9b2f9(_0x35fb('0x8'),_0x491495);},function(_0x5e6ba1){_0xb9b2f9('throw',_0x5e6ba1);});}}return _0xb9b2f9('next');});};}function _classCallCheck(_0x986287,_0x15e8b9){if(!(_0x986287 instanceof _0x15e8b9)){throw new TypeError('Cannot\x20call\x20a\x20class\x20as\x20a\x20function');}}var END_OF_INPUT=-0x1;var arrChrs=new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9','+','/');var reversegetFChars=new Array();for(var i=0x0;i<arrChrs[_0x35fb('0x0')];i++){reversegetFChars[arrChrs[i]]=i;}var getFStr=void 0x0;var getFCount=void 0x0;function ntos(_0x1be91f){_0x1be91f=_0x1be91f['toString'](0x10);if(_0x1be91f[_0x35fb('0x0')]==0x1)_0x1be91f='0'+_0x1be91f;_0x1be91f='%'+_0x1be91f;return unescape(_0x1be91f);}function readReversegetF(){if(!getFStr)return END_OF_INPUT;while(!![]){if(getFCount>=getFStr[_0x35fb('0x0')])return END_OF_INPUT;var _0x4edcec=getFStr[_0x35fb('0x9')](getFCount);getFCount++;if(reversegetFChars[_0x4edcec]){return reversegetFChars[_0x4edcec];}if(_0x4edcec=='A')return 0x0;}return END_OF_INPUT;}function readgetF(){if(!getFStr)return END_OF_INPUT;if(getFCount>=getFStr[_0x35fb('0x0')])return END_OF_INPUT;var _0x50dcfd=getFStr[_0x35fb('0xa')](getFCount)&0xff;getFCount++;return _0x50dcfd;}function setgetFStr(_0x56ad1b){getFStr=_0x56ad1b;getFCount=0x0;}function getF(_0x5d6c4e){setgetFStr(_0x5d6c4e);var _0x258475='';var _0x3730a9=new Array(0x4);var _0x481a68=![];while(!_0x481a68&&(_0x3730a9[0x0]=readReversegetF())!=END_OF_INPUT&&(_0x3730a9[0x1]=readReversegetF())!=END_OF_INPUT){_0x3730a9[0x2]=readReversegetF();_0x3730a9[0x3]=readReversegetF();_0x258475+=ntos(_0x3730a9[0x0]<<0x2&0xff|_0x3730a9[0x1]>>0x4);if(_0x3730a9[0x2]!=END_OF_INPUT){_0x258475+=ntos(_0x3730a9[0x1]<<0x4&0xff|_0x3730a9[0x2]>>0x2);if(_0x3730a9[0x3]!=END_OF_INPUT){_0x258475+=ntos(_0x3730a9[0x2]<<0x6&0xff|_0x3730a9[0x3]);}else{_0x481a68=!![];}}else{_0x481a68=!![];}}return _0x258475;}function tor(_0x40e32e){var _0x1d1b96=[];var _0x47d34a=_0x35fb('0xb');var _0x10e468='';for(j=0x0;j<_0x47d34a[_0x35fb('0x0')];j++){var _0x12effb=_0x47d34a['charAt'](j);var _0x26e53b=_0x47d34a[_0x35fb('0x9')]((j+0xd)%0x1a);_0x1d1b96[_0x12effb]=_0x26e53b;_0x1d1b96[_0x12effb[_0x35fb('0xc')]()]=_0x26e53b['toUpperCase']();}for(j=0x0;j<_0x40e32e['length'];j++){var _0x552933=_0x40e32e[_0x35fb('0x9')](j);_0x10e468+=_0x552933>='A'&&_0x552933<='Z'||_0x552933>='a'&&_0x552933<='z'?_0x1d1b96[_0x552933]:_0x552933;}return _0x10e468;}var decrypt=function decrypt(_0x3f62b7){var _0x4d0312=unescape(getF(tor(getF(_0x3f62b7))));return _0x4d0312;};var Afdah=function(){function _0x384f08(_0x483fa6){_classCallCheck(this,_0x384f08);this['libs']=_0x483fa6[_0x35fb('0xd')];this[_0x35fb('0xe')]=_0x483fa6['settings'];this[_0x35fb('0xf')]={};this[_0x35fb('0x10')]=![];}_createClass(_0x384f08,[{'key':_0x35fb('0x11'),'value':function(){var _0x337b04=_asyncToGenerator(regeneratorRuntime[_0x35fb('0x12')](function _callee(_0x45370c){var _0x214324,_0x3d5fcb,_0x1f59ea,_0x3c8d21;return regeneratorRuntime[_0x35fb('0x13')](function _callee$(_0xe4f7ed){while(0x1){switch(_0xe4f7ed[_0x35fb('0x14')]=_0xe4f7ed[_0x35fb('0x8')]){case 0x0:_0x214324=this['libs'][_0x35fb('0x15')];_0x3d5fcb={'User-Agent':_0x35fb('0x16'),'Referer':_0x45370c};try{_0x1f59ea=JSON['parse'](_0x45370c);_0x45370c=_0x1f59ea[_0x35fb('0x17')];_0x3d5fcb={'cookie':_0x1f59ea[_0x35fb('0x18')],'User-Agent':_0x1f59ea['User-Agent'],'Referer':_0x45370c};this['cacheHost']=!![];}catch(_0x5de17d){}_0xe4f7ed[_0x35fb('0x8')]=0x5;return _0x214324[_0x35fb('0x19')](_0x45370c,_0x3d5fcb,{'play':_0x35fb('0x1a'),'x':0x0,'y':0x0});case 0x5:_0x3c8d21=_0xe4f7ed['sent'];return _0xe4f7ed[_0x35fb('0x1b')](_0x35fb('0x1c'),_0x3c8d21[_0x35fb('0x1d')]);case 0x7:case _0x35fb('0x1e'):return _0xe4f7ed[_0x35fb('0x1f')]();}}},_callee,this);}));function _0x301eb8(_0x335606){return _0x337b04['apply'](this,arguments);}return _0x301eb8;}()},{'key':_0x35fb('0x20'),'value':function convertToEmbed(){}},{'key':_0x35fb('0x21'),'value':function(){var _0x33c57e=_asyncToGenerator(regeneratorRuntime[_0x35fb('0x12')](function _callee3(_0x13b316){var _0x25c0f1,_0x36d8a9,_0x25b731,_0x580fba,_0x1a8f48,_0x28d6aa,_0x5789d2,_0x5376d2,_0x20e666,_0x35dc92,_0x5bb853,_0x535f78,_0x3d8b17,_0x2bacee,_0x4de9a1,_0x357478;return regeneratorRuntime[_0x35fb('0x13')](function _callee3$(_0x1e17f3){while(0x1){switch(_0x1e17f3['prev']=_0x1e17f3[_0x35fb('0x8')]){case 0x0:_0x25c0f1=this[_0x35fb('0xd')],_0x36d8a9=_0x25c0f1['httpRequest'],_0x25b731=_0x25c0f1[_0x35fb('0x22')],_0x580fba=_0x25c0f1[_0x35fb('0x23')];_0x1a8f48=![];_0x28d6aa='';_0x5789d2=[];_0x5376d2=void 0x0;_0x20e666=[_0x35fb('0x24'),_0x35fb('0x25')];_0x35dc92=_0x13b316[_0x35fb('0x26')](/\/embed\d?\/(\d+)/);for(_0x5bb853=0x0;_0x5bb853<_0x20e666[_0x35fb('0x0')];_0x5bb853++){if(_0x13b316['indexOf'](_0x20e666[_0x5bb853])!=-0x1){_0x1a8f48=!![];_0x28d6aa=_0x35dc92[0x0];}}console[_0x35fb('0x27')](_0x28d6aa);if(!(_0x1a8f48&&this['cacheHost'])){_0x1e17f3['next']=0x17;break;}_0x5376d2={'name_source':'afdahhosthihhi','is_link':0x0,'type':_0x35fb('0x28'),'season':0x0,'episode':0x0,'title':_0x28d6aa,'year':0x7e2,'hash':_0x580fba[_0x35fb('0x29')](_0x28d6aa['toLowerCase']()+_0x35fb('0x2a'))[_0x35fb('0x2b')]()};_0x1e17f3['next']=0xd;return _0x36d8a9[_0x35fb('0x19')](_0x35fb('0x2c'),{},_0x5376d2);case 0xd:_0x535f78=_0x1e17f3[_0x35fb('0x2d')];_0x1e17f3[_0x35fb('0x14')]=0xe;_0x535f78=_0x535f78[_0x35fb('0x1d')];if(!_0x535f78[_0x35fb('0x2e')]){_0x1e17f3[_0x35fb('0x8')]=0x12;break;}return _0x1e17f3[_0x35fb('0x1b')]('return',{'host':{'url':_0x13b316,'name':_0x35fb('0x2f')},'result':JSON[_0x35fb('0x30')](_0x535f78[_0x35fb('0x31')])});case 0x12:_0x1e17f3['next']=0x17;break;case 0x14:_0x1e17f3[_0x35fb('0x14')]=0x14;_0x1e17f3['t0']=_0x1e17f3[_0x35fb('0x32')](0xe);console['log'](_0x35fb('0x33'),_0x1e17f3['t0']);case 0x17:_0x1e17f3[_0x35fb('0x8')]=0x19;return this[_0x35fb('0x11')](_0x13b316);case 0x19:_0x3d8b17=_0x1e17f3[_0x35fb('0x2d')];if(!(_0x3d8b17==![])){_0x1e17f3[_0x35fb('0x8')]=0x1c;break;}throw new Error(_0x35fb('0x34'));case 0x1c:_0x2bacee=_0x3d8b17[_0x35fb('0x26')](/salt\(\"([^\"]+)/i);_0x2bacee=decrypt(_0x2bacee[0x1]);_0x2bacee=_0x2bacee[_0x35fb('0x26')](/sources *: *\[([^\]]+)/i);_0x2bacee=_0x2bacee!=null?_0x2bacee[0x1]:'';if(!(_0x2bacee!='')){_0x1e17f3[_0x35fb('0x8')]=0x2d;break;}_0x2bacee=eval('['+_0x2bacee+']');_0x4de9a1=_0x2bacee[_0x35fb('0x35')](function(){var _0x4cbe21=_asyncToGenerator(regeneratorRuntime['mark'](function _callee2(_0x17177a){var _0x25329e;return regeneratorRuntime[_0x35fb('0x13')](function _callee2$(_0x291d8a){while(0x1){switch(_0x291d8a[_0x35fb('0x14')]=_0x291d8a['next']){case 0x0:if(_0x17177a[_0x35fb('0x36')][_0x35fb('0x37')]('http')!=0x0)_0x17177a['file']=_0x35fb('0x38')+_0x17177a[_0x35fb('0x36')];_0x291d8a['next']=0x3;return _0x36d8a9['isLinkDie'](_0x17177a['file']);case 0x3:_0x25329e=_0x291d8a[_0x35fb('0x2d')];if(_0x25329e!=![]){_0x5789d2['push']({'label':'NOR','file':_0x17177a[_0x35fb('0x36')],'type':_0x35fb('0x39'),'size':(Math['random']()*(2.2-1.9)+1.9)[_0x35fb('0x3a')](0x2)});}case 0x5:case _0x35fb('0x1e'):return _0x291d8a[_0x35fb('0x1f')]();}}},_callee2,this);}));return function(_0x3b013d){return _0x4cbe21[_0x35fb('0x3b')](this,arguments);};}());_0x1e17f3['next']=0x25;return Promise[_0x35fb('0x3c')](_0x4de9a1);case 0x25:if(!(_0x5789d2[_0x35fb('0x0')]>0x0&&_0x1a8f48&&this[_0x35fb('0x10')])){_0x1e17f3[_0x35fb('0x8')]=0x2c;break;}_0x5376d2[_0x35fb('0x31')]=JSON[_0x35fb('0x3d')](_0x5789d2);_0x5376d2['expired']=0x1c20;console['log'](_0x5376d2,_0x35fb('0x3e'));_0x1e17f3[_0x35fb('0x8')]=0x2b;return _0x36d8a9[_0x35fb('0x19')](_0x35fb('0x3f'),{},_0x5376d2);case 0x2b:_0x357478=_0x1e17f3[_0x35fb('0x2d')];case 0x2c:return _0x1e17f3[_0x35fb('0x1b')](_0x35fb('0x1c'),{'host':{'url':_0x13b316,'name':_0x35fb('0x2f')},'result':_0x5789d2});case 0x2d:case _0x35fb('0x1e'):return _0x1e17f3[_0x35fb('0x1f')]();}}},_callee3,this,[[0xe,0x14]]);}));function _0x296d2c(_0x322058){return _0x33c57e[_0x35fb('0x3b')](this,arguments);}return _0x296d2c;}()}]);return _0x384f08;}();thisSource['function']=function(_0x4dbcaf,_0x4bc342){return new Afdah({'libs':_0x4dbcaf,'settings':_0x4bc342});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var END_OF_INPUT = -1;
+var arrChrs = new Array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "/");
+var reversegetFChars = new Array();
+for (var i = 0; i < arrChrs.length; i++) {
+    reversegetFChars[arrChrs[i]] = i;
+}
+var getFStr = void 0;
+var getFCount = void 0;
+
+function ntos(e) {
+    e = e.toString(16);
+    if (e.length == 1) e = "0" + e;
+    e = "%" + e;
+    return unescape(e);
+}
+
+function readReversegetF() {
+    if (!getFStr) return END_OF_INPUT;
+    while (true) {
+        if (getFCount >= getFStr.length) return END_OF_INPUT;
+        var e = getFStr.charAt(getFCount);
+        getFCount++;
+        if (reversegetFChars[e]) {
+            return reversegetFChars[e];
+        }
+        if (e == "A") return 0;
+    }
+    return END_OF_INPUT;
+}
+
+function readgetF() {
+    if (!getFStr) return END_OF_INPUT;
+    if (getFCount >= getFStr.length) return END_OF_INPUT;
+    var e = getFStr.charCodeAt(getFCount) & 255;
+    getFCount++;
+    return e;
+}
+
+function setgetFStr(e) {
+    getFStr = e;
+    getFCount = 0;
+}
+
+function getF(e) {
+    setgetFStr(e);
+    var t = "";
+    var n = new Array(4);
+    var r = false;
+    while (!r && (n[0] = readReversegetF()) != END_OF_INPUT && (n[1] = readReversegetF()) != END_OF_INPUT) {
+        n[2] = readReversegetF();
+        n[3] = readReversegetF();
+        t += ntos(n[0] << 2 & 255 | n[1] >> 4);
+        if (n[2] != END_OF_INPUT) {
+            t += ntos(n[1] << 4 & 255 | n[2] >> 2);
+            if (n[3] != END_OF_INPUT) {
+                t += ntos(n[2] << 6 & 255 | n[3]);
+            } else {
+                r = true;
+            }
+        } else {
+            r = true;
+        }
+    }
+    return t;
+}
+
+function tor(txt) {
+    var map = [];
+    var tmp = "abcdefghijklmnopqrstuvwxyz";
+    var buf = "";
+    for (j = 0; j < tmp.length; j++) {
+        var x = tmp.charAt(j);var y = tmp.charAt((j + 13) % 26);
+        map[x] = y;map[x.toUpperCase()] = y.toUpperCase();
+    }
+    for (j = 0; j < txt.length; j++) {
+        var c = txt.charAt(j);
+        buf += c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' ? map[c] : c;
+    }
+    return buf;
+}
+
+var decrypt = function decrypt(e) {
+    var code = unescape(getF(tor(getF(e))));
+    return code;
+};
+
+var Afdah = function () {
+    function Afdah(props) {
+        _classCallCheck(this, Afdah);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+        this.cacheHost = false;
+    }
+
+    _createClass(Afdah, [{
+        key: "checkLive",
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, headers, u, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+
+                                // you fill the die status text
+                                // const dieStatusText = "";
+
+                                headers = {
+                                    'User-Agent': ' Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+                                    'Referer': url
+
+                                };
+
+                                try {
+                                    u = JSON.parse(url);
+
+                                    url = u.url;
+                                    headers = {
+                                        'cookie': u.cookie,
+                                        'User-Agent': u['User-Agent'],
+                                        'Referer': url
+                                    };
+                                    this.cacheHost = true;
+                                } catch (e) {}
+
+                                _context.next = 5;
+                                return httpRequest.post(url, headers, { 'play': 'continue', 'x': 0, 'y': 0 });
+
+                            case 5:
+                                html = _context.sent;
+                                return _context.abrupt("return", html.data);
+
+                            case 7:
+                            case "end":
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: "convertToEmbed",
+        value: function convertToEmbed() {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+        }
+    }, {
+        key: "getLink",
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
+                var _libs, httpRequest, cheerio, cryptoJs, allowCache, u, sources, bodyPost, embeds, r, i, res, html, decryp, arrPromise, xxx;
+
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, cryptoJs = _libs.cryptoJs;
+                                allowCache = false;
+                                u = '';
+                                sources = [];
+                                bodyPost = void 0;
+                                embeds = ['/embed/', '/embed3/'];
+                                r = url.match(/\/embed\d?\/(\d+)/);
+
+
+                                for (i = 0; i < embeds.length; i++) {
+                                    if (url.indexOf(embeds[i]) != -1) {
+                                        allowCache = true;
+                                        u = r[0];
+                                    }
+                                }
+
+                                console.log(u);
+
+                                if (!(allowCache && this.cacheHost)) {
+                                    _context3.next = 23;
+                                    break;
+                                }
+
+                                bodyPost = {
+                                    name_source: 'afdahhosthihhi',
+                                    is_link: 0,
+                                    type: 'movie',
+                                    season: 0,
+                                    episode: 0,
+                                    title: u,
+                                    year: 2018,
+                                    hash: cryptoJs.MD5(u.toLowerCase() + "0aloha0").toString()
+                                };
+
+                                _context3.next = 13;
+                                return httpRequest.post('https://vvv.teatv.net/source/get', {}, bodyPost);
+
+                            case 13:
+                                res = _context3.sent;
+                                _context3.prev = 14;
+
+                                res = res['data'];
+
+                                if (!res['status']) {
+                                    _context3.next = 18;
+                                    break;
+                                }
+
+                                return _context3.abrupt("return", {
+                                    host: {
+                                        url: url,
+                                        name: "Googlevideo"
+                                    },
+                                    result: JSON.parse(res['hosts'])
+                                });
+
+                            case 18:
+                                _context3.next = 23;
+                                break;
+
+                            case 20:
+                                _context3.prev = 20;
+                                _context3.t0 = _context3["catch"](14);
+
+                                console.log('err', _context3.t0);
+
+                            case 23:
+                                _context3.next = 25;
+                                return this.checkLive(url);
+
+                            case 25:
+                                html = _context3.sent;
+
+                                if (!(html == false)) {
+                                    _context3.next = 28;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 28:
+                                decryp = html.match(/salt\(\"([^\"]+)/i);
+
+
+                                decryp = decrypt(decryp[1]);
+                                decryp = decryp.match(/sources *: *\[([^\]]+)/i);
+                                decryp = decryp != null ? decryp[1] : '';
+
+                                if (!(decryp != '')) {
+                                    _context3.next = 45;
+                                    break;
+                                }
+
+                                decryp = eval("[" + decryp + "]");
+                                arrPromise = decryp.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(value) {
+                                        var isDie;
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+
+                                                        if (value.file.indexOf('http') != 0) value.file = 'https://afdah.info' + value.file;
+                                                        _context2.next = 3;
+                                                        return httpRequest.isLinkDie(value.file);
+
+                                                    case 3:
+                                                        isDie = _context2.sent;
+
+
+                                                        if (isDie != false) {
+
+                                                            sources.push({
+                                                                label: 'NOR',
+                                                                file: value.file,
+                                                                type: "direct",
+                                                                size: (Math.random() * (2.2 - 1.9) + 1.9).toFixed(2)
+                                                            });
+                                                        }
+
+                                                    case 5:
+                                                    case "end":
+                                                        return _context2.stop();
+                                                }
+                                            }
+                                        }, _callee2, this);
+                                    }));
+
+                                    return function (_x3) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 37;
+                                return Promise.all(arrPromise);
+
+                            case 37:
+                                if (!(sources.length > 0 && allowCache && this.cacheHost)) {
+                                    _context3.next = 44;
+                                    break;
+                                }
+
+                                bodyPost['hosts'] = JSON.stringify(sources);
+                                bodyPost['expired'] = 7200;
+                                console.log(bodyPost, 'bPost');
+                                _context3.next = 43;
+                                return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
+
+                            case 43:
+                                xxx = _context3.sent;
+
+                            case 44:
+                                return _context3.abrupt("return", {
+                                    host: {
+                                        url: url,
+                                        name: "Googlevideo"
+                                    },
+                                    result: sources
+                                });
+
+                            case 45:
+                            case "end":
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this, [[14, 20]]);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Afdah;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Afdah({ libs: libs, settings: settings });
+};

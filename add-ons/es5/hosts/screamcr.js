@@ -1,1 +1,79 @@
-var _0x4c3e=['function','length','enumerable','configurable','value','writable','defineProperty','key','prototype','resolve','then','throw','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','convertToEmbed','wrap','prev','next','cheerio','NOR','push','return','Scream','stop','apply'];(function(_0x4f21d3,_0x3d445e){var _0x4243aa=function(_0xe24bf8){while(--_0xe24bf8){_0x4f21d3['push'](_0x4f21d3['shift']());}};_0x4243aa(++_0x3d445e);}(_0x4c3e,0x1cc));var _0x335f=function(_0x19962d,_0x264448){_0x19962d=_0x19962d-0x0;var _0x341a2b=_0x4c3e[_0x19962d];return _0x341a2b;};var _createClass=function(){function _0x46d0f2(_0x396868,_0x46f26c){for(var _0x5ef105=0x0;_0x5ef105<_0x46f26c[_0x335f('0x0')];_0x5ef105++){var _0x35692c=_0x46f26c[_0x5ef105];_0x35692c[_0x335f('0x1')]=_0x35692c[_0x335f('0x1')]||![];_0x35692c[_0x335f('0x2')]=!![];if(_0x335f('0x3')in _0x35692c)_0x35692c[_0x335f('0x4')]=!![];Object[_0x335f('0x5')](_0x396868,_0x35692c[_0x335f('0x6')],_0x35692c);}}return function(_0x20a3e3,_0x58f023,_0x56fbe3){if(_0x58f023)_0x46d0f2(_0x20a3e3[_0x335f('0x7')],_0x58f023);if(_0x56fbe3)_0x46d0f2(_0x20a3e3,_0x56fbe3);return _0x20a3e3;};}();function _asyncToGenerator(_0x536d96){return function(){var _0x2a92c3=_0x536d96['apply'](this,arguments);return new Promise(function(_0x6df720,_0x3a15b0){function _0x201490(_0x2a3aa6,_0x26f204){try{var _0x528bd5=_0x2a92c3[_0x2a3aa6](_0x26f204);var _0x3071e3=_0x528bd5[_0x335f('0x3')];}catch(_0x3c1947){_0x3a15b0(_0x3c1947);return;}if(_0x528bd5['done']){_0x6df720(_0x3071e3);}else{return Promise[_0x335f('0x8')](_0x3071e3)[_0x335f('0x9')](function(_0xd27a83){_0x201490('next',_0xd27a83);},function(_0x121143){_0x201490(_0x335f('0xa'),_0x121143);});}}return _0x201490('next');});};}function _classCallCheck(_0x4e77b8,_0x27efcd){if(!(_0x4e77b8 instanceof _0x27efcd)){throw new TypeError(_0x335f('0xb'));}}var Screamcrhost=function(){function _0x54f004(_0x1c0e5b){_classCallCheck(this,_0x54f004);this['libs']=_0x1c0e5b[_0x335f('0xc')];this[_0x335f('0xd')]=_0x1c0e5b[_0x335f('0xd')];this[_0x335f('0xe')]={};}_createClass(_0x54f004,[{'key':_0x335f('0xf'),'value':function convertToEmbed(){}},{'key':'getLink','value':function(){var _0x2964dc=_asyncToGenerator(regeneratorRuntime['mark'](function _callee(_0xa0d87c){var _0x3b6afa,_0x51d752,_0x3d1202,_0x2288a3,_0x2fd1d6;return regeneratorRuntime[_0x335f('0x10')](function _callee$(_0x2611b0){while(0x1){switch(_0x2611b0[_0x335f('0x11')]=_0x2611b0[_0x335f('0x12')]){case 0x0:_0x3b6afa=this[_0x335f('0xc')],_0x51d752=_0x3b6afa['httpRequest'],_0x3d1202=_0x3b6afa[_0x335f('0x13')];_0x2288a3=[];_0x2fd1d6=_0x335f('0x14');_0x2288a3[_0x335f('0x15')]({'file':_0xa0d87c,'label':_0x335f('0x14'),'type':'direct','size':1.29});return _0x2611b0['abrupt'](_0x335f('0x16'),{'host':{'url':_0xa0d87c,'name':_0x335f('0x17')},'result':_0x2288a3});case 0x5:case'end':return _0x2611b0[_0x335f('0x18')]();}}},_callee,this);}));function _0x1e5a93(_0x5d59ca){return _0x2964dc[_0x335f('0x19')](this,arguments);}return _0x1e5a93;}()}]);return _0x54f004;}();thisSource[_0x335f('0x1a')]=function(_0x3fd190,_0x5bf2ce){return new Screamcrhost({'libs':_0x3fd190,'settings':_0x5bf2ce});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Screamcrhost = function () {
+    function Screamcrhost(props) {
+        _classCallCheck(this, Screamcrhost);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Screamcrhost, [{
+        key: 'convertToEmbed',
+        value: function convertToEmbed() {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var _libs, httpRequest, cheerio, results, isDie;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                results = [];
+                                isDie = 'NOR';
+
+                                //try {
+                                //isDie       = await httpRequest.isLinkDie(url);
+                                //} catch(error) {isDie = 1.29}
+
+                                // if( isDie != false && isDie != 'NOR' ) {
+
+                                results.push({
+                                    file: url, label: 'NOR', type: "direct", size: 1.29
+                                });
+                                // }
+
+                                return _context.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "Scream"
+                                    },
+                                    result: results
+                                });
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function getLink(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Screamcrhost;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Screamcrhost({ libs: libs, settings: settings });
+};

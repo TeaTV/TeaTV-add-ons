@@ -1,1 +1,181 @@
-var _0x1daf=['wrap','prev','getHTML','match','abrupt','return','sources\x20=\x20','end','stop','getLink','httpRequest','cheerio','checkLive','sent','map','file','catch','push','NOR','direct','all','Cloud','length','enumerable','configurable','value','writable','prototype','apply','done','resolve','next','throw','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','mark'];(function(_0x251dae,_0x991654){var _0x5896ce=function(_0x55664a){while(--_0x55664a){_0x251dae['push'](_0x251dae['shift']());}};_0x5896ce(++_0x991654);}(_0x1daf,0x1b8));var _0x3ab4=function(_0x59fd45,_0x35c7d1){_0x59fd45=_0x59fd45-0x0;var _0x5b0196=_0x1daf[_0x59fd45];return _0x5b0196;};var _createClass=function(){function _0xcab249(_0x4a21fd,_0x27becc){for(var _0x1bde18=0x0;_0x1bde18<_0x27becc[_0x3ab4('0x0')];_0x1bde18++){var _0x2fabc5=_0x27becc[_0x1bde18];_0x2fabc5[_0x3ab4('0x1')]=_0x2fabc5[_0x3ab4('0x1')]||![];_0x2fabc5[_0x3ab4('0x2')]=!![];if(_0x3ab4('0x3')in _0x2fabc5)_0x2fabc5[_0x3ab4('0x4')]=!![];Object['defineProperty'](_0x4a21fd,_0x2fabc5['key'],_0x2fabc5);}}return function(_0x358268,_0x2c1b04,_0x5ada46){if(_0x2c1b04)_0xcab249(_0x358268[_0x3ab4('0x5')],_0x2c1b04);if(_0x5ada46)_0xcab249(_0x358268,_0x5ada46);return _0x358268;};}();function _asyncToGenerator(_0x3a64e8){return function(){var _0x3d42b7=_0x3a64e8[_0x3ab4('0x6')](this,arguments);return new Promise(function(_0x5e77a1,_0x80e6f4){function _0x5e4362(_0x474b22,_0x2dd5bd){try{var _0x444a8d=_0x3d42b7[_0x474b22](_0x2dd5bd);var _0x965daf=_0x444a8d[_0x3ab4('0x3')];}catch(_0x3e2995){_0x80e6f4(_0x3e2995);return;}if(_0x444a8d[_0x3ab4('0x7')]){_0x5e77a1(_0x965daf);}else{return Promise[_0x3ab4('0x8')](_0x965daf)['then'](function(_0x3e7ce0){_0x5e4362(_0x3ab4('0x9'),_0x3e7ce0);},function(_0x47bc82){_0x5e4362(_0x3ab4('0xa'),_0x47bc82);});}}return _0x5e4362(_0x3ab4('0x9'));});};}function _classCallCheck(_0x1cf554,_0x47f175){if(!(_0x1cf554 instanceof _0x47f175)){throw new TypeError(_0x3ab4('0xb'));}}var ToCloud=function(){function _0x2cc07d(_0x342b39){_classCallCheck(this,_0x2cc07d);this[_0x3ab4('0xc')]=_0x342b39[_0x3ab4('0xc')];this['settings']=_0x342b39[_0x3ab4('0xd')];this[_0x3ab4('0xe')]={};}_createClass(_0x2cc07d,[{'key':'checkLive','value':function(){var _0x4c1a11=_asyncToGenerator(regeneratorRuntime[_0x3ab4('0xf')](function _callee(_0x5b0ac2){var _0x454b68,_0x3e9945,_0x3d44de;return regeneratorRuntime[_0x3ab4('0x10')](function _callee$(_0x244988){while(0x1){switch(_0x244988[_0x3ab4('0x11')]=_0x244988[_0x3ab4('0x9')]){case 0x0:_0x454b68=this['libs']['httpRequest'];_0x244988[_0x3ab4('0x9')]=0x3;return _0x454b68[_0x3ab4('0x12')](_0x5b0ac2);case 0x3:_0x3e9945=_0x244988['sent'];_0x3d44de=_0x3e9945[_0x3ab4('0x13')](/sources *\: *([^\]]+)/i);_0x3d44de=_0x3d44de!=null?_0x3d44de[0x1]+']':![];if(!(_0x3d44de==![])){_0x244988[_0x3ab4('0x9')]=0x8;break;}return _0x244988[_0x3ab4('0x14')](_0x3ab4('0x15'),![]);case 0x8:eval(_0x3ab4('0x16')+_0x3d44de);return _0x244988[_0x3ab4('0x14')](_0x3ab4('0x15'),_0x3d44de);case 0xa:case _0x3ab4('0x17'):return _0x244988[_0x3ab4('0x18')]();}}},_callee,this);}));function _0x341064(_0x511327){return _0x4c1a11[_0x3ab4('0x6')](this,arguments);}return _0x341064;}()},{'key':'convertToEmbed','value':function convertToEmbed(){}},{'key':_0x3ab4('0x19'),'value':function(){var _0x5d0290=_asyncToGenerator(regeneratorRuntime[_0x3ab4('0xf')](function _callee3(_0x5e9273){var _0x26e4a7=this;var _0x78c4b9,_0x4ee2b1,_0x19213c,_0x57db3d,_0x3d6fcf,_0x149bb7,_0x517f97;return regeneratorRuntime[_0x3ab4('0x10')](function _callee3$(_0x275582){while(0x1){switch(_0x275582[_0x3ab4('0x11')]=_0x275582['next']){case 0x0:_0x78c4b9=this[_0x3ab4('0xc')],_0x4ee2b1=_0x78c4b9[_0x3ab4('0x1a')],_0x19213c=_0x78c4b9[_0x3ab4('0x1b')];_0x57db3d=[];_0x3d6fcf=[];_0x275582[_0x3ab4('0x9')]=0x5;return this[_0x3ab4('0x1c')](_0x5e9273);case 0x5:_0x149bb7=_0x275582[_0x3ab4('0x1d')];if(!(_0x149bb7==![])){_0x275582['next']=0x8;break;}throw new Error('LINK\x20DIE');case 0x8:_0x275582[_0x3ab4('0x11')]=0x8;_0x517f97=_0x149bb7[_0x3ab4('0x1e')](function(){var _0x16eb6d=_asyncToGenerator(regeneratorRuntime[_0x3ab4('0xf')](function _callee2(_0x408147){var _0xaccd83;return regeneratorRuntime['wrap'](function _callee2$(_0x234064){while(0x1){switch(_0x234064[_0x3ab4('0x11')]=_0x234064[_0x3ab4('0x9')]){case 0x0:_0xaccd83='NOR';_0x234064['prev']=0x1;_0x234064[_0x3ab4('0x9')]=0x4;return _0x4ee2b1['isLinkDie'](_0x408147[_0x3ab4('0x1f')]);case 0x4:_0xaccd83=_0x234064['sent'];_0x234064['next']=0x9;break;case 0x7:_0x234064[_0x3ab4('0x11')]=0x7;_0x234064['t0']=_0x234064[_0x3ab4('0x20')](0x1);case 0x9:if(_0xaccd83!=![]&&_0xaccd83!='NOR'){_0x3d6fcf[_0x3ab4('0x21')]({'file':_0x408147[_0x3ab4('0x1f')],'label':_0x3ab4('0x22'),'type':_0x3ab4('0x23'),'size':_0xaccd83});}case 0xa:case'end':return _0x234064['stop']();}}},_callee2,_0x26e4a7,[[0x1,0x7]]);}));return function(_0xf6f790){return _0x16eb6d[_0x3ab4('0x6')](this,arguments);};}());_0x275582[_0x3ab4('0x9')]=0xc;return Promise[_0x3ab4('0x24')](_0x517f97);case 0xc:return _0x275582['abrupt']('return',{'host':{'url':_0x5e9273,'name':_0x3ab4('0x25')},'result':_0x3d6fcf});case 0xf:_0x275582[_0x3ab4('0x11')]=0xf;_0x275582['t0']=_0x275582[_0x3ab4('0x20')](0x8);throw new Error(_0x275582['t0']);case 0x12:case _0x3ab4('0x17'):return _0x275582['stop']();}}},_callee3,this,[[0x8,0xf]]);}));function _0x140ace(_0x344863){return _0x5d0290[_0x3ab4('0x6')](this,arguments);}return _0x140ace;}()}]);return _0x2cc07d;}();thisSource['function']=function(_0x509d3d,_0xf73c38){return new ToCloud({'libs':_0x509d3d,'settings':_0xf73c38});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ToCloud = function () {
+    function ToCloud(props) {
+        _classCallCheck(this, ToCloud);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(ToCloud, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html, sources;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+                                _context.next = 3;
+                                return httpRequest.getHTML(url);
+
+                            case 3:
+                                html = _context.sent;
+                                sources = html.match(/sources *\: *([^\]]+)/i);
+
+                                sources = sources != null ? sources[1] + ']' : false;
+
+                                if (!(sources == false)) {
+                                    _context.next = 8;
+                                    break;
+                                }
+
+                                return _context.abrupt('return', false);
+
+                            case 8:
+
+                                eval('sources = ' + sources);
+
+                                return _context.abrupt('return', sources);
+
+                            case 10:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'convertToEmbed',
+        value: function convertToEmbed() {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
+                var _this = this;
+
+                var _libs, httpRequest, cheerio, arrVideoQuality, results, jsonDirect, arrPromise;
+
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                arrVideoQuality = [];
+                                results = [];
+                                _context3.next = 5;
+                                return this.checkLive(url);
+
+                            case 5:
+                                jsonDirect = _context3.sent;
+
+                                if (!(jsonDirect == false)) {
+                                    _context3.next = 8;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 8:
+                                _context3.prev = 8;
+                                arrPromise = jsonDirect.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
+                                        var isDie;
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+                                                        isDie = 'NOR';
+                                                        _context2.prev = 1;
+                                                        _context2.next = 4;
+                                                        return httpRequest.isLinkDie(val.file);
+
+                                                    case 4:
+                                                        isDie = _context2.sent;
+                                                        _context2.next = 9;
+                                                        break;
+
+                                                    case 7:
+                                                        _context2.prev = 7;
+                                                        _context2.t0 = _context2['catch'](1);
+
+                                                    case 9:
+
+                                                        if (isDie != false && isDie != 'NOR') {
+
+                                                            results.push({
+                                                                file: val.file, label: 'NOR', type: "direct", size: isDie
+                                                            });
+                                                        }
+
+                                                    case 10:
+                                                    case 'end':
+                                                        return _context2.stop();
+                                                }
+                                            }
+                                        }, _callee2, _this, [[1, 7]]);
+                                    }));
+
+                                    return function (_x3) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 12;
+                                return Promise.all(arrPromise);
+
+                            case 12:
+                                return _context3.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "Cloud"
+                                    },
+                                    result: results
+                                });
+
+                            case 15:
+                                _context3.prev = 15;
+                                _context3.t0 = _context3['catch'](8);
+                                throw new Error(_context3.t0);
+
+                            case 18:
+                            case 'end':
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this, [[8, 15]]);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return ToCloud;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new ToCloud({ libs: libs, settings: settings });
+};

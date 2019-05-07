@@ -1,1 +1,79 @@
-var _0x28ab=['writable','defineProperty','key','prototype','apply','done','resolve','then','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','convertToEmbed','wrap','prev','next','push','NOR','abrupt','return','Fast-Server','stop','function','enumerable','configurable','value'];(function(_0x43fce1,_0x23f965){var _0x545d81=function(_0x4e3aeb){while(--_0x4e3aeb){_0x43fce1['push'](_0x43fce1['shift']());}};_0x545d81(++_0x23f965);}(_0x28ab,0x169));var _0xe95f=function(_0x1e1d79,_0x103212){_0x1e1d79=_0x1e1d79-0x0;var _0xa769a=_0x28ab[_0x1e1d79];return _0xa769a;};var _createClass=function(){function _0x2da620(_0x343acc,_0x396fe2){for(var _0x629607=0x0;_0x629607<_0x396fe2['length'];_0x629607++){var _0x12d474=_0x396fe2[_0x629607];_0x12d474[_0xe95f('0x0')]=_0x12d474[_0xe95f('0x0')]||![];_0x12d474[_0xe95f('0x1')]=!![];if(_0xe95f('0x2')in _0x12d474)_0x12d474[_0xe95f('0x3')]=!![];Object[_0xe95f('0x4')](_0x343acc,_0x12d474[_0xe95f('0x5')],_0x12d474);}}return function(_0x595076,_0x2c5588,_0x47a8c9){if(_0x2c5588)_0x2da620(_0x595076[_0xe95f('0x6')],_0x2c5588);if(_0x47a8c9)_0x2da620(_0x595076,_0x47a8c9);return _0x595076;};}();function _asyncToGenerator(_0x448407){return function(){var _0x31a3ed=_0x448407[_0xe95f('0x7')](this,arguments);return new Promise(function(_0x1e33dd,_0xf71ce8){function _0x4e0fcc(_0x5e8502,_0x549000){try{var _0x3ea8c2=_0x31a3ed[_0x5e8502](_0x549000);var _0x2f075f=_0x3ea8c2[_0xe95f('0x2')];}catch(_0x340914){_0xf71ce8(_0x340914);return;}if(_0x3ea8c2[_0xe95f('0x8')]){_0x1e33dd(_0x2f075f);}else{return Promise[_0xe95f('0x9')](_0x2f075f)[_0xe95f('0xa')](function(_0x42e17d){_0x4e0fcc('next',_0x42e17d);},function(_0x15fb6c){_0x4e0fcc('throw',_0x15fb6c);});}}return _0x4e0fcc('next');});};}function _classCallCheck(_0x54ad41,_0x5da70e){if(!(_0x54ad41 instanceof _0x5da70e)){throw new TypeError(_0xe95f('0xb'));}}var FastServer=function(){function _0x173850(_0x2b8aac){_classCallCheck(this,_0x173850);this['libs']=_0x2b8aac[_0xe95f('0xc')];this[_0xe95f('0xd')]=_0x2b8aac[_0xe95f('0xd')];this[_0xe95f('0xe')]={};}_createClass(_0x173850,[{'key':_0xe95f('0xf'),'value':function convertToEmbed(){}},{'key':'getLink','value':function(){var _0x1e544d=_asyncToGenerator(regeneratorRuntime['mark'](function _callee(_0x35c487){var _0x35fb99,_0x38a4aa,_0x482c94,_0x12b55d;return regeneratorRuntime[_0xe95f('0x10')](function _callee$(_0x588015){while(0x1){switch(_0x588015[_0xe95f('0x11')]=_0x588015[_0xe95f('0x12')]){case 0x0:_0x35fb99=this[_0xe95f('0xc')],_0x38a4aa=_0x35fb99['httpRequest'],_0x482c94=_0x35fb99['cheerio'];_0x12b55d=[];_0x12b55d[_0xe95f('0x13')]({'file':_0x35c487,'label':'HD','type':'direct','size':_0xe95f('0x14')});return _0x588015[_0xe95f('0x15')](_0xe95f('0x16'),{'host':{'url':_0x35c487,'name':_0xe95f('0x17')},'result':_0x12b55d});case 0x4:case'end':return _0x588015[_0xe95f('0x18')]();}}},_callee,this);}));function _0x3fa439(_0x2077ca){return _0x1e544d[_0xe95f('0x7')](this,arguments);}return _0x3fa439;}()}]);return _0x173850;}();thisSource[_0xe95f('0x19')]=function(_0x8ead40,_0x3777ed){return new FastServer({'libs':_0x8ead40,'settings':_0x3777ed});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var FastServer = function () {
+    function FastServer(props) {
+        _classCallCheck(this, FastServer);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(FastServer, [{
+        key: 'convertToEmbed',
+        value: function convertToEmbed() {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var _libs, httpRequest, cheerio, results;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                results = [];
+
+                                // let isDie = 'NOR';
+                                // try {
+                                //     isDie       = await httpRequest.isLinkDie(url);
+                                // } catch(error) {}
+
+                                // if( isDie != false ) {
+
+                                results.push({
+                                    file: url, label: 'HD', type: "direct", size: 'NOR'
+                                });
+                                // }
+
+                                return _context.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "Fast-Server"
+                                    },
+                                    result: results
+                                });
+
+                            case 4:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function getLink(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return FastServer;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new FastServer({ libs: libs, settings: settings });
+};

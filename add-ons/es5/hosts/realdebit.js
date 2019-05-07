@@ -1,1 +1,70 @@
-var _0x2305=['end','stop','length','enumerable','configurable','value','writable','defineProperty','key','prototype','done','resolve','then','next','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','getLink','mark','wrap','prev','https://','search','http://','LINK\x20DIE','push','NOR','abrupt','return','Realdebit'];(function(_0x2a6731,_0x2a3ca3){var _0x2448dc=function(_0x2f22e0){while(--_0x2f22e0){_0x2a6731['push'](_0x2a6731['shift']());}};_0x2448dc(++_0x2a3ca3);}(_0x2305,0xbc));var _0x14f7=function(_0x3d6555,_0x169d06){_0x3d6555=_0x3d6555-0x0;var _0x384437=_0x2305[_0x3d6555];return _0x384437;};var _createClass=function(){function _0x2c19f5(_0x20eaa7,_0xb3a88e){for(var _0x27a132=0x0;_0x27a132<_0xb3a88e[_0x14f7('0x0')];_0x27a132++){var _0x251e93=_0xb3a88e[_0x27a132];_0x251e93[_0x14f7('0x1')]=_0x251e93[_0x14f7('0x1')]||![];_0x251e93[_0x14f7('0x2')]=!![];if(_0x14f7('0x3')in _0x251e93)_0x251e93[_0x14f7('0x4')]=!![];Object[_0x14f7('0x5')](_0x20eaa7,_0x251e93[_0x14f7('0x6')],_0x251e93);}}return function(_0x514f2a,_0x4a0f1d,_0x149838){if(_0x4a0f1d)_0x2c19f5(_0x514f2a[_0x14f7('0x7')],_0x4a0f1d);if(_0x149838)_0x2c19f5(_0x514f2a,_0x149838);return _0x514f2a;};}();function _asyncToGenerator(_0x4fe44b){return function(){var _0x21e67b=_0x4fe44b['apply'](this,arguments);return new Promise(function(_0x5bd0ba,_0x5f11fd){function _0x137905(_0x3324ad,_0x12811){try{var _0xb0dd18=_0x21e67b[_0x3324ad](_0x12811);var _0xbcd732=_0xb0dd18[_0x14f7('0x3')];}catch(_0x2246f1){_0x5f11fd(_0x2246f1);return;}if(_0xb0dd18[_0x14f7('0x8')]){_0x5bd0ba(_0xbcd732);}else{return Promise[_0x14f7('0x9')](_0xbcd732)[_0x14f7('0xa')](function(_0x22424a){_0x137905(_0x14f7('0xb'),_0x22424a);},function(_0x3c7370){_0x137905('throw',_0x3c7370);});}}return _0x137905(_0x14f7('0xb'));});};}function _classCallCheck(_0x2742c9,_0x44075d){if(!(_0x2742c9 instanceof _0x44075d)){throw new TypeError(_0x14f7('0xc'));}}var Realdebitch=function(){function _0x1b5e2d(_0x473316){_classCallCheck(this,_0x1b5e2d);this['libs']=_0x473316[_0x14f7('0xd')];this[_0x14f7('0xe')]=_0x473316['settings'];this[_0x14f7('0xf')]={};}_createClass(_0x1b5e2d,[{'key':_0x14f7('0x10'),'value':function(){var _0x1ab642=_asyncToGenerator(regeneratorRuntime[_0x14f7('0x11')](function _callee(_0x191c93){var _0x56f8b9;return regeneratorRuntime[_0x14f7('0x12')](function _callee$(_0x117ab9){while(0x1){switch(_0x117ab9[_0x14f7('0x13')]=_0x117ab9[_0x14f7('0xb')]){case 0x0:if(!(_0x191c93['search'](_0x14f7('0x14'))==-0x1&&_0x191c93[_0x14f7('0x15')](_0x14f7('0x16'))==-0x1)){_0x117ab9[_0x14f7('0xb')]=0x2;break;}throw new Error(_0x14f7('0x17'));case 0x2:_0x56f8b9=[];_0x56f8b9[_0x14f7('0x18')]({'file':_0x191c93,'label':'NOR','type':'embed','size':_0x14f7('0x19')});return _0x117ab9[_0x14f7('0x1a')](_0x14f7('0x1b'),{'host':{'url':_0x191c93,'name':_0x14f7('0x1c')},'result':_0x56f8b9});case 0x5:case _0x14f7('0x1d'):return _0x117ab9[_0x14f7('0x1e')]();}}},_callee,this);}));function _0x3480d2(_0x3bebf9){return _0x1ab642['apply'](this,arguments);}return _0x3480d2;}()}]);return _0x1b5e2d;}();thisSource['function']=function(_0x3c4ad4,_0x378c68){return new Realdebitch({'libs':_0x3c4ad4,'settings':_0x378c68});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Realdebitch = function () {
+    function Realdebitch(props) {
+        _classCallCheck(this, Realdebitch);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Realdebitch, [{
+        key: 'getLink',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var results;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                if (!(url.search('https://') == -1 && url.search('http://') == -1)) {
+                                    _context.next = 2;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 2:
+                                results = [];
+
+                                results.push({
+                                    file: url, label: 'NOR', type: "embed", size: 'NOR'
+                                });
+
+                                return _context.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "Realdebit"
+                                    },
+                                    result: results
+                                });
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function getLink(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Realdebitch;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Realdebitch({ libs: libs, settings: settings });
+};

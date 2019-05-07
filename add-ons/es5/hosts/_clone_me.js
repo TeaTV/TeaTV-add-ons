@@ -1,1 +1,115 @@
-var _0x8a75=['checkLive','mark','wrap','prev','httpRequest','getHTML','sent','includes','abrupt','return','end','stop','apply','convertToEmbed','getLink','cheerio','length','enumerable','configurable','value','writable','defineProperty','prototype','done','resolve','then','next','throw','settings'];(function(_0x26ee87,_0x2e6506){var _0x4bd9f0=function(_0x14ef82){while(--_0x14ef82){_0x26ee87['push'](_0x26ee87['shift']());}};_0x4bd9f0(++_0x2e6506);}(_0x8a75,0x132));var _0x1b2d=function(_0x2f4646,_0x4ff22a){_0x2f4646=_0x2f4646-0x0;var _0x579ef6=_0x8a75[_0x2f4646];return _0x579ef6;};var _createClass=function(){function _0x5e6200(_0x14bac6,_0x12aae6){for(var _0x4c1129=0x0;_0x4c1129<_0x12aae6[_0x1b2d('0x0')];_0x4c1129++){var _0x4a11af=_0x12aae6[_0x4c1129];_0x4a11af[_0x1b2d('0x1')]=_0x4a11af['enumerable']||![];_0x4a11af[_0x1b2d('0x2')]=!![];if(_0x1b2d('0x3')in _0x4a11af)_0x4a11af[_0x1b2d('0x4')]=!![];Object[_0x1b2d('0x5')](_0x14bac6,_0x4a11af['key'],_0x4a11af);}}return function(_0x858eec,_0x475b71,_0x52e6a9){if(_0x475b71)_0x5e6200(_0x858eec[_0x1b2d('0x6')],_0x475b71);if(_0x52e6a9)_0x5e6200(_0x858eec,_0x52e6a9);return _0x858eec;};}();function _asyncToGenerator(_0x253cdc){return function(){var _0x521662=_0x253cdc['apply'](this,arguments);return new Promise(function(_0x53c7a3,_0xdd0cc4){function _0x4c3e3c(_0x18b89b,_0x2cd4f9){try{var _0xd3c05e=_0x521662[_0x18b89b](_0x2cd4f9);var _0x38d076=_0xd3c05e['value'];}catch(_0x18f816){_0xdd0cc4(_0x18f816);return;}if(_0xd3c05e[_0x1b2d('0x7')]){_0x53c7a3(_0x38d076);}else{return Promise[_0x1b2d('0x8')](_0x38d076)[_0x1b2d('0x9')](function(_0x54f693){_0x4c3e3c(_0x1b2d('0xa'),_0x54f693);},function(_0x1271cd){_0x4c3e3c(_0x1b2d('0xb'),_0x1271cd);});}}return _0x4c3e3c(_0x1b2d('0xa'));});};}function _classCallCheck(_0xdfcecc,_0x581cc1){if(!(_0xdfcecc instanceof _0x581cc1)){throw new TypeError('Cannot\x20call\x20a\x20class\x20as\x20a\x20function');}}var CloneMe=function(){function _0x486ae8(_0x5321d6){_classCallCheck(this,_0x486ae8);this['libs']=_0x5321d6['libs'];this[_0x1b2d('0xc')]=_0x5321d6[_0x1b2d('0xc')];this['state']={};}_createClass(_0x486ae8,[{'key':_0x1b2d('0xd'),'value':function(){var _0x3cb230=_asyncToGenerator(regeneratorRuntime[_0x1b2d('0xe')](function _callee(_0x5d9a18){var _0x300a9c,_0x428b4c,_0x2bfec7;return regeneratorRuntime[_0x1b2d('0xf')](function _callee$(_0x3bac67){while(0x1){switch(_0x3bac67[_0x1b2d('0x10')]=_0x3bac67[_0x1b2d('0xa')]){case 0x0:_0x300a9c=this['libs'][_0x1b2d('0x11')];_0x428b4c='';_0x3bac67[_0x1b2d('0xa')]=0x4;return _0x300a9c[_0x1b2d('0x12')](_0x5d9a18);case 0x4:_0x2bfec7=_0x3bac67[_0x1b2d('0x13')];if(!_0x2bfec7[_0x1b2d('0x14')](_0x428b4c)){_0x3bac67[_0x1b2d('0xa')]=0x7;break;}return _0x3bac67['abrupt']('return',!![]);case 0x7:return _0x3bac67[_0x1b2d('0x15')](_0x1b2d('0x16'),_0x2bfec7);case 0x8:case _0x1b2d('0x17'):return _0x3bac67[_0x1b2d('0x18')]();}}},_callee,this);}));function _0x4d6507(_0x437378){return _0x3cb230[_0x1b2d('0x19')](this,arguments);}return _0x4d6507;}()},{'key':_0x1b2d('0x1a'),'value':function convertToEmbed(_0x255dd7){return _0x255dd7;}},{'key':_0x1b2d('0x1b'),'value':function(){var _0x5ae272=_asyncToGenerator(regeneratorRuntime[_0x1b2d('0xe')](function _callee2(_0xd9f7e3){var _0x1e2603,_0x992304,_0x25a6ca,_0x266a47;return regeneratorRuntime[_0x1b2d('0xf')](function _callee2$(_0x481c5c){while(0x1){switch(_0x481c5c['prev']=_0x481c5c[_0x1b2d('0xa')]){case 0x0:_0x1e2603=this['libs'],_0x992304=_0x1e2603['httpRequest'],_0x25a6ca=_0x1e2603[_0x1b2d('0x1c')];_0x481c5c[_0x1b2d('0xa')]=0x3;return checkLive(_0xd9f7e3);case 0x3:_0x266a47=_0x481c5c['sent'];if(!(_0x266a47===![])){_0x481c5c['next']=0x6;break;}throw new Error('LINK\x20DIE');case 0x6:case _0x1b2d('0x17'):return _0x481c5c[_0x1b2d('0x18')]();}}},_callee2,this);}));function _0x2992e2(_0x19f02e){return _0x5ae272['apply'](this,arguments);}return _0x2992e2;}()}]);return _0x486ae8;}();thisSource['function']=function(_0x34bac2,_0xb6bbb3){return new CloneMe({'lib':_0x34bac2,'settings':_0xb6bbb3});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CloneMe = function () {
+    function CloneMe(props) {
+        _classCallCheck(this, CloneMe);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(CloneMe, [{
+        key: "checkLive",
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, dieStatusText, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+
+                                // you fill the die status text
+
+                                dieStatusText = "";
+                                _context.next = 4;
+                                return httpRequest.getHTML(url);
+
+                            case 4:
+                                html = _context.sent;
+
+                                if (!html.includes(dieStatusText)) {
+                                    _context.next = 7;
+                                    break;
+                                }
+
+                                return _context.abrupt("return", true);
+
+                            case 7:
+                                return _context.abrupt("return", html);
+
+                            case 8:
+                            case "end":
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: "convertToEmbed",
+        value: function convertToEmbed(url) {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+            return url;
+        }
+    }, {
+        key: "getLink",
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cheerio, html;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                _context2.next = 3;
+                                return checkLive(url);
+
+                            case 3:
+                                html = _context2.sent;
+
+                                if (!(html === false)) {
+                                    _context2.next = 6;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 6:
+                            case "end":
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return CloneMe;
+}();
+
+thisSource.function = function (lib, settings) {
+    return new CloneMe({ lib: lib, settings: settings });
+};

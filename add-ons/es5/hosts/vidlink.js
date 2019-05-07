@@ -1,1 +1,313 @@
-var _0x248d=['next','throw','libs','settings','checkLive','mark','wrap','httpRequest','getHTML','sent','trim','split','application/json,\x20text/javascript,\x20*/*;\x20q=0.01','vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','XMLHttpRequest','Chrome','post','https://vidlink.org/streamdrive/info/','stringify','data','abrupt','end','stop','convertToEmbed','getRedirect','prev','return','embed','getEmbed','cheerio','srcs','type','video/mp4','status','src','match','map','push','url','NOR','direct','catch','all','indexOf','GoogleVideo','function','length','enumerable','value','defineProperty','key','prototype','apply','done','then'];(function(_0x2c07a7,_0xa664eb){var _0x104383=function(_0x41180f){while(--_0x41180f){_0x2c07a7['push'](_0x2c07a7['shift']());}};_0x104383(++_0xa664eb);}(_0x248d,0x9c));var _0x3edd=function(_0x58f235,_0x1f191b){_0x58f235=_0x58f235-0x0;var _0xdbc303=_0x248d[_0x58f235];return _0xdbc303;};var _createClass=function(){function _0xacae54(_0x448b80,_0x52ec67){for(var _0xbcd4c8=0x0;_0xbcd4c8<_0x52ec67[_0x3edd('0x0')];_0xbcd4c8++){var _0x3a4aa2=_0x52ec67[_0xbcd4c8];_0x3a4aa2[_0x3edd('0x1')]=_0x3a4aa2[_0x3edd('0x1')]||![];_0x3a4aa2['configurable']=!![];if(_0x3edd('0x2')in _0x3a4aa2)_0x3a4aa2['writable']=!![];Object[_0x3edd('0x3')](_0x448b80,_0x3a4aa2[_0x3edd('0x4')],_0x3a4aa2);}}return function(_0x25bd23,_0x1a70e0,_0x53019b){if(_0x1a70e0)_0xacae54(_0x25bd23[_0x3edd('0x5')],_0x1a70e0);if(_0x53019b)_0xacae54(_0x25bd23,_0x53019b);return _0x25bd23;};}();function _asyncToGenerator(_0x284165){return function(){var _0x1072a4=_0x284165[_0x3edd('0x6')](this,arguments);return new Promise(function(_0x687377,_0x69fd34){function _0x466237(_0x74dbb9,_0x32f8f6){try{var _0x1e3cc2=_0x1072a4[_0x74dbb9](_0x32f8f6);var _0x1f3b53=_0x1e3cc2[_0x3edd('0x2')];}catch(_0x389508){_0x69fd34(_0x389508);return;}if(_0x1e3cc2[_0x3edd('0x7')]){_0x687377(_0x1f3b53);}else{return Promise['resolve'](_0x1f3b53)[_0x3edd('0x8')](function(_0x527e47){_0x466237(_0x3edd('0x9'),_0x527e47);},function(_0x392c72){_0x466237(_0x3edd('0xa'),_0x392c72);});}}return _0x466237('next');});};}function _classCallCheck(_0x3a1235,_0xea6631){if(!(_0x3a1235 instanceof _0xea6631)){throw new TypeError('Cannot\x20call\x20a\x20class\x20as\x20a\x20function');}}var VidLink=function(){function _0x209560(_0x1acdb7){_classCallCheck(this,_0x209560);this[_0x3edd('0xb')]=_0x1acdb7[_0x3edd('0xb')];this['settings']=_0x1acdb7[_0x3edd('0xc')];this['state']={};}_createClass(_0x209560,[{'key':_0x3edd('0xd'),'value':function(){var _0x261188=_asyncToGenerator(regeneratorRuntime[_0x3edd('0xe')](function _callee(_0x3d60ad){var _0x281886,_0x3a9971,_0x2a026c,_0x10e5bd,_0x24dc5d,_0x4a52f9,_0x51cfea,_0x344813,_0x39c569,_0x45cae3;return regeneratorRuntime[_0x3edd('0xf')](function _callee$(_0xef0745){while(0x1){switch(_0xef0745['prev']=_0xef0745[_0x3edd('0x9')]){case 0x0:_0x281886=this[_0x3edd('0xb')],_0x3a9971=_0x281886[_0x3edd('0x10')],_0x2a026c=_0x281886['qs'];_0xef0745[_0x3edd('0x9')]=0x3;return _0x3a9971[_0x3edd('0x11')](_0x3d60ad);case 0x3:_0x10e5bd=_0xef0745[_0x3edd('0x12')];_0x24dc5d=_0x10e5bd['match'](/\'action\'\: *\'([^\']+)/i);_0x24dc5d=_0x24dc5d!=null?_0x24dc5d[0x1]:'';_0x24dc5d=_0x24dc5d[_0x3edd('0x13')]();_0x4a52f9=_0x3d60ad[_0x3edd('0x14')]('/');_0x51cfea=_0x4a52f9[_0x4a52f9[_0x3edd('0x0')]-0x1];_0x344813={'accept':_0x3edd('0x15'),'accept-language':_0x3edd('0x16'),'content-type':'application/x-www-form-urlencoded;\x20charset=UTF-8','origin':'https://vidlink.org','referer':_0x3d60ad,'user-agent':'Mozilla/5.0\x20(Macintosh;\x20Intel\x20Mac\x20OS\x20X\x2010_13_1)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/65.0.3325.162\x20Safari/537.36','x-requested-with':_0x3edd('0x17')};_0x39c569={'browserName':_0x3edd('0x18'),'platform':'MacIntel','postID':_0x51cfea,'action':_0x24dc5d};_0xef0745[_0x3edd('0x9')]=0xd;return _0x3a9971[_0x3edd('0x19')](_0x3edd('0x1a')+_0x51cfea,_0x344813,_0x2a026c[_0x3edd('0x1b')](_0x39c569));case 0xd:_0x45cae3=_0xef0745[_0x3edd('0x12')];_0x45cae3=_0x45cae3[_0x3edd('0x1c')];return _0xef0745[_0x3edd('0x1d')]('return',_0x45cae3);case 0x10:case _0x3edd('0x1e'):return _0xef0745[_0x3edd('0x1f')]();}}},_callee,this);}));function _0xe69ef1(_0x172033){return _0x261188[_0x3edd('0x6')](this,arguments);}return _0xe69ef1;}()},{'key':_0x3edd('0x20'),'value':function convertToEmbed(_0x5de690){}},{'key':_0x3edd('0x21'),'value':function(){var _0x1a0f5d=_asyncToGenerator(regeneratorRuntime[_0x3edd('0xe')](function _callee2(_0x14e23d){var _0x1cebf2;return regeneratorRuntime[_0x3edd('0xf')](function _callee2$(_0xe7cff9){while(0x1){switch(_0xe7cff9[_0x3edd('0x22')]=_0xe7cff9[_0x3edd('0x9')]){case 0x0:_0x1cebf2=this[_0x3edd('0xb')][_0x3edd('0x10')];return _0xe7cff9[_0x3edd('0x1d')](_0x3edd('0x23'),[{'file':_0x14e23d,'label':'HD','type':_0x3edd('0x24'),'size':''}]);case 0x2:case _0x3edd('0x1e'):return _0xe7cff9[_0x3edd('0x1f')]();}}},_callee2,this);}));function _0x3a0549(_0x2c37ad){return _0x1a0f5d[_0x3edd('0x6')](this,arguments);}return _0x3a0549;}()},{'key':_0x3edd('0x25'),'value':function(){var _0x29781c=_asyncToGenerator(regeneratorRuntime[_0x3edd('0xe')](function _callee4(_0x31cf80){var _0x5309ba,_0x2e47a5,_0x34fa7c,_0x4c98ea,_0x29f3ad,_0x200aae,_0x218168,_0x1923ab,_0x32a834,_0x1e2a9f,_0x83a3f0,_0x42ba1e;return regeneratorRuntime['wrap'](function _callee4$(_0x137236){while(0x1){switch(_0x137236['prev']=_0x137236['next']){case 0x0:_0x5309ba=this[_0x3edd('0xb')],_0x2e47a5=_0x5309ba['httpRequest'],_0x34fa7c=_0x5309ba[_0x3edd('0x26')];_0x4c98ea=[];_0x29f3ad=[];_0x200aae={'srcs':[],'nsrc':[],'checkSrc':function checkSrc(){}};_0x137236['prev']=0x4;_0x137236[_0x3edd('0x9')]=0x7;return this[_0x3edd('0xd')](_0x31cf80);case 0x7:_0x218168=_0x137236[_0x3edd('0x12')];if(!(_0x218168==![])){_0x137236['next']=0xa;break;}throw new Error('LINK\x20DIE');case 0xa:_0x1923ab=void 0x0;eval(_0x218168);_0x218168=_0x200aae[_0x3edd('0x27')];for(_0x32a834 in _0x218168){if(_0x218168[_0x32a834][_0x3edd('0x28')]==_0x3edd('0x29')&&_0x218168[_0x32a834][_0x3edd('0x2a')]!=0x191){_0x1e2a9f=_0x218168[_0x32a834][_0x3edd('0x2b')]['match'](/url\=([^\&]+)/i);_0x1e2a9f=_0x1e2a9f!=null?_0x1e2a9f[0x1]:![];_0x83a3f0=_0x218168[_0x32a834][_0x3edd('0x2b')][_0x3edd('0x2c')](/\&size\=([0-9]+)/i);_0x83a3f0=_0x83a3f0!=null?+_0x83a3f0[0x1]:0x0;if(_0x1e2a9f!=![]){_0x1e2a9f=decodeURIComponent(_0x1e2a9f);_0x29f3ad['push']({'url':_0x1e2a9f,'size':_0x83a3f0});}}}_0x42ba1e=_0x29f3ad[_0x3edd('0x2d')](function(){var _0x5f9cc8=_asyncToGenerator(regeneratorRuntime[_0x3edd('0xe')](function _callee3(_0x21adfa){var _0x416a1b;return regeneratorRuntime[_0x3edd('0xf')](function _callee3$(_0x5866e7){while(0x1){switch(_0x5866e7[_0x3edd('0x22')]=_0x5866e7['next']){case 0x0:_0x5866e7['prev']=0x0;_0x5866e7['next']=0x3;return _0x2e47a5['isLinkDie'](_0x21adfa['url']);case 0x3:_0x416a1b=_0x5866e7[_0x3edd('0x12')];if(_0x416a1b!=![]){_0x4c98ea[_0x3edd('0x2e')]({'file':_0x21adfa[_0x3edd('0x2f')],'label':_0x3edd('0x30'),'type':_0x3edd('0x31'),'size':1.92});}_0x5866e7[_0x3edd('0x9')]=0x9;break;case 0x7:_0x5866e7[_0x3edd('0x22')]=0x7;_0x5866e7['t0']=_0x5866e7[_0x3edd('0x32')](0x0);case 0x9:case _0x3edd('0x1e'):return _0x5866e7[_0x3edd('0x1f')]();}}},_callee3,this,[[0x0,0x7]]);}));return function(_0x333b65){return _0x5f9cc8['apply'](this,arguments);};}());_0x137236[_0x3edd('0x9')]=0x11;return Promise[_0x3edd('0x33')](_0x42ba1e);case 0x11:return _0x137236[_0x3edd('0x1d')](_0x3edd('0x23'),_0x4c98ea);case 0x14:_0x137236[_0x3edd('0x22')]=0x14;_0x137236['t0']=_0x137236['catch'](0x4);throw new Error(_0x137236['t0']);case 0x17:case _0x3edd('0x1e'):return _0x137236['stop']();}}},_callee4,this,[[0x4,0x14]]);}));function _0x4b3b57(_0x3c39eb){return _0x29781c[_0x3edd('0x6')](this,arguments);}return _0x4b3b57;}()},{'key':'getLink','value':function(){var _0x424cb9=_asyncToGenerator(regeneratorRuntime[_0x3edd('0xe')](function _callee5(_0xae5dc6){var _0x2236aa,_0x3854f9,_0x439f34,_0x31ebe3;return regeneratorRuntime[_0x3edd('0xf')](function _callee5$(_0x51d2a9){while(0x1){switch(_0x51d2a9[_0x3edd('0x22')]=_0x51d2a9[_0x3edd('0x9')]){case 0x0:_0x2236aa=this[_0x3edd('0xb')],_0x3854f9=_0x2236aa['httpRequest'],_0x439f34=_0x2236aa['cheerio'];_0x31ebe3=[];if(!(_0xae5dc6[_0x3edd('0x34')]('redirect')!=-0x1)){_0x51d2a9['next']=0x9;break;}_0x51d2a9[_0x3edd('0x9')]=0x5;return this['getRedirect'](_0xae5dc6);case 0x5:_0x31ebe3=_0x51d2a9[_0x3edd('0x12')];return _0x51d2a9['abrupt'](_0x3edd('0x23'),{'host':{'url':_0xae5dc6,'name':'vidlink'},'result':_0x31ebe3});case 0x9:_0x51d2a9[_0x3edd('0x9')]=0xb;return this[_0x3edd('0x25')](_0xae5dc6);case 0xb:_0x31ebe3=_0x51d2a9['sent'];return _0x51d2a9['abrupt']('return',{'host':{'url':_0xae5dc6,'name':_0x3edd('0x35')},'result':_0x31ebe3});case 0xd:case'end':return _0x51d2a9[_0x3edd('0x1f')]();}}},_callee5,this);}));function _0x3e5146(_0x3629c3){return _0x424cb9[_0x3edd('0x6')](this,arguments);}return _0x3e5146;}()}]);return _0x209560;}();thisSource[_0x3edd('0x36')]=function(_0x5705bb,_0x4f2c2b){return new VidLink({'libs':_0x5705bb,'settings':_0x4f2c2b});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+// const converter     = require('byte-converter').converterBase2;
+
+var VidLink = function () {
+    function VidLink(props) {
+        _classCallCheck(this, VidLink);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(VidLink, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var _libs, httpRequest, qs, htmlDetail, actionToken, urlParts, id, headers, bodys, html;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, qs = _libs.qs;
+                                _context.next = 3;
+                                return httpRequest.getHTML(url);
+
+                            case 3:
+                                htmlDetail = _context.sent;
+                                actionToken = htmlDetail.match(/\'action\'\: *\'([^\']+)/i);
+
+                                actionToken = actionToken != null ? actionToken[1] : '';
+                                actionToken = actionToken.trim();
+
+                                urlParts = url.split("/");
+                                id = urlParts[urlParts.length - 1];
+                                headers = {
+                                    'accept': 'application/json, text/javascript, */*; q=0.01',
+                                    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+                                    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                                    'origin': 'https://vidlink.org',
+                                    'referer': url,
+                                    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36',
+                                    'x-requested-with': 'XMLHttpRequest'
+                                };
+                                bodys = {
+                                    browserName: "Chrome",
+                                    platform: "MacIntel",
+                                    postID: id,
+                                    action: actionToken
+                                };
+                                _context.next = 13;
+                                return httpRequest.post('https://vidlink.org/streamdrive/info/' + id, headers, qs.stringify(bodys));
+
+                            case 13:
+                                html = _context.sent;
+
+
+                                html = html.data;
+                                // if(html.includes(dieStatusText)) return true;
+                                return _context.abrupt('return', html);
+
+                            case 16:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'convertToEmbed',
+        value: function convertToEmbed(url) {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+
+            // let id = url.match(/\/embed\-([^\-]+)/i);
+            // id = url != null ? url[1] : false;
+
+            // if( id == false ) return url;
+
+        }
+    }, {
+        key: 'getRedirect',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var httpRequest;
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+                                return _context2.abrupt('return', [{
+                                    file: url,
+                                    label: "HD",
+                                    type: "embed",
+                                    size: ""
+                                }]);
+
+                            case 2:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function getRedirect(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getRedirect;
+        }()
+    }, {
+        key: 'getEmbed',
+        value: function () {
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(url) {
+                var _libs2, httpRequest, cheerio, sources, temp, window, postResponse, c35, item, _url, size, arrPromise;
+
+                return regeneratorRuntime.wrap(function _callee4$(_context4) {
+                    while (1) {
+                        switch (_context4.prev = _context4.next) {
+                            case 0:
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio;
+                                sources = [];
+                                temp = [];
+                                window = {
+                                    srcs: [],
+                                    nsrc: [],
+                                    checkSrc: function checkSrc() {}
+                                };
+                                _context4.prev = 4;
+                                _context4.next = 7;
+                                return this.checkLive(url);
+
+                            case 7:
+                                postResponse = _context4.sent;
+
+                                if (!(postResponse == false)) {
+                                    _context4.next = 10;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 10:
+                                c35 = void 0;
+
+                                eval(postResponse);
+                                postResponse = window.srcs;
+
+                                for (item in postResponse) {
+
+                                    if (postResponse[item].type == 'video/mp4' && postResponse[item].status != 401) {
+                                        _url = postResponse[item].src.match(/url\=([^\&]+)/i);
+
+                                        _url = _url != null ? _url[1] : false;
+                                        size = postResponse[item].src.match(/\&size\=([0-9]+)/i);
+
+                                        size = size != null ? +size[1] : 0;
+
+                                        if (_url != false) {
+                                            _url = decodeURIComponent(_url);
+                                            temp.push({ url: _url, size: size });
+                                        }
+                                        // temp.push('https://vidlink.org' + postResponse[item].src);
+                                    }
+                                }
+
+                                arrPromise = temp.map(function () {
+                                    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(val) {
+                                        var isDie;
+                                        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                                            while (1) {
+                                                switch (_context3.prev = _context3.next) {
+                                                    case 0:
+                                                        _context3.prev = 0;
+                                                        _context3.next = 3;
+                                                        return httpRequest.isLinkDie(val.url);
+
+                                                    case 3:
+                                                        isDie = _context3.sent;
+
+
+                                                        if (isDie != false) {
+                                                            sources.push({
+                                                                file: val.url, label: 'NOR', type: "direct", size: 1.92
+                                                            });
+                                                        }
+                                                        _context3.next = 9;
+                                                        break;
+
+                                                    case 7:
+                                                        _context3.prev = 7;
+                                                        _context3.t0 = _context3['catch'](0);
+
+                                                    case 9:
+                                                    case 'end':
+                                                        return _context3.stop();
+                                                }
+                                            }
+                                        }, _callee3, this, [[0, 7]]);
+                                    }));
+
+                                    return function (_x4) {
+                                        return _ref4.apply(this, arguments);
+                                    };
+                                }());
+                                _context4.next = 17;
+                                return Promise.all(arrPromise);
+
+                            case 17:
+                                return _context4.abrupt('return', sources);
+
+                            case 20:
+                                _context4.prev = 20;
+                                _context4.t0 = _context4['catch'](4);
+                                throw new Error(_context4.t0);
+
+                            case 23:
+                            case 'end':
+                                return _context4.stop();
+                        }
+                    }
+                }, _callee4, this, [[4, 20]]);
+            }));
+
+            function getEmbed(_x3) {
+                return _ref3.apply(this, arguments);
+            }
+
+            return getEmbed;
+        }()
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(url) {
+                var _libs3, httpRequest, cheerio, sources;
+
+                return regeneratorRuntime.wrap(function _callee5$(_context5) {
+                    while (1) {
+                        switch (_context5.prev = _context5.next) {
+                            case 0:
+                                _libs3 = this.libs, httpRequest = _libs3.httpRequest, cheerio = _libs3.cheerio;
+                                sources = [];
+
+                                if (!(url.indexOf('redirect') != -1)) {
+                                    _context5.next = 9;
+                                    break;
+                                }
+
+                                _context5.next = 5;
+                                return this.getRedirect(url);
+
+                            case 5:
+                                sources = _context5.sent;
+                                return _context5.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "vidlink"
+                                    },
+                                    result: sources
+                                });
+
+                            case 9:
+                                _context5.next = 11;
+                                return this.getEmbed(url);
+
+                            case 11:
+                                sources = _context5.sent;
+                                return _context5.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "GoogleVideo"
+                                    },
+                                    result: sources
+                                });
+
+                            case 13:
+                            case 'end':
+                                return _context5.stop();
+                        }
+                    }
+                }, _callee5, this);
+            }));
+
+            function getLink(_x5) {
+                return _ref5.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return VidLink;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new VidLink({ libs: libs, settings: settings });
+};

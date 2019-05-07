@@ -1,1 +1,179 @@
-var _0x170c=['LINK\x20DIE','checkLive','sent','.down_content\x20span\x20a','attr','href','push','Speedvid','function','enumerable','value','writable','defineProperty','key','prototype','apply','done','resolve','then','next','throw','libs','mark','wrap','prev','httpRequest','getHTML','abrupt','return','convertToEmbed','cheerio','match'];(function(_0xaa82b7,_0x49c40c){var _0x30e560=function(_0x423543){while(--_0x423543){_0xaa82b7['push'](_0xaa82b7['shift']());}};_0x30e560(++_0x49c40c);}(_0x170c,0x89));var _0x27c1=function(_0x4e1f3f,_0x11fa76){_0x4e1f3f=_0x4e1f3f-0x0;var _0x57ecbf=_0x170c[_0x4e1f3f];return _0x57ecbf;};var _createClass=function(){function _0x221e54(_0x4f7ec1,_0x23a1ab){for(var _0x6634d8=0x0;_0x6634d8<_0x23a1ab['length'];_0x6634d8++){var _0x243e09=_0x23a1ab[_0x6634d8];_0x243e09['enumerable']=_0x243e09[_0x27c1('0x0')]||![];_0x243e09['configurable']=!![];if(_0x27c1('0x1')in _0x243e09)_0x243e09[_0x27c1('0x2')]=!![];Object[_0x27c1('0x3')](_0x4f7ec1,_0x243e09[_0x27c1('0x4')],_0x243e09);}}return function(_0x4015e1,_0x12cfda,_0x381af6){if(_0x12cfda)_0x221e54(_0x4015e1[_0x27c1('0x5')],_0x12cfda);if(_0x381af6)_0x221e54(_0x4015e1,_0x381af6);return _0x4015e1;};}();function _asyncToGenerator(_0x3b3f6c){return function(){var _0x5b6cd7=_0x3b3f6c[_0x27c1('0x6')](this,arguments);return new Promise(function(_0xdb86cf,_0x1b4e02){function _0x3dd680(_0x2668b4,_0x41846a){try{var _0x28eb6b=_0x5b6cd7[_0x2668b4](_0x41846a);var _0x291da7=_0x28eb6b[_0x27c1('0x1')];}catch(_0x174cca){_0x1b4e02(_0x174cca);return;}if(_0x28eb6b[_0x27c1('0x7')]){_0xdb86cf(_0x291da7);}else{return Promise[_0x27c1('0x8')](_0x291da7)[_0x27c1('0x9')](function(_0x5acf87){_0x3dd680(_0x27c1('0xa'),_0x5acf87);},function(_0x32c7ec){_0x3dd680(_0x27c1('0xb'),_0x32c7ec);});}}return _0x3dd680(_0x27c1('0xa'));});};}function _classCallCheck(_0x2a21d5,_0x205004){if(!(_0x2a21d5 instanceof _0x205004)){throw new TypeError('Cannot\x20call\x20a\x20class\x20as\x20a\x20function');}}var Speedvid=function(){function _0x4e57e2(_0x41b0a2){_classCallCheck(this,_0x4e57e2);this['libs']=_0x41b0a2[_0x27c1('0xc')];this['settings']=_0x41b0a2['settings'];this['state']={};}_createClass(_0x4e57e2,[{'key':'checkLive','value':function(){var _0x1fbdae=_asyncToGenerator(regeneratorRuntime[_0x27c1('0xd')](function _callee(_0x58eb88){var _0x3a747c,_0x53c6d2;return regeneratorRuntime[_0x27c1('0xe')](function _callee$(_0x16b2fa){while(0x1){switch(_0x16b2fa[_0x27c1('0xf')]=_0x16b2fa[_0x27c1('0xa')]){case 0x0:_0x3a747c=this[_0x27c1('0xc')][_0x27c1('0x10')];_0x16b2fa[_0x27c1('0xa')]=0x3;return _0x3a747c[_0x27c1('0x11')](_0x58eb88);case 0x3:_0x53c6d2=_0x16b2fa['sent'];return _0x16b2fa[_0x27c1('0x12')](_0x27c1('0x13'),_0x53c6d2);case 0x5:case'end':return _0x16b2fa['stop']();}}},_callee,this);}));function _0x1e1145(_0x2f5b80){return _0x1fbdae[_0x27c1('0x6')](this,arguments);}return _0x1e1145;}()},{'key':_0x27c1('0x14'),'value':function convertToEmbed(_0x583ece){}},{'key':'getLink','value':function(){var _0xbb7774=_asyncToGenerator(regeneratorRuntime[_0x27c1('0xd')](function _callee2(_0x39213b){var _0x4320e6,_0x1afc8e,_0x4cb392,_0x1dc650,_0x1da611,_0x495293,_0x2c7e51,_0x58a81f,_0x1f92d1,_0x1c83db,_0x181161,_0x12089e,_0xa3952b,_0x49bac9;return regeneratorRuntime[_0x27c1('0xe')](function _callee2$(_0x24a273){while(0x1){switch(_0x24a273[_0x27c1('0xf')]=_0x24a273['next']){case 0x0:_0x4320e6=this[_0x27c1('0xc')],_0x1afc8e=_0x4320e6[_0x27c1('0x10')],_0x4cb392=_0x4320e6[_0x27c1('0x15')];_0x1dc650=_0x39213b[_0x27c1('0x16')](/speedvid.net\/(.*)/);if(!(_0x1dc650==undefined)){_0x24a273[_0x27c1('0xa')]=0x4;break;}throw new Error(_0x27c1('0x17'));case 0x4:_0x1da611=_0x1dc650[0x1];_0x495293='http://www.speedvid.net/dl?op=download_orig&id='+_0x1da611;_0x2c7e51=[];_0x24a273[_0x27c1('0xa')]=0x9;return this[_0x27c1('0x18')](_0x495293);case 0x9:_0x58a81f=_0x24a273['sent'];if(!(_0x58a81f==![])){_0x24a273[_0x27c1('0xa')]=0xc;break;}throw new Error(_0x27c1('0x17'));case 0xc:_0x1f92d1=_0x58a81f['match'](/name="mode" value="([^"]+)/);_0x1c83db=_0x58a81f[_0x27c1('0x16')](/name="hash" value="([^"]+)/);if(!(_0x1f92d1==undefined||_0x1c83db==undefined)){_0x24a273[_0x27c1('0xa')]=0x10;break;}throw new Error('LINK\x20DIE');case 0x10:_0x24a273[_0x27c1('0xa')]=0x12;return _0x1afc8e['post'](_0x495293,{},{'op':'download_orig','id':_0x1da611,'mode':_0x1f92d1[0x1],'hash':_0x1c83db[0x1]});case 0x12:_0x181161=_0x24a273[_0x27c1('0x19')];_0x12089e=_0x4cb392['load'](_0x181161['data']);_0xa3952b=_0x12089e(_0x27c1('0x1a'))[_0x27c1('0x1b')](_0x27c1('0x1c'));if(!(_0xa3952b!=undefined)){_0x24a273[_0x27c1('0xa')]=0x1a;break;}_0x24a273[_0x27c1('0xa')]=0x18;return _0x1afc8e['isLinkDie'](_0xa3952b);case 0x18:_0x49bac9=_0x24a273['sent'];if(_0x49bac9!=![]){_0x2c7e51[_0x27c1('0x1d')]({'label':'NOR','file':_0xa3952b,'type':'direct','size':_0x49bac9});}case 0x1a:return _0x24a273[_0x27c1('0x12')](_0x27c1('0x13'),{'host':{'url':_0x39213b,'name':_0x27c1('0x1e')},'result':_0x2c7e51});case 0x1b:case'end':return _0x24a273['stop']();}}},_callee2,this);}));function _0x59640a(_0x3ab0af){return _0xbb7774[_0x27c1('0x6')](this,arguments);}return _0x59640a;}()}]);return _0x4e57e2;}();thisSource[_0x27c1('0x1f')]=function(_0x21890d,_0x781b60){return new Speedvid({'libs':_0x21890d,'settings':_0x781b60});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Speedvid = function () {
+    function Speedvid(props) {
+        _classCallCheck(this, Speedvid);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Speedvid, [{
+        key: "checkLive",
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+
+                                // you fill the die status text
+                                // const dieStatusText = "";
+
+                                _context.next = 3;
+                                return httpRequest.getHTML(url);
+
+                            case 3:
+                                html = _context.sent;
+                                return _context.abrupt("return", html);
+
+                            case 5:
+                            case "end":
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: "convertToEmbed",
+        value: function convertToEmbed(url) {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+
+            // let id = url.match(/\/embed\-([^\-]+)/i);
+            // id = url != null ? url[1] : false;
+
+            // if( id == false ) return url;
+
+        }
+    }, {
+        key: "getLink",
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cheerio, m, id, newurl, sources, html, mode, hash, postHtml, $, link, isDie;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                m = url.match(/speedvid.net\/(.*)/);
+
+                                if (!(m == undefined)) {
+                                    _context2.next = 4;
+                                    break;
+                                }
+
+                                throw new Error('LINK DIE');
+
+                            case 4:
+                                id = m[1];
+                                newurl = "http://www.speedvid.net/dl?op=download_orig&id=" + id;
+                                sources = [];
+                                _context2.next = 9;
+                                return this.checkLive(newurl);
+
+                            case 9:
+                                html = _context2.sent;
+
+                                if (!(html == false)) {
+                                    _context2.next = 12;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 12:
+                                mode = html.match(/name="mode" value="([^"]+)/);
+                                hash = html.match(/name="hash" value="([^"]+)/);
+
+                                if (!(mode == undefined || hash == undefined)) {
+                                    _context2.next = 16;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 16:
+                                _context2.next = 18;
+                                return httpRequest.post(newurl, {}, {
+                                    'op': 'download_orig',
+                                    'id': id,
+                                    'mode': mode[1],
+                                    'hash': hash[1]
+                                });
+
+                            case 18:
+                                postHtml = _context2.sent;
+                                $ = cheerio.load(postHtml.data);
+                                link = $('.down_content span a').attr('href');
+
+                                if (!(link != undefined)) {
+                                    _context2.next = 26;
+                                    break;
+                                }
+
+                                _context2.next = 24;
+                                return httpRequest.isLinkDie(link);
+
+                            case 24:
+                                isDie = _context2.sent;
+
+                                if (isDie != false) {
+
+                                    sources.push({
+                                        label: "NOR",
+                                        file: link,
+                                        type: "direct",
+                                        size: isDie
+                                    });
+                                }
+
+                            case 26:
+                                return _context2.abrupt("return", {
+                                    host: {
+                                        url: url,
+                                        name: "Speedvid"
+                                    },
+                                    result: sources
+                                });
+
+                            case 27:
+                            case "end":
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Speedvid;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Speedvid({ libs: libs, settings: settings });
+};

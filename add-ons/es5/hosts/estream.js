@@ -1,1 +1,170 @@
-var _0x20f7=['push','src','embed','log','map','isLinkDie','file','end','all','abrupt','function','length','enumerable','configurable','value','writable','key','prototype','apply','done','resolve','then','throw','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','checkLive','mark','wrap','prev','httpRequest','next','getHTML','sent','return','LINK\x20DIE','stop','convertToEmbed','getLink','load','video\x20source','attr','type','NOR','res','854x480','360p'];(function(_0x1f463e,_0x1d2699){var _0x5cf047=function(_0x53e196){while(--_0x53e196){_0x1f463e['push'](_0x1f463e['shift']());}};_0x5cf047(++_0x1d2699);}(_0x20f7,0x12b));var _0x19d1=function(_0x42d78d,_0x3a3761){_0x42d78d=_0x42d78d-0x0;var _0x76651c=_0x20f7[_0x42d78d];return _0x76651c;};var _createClass=function(){function _0x30fed3(_0x14807e,_0x46f8af){for(var _0x2f99a0=0x0;_0x2f99a0<_0x46f8af[_0x19d1('0x0')];_0x2f99a0++){var _0x25572c=_0x46f8af[_0x2f99a0];_0x25572c[_0x19d1('0x1')]=_0x25572c[_0x19d1('0x1')]||![];_0x25572c[_0x19d1('0x2')]=!![];if(_0x19d1('0x3')in _0x25572c)_0x25572c[_0x19d1('0x4')]=!![];Object['defineProperty'](_0x14807e,_0x25572c[_0x19d1('0x5')],_0x25572c);}}return function(_0x3eefb9,_0x195b15,_0x20ab4f){if(_0x195b15)_0x30fed3(_0x3eefb9[_0x19d1('0x6')],_0x195b15);if(_0x20ab4f)_0x30fed3(_0x3eefb9,_0x20ab4f);return _0x3eefb9;};}();function _asyncToGenerator(_0x4fa444){return function(){var _0x425380=_0x4fa444[_0x19d1('0x7')](this,arguments);return new Promise(function(_0x346f02,_0x3ed904){function _0x332475(_0x3f407c,_0x16c5dd){try{var _0x32627c=_0x425380[_0x3f407c](_0x16c5dd);var _0x3e907d=_0x32627c[_0x19d1('0x3')];}catch(_0x1f67d2){_0x3ed904(_0x1f67d2);return;}if(_0x32627c[_0x19d1('0x8')]){_0x346f02(_0x3e907d);}else{return Promise[_0x19d1('0x9')](_0x3e907d)[_0x19d1('0xa')](function(_0x5495f9){_0x332475('next',_0x5495f9);},function(_0xa26f3d){_0x332475(_0x19d1('0xb'),_0xa26f3d);});}}return _0x332475('next');});};}function _classCallCheck(_0x35ce1f,_0x362ed0){if(!(_0x35ce1f instanceof _0x362ed0)){throw new TypeError(_0x19d1('0xc'));}}var Estream=function(){function _0x596b09(_0x52b62f){_classCallCheck(this,_0x596b09);this[_0x19d1('0xd')]=_0x52b62f[_0x19d1('0xd')];this['settings']=_0x52b62f[_0x19d1('0xe')];this[_0x19d1('0xf')]={};}_createClass(_0x596b09,[{'key':_0x19d1('0x10'),'value':function(){var _0x2393db=_asyncToGenerator(regeneratorRuntime[_0x19d1('0x11')](function _callee(_0x1682a2){var _0x5c2503,_0x229728;return regeneratorRuntime[_0x19d1('0x12')](function _callee$(_0x2c487c){while(0x1){switch(_0x2c487c[_0x19d1('0x13')]=_0x2c487c['next']){case 0x0:_0x5c2503=this[_0x19d1('0xd')][_0x19d1('0x14')];_0x2c487c[_0x19d1('0x13')]=0x1;_0x2c487c[_0x19d1('0x15')]=0x4;return _0x5c2503[_0x19d1('0x16')](_0x1682a2);case 0x4:_0x229728=_0x2c487c[_0x19d1('0x17')];return _0x2c487c['abrupt'](_0x19d1('0x18'),_0x229728);case 0x8:_0x2c487c['prev']=0x8;_0x2c487c['t0']=_0x2c487c['catch'](0x1);throw new Error(_0x19d1('0x19'));case 0xb:case'end':return _0x2c487c[_0x19d1('0x1a')]();}}},_callee,this,[[0x1,0x8]]);}));function _0x49c0cd(_0x389281){return _0x2393db['apply'](this,arguments);}return _0x49c0cd;}()},{'key':_0x19d1('0x1b'),'value':function convertToEmbed(){}},{'key':_0x19d1('0x1c'),'value':function(){var _0x505e20=_asyncToGenerator(regeneratorRuntime[_0x19d1('0x11')](function _callee3(_0x18f4d4){var _0x393312,_0x3cadb9,_0x19202e,_0x493465,_0x4f987b,_0x25effe,_0x484415,_0x1281d8;return regeneratorRuntime[_0x19d1('0x12')](function _callee3$(_0x49a224){while(0x1){switch(_0x49a224[_0x19d1('0x13')]=_0x49a224['next']){case 0x0:throw new Error('LINK\x20DIE');case 0x4:_0x493465=_0x49a224['sent'];if(!(_0x493465==![])){_0x49a224[_0x19d1('0x15')]=0x7;break;}throw new Error(_0x19d1('0x19'));case 0x7:_0x4f987b=_0x19202e[_0x19d1('0x1d')](_0x493465);_0x25effe=[];_0x484415=[];_0x4f987b(_0x19d1('0x1e'))['each'](function(){var _0x26ddb3=_0x4f987b(this)[_0x19d1('0x1f')](_0x19d1('0x20'))!=='video/mp4'?_0x19d1('0x21'):_0x4f987b(this)[_0x19d1('0x1f')](_0x19d1('0x22'))===_0x19d1('0x23')?'480p':_0x19d1('0x24');_0x484415[_0x19d1('0x25')]({'label':_0x26ddb3,'file':_0x4f987b(this)['attr'](_0x19d1('0x26')),'type':_0x19d1('0x27')});});console[_0x19d1('0x28')](_0x484415);_0x1281d8=_0x484415[_0x19d1('0x29')](function(){var _0x589339=_asyncToGenerator(regeneratorRuntime[_0x19d1('0x11')](function _callee2(_0x298c34){var _0x3fe6ce;return regeneratorRuntime['wrap'](function _callee2$(_0x46f42a){while(0x1){switch(_0x46f42a[_0x19d1('0x13')]=_0x46f42a[_0x19d1('0x15')]){case 0x0:_0x46f42a[_0x19d1('0x15')]=0x2;return _0x3cadb9[_0x19d1('0x2a')](_0x298c34[_0x19d1('0x2b')]);case 0x2:_0x3fe6ce=_0x46f42a['sent'];if(_0x3fe6ce!=![]){_0x298c34['size']=_0x3fe6ce;_0x25effe['push'](_0x298c34);}case 0x4:case _0x19d1('0x2c'):return _0x46f42a['stop']();}}},_callee2,this);}));return function(_0x3fda93){return _0x589339[_0x19d1('0x7')](this,arguments);};}());_0x49a224['next']=0xf;return Promise[_0x19d1('0x2d')](_0x1281d8);case 0xf:return _0x49a224[_0x19d1('0x2e')](_0x19d1('0x18'),{'host':{'url':_0x18f4d4,'name':'estream'},'result':_0x25effe});case 0x10:case _0x19d1('0x2c'):return _0x49a224[_0x19d1('0x1a')]();}}},_callee3,this);}));function _0x32e9a7(_0x478f17){return _0x505e20[_0x19d1('0x7')](this,arguments);}return _0x32e9a7;}()}]);return _0x596b09;}();thisSource[_0x19d1('0x2f')]=function(_0x226c01,_0x13a525){return new Estream({'libs':_0x226c01,'settings':_0x13a525});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Estream = function () {
+    function Estream(props) {
+        _classCallCheck(this, Estream);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Estream, [{
+        key: "checkLive",
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+
+                                // you fill the die status text
+                                // const dieStatusText = "";
+
+                                _context.prev = 1;
+                                _context.next = 4;
+                                return httpRequest.getHTML(url);
+
+                            case 4:
+                                html = _context.sent;
+                                return _context.abrupt("return", html);
+
+                            case 8:
+                                _context.prev = 8;
+                                _context.t0 = _context["catch"](1);
+                                throw new Error('LINK DIE');
+
+                            case 11:
+                            case "end":
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this, [[1, 8]]);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: "convertToEmbed",
+        value: function convertToEmbed() {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+        }
+    }, {
+        key: "getLink",
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
+                var _libs, httpRequest, cheerio, html, $, sources, temp, arrPromise;
+
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                throw new Error("LINK DIE");
+
+                            case 4:
+                                html = _context3.sent;
+
+                                if (!(html == false)) {
+                                    _context3.next = 7;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 7:
+                                $ = cheerio.load(html);
+                                sources = [];
+                                temp = [];
+
+
+                                $("video source").each(function () {
+                                    var label = $(this).attr("type") !== "video/mp4" ? "NOR" : $(this).attr("res") === "854x480" ? "480p" : "360p";
+
+                                    temp.push({
+                                        label: label,
+                                        file: $(this).attr("src"),
+                                        type: "embed"
+                                    });
+                                });
+
+                                console.log(temp);
+
+                                arrPromise = temp.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
+                                        var isDie;
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+                                                        _context2.next = 2;
+                                                        return httpRequest.isLinkDie(val.file);
+
+                                                    case 2:
+                                                        isDie = _context2.sent;
+
+
+                                                        if (isDie != false) {
+                                                            val.size = isDie;
+                                                            sources.push(val);
+                                                        }
+
+                                                    case 4:
+                                                    case "end":
+                                                        return _context2.stop();
+                                                }
+                                            }
+                                        }, _callee2, this);
+                                    }));
+
+                                    return function (_x3) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 15;
+                                return Promise.all(arrPromise);
+
+                            case 15:
+                                return _context3.abrupt("return", {
+                                    host: {
+                                        url: url,
+                                        name: "estream"
+                                    },
+                                    result: sources
+                                });
+
+                            case 16:
+                            case "end":
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Estream;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Estream({ libs: libs, settings: settings });
+};

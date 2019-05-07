@@ -1,1 +1,303 @@
-var _0x440d=['throw','https://www.ddlvalley.me','https://www.ddlvalley.me?q=','Mozilla/5.0\x20(Macintosh;\x20Intel\x20Mac\x20OS\x20X\x2010_13)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/67.0.3396.99\x20Safari/537.36','match','xyzzyx.com','join','libs','movieInfo','settings','mark','prev','httpRequest','stringHelper','cryptoJs','title','year','season','type','realdebrid','NO\x20REAL\x20DEBITCH\x20HIHI','BING_SEARCH','getHTML','HEADERS','sent','load','#b_results\x20.b_algo','replace','toLowerCase','each','find','h2\x20a','attr','log','indexOf','push','state','detailUrl','abrupt','return','end','getHostFromDetail','wrap','cheerio','base64','NOT_FOUND','length','rapidgator.net','ul.to','map','link','split','includes','stop','all','part','mp4','mkv','Ddlvalley','embed','function','episode','searchDetail','is_link','hosts','enumerable','configurable','value','writable','defineProperty','key','prototype','apply','done','resolve','then','next'];(function(_0x1e1b49,_0x580e82){var _0x431d4f=function(_0x34f373){while(--_0x34f373){_0x1e1b49['push'](_0x1e1b49['shift']());}};_0x431d4f(++_0x580e82);}(_0x440d,0xdb));var _0x1f16=function(_0x27c8a8,_0x330fd6){_0x27c8a8=_0x27c8a8-0x0;var _0x1ae719=_0x440d[_0x27c8a8];return _0x1ae719;};var _createClass=function(){function _0x2c69a5(_0x394d93,_0x2da1e5){for(var _0x5b6ac3=0x0;_0x5b6ac3<_0x2da1e5['length'];_0x5b6ac3++){var _0x1d7d8f=_0x2da1e5[_0x5b6ac3];_0x1d7d8f['enumerable']=_0x1d7d8f[_0x1f16('0x0')]||![];_0x1d7d8f[_0x1f16('0x1')]=!![];if(_0x1f16('0x2')in _0x1d7d8f)_0x1d7d8f[_0x1f16('0x3')]=!![];Object[_0x1f16('0x4')](_0x394d93,_0x1d7d8f[_0x1f16('0x5')],_0x1d7d8f);}}return function(_0x24f241,_0x8f7399,_0x2f9fa5){if(_0x8f7399)_0x2c69a5(_0x24f241[_0x1f16('0x6')],_0x8f7399);if(_0x2f9fa5)_0x2c69a5(_0x24f241,_0x2f9fa5);return _0x24f241;};}();function _asyncToGenerator(_0x205c1b){return function(){var _0x1b58a6=_0x205c1b[_0x1f16('0x7')](this,arguments);return new Promise(function(_0x16c668,_0x32ac47){function _0x1d8d1d(_0x5b96d0,_0x331158){try{var _0x4324e1=_0x1b58a6[_0x5b96d0](_0x331158);var _0x190365=_0x4324e1['value'];}catch(_0x508b3e){_0x32ac47(_0x508b3e);return;}if(_0x4324e1[_0x1f16('0x8')]){_0x16c668(_0x190365);}else{return Promise[_0x1f16('0x9')](_0x190365)[_0x1f16('0xa')](function(_0x24d5c0){_0x1d8d1d(_0x1f16('0xb'),_0x24d5c0);},function(_0x5ccb75){_0x1d8d1d(_0x1f16('0xc'),_0x5ccb75);});}}return _0x1d8d1d(_0x1f16('0xb'));});};}function _classCallCheck(_0x3ce90f,_0x5bcfa5){if(!(_0x3ce90f instanceof _0x5bcfa5)){throw new TypeError('Cannot\x20call\x20a\x20class\x20as\x20a\x20function');}}var URL={'DOMAIN':_0x1f16('0xd'),'SEARCH':function SEARCH(_0x31444d){return _0x1f16('0xe')+_0x31444d;},'HEADERS':function HEADERS(){return{'User-Agent':_0x1f16('0xf')};},'BING_SEARCH':function BING_SEARCH(_0x139b2d){return'https://www.bing.com/search?q=site%3Awww.ddlvalley.me+'+_0x139b2d;}};var getDomain=function getDomain(_0x4ad049){var _0x470eb3=_0x4ad049[_0x1f16('0x10')](/\/\/([^\/]+)/);if(_0x470eb3==null)return'xyzzyx.com';return _0x470eb3[0x1]!=undefined?_0x470eb3[0x1]:_0x1f16('0x11');};var firstChar=function firstChar(_0x370b13,_0x5ede53){var _0x39bd3a=_0x370b13[_0x1f16('0x10')](/\b(\w)/g);var _0x2c4615=_0x39bd3a[_0x1f16('0x12')](_0x5ede53);return _0x2c4615;};var Ddlvalley=function(){function _0x4a8171(_0x59e791){_classCallCheck(this,_0x4a8171);this['libs']=_0x59e791[_0x1f16('0x13')];this[_0x1f16('0x14')]=_0x59e791[_0x1f16('0x14')];this[_0x1f16('0x15')]=_0x59e791[_0x1f16('0x15')];this['state']={};}_createClass(_0x4a8171,[{'key':'searchDetail','value':function(){var _0x4a8be6=_asyncToGenerator(regeneratorRuntime[_0x1f16('0x16')](function _callee(){var _0x5e4bf8,_0x44b761,_0x28aa06,_0x2204a6,_0x47ee36,_0x502618,_0x372e48,_0x2cf951,_0x4191d5,_0x551cdc,_0x4f9edf,_0x48bc8a,_0x4d9919,_0x2da06b,_0x18e2dd,_0x21087b,_0x1999bc,_0x43a322,_0x6a014e,_0xa213bf,_0x2c437d,_0x55f20b,_0x32c1ec;return regeneratorRuntime['wrap'](function _callee$(_0x5f3208){while(0x1){switch(_0x5f3208[_0x1f16('0x17')]=_0x5f3208[_0x1f16('0xb')]){case 0x0:_0x5e4bf8=this['libs'],_0x44b761=_0x5e4bf8[_0x1f16('0x18')],_0x28aa06=_0x5e4bf8['cheerio'],_0x2204a6=_0x5e4bf8[_0x1f16('0x19')],_0x47ee36=_0x5e4bf8[_0x1f16('0x1a')],_0x502618=_0x5e4bf8['qs'];_0x372e48=this[_0x1f16('0x14')],_0x2cf951=_0x372e48[_0x1f16('0x1b')],_0x4191d5=_0x372e48[_0x1f16('0x1c')],_0x551cdc=_0x372e48[_0x1f16('0x1d')],_0x4f9edf=_0x372e48['episode'],_0x48bc8a=_0x372e48[_0x1f16('0x1e')],_0x4d9919=_0x372e48[_0x1f16('0x1f')];if(!(_0x4d9919==undefined)){_0x5f3208[_0x1f16('0xb')]=0x4;break;}throw new Error(_0x1f16('0x20'));case 0x4:_0x2da06b=![];_0x18e2dd=![];_0x21087b='';_0x1999bc=void 0x0,_0x43a322=void 0x0;if(_0x48bc8a=='tv'){_0x43a322=_0x551cdc<0xa?'0'+_0x551cdc:_0x551cdc;_0x1999bc=_0x4f9edf<0xa?'0'+_0x4f9edf:_0x4f9edf;_0x21087b=URL[_0x1f16('0x21')](encodeURI(_0x2cf951+'+s'+_0x43a322+'e'+_0x1999bc));}else{_0x21087b=URL[_0x1f16('0x21')](encodeURI(_0x2cf951));}_0x5f3208[_0x1f16('0xb')]=0xb;return _0x44b761[_0x1f16('0x22')](_0x21087b,URL[_0x1f16('0x23')]());case 0xb:_0x6a014e=_0x5f3208[_0x1f16('0x24')];_0xa213bf=_0x28aa06[_0x1f16('0x25')](_0x6a014e);_0x2c437d=_0xa213bf(_0x1f16('0x26'));_0x55f20b=[];_0x32c1ec=void 0x0;if(_0x48bc8a=='tv')_0x32c1ec=_0x2cf951[_0x1f16('0x27')](/[\s':"]+/g,'-')[_0x1f16('0x28')]()+'-s'+_0x43a322+'e'+_0x1999bc;else _0x32c1ec=_0x2cf951[_0x1f16('0x27')](/[\s':"]+/g,'-')['toLowerCase']()+'-'+_0x4191d5;_0x2c437d[_0x1f16('0x29')](function(){var _0x46f4d5=_0xa213bf(this)[_0x1f16('0x2a')](_0x1f16('0x2b'))[_0x1f16('0x2c')]('href');console[_0x1f16('0x2d')](_0x46f4d5);if(_0x46f4d5[_0x1f16('0x2e')](_0x32c1ec)!=-0x1&&_0x55f20b['length']<0x3)_0x55f20b[_0x1f16('0x2f')](_0x46f4d5);});this[_0x1f16('0x30')][_0x1f16('0x31')]=_0x55f20b;return _0x5f3208[_0x1f16('0x32')](_0x1f16('0x33'));case 0x14:case _0x1f16('0x34'):return _0x5f3208['stop']();}}},_callee,this);}));function _0xea8bc8(){return _0x4a8be6[_0x1f16('0x7')](this,arguments);}return _0xea8bc8;}()},{'key':_0x1f16('0x35'),'value':function(){var _0xe5a81=_asyncToGenerator(regeneratorRuntime[_0x1f16('0x16')](function _callee3(){var _0x29575a,_0x398f23,_0x58ed34,_0x2f824e,_0x4fc8c9,_0x5c2a78,_0x3643fa,_0x5619f7,_0x37e63f,_0x321a8f,_0x357b59,_0x307e1a,_0x3ba98a,_0x1cafb8,_0x428f0b,_0x5b4313,_0x47640a,_0xf2fff9,_0xe5fc88,_0xf6e4f3,_0x3b68b2,_0x41805d,_0x33c93f;return regeneratorRuntime[_0x1f16('0x36')](function _callee3$(_0x2b357c){while(0x1){switch(_0x2b357c[_0x1f16('0x17')]=_0x2b357c['next']){case 0x0:_0x29575a=this[_0x1f16('0x13')],_0x398f23=_0x29575a[_0x1f16('0x18')],_0x58ed34=_0x29575a[_0x1f16('0x37')],_0x2f824e=_0x29575a[_0x1f16('0x38')],_0x4fc8c9=_0x29575a['_'];_0x5c2a78=this[_0x1f16('0x14')],_0x3643fa=_0x5c2a78['title'],_0x5619f7=_0x5c2a78[_0x1f16('0x1c')],_0x37e63f=_0x5c2a78[_0x1f16('0x1d')],_0x321a8f=_0x5c2a78['episode'],_0x357b59=_0x5c2a78[_0x1f16('0x1e')];if(this[_0x1f16('0x30')]['detailUrl']){_0x2b357c[_0x1f16('0xb')]=0x4;break;}throw new Error(_0x1f16('0x39'));case 0x4:_0x307e1a=this[_0x1f16('0x30')][_0x1f16('0x31')];if(!(_0x307e1a[_0x1f16('0x3a')]==0x0)){_0x2b357c['next']=0x7;break;}throw new Error(_0x1f16('0x39'));case 0x7:_0x3ba98a=[];_0x1cafb8=[];_0x428f0b=[];_0x5b4313=[_0x1f16('0x3b'),_0x1f16('0x3c'),'nitroflare.com'];_0x47640a=_0x307e1a[_0x1f16('0x3d')](function(){var _0x1f8016=_asyncToGenerator(regeneratorRuntime[_0x1f16('0x16')](function _callee2(_0x4268da){var _0x40de47,_0x240aee,_0x1cf2a9,_0x484bc5,_0x3beb5b;return regeneratorRuntime[_0x1f16('0x36')](function _callee2$(_0x86790c){while(0x1){switch(_0x86790c['prev']=_0x86790c[_0x1f16('0xb')]){case 0x0:console[_0x1f16('0x2d')](_0x4268da,_0x1f16('0x3e'));_0x86790c[_0x1f16('0xb')]=0x3;return _0x398f23[_0x1f16('0x22')](_0x4268da,URL[_0x1f16('0x23')]());case 0x3:_0x40de47=_0x86790c[_0x1f16('0x24')];_0x240aee=_0x40de47[_0x1f16('0x10')](/href="([^"]+)/g);for(_0x1cf2a9=0x0;_0x1cf2a9<_0x240aee[_0x1f16('0x3a')];_0x1cf2a9++){_0x484bc5=_0x240aee[_0x1cf2a9][_0x1f16('0x3f')]('\x22');if(_0x484bc5!=null){_0x484bc5=_0x484bc5[0x1];_0x3beb5b=getDomain(_0x484bc5);if(_0x5b4313[_0x1f16('0x40')](_0x3beb5b))_0x1cafb8[_0x1f16('0x2f')](_0x484bc5);}}case 0x6:case'end':return _0x86790c[_0x1f16('0x41')]();}}},_callee2,this);}));return function(_0x32d574){return _0x1f8016[_0x1f16('0x7')](this,arguments);};}());_0x2b357c['next']=0xe;return Promise[_0x1f16('0x42')](_0x47640a);case 0xe:for(_0xf2fff9=0x0;_0xf2fff9<_0x1cafb8[_0x1f16('0x3a')];_0xf2fff9++){_0xe5fc88=_0x1cafb8[_0xf2fff9];_0xf6e4f3=_0xe5fc88[_0x1f16('0x28')]();_0x3b68b2=_0x3643fa[_0x1f16('0x28')]();_0x41805d=[_0x3b68b2[_0x1f16('0x27')](/[\s:'"]+/gi,'.'),_0x3b68b2['replace'](/[\s:'"]+/gi,'-'),_0x3b68b2['replace'](/[\s:'"]+/gi,'_'),firstChar(_0x3b68b2,'.'),firstChar(_0x3b68b2,'_'),firstChar(_0x3b68b2,'-')];for(_0x33c93f in _0x41805d){if(_0xf6e4f3['indexOf'](_0x1f16('0x43'))==-0x1){if(_0x428f0b[_0x1f16('0x3a')]<0xf&&(_0xf6e4f3['indexOf'](_0x1f16('0x44'))!=-0x1||_0xf6e4f3[_0x1f16('0x2e')](_0x1f16('0x45'))!=-0x1))_0x428f0b[_0x1f16('0x2f')]({'provider':{'url':_0xe5fc88,'name':_0x1f16('0x46')},'result':{'file':_0xe5fc88,'label':_0x1f16('0x47'),'type':_0x1f16('0x47')}});}}}this['state']['hosts']=_0x428f0b;case 0x10:case _0x1f16('0x34'):return _0x2b357c[_0x1f16('0x41')]();}}},_callee3,this);}));function _0x467c02(){return _0xe5a81[_0x1f16('0x7')](this,arguments);}return _0x467c02;}()}]);return _0x4a8171;}();thisSource[_0x1f16('0x48')]=function(){var _0x42cc8d=_asyncToGenerator(regeneratorRuntime[_0x1f16('0x16')](function _callee4(_0x5a0810,_0x24bed8,_0x3141a0){var _0x455b63,_0x53c9cc,_0x18448f;return regeneratorRuntime['wrap'](function _callee4$(_0xa79c64){while(0x1){switch(_0xa79c64['prev']=_0xa79c64[_0x1f16('0xb')]){case 0x0:_0x455b63=_0x5a0810[_0x1f16('0x18')];_0x53c9cc=new Ddlvalley({'libs':_0x5a0810,'movieInfo':_0x24bed8,'settings':_0x3141a0});_0x18448f={'name_source':'Ddlvalley','is_link':0x0,'type':_0x24bed8[_0x1f16('0x1e')],'season':_0x24bed8['season'],'episode':_0x24bed8[_0x1f16('0x49')],'title':_0x24bed8[_0x1f16('0x1b')],'year':_0x24bed8[_0x1f16('0x1c')]};_0xa79c64['next']=0x5;return _0x53c9cc[_0x1f16('0x4a')]();case 0x5:if(!_0x53c9cc[_0x1f16('0x30')][_0x1f16('0x31')]){_0x18448f['is_link']=0x0;}else{_0x18448f[_0x1f16('0x4b')]=0x1;}_0xa79c64[_0x1f16('0xb')]=0x8;return _0x53c9cc['getHostFromDetail']();case 0x8:if(_0x53c9cc[_0x1f16('0x30')][_0x1f16('0x4c')][_0x1f16('0x3a')]==0x0){_0x18448f[_0x1f16('0x4b')]=0x0;}else{_0x18448f[_0x1f16('0x4b')]=0x1;}return _0xa79c64['abrupt'](_0x1f16('0x33'),_0x53c9cc[_0x1f16('0x30')][_0x1f16('0x4c')]);case 0xa:case _0x1f16('0x34'):return _0xa79c64[_0x1f16('0x41')]();}}},_callee4,undefined);}));return function(_0x119dd7,_0xda40ed,_0x5bc76e){return _0x42cc8d[_0x1f16('0x7')](this,arguments);};}();thisSource['testing']=Ddlvalley;
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var URL = {
+
+    DOMAIN: "https://www.ddlvalley.me",
+    SEARCH: function SEARCH(title) {
+        return 'https://www.ddlvalley.me?q=' + title;
+    },
+    HEADERS: function HEADERS() {
+        return {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+        };
+    },
+    BING_SEARCH: function BING_SEARCH(title) {
+        return 'https://www.bing.com/search?q=site%3Awww.ddlvalley.me+' + title;
+    }
+};
+
+var getDomain = function getDomain(url) {
+    var m = url.match(/\/\/([^\/]+)/);
+    if (m == null) return 'xyzzyx.com';
+    return m[1] != undefined ? m[1] : 'xyzzyx.com';
+};
+
+var firstChar = function firstChar(str, separator) {
+    var matches = str.match(/\b(\w)/g);
+    var acronym = matches.join(separator);
+
+    return acronym;
+};
+
+var Ddlvalley = function () {
+    function Ddlvalley(props) {
+        _classCallCheck(this, Ddlvalley);
+
+        this.libs = props.libs;
+        this.movieInfo = props.movieInfo;
+        this.settings = props.settings;
+
+        this.state = {};
+    }
+
+    _createClass(Ddlvalley, [{
+        key: 'searchDetail',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+                var _libs, httpRequest, cheerio, stringHelper, cryptoJs, qs, _movieInfo, title, year, season, episode, type, realdebrid, detailUrl, tvshowVideo, urlSearch, ep, ss, htmlSearch, $, itemSearch, urls, find;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, cryptoJs = _libs.cryptoJs, qs = _libs.qs;
+                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type, realdebrid = _movieInfo.realdebrid;
+
+                                if (!(realdebrid == undefined)) {
+                                    _context.next = 4;
+                                    break;
+                                }
+
+                                throw new Error("NO REAL DEBITCH HIHI");
+
+                            case 4:
+                                detailUrl = false;
+                                tvshowVideo = false;
+                                urlSearch = '';
+                                ep = void 0, ss = void 0;
+
+
+                                if (type == 'tv') {
+                                    ss = season < 10 ? '0' + season : season;
+                                    ep = episode < 10 ? '0' + episode : episode;
+                                    urlSearch = URL.BING_SEARCH(encodeURI(title + "+s" + ss + 'e' + ep));
+                                } else {
+                                    urlSearch = URL.BING_SEARCH(encodeURI(title));
+                                }
+
+                                _context.next = 11;
+                                return httpRequest.getHTML(urlSearch, URL.HEADERS());
+
+                            case 11:
+                                htmlSearch = _context.sent;
+                                $ = cheerio.load(htmlSearch);
+                                itemSearch = $('#b_results .b_algo');
+                                urls = [];
+                                find = void 0;
+
+                                if (type == 'tv') find = title.replace(/[\s':"]+/g, '-').toLowerCase() + "-s" + ss + 'e' + ep;else find = title.replace(/[\s':"]+/g, '-').toLowerCase() + '-' + year;
+
+                                itemSearch.each(function () {
+                                    var hrefMovie = $(this).find('h2 a').attr('href');
+                                    console.log(hrefMovie);
+                                    if (hrefMovie.indexOf(find) != -1 && urls.length < 3) urls.push(hrefMovie);
+                                });
+
+                                this.state.detailUrl = urls;
+                                //console.log(urls);
+                                return _context.abrupt('return');
+
+                            case 20:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function searchDetail() {
+                return _ref.apply(this, arguments);
+            }
+
+            return searchDetail;
+        }()
+    }, {
+        key: 'getHostFromDetail',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+                var _libs2, httpRequest, cheerio, base64, _, _movieInfo2, title, year, season, episode, type, detailUrl, arr_lk, urls, hosts, supported, detailPromises, i, u, ulower, tlower, finds, f;
+
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64, _ = _libs2._;
+                                _movieInfo2 = this.movieInfo, title = _movieInfo2.title, year = _movieInfo2.year, season = _movieInfo2.season, episode = _movieInfo2.episode, type = _movieInfo2.type;
+
+                                if (this.state.detailUrl) {
+                                    _context3.next = 4;
+                                    break;
+                                }
+
+                                throw new Error("NOT_FOUND");
+
+                            case 4:
+                                detailUrl = this.state.detailUrl;
+
+                                if (!(detailUrl.length == 0)) {
+                                    _context3.next = 7;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 7:
+                                arr_lk = [];
+                                urls = [];
+                                hosts = [];
+                                supported = ['rapidgator.net', 'ul.to', 'nitroflare.com'];
+                                detailPromises = detailUrl.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(link) {
+                                        var dataSearch, hrefs, i, u, domain;
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+
+                                                        console.log(link, 'link');
+                                                        _context2.next = 3;
+                                                        return httpRequest.getHTML(link, URL.HEADERS());
+
+                                                    case 3:
+                                                        dataSearch = _context2.sent;
+                                                        hrefs = dataSearch.match(/href="([^"]+)/g);
+
+                                                        for (i = 0; i < hrefs.length; i++) {
+                                                            u = hrefs[i].split('"');
+
+                                                            if (u != null) {
+                                                                u = u[1];
+                                                                domain = getDomain(u);
+
+                                                                if (supported.includes(domain)) urls.push(u);
+                                                            }
+                                                        }
+
+                                                    case 6:
+                                                    case 'end':
+                                                        return _context2.stop();
+                                                }
+                                            }
+                                        }, _callee2, this);
+                                    }));
+
+                                    return function (_x) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 14;
+                                return Promise.all(detailPromises);
+
+                            case 14:
+
+                                for (i = 0; i < urls.length; i++) {
+                                    u = urls[i];
+                                    ulower = u.toLowerCase();
+                                    tlower = title.toLowerCase();
+                                    finds = [tlower.replace(/[\s:'"]+/ig, '.'), tlower.replace(/[\s:'"]+/ig, '-'), tlower.replace(/[\s:'"]+/ig, '_'), firstChar(tlower, '.'), firstChar(tlower, '_'), firstChar(tlower, '-')];
+
+                                    for (f in finds) {
+                                        if (ulower.indexOf('part') == -1) {
+                                            if (hosts.length < 15 && (ulower.indexOf('mp4') != -1 || ulower.indexOf('mkv') != -1)) hosts.push({
+                                                provider: {
+                                                    url: u,
+                                                    name: "Ddlvalley"
+                                                },
+                                                result: {
+                                                    file: u,
+                                                    label: "embed",
+                                                    type: "embed"
+                                                }
+                                            });
+                                        }
+                                    }
+                                }
+
+                                this.state.hosts = hosts;
+
+                            case 16:
+                            case 'end':
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this);
+            }));
+
+            function getHostFromDetail() {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getHostFromDetail;
+        }()
+    }]);
+
+    return Ddlvalley;
+}();
+
+thisSource.function = function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
+        var httpRequest, source, bodyPost;
+        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+            while (1) {
+                switch (_context4.prev = _context4.next) {
+                    case 0:
+                        httpRequest = libs.httpRequest;
+                        source = new Ddlvalley({
+                            libs: libs,
+                            movieInfo: movieInfo,
+                            settings: settings
+                        });
+                        bodyPost = {
+                            name_source: 'Ddlvalley',
+                            is_link: 0,
+                            type: movieInfo.type,
+                            season: movieInfo.season,
+                            episode: movieInfo.episode,
+                            title: movieInfo.title,
+                            year: movieInfo.year
+                        };
+                        _context4.next = 5;
+                        return source.searchDetail();
+
+                    case 5:
+
+                        if (!source.state.detailUrl) {
+                            bodyPost.is_link = 0;
+                        } else {
+                            bodyPost.is_link = 1;
+                        }
+                        _context4.next = 8;
+                        return source.getHostFromDetail();
+
+                    case 8:
+
+                        if (source.state.hosts.length == 0) {
+                            bodyPost.is_link = 0;
+                        } else {
+                            bodyPost.is_link = 1;
+                        }
+
+                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+
+                        return _context4.abrupt('return', source.state.hosts);
+
+                    case 10:
+                    case 'end':
+                        return _context4.stop();
+                }
+            }
+        }, _callee4, undefined);
+    }));
+
+    return function (_x2, _x3, _x4) {
+        return _ref4.apply(this, arguments);
+    };
+}();
+
+thisSource.testing = Ddlvalley;

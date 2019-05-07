@@ -1,1 +1,146 @@
-var _0x20b4=['stop','apply','cheerio','log','Fastplay\x20no\x20link','exec','isLinkDie','NOR','direct','fastplay','function','length','enumerable','configurable','writable','defineProperty','key','value','done','then','throw','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','checkLive','mark','wrap','prev','next','httpRequest','getHTML','sent','end'];(function(_0x4c784d,_0x366030){var _0x30987b=function(_0x5816c0){while(--_0x5816c0){_0x4c784d['push'](_0x4c784d['shift']());}};_0x30987b(++_0x366030);}(_0x20b4,0xb5));var _0x23c1=function(_0x127a63,_0x3d1ff8){_0x127a63=_0x127a63-0x0;var _0x4effc0=_0x20b4[_0x127a63];return _0x4effc0;};var _createClass=function(){function _0x4504df(_0xc33883,_0xe0177e){for(var _0x220cea=0x0;_0x220cea<_0xe0177e[_0x23c1('0x0')];_0x220cea++){var _0x3de33d=_0xe0177e[_0x220cea];_0x3de33d[_0x23c1('0x1')]=_0x3de33d[_0x23c1('0x1')]||![];_0x3de33d[_0x23c1('0x2')]=!![];if('value'in _0x3de33d)_0x3de33d[_0x23c1('0x3')]=!![];Object[_0x23c1('0x4')](_0xc33883,_0x3de33d[_0x23c1('0x5')],_0x3de33d);}}return function(_0x5adfc0,_0x5c88ce,_0x4eae3c){if(_0x5c88ce)_0x4504df(_0x5adfc0['prototype'],_0x5c88ce);if(_0x4eae3c)_0x4504df(_0x5adfc0,_0x4eae3c);return _0x5adfc0;};}();function _asyncToGenerator(_0x33ebcc){return function(){var _0x3adc8c=_0x33ebcc['apply'](this,arguments);return new Promise(function(_0x4320ad,_0x5e6eb3){function _0x1f645f(_0x2716e5,_0x3cbace){try{var _0x3c244c=_0x3adc8c[_0x2716e5](_0x3cbace);var _0x47d50a=_0x3c244c[_0x23c1('0x6')];}catch(_0x30f31d){_0x5e6eb3(_0x30f31d);return;}if(_0x3c244c[_0x23c1('0x7')]){_0x4320ad(_0x47d50a);}else{return Promise['resolve'](_0x47d50a)[_0x23c1('0x8')](function(_0x1a1e4a){_0x1f645f('next',_0x1a1e4a);},function(_0x317add){_0x1f645f(_0x23c1('0x9'),_0x317add);});}}return _0x1f645f('next');});};}function _classCallCheck(_0x545a19,_0x1716e5){if(!(_0x545a19 instanceof _0x1716e5)){throw new TypeError(_0x23c1('0xa'));}}var Fastplay=function(){function _0xbebbc2(_0x8576ca){_classCallCheck(this,_0xbebbc2);this[_0x23c1('0xb')]=_0x8576ca[_0x23c1('0xb')];this[_0x23c1('0xc')]=_0x8576ca['settings'];this[_0x23c1('0xd')]={};}_createClass(_0xbebbc2,[{'key':_0x23c1('0xe'),'value':function(){var _0x5192ae=_asyncToGenerator(regeneratorRuntime[_0x23c1('0xf')](function _callee(_0x22d448){var _0x33f870,_0x214d46;return regeneratorRuntime[_0x23c1('0x10')](function _callee$(_0x564ec4){while(0x1){switch(_0x564ec4[_0x23c1('0x11')]=_0x564ec4[_0x23c1('0x12')]){case 0x0:_0x33f870=this['libs'][_0x23c1('0x13')];_0x564ec4[_0x23c1('0x12')]=0x3;return _0x33f870[_0x23c1('0x14')](_0x22d448);case 0x3:_0x214d46=_0x564ec4[_0x23c1('0x15')];return _0x564ec4['abrupt']('return',_0x214d46);case 0x5:case _0x23c1('0x16'):return _0x564ec4[_0x23c1('0x17')]();}}},_callee,this);}));function _0x34eb1f(_0x5ca02c){return _0x5192ae[_0x23c1('0x18')](this,arguments);}return _0x34eb1f;}()},{'key':'getLink','value':function(){var _0x483ab0=_asyncToGenerator(regeneratorRuntime['mark'](function _callee2(_0x13d12e){var _0x5a9d5d,_0x4de192,_0x350e9a,_0x574c02,_0x175799,_0x4fc5ba,_0x23b420,_0x12bdd3;return regeneratorRuntime['wrap'](function _callee2$(_0x28c9a5){while(0x1){switch(_0x28c9a5[_0x23c1('0x11')]=_0x28c9a5['next']){case 0x0:_0x5a9d5d=this[_0x23c1('0xb')],_0x4de192=_0x5a9d5d['httpRequest'],_0x350e9a=_0x5a9d5d[_0x23c1('0x19')];_0x574c02=[];_0x28c9a5[_0x23c1('0x12')]=0x4;return this['checkLive'](_0x13d12e);case 0x4:_0x175799=_0x28c9a5[_0x23c1('0x15')];if(!(_0x175799==![])){_0x28c9a5[_0x23c1('0x12')]=0x8;break;}console[_0x23c1('0x1a')](_0x23c1('0x1b'));throw new Error('Fastplay\x20LINK\x20DIE');case 0x8:_0x4fc5ba=/file:"([^"]+)/g;_0x23b420=void 0x0;case 0xa:if(!(_0x23b420=_0x4fc5ba[_0x23c1('0x1c')](_0x175799))){_0x28c9a5[_0x23c1('0x12')]=0x11;break;}_0x28c9a5[_0x23c1('0x12')]=0xd;return _0x4de192[_0x23c1('0x1d')](_0x23b420[0x1]);case 0xd:_0x12bdd3=_0x28c9a5['sent'];if(_0x12bdd3!=![]){_0x574c02['push']({'label':_0x23c1('0x1e'),'file':_0x23b420[0x1],'type':_0x23c1('0x1f'),'size':_0x12bdd3});}_0x28c9a5[_0x23c1('0x12')]=0xa;break;case 0x11:return _0x28c9a5['abrupt']('return',{'host':{'url':_0x13d12e,'name':_0x23c1('0x20')},'result':_0x574c02});case 0x12:case _0x23c1('0x16'):return _0x28c9a5['stop']();}}},_callee2,this);}));function _0x4dedff(_0x485668){return _0x483ab0[_0x23c1('0x18')](this,arguments);}return _0x4dedff;}()}]);return _0xbebbc2;}();thisSource[_0x23c1('0x21')]=function(_0xd5e0eb,_0xf6ef5e){return new Fastplay({'libs':_0xd5e0eb,'settings':_0xf6ef5e});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Fastplay = function () {
+    function Fastplay(props) {
+        _classCallCheck(this, Fastplay);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Fastplay, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+                                _context.next = 3;
+                                return httpRequest.getHTML(url);
+
+                            case 3:
+                                html = _context.sent;
+                                return _context.abrupt('return', html);
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cheerio, sources, html, reg, m, isDie;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                sources = [];
+                                _context2.next = 4;
+                                return this.checkLive(url);
+
+                            case 4:
+                                html = _context2.sent;
+
+                                if (!(html == false)) {
+                                    _context2.next = 8;
+                                    break;
+                                }
+
+                                console.log('Fastplay no link');
+                                throw new Error("Fastplay LINK DIE");
+
+                            case 8:
+
+                                /*
+                                let $ = cheerio.load(html);
+                                let script = $('#content:last').next().text();
+                                 //console.log(script); process.exit();
+                                 let startIndex  = html.indexOf('jwplayer("vplayer").setup');
+                                html            = html.substring(startIndex);
+                                html            = html.substring(0, html.indexOf(".setVolume("));
+                                html            = html.replace('jwplayer("vplayer").setup', "player = ");
+                                html            += ";";
+                                 var player;
+                                eval(html);
+                                */
+                                reg = /file:"([^"]+)/g;
+                                m = void 0;
+
+                            case 10:
+                                if (!(m = reg.exec(html))) {
+                                    _context2.next = 17;
+                                    break;
+                                }
+
+                                _context2.next = 13;
+                                return httpRequest.isLinkDie(m[1]);
+
+                            case 13:
+                                isDie = _context2.sent;
+
+
+                                if (isDie != false) {
+                                    sources.push({
+                                        label: 'NOR',
+                                        file: m[1],
+                                        type: "direct",
+                                        size: isDie
+                                    });
+                                }
+                                _context2.next = 10;
+                                break;
+
+                            case 17:
+                                return _context2.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "fastplay"
+                                    },
+                                    result: sources
+                                });
+
+                            case 18:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Fastplay;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Fastplay({ libs: libs, settings: settings });
+};

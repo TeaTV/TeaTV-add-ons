@@ -1,1 +1,135 @@
-var _0x3430=['settings','state','checkLive','wrap','prev','httpRequest','getRedirectUrl','sent','abrupt','return','stop','convertToEmbed','getLink','mark','LINK\x20DIE','isLinkDie','direct','end','length','enumerable','configurable','value','writable','defineProperty','key','apply','done','resolve','then','next','libs'];(function(_0x1ab40b,_0x8c0f9a){var _0x348580=function(_0x4fd484){while(--_0x4fd484){_0x1ab40b['push'](_0x1ab40b['shift']());}};_0x348580(++_0x8c0f9a);}(_0x3430,0x1c4));var _0x17cb=function(_0x11cfec,_0x1db62f){_0x11cfec=_0x11cfec-0x0;var _0x5f2189=_0x3430[_0x11cfec];return _0x5f2189;};var _createClass=function(){function _0x139551(_0xcd8fb8,_0x32fe89){for(var _0x3480da=0x0;_0x3480da<_0x32fe89[_0x17cb('0x0')];_0x3480da++){var _0x4b207d=_0x32fe89[_0x3480da];_0x4b207d['enumerable']=_0x4b207d[_0x17cb('0x1')]||![];_0x4b207d[_0x17cb('0x2')]=!![];if(_0x17cb('0x3')in _0x4b207d)_0x4b207d[_0x17cb('0x4')]=!![];Object[_0x17cb('0x5')](_0xcd8fb8,_0x4b207d[_0x17cb('0x6')],_0x4b207d);}}return function(_0x34de92,_0x54adf3,_0x4b5499){if(_0x54adf3)_0x139551(_0x34de92['prototype'],_0x54adf3);if(_0x4b5499)_0x139551(_0x34de92,_0x4b5499);return _0x34de92;};}();function _asyncToGenerator(_0x238d8b){return function(){var _0x13b22d=_0x238d8b[_0x17cb('0x7')](this,arguments);return new Promise(function(_0x49be3e,_0x314fc8){function _0x2bf7ba(_0x273d5e,_0x894ad1){try{var _0x3da344=_0x13b22d[_0x273d5e](_0x894ad1);var _0xa569af=_0x3da344[_0x17cb('0x3')];}catch(_0x3751e6){_0x314fc8(_0x3751e6);return;}if(_0x3da344[_0x17cb('0x8')]){_0x49be3e(_0xa569af);}else{return Promise[_0x17cb('0x9')](_0xa569af)[_0x17cb('0xa')](function(_0x54514a){_0x2bf7ba(_0x17cb('0xb'),_0x54514a);},function(_0x3a3d46){_0x2bf7ba('throw',_0x3a3d46);});}}return _0x2bf7ba(_0x17cb('0xb'));});};}function _classCallCheck(_0x305d8a,_0x5679e0){if(!(_0x305d8a instanceof _0x5679e0)){throw new TypeError('Cannot\x20call\x20a\x20class\x20as\x20a\x20function');}}var ViduShare=function(){function _0x5d0aef(_0x4f90cd){_classCallCheck(this,_0x5d0aef);this[_0x17cb('0xc')]=_0x4f90cd[_0x17cb('0xc')];this[_0x17cb('0xd')]=_0x4f90cd['settings'];this[_0x17cb('0xe')]={};}_createClass(_0x5d0aef,[{'key':_0x17cb('0xf'),'value':function(){var _0x5ed4ea=_asyncToGenerator(regeneratorRuntime['mark'](function _callee(_0x139982){var _0xd72d8e,_0x2d1cea;return regeneratorRuntime[_0x17cb('0x10')](function _callee$(_0x1a36ed){while(0x1){switch(_0x1a36ed[_0x17cb('0x11')]=_0x1a36ed[_0x17cb('0xb')]){case 0x0:_0xd72d8e=this[_0x17cb('0xc')][_0x17cb('0x12')];_0x1a36ed[_0x17cb('0xb')]=0x3;return _0xd72d8e[_0x17cb('0x13')](_0x139982);case 0x3:_0x2d1cea=_0x1a36ed[_0x17cb('0x14')];return _0x1a36ed[_0x17cb('0x15')](_0x17cb('0x16'),_0x2d1cea);case 0x5:case'end':return _0x1a36ed[_0x17cb('0x17')]();}}},_callee,this);}));function _0x51c5f0(_0x14012d){return _0x5ed4ea[_0x17cb('0x7')](this,arguments);}return _0x51c5f0;}()},{'key':_0x17cb('0x18'),'value':function convertToEmbed(_0x427d35){}},{'key':_0x17cb('0x19'),'value':function(){var _0x58ab0a=_asyncToGenerator(regeneratorRuntime[_0x17cb('0x1a')](function _callee2(_0x4c39b7){var _0x1faf93,_0x43868c,_0x216146,_0x2f2f78,_0x2c928f,_0x5a92be;return regeneratorRuntime['wrap'](function _callee2$(_0x582b58){while(0x1){switch(_0x582b58[_0x17cb('0x11')]=_0x582b58[_0x17cb('0xb')]){case 0x0:_0x1faf93=this[_0x17cb('0xc')],_0x43868c=_0x1faf93[_0x17cb('0x12')],_0x216146=_0x1faf93['cheerio'];_0x2f2f78=[];_0x582b58[_0x17cb('0xb')]=0x4;return this[_0x17cb('0xf')](_0x4c39b7);case 0x4:_0x2c928f=_0x582b58[_0x17cb('0x14')];if(!(_0x2c928f==![])){_0x582b58[_0x17cb('0xb')]=0x7;break;}throw new Error(_0x17cb('0x1b'));case 0x7:_0x582b58[_0x17cb('0xb')]=0x9;return _0x43868c[_0x17cb('0x1c')](_0x2c928f);case 0x9:_0x5a92be=_0x582b58[_0x17cb('0x14')];if(_0x5a92be!=![]){_0x2f2f78=[{'file':_0x2c928f,'label':'HD','type':_0x17cb('0x1d'),'size':_0x5a92be}];}else{_0x2f2f78=[];}return _0x582b58['abrupt'](_0x17cb('0x16'),{'host':{'url':_0x4c39b7,'name':'vidushare'},'result':sources});case 0xc:case _0x17cb('0x1e'):return _0x582b58[_0x17cb('0x17')]();}}},_callee2,this);}));function _0x5ab13f(_0x2a2190){return _0x58ab0a[_0x17cb('0x7')](this,arguments);}return _0x5ab13f;}()}]);return _0x5d0aef;}();thisSource['function']=function(_0x337933,_0x49db26){return new ViduShare({'libs':_0x337933,'settings':_0x49db26});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ViduShare = function () {
+    function ViduShare(props) {
+        _classCallCheck(this, ViduShare);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(ViduShare, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+
+                                // you fill the die status text
+                                // const dieStatusText = "";
+
+                                _context.next = 3;
+                                return httpRequest.getRedirectUrl(url);
+
+                            case 3:
+                                html = _context.sent;
+                                return _context.abrupt('return', html);
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'convertToEmbed',
+        value: function convertToEmbed(url) {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+
+            // let id = url.match(/\/embed\-([^\-]+)/i);
+            // id = url != null ? url[1] : false;
+
+            // if( id == false ) return url;
+
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cheerio, arr, result, isDie;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                arr = [];
+                                _context2.next = 4;
+                                return this.checkLive(url);
+
+                            case 4:
+                                result = _context2.sent;
+
+                                if (!(result == false)) {
+                                    _context2.next = 7;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 7:
+                                _context2.next = 9;
+                                return httpRequest.isLinkDie(result);
+
+                            case 9:
+                                isDie = _context2.sent;
+
+
+                                if (isDie != false) {
+                                    arr = [{ file: result,
+                                        label: 'HD', type: 'direct', size: isDie }];
+                                } else {
+                                    arr = [];
+                                }
+
+                                return _context2.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "vidushare"
+                                    },
+                                    result: sources
+                                });
+
+                            case 12:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return ViduShare;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new ViduShare({ libs: libs, settings: settings });
+};
