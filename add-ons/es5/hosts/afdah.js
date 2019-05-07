@@ -176,7 +176,7 @@ var Afdah = function () {
                                 allowCache = false;
                                 u = '';
                                 sources = [];
-                                bodyPost = void 0;
+                                bodyPost = {};
                                 embeds = ['/embed/', '/embed3/'];
                                 r = url.match(/\/embed\d?\/(\d+)/);
 
