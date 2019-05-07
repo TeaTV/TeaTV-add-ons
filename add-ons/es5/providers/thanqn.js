@@ -85,6 +85,11 @@ var Thanqn = function () {
                                 throw new Error("NOT_FOUND");
 
                             case 4:
+
+                                if (type == 'movie') {
+                                    season = 0;episode = 0;
+                                }
+
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
                                 ss = season;
@@ -103,10 +108,10 @@ var Thanqn = function () {
 
                                 if (type == 'movie') posts.year = year;
 
-                                _context2.next = 13;
+                                _context2.next = 14;
                                 return httpRequest.post(this.state.detailUrl, URL.HEADERS(), posts);
 
-                            case 13:
+                            case 14:
                                 res = _context2.sent;
 
 
@@ -128,7 +133,7 @@ var Thanqn = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 16:
+                            case 17:
                             case 'end':
                                 return _context2.stop();
                         }
