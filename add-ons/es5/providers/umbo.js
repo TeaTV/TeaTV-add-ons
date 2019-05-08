@@ -85,6 +85,11 @@ var Umbo = function () {
                                 throw new Error("NOT_FOUND");
 
                             case 4:
+
+                                if (type == 'movie') {
+                                    season = 0;episode = 0;
+                                }
+
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
                                 ss = season;
@@ -105,10 +110,10 @@ var Umbo = function () {
 
                                 if (type == 'movie') posts.year = year;
 
-                                _context2.next = 13;
+                                _context2.next = 14;
                                 return httpRequest.post(this.state.detailUrl, URL.HEADERS(), posts);
 
-                            case 13:
+                            case 14:
                                 res = _context2.sent;
 
 
@@ -130,7 +135,7 @@ var Umbo = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 16:
+                            case 17:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -151,7 +156,7 @@ var Umbo = function () {
 
 thisSource.function = function () {
     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(libs, movieInfo, settings) {
-        var httpRequest, source, bodyPost;
+        var httpRequest, source, bodyPost, res, js, hosts;
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
             while (1) {
                 switch (_context3.prev = _context3.next) {
@@ -162,41 +167,83 @@ thisSource.function = function () {
                             movieInfo: movieInfo,
                             settings: settings
                         });
+
+
+                        if (movieInfo.type == 'movie') {
+                            movieInfo.season = 0;movieInfo.episode = 0;
+                        }
+
                         bodyPost = {
-                            name_source: 'Umbo',
+                            name_source: 'umbo',
                             is_link: 0,
                             type: movieInfo.type,
                             season: movieInfo.season,
                             episode: movieInfo.episode,
                             title: movieInfo.title,
-                            year: movieInfo.year
+                            year: movieInfo.year,
+                            hash: libs.cryptoJs.MD5(movieInfo.title.toLowerCase() + movieInfo.season.toString() + "aloha" + movieInfo.episode.toString()).toString()
                         };
-                        _context3.next = 5;
+                        _context3.next = 6;
+                        return httpRequest.post('https://vvv.teatv.net/source/get', {}, bodyPost);
+
+                    case 6:
+                        res = _context3.sent;
+                        js = void 0, hosts = [];
+
+
+                        try {
+                            res = res['data'];
+                            if (res['status']) {
+                                hosts = JSON.parse(res['hosts']);
+                            }
+                        } catch (err) {
+                            console.log('err', err);
+                        }
+
+                        if (movieInfo.checker != undefined) hosts = [];
+
+                        if (!(hosts.length == 0)) {
+                            _context3.next = 23;
+                            break;
+                        }
+
+                        _context3.next = 13;
                         return source.searchDetail();
 
-                    case 5:
-
-                        if (!source.state.detailUrl) {
-                            bodyPost.is_link = 0;
-                        } else {
-                            bodyPost.is_link = 1;
-                        }
-                        _context3.next = 8;
+                    case 13:
+                        _context3.next = 15;
                         return source.getHostFromDetail();
 
-                    case 8:
+                    case 15:
+                        hosts = source.state.hosts;
 
-                        if (source.state.hosts.length == 0) {
-                            bodyPost.is_link = 0;
-                        } else {
-                            bodyPost.is_link = 1;
+                        if (!(movieInfo.checker != undefined)) {
+                            _context3.next = 18;
+                            break;
                         }
 
-                        //await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
+                        return _context3.abrupt('return', hosts);
 
-                        return _context3.abrupt('return', source.state.hosts);
+                    case 18:
+                        if (!(hosts.length > 0)) {
+                            _context3.next = 23;
+                            break;
+                        }
 
-                    case 10:
+                        bodyPost['hosts'] = JSON.stringify(hosts);
+                        bodyPost['expired'] = 86400;
+                        _context3.next = 23;
+                        return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
+
+                    case 23:
+
+                        if (movieInfo.ss != undefined) {
+                            movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
+                        }
+
+                        return _context3.abrupt('return', hosts);
+
+                    case 25:
                     case 'end':
                         return _context3.stop();
                 }

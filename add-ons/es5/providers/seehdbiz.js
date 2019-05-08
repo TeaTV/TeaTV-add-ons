@@ -250,6 +250,12 @@ thisSource.function = function () {
                             movieInfo: movieInfo,
                             settings: settings
                         });
+
+
+                        if (movieInfo.type == 'movie') {
+                            movieInfo.season = 0;movieInfo.episode = 0;
+                        }
+
                         bodyPost = {
                             name_source: 'seehdbiz',
                             is_link: 0,
@@ -259,10 +265,10 @@ thisSource.function = function () {
                             title: movieInfo.title,
                             year: movieInfo.year
                         };
-                        _context4.next = 5;
+                        _context4.next = 6;
                         return source.searchDetail();
 
-                    case 5:
+                    case 6:
 
                         if (!source.state.detailUrl) {
                             bodyPost.is_link = 0;
@@ -270,10 +276,10 @@ thisSource.function = function () {
                             bodyPost.is_link = 1;
                         }
 
-                        _context4.next = 8;
+                        _context4.next = 9;
                         return source.getHostFromDetail();
 
-                    case 8:
+                    case 9:
 
                         if (source.state.hosts.length == 0) {
                             bodyPost.is_link = 0;
@@ -285,7 +291,7 @@ thisSource.function = function () {
 
                         return _context4.abrupt('return', source.state.hosts);
 
-                    case 10:
+                    case 11:
                     case 'end':
                         return _context4.stop();
                 }

@@ -287,6 +287,12 @@ thisSource.function = function () {
                             movieInfo: movieInfo,
                             settings: settings
                         });
+
+
+                        if (movieInfo.type == 'movie') {
+                            movieInfo.season = 0;movieInfo.episode = 0;
+                        }
+
                         bodyPost = {
                             name_source: 'Series9',
                             is_link: 0,
@@ -297,10 +303,10 @@ thisSource.function = function () {
                             year: movieInfo.year,
                             hash: libs.cryptoJs.MD5(movieInfo.title.toLowerCase() + movieInfo.season.toString() + "aloha" + movieInfo.episode.toString()).toString()
                         };
-                        _context5.next = 5;
+                        _context5.next = 6;
                         return httpRequest.post('https://vvv.teatv.net/source/get', {}, bodyPost);
 
-                    case 5:
+                    case 6:
                         res = _context5.sent;
                         js = void 0, hosts = [];
 
@@ -317,39 +323,39 @@ thisSource.function = function () {
                         if (movieInfo.checker != undefined) hosts = [];
 
                         if (!(hosts.length == 0)) {
-                            _context5.next = 22;
+                            _context5.next = 23;
                             break;
                         }
 
-                        _context5.next = 12;
+                        _context5.next = 13;
                         return source.searchDetail();
 
-                    case 12:
-                        _context5.next = 14;
+                    case 13:
+                        _context5.next = 15;
                         return source.getHostFromDetail();
 
-                    case 14:
+                    case 15:
                         hosts = source.state.hosts;
 
                         if (!(movieInfo.checker != undefined)) {
-                            _context5.next = 17;
+                            _context5.next = 18;
                             break;
                         }
 
                         return _context5.abrupt('return', hosts);
 
-                    case 17:
+                    case 18:
                         if (!(hosts.length > 0)) {
-                            _context5.next = 22;
+                            _context5.next = 23;
                             break;
                         }
 
                         bodyPost['hosts'] = JSON.stringify(hosts);
                         bodyPost['expired'] = 10800;
-                        _context5.next = 22;
+                        _context5.next = 23;
                         return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
 
-                    case 22:
+                    case 23:
 
                         if (movieInfo.ss != undefined) {
                             movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
@@ -357,7 +363,7 @@ thisSource.function = function () {
 
                         return _context5.abrupt('return', hosts);
 
-                    case 24:
+                    case 25:
                     case 'end':
                         return _context5.stop();
                 }
