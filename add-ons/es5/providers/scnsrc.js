@@ -53,6 +53,37 @@ var Scnsrc = function () {
         this.settings = props.settings;
 
         this.state = {};
+        this.headers = {};
+
+        if (this.movieInfo.cookie != undefined) {
+            try {
+                var cookies = JSON.parse(this.libs.base64.decode(this.movieInfo.cookie));
+                for (var i in cookies) {
+                    if (cookies[i].domain.indexOf('scnsrc') != -1) {
+                        var c = cookies[i].cookie;
+
+                        var m = c.match(/__cfduid=([^;]+)/);
+
+                        if (m == undefined) continue;
+                        var cfuid = m[1];
+
+                        var cfclear = false;
+                        m = c.match(/cf_clearance=([^;]+)/);
+                        if (m != undefined) cfclear = m[1];else {
+                            m = c.match(/cf_clearance=([^"]+)/);
+                            if (m != undefined) cfclear = m[1];
+                        }
+                        if (!cfclear) continue;
+
+                        this.headers['cookie'] = '__cfduid=' + cfuid + '; cf_clearance=' + cfclear;
+                        this.headers['cookie'] = c;
+                        this.headers['User-Agent'] = cookies[i].useragent;
+                    }
+                }
+            } catch (e) {
+                console.log('disdis', e, 'e');
+            }
+        }
     }
 
     _createClass(Scnsrc, [{
@@ -94,13 +125,11 @@ var Scnsrc = function () {
                                 //let htmlSearch 		= await httpRequest.getHTML(urlSearch, URL.HEADERS());
                                 //let itemSearch =  $('#b_results .b_algo');
                                 _context.next = 11;
-                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS(Math.round(+new Date())));
+                                return httpRequest.getHTML(urlSearch, this.headers);
 
                             case 11:
                                 htmlSearch = _context.sent;
-                                $ = cheerio.load(htmlSearch.data);
-                                //console.log(htmlSearch);
-
+                                $ = cheerio.load(htmlSearch);
                                 itemSearch = $('.content .post');
                                 urls = [];
                                 find = void 0;
@@ -113,7 +142,7 @@ var Scnsrc = function () {
                                     var hrefMovie = $(this).find('h2 a').attr('href');
                                     //console.log(hrefMovie, find, 'f');
 
-                                    if (hrefMovie.indexOf(find) != -1 && urls.length < 3) urls.push(hrefMovie);
+                                    if (hrefMovie.indexOf(find) != -1 && urls.length < 10) urls.push(hrefMovie);
                                 });
 
                                 this.state.detailUrl = urls;
@@ -137,7 +166,7 @@ var Scnsrc = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs2, httpRequest, cheerio, base64, _, _movieInfo2, title, year, season, episode, type, detailUrl, arr_lk, urls, hosts, supported, detailPromises, i, u, ulower, tlower, finds, f;
+                var _libs2, httpRequest, cheerio, base64, _, _movieInfo2, title, year, season, episode, type, detailUrl, arr_lk, urls, hosts, headers, supported, detailPromises, i, u, ulower, tlower, finds, f;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -167,25 +196,37 @@ var Scnsrc = function () {
                                 arr_lk = [];
                                 urls = [];
                                 hosts = [];
+                                headers = this.headers;
                                 supported = ['rapidgator.net', 'ul.to', 'nitroflare.com'];
                                 detailPromises = detailUrl.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(link) {
-                                        var dataSearch, hrefs, i, u, domain;
+                                        var hrefs, dataSearch, i, u, domain;
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
-                                                        _context2.next = 2;
-                                                        return httpRequest.getHTML(link, URL.HEADERS());
+                                                        hrefs = [];
+                                                        _context2.prev = 1;
+                                                        _context2.next = 4;
+                                                        return httpRequest.getHTML(link, headers);
 
-                                                    case 2:
+                                                    case 4:
                                                         dataSearch = _context2.sent;
+
                                                         hrefs = dataSearch.match(/href="?([^("?\s?)]+)/g);
+                                                        _context2.next = 10;
+                                                        break;
+
+                                                    case 8:
+                                                        _context2.prev = 8;
+                                                        _context2.t0 = _context2['catch'](1);
+
+                                                    case 10:
                                                         i = 0;
 
-                                                    case 5:
+                                                    case 11:
                                                         if (!(i < hrefs.length)) {
-                                                            _context2.next = 25;
+                                                            _context2.next = 31;
                                                             break;
                                                         }
 
@@ -194,77 +235,77 @@ var Scnsrc = function () {
                                                         if (u == undefined) u = hrefs[i].split('=');
 
                                                         if (!(u != null && u != undefined)) {
-                                                            _context2.next = 22;
+                                                            _context2.next = 28;
                                                             break;
                                                         }
 
                                                         if (u.length == 2) u = u[1].replace(/href="?/, "");else u = u[0].replace(/href="?/, "");
 
                                                         if (!(u == undefined || u.length < 70)) {
-                                                            _context2.next = 12;
-                                                            break;
-                                                        }
-
-                                                        return _context2.abrupt('continue', 22);
-
-                                                    case 12:
-                                                        if (!(u.indexOf('part') != -1)) {
-                                                            _context2.next = 14;
-                                                            break;
-                                                        }
-
-                                                        return _context2.abrupt('continue', 22);
-
-                                                    case 14:
-                                                        if (!(u.indexOf('sample') != -1)) {
-                                                            _context2.next = 16;
-                                                            break;
-                                                        }
-
-                                                        return _context2.abrupt('continue', 22);
-
-                                                    case 16:
-                                                        if (!(u.indexOf('.rar') != -1)) {
                                                             _context2.next = 18;
                                                             break;
                                                         }
 
-                                                        return _context2.abrupt('continue', 22);
+                                                        return _context2.abrupt('continue', 28);
 
                                                     case 18:
-                                                        if (!(u.indexOf('.mp4') == -1 && u.indexOf('.avi') == -1 && u.indexOf('.mkv') == -1)) {
+                                                        if (!(u.indexOf('part') != -1)) {
                                                             _context2.next = 20;
                                                             break;
                                                         }
 
-                                                        return _context2.abrupt('continue', 22);
+                                                        return _context2.abrupt('continue', 28);
 
                                                     case 20:
+                                                        if (!(u.indexOf('sample') != -1)) {
+                                                            _context2.next = 22;
+                                                            break;
+                                                        }
+
+                                                        return _context2.abrupt('continue', 28);
+
+                                                    case 22:
+                                                        if (!(u.indexOf('.rar') != -1)) {
+                                                            _context2.next = 24;
+                                                            break;
+                                                        }
+
+                                                        return _context2.abrupt('continue', 28);
+
+                                                    case 24:
+                                                        if (!(u.indexOf('.mp4') == -1 && u.indexOf('.avi') == -1 && u.indexOf('.mkv') == -1)) {
+                                                            _context2.next = 26;
+                                                            break;
+                                                        }
+
+                                                        return _context2.abrupt('continue', 28);
+
+                                                    case 26:
                                                         domain = getDomain(u);
 
                                                         if (supported.includes(domain)) urls.push(u);
 
-                                                    case 22:
+                                                    case 28:
                                                         i++;
-                                                        _context2.next = 5;
+                                                        _context2.next = 11;
                                                         break;
 
-                                                    case 25:
+                                                    case 31:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
                                             }
-                                        }, _callee2, this);
+                                        }, _callee2, this, [[1, 8]]);
                                     }));
 
                                     return function (_x) {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 14;
+                                _context3.next = 15;
                                 return Promise.all(detailPromises);
 
-                            case 14:
+                            case 15:
 
                                 for (i = 0; i < urls.length; i++) {
                                     u = urls[i];
@@ -291,7 +332,7 @@ var Scnsrc = function () {
 
                                 this.state.hosts = hosts;
 
-                            case 16:
+                            case 17:
                             case 'end':
                                 return _context3.stop();
                         }
@@ -373,7 +414,7 @@ thisSource.function = function () {
                         }
 
                         bodyPost['hosts'] = JSON.stringify(hosts);
-                        bodyPost['expired'] = 3600;
+                        bodyPost['expired'] = 86400;
                         _context4.next = 20;
                         return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
 
