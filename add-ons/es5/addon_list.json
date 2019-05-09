@@ -235,15 +235,6 @@
                 "movie"
             ]
         },
-        "watchhdmovie": {
-            "name": "watchhdmovie",
-            "domain": "watchhdmovie.dis",
-            "version": "0.0.6",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchhdmovie.js",
-            "type": [
-                "movie"
-            ]
-        },
         "filmxyz": {
             "name": "filmxyz",
             "domain": "filmxyz.dis",
@@ -518,7 +509,7 @@
         "rapidvideo": {
             "name": "rapidvideo",
             "domain": "rapidvideo.com",
-            "version": "0.1.12",
+            "version": "0.1.13",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/rapidvideo.js"
         },
         "tocloud": {
@@ -880,6 +871,14 @@
             ],
             "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vcstream.js"
+        },
+        "clipwatch": {
+            "name": "clipwatch",
+            "domain": [
+                "clipwatching.com"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/clipwatching.js"
         }
     }
 }

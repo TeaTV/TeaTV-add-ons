@@ -112,22 +112,24 @@ var Rlsbb = function () {
                                 } else {
                                     if (season < 10) season = '0' + season;
                                     if (episode < 10) episode = '0' + episode;
-                                    titleSearch = title.replace(/[\s':-]/g, '+') + '+s' + season + 'e' + episode;
+                                    titleSearch = title.replace(/[\s':-]/g, '%20') + '+s' + season + 'e' + episode;
                                     urlCode = URL.SEARCH_CODE(title.replace(/[\s':-]/g, '+') + '+s' + season + 'e' + episode);
                                 }
 
-                                _context.next = 13;
+                                this.headers['referer'] = urlCode;
+
+                                _context.next = 14;
                                 return httpRequest.getHTML(urlCode, this.headers);
 
-                            case 13:
+                            case 14:
                                 dataCode = _context.sent;
                                 m = dataCode.match(/data-code-rlsbb="([^"]+)/);
                                 code = m[1];
                                 urlSearch = URL.SEARCH(titleSearch, code, Math.random());
-                                _context.next = 19;
+                                _context.next = 20;
                                 return httpRequest.getHTML(urlSearch, this.headers);
 
-                            case 19:
+                            case 20:
                                 dataSearch = _context.sent;
                                 js = JSON.parse(dataSearch);
                                 results = js['results'];
@@ -148,26 +150,26 @@ var Rlsbb = function () {
                                         if (post_name.indexOf(slug) === 0 && post_name.indexOf(prefix) != -1) detailUrl.push(post_name);
                                     }
                                 }
-                                _context.next = 29;
+                                _context.next = 30;
                                 break;
 
-                            case 26:
-                                _context.prev = 26;
+                            case 27:
+                                _context.prev = 27;
                                 _context.t0 = _context['catch'](7);
 
                                 console.log(String(_context.t0));
 
-                            case 29:
+                            case 30:
 
                                 this.state.detailUrl = detailUrl;
                                 return _context.abrupt('return');
 
-                            case 31:
+                            case 32:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[7, 26]]);
+                }, _callee, this, [[7, 27]]);
             }));
 
             function searchDetail() {
@@ -204,19 +206,29 @@ var Rlsbb = function () {
                                 supported = ['rapidgator.net', 'ul.to', 'nitroflare.com'];
                                 detailPromises = detailUrl.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(link) {
-                                        var fullUrl, dataSearch, hrefs, i, u, domain;
+                                        var fullUrl, hrefs, dataSearch, i, u, domain;
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
                                                         fullUrl = URL.DOMAIN + '/' + link;
-                                                        _context2.next = 3;
+                                                        hrefs = [];
+                                                        _context2.prev = 2;
+                                                        _context2.next = 5;
                                                         return httpRequest.getHTML(fullUrl, headers);
 
-                                                    case 3:
+                                                    case 5:
                                                         dataSearch = _context2.sent;
-                                                        hrefs = dataSearch.match(/href="([^"]+)/g);
 
+                                                        hrefs = dataSearch.match(/href="([^"]+)/g);
+                                                        _context2.next = 11;
+                                                        break;
+
+                                                    case 9:
+                                                        _context2.prev = 9;
+                                                        _context2.t0 = _context2['catch'](2);
+
+                                                    case 11:
                                                         for (i = 0; i < hrefs.length; i++) {
                                                             u = hrefs[i].split('"');
 
@@ -228,12 +240,12 @@ var Rlsbb = function () {
                                                             }
                                                         }
 
-                                                    case 6:
+                                                    case 12:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
                                             }
-                                        }, _callee2, this);
+                                        }, _callee2, this, [[2, 9]]);
                                     }));
 
                                     return function (_x) {

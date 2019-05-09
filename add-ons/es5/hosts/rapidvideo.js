@@ -86,25 +86,28 @@ var RapidVideo = function () {
                                 throw new Error("LINK DIE");
 
                             case 2:
+
+                                url = url.replace('/e/', '/v/');
+
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                 arrVideoQuality = [];
                                 results = [];
-                                _context3.next = 7;
+                                _context3.next = 8;
                                 return this.checkLive(url);
 
-                            case 7:
+                            case 8:
                                 html = _context3.sent;
 
                                 if (!(html == false)) {
-                                    _context3.next = 10;
+                                    _context3.next = 11;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
-                            case 10:
+                            case 11:
                                 $ = cheerio.load(html);
-                                _context3.prev = 11;
+                                _context3.prev = 12;
                                 quality = $('div[style*="height:30px; width:500px; margin:0 auto; color:#FFF; font-size:15px; line-height:30px; float:left;"]').find('a');
 
 
@@ -160,10 +163,10 @@ var RapidVideo = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 17;
+                                _context3.next = 18;
                                 return Promise.all(arrPromise);
 
-                            case 17:
+                            case 18:
                                 return _context3.abrupt('return', {
                                     host: {
                                         url: url,
@@ -172,17 +175,17 @@ var RapidVideo = function () {
                                     result: results
                                 });
 
-                            case 20:
-                                _context3.prev = 20;
-                                _context3.t0 = _context3['catch'](11);
+                            case 21:
+                                _context3.prev = 21;
+                                _context3.t0 = _context3['catch'](12);
                                 throw new Error(_context3.t0);
 
-                            case 23:
+                            case 24:
                             case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this, [[11, 20]]);
+                }, _callee3, this, [[12, 21]]);
             }));
 
             function getLink(_x2) {

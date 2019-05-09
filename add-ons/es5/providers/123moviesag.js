@@ -7,13 +7,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var URL = {
-    DOMAIN: "http://www0.123movies.ag/",
+    DOMAIN: "http://www5.123movies.ag/",
     SEARCH: function SEARCH(title) {
-        return 'http://www0.123movies.ag/search/' + title + '.html';
+        return 'http://www5.123movies.ag/search/' + title + '.html';
     },
-    HASH_URL: 'http://www0.123movies.ag/ip.file/swf/plugins/ipplugins.php',
+    HASH_URL: 'http://www5.123movies.ag/ip.file/swf/plugins/ipplugins.php',
     PLAYER_URL: function PLAYER_URL(key, server_id) {
-        return 'http://www0.123movies.ag/ip.file/swf/ipplayer/ipplayer.php?u=' + key + '&s=' + server_id + '&n=0';
+        return 'http://www5.123movies.ag/ip.file/swf/ipplayer/ipplayer.php?u=' + key + '&s=' + server_id + '&n=0';
     },
     HEADERS: function HEADERS(referer) {
         return {
@@ -32,6 +32,37 @@ var s123MoviesAg = function () {
         this.settings = props.settings;
 
         this.state = {};
+        this.headers = {};
+
+        if (this.movieInfo.cookie != undefined) {
+            try {
+                var cookies = JSON.parse(this.libs.base64.decode(this.movieInfo.cookie));
+                for (var i in cookies) {
+                    if (URL.DOMAIN.indexOf(cookies[i].domain) != -1) {
+                        var c = cookies[i].cookie;
+
+                        var m = c.match(/__cfduid=([^;]+)/);
+
+                        if (m == undefined) continue;
+                        var cfuid = m[1];
+
+                        var cfclear = false;
+                        m = c.match(/cf_clearance=([^;]+)/);
+                        if (m != undefined) cfclear = m[1];else {
+                            m = c.match(/cf_clearance=([^"]+)/);
+                            if (m != undefined) cfclear = m[1];
+                        }
+                        if (!cfclear) continue;
+
+                        this.headers['cookie'] = '__cfduid=' + cfuid + '; cf_clearance=' + cfclear;
+                        //this.headers['cookie'] = c;
+                        this.headers['User-Agent'] = cookies[i].useragent;
+                    }
+                }
+            } catch (e) {
+                console.log('disdis', e, 'e');
+            }
+        }
     }
 
     _createClass(s123MoviesAg, [{
@@ -50,7 +81,7 @@ var s123MoviesAg = function () {
                                 videoUrl = false;
                                 urlSearch = URL.SEARCH(title.replace(/[\s:'-]+/, '+'));
                                 _context.next = 7;
-                                return httpRequest.getHTML(urlSearch);
+                                return httpRequest.getHTML(urlSearch, this.headers);
 
                             case 7:
                                 htmlSearch = _context.sent;
@@ -95,7 +126,7 @@ var s123MoviesAg = function () {
         key: 'getHostFromDetail',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-                var _libs2, httpRequest, cheerio, qs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, htmlDetail, $, m, new_url, servers, sources, sourcesPromise;
+                var _libs2, httpRequest, cheerio, qs, _movieInfo2, title, year, season, episode, type, hosts, detailUrl, htmlDetail, $, m, new_url, servers, sources, headers, sourcesPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -115,7 +146,7 @@ var s123MoviesAg = function () {
                                 hosts = [];
                                 detailUrl = this.state.detailUrl;
                                 _context3.next = 8;
-                                return httpRequest.getHTML(this.state.detailUrl);
+                                return httpRequest.getHTML(this.state.detailUrl, this.headers);
 
                             case 8:
                                 htmlDetail = _context3.sent;
@@ -149,7 +180,7 @@ var s123MoviesAg = function () {
                                 }
 
                                 _context3.next = 18;
-                                return httpRequest.getHTML(new_url);
+                                return httpRequest.getHTML(new_url, this.headers);
 
                             case 18:
                                 htmlDetail = _context3.sent;
@@ -175,6 +206,7 @@ var s123MoviesAg = function () {
                                     });
                                 });
 
+                                headers = this.headers;
                                 sourcesPromise = sources.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(source) {
                                         var hash, hashKey, playHtml, last_u;
@@ -183,13 +215,13 @@ var s123MoviesAg = function () {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
                                                         _context2.next = 2;
-                                                        return httpRequest.post(URL.HASH_URL, {}, source);
+                                                        return httpRequest.post(URL.HASH_URL, headers, source);
 
                                                     case 2:
                                                         hash = _context2.sent;
                                                         hashKey = hash.data.s;
                                                         _context2.next = 6;
-                                                        return httpRequest.getHTML(URL.PLAYER_URL(hashKey, source.server_id));
+                                                        return httpRequest.getHTML(URL.PLAYER_URL(hashKey, source.server_id), headers);
 
                                                     case 6:
                                                         playHtml = _context2.sent;
@@ -234,14 +266,14 @@ var s123MoviesAg = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 26;
+                                _context3.next = 27;
                                 return Promise.all(sourcesPromise);
 
-                            case 26:
+                            case 27:
 
                                 this.state.hosts = hosts;
 
-                            case 27:
+                            case 28:
                             case 'end':
                                 return _context3.stop();
                         }
