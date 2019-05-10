@@ -1,1 +1,154 @@
-var _0x67d8=['keep-alive','drive.google.com','Mozilla/5.0\x20(Macintosh;\x20Intel\x20Mac\x20OS\x20X\x2010_13_1)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/65.0.3325.146\x20Safari/537.36','sent','abrupt','return','end','stop','convertToEmbed','indexOf','http://','NOT_FOUND','cheerio','getHTML','fmt_stream_map','log','push','direct','NOR','1080p','GoogleDrive','function','length','enumerable','configurable','value','writable','defineProperty','key','prototype','apply','done','resolve','then','next','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','https://drive.google.com/get_video_info?docid=','libs','settings','state','checkLive','mark','wrap','prev','httpRequest','vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','max-age=0'];(function(_0x5c99cf,_0x11ba00){var _0xce27b3=function(_0x1efe16){while(--_0x1efe16){_0x5c99cf['push'](_0x5c99cf['shift']());}};_0xce27b3(++_0x11ba00);}(_0x67d8,0x1ec));var _0x45d7=function(_0x497457,_0x4e9a75){_0x497457=_0x497457-0x0;var _0x590c25=_0x67d8[_0x497457];return _0x590c25;};var _createClass=function(){function _0x38350e(_0x54a0d3,_0x30bf0e){for(var _0x17f2ce=0x0;_0x17f2ce<_0x30bf0e[_0x45d7('0x0')];_0x17f2ce++){var _0x11e0e0=_0x30bf0e[_0x17f2ce];_0x11e0e0[_0x45d7('0x1')]=_0x11e0e0[_0x45d7('0x1')]||![];_0x11e0e0[_0x45d7('0x2')]=!![];if(_0x45d7('0x3')in _0x11e0e0)_0x11e0e0[_0x45d7('0x4')]=!![];Object[_0x45d7('0x5')](_0x54a0d3,_0x11e0e0[_0x45d7('0x6')],_0x11e0e0);}}return function(_0x3a37db,_0x3f8534,_0x492a0e){if(_0x3f8534)_0x38350e(_0x3a37db[_0x45d7('0x7')],_0x3f8534);if(_0x492a0e)_0x38350e(_0x3a37db,_0x492a0e);return _0x3a37db;};}();function _asyncToGenerator(_0x59112d){return function(){var _0x108c34=_0x59112d[_0x45d7('0x8')](this,arguments);return new Promise(function(_0x23e667,_0x3f64b6){function _0x55c974(_0x4a1424,_0x5ebf65){try{var _0x310f71=_0x108c34[_0x4a1424](_0x5ebf65);var _0x18434e=_0x310f71[_0x45d7('0x3')];}catch(_0x1694ff){_0x3f64b6(_0x1694ff);return;}if(_0x310f71[_0x45d7('0x9')]){_0x23e667(_0x18434e);}else{return Promise[_0x45d7('0xa')](_0x18434e)[_0x45d7('0xb')](function(_0x49edd0){_0x55c974(_0x45d7('0xc'),_0x49edd0);},function(_0x2e92c3){_0x55c974('throw',_0x2e92c3);});}}return _0x55c974(_0x45d7('0xc'));});};}function _classCallCheck(_0x578c14,_0x4e9509){if(!(_0x578c14 instanceof _0x4e9509)){throw new TypeError(_0x45d7('0xd'));}}var URL={'INFO':function INFO(_0x444435){return _0x45d7('0xe')+_0x444435+'&authuser=0';}};var GoogleDrive=function(){function _0x38fdcc(_0x4d490c){_classCallCheck(this,_0x38fdcc);this[_0x45d7('0xf')]=_0x4d490c[_0x45d7('0xf')];this['settings']=_0x4d490c[_0x45d7('0x10')];this[_0x45d7('0x11')]={};}_createClass(_0x38fdcc,[{'key':_0x45d7('0x12'),'value':function(){var _0x538074=_asyncToGenerator(regeneratorRuntime[_0x45d7('0x13')](function _callee(_0x3f1103){var _0x490e2b,_0x2fdc38;return regeneratorRuntime[_0x45d7('0x14')](function _callee$(_0x3c488e){while(0x1){switch(_0x3c488e[_0x45d7('0x15')]=_0x3c488e[_0x45d7('0xc')]){case 0x0:_0x490e2b=this[_0x45d7('0xf')][_0x45d7('0x16')];_0x3c488e[_0x45d7('0xc')]=0x3;return _0x490e2b['getHTML'](_0x3f1103,{'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8','Accept-Language':_0x45d7('0x17'),'Cache-Control':_0x45d7('0x18'),'Connection':_0x45d7('0x19'),'Host':_0x45d7('0x1a'),'Upgrade-Insecure-Requests':0x1,'User-Agent':_0x45d7('0x1b')});case 0x3:_0x2fdc38=_0x3c488e[_0x45d7('0x1c')];return _0x3c488e[_0x45d7('0x1d')](_0x45d7('0x1e'),_0x2fdc38);case 0x5:case _0x45d7('0x1f'):return _0x3c488e[_0x45d7('0x20')]();}}},_callee,this);}));function _0x1788fd(_0x4da321){return _0x538074[_0x45d7('0x8')](this,arguments);}return _0x1788fd;}()},{'key':_0x45d7('0x21'),'value':function convertToEmbed(_0x3527a8){}},{'key':'getLink','value':function(){var _0x988e5d=_asyncToGenerator(regeneratorRuntime[_0x45d7('0x13')](function _callee2(_0x5ee866){var _0x13ff91,_0x21c74b,_0x39ce16,_0x36b595,_0x31af09,_0x250fbd;return regeneratorRuntime[_0x45d7('0x14')](function _callee2$(_0x2b4351){while(0x1){switch(_0x2b4351[_0x45d7('0x15')]=_0x2b4351[_0x45d7('0xc')]){case 0x0:if(!(_0x5ee866[_0x45d7('0x22')](_0x45d7('0x23'))!=0x0&&_0x5ee866['indexOf']('https://')!=0x0)){_0x2b4351[_0x45d7('0xc')]=0x2;break;}throw new Error(_0x45d7('0x24'));case 0x2:_0x13ff91=this[_0x45d7('0xf')],_0x21c74b=_0x13ff91[_0x45d7('0x16')],_0x39ce16=_0x13ff91[_0x45d7('0x25')],_0x36b595=_0x13ff91['qs'];_0x2b4351['next']=0x5;return _0x21c74b[_0x45d7('0x26')](_0x5ee866);case 0x5:_0x31af09=_0x2b4351['sent'];if(!(_0x31af09[_0x45d7('0x22')](_0x45d7('0x27'))==-0x1)){_0x2b4351[_0x45d7('0xc')]=0x9;break;}console[_0x45d7('0x28')]('drive_log,\x20drive\x20error',_0x5ee866);throw new Error(_0x45d7('0x24'));case 0x9:console[_0x45d7('0x28')]('drive_log,\x20drive\x20ok',_0x5ee866);_0x250fbd=[];_0x250fbd[_0x45d7('0x29')]({'type':_0x45d7('0x2a'),'size':_0x45d7('0x2b'),'label':_0x45d7('0x2c'),'file':_0x5ee866});return _0x2b4351[_0x45d7('0x1d')](_0x45d7('0x1e'),{'host':{'url':_0x5ee866,'name':_0x45d7('0x2d')},'result':_0x250fbd});case 0xd:case _0x45d7('0x1f'):return _0x2b4351['stop']();}}},_callee2,this);}));function _0x276a51(_0x37b5be){return _0x988e5d[_0x45d7('0x8')](this,arguments);}return _0x276a51;}()}]);return _0x38fdcc;}();thisSource[_0x45d7('0x2e')]=function(_0x7da7a5,_0x46cafc){return new GoogleDrive({'libs':_0x7da7a5,'settings':_0x46cafc});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var URL = {
+    INFO: function INFO(id) {
+        return 'https://drive.google.com/get_video_info?docid=' + id + '&authuser=0';
+    }
+};
+
+var GoogleDrive = function () {
+    function GoogleDrive(props) {
+        _classCallCheck(this, GoogleDrive);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(GoogleDrive, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+
+                                // you fill the die status text
+                                // const dieStatusText = "";
+
+                                _context.next = 3;
+                                return httpRequest.getHTML(url, {
+                                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                                    'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+                                    'Cache-Control': 'max-age=0',
+                                    'Connection': 'keep-alive',
+                                    'Host': 'drive.google.com',
+                                    'Upgrade-Insecure-Requests': 1,
+                                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36'
+                                });
+
+                            case 3:
+                                html = _context.sent;
+                                return _context.abrupt('return', html);
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'convertToEmbed',
+        value: function convertToEmbed(url) {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+
+            // let id = url.match(/\/embed\-([^\-]+)/i);
+            // id = url != null ? url[1] : false;
+
+            // if( id == false ) return url;
+
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cheerio, qs, html, sources;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                                    _context2.next = 2;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 2:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, qs = _libs.qs;
+                                _context2.next = 5;
+                                return httpRequest.getHTML(url);
+
+                            case 5:
+                                html = _context2.sent;
+
+                                if (!(html.indexOf('fmt_stream_map') == -1)) {
+                                    _context2.next = 9;
+                                    break;
+                                }
+
+                                console.log('drive_log, drive error', url);
+                                throw new Error('NOT_FOUND');
+
+                            case 9:
+                                console.log('drive_log, drive ok', url);
+
+                                sources = [];
+
+                                sources.push({
+                                    type: "direct",
+                                    size: 'NOR',
+                                    label: "1080p",
+                                    file: url
+                                });
+
+                                return _context2.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "GoogleDrive"
+                                    },
+                                    result: sources
+                                });
+
+                            case 13:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return GoogleDrive;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new GoogleDrive({ libs: libs, settings: settings });
+};

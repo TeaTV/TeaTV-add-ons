@@ -1,1 +1,148 @@
-var _0x355f=['done','resolve','next','throw','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','checkLive','mark','wrap','prev','httpRequest','getHTML','sent','abrupt','return','stop','cheerio','log','vidtodo\x20no\x20link','vidtodo\x20LINK\x20DIE','match','vidtodo\x20LINK\x20DIE1','isLinkDie','vidtodo','push','NOR','direct','length','enumerable','configurable','value','writable','defineProperty','key','apply'];(function(_0x2a847c,_0x33ae59){var _0x40694f=function(_0x5c7272){while(--_0x5c7272){_0x2a847c['push'](_0x2a847c['shift']());}};_0x40694f(++_0x33ae59);}(_0x355f,0x120));var _0x37ca=function(_0x15ef27,_0x40638){_0x15ef27=_0x15ef27-0x0;var _0x504fc4=_0x355f[_0x15ef27];return _0x504fc4;};var _createClass=function(){function _0x4ee003(_0x1e4f35,_0xa99c14){for(var _0x114c34=0x0;_0x114c34<_0xa99c14[_0x37ca('0x0')];_0x114c34++){var _0x18cd58=_0xa99c14[_0x114c34];_0x18cd58['enumerable']=_0x18cd58[_0x37ca('0x1')]||![];_0x18cd58[_0x37ca('0x2')]=!![];if(_0x37ca('0x3')in _0x18cd58)_0x18cd58[_0x37ca('0x4')]=!![];Object[_0x37ca('0x5')](_0x1e4f35,_0x18cd58[_0x37ca('0x6')],_0x18cd58);}}return function(_0x476a3f,_0x1dd169,_0x44866d){if(_0x1dd169)_0x4ee003(_0x476a3f['prototype'],_0x1dd169);if(_0x44866d)_0x4ee003(_0x476a3f,_0x44866d);return _0x476a3f;};}();function _asyncToGenerator(_0x1c35c1){return function(){var _0x1c9d39=_0x1c35c1[_0x37ca('0x7')](this,arguments);return new Promise(function(_0x1c3523,_0xd7afb6){function _0x43494c(_0x49522f,_0x15963d){try{var _0x3ec1a4=_0x1c9d39[_0x49522f](_0x15963d);var _0x2aec54=_0x3ec1a4[_0x37ca('0x3')];}catch(_0x2ac1d6){_0xd7afb6(_0x2ac1d6);return;}if(_0x3ec1a4[_0x37ca('0x8')]){_0x1c3523(_0x2aec54);}else{return Promise[_0x37ca('0x9')](_0x2aec54)['then'](function(_0x46116f){_0x43494c(_0x37ca('0xa'),_0x46116f);},function(_0x11fd9b){_0x43494c(_0x37ca('0xb'),_0x11fd9b);});}}return _0x43494c(_0x37ca('0xa'));});};}function _classCallCheck(_0x28c14d,_0x3f57e9){if(!(_0x28c14d instanceof _0x3f57e9)){throw new TypeError(_0x37ca('0xc'));}}var Vidtodo=function(){function _0x1fed98(_0x3bf3ad){_classCallCheck(this,_0x1fed98);this[_0x37ca('0xd')]=_0x3bf3ad['libs'];this[_0x37ca('0xe')]=_0x3bf3ad['settings'];this[_0x37ca('0xf')]={};}_createClass(_0x1fed98,[{'key':_0x37ca('0x10'),'value':function(){var _0x56f20b=_asyncToGenerator(regeneratorRuntime[_0x37ca('0x11')](function _callee(_0x5ea784){var _0x4d9c04,_0x3b6071;return regeneratorRuntime[_0x37ca('0x12')](function _callee$(_0xafcea3){while(0x1){switch(_0xafcea3[_0x37ca('0x13')]=_0xafcea3[_0x37ca('0xa')]){case 0x0:_0x4d9c04=this[_0x37ca('0xd')][_0x37ca('0x14')];_0xafcea3[_0x37ca('0xa')]=0x3;return _0x4d9c04[_0x37ca('0x15')](_0x5ea784);case 0x3:_0x3b6071=_0xafcea3[_0x37ca('0x16')];return _0xafcea3[_0x37ca('0x17')](_0x37ca('0x18'),_0x3b6071);case 0x5:case'end':return _0xafcea3[_0x37ca('0x19')]();}}},_callee,this);}));function _0x4182fa(_0xf1f077){return _0x56f20b[_0x37ca('0x7')](this,arguments);}return _0x4182fa;}()},{'key':'getLink','value':function(){var _0x30bf61=_asyncToGenerator(regeneratorRuntime[_0x37ca('0x11')](function _callee2(_0x30fadb){var _0x52baec,_0x44a311,_0x2661b5,_0x4f7869,_0xc242d9,_0xf62d7c,_0x3e7f8b;return regeneratorRuntime['wrap'](function _callee2$(_0x5eee37){while(0x1){switch(_0x5eee37[_0x37ca('0x13')]=_0x5eee37['next']){case 0x0:_0x52baec=this[_0x37ca('0xd')],_0x44a311=_0x52baec[_0x37ca('0x14')],_0x2661b5=_0x52baec[_0x37ca('0x1a')];_0x4f7869=[];_0x5eee37[_0x37ca('0xa')]=0x4;return this[_0x37ca('0x10')](_0x30fadb);case 0x4:_0xc242d9=_0x5eee37[_0x37ca('0x16')];if(!(_0xc242d9==![])){_0x5eee37['next']=0x8;break;}console[_0x37ca('0x1b')](_0x37ca('0x1c'));throw new Error(_0x37ca('0x1d'));case 0x8:_0xf62d7c=_0xc242d9[_0x37ca('0x1e')](/file:"([^"]+)/);if(!(_0xf62d7c==undefined)){_0x5eee37[_0x37ca('0xa')]=0xc;break;}console[_0x37ca('0x1b')]('vidtodo\x20no\x20link1');throw new Error(_0x37ca('0x1f'));case 0xc:_0x5eee37[_0x37ca('0xa')]=0xe;return _0x44a311[_0x37ca('0x20')](_0xf62d7c[0x1]);case 0xe:_0x3e7f8b=_0x5eee37['sent'];console[_0x37ca('0x1b')](_0x37ca('0x21'),_0xf62d7c[0x1],_0x3e7f8b);if(_0x3e7f8b!=![]){_0x4f7869[_0x37ca('0x22')]({'label':_0x37ca('0x23'),'file':_0xf62d7c[0x1],'type':_0x37ca('0x24'),'size':_0x3e7f8b});}return _0x5eee37[_0x37ca('0x17')]('return',{'host':{'url':_0x30fadb,'name':'vidtodo'},'result':_0x4f7869});case 0x12:case'end':return _0x5eee37[_0x37ca('0x19')]();}}},_callee2,this);}));function _0x301cb6(_0x374857){return _0x30bf61[_0x37ca('0x7')](this,arguments);}return _0x301cb6;}()}]);return _0x1fed98;}();thisSource['function']=function(_0x54daa6,_0x390579){return new Vidtodo({'libs':_0x54daa6,'settings':_0x390579});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Vidtodo = function () {
+    function Vidtodo(props) {
+        _classCallCheck(this, Vidtodo);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Vidtodo, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+                                _context.next = 3;
+                                return httpRequest.getHTML(url);
+
+                            case 3:
+                                html = _context.sent;
+                                return _context.abrupt('return', html);
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cheerio, sources, html, m, isDie;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                sources = [];
+                                _context2.next = 4;
+                                return this.checkLive(url);
+
+                            case 4:
+                                html = _context2.sent;
+
+                                if (!(html == false)) {
+                                    _context2.next = 8;
+                                    break;
+                                }
+
+                                console.log('vidtodo no link');
+                                throw new Error("vidtodo LINK DIE");
+
+                            case 8:
+
+                                /*
+                                let $ = cheerio.load(html);
+                                let script = $('#content:last').next().text();
+                                 //console.log(script); process.exit();
+                                 let startIndex  = html.indexOf('jwplayer("vplayer").setup');
+                                html            = html.substring(startIndex);
+                                html            = html.substring(0, html.indexOf(".setVolume("));
+                                html            = html.replace('jwplayer("vplayer").setup', "player = ");
+                                html            += ";";
+                                 var player;
+                                eval(html);
+                                */
+                                m = html.match(/file:"([^"]+)/);
+
+                                if (!(m == undefined)) {
+                                    _context2.next = 12;
+                                    break;
+                                }
+
+                                console.log('vidtodo no link1');
+                                throw new Error("vidtodo LINK DIE1");
+
+                            case 12:
+                                _context2.next = 14;
+                                return httpRequest.isLinkDie(m[1]);
+
+                            case 14:
+                                isDie = _context2.sent;
+
+
+                                console.log('vidtodo', m[1], isDie);
+
+                                if (isDie != false) {
+
+                                    sources.push({
+                                        label: 'NOR',
+                                        file: m[1],
+                                        type: "direct",
+                                        size: isDie
+                                    });
+                                }
+
+                                return _context2.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "vidtodo"
+                                    },
+                                    result: sources
+                                });
+
+                            case 18:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Vidtodo;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Vidtodo({ libs: libs, settings: settings });
+};

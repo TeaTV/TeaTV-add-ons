@@ -1,1 +1,390 @@
-var _0x3912=['key','prototype','done','resolve','then','next','throw','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','https://ymovies.tv','https://ymovies.tv/wp-admin/admin-ajax.php','application/x-www-form-urlencoded;\x20charset=UTF-8','Mozilla/5.0\x20(Macintosh;\x20Intel\x20Mac\x20OS\x20X\x2010_11_6)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/61.0.3163.100\x20Safari/537.36','match','xyzzyx.com','libs','movieInfo','settings','state','wrap','prev','httpRequest','cheerio','stringHelper','title','year','season','episode','type','SEARCH','return','all','forEach','shallowCompare','detailUrl','DOMAIN','link','end','stop','apply','getHostFromDetail','mark','NOT_FOUND','getHTML','HEADERS','sent','});','trim','log','map','abrupt','split','embed','lox','emb','openload.co','streamango.com','includes','rpd','pic','post','https://ymovies.tv/playerlite/pk/pk/plugins/player_p2.php','data','direct','push','Yitivi','hosts','isEmbed','indexOf','statics2.vidcdn.pro','stream2.m4ukido.com','cryptoJs','MD5','toLowerCase','aloha','toString','https://vvv.teatv.net/source/get','status','checker','searchDetail','stringify','expired','https://vvv.teatv.net/source/set','testing','length','enumerable','configurable','value','writable','defineProperty'];(function(_0x1221ab,_0x442546){var _0x49e235=function(_0x5e9848){while(--_0x5e9848){_0x1221ab['push'](_0x1221ab['shift']());}};_0x49e235(++_0x442546);}(_0x3912,0x105));var _0x3dab=function(_0x1faa72,_0x5e8e40){_0x1faa72=_0x1faa72-0x0;var _0x518e11=_0x3912[_0x1faa72];return _0x518e11;};var _createClass=function(){function _0x1c1913(_0x4983d5,_0x100d15){for(var _0x5e26fb=0x0;_0x5e26fb<_0x100d15[_0x3dab('0x0')];_0x5e26fb++){var _0xe1981f=_0x100d15[_0x5e26fb];_0xe1981f[_0x3dab('0x1')]=_0xe1981f[_0x3dab('0x1')]||![];_0xe1981f[_0x3dab('0x2')]=!![];if(_0x3dab('0x3')in _0xe1981f)_0xe1981f[_0x3dab('0x4')]=!![];Object[_0x3dab('0x5')](_0x4983d5,_0xe1981f[_0x3dab('0x6')],_0xe1981f);}}return function(_0x56b238,_0x5b987f,_0x22725c){if(_0x5b987f)_0x1c1913(_0x56b238[_0x3dab('0x7')],_0x5b987f);if(_0x22725c)_0x1c1913(_0x56b238,_0x22725c);return _0x56b238;};}();function _asyncToGenerator(_0x2681ac){return function(){var _0x41030a=_0x2681ac['apply'](this,arguments);return new Promise(function(_0x291e90,_0x4ff04e){function _0x10b80c(_0x2e486b,_0xad3f98){try{var _0x3d610d=_0x41030a[_0x2e486b](_0xad3f98);var _0x2b8233=_0x3d610d[_0x3dab('0x3')];}catch(_0x2766e1){_0x4ff04e(_0x2766e1);return;}if(_0x3d610d[_0x3dab('0x8')]){_0x291e90(_0x2b8233);}else{return Promise[_0x3dab('0x9')](_0x2b8233)[_0x3dab('0xa')](function(_0x1ac6c4){_0x10b80c(_0x3dab('0xb'),_0x1ac6c4);},function(_0x53de47){_0x10b80c(_0x3dab('0xc'),_0x53de47);});}}return _0x10b80c('next');});};}function _classCallCheck(_0x2997df,_0x41920f){if(!(_0x2997df instanceof _0x41920f)){throw new TypeError(_0x3dab('0xd'));}}var URL={'DOMAIN':_0x3dab('0xe'),'SEARCH':_0x3dab('0xf'),'HEADERS':{'content-type':_0x3dab('0x10'),'user-agent':_0x3dab('0x11')}};var getDomain=function getDomain(_0x1c0e9e){var _0x2b7d14=_0x1c0e9e[_0x3dab('0x12')](/\/\/([^\/]+)/);if(_0x2b7d14==null)return _0x3dab('0x13');return _0x2b7d14[0x1]!=undefined?_0x2b7d14[0x1]:_0x3dab('0x13');};var Yifytv=function(){function _0xa35cb0(_0x409c99){_classCallCheck(this,_0xa35cb0);this['libs']=_0x409c99[_0x3dab('0x14')];this[_0x3dab('0x15')]=_0x409c99[_0x3dab('0x15')];this[_0x3dab('0x16')]=_0x409c99['settings'];this[_0x3dab('0x17')]={};}_createClass(_0xa35cb0,[{'key':'searchDetail','value':function(){var _0x18d370=_asyncToGenerator(regeneratorRuntime['mark'](function _callee(){var _0xef1542=this;var _0x245228,_0x341309,_0x75041d,_0x11030e,_0x32d270,_0x1527a4,_0x500de1,_0x10de5e,_0x4d46d9,_0x1b5d9e,_0x2df25f,_0x1993c5,_0x4a4207,_0x2aa63e;return regeneratorRuntime[_0x3dab('0x18')](function _callee$(_0x1b8622){while(0x1){switch(_0x1b8622[_0x3dab('0x19')]=_0x1b8622[_0x3dab('0xb')]){case 0x0:_0x245228=this['libs'],_0x341309=_0x245228[_0x3dab('0x1a')],_0x75041d=_0x245228[_0x3dab('0x1b')],_0x11030e=_0x245228[_0x3dab('0x1c')],_0x32d270=_0x245228['qs'];_0x1527a4=this[_0x3dab('0x15')],_0x500de1=_0x1527a4[_0x3dab('0x1d')],_0x10de5e=_0x1527a4[_0x3dab('0x1e')],_0x4d46d9=_0x1527a4[_0x3dab('0x1f')],_0x1b5d9e=_0x1527a4[_0x3dab('0x20')],_0x2df25f=_0x1527a4[_0x3dab('0x21')];_0x1993c5={'action':'noprivate_ajaxsearch','sf_value':_0x500de1};_0x1b8622[_0x3dab('0xb')]=0x5;return _0x341309['post'](URL[_0x3dab('0x22')],{},_0x1993c5);case 0x5:_0x4a4207=_0x1b8622['sent'];if(!(_0x4a4207['data']==null)){_0x1b8622[_0x3dab('0xb')]=0x8;break;}return _0x1b8622['abrupt'](_0x3dab('0x23'));case 0x8:_0x2aa63e=_0x4a4207['data']['post'][_0x3dab('0x24')];_0x2aa63e[_0x3dab('0x25')](function(_0x20e8c2){if(_0x11030e[_0x3dab('0x26')](_0x20e8c2['title'],_0x500de1)){if(_0x20e8c2[_0x3dab('0x1e')]==_0x10de5e){_0xef1542[_0x3dab('0x17')][_0x3dab('0x27')]=URL[_0x3dab('0x28')]+_0x20e8c2[_0x3dab('0x29')]+'watching';}}});console['log'](this[_0x3dab('0x17')]['detailUrl']);return _0x1b8622['abrupt'](_0x3dab('0x23'));case 0xc:case _0x3dab('0x2a'):return _0x1b8622[_0x3dab('0x2b')]();}}},_callee,this);}));function _0x2d971e(){return _0x18d370[_0x3dab('0x2c')](this,arguments);}return _0x2d971e;}()},{'key':_0x3dab('0x2d'),'value':function(){var _0x332097=_asyncToGenerator(regeneratorRuntime[_0x3dab('0x2e')](function _callee3(){var _0x208be1=this;var _0x2a5b2a,_0x2197ba,_0x4e5c5f,_0x511cab,_0x1a9a12,_0x8444a5,_0xbe70e3,_0x2c5103,_0x5dd220,_0x3a79d0,_0x2292af,_0xc80627,_0x4c12c8;return regeneratorRuntime[_0x3dab('0x18')](function _callee3$(_0x2afb3b){while(0x1){switch(_0x2afb3b['prev']=_0x2afb3b[_0x3dab('0xb')]){case 0x0:_0x2a5b2a=this[_0x3dab('0x14')],_0x2197ba=_0x2a5b2a[_0x3dab('0x1a')],_0x4e5c5f=_0x2a5b2a[_0x3dab('0x1b')],_0x511cab=_0x2a5b2a['qs'];if(this[_0x3dab('0x17')]['detailUrl']){_0x2afb3b[_0x3dab('0xb')]=0x3;break;}throw new Error(_0x3dab('0x2f'));case 0x3:_0x1a9a12=[];_0x8444a5=this[_0x3dab('0x15')][_0x3dab('0x21')];_0x2afb3b[_0x3dab('0xb')]=0x7;return _0x2197ba[_0x3dab('0x30')](this['state']['detailUrl'],URL[_0x3dab('0x31')]);case 0x7:_0xbe70e3=_0x2afb3b[_0x3dab('0x32')];_0x2c5103=_0xbe70e3['split'](_0x3dab('0x33'));_0x2c5103=_0x2c5103[0x4]['split']('</script>')[0x0];_0x2c5103=_0x2c5103[_0x3dab('0x34')]();_0x5dd220=void 0x0;_0x3a79d0={};try{eval(_0x2c5103);}catch(_0x2e88cc){console[_0x3dab('0x35')](_0x2e88cc);}_0x2292af=_0x3a79d0['parametros'];_0xc80627=_0x2292af['split']('&');_0x4c12c8=_0xc80627[_0x3dab('0x36')](function(){var _0x18d17e=_asyncToGenerator(regeneratorRuntime[_0x3dab('0x2e')](function _callee2(_0x18d14d){var _0x5bb932,_0x1ddccf,_0x204d6a,_0x3c5a27,_0x28b8f7,_0x554946,_0x2f9da2,_0x32bc8b;return regeneratorRuntime[_0x3dab('0x18')](function _callee2$(_0x2ca38e){while(0x1){switch(_0x2ca38e[_0x3dab('0x19')]=_0x2ca38e[_0x3dab('0xb')]){case 0x0:if(_0x18d14d){_0x2ca38e[_0x3dab('0xb')]=0x2;break;}return _0x2ca38e[_0x3dab('0x37')](_0x3dab('0x23'),![]);case 0x2:_0x5bb932=_0x18d14d[_0x3dab('0x38')]('=');_0x1ddccf=_0x5bb932[0x0];_0x204d6a=_0x5bb932[0x1];_0x3c5a27=void 0x0;_0x28b8f7=_0x3dab('0x39');if(!(_0x5bb932==_0x3dab('0x3a'))){_0x2ca38e[_0x3dab('0xb')]=0xb;break;}_0x3c5a27='https://vidlox.tv/embed-'+_0x204d6a;_0x2ca38e[_0x3dab('0xb')]=0x1d;break;case 0xb:if(!(_0x1ddccf==_0x3dab('0x3b')&&[_0x3dab('0x3c'),_0x3dab('0x3d')][_0x3dab('0x3e')](getDomain(_0x204d6a)))){_0x2ca38e[_0x3dab('0xb')]=0xf;break;}_0x3c5a27=_0x204d6a;_0x2ca38e['next']=0x1d;break;case 0xf:if(!(_0x1ddccf==_0x3dab('0x3f'))){_0x2ca38e[_0x3dab('0xb')]=0x13;break;}_0x3c5a27='https://www.rapidvideo.com/v/'+_0x204d6a;_0x2ca38e[_0x3dab('0xb')]=0x1d;break;case 0x13:if(!(_0x1ddccf==_0x3dab('0x40'))){_0x2ca38e['next']=0x1d;break;}_0x554946={'top':0x0,'fv':0x0,'url':_0x204d6a,'sou':_0x3dab('0x40')};_0x2ca38e[_0x3dab('0xb')]=0x17;return _0x2197ba[_0x3dab('0x41')](_0x3dab('0x42'),URL[_0x3dab('0x31')],_0x554946);case 0x17:_0x2f9da2=_0x2ca38e[_0x3dab('0x32')];_0x32bc8b=_0x2f9da2[_0x3dab('0x43')][0x1];if(!(_0x32bc8b==undefined)){_0x2ca38e['next']=0x1b;break;}return _0x2ca38e[_0x3dab('0x37')](_0x3dab('0x23'),![]);case 0x1b:_0x3c5a27=_0x32bc8b['url'];_0x28b8f7=_0x3dab('0x44');case 0x1d:if(!(_0x3c5a27==undefined)){_0x2ca38e[_0x3dab('0xb')]=0x1f;break;}return _0x2ca38e[_0x3dab('0x37')](_0x3dab('0x23'),![]);case 0x1f:_0x1a9a12[_0x3dab('0x45')]({'provider':{'url':_0x208be1[_0x3dab('0x17')][_0x3dab('0x27')],'name':_0x3dab('0x46')},'result':{'file':_0x3c5a27,'label':'embed','type':_0x28b8f7}});case 0x20:case _0x3dab('0x2a'):return _0x2ca38e['stop']();}}},_callee2,_0x208be1);}));return function(_0x19a4cb){return _0x18d17e[_0x3dab('0x2c')](this,arguments);};}());_0x2afb3b[_0x3dab('0xb')]=0x13;return Promise[_0x3dab('0x24')](_0x4c12c8);case 0x13:this['state'][_0x3dab('0x47')]=_0x1a9a12;case 0x14:case _0x3dab('0x2a'):return _0x2afb3b[_0x3dab('0x2b')]();}}},_callee3,this);}));function _0x46dc53(){return _0x332097['apply'](this,arguments);}return _0x46dc53;}()},{'key':_0x3dab('0x48'),'value':function isEmbed(_0x1c1bd8){if(_0x1c1bd8[_0x3dab('0x49')](_0x3dab('0x4a'))!=-0x1){return![];}else if(_0x1c1bd8[_0x3dab('0x49')](_0x3dab('0x4b'))!=-0x1){return![];}return!![];}}]);return _0xa35cb0;}();thisSource['function']=function(){var _0x3d6d23=_asyncToGenerator(regeneratorRuntime[_0x3dab('0x2e')](function _callee4(_0x404e6f,_0x43cad2,_0xcb76ea){var _0x315cdd,_0x36d247,_0x2a3cd9,_0x500c14,_0x5ca3f8,_0x39a68b;return regeneratorRuntime[_0x3dab('0x18')](function _callee4$(_0x67e887){while(0x1){switch(_0x67e887[_0x3dab('0x19')]=_0x67e887[_0x3dab('0xb')]){case 0x0:_0x315cdd=_0x404e6f[_0x3dab('0x1a')];_0x36d247=new Yifytv({'libs':_0x404e6f,'movieInfo':_0x43cad2,'settings':_0xcb76ea});_0x2a3cd9={'name_source':_0x3dab('0x46'),'is_link':0x0,'type':_0x43cad2[_0x3dab('0x21')],'season':_0x43cad2[_0x3dab('0x1f')],'episode':_0x43cad2[_0x3dab('0x20')],'title':_0x43cad2['title'],'year':_0x43cad2[_0x3dab('0x1e')],'hash':_0x404e6f[_0x3dab('0x4c')][_0x3dab('0x4d')](_0x43cad2['title'][_0x3dab('0x4e')]()+_0x43cad2[_0x3dab('0x1f')]['toString']()+_0x3dab('0x4f')+_0x43cad2[_0x3dab('0x20')][_0x3dab('0x50')]())[_0x3dab('0x50')]()};_0x67e887[_0x3dab('0xb')]=0x5;return _0x315cdd[_0x3dab('0x41')](_0x3dab('0x51'),{},_0x2a3cd9);case 0x5:_0x500c14=_0x67e887[_0x3dab('0x32')];_0x5ca3f8=void 0x0,_0x39a68b=[];try{_0x500c14=_0x500c14[_0x3dab('0x43')];if(_0x500c14[_0x3dab('0x52')]){_0x39a68b=JSON['parse'](_0x500c14[_0x3dab('0x47')]);}}catch(_0x381628){console['log']('err',_0x381628);}if(_0x43cad2[_0x3dab('0x53')]!=undefined)_0x39a68b=[];if(!(_0x39a68b[_0x3dab('0x0')]==0x0)){_0x67e887[_0x3dab('0xb')]=0x16;break;}_0x67e887[_0x3dab('0xb')]=0xc;return _0x36d247[_0x3dab('0x54')]();case 0xc:_0x67e887['next']=0xe;return _0x36d247[_0x3dab('0x2d')]();case 0xe:_0x39a68b=_0x36d247[_0x3dab('0x17')][_0x3dab('0x47')];if(!(_0x43cad2['checker']!=undefined)){_0x67e887[_0x3dab('0xb')]=0x11;break;}return _0x67e887[_0x3dab('0x37')](_0x3dab('0x23'),_0x39a68b);case 0x11:if(!(_0x39a68b[_0x3dab('0x0')]>0x0)){_0x67e887['next']=0x16;break;}_0x2a3cd9[_0x3dab('0x47')]=JSON[_0x3dab('0x55')](_0x39a68b);_0x2a3cd9[_0x3dab('0x56')]=0x1c20;_0x67e887['next']=0x16;return _0x315cdd[_0x3dab('0x41')](_0x3dab('0x57'),{},_0x2a3cd9);case 0x16:if(_0x43cad2['ss']!=undefined){_0x43cad2['ss']['to'](_0x43cad2['cs']['id'])['emit'](_0x43cad2['c'],_0x39a68b);}return _0x67e887[_0x3dab('0x37')](_0x3dab('0x23'),_0x39a68b);case 0x18:case'end':return _0x67e887[_0x3dab('0x2b')]();}}},_callee4,undefined);}));return function(_0x1f3e38,_0x4691b1,_0x13e506){return _0x3d6d23[_0x3dab('0x2c')](this,arguments);};}();thisSource[_0x3dab('0x58')]=Yifytv;
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var URL = {
+    DOMAIN: "https://ymovies.tv",
+    SEARCH: 'https://ymovies.tv/wp-admin/admin-ajax.php',
+    HEADERS: {
+        'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    }
+};
+
+var getDomain = function getDomain(url) {
+    var m = url.match(/\/\/([^\/]+)/);
+    if (m == null) return 'xyzzyx.com';
+    return m[1] != undefined ? m[1] : 'xyzzyx.com';
+};
+
+var Yifytv = function () {
+    function Yifytv(props) {
+        _classCallCheck(this, Yifytv);
+
+        this.libs = props.libs;
+        this.movieInfo = props.movieInfo;
+        this.settings = props.settings;
+
+        this.state = {};
+    }
+
+    _createClass(Yifytv, [{
+        key: 'searchDetail',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+                var _this = this;
+
+                var _libs, httpRequest, cheerio, stringHelper, qs, _movieInfo, title, year, season, episode, type, dataBody, resultSearch, posts;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, qs = _libs.qs;
+                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+                                dataBody = {
+                                    action: 'noprivate_ajaxsearch',
+                                    sf_value: title
+                                };
+                                _context.next = 5;
+                                return httpRequest.post(URL.SEARCH, {}, dataBody);
+
+                            case 5:
+                                resultSearch = _context.sent;
+
+                                if (!(resultSearch.data == null)) {
+                                    _context.next = 8;
+                                    break;
+                                }
+
+                                return _context.abrupt('return');
+
+                            case 8:
+                                posts = resultSearch.data['post']['all'];
+
+                                posts.forEach(function (item) {
+                                    if (stringHelper.shallowCompare(item.title, title)) {
+                                        if (item.year == year) {
+                                            _this.state.detailUrl = URL.DOMAIN + item.link + 'watching';
+                                        }
+                                    }
+                                });
+
+                                console.log(this.state.detailUrl);
+
+                                return _context.abrupt('return');
+
+                            case 12:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function searchDetail() {
+                return _ref.apply(this, arguments);
+            }
+
+            return searchDetail;
+        }()
+    }, {
+        key: 'getHostFromDetail',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+                var _this2 = this;
+
+                var _libs2, httpRequest, cheerio, qs, hosts, type, htmlDetail, m1, parametros, window, e, sources, sourcesPromise;
+
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, qs = _libs2.qs;
+
+                                if (this.state.detailUrl) {
+                                    _context3.next = 3;
+                                    break;
+                                }
+
+                                throw new Error("NOT_FOUND");
+
+                            case 3:
+                                // console.log(this.state.detailUrl);
+
+                                hosts = [];
+                                type = this.movieInfo.type;
+                                _context3.next = 7;
+                                return httpRequest.getHTML(this.state.detailUrl, URL.HEADERS);
+
+                            case 7:
+                                htmlDetail = _context3.sent;
+                                m1 = htmlDetail.split('});');
+
+                                m1 = m1[4].split('</script>')[0];
+                                m1 = m1.trim();
+
+                                parametros = void 0;
+                                window = {};
+
+                                try {
+                                    eval(m1);
+                                } catch (e) {
+                                    console.log(e);
+                                }
+
+                                e = window.parametros;
+                                sources = e.split("&");
+                                sourcesPromise = sources.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(link) {
+                                        var s, flag, data, url, type, posts, rp, vd;
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+                                                        if (link) {
+                                                            _context2.next = 2;
+                                                            break;
+                                                        }
+
+                                                        return _context2.abrupt('return', false);
+
+                                                    case 2:
+                                                        s = link.split('=');
+                                                        flag = s[0];
+                                                        data = s[1];
+                                                        url = void 0;
+                                                        type = 'embed';
+
+                                                        if (!(s == 'lox')) {
+                                                            _context2.next = 11;
+                                                            break;
+                                                        }
+
+                                                        url = 'https://vidlox.tv/embed-' + data;
+                                                        _context2.next = 29;
+                                                        break;
+
+                                                    case 11:
+                                                        if (!(flag == 'emb' && ['openload.co', 'streamango.com'].includes(getDomain(data)))) {
+                                                            _context2.next = 15;
+                                                            break;
+                                                        }
+
+                                                        url = data;
+                                                        _context2.next = 29;
+                                                        break;
+
+                                                    case 15:
+                                                        if (!(flag == 'rpd')) {
+                                                            _context2.next = 19;
+                                                            break;
+                                                        }
+
+                                                        url = 'https://www.rapidvideo.com/v/' + data;
+                                                        _context2.next = 29;
+                                                        break;
+
+                                                    case 19:
+                                                        if (!(flag == 'pic')) {
+                                                            _context2.next = 29;
+                                                            break;
+                                                        }
+
+                                                        posts = {
+                                                            top: 0,
+                                                            fv: 0,
+                                                            url: data,
+                                                            sou: 'pic'
+                                                        };
+                                                        _context2.next = 23;
+                                                        return httpRequest.post('https://ymovies.tv/playerlite/pk/pk/plugins/player_p2.php', URL.HEADERS, posts);
+
+                                                    case 23:
+                                                        rp = _context2.sent;
+                                                        vd = rp.data[1];
+
+                                                        if (!(vd == undefined)) {
+                                                            _context2.next = 27;
+                                                            break;
+                                                        }
+
+                                                        return _context2.abrupt('return', false);
+
+                                                    case 27:
+                                                        url = vd['url'];
+                                                        type = 'direct';
+
+                                                    case 29:
+                                                        if (!(url == undefined)) {
+                                                            _context2.next = 31;
+                                                            break;
+                                                        }
+
+                                                        return _context2.abrupt('return', false);
+
+                                                    case 31:
+
+                                                        hosts.push({
+                                                            provider: {
+                                                                url: _this2.state.detailUrl,
+                                                                name: "Yitivi"
+                                                            },
+                                                            result: {
+                                                                file: url,
+                                                                label: "embed",
+                                                                type: type
+                                                            }
+                                                        });
+
+                                                    case 32:
+                                                    case 'end':
+                                                        return _context2.stop();
+                                                }
+                                            }
+                                        }, _callee2, _this2);
+                                    }));
+
+                                    return function (_x) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 19;
+                                return Promise.all(sourcesPromise);
+
+                            case 19:
+
+                                this.state.hosts = hosts;
+
+                            case 20:
+                            case 'end':
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this);
+            }));
+
+            function getHostFromDetail() {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getHostFromDetail;
+        }()
+    }, {
+        key: 'isEmbed',
+        value: function isEmbed(link) {
+
+            if (link.indexOf('statics2.vidcdn.pro') != -1) {
+                return false;
+            } else if (link.indexOf('stream2.m4ukido.com') != -1) {
+                return false;
+            }
+
+            return true;
+        }
+    }]);
+
+    return Yifytv;
+}();
+
+thisSource.function = function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
+        var httpRequest, source, bodyPost, res, js, hosts;
+        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+            while (1) {
+                switch (_context4.prev = _context4.next) {
+                    case 0:
+                        httpRequest = libs.httpRequest;
+                        source = new Yifytv({
+                            libs: libs,
+                            movieInfo: movieInfo,
+                            settings: settings
+                        });
+                        bodyPost = {
+                            name_source: 'Yitivi',
+                            is_link: 0,
+                            type: movieInfo.type,
+                            season: movieInfo.season,
+                            episode: movieInfo.episode,
+                            title: movieInfo.title,
+                            year: movieInfo.year,
+                            hash: libs.cryptoJs.MD5(movieInfo.title.toLowerCase() + movieInfo.season.toString() + "aloha" + movieInfo.episode.toString()).toString()
+                        };
+                        _context4.next = 5;
+                        return httpRequest.post('https://vvv.teatv.net/source/get', {}, bodyPost);
+
+                    case 5:
+                        res = _context4.sent;
+                        js = void 0, hosts = [];
+
+
+                        try {
+                            res = res['data'];
+                            if (res['status']) {
+                                hosts = JSON.parse(res['hosts']);
+                            }
+                        } catch (err) {
+                            console.log('err', err);
+                        }
+
+                        if (movieInfo.checker != undefined) hosts = [];
+
+                        if (!(hosts.length == 0)) {
+                            _context4.next = 22;
+                            break;
+                        }
+
+                        _context4.next = 12;
+                        return source.searchDetail();
+
+                    case 12:
+                        _context4.next = 14;
+                        return source.getHostFromDetail();
+
+                    case 14:
+                        hosts = source.state.hosts;
+
+                        if (!(movieInfo.checker != undefined)) {
+                            _context4.next = 17;
+                            break;
+                        }
+
+                        return _context4.abrupt('return', hosts);
+
+                    case 17:
+                        if (!(hosts.length > 0)) {
+                            _context4.next = 22;
+                            break;
+                        }
+
+                        bodyPost['hosts'] = JSON.stringify(hosts);
+                        bodyPost['expired'] = 7200;
+                        _context4.next = 22;
+                        return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
+
+                    case 22:
+
+                        if (movieInfo.ss != undefined) {
+                            movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
+                        }
+
+                        return _context4.abrupt('return', hosts);
+
+                    case 24:
+                    case 'end':
+                        return _context4.stop();
+                }
+            }
+        }, _callee4, undefined);
+    }));
+
+    return function (_x2, _x3, _x4) {
+        return _ref4.apply(this, arguments);
+    };
+}();
+
+thisSource.testing = Yifytv;

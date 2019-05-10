@@ -1,1 +1,169 @@
-var _0x1666=['return','end','stop','getLink','LINK\x20DIE','split','eval(','</script>','trim','return\x20p}','a\x20=\x20fuckfuck','indexOf','jpg','png','abrupt','continue','isLinkDie','push','NOR','catch','ClipWatch','function','length','enumerable','value','writable','defineProperty','prototype','apply','done','resolve','then','next','throw','replace','toString','libs','settings','mark','wrap','prev','httpRequest','getHTML','sent'];(function(_0x44bc1a,_0x3cb63d){var _0x6de167=function(_0x18cc2f){while(--_0x18cc2f){_0x44bc1a['push'](_0x44bc1a['shift']());}};_0x6de167(++_0x3cb63d);}(_0x1666,0xc6));var _0x506f=function(_0x183738,_0x57faf4){_0x183738=_0x183738-0x0;var _0x4de059=_0x1666[_0x183738];return _0x4de059;};var _createClass=function(){function _0xc43409(_0x29b88d,_0x5bd058){for(var _0x59a335=0x0;_0x59a335<_0x5bd058[_0x506f('0x0')];_0x59a335++){var _0x20a2af=_0x5bd058[_0x59a335];_0x20a2af[_0x506f('0x1')]=_0x20a2af['enumerable']||![];_0x20a2af['configurable']=!![];if(_0x506f('0x2')in _0x20a2af)_0x20a2af[_0x506f('0x3')]=!![];Object[_0x506f('0x4')](_0x29b88d,_0x20a2af['key'],_0x20a2af);}}return function(_0x4d6f2d,_0xf27b6d,_0x24b5cb){if(_0xf27b6d)_0xc43409(_0x4d6f2d[_0x506f('0x5')],_0xf27b6d);if(_0x24b5cb)_0xc43409(_0x4d6f2d,_0x24b5cb);return _0x4d6f2d;};}();function _asyncToGenerator(_0x33f138){return function(){var _0x5b7277=_0x33f138[_0x506f('0x6')](this,arguments);return new Promise(function(_0x194d28,_0x253cbf){function _0x3b59e4(_0x28ea06,_0x1a9d0f){try{var _0x378451=_0x5b7277[_0x28ea06](_0x1a9d0f);var _0x464ea2=_0x378451['value'];}catch(_0x34f948){_0x253cbf(_0x34f948);return;}if(_0x378451[_0x506f('0x7')]){_0x194d28(_0x464ea2);}else{return Promise[_0x506f('0x8')](_0x464ea2)[_0x506f('0x9')](function(_0xd89312){_0x3b59e4(_0x506f('0xa'),_0xd89312);},function(_0x11bd03){_0x3b59e4(_0x506f('0xb'),_0x11bd03);});}}return _0x3b59e4('next');});};}function _classCallCheck(_0x165ba9,_0x4e2050){if(!(_0x165ba9 instanceof _0x4e2050)){throw new TypeError('Cannot\x20call\x20a\x20class\x20as\x20a\x20function');}}function fuckfuck(_0x4a462f,_0x3b3316,_0xa5b7f0,_0x2ed359,_0x3c2426,_0x3b4615){while(_0xa5b7f0--){if(_0x2ed359[_0xa5b7f0])_0x4a462f=_0x4a462f[_0x506f('0xc')](new RegExp('\x5cb'+_0xa5b7f0[_0x506f('0xd')](_0x3b3316)+'\x5cb','g'),_0x2ed359[_0xa5b7f0]);}return _0x4a462f;}var ClipWatching=function(){function _0x5b3d21(_0x106f29){_classCallCheck(this,_0x5b3d21);this[_0x506f('0xe')]=_0x106f29[_0x506f('0xe')];this[_0x506f('0xf')]=_0x106f29[_0x506f('0xf')];this['state']={};}_createClass(_0x5b3d21,[{'key':'checkLive','value':function(){var _0x588b54=_asyncToGenerator(regeneratorRuntime[_0x506f('0x10')](function _callee(_0x3aa131){var _0x598102,_0x31c045;return regeneratorRuntime[_0x506f('0x11')](function _callee$(_0x288444){while(0x1){switch(_0x288444[_0x506f('0x12')]=_0x288444[_0x506f('0xa')]){case 0x0:_0x598102=this[_0x506f('0xe')][_0x506f('0x13')];_0x288444[_0x506f('0xa')]=0x3;return _0x598102[_0x506f('0x14')](_0x3aa131);case 0x3:_0x31c045=_0x288444[_0x506f('0x15')];return _0x288444['abrupt'](_0x506f('0x16'),_0x31c045);case 0x5:case _0x506f('0x17'):return _0x288444[_0x506f('0x18')]();}}},_callee,this);}));function _0x574f5d(_0x2087b9){return _0x588b54[_0x506f('0x6')](this,arguments);}return _0x574f5d;}()},{'key':'convertToEmbed','value':function convertToEmbed(){}},{'key':_0x506f('0x19'),'value':function(){var _0x37e201=_asyncToGenerator(regeneratorRuntime[_0x506f('0x10')](function _callee2(_0x3d8b19){var _0x1eefe8,_0x31a22f,_0x1171eb,_0x504e76,_0x1bf1b4,_0x1c3a86,_0x35ed79,_0x1e178d,_0x5e9736,_0x561c37,_0x424e44;return regeneratorRuntime['wrap'](function _callee2$(_0x393795){while(0x1){switch(_0x393795['prev']=_0x393795[_0x506f('0xa')]){case 0x0:_0x1eefe8=this['libs'],_0x31a22f=_0x1eefe8['httpRequest'],_0x1171eb=_0x1eefe8['cheerio'];_0x504e76=[];_0x393795['next']=0x4;return this['checkLive'](_0x3d8b19);case 0x4:_0x1bf1b4=_0x393795['sent'];if(!(_0x1bf1b4==![])){_0x393795[_0x506f('0xa')]=0x7;break;}throw new Error(_0x506f('0x1a'));case 0x7:_0x1c3a86=[];_0x393795['prev']=0x8;_0x35ed79=void 0x0,_0x1e178d=void 0x0;_0x35ed79=_0x1bf1b4[_0x506f('0x1b')](_0x506f('0x1c'))[0x2];_0x35ed79=_0x35ed79[_0x506f('0x1b')](_0x506f('0x1d'))[0x0][_0x506f('0x1e')]();_0x35ed79=_0x506f('0x1c')+_0x35ed79;_0x5e9736=_0x35ed79[_0x506f('0x1b')](_0x506f('0x1f'))[0x1];_0x5e9736=_0x506f('0x20')+_0x5e9736;_0x5e9736=_0x5e9736[_0x506f('0xc')](/\)$/,'');eval(_0x5e9736);_0x561c37=/file"?:\s?"([^"]+)/g;case 0x12:if(!(_0x35ed79=_0x561c37['exec'](_0x1e178d))){_0x393795[_0x506f('0xa')]=0x1b;break;}if(!(_0x35ed79[0x1][_0x506f('0x21')](_0x506f('0x22'))!=-0x1||_0x35ed79[0x1][_0x506f('0x21')](_0x506f('0x23'))!=-0x1)){_0x393795[_0x506f('0xa')]=0x15;break;}return _0x393795[_0x506f('0x24')](_0x506f('0x25'),0x12);case 0x15:_0x393795[_0x506f('0xa')]=0x17;return _0x31a22f[_0x506f('0x26')](_0x35ed79[0x1]);case 0x17:_0x424e44=_0x393795['sent'];if(_0x424e44!=![]){_0x1c3a86[_0x506f('0x27')]({'file':_0x35ed79[0x1],'label':_0x506f('0x28'),'type':'direct','size':_0x424e44});}_0x393795['next']=0x12;break;case 0x1b:_0x393795[_0x506f('0xa')]=0x20;break;case 0x1d:_0x393795[_0x506f('0x12')]=0x1d;_0x393795['t0']=_0x393795[_0x506f('0x29')](0x8);throw new Error(_0x393795['t0']);case 0x20:return _0x393795['abrupt'](_0x506f('0x16'),{'host':{'url':_0x3d8b19,'name':_0x506f('0x2a')},'result':_0x1c3a86});case 0x21:case _0x506f('0x17'):return _0x393795['stop']();}}},_callee2,this,[[0x8,0x1d]]);}));function _0x2bb976(_0x3288de){return _0x37e201[_0x506f('0x6')](this,arguments);}return _0x2bb976;}()}]);return _0x5b3d21;}();thisSource[_0x506f('0x2b')]=function(_0xc3882e,_0x1c4711){return new ClipWatching({'libs':_0xc3882e,'settings':_0x1c4711});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function fuckfuck(p, a, c, k, e, d) {
+    while (c--) {
+        if (k[c]) p = p.replace(new RegExp('\\b' + c.toString(a) + '\\b', 'g'), k[c]);
+    }return p;
+}
+
+var ClipWatching = function () {
+    function ClipWatching(props) {
+        _classCallCheck(this, ClipWatching);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(ClipWatching, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+                                _context.next = 3;
+                                return httpRequest.getHTML(url);
+
+                            case 3:
+                                html = _context.sent;
+                                return _context.abrupt('return', html);
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'convertToEmbed',
+        value: function convertToEmbed() {
+            // convert link detail to link embed
+            // if input is embed then return input
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cheerio, arrVideoQuality, html, results, m, a, ff, reg, isDie;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                arrVideoQuality = [];
+                                _context2.next = 4;
+                                return this.checkLive(url);
+
+                            case 4:
+                                html = _context2.sent;
+
+                                if (!(html == false)) {
+                                    _context2.next = 7;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 7:
+                                results = [];
+                                _context2.prev = 8;
+                                m = void 0, a = void 0;
+
+                                m = html.split('eval(')[2];
+                                m = m.split('</script>')[0].trim();
+                                m = 'eval(' + m;
+
+                                ff = m.split('return p}')[1];
+
+                                ff = 'a = fuckfuck' + ff;
+                                ff = ff.replace(/\)$/, '');
+                                eval(ff);
+                                reg = /file"?:\s?"([^"]+)/g;
+
+                            case 18:
+                                if (!(m = reg.exec(a))) {
+                                    _context2.next = 27;
+                                    break;
+                                }
+
+                                if (!(m[1].indexOf('jpg') != -1 || m[1].indexOf('png') != -1)) {
+                                    _context2.next = 21;
+                                    break;
+                                }
+
+                                return _context2.abrupt('continue', 18);
+
+                            case 21:
+                                _context2.next = 23;
+                                return httpRequest.isLinkDie(m[1]);
+
+                            case 23:
+                                isDie = _context2.sent;
+
+                                if (isDie != false) {
+                                    results.push({
+                                        file: m[1], label: 'NOR', type: "direct", size: isDie
+                                    });
+                                }
+                                _context2.next = 18;
+                                break;
+
+                            case 27:
+                                _context2.next = 32;
+                                break;
+
+                            case 29:
+                                _context2.prev = 29;
+                                _context2.t0 = _context2['catch'](8);
+                                throw new Error(_context2.t0);
+
+                            case 32:
+                                return _context2.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "ClipWatch"
+                                    },
+                                    result: results
+                                });
+
+                            case 33:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this, [[8, 29]]);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return ClipWatching;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new ClipWatching({ libs: libs, settings: settings });
+};

@@ -1,1 +1,166 @@
-var _0xa9ec=['prev','httpRequest','cheerio','isLinkDie','catch','NOR','push','direct','abrupt','CDN','end','stop','wrap','converter','sent','return','getFileSize','head','headers','content-length','function','length','enumerable','configurable','value','writable','defineProperty','prototype','apply','resolve','next','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','convertToEmbed','getLink','mark'];(function(_0x2d39fb,_0x10a7ea){var _0xa4d1b=function(_0x56c796){while(--_0x56c796){_0x2d39fb['push'](_0x2d39fb['shift']());}};_0xa4d1b(++_0x10a7ea);}(_0xa9ec,0xad));var _0x3572=function(_0x411222,_0xeb4e3e){_0x411222=_0x411222-0x0;var _0x2ecf4c=_0xa9ec[_0x411222];return _0x2ecf4c;};var _createClass=function(){function _0x864831(_0x5885fb,_0x9fb43b){for(var _0x2f36b1=0x0;_0x2f36b1<_0x9fb43b[_0x3572('0x0')];_0x2f36b1++){var _0x49d110=_0x9fb43b[_0x2f36b1];_0x49d110[_0x3572('0x1')]=_0x49d110[_0x3572('0x1')]||![];_0x49d110[_0x3572('0x2')]=!![];if(_0x3572('0x3')in _0x49d110)_0x49d110[_0x3572('0x4')]=!![];Object[_0x3572('0x5')](_0x5885fb,_0x49d110['key'],_0x49d110);}}return function(_0x3f522c,_0x5b986c,_0x309d9f){if(_0x5b986c)_0x864831(_0x3f522c[_0x3572('0x6')],_0x5b986c);if(_0x309d9f)_0x864831(_0x3f522c,_0x309d9f);return _0x3f522c;};}();function _asyncToGenerator(_0x5e8aaa){return function(){var _0x580d06=_0x5e8aaa[_0x3572('0x7')](this,arguments);return new Promise(function(_0x5efba5,_0x33e88f){function _0x28011a(_0x2f52ca,_0x1c3f99){try{var _0x5ac9ee=_0x580d06[_0x2f52ca](_0x1c3f99);var _0x2eaf1d=_0x5ac9ee[_0x3572('0x3')];}catch(_0x133fb0){_0x33e88f(_0x133fb0);return;}if(_0x5ac9ee['done']){_0x5efba5(_0x2eaf1d);}else{return Promise[_0x3572('0x8')](_0x2eaf1d)['then'](function(_0x43a8cd){_0x28011a(_0x3572('0x9'),_0x43a8cd);},function(_0x2cfeff){_0x28011a('throw',_0x2cfeff);});}}return _0x28011a('next');});};}function _classCallCheck(_0x4e1b62,_0x22662a){if(!(_0x4e1b62 instanceof _0x22662a)){throw new TypeError(_0x3572('0xa'));}}var VodFree=function(){function _0x6f719e(_0x55f392){_classCallCheck(this,_0x6f719e);this[_0x3572('0xb')]=_0x55f392['libs'];this[_0x3572('0xc')]=_0x55f392[_0x3572('0xc')];this[_0x3572('0xd')]={};}_createClass(_0x6f719e,[{'key':_0x3572('0xe'),'value':function convertToEmbed(){}},{'key':_0x3572('0xf'),'value':function(){var _0x1c29f6=_asyncToGenerator(regeneratorRuntime[_0x3572('0x10')](function _callee(_0x166651){var _0x4cf59d,_0x392d43,_0x22ddcd,_0x43d78f,_0x3dceec;return regeneratorRuntime['wrap'](function _callee$(_0x876513){while(0x1){switch(_0x876513[_0x3572('0x11')]=_0x876513[_0x3572('0x9')]){case 0x0:_0x4cf59d=this[_0x3572('0xb')],_0x392d43=_0x4cf59d[_0x3572('0x12')],_0x22ddcd=_0x4cf59d[_0x3572('0x13')];_0x43d78f=[];_0x166651=_0x166651['replace'](/\?pi=.*/i,'');_0x3dceec='NOR';_0x876513[_0x3572('0x11')]=0x4;_0x876513[_0x3572('0x9')]=0x7;return this[_0x3572('0x14')](_0x166651);case 0x7:_0x3dceec=_0x876513['sent'];_0x876513[_0x3572('0x9')]=0xc;break;case 0xa:_0x876513['prev']=0xa;_0x876513['t0']=_0x876513[_0x3572('0x15')](0x4);case 0xc:if(_0x3dceec!=![]&&_0x3dceec!=_0x3572('0x16')){_0x43d78f[_0x3572('0x17')]({'file':_0x166651,'label':_0x3572('0x16'),'type':_0x3572('0x18'),'size':_0x3dceec});}return _0x876513[_0x3572('0x19')]('return',{'host':{'url':_0x166651,'name':_0x3572('0x1a')},'result':_0x43d78f});case 0xe:case _0x3572('0x1b'):return _0x876513[_0x3572('0x1c')]();}}},_callee,this,[[0x4,0xa]]);}));function _0x473c34(_0x7b67cc){return _0x1c29f6['apply'](this,arguments);}return _0x473c34;}()},{'key':_0x3572('0x14'),'value':function(){var _0x277af8=_asyncToGenerator(regeneratorRuntime[_0x3572('0x10')](function _callee2(_0x50aff9){var _0x423ae3,_0x1f2be1;return regeneratorRuntime[_0x3572('0x1d')](function _callee2$(_0x938bcd){while(0x1){switch(_0x938bcd[_0x3572('0x11')]=_0x938bcd[_0x3572('0x9')]){case 0x0:_0x423ae3=this[_0x3572('0xb')][_0x3572('0x1e')];_0x938bcd[_0x3572('0x9')]=0x3;return this['getFileSize'](_0x50aff9);case 0x3:_0x1f2be1=_0x938bcd[_0x3572('0x1f')];_0x938bcd[_0x3572('0x11')]=0x4;_0x1f2be1=_0x423ae3(+_0x1f2be1,'MB','GB');_0x1f2be1=parseFloat(+_0x1f2be1)['toFixed'](0x2);return _0x938bcd[_0x3572('0x19')](_0x3572('0x20'),_0x1f2be1);case 0xa:_0x938bcd[_0x3572('0x11')]=0xa;_0x938bcd['t0']=_0x938bcd[_0x3572('0x15')](0x4);return _0x938bcd[_0x3572('0x19')](_0x3572('0x20'),![]);case 0xd:case _0x3572('0x1b'):return _0x938bcd[_0x3572('0x1c')]();}}},_callee2,this,[[0x4,0xa]]);}));function _0x2c64e8(_0x5c7feb){return _0x277af8[_0x3572('0x7')](this,arguments);}return _0x2c64e8;}()},{'key':_0x3572('0x21'),'value':function(){var _0x5ac97d=_asyncToGenerator(regeneratorRuntime[_0x3572('0x10')](function _callee3(_0xa7b1dd){var _0x1d63a9,_0x2746c6;return regeneratorRuntime[_0x3572('0x1d')](function _callee3$(_0x2d1a93){while(0x1){switch(_0x2d1a93[_0x3572('0x11')]=_0x2d1a93['next']){case 0x0:_0x1d63a9=this[_0x3572('0xb')]['axios'];_0x2d1a93['next']=0x3;return _0x1d63a9[_0x3572('0x22')](_0xa7b1dd);case 0x3:_0x2746c6=_0x2d1a93[_0x3572('0x1f')];return _0x2d1a93[_0x3572('0x19')](_0x3572('0x20'),_0x2746c6[_0x3572('0x23')][_0x3572('0x24')]);case 0x5:case'end':return _0x2d1a93[_0x3572('0x1c')]();}}},_callee3,this);}));function _0xb13250(_0x2e57cc){return _0x5ac97d[_0x3572('0x7')](this,arguments);}return _0xb13250;}()}]);return _0x6f719e;}();thisSource[_0x3572('0x25')]=function(_0x23f365,_0x5607f5){return new VodFree({'libs':_0x23f365,'settings':_0x5607f5});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var VodFree = function () {
+    function VodFree(props) {
+        _classCallCheck(this, VodFree);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(VodFree, [{
+        key: 'convertToEmbed',
+        value: function convertToEmbed() {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var _libs, httpRequest, cheerio, results, isDie;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                results = [];
+
+
+                                url = url.replace(/\?pi=.*/i, '');
+
+                                isDie = 'NOR';
+                                _context.prev = 4;
+                                _context.next = 7;
+                                return this.isLinkDie(url);
+
+                            case 7:
+                                isDie = _context.sent;
+                                _context.next = 12;
+                                break;
+
+                            case 10:
+                                _context.prev = 10;
+                                _context.t0 = _context['catch'](4);
+
+                            case 12:
+
+                                if (isDie != false && isDie != 'NOR') {
+
+                                    results.push({
+                                        file: url, label: 'NOR', type: "direct", size: isDie
+                                    });
+                                }
+
+                                return _context.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "CDN"
+                                    },
+                                    result: results
+                                });
+
+                            case 14:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this, [[4, 10]]);
+            }));
+
+            function getLink(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }, {
+        key: 'isLinkDie',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var converter, sizeMb;
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                converter = this.libs.converter;
+                                _context2.next = 3;
+                                return this.getFileSize(url);
+
+                            case 3:
+                                sizeMb = _context2.sent;
+                                _context2.prev = 4;
+
+
+                                sizeMb = converter(+sizeMb, 'MB', 'GB');
+                                sizeMb = parseFloat(+sizeMb).toFixed(2);
+
+                                return _context2.abrupt('return', sizeMb);
+
+                            case 10:
+                                _context2.prev = 10;
+                                _context2.t0 = _context2['catch'](4);
+                                return _context2.abrupt('return', false);
+
+                            case 13:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this, [[4, 10]]);
+            }));
+
+            function isLinkDie(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return isLinkDie;
+        }()
+    }, {
+        key: 'getFileSize',
+        value: function () {
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
+                var axios, res;
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                axios = this.libs.axios;
+                                _context3.next = 3;
+                                return axios.head(url);
+
+                            case 3:
+                                res = _context3.sent;
+                                return _context3.abrupt('return', res.headers["content-length"]);
+
+                            case 5:
+                            case 'end':
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this);
+            }));
+
+            function getFileSize(_x3) {
+                return _ref3.apply(this, arguments);
+            }
+
+            return getFileSize;
+        }()
+    }]);
+
+    return VodFree;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new VodFree({ libs: libs, settings: settings });
+};

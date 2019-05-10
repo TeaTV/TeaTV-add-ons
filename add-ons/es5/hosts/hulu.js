@@ -1,1 +1,89 @@
-var _0xbb27=['resolve','then','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','convertToEmbed','mark','wrap','prev','next','httpRequest','cheerio','NOR','sent','catch','push','direct','return','hulu','end','enumerable','configurable','value','defineProperty','prototype','apply'];(function(_0x52faae,_0x5d541a){var _0x2d2bfb=function(_0x4c3732){while(--_0x4c3732){_0x52faae['push'](_0x52faae['shift']());}};_0x2d2bfb(++_0x5d541a);}(_0xbb27,0x108));var _0x497d=function(_0x4a1858,_0x8981f7){_0x4a1858=_0x4a1858-0x0;var _0x877c4f=_0xbb27[_0x4a1858];return _0x877c4f;};var _createClass=function(){function _0x4198ca(_0x51656b,_0x304a11){for(var _0x492111=0x0;_0x492111<_0x304a11['length'];_0x492111++){var _0x177abe=_0x304a11[_0x492111];_0x177abe[_0x497d('0x0')]=_0x177abe['enumerable']||![];_0x177abe[_0x497d('0x1')]=!![];if(_0x497d('0x2')in _0x177abe)_0x177abe['writable']=!![];Object[_0x497d('0x3')](_0x51656b,_0x177abe['key'],_0x177abe);}}return function(_0x442070,_0x59b8e0,_0x24fc03){if(_0x59b8e0)_0x4198ca(_0x442070[_0x497d('0x4')],_0x59b8e0);if(_0x24fc03)_0x4198ca(_0x442070,_0x24fc03);return _0x442070;};}();function _asyncToGenerator(_0x44b821){return function(){var _0x5bad6e=_0x44b821[_0x497d('0x5')](this,arguments);return new Promise(function(_0x2bbf91,_0x1f6ef1){function _0x319b7f(_0x3a4390,_0x2cd175){try{var _0x5506f0=_0x5bad6e[_0x3a4390](_0x2cd175);var _0x461b1d=_0x5506f0['value'];}catch(_0x3893a2){_0x1f6ef1(_0x3893a2);return;}if(_0x5506f0['done']){_0x2bbf91(_0x461b1d);}else{return Promise[_0x497d('0x6')](_0x461b1d)[_0x497d('0x7')](function(_0x8080ce){_0x319b7f('next',_0x8080ce);},function(_0x4cf7fb){_0x319b7f('throw',_0x4cf7fb);});}}return _0x319b7f('next');});};}function _classCallCheck(_0x3ed717,_0x4fc044){if(!(_0x3ed717 instanceof _0x4fc044)){throw new TypeError(_0x497d('0x8'));}}var Hulu=function(){function _0x517903(_0x512088){_classCallCheck(this,_0x517903);this['libs']=_0x512088[_0x497d('0x9')];this[_0x497d('0xa')]=_0x512088[_0x497d('0xa')];this[_0x497d('0xb')]={};}_createClass(_0x517903,[{'key':_0x497d('0xc'),'value':function convertToEmbed(){}},{'key':'getLink','value':function(){var _0x547a6e=_asyncToGenerator(regeneratorRuntime[_0x497d('0xd')](function _callee(_0x1c1486){var _0x4fcdf4,_0x251557,_0x52db40,_0x50ed4b,_0x597a58;return regeneratorRuntime[_0x497d('0xe')](function _callee$(_0x2ce0ef){while(0x1){switch(_0x2ce0ef[_0x497d('0xf')]=_0x2ce0ef[_0x497d('0x10')]){case 0x0:_0x4fcdf4=this[_0x497d('0x9')],_0x251557=_0x4fcdf4[_0x497d('0x11')],_0x52db40=_0x4fcdf4[_0x497d('0x12')];_0x50ed4b=[];_0x597a58=_0x497d('0x13');_0x2ce0ef[_0x497d('0xf')]=0x3;_0x2ce0ef[_0x497d('0x10')]=0x6;return _0x251557['isLinkDie'](_0x1c1486);case 0x6:_0x597a58=_0x2ce0ef[_0x497d('0x14')];_0x2ce0ef[_0x497d('0x10')]=0xb;break;case 0x9:_0x2ce0ef[_0x497d('0xf')]=0x9;_0x2ce0ef['t0']=_0x2ce0ef[_0x497d('0x15')](0x3);case 0xb:if(_0x597a58!=![]){_0x50ed4b[_0x497d('0x16')]({'file':_0x1c1486,'label':_0x497d('0x13'),'type':_0x497d('0x17'),'size':_0x597a58});}return _0x2ce0ef['abrupt'](_0x497d('0x18'),{'host':{'url':_0x1c1486,'name':_0x497d('0x19')},'result':_0x50ed4b});case 0xd:case _0x497d('0x1a'):return _0x2ce0ef['stop']();}}},_callee,this,[[0x3,0x9]]);}));function _0x370770(_0x303874){return _0x547a6e['apply'](this,arguments);}return _0x370770;}()}]);return _0x517903;}();thisSource['function']=function(_0xdd2cb9,_0x41e9a){return new Hulu({'libs':_0xdd2cb9,'settings':_0x41e9a});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Hulu = function () {
+    function Hulu(props) {
+        _classCallCheck(this, Hulu);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Hulu, [{
+        key: 'convertToEmbed',
+        value: function convertToEmbed() {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var _libs, httpRequest, cheerio, results, isDie;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                results = [];
+                                isDie = 'NOR';
+                                _context.prev = 3;
+                                _context.next = 6;
+                                return httpRequest.isLinkDie(url);
+
+                            case 6:
+                                isDie = _context.sent;
+                                _context.next = 11;
+                                break;
+
+                            case 9:
+                                _context.prev = 9;
+                                _context.t0 = _context['catch'](3);
+
+                            case 11:
+
+                                if (isDie != false) {
+
+                                    results.push({
+                                        file: url, label: 'NOR', type: "direct", size: isDie
+                                    });
+                                }
+
+                                return _context.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "hulu"
+                                    },
+                                    result: results
+                                });
+
+                            case 13:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this, [[3, 9]]);
+            }));
+
+            function getLink(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Hulu;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Hulu({ libs: libs, settings: settings });
+};

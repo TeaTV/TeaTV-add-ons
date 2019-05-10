@@ -1,1 +1,165 @@
-var _0x24b0=['includes','push','gogoanimes','embed','hosts','function','testing','length','enumerable','configurable','writable','defineProperty','prototype','apply','value','done','resolve','throw','next','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','http://gogoanimes.co','xyzzyx.com','libs','movieInfo','settings','searchDetail','mark','wrap','stringHelper','base64','title','year','episode','type','DOMAIN','convertToSearchQueryString','-episode-','detailUrl','abrupt','return','end','stop','getHostFromDetail','prev','httpRequest','cheerio','state','NOT_FOUND','getHTML','load','.anime_muti_link\x20li','find','attr','data-video','oload.tv','www.rapidvideo.com','openload.co'];(function(_0x3d8750,_0x24c24f){var _0x3d01c1=function(_0x4d9b5b){while(--_0x4d9b5b){_0x3d8750['push'](_0x3d8750['shift']());}};_0x3d01c1(++_0x24c24f);}(_0x24b0,0x196));var _0x2dbd=function(_0x3eda32,_0x2336bb){_0x3eda32=_0x3eda32-0x0;var _0x3c4740=_0x24b0[_0x3eda32];return _0x3c4740;};var _createClass=function(){function _0x3fe41e(_0x4fab5c,_0x44b42e){for(var _0x1b4c64=0x0;_0x1b4c64<_0x44b42e[_0x2dbd('0x0')];_0x1b4c64++){var _0x5920f4=_0x44b42e[_0x1b4c64];_0x5920f4['enumerable']=_0x5920f4[_0x2dbd('0x1')]||![];_0x5920f4[_0x2dbd('0x2')]=!![];if('value'in _0x5920f4)_0x5920f4[_0x2dbd('0x3')]=!![];Object[_0x2dbd('0x4')](_0x4fab5c,_0x5920f4['key'],_0x5920f4);}}return function(_0x1b2d27,_0x1e48cd,_0x506194){if(_0x1e48cd)_0x3fe41e(_0x1b2d27[_0x2dbd('0x5')],_0x1e48cd);if(_0x506194)_0x3fe41e(_0x1b2d27,_0x506194);return _0x1b2d27;};}();function _asyncToGenerator(_0x516f60){return function(){var _0x7150fc=_0x516f60[_0x2dbd('0x6')](this,arguments);return new Promise(function(_0x1b920a,_0x299c87){function _0xaccc0(_0x20d329,_0x82df74){try{var _0x392ad6=_0x7150fc[_0x20d329](_0x82df74);var _0x4bff06=_0x392ad6[_0x2dbd('0x7')];}catch(_0x16e274){_0x299c87(_0x16e274);return;}if(_0x392ad6[_0x2dbd('0x8')]){_0x1b920a(_0x4bff06);}else{return Promise[_0x2dbd('0x9')](_0x4bff06)['then'](function(_0x347aed){_0xaccc0('next',_0x347aed);},function(_0x5f20d3){_0xaccc0(_0x2dbd('0xa'),_0x5f20d3);});}}return _0xaccc0(_0x2dbd('0xb'));});};}function _classCallCheck(_0x4a3efa,_0x3b5209){if(!(_0x4a3efa instanceof _0x3b5209)){throw new TypeError(_0x2dbd('0xc'));}}var URL={'DOMAIN':_0x2dbd('0xd')};var getDomain=function getDomain(_0x46cc5c){var _0x1468cd=_0x46cc5c['match'](/\/\/([^\/]+)/);if(_0x1468cd==null)return _0x2dbd('0xe');return _0x1468cd[0x1]!=undefined?_0x1468cd[0x1]:_0x2dbd('0xe');};var Gogoanimes=function(){function _0x225f83(_0x1cf4d7){_classCallCheck(this,_0x225f83);this[_0x2dbd('0xf')]=_0x1cf4d7['libs'];this[_0x2dbd('0x10')]=_0x1cf4d7['movieInfo'];this['settings']=_0x1cf4d7[_0x2dbd('0x11')];this['state']={};}_createClass(_0x225f83,[{'key':_0x2dbd('0x12'),'value':function(){var _0x40a27b=_asyncToGenerator(regeneratorRuntime[_0x2dbd('0x13')](function _callee(){var _0x363a3e,_0x519e17,_0x105e9c,_0x16c33e,_0x6a3ada,_0x19889a,_0x12422a,_0x384f25,_0x3304d5,_0x333668,_0x41d29f;return regeneratorRuntime[_0x2dbd('0x14')](function _callee$(_0x5058f5){while(0x1){switch(_0x5058f5['prev']=_0x5058f5[_0x2dbd('0xb')]){case 0x0:_0x363a3e=this[_0x2dbd('0xf')],_0x519e17=_0x363a3e['httpRequest'],_0x105e9c=_0x363a3e['cheerio'],_0x16c33e=_0x363a3e[_0x2dbd('0x15')],_0x6a3ada=_0x363a3e[_0x2dbd('0x16')];_0x19889a=this[_0x2dbd('0x10')],_0x12422a=_0x19889a[_0x2dbd('0x17')],_0x384f25=_0x19889a[_0x2dbd('0x18')],_0x3304d5=_0x19889a[_0x2dbd('0x19')],_0x333668=_0x19889a[_0x2dbd('0x1a')];_0x41d29f=URL[_0x2dbd('0x1b')]+'/'+_0x16c33e[_0x2dbd('0x1c')](_0x12422a,'-')+_0x2dbd('0x1d')+_0x3304d5;this['state'][_0x2dbd('0x1e')]=_0x41d29f;return _0x5058f5[_0x2dbd('0x1f')](_0x2dbd('0x20'));case 0x5:case _0x2dbd('0x21'):return _0x5058f5[_0x2dbd('0x22')]();}}},_callee,this);}));function _0x3a11dc(){return _0x40a27b[_0x2dbd('0x6')](this,arguments);}return _0x3a11dc;}()},{'key':_0x2dbd('0x23'),'value':function(){var _0x5af64d=_asyncToGenerator(regeneratorRuntime[_0x2dbd('0x13')](function _callee2(){var _0xe8bff9,_0x15d57f,_0x433bdf,_0x4234c3,_0x3902b5,_0x512a80,_0x590cba,_0x309254;return regeneratorRuntime['wrap'](function _callee2$(_0x3fb75b){while(0x1){switch(_0x3fb75b[_0x2dbd('0x24')]=_0x3fb75b['next']){case 0x0:_0xe8bff9=this[_0x2dbd('0xf')],_0x15d57f=_0xe8bff9[_0x2dbd('0x25')],_0x433bdf=_0xe8bff9[_0x2dbd('0x26')],_0x4234c3=_0xe8bff9[_0x2dbd('0x16')];if(this[_0x2dbd('0x27')][_0x2dbd('0x1e')]){_0x3fb75b[_0x2dbd('0xb')]=0x3;break;}throw new Error(_0x2dbd('0x28'));case 0x3:_0x3902b5=[];_0x512a80=this[_0x2dbd('0x27')]['detailUrl'];_0x3fb75b[_0x2dbd('0xb')]=0x7;return _0x15d57f[_0x2dbd('0x29')](_0x512a80);case 0x7:_0x590cba=_0x3fb75b['sent'];_0x309254=_0x433bdf[_0x2dbd('0x2a')](_0x590cba);_0x309254(_0x2dbd('0x2b'))['each'](function(){var _0x5782d9=_0x309254(this)[_0x2dbd('0x2c')]('a')[_0x2dbd('0x2d')](_0x2dbd('0x2e'));_0x5782d9&&[_0x2dbd('0x2f'),'streamango.com',_0x2dbd('0x30'),_0x2dbd('0x31')][_0x2dbd('0x32')](getDomain(_0x5782d9))&&_0x3902b5[_0x2dbd('0x33')]({'provider':{'url':_0x512a80,'name':_0x2dbd('0x34')},'result':{'file':_0x5782d9,'label':'embed','type':_0x2dbd('0x35')}});});this[_0x2dbd('0x27')][_0x2dbd('0x36')]=_0x3902b5;return _0x3fb75b[_0x2dbd('0x1f')](_0x2dbd('0x20'));case 0xc:case'end':return _0x3fb75b[_0x2dbd('0x22')]();}}},_callee2,this);}));function _0x1ea9f3(){return _0x5af64d[_0x2dbd('0x6')](this,arguments);}return _0x1ea9f3;}()}]);return _0x225f83;}();thisSource[_0x2dbd('0x37')]=function(){var _0x1c1628=_asyncToGenerator(regeneratorRuntime[_0x2dbd('0x13')](function _callee3(_0x404c0e,_0x16bbcf,_0xa632a9){var _0x1764c6;return regeneratorRuntime[_0x2dbd('0x14')](function _callee3$(_0x25db84){while(0x1){switch(_0x25db84[_0x2dbd('0x24')]=_0x25db84[_0x2dbd('0xb')]){case 0x0:_0x1764c6=new Gogoanimes({'libs':_0x404c0e,'movieInfo':_0x16bbcf,'settings':_0xa632a9});_0x25db84[_0x2dbd('0xb')]=0x3;return _0x1764c6[_0x2dbd('0x12')]();case 0x3:_0x25db84[_0x2dbd('0xb')]=0x5;return _0x1764c6[_0x2dbd('0x23')]();case 0x5:return _0x25db84['abrupt'](_0x2dbd('0x20'),_0x1764c6[_0x2dbd('0x27')][_0x2dbd('0x36')]);case 0x6:case'end':return _0x25db84['stop']();}}},_callee3,undefined);}));return function(_0x2787ea,_0x6e9ae8,_0x51a944){return _0x1c1628['apply'](this,arguments);};}();thisSource[_0x2dbd('0x38')]=Gogoanimes;
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var URL = {
+    DOMAIN: 'http://gogoanimes.co'
+};
+
+var getDomain = function getDomain(url) {
+    var m = url.match(/\/\/([^\/]+)/);
+    if (m == null) return 'xyzzyx.com';
+    return m[1] != undefined ? m[1] : 'xyzzyx.com';
+};
+
+var Gogoanimes = function () {
+    function Gogoanimes(props) {
+        _classCallCheck(this, Gogoanimes);
+
+        this.libs = props.libs;
+        this.movieInfo = props.movieInfo;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Gogoanimes, [{
+        key: 'searchDetail',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, episode, type, detailUrl;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
+                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, episode = _movieInfo.episode, type = _movieInfo.type;
+                                detailUrl = URL.DOMAIN + '/' + stringHelper.convertToSearchQueryString(title, '-') + '-episode-' + episode;
+
+
+                                this.state.detailUrl = detailUrl;
+                                return _context.abrupt('return');
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function searchDetail() {
+                return _ref.apply(this, arguments);
+            }
+
+            return searchDetail;
+        }()
+    }, {
+        key: 'getHostFromDetail',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+                var _libs2, httpRequest, cheerio, base64, hosts, detailUrl, htmlSearch, $;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64;
+
+                                if (this.state.detailUrl) {
+                                    _context2.next = 3;
+                                    break;
+                                }
+
+                                throw new Error("NOT_FOUND");
+
+                            case 3:
+                                hosts = [];
+                                detailUrl = this.state.detailUrl;
+                                _context2.next = 7;
+                                return httpRequest.getHTML(detailUrl);
+
+                            case 7:
+                                htmlSearch = _context2.sent;
+                                $ = cheerio.load(htmlSearch);
+
+
+                                $('.anime_muti_link li').each(function () {
+
+                                    var linkEmbed = $(this).find('a').attr('data-video');
+
+                                    linkEmbed && ['oload.tv', 'streamango.com', 'www.rapidvideo.com', 'openload.co'].includes(getDomain(linkEmbed)) && hosts.push({
+                                        provider: {
+                                            url: detailUrl,
+                                            name: "gogoanimes"
+                                        },
+                                        result: {
+                                            file: linkEmbed,
+                                            label: "embed",
+                                            type: "embed"
+                                        }
+                                    });
+                                });
+
+                                this.state.hosts = hosts;
+                                return _context2.abrupt('return');
+
+                            case 12:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function getHostFromDetail() {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getHostFromDetail;
+        }()
+    }]);
+
+    return Gogoanimes;
+}();
+
+thisSource.function = function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(libs, movieInfo, settings) {
+        var gogo;
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+            while (1) {
+                switch (_context3.prev = _context3.next) {
+                    case 0:
+                        gogo = new Gogoanimes({
+                            libs: libs,
+                            movieInfo: movieInfo,
+                            settings: settings
+                        });
+                        _context3.next = 3;
+                        return gogo.searchDetail();
+
+                    case 3:
+                        _context3.next = 5;
+                        return gogo.getHostFromDetail();
+
+                    case 5:
+                        return _context3.abrupt('return', gogo.state.hosts);
+
+                    case 6:
+                    case 'end':
+                        return _context3.stop();
+                }
+            }
+        }, _callee3, undefined);
+    }));
+
+    return function (_x, _x2, _x3) {
+        return _ref3.apply(this, arguments);
+    };
+}();
+
+thisSource.testing = Gogoanimes;

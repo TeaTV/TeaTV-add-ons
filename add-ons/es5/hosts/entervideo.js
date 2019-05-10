@@ -1,1 +1,154 @@
-var _0x29a8=['checkLive','prev','httpRequest','getHTML','text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8','vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','max-age=0','keep-alive','entervideo.net','Mozilla/5.0\x20(Macintosh;\x20Intel\x20Mac\x20OS\x20X\x2010_13_1)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/65.0.3325.146\x20Safari/537.36','abrupt','end','getLink','mark','wrap','sent','load','source','src','log','push','embed','return','catch','NOT\x20LINK','stop','apply','function','length','enumerable','value','writable','defineProperty','key','prototype','done','then','next','throw','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state'];(function(_0x1882a1,_0x4d796b){var _0x4a602b=function(_0x3e4b31){while(--_0x3e4b31){_0x1882a1['push'](_0x1882a1['shift']());}};_0x4a602b(++_0x4d796b);}(_0x29a8,0x72));var _0x4e7b=function(_0x274d63,_0x3758c9){_0x274d63=_0x274d63-0x0;var _0x3d8b39=_0x29a8[_0x274d63];return _0x3d8b39;};var _createClass=function(){function _0x2c17a0(_0x12fecd,_0x36b246){for(var _0x432761=0x0;_0x432761<_0x36b246[_0x4e7b('0x0')];_0x432761++){var _0x3b8f4b=_0x36b246[_0x432761];_0x3b8f4b[_0x4e7b('0x1')]=_0x3b8f4b[_0x4e7b('0x1')]||![];_0x3b8f4b['configurable']=!![];if(_0x4e7b('0x2')in _0x3b8f4b)_0x3b8f4b[_0x4e7b('0x3')]=!![];Object[_0x4e7b('0x4')](_0x12fecd,_0x3b8f4b[_0x4e7b('0x5')],_0x3b8f4b);}}return function(_0x196560,_0x22185f,_0x444bb2){if(_0x22185f)_0x2c17a0(_0x196560[_0x4e7b('0x6')],_0x22185f);if(_0x444bb2)_0x2c17a0(_0x196560,_0x444bb2);return _0x196560;};}();function _asyncToGenerator(_0x1bef8d){return function(){var _0x4886dd=_0x1bef8d['apply'](this,arguments);return new Promise(function(_0x4afd94,_0x14c161){function _0x498de1(_0x5f4c85,_0xdc5a01){try{var _0x3aa340=_0x4886dd[_0x5f4c85](_0xdc5a01);var _0x5a53ff=_0x3aa340['value'];}catch(_0x4de57f){_0x14c161(_0x4de57f);return;}if(_0x3aa340[_0x4e7b('0x7')]){_0x4afd94(_0x5a53ff);}else{return Promise['resolve'](_0x5a53ff)[_0x4e7b('0x8')](function(_0x2daae8){_0x498de1(_0x4e7b('0x9'),_0x2daae8);},function(_0x8a75fb){_0x498de1(_0x4e7b('0xa'),_0x8a75fb);});}}return _0x498de1(_0x4e7b('0x9'));});};}function _classCallCheck(_0x9b0208,_0x2e887e){if(!(_0x9b0208 instanceof _0x2e887e)){throw new TypeError(_0x4e7b('0xb'));}}var EnterVideo=function(){function _0xa3ebfb(_0x1f5c18){_classCallCheck(this,_0xa3ebfb);this['libs']=_0x1f5c18[_0x4e7b('0xc')];this['settings']=_0x1f5c18[_0x4e7b('0xd')];this[_0x4e7b('0xe')]={};}_createClass(_0xa3ebfb,[{'key':_0x4e7b('0xf'),'value':function(){var _0x39762e=_asyncToGenerator(regeneratorRuntime['mark'](function _callee(_0x4c65d7){var _0x1dc2b5,_0x73a412;return regeneratorRuntime['wrap'](function _callee$(_0x48e633){while(0x1){switch(_0x48e633[_0x4e7b('0x10')]=_0x48e633[_0x4e7b('0x9')]){case 0x0:_0x1dc2b5=this[_0x4e7b('0xc')][_0x4e7b('0x11')];_0x48e633[_0x4e7b('0x9')]=0x3;return _0x1dc2b5[_0x4e7b('0x12')](_0x4c65d7,{'Accept':_0x4e7b('0x13'),'Accept-Language':_0x4e7b('0x14'),'Cache-Control':_0x4e7b('0x15'),'Connection':_0x4e7b('0x16'),'Host':_0x4e7b('0x17'),'Upgrade-Insecure-Requests':0x1,'User-Agent':_0x4e7b('0x18')});case 0x3:_0x73a412=_0x48e633['sent'];return _0x48e633[_0x4e7b('0x19')]('return',_0x73a412);case 0x5:case _0x4e7b('0x1a'):return _0x48e633['stop']();}}},_callee,this);}));function _0x3450b3(_0x42848e){return _0x39762e['apply'](this,arguments);}return _0x3450b3;}()},{'key':'convertToEmbed','value':function convertToEmbed(_0x1dd895){}},{'key':_0x4e7b('0x1b'),'value':function(){var _0x5cb082=_asyncToGenerator(regeneratorRuntime[_0x4e7b('0x1c')](function _callee2(_0x4c447b){var _0x17b251,_0x4e9945,_0x2ecf40,_0x3752ed,_0x31d2e3,_0x11cb3e,_0x27f61f,_0x582f47;return regeneratorRuntime[_0x4e7b('0x1d')](function _callee2$(_0x49ae6c){while(0x1){switch(_0x49ae6c[_0x4e7b('0x10')]=_0x49ae6c[_0x4e7b('0x9')]){case 0x0:_0x17b251=this[_0x4e7b('0xc')],_0x4e9945=_0x17b251[_0x4e7b('0x11')],_0x2ecf40=_0x17b251['cheerio'];_0x3752ed=[];_0x49ae6c['next']=0x4;return this[_0x4e7b('0xf')](_0x4c447b);case 0x4:_0x31d2e3=_0x49ae6c[_0x4e7b('0x1e')];if(!(_0x31d2e3==![])){_0x49ae6c[_0x4e7b('0x9')]=0x7;break;}throw new Error('LINK\x20DIE');case 0x7:_0x11cb3e=_0x2ecf40[_0x4e7b('0x1f')](_0x31d2e3);_0x27f61f=_0x11cb3e(_0x4e7b('0x20'))['attr'](_0x4e7b('0x21'));_0x49ae6c[_0x4e7b('0x10')]=0x9;console[_0x4e7b('0x22')](_0x27f61f);_0x49ae6c[_0x4e7b('0x9')]=0xd;return _0x4e9945['isLinkDie'](_0x27f61f);case 0xd:_0x582f47=_0x49ae6c[_0x4e7b('0x1e')];if(_0x582f47!=![]){_0x3752ed[_0x4e7b('0x23')]({'file':_0x27f61f,'label':'NOR','type':_0x4e7b('0x24'),'size':_0x582f47});}return _0x49ae6c[_0x4e7b('0x19')](_0x4e7b('0x25'),{'host':{'url':_0x4c447b,'name':'entervideo'},'result':_0x3752ed});case 0x12:_0x49ae6c['prev']=0x12;_0x49ae6c['t0']=_0x49ae6c[_0x4e7b('0x26')](0x9);throw new Error(_0x4e7b('0x27'));case 0x15:case _0x4e7b('0x1a'):return _0x49ae6c[_0x4e7b('0x28')]();}}},_callee2,this,[[0x9,0x12]]);}));function _0x21a006(_0x550cd9){return _0x5cb082[_0x4e7b('0x29')](this,arguments);}return _0x21a006;}()}]);return _0xa3ebfb;}();thisSource[_0x4e7b('0x2a')]=function(_0x17c4ed,_0x3b3c69){return new EnterVideo({'libs':_0x17c4ed,'settings':_0x3b3c69});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var EnterVideo = function () {
+    function EnterVideo(props) {
+        _classCallCheck(this, EnterVideo);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(EnterVideo, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+
+                                // you fill the die status text
+                                // const dieStatusText = "";
+
+                                _context.next = 3;
+                                return httpRequest.getHTML(url, {
+                                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                                    'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+                                    'Cache-Control': 'max-age=0',
+                                    'Connection': 'keep-alive',
+                                    'Host': 'entervideo.net',
+                                    'Upgrade-Insecure-Requests': 1,
+                                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36'
+                                });
+
+                            case 3:
+                                html = _context.sent;
+                                return _context.abrupt('return', html);
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'convertToEmbed',
+        value: function convertToEmbed(url) {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+
+            // let id = url.match(/\/embed\-([^\-]+)/i);
+            // id = url != null ? url[1] : false;
+
+            // if( id == false ) return url;
+
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cheerio, sources, htmlDetail, $, linkDirect, isDie;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                sources = [];
+                                _context2.next = 4;
+                                return this.checkLive(url);
+
+                            case 4:
+                                htmlDetail = _context2.sent;
+
+                                if (!(htmlDetail == false)) {
+                                    _context2.next = 7;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 7:
+                                $ = cheerio.load(htmlDetail);
+                                linkDirect = $('source').attr('src');
+                                _context2.prev = 9;
+
+
+                                console.log(linkDirect);
+                                _context2.next = 13;
+                                return httpRequest.isLinkDie(linkDirect);
+
+                            case 13:
+                                isDie = _context2.sent;
+
+
+                                if (isDie != false) {
+
+                                    sources.push({
+                                        file: linkDirect, label: 'NOR', type: "embed", size: isDie
+                                    });
+                                }
+
+                                return _context2.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "entervideo"
+                                    },
+                                    result: sources
+                                });
+
+                            case 18:
+                                _context2.prev = 18;
+                                _context2.t0 = _context2['catch'](9);
+                                throw new Error('NOT LINK');
+
+                            case 21:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this, [[9, 18]]);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return EnterVideo;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new EnterVideo({ libs: libs, settings: settings });
+};

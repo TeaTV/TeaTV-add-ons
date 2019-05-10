@@ -1,1 +1,304 @@
-var _0x4632=['keep-alive','dizilab.me','Mozilla/5.0\x20(Macintosh;\x20Intel\x20Mac\x20OS\x20X\x2010_13_1)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/65.0.3325.181\x20Safari/537.36','libs','movieInfo','settings','searchDetail','mark','wrap','prev','httpRequest','cheerio','base64','year','season','episode','type','movie','NOT\x20FOUND','HEADERS','load','each','attr','href','.film-image\x20img','alt','shallowCompare','getCloudflare','sent','data','match','abrupt','return','stop','apply','getHostFromDetail','NOT_FOUND','state','detailUrl','.tab-menu\x20.hovered\x20.language\x20li','find','onclick','push','map','vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','DOMAIN','Mozilla/5.0\x20(Macintosh;\x20Intel\x20Mac\x20OS\x20X\x2010_13_1)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/65.0.3325.146\x20Safari/537.36','XMLHttpRequest','stringify','loadVideo','postCloudflare','GET_EMBED','Dizilab','embed','catch','all','hosts','end','function','testing','length','enumerable','configurable','value','writable','defineProperty','prototype','done','then','next','throw','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','http://dizilab.me/arsiv?dizi_adi=','http://dizilab.me/request/php/','text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'];(function(_0x9fd5b7,_0x54c3fa){var _0x420a3a=function(_0x4329a4){while(--_0x4329a4){_0x9fd5b7['push'](_0x9fd5b7['shift']());}};_0x420a3a(++_0x54c3fa);}(_0x4632,0x1b3));var _0x4094=function(_0x3d0f58,_0x5a1623){_0x3d0f58=_0x3d0f58-0x0;var _0x5997f3=_0x4632[_0x3d0f58];return _0x5997f3;};var _createClass=function(){function _0x58fc45(_0x3926cc,_0x5e9106){for(var _0x405842=0x0;_0x405842<_0x5e9106[_0x4094('0x0')];_0x405842++){var _0x3a4e76=_0x5e9106[_0x405842];_0x3a4e76[_0x4094('0x1')]=_0x3a4e76[_0x4094('0x1')]||![];_0x3a4e76[_0x4094('0x2')]=!![];if(_0x4094('0x3')in _0x3a4e76)_0x3a4e76[_0x4094('0x4')]=!![];Object[_0x4094('0x5')](_0x3926cc,_0x3a4e76['key'],_0x3a4e76);}}return function(_0x13d3bb,_0x157148,_0x3256f7){if(_0x157148)_0x58fc45(_0x13d3bb[_0x4094('0x6')],_0x157148);if(_0x3256f7)_0x58fc45(_0x13d3bb,_0x3256f7);return _0x13d3bb;};}();function _asyncToGenerator(_0x5369e8){return function(){var _0x3af43f=_0x5369e8['apply'](this,arguments);return new Promise(function(_0x2178a9,_0x11f734){function _0x59a4f1(_0x3b9d68,_0x14f2ca){try{var _0x435857=_0x3af43f[_0x3b9d68](_0x14f2ca);var _0x2b9057=_0x435857['value'];}catch(_0x54bbbc){_0x11f734(_0x54bbbc);return;}if(_0x435857[_0x4094('0x7')]){_0x2178a9(_0x2b9057);}else{return Promise['resolve'](_0x2b9057)[_0x4094('0x8')](function(_0x2e6155){_0x59a4f1(_0x4094('0x9'),_0x2e6155);},function(_0xfa9535){_0x59a4f1(_0x4094('0xa'),_0xfa9535);});}}return _0x59a4f1('next');});};}function _classCallCheck(_0x4482c3,_0x53fa03){if(!(_0x4482c3 instanceof _0x53fa03)){throw new TypeError(_0x4094('0xb'));}}var URL={'DOMAIN':'http://dizilab.me','SEARCH':function SEARCH(_0x104d31){return _0x4094('0xc')+_0x104d31;},'GET_EMBED':_0x4094('0xd'),'HEADERS':{'Accept':_0x4094('0xe'),'Accept-Language':'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','Connection':_0x4094('0xf'),'Host':_0x4094('0x10'),'Upgrade-Insecure-Requests':0x1,'User-Agent':_0x4094('0x11')}};var Dizilab=function(){function _0x212e31(_0xf5610e){_classCallCheck(this,_0x212e31);this[_0x4094('0x12')]=_0xf5610e[_0x4094('0x12')];this[_0x4094('0x13')]=_0xf5610e[_0x4094('0x13')];this['settings']=_0xf5610e[_0x4094('0x14')];this['state']={};}_createClass(_0x212e31,[{'key':_0x4094('0x15'),'value':function(){var _0x594319=_asyncToGenerator(regeneratorRuntime[_0x4094('0x16')](function _callee(){var _0x4fc8ec,_0x559700,_0x58a8cf,_0x2b97d0,_0x2bbde8,_0x5b0404,_0x20cac8,_0x1b517c,_0x43bd99,_0x364ba4,_0x1a8b03,_0x1cf1be,_0x343ad4,_0x55740a,_0x4908cd,_0x22a0e6,_0x2ea3ab,_0x178361,_0x20d918,_0x505a76;return regeneratorRuntime[_0x4094('0x17')](function _callee$(_0x5bee2c){while(0x1){switch(_0x5bee2c[_0x4094('0x18')]=_0x5bee2c['next']){case 0x0:_0x4fc8ec=this[_0x4094('0x12')],_0x559700=_0x4fc8ec[_0x4094('0x19')],_0x58a8cf=_0x4fc8ec[_0x4094('0x1a')],_0x2b97d0=_0x4fc8ec['stringHelper'],_0x2bbde8=_0x4fc8ec[_0x4094('0x1b')];_0x5b0404=this[_0x4094('0x13')],_0x20cac8=_0x5b0404['title'],_0x1b517c=_0x5b0404[_0x4094('0x1c')],_0x43bd99=_0x5b0404[_0x4094('0x1d')],_0x364ba4=_0x5b0404[_0x4094('0x1e')],_0x1a8b03=_0x5b0404[_0x4094('0x1f')];if(!(_0x1a8b03==_0x4094('0x20'))){_0x5bee2c['next']=0x4;break;}throw new Error(_0x4094('0x21'));case 0x4:_0x1cf1be=![];_0x343ad4=![];_0x55740a=URL['SEARCH'](encodeURI(_0x20cac8));_0x5bee2c['next']=0x9;return _0x559700['getCloudflare'](_0x55740a,URL[_0x4094('0x22')]);case 0x9:_0x4908cd=_0x5bee2c['sent'];_0x22a0e6=_0x58a8cf[_0x4094('0x23')](_0x4908cd['data']);_0x2ea3ab=_0x22a0e6('.tv-series-single');_0x2ea3ab[_0x4094('0x24')](function(){var _0x148539=_0x22a0e6('.film-image')[_0x4094('0x25')](_0x4094('0x26'));var _0x633ff9=_0x22a0e6(_0x4094('0x27'))[_0x4094('0x25')](_0x4094('0x28'));if(_0x2b97d0[_0x4094('0x29')](_0x20cac8,_0x633ff9)){_0x343ad4=_0x148539;return;}});if(!(_0x343ad4!=![])){_0x5bee2c[_0x4094('0x9')]=0x14;break;}_0x5bee2c[_0x4094('0x9')]=0x10;return _0x559700[_0x4094('0x2a')](_0x343ad4,URL[_0x4094('0x22')]);case 0x10:_0x178361=_0x5bee2c[_0x4094('0x2b')];_0x20d918=_0x58a8cf[_0x4094('0x23')](_0x178361[_0x4094('0x2c')]);_0x505a76=_0x20d918('.season');_0x505a76[_0x4094('0x24')](function(){var _0x267c9b=_0x20d918(this)[_0x4094('0x25')](_0x4094('0x26'));var _0xe9fe7f=_0x267c9b[_0x4094('0x2d')](/sezon\-([0-9]+)/i);var _0x247a1e=_0x267c9b[_0x4094('0x2d')](/\/bolum-([0-9]+)/i);_0xe9fe7f=_0xe9fe7f!=null?+_0xe9fe7f[0x1]:-0x1;_0x247a1e=_0x247a1e!=null?+_0x247a1e[0x1]:-0x1;if(_0xe9fe7f==_0x43bd99&&_0x247a1e==_0x364ba4){_0x1cf1be=_0x267c9b;return;}});case 0x14:this['state']['detailUrl']=_0x1cf1be;return _0x5bee2c[_0x4094('0x2e')](_0x4094('0x2f'));case 0x16:case'end':return _0x5bee2c[_0x4094('0x30')]();}}},_callee,this);}));function _0x1c874a(){return _0x594319[_0x4094('0x31')](this,arguments);}return _0x1c874a;}()},{'key':_0x4094('0x32'),'value':function(){var _0x3ebdd0=_asyncToGenerator(regeneratorRuntime[_0x4094('0x16')](function _callee3(){var _0x12c07a,_0x26578a,_0x373ad6,_0x394c7a,_0x3b05b3,_0x52c943,_0x45b6f3,_0x138dd3,_0x39d833,_0xd30eda,_0x6c9dd7,_0x4aaafe,_0x1317b1,_0x2c139f,_0x4277ce;return regeneratorRuntime['wrap'](function _callee3$(_0x4b10df){while(0x1){switch(_0x4b10df['prev']=_0x4b10df[_0x4094('0x9')]){case 0x0:_0x12c07a=this['libs'],_0x26578a=_0x12c07a[_0x4094('0x19')],_0x373ad6=_0x12c07a['cheerio'],_0x394c7a=_0x12c07a['base64'],_0x3b05b3=_0x12c07a['qs'];_0x52c943=this[_0x4094('0x13')],_0x45b6f3=_0x52c943['season'],_0x138dd3=_0x52c943[_0x4094('0x1e')];if(this['state']['detailUrl']){_0x4b10df[_0x4094('0x9')]=0x4;break;}throw new Error(_0x4094('0x33'));case 0x4:_0x39d833=[];_0xd30eda=[];_0x6c9dd7=this[_0x4094('0x34')][_0x4094('0x35')];_0x4b10df[_0x4094('0x9')]=0x9;return _0x26578a[_0x4094('0x2a')](this[_0x4094('0x34')][_0x4094('0x35')],URL[_0x4094('0x22')]);case 0x9:_0x4aaafe=_0x4b10df[_0x4094('0x2b')];_0x1317b1=_0x373ad6[_0x4094('0x23')](_0x4aaafe[_0x4094('0x2c')]);_0x2c139f=_0x1317b1(_0x4094('0x36'));_0x2c139f[_0x4094('0x24')](function(){var _0x454349=_0x1317b1(this)[_0x4094('0x37')]('a')[_0x4094('0x25')](_0x4094('0x38'));_0x454349=_0x454349!=undefined?_0x454349:'';_0x454349=_0x454349[_0x4094('0x2d')](/loadVideo\(\'([^\']+)/i);_0x454349=_0x454349!=null?_0x454349[0x1]:![];if(_0x454349!=![]){_0xd30eda[_0x4094('0x39')](_0x454349);}});_0x4277ce=_0xd30eda[_0x4094('0x3a')](function(){var _0x13e25a=_asyncToGenerator(regeneratorRuntime['mark'](function _callee2(_0x1b3cb5){var _0x3cfb54,_0x45f35c,_0x3b668f,_0x46e4c4;return regeneratorRuntime[_0x4094('0x17')](function _callee2$(_0x569e19){while(0x1){switch(_0x569e19[_0x4094('0x18')]=_0x569e19[_0x4094('0x9')]){case 0x0:_0x3cfb54={'Accept':'application/json,\x20text/javascript,\x20*/*;\x20q=0.01','Accept-Language':_0x4094('0x3b'),'Connection':'keep-alive','Content-Length':0x27,'Content-Type':'application/x-www-form-urlencoded;\x20charset=UTF-8','Host':_0x4094('0x10'),'Origin':URL[_0x4094('0x3c')],'Referer':_0x6c9dd7,'User-Agent':_0x4094('0x3d'),'X-Requested-With':_0x4094('0x3e')};_0x45f35c=_0x3b05b3[_0x4094('0x3f')]({'vid':_0x1b3cb5,'tip':0x0,'type':_0x4094('0x40')});_0x3b668f='';_0x569e19[_0x4094('0x18')]=0x3;_0x569e19['next']=0x6;return _0x26578a[_0x4094('0x41')](URL[_0x4094('0x42')],_0x3cfb54,_0x45f35c);case 0x6:_0x3b668f=_0x569e19[_0x4094('0x2b')];_0x3b668f=_0x3b668f[_0x4094('0x2c')]['html'];_0x46e4c4=_0x3b668f[_0x4094('0x2d')](/src\=\"([^\"]+)/i);_0x46e4c4=_0x46e4c4!=null?_0x46e4c4[0x1]:![];_0x46e4c4&&_0x39d833[_0x4094('0x39')]({'provider':{'url':_0x6c9dd7,'name':_0x4094('0x43')},'result':{'file':_0x46e4c4,'label':_0x4094('0x44'),'type':_0x4094('0x44')}});_0x569e19['next']=0xf;break;case 0xd:_0x569e19['prev']=0xd;_0x569e19['t0']=_0x569e19[_0x4094('0x45')](0x3);case 0xf:case'end':return _0x569e19[_0x4094('0x30')]();}}},_callee2,this,[[0x3,0xd]]);}));return function(_0x2ccb5d){return _0x13e25a[_0x4094('0x31')](this,arguments);};}());_0x4b10df[_0x4094('0x9')]=0x10;return Promise[_0x4094('0x46')](_0x4277ce);case 0x10:this[_0x4094('0x34')][_0x4094('0x47')]=_0x39d833;return _0x4b10df[_0x4094('0x2e')]('return');case 0x12:case _0x4094('0x48'):return _0x4b10df[_0x4094('0x30')]();}}},_callee3,this);}));function _0x4fdcef(){return _0x3ebdd0[_0x4094('0x31')](this,arguments);}return _0x4fdcef;}()}]);return _0x212e31;}();thisSource[_0x4094('0x49')]=function(){var _0x4ae258=_asyncToGenerator(regeneratorRuntime[_0x4094('0x16')](function _callee4(_0x4d6622,_0x452ad6,_0x1a4d13){var _0x1227b4;return regeneratorRuntime[_0x4094('0x17')](function _callee4$(_0x7524b8){while(0x1){switch(_0x7524b8[_0x4094('0x18')]=_0x7524b8[_0x4094('0x9')]){case 0x0:_0x1227b4=new Dizilab({'libs':_0x4d6622,'movieInfo':_0x452ad6,'settings':_0x1a4d13});_0x7524b8[_0x4094('0x9')]=0x3;return _0x1227b4[_0x4094('0x15')]();case 0x3:_0x7524b8['next']=0x5;return _0x1227b4[_0x4094('0x32')]();case 0x5:return _0x7524b8[_0x4094('0x2e')](_0x4094('0x2f'),_0x1227b4[_0x4094('0x34')][_0x4094('0x47')]);case 0x6:case _0x4094('0x48'):return _0x7524b8[_0x4094('0x30')]();}}},_callee4,undefined);}));return function(_0x10b0e0,_0x23a61c,_0x20669b){return _0x4ae258[_0x4094('0x31')](this,arguments);};}();thisSource[_0x4094('0x4a')]=Dizilab;
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var URL = {
+    DOMAIN: 'http://dizilab.me',
+    SEARCH: function SEARCH(title) {
+        return 'http://dizilab.me/arsiv?dizi_adi=' + title;
+    },
+    GET_EMBED: 'http://dizilab.me/request/php/',
+    HEADERS: {
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+        'Connection': 'keep-alive',
+        'Host': 'dizilab.me',
+        'Upgrade-Insecure-Requests': 1,
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+    }
+};
+
+var Dizilab = function () {
+    function Dizilab(props) {
+        _classCallCheck(this, Dizilab);
+
+        this.libs = props.libs;
+        this.movieInfo = props.movieInfo;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Dizilab, [{
+        key: 'searchDetail',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, detailSeason, urlSearch, resultSearch, $, itemSearch, htmlSeason, $_2, itemSeason;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
+                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+
+                                if (!(type == 'movie')) {
+                                    _context.next = 4;
+                                    break;
+                                }
+
+                                throw new Error("NOT FOUND");
+
+                            case 4:
+                                detailUrl = false;
+                                detailSeason = false;
+                                urlSearch = URL.SEARCH(encodeURI(title));
+                                _context.next = 9;
+                                return httpRequest.getCloudflare(urlSearch, URL.HEADERS);
+
+                            case 9:
+                                resultSearch = _context.sent;
+                                $ = cheerio.load(resultSearch.data);
+                                itemSearch = $('.tv-series-single');
+
+
+                                itemSearch.each(function () {
+
+                                    var hrefMovie = $('.film-image').attr('href');
+                                    var titleMovie = $('.film-image img').attr('alt');
+
+                                    if (stringHelper.shallowCompare(title, titleMovie)) {
+
+                                        detailSeason = hrefMovie;
+                                        return;
+                                    }
+                                });
+
+                                if (!(detailSeason != false)) {
+                                    _context.next = 20;
+                                    break;
+                                }
+
+                                _context.next = 16;
+                                return httpRequest.getCloudflare(detailSeason, URL.HEADERS);
+
+                            case 16:
+                                htmlSeason = _context.sent;
+                                $_2 = cheerio.load(htmlSeason.data);
+                                itemSeason = $_2('.season');
+
+
+                                itemSeason.each(function () {
+
+                                    var hrefSeason = $_2(this).attr('href');
+                                    var seasonMovie = hrefSeason.match(/sezon\-([0-9]+)/i);
+                                    var episodeMovie = hrefSeason.match(/\/bolum-([0-9]+)/i);
+                                    seasonMovie = seasonMovie != null ? +seasonMovie[1] : -1;
+                                    episodeMovie = episodeMovie != null ? +episodeMovie[1] : -1;
+
+                                    if (seasonMovie == season && episodeMovie == episode) {
+
+                                        detailUrl = hrefSeason;
+                                        return;
+                                    }
+                                });
+
+                            case 20:
+
+                                this.state.detailUrl = detailUrl;
+                                return _context.abrupt('return');
+
+                            case 22:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function searchDetail() {
+                return _ref.apply(this, arguments);
+            }
+
+            return searchDetail;
+        }()
+    }, {
+        key: 'getHostFromDetail',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+                var _libs2, httpRequest, cheerio, base64, qs, _movieInfo2, season, episode, hosts, arrVideoId, detailUrl, htmlDetail, $, itemEpisode, arrPromise;
+
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64, qs = _libs2.qs;
+                                _movieInfo2 = this.movieInfo, season = _movieInfo2.season, episode = _movieInfo2.episode;
+
+                                if (this.state.detailUrl) {
+                                    _context3.next = 4;
+                                    break;
+                                }
+
+                                throw new Error("NOT_FOUND");
+
+                            case 4:
+                                hosts = [];
+                                arrVideoId = [];
+                                detailUrl = this.state.detailUrl;
+                                _context3.next = 9;
+                                return httpRequest.getCloudflare(this.state.detailUrl, URL.HEADERS);
+
+                            case 9:
+                                htmlDetail = _context3.sent;
+                                $ = cheerio.load(htmlDetail.data);
+                                itemEpisode = $('.tab-menu .hovered .language li');
+
+
+                                itemEpisode.each(function () {
+
+                                    var videoId = $(this).find('a').attr('onclick');
+                                    videoId = videoId != undefined ? videoId : '';
+                                    videoId = videoId.match(/loadVideo\(\'([^\']+)/i);
+                                    videoId = videoId != null ? videoId[1] : false;
+
+                                    if (videoId != false) {
+
+                                        arrVideoId.push(videoId);
+                                    }
+                                });
+
+                                arrPromise = arrVideoId.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
+                                        var headerEmbed, bodyEmbed, jsonEmbed, linkEmbed;
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+                                                        headerEmbed = {
+                                                            'Accept': 'application/json, text/javascript, */*; q=0.01',
+                                                            'Accept-Language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+                                                            'Connection': 'keep-alive',
+                                                            'Content-Length': 39,
+                                                            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                                                            'Host': 'dizilab.me',
+                                                            'Origin': URL.DOMAIN,
+                                                            'Referer': detailUrl,
+                                                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36',
+                                                            'X-Requested-With': 'XMLHttpRequest'
+                                                        };
+                                                        bodyEmbed = qs.stringify({
+                                                            vid: val,
+                                                            tip: 0,
+                                                            type: "loadVideo"
+                                                        });
+                                                        jsonEmbed = '';
+                                                        _context2.prev = 3;
+                                                        _context2.next = 6;
+                                                        return httpRequest.postCloudflare(URL.GET_EMBED, headerEmbed, bodyEmbed);
+
+                                                    case 6:
+                                                        jsonEmbed = _context2.sent;
+
+                                                        jsonEmbed = jsonEmbed.data.html;
+
+                                                        linkEmbed = jsonEmbed.match(/src\=\"([^\"]+)/i);
+
+                                                        linkEmbed = linkEmbed != null ? linkEmbed[1] : false;
+
+                                                        linkEmbed && hosts.push({
+                                                            provider: {
+                                                                url: detailUrl,
+                                                                name: "Dizilab"
+                                                            },
+                                                            result: {
+                                                                file: linkEmbed,
+                                                                label: "embed",
+                                                                type: "embed"
+                                                            }
+                                                        });
+                                                        _context2.next = 15;
+                                                        break;
+
+                                                    case 13:
+                                                        _context2.prev = 13;
+                                                        _context2.t0 = _context2['catch'](3);
+
+                                                    case 15:
+                                                    case 'end':
+                                                        return _context2.stop();
+                                                }
+                                            }
+                                        }, _callee2, this, [[3, 13]]);
+                                    }));
+
+                                    return function (_x) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 16;
+                                return Promise.all(arrPromise);
+
+                            case 16:
+
+                                this.state.hosts = hosts;
+                                return _context3.abrupt('return');
+
+                            case 18:
+                            case 'end':
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this);
+            }));
+
+            function getHostFromDetail() {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getHostFromDetail;
+        }()
+    }]);
+
+    return Dizilab;
+}();
+
+thisSource.function = function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
+        var dizi;
+        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+            while (1) {
+                switch (_context4.prev = _context4.next) {
+                    case 0:
+                        dizi = new Dizilab({
+                            libs: libs,
+                            movieInfo: movieInfo,
+                            settings: settings
+                        });
+                        _context4.next = 3;
+                        return dizi.searchDetail();
+
+                    case 3:
+                        _context4.next = 5;
+                        return dizi.getHostFromDetail();
+
+                    case 5:
+                        return _context4.abrupt('return', dizi.state.hosts);
+
+                    case 6:
+                    case 'end':
+                        return _context4.stop();
+                }
+            }
+        }, _callee4, undefined);
+    }));
+
+    return function (_x2, _x3, _x4) {
+        return _ref4.apply(this, arguments);
+    };
+}();
+
+thisSource.testing = Dizilab;

@@ -1,1 +1,120 @@
-var _0x48b9=['mark','indexOf','http://','NOT_FOUND','getHeader','sent','stringify','video/mp4','abrupt','return','Direct','NOR','prev','isLinkDie','catch','isDie','direct','CDN','end','stop','function','length','enumerable','configurable','value','prototype','apply','done','resolve','then','next','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','getLink'];(function(_0x5e9aa3,_0x55b283){var _0xe4591f=function(_0x11a7e7){while(--_0x11a7e7){_0x5e9aa3['push'](_0x5e9aa3['shift']());}};_0xe4591f(++_0x55b283);}(_0x48b9,0x1c5));var _0x1e38=function(_0x208af8,_0x42f818){_0x208af8=_0x208af8-0x0;var _0x1d55d6=_0x48b9[_0x208af8];return _0x1d55d6;};var _createClass=function(){function _0x37134c(_0x3d4785,_0x3035b4){for(var _0x110e1f=0x0;_0x110e1f<_0x3035b4[_0x1e38('0x0')];_0x110e1f++){var _0x4c2249=_0x3035b4[_0x110e1f];_0x4c2249[_0x1e38('0x1')]=_0x4c2249[_0x1e38('0x1')]||![];_0x4c2249[_0x1e38('0x2')]=!![];if(_0x1e38('0x3')in _0x4c2249)_0x4c2249['writable']=!![];Object['defineProperty'](_0x3d4785,_0x4c2249['key'],_0x4c2249);}}return function(_0x3bacf2,_0x1fc80e,_0x163416){if(_0x1fc80e)_0x37134c(_0x3bacf2[_0x1e38('0x4')],_0x1fc80e);if(_0x163416)_0x37134c(_0x3bacf2,_0x163416);return _0x3bacf2;};}();function _asyncToGenerator(_0x1f3a33){return function(){var _0x5db9d7=_0x1f3a33[_0x1e38('0x5')](this,arguments);return new Promise(function(_0x53cbcd,_0x1cf441){function _0x4aaf3a(_0x2e4b71,_0x518ab5){try{var _0x3162f9=_0x5db9d7[_0x2e4b71](_0x518ab5);var _0x9ed463=_0x3162f9['value'];}catch(_0x342fe5){_0x1cf441(_0x342fe5);return;}if(_0x3162f9[_0x1e38('0x6')]){_0x53cbcd(_0x9ed463);}else{return Promise[_0x1e38('0x7')](_0x9ed463)[_0x1e38('0x8')](function(_0x5c8483){_0x4aaf3a(_0x1e38('0x9'),_0x5c8483);},function(_0x5204ee){_0x4aaf3a('throw',_0x5204ee);});}}return _0x4aaf3a(_0x1e38('0x9'));});};}function _classCallCheck(_0x11f6d2,_0x1f2e5a){if(!(_0x11f6d2 instanceof _0x1f2e5a)){throw new TypeError(_0x1e38('0xa'));}}var Defaulthost=function(){function _0x292f4b(_0x287a2a){_classCallCheck(this,_0x292f4b);this[_0x1e38('0xb')]=_0x287a2a[_0x1e38('0xb')];this['settings']=_0x287a2a[_0x1e38('0xc')];this[_0x1e38('0xd')]={};}_createClass(_0x292f4b,[{'key':_0x1e38('0xe'),'value':function(){var _0x31ffb9=_asyncToGenerator(regeneratorRuntime[_0x1e38('0xf')](function _callee(_0x311af0){var _0x4d3d41,_0x4a5b6c,_0x56ad41,_0x16e605,_0x289f4b,_0x484cbe;return regeneratorRuntime['wrap'](function _callee$(_0x128c68){while(0x1){switch(_0x128c68['prev']=_0x128c68['next']){case 0x0:if(!(_0x311af0[_0x1e38('0x10')](_0x1e38('0x11'))!=0x0&&_0x311af0['indexOf']('https://')!=0x0)){_0x128c68[_0x1e38('0x9')]=0x2;break;}throw new Error(_0x1e38('0x12'));case 0x2:throw new Error('NOT_FOUND');case 0x7:_0x128c68[_0x1e38('0x9')]=0x9;return _0x4a5b6c[_0x1e38('0x13')](_0x311af0);case 0x9:_0x16e605=_0x128c68[_0x1e38('0x14')];if(!(JSON[_0x1e38('0x15')](_0x16e605)[_0x1e38('0x10')](_0x1e38('0x16'))==-0x1&&JSON['stringify'](_0x16e605)['indexOf']('application/octet-stream')==-0x1)){_0x128c68[_0x1e38('0x9')]=0xc;break;}return _0x128c68[_0x1e38('0x17')](_0x1e38('0x18'),{'host':{'url':_0x311af0,'name':_0x1e38('0x19')},'result':[]});case 0xc:_0x289f4b=[];_0x484cbe=_0x1e38('0x1a');_0x128c68[_0x1e38('0x1b')]=0xe;_0x128c68['next']=0x11;return _0x4a5b6c[_0x1e38('0x1c')](_0x311af0);case 0x11:_0x484cbe=_0x128c68[_0x1e38('0x14')];_0x128c68[_0x1e38('0x9')]=0x17;break;case 0x14:_0x128c68['prev']=0x14;_0x128c68['t0']=_0x128c68[_0x1e38('0x1d')](0xe);throw new Error('NOT_FOUND_ERR');case 0x17:console['log'](_0x1e38('0x1e'),_0x484cbe);if(!(_0x484cbe!=![]&&_0x484cbe!=_0x1e38('0x1a'))){_0x128c68[_0x1e38('0x9')]=0x1b;break;}_0x289f4b['push']({'file':_0x311af0,'label':_0x1e38('0x1a'),'type':_0x1e38('0x1f'),'size':_0x484cbe});return _0x128c68['abrupt'](_0x1e38('0x18'),{'host':{'url':_0x311af0,'name':_0x1e38('0x20')},'result':_0x289f4b});case 0x1b:throw new Error(_0x1e38('0x12'));case 0x1c:case _0x1e38('0x21'):return _0x128c68[_0x1e38('0x22')]();}}},_callee,this,[[0xe,0x14]]);}));function _0x269be9(_0x161143){return _0x31ffb9[_0x1e38('0x5')](this,arguments);}return _0x269be9;}()}]);return _0x292f4b;}();thisSource[_0x1e38('0x23')]=function(_0x349a03,_0x4b52f2){return new Defaulthost({'libs':_0x349a03,'settings':_0x4b52f2});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Defaulthost = function () {
+    function Defaulthost(props) {
+        _classCallCheck(this, Defaulthost);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Defaulthost, [{
+        key: 'getLink',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var _libs, httpRequest, cheerio, isEmbed, results, isDie;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                                    _context.next = 2;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 2:
+                                throw new Error('NOT_FOUND');
+
+                            case 7:
+                                _context.next = 9;
+                                return httpRequest.getHeader(url);
+
+                            case 9:
+                                isEmbed = _context.sent;
+
+                                if (!(JSON.stringify(isEmbed).indexOf('video/mp4') == -1 && JSON.stringify(isEmbed).indexOf('application/octet-stream') == -1)) {
+                                    _context.next = 12;
+                                    break;
+                                }
+
+                                return _context.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "Direct"
+                                    },
+                                    result: []
+                                });
+
+                            case 12:
+                                results = [];
+                                isDie = 'NOR';
+                                _context.prev = 14;
+                                _context.next = 17;
+                                return httpRequest.isLinkDie(url);
+
+                            case 17:
+                                isDie = _context.sent;
+                                _context.next = 23;
+                                break;
+
+                            case 20:
+                                _context.prev = 20;
+                                _context.t0 = _context['catch'](14);
+                                throw new Error('NOT_FOUND_ERR');
+
+                            case 23:
+
+                                console.log('isDie', isDie);
+
+                                if (!(isDie != false && isDie != 'NOR')) {
+                                    _context.next = 27;
+                                    break;
+                                }
+
+                                results.push({
+                                    file: url, label: 'NOR', type: "direct", size: isDie
+                                });
+
+                                return _context.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "CDN"
+                                    },
+                                    result: results
+                                });
+
+                            case 27:
+                                throw new Error('NOT_FOUND');
+
+                            case 28:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this, [[14, 20]]);
+            }));
+
+            function getLink(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Defaulthost;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Defaulthost({ libs: libs, settings: settings });
+};

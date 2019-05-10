@@ -1,1 +1,187 @@
-var _0x59ae=['return','Uptostream','catch','length','enumerable','configurable','value','writable','defineProperty','key','prototype','done','resolve','then','next','throw','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','checkLive','indexOf','http://','NOT_FOUND','prev','getHTML','sent','end','stop','apply','getLink','mark','wrap','search','https://','LINK\x20DIE','httpRequest','cheerio','match','sources','map','label','direct','all','abrupt'];(function(_0xf40b73,_0x472f1a){var _0x14120b=function(_0x314409){while(--_0x314409){_0xf40b73['push'](_0xf40b73['shift']());}};_0x14120b(++_0x472f1a);}(_0x59ae,0x111));var _0x4642=function(_0xdfee8e,_0x2ecd42){_0xdfee8e=_0xdfee8e-0x0;var _0x258856=_0x59ae[_0xdfee8e];return _0x258856;};var _createClass=function(){function _0x184118(_0x1fa8ac,_0x340c06){for(var _0x1f1ae6=0x0;_0x1f1ae6<_0x340c06[_0x4642('0x0')];_0x1f1ae6++){var _0x7a0719=_0x340c06[_0x1f1ae6];_0x7a0719[_0x4642('0x1')]=_0x7a0719[_0x4642('0x1')]||![];_0x7a0719[_0x4642('0x2')]=!![];if(_0x4642('0x3')in _0x7a0719)_0x7a0719[_0x4642('0x4')]=!![];Object[_0x4642('0x5')](_0x1fa8ac,_0x7a0719[_0x4642('0x6')],_0x7a0719);}}return function(_0x2daa34,_0x2c9886,_0x42856f){if(_0x2c9886)_0x184118(_0x2daa34[_0x4642('0x7')],_0x2c9886);if(_0x42856f)_0x184118(_0x2daa34,_0x42856f);return _0x2daa34;};}();function _asyncToGenerator(_0x2a0faf){return function(){var _0x1f494b=_0x2a0faf['apply'](this,arguments);return new Promise(function(_0x219efa,_0x4168a0){function _0x3f0d08(_0x15debc,_0x353567){try{var _0x5f10c2=_0x1f494b[_0x15debc](_0x353567);var _0x43e5bd=_0x5f10c2[_0x4642('0x3')];}catch(_0x40bdf8){_0x4168a0(_0x40bdf8);return;}if(_0x5f10c2[_0x4642('0x8')]){_0x219efa(_0x43e5bd);}else{return Promise[_0x4642('0x9')](_0x43e5bd)[_0x4642('0xa')](function(_0x55b645){_0x3f0d08(_0x4642('0xb'),_0x55b645);},function(_0x590570){_0x3f0d08(_0x4642('0xc'),_0x590570);});}}return _0x3f0d08(_0x4642('0xb'));});};}function _classCallCheck(_0x3393ab,_0x3fb80e){if(!(_0x3393ab instanceof _0x3fb80e)){throw new TypeError(_0x4642('0xd'));}}var Uptostream=function(){function _0x189428(_0x18d063){_classCallCheck(this,_0x189428);this[_0x4642('0xe')]=_0x18d063['libs'];this['settings']=_0x18d063[_0x4642('0xf')];this[_0x4642('0x10')]={};}_createClass(_0x189428,[{'key':_0x4642('0x11'),'value':function(){var _0x5068b6=_asyncToGenerator(regeneratorRuntime['mark'](function _callee(_0x5358f3){var _0x25b2d2,_0x1ae519;return regeneratorRuntime['wrap'](function _callee$(_0x4c9fa3){while(0x1){switch(_0x4c9fa3['prev']=_0x4c9fa3[_0x4642('0xb')]){case 0x0:if(!(_0x5358f3[_0x4642('0x12')](_0x4642('0x13'))!=0x0&&_0x5358f3[_0x4642('0x12')]('https://')!=0x0)){_0x4c9fa3['next']=0x2;break;}throw new Error(_0x4642('0x14'));case 0x2:_0x25b2d2=this[_0x4642('0xe')]['httpRequest'];_0x4c9fa3[_0x4642('0x15')]=0x3;_0x4c9fa3[_0x4642('0xb')]=0x6;return _0x25b2d2[_0x4642('0x16')](_0x5358f3);case 0x6:_0x1ae519=_0x4c9fa3[_0x4642('0x17')];_0x4c9fa3[_0x4642('0xb')]=0xc;break;case 0x9:_0x4c9fa3[_0x4642('0x15')]=0x9;_0x4c9fa3['t0']=_0x4c9fa3['catch'](0x3);throw new Error(_0x4642('0x14'));case 0xc:return _0x4c9fa3['abrupt']('return',_0x1ae519);case 0xd:case _0x4642('0x18'):return _0x4c9fa3[_0x4642('0x19')]();}}},_callee,this,[[0x3,0x9]]);}));function _0x36747b(_0x10d070){return _0x5068b6[_0x4642('0x1a')](this,arguments);}return _0x36747b;}()},{'key':_0x4642('0x1b'),'value':function(){var _0x3638c6=_asyncToGenerator(regeneratorRuntime[_0x4642('0x1c')](function _callee3(_0x188922){var _0x5c90a4,_0x16f6e6,_0x2edac8,_0x47a934,_0x46fe27,_0x185816,_0x5bc66b,_0x334203,_0x470f6a;return regeneratorRuntime[_0x4642('0x1d')](function _callee3$(_0x19ca06){while(0x1){switch(_0x19ca06['prev']=_0x19ca06['next']){case 0x0:if(!(_0x188922[_0x4642('0x1e')](_0x4642('0x1f'))==-0x1&&_0x188922[_0x4642('0x1e')](_0x4642('0x13'))==-0x1)){_0x19ca06[_0x4642('0xb')]=0x2;break;}throw new Error(_0x4642('0x20'));case 0x2:_0x188922=_0x188922['replace']('uptobox','uptostream');_0x5c90a4=this[_0x4642('0xe')],_0x16f6e6=_0x5c90a4[_0x4642('0x21')],_0x2edac8=_0x5c90a4[_0x4642('0x22')];_0x47a934=[];_0x46fe27=[];_0x19ca06['next']=0x8;return this['checkLive'](_0x188922);case 0x8:_0x185816=_0x19ca06[_0x4642('0x17')];if(!(_0x185816==![])){_0x19ca06[_0x4642('0xb')]=0xb;break;}throw new Error(_0x4642('0x20'));case 0xb:_0x19ca06['prev']=0xb;_0x5bc66b=_0x185816[_0x4642('0x23')](/(window\.sources = ([^;]+))/);_0x334203={};eval(_0x5bc66b[0x1]);_0x47a934=_0x334203[_0x4642('0x24')];_0x470f6a=_0x47a934[_0x4642('0x25')](function(){var _0x14ff53=_asyncToGenerator(regeneratorRuntime['mark'](function _callee2(_0x45db3f){var _0x12f043,_0x56a0c3;return regeneratorRuntime[_0x4642('0x1d')](function _callee2$(_0x40023f){while(0x1){switch(_0x40023f[_0x4642('0x15')]=_0x40023f['next']){case 0x0:_0x12f043=_0x45db3f[_0x4642('0x26')];_0x40023f[_0x4642('0xb')]=0x3;return _0x16f6e6['isLinkDie'](_0x45db3f['src']);case 0x3:_0x56a0c3=_0x40023f[_0x4642('0x17')];if(_0x56a0c3!=![]){_0x46fe27['push']({'file':_0x45db3f['src'],'label':_0x12f043,'type':_0x4642('0x27'),'size':_0x56a0c3});}case 0x5:case _0x4642('0x18'):return _0x40023f[_0x4642('0x19')]();}}},_callee2,this);}));return function(_0x13734e){return _0x14ff53['apply'](this,arguments);};}());_0x19ca06[_0x4642('0xb')]=0x13;return Promise[_0x4642('0x28')](_0x470f6a);case 0x13:return _0x19ca06[_0x4642('0x29')](_0x4642('0x2a'),{'host':{'url':_0x188922,'name':_0x4642('0x2b')},'result':_0x46fe27});case 0x16:_0x19ca06[_0x4642('0x15')]=0x16;_0x19ca06['t0']=_0x19ca06[_0x4642('0x2c')](0xb);throw new Error(_0x19ca06['t0']);case 0x19:case'end':return _0x19ca06[_0x4642('0x19')]();}}},_callee3,this,[[0xb,0x16]]);}));function _0x2ad486(_0x419871){return _0x3638c6[_0x4642('0x1a')](this,arguments);}return _0x2ad486;}()}]);return _0x189428;}();thisSource['function']=function(_0x163e69,_0x25d1ee){return new Uptostream({'libs':_0x163e69,'settings':_0x25d1ee});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Uptostream = function () {
+    function Uptostream(props) {
+        _classCallCheck(this, Uptostream);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Uptostream, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
+                                    _context.next = 2;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 2:
+                                httpRequest = this.libs.httpRequest;
+
+                                // you fill the die status text
+                                // const dieStatusText = "";
+
+                                _context.prev = 3;
+                                _context.next = 6;
+                                return httpRequest.getHTML(url);
+
+                            case 6:
+                                html = _context.sent;
+                                _context.next = 12;
+                                break;
+
+                            case 9:
+                                _context.prev = 9;
+                                _context.t0 = _context['catch'](3);
+                                throw new Error('NOT_FOUND');
+
+                            case 12:
+                                return _context.abrupt('return', html);
+
+                            case 13:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this, [[3, 9]]);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
+                var _libs, httpRequest, cheerio, arrVideoQuality, results, html, m, window, arrPromise;
+
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                if (!(url.search('https://') == -1 && url.search('http://') == -1)) {
+                                    _context3.next = 2;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 2:
+                                url = url.replace('uptobox', 'uptostream');
+
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                arrVideoQuality = [];
+                                results = [];
+                                _context3.next = 8;
+                                return this.checkLive(url);
+
+                            case 8:
+                                html = _context3.sent;
+
+                                if (!(html == false)) {
+                                    _context3.next = 11;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 11:
+                                _context3.prev = 11;
+                                m = html.match(/(window\.sources = ([^;]+))/);
+                                window = {};
+
+                                eval(m[1]);
+
+                                arrVideoQuality = window.sources;
+                                arrPromise = arrVideoQuality.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
+                                        var label, isDie;
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+                                                        label = val.label;
+                                                        _context2.next = 3;
+                                                        return httpRequest.isLinkDie(val.src);
+
+                                                    case 3:
+                                                        isDie = _context2.sent;
+
+
+                                                        if (isDie != false) {
+
+                                                            results.push({
+                                                                file: val.src, label: label, type: "direct", size: isDie
+                                                            });
+                                                        }
+
+                                                    case 5:
+                                                    case 'end':
+                                                        return _context2.stop();
+                                                }
+                                            }
+                                        }, _callee2, this);
+                                    }));
+
+                                    return function (_x3) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 19;
+                                return Promise.all(arrPromise);
+
+                            case 19:
+                                return _context3.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "Uptostream"
+                                    },
+                                    result: results
+                                });
+
+                            case 22:
+                                _context3.prev = 22;
+                                _context3.t0 = _context3['catch'](11);
+                                throw new Error(_context3.t0);
+
+                            case 25:
+                            case 'end':
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this, [[11, 22]]);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Uptostream;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Uptostream({ libs: libs, settings: settings });
+};

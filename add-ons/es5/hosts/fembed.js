@@ -1,1 +1,138 @@
-var _0x3e5f=['split','https://www.fembed.com/api/source/','www.fembed.com','data','mark','prev','label','isLinkDie','push','file','direct','all','Fembed','length','enumerable','configurable','value','writable','apply','done','resolve','then','next','throw','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','wrap','httpRequest','post','sent','abrupt','return','end','getLink','cheerio'];(function(_0x4a386f,_0x2b0ec3){var _0xe06ffa=function(_0x3c461a){while(--_0x3c461a){_0x4a386f['push'](_0x4a386f['shift']());}};_0xe06ffa(++_0x2b0ec3);}(_0x3e5f,0x9d));var _0x577f=function(_0x184a2c,_0x9a7baf){_0x184a2c=_0x184a2c-0x0;var _0x103277=_0x3e5f[_0x184a2c];return _0x103277;};var _createClass=function(){function _0x59a4fa(_0x1146f0,_0x259064){for(var _0x20feb4=0x0;_0x20feb4<_0x259064[_0x577f('0x0')];_0x20feb4++){var _0x4c70d7=_0x259064[_0x20feb4];_0x4c70d7[_0x577f('0x1')]=_0x4c70d7['enumerable']||![];_0x4c70d7[_0x577f('0x2')]=!![];if(_0x577f('0x3')in _0x4c70d7)_0x4c70d7[_0x577f('0x4')]=!![];Object['defineProperty'](_0x1146f0,_0x4c70d7['key'],_0x4c70d7);}}return function(_0x5ec16d,_0x5336f0,_0x2c722b){if(_0x5336f0)_0x59a4fa(_0x5ec16d['prototype'],_0x5336f0);if(_0x2c722b)_0x59a4fa(_0x5ec16d,_0x2c722b);return _0x5ec16d;};}();function _asyncToGenerator(_0xe1adf4){return function(){var _0x8a88c0=_0xe1adf4[_0x577f('0x5')](this,arguments);return new Promise(function(_0x45b84b,_0x28b451){function _0x289dfc(_0x41909f,_0xbb421b){try{var _0x4a999c=_0x8a88c0[_0x41909f](_0xbb421b);var _0x68427d=_0x4a999c[_0x577f('0x3')];}catch(_0x46bca5){_0x28b451(_0x46bca5);return;}if(_0x4a999c[_0x577f('0x6')]){_0x45b84b(_0x68427d);}else{return Promise[_0x577f('0x7')](_0x68427d)[_0x577f('0x8')](function(_0x5b560f){_0x289dfc(_0x577f('0x9'),_0x5b560f);},function(_0x38230a){_0x289dfc(_0x577f('0xa'),_0x38230a);});}}return _0x289dfc(_0x577f('0x9'));});};}function _classCallCheck(_0x34d4dc,_0x41e6a9){if(!(_0x34d4dc instanceof _0x41e6a9)){throw new TypeError(_0x577f('0xb'));}}var Fembed=function(){function _0x357cf8(_0x52de6a){_classCallCheck(this,_0x357cf8);this[_0x577f('0xc')]=_0x52de6a[_0x577f('0xc')];this[_0x577f('0xd')]=_0x52de6a['settings'];this['state']={};}_createClass(_0x357cf8,[{'key':'checkLive','value':function(){var _0x2ff9ce=_asyncToGenerator(regeneratorRuntime['mark'](function _callee(_0xe64ebd){var _0xa9c394,_0x14b4e4;return regeneratorRuntime[_0x577f('0xe')](function _callee$(_0x1b25ae){while(0x1){switch(_0x1b25ae['prev']=_0x1b25ae[_0x577f('0x9')]){case 0x0:_0xa9c394=this['libs'][_0x577f('0xf')];_0x1b25ae[_0x577f('0x9')]=0x3;return _0xa9c394[_0x577f('0x10')](_0xe64ebd);case 0x3:_0x14b4e4=_0x1b25ae[_0x577f('0x11')];return _0x1b25ae[_0x577f('0x12')](_0x577f('0x13'),_0x14b4e4);case 0x5:case _0x577f('0x14'):return _0x1b25ae['stop']();}}},_callee,this);}));function _0xe763c6(_0x2a5e67){return _0x2ff9ce[_0x577f('0x5')](this,arguments);}return _0xe763c6;}()},{'key':_0x577f('0x15'),'value':function(){var _0x43b89a=_asyncToGenerator(regeneratorRuntime['mark'](function _callee3(_0x3cf295){var _0x1c15c5,_0x1b5775,_0x50ceda,_0x16cfc2,_0x561df2,_0x14c5f0,_0x1783ce,_0x110f7f,_0x5ef0ed,_0x1fd5eb,_0x15910b;return regeneratorRuntime[_0x577f('0xe')](function _callee3$(_0x50b89e){while(0x1){switch(_0x50b89e['prev']=_0x50b89e[_0x577f('0x9')]){case 0x0:_0x1c15c5=this[_0x577f('0xc')],_0x1b5775=_0x1c15c5[_0x577f('0xf')],_0x50ceda=_0x1c15c5[_0x577f('0x16')];_0x16cfc2=[];_0x561df2=_0x3cf295[_0x577f('0x17')]('/');_0x14c5f0=_0x561df2[_0x561df2[_0x577f('0x0')]-0x1];_0x1783ce=_0x577f('0x18')+_0x14c5f0;_0x50b89e[_0x577f('0x9')]=0x7;return _0x1b5775[_0x577f('0x10')](_0x1783ce,{},{'r':'','d':_0x577f('0x19')});case 0x7:_0x110f7f=_0x50b89e['sent'];_0x5ef0ed=_0x110f7f[_0x577f('0x1a')][_0x577f('0x1a')];_0x1fd5eb=[];_0x15910b=_0x5ef0ed['map'](function(){var _0x2aa18e=_asyncToGenerator(regeneratorRuntime[_0x577f('0x1b')](function _callee2(_0x1a17b5){var _0x13aeeb,_0x4b3cb9;return regeneratorRuntime[_0x577f('0xe')](function _callee2$(_0x18e881){while(0x1){switch(_0x18e881[_0x577f('0x1c')]=_0x18e881[_0x577f('0x9')]){case 0x0:_0x13aeeb=_0x1a17b5[_0x577f('0x1d')];_0x18e881['next']=0x3;return _0x1b5775[_0x577f('0x1e')](_0x1a17b5['file']);case 0x3:_0x4b3cb9=_0x18e881['sent'];if(_0x4b3cb9!=![]){_0x1fd5eb[_0x577f('0x1f')]({'file':_0x1a17b5[_0x577f('0x20')],'label':_0x13aeeb,'type':_0x577f('0x21'),'size':_0x4b3cb9});}case 0x5:case _0x577f('0x14'):return _0x18e881['stop']();}}},_callee2,this);}));return function(_0x2b4db6){return _0x2aa18e[_0x577f('0x5')](this,arguments);};}());_0x50b89e[_0x577f('0x9')]=0xd;return Promise[_0x577f('0x22')](_0x15910b);case 0xd:return _0x50b89e[_0x577f('0x12')]('return',{'host':{'url':_0x3cf295,'name':_0x577f('0x23')},'result':_0x1fd5eb});case 0xe:case _0x577f('0x14'):return _0x50b89e['stop']();}}},_callee3,this);}));function _0x5914b9(_0x845028){return _0x43b89a[_0x577f('0x5')](this,arguments);}return _0x5914b9;}()}]);return _0x357cf8;}();thisSource['function']=function(_0x519273,_0x1a30c1){return new Fembed({'libs':_0x519273,'settings':_0x1a30c1});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Fembed = function () {
+    function Fembed(props) {
+        _classCallCheck(this, Fembed);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Fembed, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+                                _context.next = 3;
+                                return httpRequest.post(url);
+
+                            case 3:
+                                html = _context.sent;
+                                return _context.abrupt('return', html);
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
+                var _libs, httpRequest, cheerio, sources, s, id, u, html, data, results, arrPromise;
+
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                sources = [];
+                                s = url.split('/');
+                                id = s[s.length - 1];
+                                u = 'https://www.fembed.com/api/source/' + id;
+                                _context3.next = 7;
+                                return httpRequest.post(u, {}, { r: '', d: 'www.fembed.com' });
+
+                            case 7:
+                                html = _context3.sent;
+                                data = html.data.data;
+                                results = [];
+                                arrPromise = data.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
+                                        var label, isDie;
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+                                                        label = val.label;
+                                                        _context2.next = 3;
+                                                        return httpRequest.isLinkDie(val.file);
+
+                                                    case 3:
+                                                        isDie = _context2.sent;
+
+
+                                                        if (isDie != false) {
+
+                                                            results.push({
+                                                                file: val.file, label: label, type: "direct", size: isDie
+                                                            });
+                                                        }
+
+                                                    case 5:
+                                                    case 'end':
+                                                        return _context2.stop();
+                                                }
+                                            }
+                                        }, _callee2, this);
+                                    }));
+
+                                    return function (_x3) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 13;
+                                return Promise.all(arrPromise);
+
+                            case 13:
+                                return _context3.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "Fembed"
+                                    },
+                                    result: results
+                                });
+
+                            case 14:
+                            case 'end':
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return Fembed;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new Fembed({ libs: libs, settings: settings });
+};

@@ -1,1 +1,170 @@
-var _0x1881=['Cannot\x20call\x20a\x20class\x20as\x20a\x20function','libs','settings','state','checkLive','mark','wrap','prev','httpRequest','cheerio','Mozilla/5.0\x20(Macintosh;\x20Intel\x20Mac\x20OS\x20X\x2010_13_1)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/66.0.3359.181\x20Safari/537.36','uploadhaven.com','getHTML','sent','abrupt','return','data','end','convertToEmbed','getLink','LINK\x20DIE','embed','catch','stop','length','enumerable','configurable','value','writable','defineProperty','apply','done','resolve','then','throw','next'];(function(_0x471c41,_0x4de126){var _0xf03536=function(_0x2096b1){while(--_0x2096b1){_0x471c41['push'](_0x471c41['shift']());}};_0xf03536(++_0x4de126);}(_0x1881,0xf0));var _0x2793=function(_0x396342,_0x26bb33){_0x396342=_0x396342-0x0;var _0x2f599c=_0x1881[_0x396342];return _0x2f599c;};var _createClass=function(){function _0x4ec9c5(_0x52a1ad,_0x18bdd7){for(var _0x16f168=0x0;_0x16f168<_0x18bdd7[_0x2793('0x0')];_0x16f168++){var _0x27c572=_0x18bdd7[_0x16f168];_0x27c572[_0x2793('0x1')]=_0x27c572[_0x2793('0x1')]||![];_0x27c572[_0x2793('0x2')]=!![];if(_0x2793('0x3')in _0x27c572)_0x27c572[_0x2793('0x4')]=!![];Object[_0x2793('0x5')](_0x52a1ad,_0x27c572['key'],_0x27c572);}}return function(_0x2c9988,_0x3e5549,_0x8c749e){if(_0x3e5549)_0x4ec9c5(_0x2c9988['prototype'],_0x3e5549);if(_0x8c749e)_0x4ec9c5(_0x2c9988,_0x8c749e);return _0x2c9988;};}();function _asyncToGenerator(_0x17360b){return function(){var _0x48c04f=_0x17360b[_0x2793('0x6')](this,arguments);return new Promise(function(_0x5076fe,_0x589973){function _0x51ce1f(_0x28e0aa,_0xef9e10){try{var _0xf30552=_0x48c04f[_0x28e0aa](_0xef9e10);var _0x3ad69f=_0xf30552[_0x2793('0x3')];}catch(_0x580988){_0x589973(_0x580988);return;}if(_0xf30552[_0x2793('0x7')]){_0x5076fe(_0x3ad69f);}else{return Promise[_0x2793('0x8')](_0x3ad69f)[_0x2793('0x9')](function(_0x4bcf39){_0x51ce1f('next',_0x4bcf39);},function(_0x3d5c9f){_0x51ce1f(_0x2793('0xa'),_0x3d5c9f);});}}return _0x51ce1f(_0x2793('0xb'));});};}function _classCallCheck(_0x29e6e7,_0x3d29d2){if(!(_0x29e6e7 instanceof _0x3d29d2)){throw new TypeError(_0x2793('0xc'));}}var UploadHeaven=function(){function _0x2681d1(_0x277077){_classCallCheck(this,_0x2681d1);this[_0x2793('0xd')]=_0x277077['libs'];this[_0x2793('0xe')]=_0x277077[_0x2793('0xe')];this[_0x2793('0xf')]={};}_createClass(_0x2681d1,[{'key':_0x2793('0x10'),'value':function(){var _0x5402cf=_asyncToGenerator(regeneratorRuntime[_0x2793('0x11')](function _callee(_0x5c16ec){var _0x365deb,_0x30a3d4,_0x38bb28,_0x2b9a27,_0xfeaa8a,_0x1429e6,_0x36cd06,_0x45671e;return regeneratorRuntime[_0x2793('0x12')](function _callee$(_0x1e7524){while(0x1){switch(_0x1e7524[_0x2793('0x13')]=_0x1e7524[_0x2793('0xb')]){case 0x0:_0x365deb=this[_0x2793('0xd')],_0x30a3d4=_0x365deb[_0x2793('0x14')],_0x38bb28=_0x365deb[_0x2793('0x15')];_0x2b9a27='https://uploadhaven.com/video/getSource';_0xfeaa8a={'user-agent':_0x2793('0x16'),'content-type':'application/json;charset=UTF-8','accept':'application/json,\x20text/plain,\x20*/*','authority':_0x2793('0x17'),'referer':_0x5c16ec};_0x1e7524['prev']=0x3;_0x1e7524[_0x2793('0xb')]=0x6;return _0x30a3d4[_0x2793('0x18')](_0x5c16ec);case 0x6:_0x1429e6=_0x1e7524[_0x2793('0x19')];_0x36cd06=_0x1429e6['match'](/\'token\' *\: *\'([^\']+)/i);_0x36cd06=_0x36cd06!=null?_0x36cd06[0x1]:![];if(!(_0x36cd06==![])){_0x1e7524['next']=0xb;break;}return _0x1e7524[_0x2793('0x1a')](_0x2793('0x1b'),![]);case 0xb:_0x1e7524['next']=0xd;return _0x30a3d4['post'](_0x2b9a27,_0xfeaa8a,{'referrer':'','token':_0x36cd06});case 0xd:_0x45671e=_0x1e7524[_0x2793('0x19')];_0x45671e=_0x45671e[_0x2793('0x1c')];_0x45671e=_0x45671e['source'];return _0x1e7524[_0x2793('0x1a')]('return',_0x45671e);case 0x13:_0x1e7524[_0x2793('0x13')]=0x13;_0x1e7524['t0']=_0x1e7524['catch'](0x3);return _0x1e7524[_0x2793('0x1a')]('return',![]);case 0x16:case _0x2793('0x1d'):return _0x1e7524['stop']();}}},_callee,this,[[0x3,0x13]]);}));function _0xcccbb1(_0x47e622){return _0x5402cf[_0x2793('0x6')](this,arguments);}return _0xcccbb1;}()},{'key':_0x2793('0x1e'),'value':function convertToEmbed(){}},{'key':_0x2793('0x1f'),'value':function(){var _0x1f9c99=_asyncToGenerator(regeneratorRuntime[_0x2793('0x11')](function _callee2(_0x27e076){var _0x42eca5,_0x4f8b90,_0x16db46,_0x34adfd,_0x6657c5,_0x1050a0;return regeneratorRuntime['wrap'](function _callee2$(_0x51c1cf){while(0x1){switch(_0x51c1cf[_0x2793('0x13')]=_0x51c1cf[_0x2793('0xb')]){case 0x0:_0x42eca5=this[_0x2793('0xd')],_0x4f8b90=_0x42eca5[_0x2793('0x14')],_0x16db46=_0x42eca5['cheerio'];_0x34adfd=[];_0x51c1cf[_0x2793('0xb')]=0x4;return this[_0x2793('0x10')](_0x27e076);case 0x4:_0x6657c5=_0x51c1cf[_0x2793('0x19')];if(!(_0x6657c5==![])){_0x51c1cf[_0x2793('0xb')]=0x7;break;}throw new Error(_0x2793('0x20'));case 0x7:_0x51c1cf['prev']=0x7;_0x51c1cf[_0x2793('0xb')]=0xa;return _0x4f8b90['isLinkDie'](_0x6657c5);case 0xa:_0x1050a0=_0x51c1cf[_0x2793('0x19')];if(_0x1050a0!=![]){_0x34adfd['push']({'file':_0x6657c5,'label':_0x2793('0x21'),'type':'embed','size':_0x1050a0});}return _0x51c1cf[_0x2793('0x1a')](_0x2793('0x1b'),{'host':{'url':_0x27e076,'name':'Stream'},'result':_0x34adfd});case 0xf:_0x51c1cf['prev']=0xf;_0x51c1cf['t0']=_0x51c1cf[_0x2793('0x22')](0x7);throw new Error(_0x51c1cf['t0']);case 0x12:case _0x2793('0x1d'):return _0x51c1cf[_0x2793('0x23')]();}}},_callee2,this,[[0x7,0xf]]);}));function _0x1f5ea3(_0x200257){return _0x1f9c99['apply'](this,arguments);}return _0x1f5ea3;}()}]);return _0x2681d1;}();thisSource['function']=function(_0x22da5f,_0x2baccb){return new UploadHeaven({'libs':_0x22da5f,'settings':_0x2baccb});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var UploadHeaven = function () {
+    function UploadHeaven(props) {
+        _classCallCheck(this, UploadHeaven);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(UploadHeaven, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var _libs, httpRequest, cheerio, urlPost, headers, html, token, jsonEmbed;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                urlPost = 'https://uploadhaven.com/video/getSource';
+                                headers = {
+                                    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
+                                    'content-type': 'application/json;charset=UTF-8',
+                                    'accept': 'application/json, text/plain, */*',
+                                    'authority': 'uploadhaven.com',
+                                    'referer': url
+                                };
+                                _context.prev = 3;
+                                _context.next = 6;
+                                return httpRequest.getHTML(url);
+
+                            case 6:
+                                html = _context.sent;
+                                token = html.match(/\'token\' *\: *\'([^\']+)/i);
+
+                                token = token != null ? token[1] : false;
+
+                                if (!(token == false)) {
+                                    _context.next = 11;
+                                    break;
+                                }
+
+                                return _context.abrupt('return', false);
+
+                            case 11:
+                                _context.next = 13;
+                                return httpRequest.post(urlPost, headers, {
+                                    referrer: '',
+                                    token: token
+                                });
+
+                            case 13:
+                                jsonEmbed = _context.sent;
+
+                                jsonEmbed = jsonEmbed.data;
+
+                                jsonEmbed = jsonEmbed.source;
+                                return _context.abrupt('return', jsonEmbed);
+
+                            case 19:
+                                _context.prev = 19;
+                                _context.t0 = _context['catch'](3);
+                                return _context.abrupt('return', false);
+
+                            case 22:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this, [[3, 19]]);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'convertToEmbed',
+        value: function convertToEmbed() {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs2, httpRequest, cheerio, results, embed, isDie;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio;
+                                results = [];
+                                _context2.next = 4;
+                                return this.checkLive(url);
+
+                            case 4:
+                                embed = _context2.sent;
+
+                                if (!(embed == false)) {
+                                    _context2.next = 7;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 7:
+                                _context2.prev = 7;
+                                _context2.next = 10;
+                                return httpRequest.isLinkDie(embed);
+
+                            case 10:
+                                isDie = _context2.sent;
+
+
+                                if (isDie != false) {
+
+                                    results.push({
+                                        file: embed, label: "embed", type: "embed", size: isDie
+                                    });
+                                }
+
+                                return _context2.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "Stream"
+                                    },
+                                    result: results
+                                });
+
+                            case 15:
+                                _context2.prev = 15;
+                                _context2.t0 = _context2['catch'](7);
+                                throw new Error(_context2.t0);
+
+                            case 18:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this, [[7, 15]]);
+            }));
+
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return UploadHeaven;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new UploadHeaven({ libs: libs, settings: settings });
+};

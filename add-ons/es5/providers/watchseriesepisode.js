@@ -1,1 +1,331 @@
-var _0x43bd=['getHostFromDetail','year','NOT_FOUND','getHTML','sent','.el-item','each','find','first','attr','href','.season','text','match','NOT\x20EPISODE','getEmbeds','abrupt','load','.link-list\x20.ll-item','.watch\x20.watch-button','dropRight','hosts','prev','log','push','watchseriesepisode','embed','return','stop','all','searchDetail','testing','length','enumerable','value','writable','key','prototype','done','next','throw','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','Mozilla/5.0\x20(Macintosh;\x20Intel\x20Mac\x20OS\x20X\x2010_13_1)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/64.0.3282.186\x20Safari/537.36','libs','movieInfo','settings','mark','wrap','httpRequest','cheerio','stringHelper','base64','title','season','episode','type','SEARCH','convertToSearchQueryString','getCloudflare','data','series','shallowCompare','seo_name','state','detailUrl','DOMAIN','end','apply'];(function(_0x163b15,_0x4c6fc3){var _0x113d61=function(_0x49fa68){while(--_0x49fa68){_0x163b15['push'](_0x163b15['shift']());}};_0x113d61(++_0x4c6fc3);}(_0x43bd,0x174));var _0x52e4=function(_0x176d64,_0xed1c6f){_0x176d64=_0x176d64-0x0;var _0x31740f=_0x43bd[_0x176d64];return _0x31740f;};var _createClass=function(){function _0x4e4044(_0x15af67,_0x26db21){for(var _0x44a20c=0x0;_0x44a20c<_0x26db21[_0x52e4('0x0')];_0x44a20c++){var _0x219534=_0x26db21[_0x44a20c];_0x219534[_0x52e4('0x1')]=_0x219534[_0x52e4('0x1')]||![];_0x219534['configurable']=!![];if(_0x52e4('0x2')in _0x219534)_0x219534[_0x52e4('0x3')]=!![];Object['defineProperty'](_0x15af67,_0x219534[_0x52e4('0x4')],_0x219534);}}return function(_0x3116fb,_0x18c8a3,_0x35b5fe){if(_0x18c8a3)_0x4e4044(_0x3116fb[_0x52e4('0x5')],_0x18c8a3);if(_0x35b5fe)_0x4e4044(_0x3116fb,_0x35b5fe);return _0x3116fb;};}();function _asyncToGenerator(_0x1e400a){return function(){var _0x341672=_0x1e400a['apply'](this,arguments);return new Promise(function(_0x245143,_0x41c652){function _0x581f22(_0xb0c872,_0x2cb37a){try{var _0x19a27e=_0x341672[_0xb0c872](_0x2cb37a);var _0x385f00=_0x19a27e[_0x52e4('0x2')];}catch(_0x23999f){_0x41c652(_0x23999f);return;}if(_0x19a27e[_0x52e4('0x6')]){_0x245143(_0x385f00);}else{return Promise['resolve'](_0x385f00)['then'](function(_0x2b4e94){_0x581f22(_0x52e4('0x7'),_0x2b4e94);},function(_0x24b5bb){_0x581f22(_0x52e4('0x8'),_0x24b5bb);});}}return _0x581f22(_0x52e4('0x7'));});};}function _classCallCheck(_0x1a5310,_0x2202ce){if(!(_0x1a5310 instanceof _0x2202ce)){throw new TypeError(_0x52e4('0x9'));}}var URL={'DOMAIN':'http://www.watchepisodeseries.com','SEARCH':function SEARCH(_0x2eeacc){return'http://www.watchepisodeseries.com/home/search?q='+_0x2eeacc;},'HEADER':{'User-Agent':_0x52e4('0xa')}};var WatchSeriesEpisode=function(){function _0x37f297(_0x43d4b8){_classCallCheck(this,_0x37f297);this[_0x52e4('0xb')]=_0x43d4b8[_0x52e4('0xb')];this[_0x52e4('0xc')]=_0x43d4b8['movieInfo'];this['settings']=_0x43d4b8[_0x52e4('0xd')];this['state']={};}_createClass(_0x37f297,[{'key':'searchDetail','value':function(){var _0x3ec178=_asyncToGenerator(regeneratorRuntime[_0x52e4('0xe')](function _callee(){var _0x4cbe10,_0x3a9b54,_0x51f276,_0x4b1a8e,_0x3e4c54,_0x327b1f,_0x350fd9,_0x1a8568,_0x460924,_0x1c278a,_0x5d40ae,_0x32a09a,_0x46ee4b,_0x204507,_0x285437,_0x563799,_0x13bc35;return regeneratorRuntime[_0x52e4('0xf')](function _callee$(_0x472195){while(0x1){switch(_0x472195['prev']=_0x472195[_0x52e4('0x7')]){case 0x0:_0x4cbe10=this[_0x52e4('0xb')],_0x3a9b54=_0x4cbe10[_0x52e4('0x10')],_0x51f276=_0x4cbe10[_0x52e4('0x11')],_0x4b1a8e=_0x4cbe10[_0x52e4('0x12')],_0x3e4c54=_0x4cbe10[_0x52e4('0x13')];_0x327b1f=this['movieInfo'],_0x350fd9=_0x327b1f[_0x52e4('0x14')],_0x1a8568=_0x327b1f['year'],_0x460924=_0x327b1f[_0x52e4('0x15')],_0x1c278a=_0x327b1f[_0x52e4('0x16')],_0x5d40ae=_0x327b1f[_0x52e4('0x17')];_0x32a09a=![];_0x46ee4b=URL[_0x52e4('0x18')](_0x4b1a8e[_0x52e4('0x19')](_0x350fd9,'+'));_0x472195['next']=0x6;return _0x3a9b54[_0x52e4('0x1a')](_0x46ee4b);case 0x6:_0x204507=_0x472195['sent'];_0x204507=_0x204507[_0x52e4('0x1b')];_0x285437=![];for(_0x563799 in _0x204507[_0x52e4('0x1c')]){_0x13bc35=_0x204507[_0x52e4('0x1c')][_0x563799]['original_name'];_0x13bc35=_0x13bc35['replace'](/\([0-9]+\)/i,'')['trim']();if(_0x4b1a8e[_0x52e4('0x1d')](_0x350fd9,_0x13bc35)){_0x285437=_0x204507[_0x52e4('0x1c')][_0x563799][_0x52e4('0x1e')];}}if(_0x285437!=![]){this[_0x52e4('0x1f')][_0x52e4('0x20')]=URL[_0x52e4('0x21')]+'/'+_0x285437;}return _0x472195['abrupt']('return');case 0xc:case _0x52e4('0x22'):return _0x472195['stop']();}}},_callee,this);}));function _0x553671(){return _0x3ec178[_0x52e4('0x23')](this,arguments);}return _0x553671;}()},{'key':_0x52e4('0x24'),'value':function(){var _0x1e9fa4=_asyncToGenerator(regeneratorRuntime[_0x52e4('0xe')](function _callee2(){var _0x510841,_0x44309d,_0x33e24e,_0x5dd802,_0x48db25,_0x577412,_0x45bc5e,_0x3acfc3,_0x4a176f,_0x3e7020,_0x51b95d,_0x37917b,_0x1cb058,_0x177cb4,_0x5014d2,_0x52d76d;return regeneratorRuntime[_0x52e4('0xf')](function _callee2$(_0x5e67fe){while(0x1){switch(_0x5e67fe['prev']=_0x5e67fe[_0x52e4('0x7')]){case 0x0:_0x510841=this[_0x52e4('0xb')],_0x44309d=_0x510841['httpRequest'],_0x33e24e=_0x510841[_0x52e4('0x11')],_0x5dd802=_0x510841[_0x52e4('0x13')];_0x48db25=this[_0x52e4('0xc')],_0x577412=_0x48db25[_0x52e4('0x14')],_0x45bc5e=_0x48db25[_0x52e4('0x25')],_0x3acfc3=_0x48db25['season'],_0x4a176f=_0x48db25[_0x52e4('0x16')],_0x3e7020=_0x48db25[_0x52e4('0x17')];if(this[_0x52e4('0x1f')][_0x52e4('0x20')]){_0x5e67fe['next']=0x4;break;}throw new Error(_0x52e4('0x26'));case 0x4:_0x51b95d=[];_0x37917b=[];_0x1cb058=[];_0x5e67fe[_0x52e4('0x7')]=0x9;return _0x44309d[_0x52e4('0x27')](this[_0x52e4('0x1f')][_0x52e4('0x20')]);case 0x9:_0x177cb4=_0x5e67fe[_0x52e4('0x28')];_0x5014d2=_0x33e24e['load'](_0x177cb4);_0x52d76d=_0x5014d2(_0x52e4('0x29'));_0x52d76d[_0x52e4('0x2a')](function(){var _0x8a1be0=_0x5014d2(this)[_0x52e4('0x2b')]('a')[_0x52e4('0x2c')]()[_0x52e4('0x2d')](_0x52e4('0x2e'));var _0x270c0e=_0x5014d2(this)[_0x52e4('0x2b')]('a')[_0x52e4('0x2c')]()[_0x52e4('0x2b')](_0x52e4('0x2f'))[_0x52e4('0x30')]();var _0x53cda2=_0x5014d2(this)['find']('a')[_0x52e4('0x2c')]()[_0x52e4('0x2b')]('.episode')['text']();_0x270c0e=_0x270c0e[_0x52e4('0x31')](/season *([0-9]+)/i);_0x270c0e=_0x270c0e!=null?+_0x270c0e[0x1]:![];_0x53cda2=_0x53cda2['match'](/episode *([0-9]+)/i);_0x53cda2=_0x53cda2!=null?+_0x53cda2[0x1]:![];if(_0x270c0e!=![]&&_0x53cda2!=![]&&+_0x270c0e==_0x3acfc3&&+_0x53cda2==_0x4a176f){_0x1cb058=_0x8a1be0;}});if(!(_0x1cb058==![])){_0x5e67fe['next']=0xf;break;}throw new Error(_0x52e4('0x32'));case 0xf:_0x5e67fe[_0x52e4('0x7')]=0x11;return this[_0x52e4('0x33')](_0x1cb058,this['state']);case 0x11:return _0x5e67fe[_0x52e4('0x34')]('return');case 0x12:case _0x52e4('0x22'):return _0x5e67fe['stop']();}}},_callee2,this);}));function _0x493066(){return _0x1e9fa4[_0x52e4('0x23')](this,arguments);}return _0x493066;}()},{'key':_0x52e4('0x33'),'value':function(){var _0xc04e5=_asyncToGenerator(regeneratorRuntime[_0x52e4('0xe')](function _callee4(_0x599ecb,_0x3c5cde){var _0x40fc68,_0x31b347,_0x6c7bec,_0x4e09b7,_0x5f28e7,_0x1c37c6,_0x55791b,_0x23c41d,_0x59c153,_0x2f435e,_0x4c1127,_0x1e795e,_0x1b0373,_0x4d9245,_0x3e9e62,_0x336ff2,_0x314145,_0xb70a51,_0x4c6837,_0x2458cb;return regeneratorRuntime[_0x52e4('0xf')](function _callee4$(_0x237270){while(0x1){switch(_0x237270['prev']=_0x237270[_0x52e4('0x7')]){case 0x0:_0x40fc68=this[_0x52e4('0xb')],_0x31b347=_0x40fc68[_0x52e4('0x10')],_0x6c7bec=_0x40fc68[_0x52e4('0x11')],_0x4e09b7=_0x40fc68[_0x52e4('0x13')],_0x5f28e7=_0x40fc68['_'];_0x1c37c6=this['movieInfo'],_0x55791b=_0x1c37c6[_0x52e4('0x14')],_0x23c41d=_0x1c37c6[_0x52e4('0x25')],_0x59c153=_0x1c37c6['season'],_0x2f435e=_0x1c37c6[_0x52e4('0x16')],_0x4c1127=_0x1c37c6['type'];_0x1e795e=[];_0x1b0373=[];_0x237270[_0x52e4('0x7')]=0x6;return _0x31b347[_0x52e4('0x27')](_0x599ecb);case 0x6:_0x4d9245=_0x237270[_0x52e4('0x28')];_0x3e9e62=_0x6c7bec[_0x52e4('0x35')](_0x4d9245);_0x336ff2=_0x3e9e62(_0x52e4('0x36'));_0x336ff2[_0x52e4('0x2a')](function(){var _0x1579b9=_0x3e9e62(this)['find'](_0x52e4('0x37'))[_0x52e4('0x2d')](_0x52e4('0x2e'));_0x1e795e['push'](_0x1579b9);});_0x1e795e=_0x5f28e7[_0x52e4('0x38')](_0x1e795e,_0x1e795e[_0x52e4('0x0')]-0x32);_0x314145=![];_0xb70a51=![];_0x4c6837=setTimeout(function(){_0x314145=!![];_0xb70a51=!![];_0x3c5cde[_0x52e4('0x39')]=_0x1b0373;return;},0x2710);_0x2458cb=_0x1e795e['map'](function(){var _0x4ec548=_asyncToGenerator(regeneratorRuntime['mark'](function _callee3(_0xb70620){var _0x1fd1ca,_0x4cf5db,_0x1cd85;return regeneratorRuntime[_0x52e4('0xf')](function _callee3$(_0x31f27c){while(0x1){switch(_0x31f27c[_0x52e4('0x3a')]=_0x31f27c[_0x52e4('0x7')]){case 0x0:_0x31f27c['next']=0x2;return _0x31b347[_0x52e4('0x1a')](_0xb70620,URL['HEADER']);case 0x2:_0x1fd1ca=_0x31f27c[_0x52e4('0x28')];if(_0x1fd1ca[_0x52e4('0x1b')]!=undefined){_0x1fd1ca=_0x1fd1ca[_0x52e4('0x1b')];_0x4cf5db=_0x6c7bec['load'](_0x1fd1ca);_0x1cd85=_0x4cf5db('.wb-main\x20.watch-button')['attr']('href');console[_0x52e4('0x3b')](_0x1cd85);_0x1cd85&&_0x1b0373[_0x52e4('0x3c')]({'provider':{'url':_0x3c5cde[_0x52e4('0x20')],'name':_0x52e4('0x3d')},'result':{'file':_0x1cd85,'label':_0x52e4('0x3e'),'type':_0x52e4('0x3e')}});}if(!_0xb70a51){_0x31f27c[_0x52e4('0x7')]=0x6;break;}return _0x31f27c[_0x52e4('0x34')](_0x52e4('0x3f'));case 0x6:case _0x52e4('0x22'):return _0x31f27c[_0x52e4('0x40')]();}}},_callee3,this);}));return function(_0x133c63){return _0x4ec548[_0x52e4('0x23')](this,arguments);};}());_0x237270[_0x52e4('0x7')]=0x11;return Promise[_0x52e4('0x41')](_0x2458cb);case 0x11:if(_0x314145){_0x237270[_0x52e4('0x7')]=0x15;break;}clearTimeout(_0x4c6837);_0x3c5cde[_0x52e4('0x39')]=_0x1b0373;return _0x237270[_0x52e4('0x34')](_0x52e4('0x3f'));case 0x15:case'end':return _0x237270[_0x52e4('0x40')]();}}},_callee4,this);}));function _0x630737(_0x3b8a54,_0x32c0d3){return _0xc04e5['apply'](this,arguments);}return _0x630737;}()}]);return _0x37f297;}();thisSource['function']=function(){var _0x402fa0=_asyncToGenerator(regeneratorRuntime[_0x52e4('0xe')](function _callee5(_0x5b9467,_0x332a85,_0x51c50b){var _0x13cd7b;return regeneratorRuntime[_0x52e4('0xf')](function _callee5$(_0xef5044){while(0x1){switch(_0xef5044[_0x52e4('0x3a')]=_0xef5044['next']){case 0x0:_0x13cd7b=new WatchSeriesEpisode({'libs':_0x5b9467,'movieInfo':_0x332a85,'settings':_0x51c50b});_0xef5044['next']=0x3;return _0x13cd7b[_0x52e4('0x42')]();case 0x3:_0xef5044[_0x52e4('0x7')]=0x5;return _0x13cd7b[_0x52e4('0x24')]();case 0x5:return _0xef5044[_0x52e4('0x34')](_0x52e4('0x3f'),_0x13cd7b[_0x52e4('0x1f')][_0x52e4('0x39')]);case 0x6:case _0x52e4('0x22'):return _0xef5044[_0x52e4('0x40')]();}}},_callee5,undefined);}));return function(_0x50caf5,_0x18f230,_0x3ec5a8){return _0x402fa0[_0x52e4('0x23')](this,arguments);};}();thisSource[_0x52e4('0x43')]=WatchSeriesEpisode;
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var URL = {
+    DOMAIN: 'http://www.watchepisodeseries.com',
+    SEARCH: function SEARCH(title) {
+        return 'http://www.watchepisodeseries.com/home/search?q=' + title;
+    },
+    HEADER: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36'
+    }
+};
+
+var WatchSeriesEpisode = function () {
+    function WatchSeriesEpisode(props) {
+        _classCallCheck(this, WatchSeriesEpisode);
+
+        this.libs = props.libs;
+        this.movieInfo = props.movieInfo;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(WatchSeriesEpisode, [{
+        key: 'searchDetail',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, detailUrl, urlSearch, jsonSearch, slugMovie, item, titleMovie;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
+                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+                                detailUrl = false;
+                                urlSearch = URL.SEARCH(stringHelper.convertToSearchQueryString(title, '+'));
+                                _context.next = 6;
+                                return httpRequest.getCloudflare(urlSearch);
+
+                            case 6:
+                                jsonSearch = _context.sent;
+
+                                jsonSearch = jsonSearch.data;
+
+                                slugMovie = false;
+
+
+                                for (item in jsonSearch.series) {
+                                    titleMovie = jsonSearch.series[item].original_name;
+
+                                    titleMovie = titleMovie.replace(/\([0-9]+\)/i, '').trim();
+
+                                    if (stringHelper.shallowCompare(title, titleMovie)) {
+
+                                        slugMovie = jsonSearch.series[item].seo_name;
+                                    }
+                                }
+
+                                if (slugMovie != false) {
+                                    this.state.detailUrl = URL.DOMAIN + '/' + slugMovie;
+                                }
+
+                                return _context.abrupt('return');
+
+                            case 12:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function searchDetail() {
+                return _ref.apply(this, arguments);
+            }
+
+            return searchDetail;
+        }()
+    }, {
+        key: 'getHostFromDetail',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+                var _libs2, httpRequest, cheerio, base64, _movieInfo2, title, year, season, episode, type, hosts, arrRedirect, hrefEpisode, htmlDetail, $, itemEpisode;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64;
+                                _movieInfo2 = this.movieInfo, title = _movieInfo2.title, year = _movieInfo2.year, season = _movieInfo2.season, episode = _movieInfo2.episode, type = _movieInfo2.type;
+
+                                if (this.state.detailUrl) {
+                                    _context2.next = 4;
+                                    break;
+                                }
+
+                                throw new Error("NOT_FOUND");
+
+                            case 4:
+                                hosts = [];
+                                arrRedirect = [];
+                                hrefEpisode = [];
+                                _context2.next = 9;
+                                return httpRequest.getHTML(this.state.detailUrl);
+
+                            case 9:
+                                htmlDetail = _context2.sent;
+                                $ = cheerio.load(htmlDetail);
+                                itemEpisode = $('.el-item');
+
+
+                                itemEpisode.each(function () {
+
+                                    var hrefMovie = $(this).find('a').first().attr('href');
+                                    var seasonMovie = $(this).find('a').first().find('.season').text();
+                                    var episodeMovie = $(this).find('a').first().find('.episode').text();
+                                    seasonMovie = seasonMovie.match(/season *([0-9]+)/i);
+                                    seasonMovie = seasonMovie != null ? +seasonMovie[1] : false;
+                                    episodeMovie = episodeMovie.match(/episode *([0-9]+)/i);
+                                    episodeMovie = episodeMovie != null ? +episodeMovie[1] : false;
+
+                                    if (seasonMovie != false && episodeMovie != false && +seasonMovie == season && +episodeMovie == episode) {
+
+                                        hrefEpisode = hrefMovie;
+                                    }
+                                });
+
+                                if (!(hrefEpisode == false)) {
+                                    _context2.next = 15;
+                                    break;
+                                }
+
+                                throw new Error('NOT EPISODE');
+
+                            case 15:
+                                _context2.next = 17;
+                                return this.getEmbeds(hrefEpisode, this.state);
+
+                            case 17:
+                                return _context2.abrupt('return');
+
+                            case 18:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function getHostFromDetail() {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getHostFromDetail;
+        }()
+    }, {
+        key: 'getEmbeds',
+        value: function () {
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(hrefMovie, state) {
+                var _libs3, httpRequest, cheerio, base64, _, _movieInfo3, title, year, season, episode, type, arrRedirect, arrhosts, htmlRedirect, $, itemRedirect, checkTimeout, checkReturn, timeout, arrPromise;
+
+                return regeneratorRuntime.wrap(function _callee4$(_context4) {
+                    while (1) {
+                        switch (_context4.prev = _context4.next) {
+                            case 0:
+                                _libs3 = this.libs, httpRequest = _libs3.httpRequest, cheerio = _libs3.cheerio, base64 = _libs3.base64, _ = _libs3._;
+                                _movieInfo3 = this.movieInfo, title = _movieInfo3.title, year = _movieInfo3.year, season = _movieInfo3.season, episode = _movieInfo3.episode, type = _movieInfo3.type;
+                                arrRedirect = [];
+                                arrhosts = [];
+                                _context4.next = 6;
+                                return httpRequest.getHTML(hrefMovie);
+
+                            case 6:
+                                htmlRedirect = _context4.sent;
+                                $ = cheerio.load(htmlRedirect);
+                                itemRedirect = $('.link-list .ll-item');
+
+
+                                itemRedirect.each(function () {
+
+                                    var linkRedirect = $(this).find('.watch .watch-button').attr('href');
+                                    arrRedirect.push(linkRedirect);
+                                });
+
+                                arrRedirect = _.dropRight(arrRedirect, arrRedirect.length - 50);
+
+                                checkTimeout = false;
+                                checkReturn = false;
+                                timeout = setTimeout(function () {
+
+                                    checkTimeout = true;
+                                    checkReturn = true;
+                                    state.hosts = arrhosts;
+                                    return;
+                                }, 10000);
+
+                                /** 
+                                 * 
+                                 * FIXME 
+                                 * this promise auto return after 10s.
+                                 * because many link embed not response or loss many time to response
+                                */
+
+                                arrPromise = arrRedirect.map(function () {
+                                    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(val) {
+                                        var htmlEmbed, $_2, linkEmbed;
+                                        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                                            while (1) {
+                                                switch (_context3.prev = _context3.next) {
+                                                    case 0:
+                                                        _context3.next = 2;
+                                                        return httpRequest.getCloudflare(val, URL.HEADER);
+
+                                                    case 2:
+                                                        htmlEmbed = _context3.sent;
+
+
+                                                        if (htmlEmbed.data != undefined) {
+
+                                                            htmlEmbed = htmlEmbed.data;
+                                                            $_2 = cheerio.load(htmlEmbed);
+                                                            linkEmbed = $_2('.wb-main .watch-button').attr('href');
+
+
+                                                            console.log(linkEmbed);
+                                                            linkEmbed && arrhosts.push({
+                                                                provider: {
+                                                                    url: state.detailUrl,
+                                                                    name: "watchseriesepisode"
+                                                                },
+                                                                result: {
+                                                                    file: linkEmbed,
+                                                                    label: "embed",
+                                                                    type: "embed"
+                                                                }
+                                                            });
+                                                        }
+
+                                                        if (!checkReturn) {
+                                                            _context3.next = 6;
+                                                            break;
+                                                        }
+
+                                                        return _context3.abrupt('return');
+
+                                                    case 6:
+                                                    case 'end':
+                                                        return _context3.stop();
+                                                }
+                                            }
+                                        }, _callee3, this);
+                                    }));
+
+                                    return function (_x3) {
+                                        return _ref4.apply(this, arguments);
+                                    };
+                                }());
+                                _context4.next = 17;
+                                return Promise.all(arrPromise);
+
+                            case 17:
+                                if (checkTimeout) {
+                                    _context4.next = 21;
+                                    break;
+                                }
+
+                                clearTimeout(timeout);
+                                state.hosts = arrhosts;
+                                return _context4.abrupt('return');
+
+                            case 21:
+                            case 'end':
+                                return _context4.stop();
+                        }
+                    }
+                }, _callee4, this);
+            }));
+
+            function getEmbeds(_x, _x2) {
+                return _ref3.apply(this, arguments);
+            }
+
+            return getEmbeds;
+        }()
+    }]);
+
+    return WatchSeriesEpisode;
+}();
+
+thisSource.function = function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(libs, movieInfo, settings) {
+        var watchseries;
+        return regeneratorRuntime.wrap(function _callee5$(_context5) {
+            while (1) {
+                switch (_context5.prev = _context5.next) {
+                    case 0:
+                        watchseries = new WatchSeriesEpisode({
+                            libs: libs,
+                            movieInfo: movieInfo,
+                            settings: settings
+                        });
+                        _context5.next = 3;
+                        return watchseries.searchDetail();
+
+                    case 3:
+                        _context5.next = 5;
+                        return watchseries.getHostFromDetail();
+
+                    case 5:
+                        return _context5.abrupt('return', watchseries.state.hosts);
+
+                    case 6:
+                    case 'end':
+                        return _context5.stop();
+                }
+            }
+        }, _callee5, undefined);
+    }));
+
+    return function (_x4, _x5, _x6) {
+        return _ref5.apply(this, arguments);
+    };
+}();
+
+thisSource.testing = WatchSeriesEpisode;

@@ -1,1 +1,89 @@
-var _0x5467=['getLink','httpRequest','cheerio','NOR','prev','isLinkDie','push','direct','abrupt','stop','length','enumerable','configurable','writable','apply','value','resolve','next','throw','libs'];(function(_0x5beca7,_0x1ffea7){var _0x34affc=function(_0x10f2d7){while(--_0x10f2d7){_0x5beca7['push'](_0x5beca7['shift']());}};_0x34affc(++_0x1ffea7);}(_0x5467,0x6e));var _0x117e=function(_0x1710c3,_0x39f33a){_0x1710c3=_0x1710c3-0x0;var _0xc4a00d=_0x5467[_0x1710c3];return _0xc4a00d;};var _createClass=function(){function _0x4712b5(_0x1227c7,_0x27c483){for(var _0x2d6887=0x0;_0x2d6887<_0x27c483[_0x117e('0x0')];_0x2d6887++){var _0x39bb5e=_0x27c483[_0x2d6887];_0x39bb5e[_0x117e('0x1')]=_0x39bb5e['enumerable']||![];_0x39bb5e[_0x117e('0x2')]=!![];if('value'in _0x39bb5e)_0x39bb5e[_0x117e('0x3')]=!![];Object['defineProperty'](_0x1227c7,_0x39bb5e['key'],_0x39bb5e);}}return function(_0x27830d,_0x7231b4,_0x57c46d){if(_0x7231b4)_0x4712b5(_0x27830d['prototype'],_0x7231b4);if(_0x57c46d)_0x4712b5(_0x27830d,_0x57c46d);return _0x27830d;};}();function _asyncToGenerator(_0x543eb8){return function(){var _0x1eacfa=_0x543eb8[_0x117e('0x4')](this,arguments);return new Promise(function(_0x5b2004,_0xae2dab){function _0x332fd4(_0x2ea200,_0x2a5b4e){try{var _0x9ffa93=_0x1eacfa[_0x2ea200](_0x2a5b4e);var _0x1819c6=_0x9ffa93[_0x117e('0x5')];}catch(_0x593f7a){_0xae2dab(_0x593f7a);return;}if(_0x9ffa93['done']){_0x5b2004(_0x1819c6);}else{return Promise[_0x117e('0x6')](_0x1819c6)['then'](function(_0x25e13f){_0x332fd4(_0x117e('0x7'),_0x25e13f);},function(_0x2073ef){_0x332fd4(_0x117e('0x8'),_0x2073ef);});}}return _0x332fd4(_0x117e('0x7'));});};}function _classCallCheck(_0x5ee00b,_0x5e894e){if(!(_0x5ee00b instanceof _0x5e894e)){throw new TypeError('Cannot\x20call\x20a\x20class\x20as\x20a\x20function');}}var PopcornsSV=function(){function _0x11ef38(_0x15a6ad){_classCallCheck(this,_0x11ef38);this[_0x117e('0x9')]=_0x15a6ad[_0x117e('0x9')];this['settings']=_0x15a6ad['settings'];this['state']={};}_createClass(_0x11ef38,[{'key':'convertToEmbed','value':function convertToEmbed(){}},{'key':_0x117e('0xa'),'value':function(){var _0x462af5=_asyncToGenerator(regeneratorRuntime['mark'](function _callee(_0x813397){var _0x5906e6,_0x4bd611,_0x543e5d,_0x50261c,_0x5754a0;return regeneratorRuntime['wrap'](function _callee$(_0x5560b1){while(0x1){switch(_0x5560b1['prev']=_0x5560b1['next']){case 0x0:_0x5906e6=this['libs'],_0x4bd611=_0x5906e6[_0x117e('0xb')],_0x543e5d=_0x5906e6[_0x117e('0xc')];_0x50261c=[];_0x5754a0=_0x117e('0xd');_0x5560b1[_0x117e('0xe')]=0x3;_0x5560b1[_0x117e('0x7')]=0x6;return _0x4bd611[_0x117e('0xf')](_0x813397);case 0x6:_0x5754a0=_0x5560b1['sent'];_0x5560b1[_0x117e('0x7')]=0xb;break;case 0x9:_0x5560b1['prev']=0x9;_0x5560b1['t0']=_0x5560b1['catch'](0x3);case 0xb:if(_0x5754a0!=![]){_0x50261c[_0x117e('0x10')]({'file':_0x813397,'label':_0x117e('0xd'),'type':_0x117e('0x11'),'size':_0x5754a0});}return _0x5560b1[_0x117e('0x12')]('return',{'host':{'url':_0x813397,'name':'PopcornsSV'},'result':_0x50261c});case 0xd:case'end':return _0x5560b1[_0x117e('0x13')]();}}},_callee,this,[[0x3,0x9]]);}));function _0x15dade(_0x92c582){return _0x462af5[_0x117e('0x4')](this,arguments);}return _0x15dade;}()}]);return _0x11ef38;}();thisSource['function']=function(_0x5e2aca,_0x4fce9c){return new PopcornsSV({'libs':_0x5e2aca,'settings':_0x4fce9c});};
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var PopcornsSV = function () {
+    function PopcornsSV(props) {
+        _classCallCheck(this, PopcornsSV);
+
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(PopcornsSV, [{
+        key: 'convertToEmbed',
+        value: function convertToEmbed() {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var _libs, httpRequest, cheerio, results, isDie;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                results = [];
+                                isDie = 'NOR';
+                                _context.prev = 3;
+                                _context.next = 6;
+                                return httpRequest.isLinkDie(url);
+
+                            case 6:
+                                isDie = _context.sent;
+                                _context.next = 11;
+                                break;
+
+                            case 9:
+                                _context.prev = 9;
+                                _context.t0 = _context['catch'](3);
+
+                            case 11:
+
+                                if (isDie != false) {
+
+                                    results.push({
+                                        file: url, label: 'NOR', type: "direct", size: isDie
+                                    });
+                                }
+
+                                return _context.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "PopcornsSV"
+                                    },
+                                    result: results
+                                });
+
+                            case 13:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this, [[3, 9]]);
+            }));
+
+            function getLink(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return getLink;
+        }()
+    }]);
+
+    return PopcornsSV;
+}();
+
+thisSource.function = function (libs, settings) {
+    return new PopcornsSV({ libs: libs, settings: settings });
+};
