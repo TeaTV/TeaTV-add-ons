@@ -199,7 +199,7 @@
         "rlsbb": {
             "name": "rlsbb",
             "domain": "rlsbb.dis",
-            "version": "0.0.12",
+            "version": "0.0.13",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/rlsbb.js",
             "type": [
                 "movie",
