@@ -199,7 +199,7 @@
         "scnsrc": {
             "name": "scnsrc",
             "domain": "scnsrc.dis",
-            "version": "0.0.9",
+            "version": "0.1.0",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/scnsrc.js",
             "type": [
                 "movie",
@@ -399,7 +399,7 @@
         "123moviesag": {
             "name": "123moviesag",
             "domain": "123moviesag.dis",
-            "version": "0.0.9",
+            "version": "0.1.0",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesag.js",
             "type": [
                 "movie",
@@ -871,6 +871,22 @@
             ],
             "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/clipwatching.js"
+        },
+        "verystream": {
+            "name": "verystream",
+            "domain": [
+                "verystream.com"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/verystream.js"
+        },
+        "xstreamcdn": {
+            "name": "xstreamcdn",
+            "domain": [
+                "xstreamcdn.com"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/xstreamcdn.js"
         }
     }
 }
