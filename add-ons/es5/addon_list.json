@@ -196,16 +196,6 @@
                 "tv"
             ]
         },
-        "rlsbb": {
-            "name": "rlsbb",
-            "domain": "rlsbb.dis",
-            "version": "0.0.14",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/rlsbb.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "scnsrc": {
             "name": "scnsrc",
             "domain": "scnsrc.dis",
