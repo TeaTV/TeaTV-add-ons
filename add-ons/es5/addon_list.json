@@ -493,6 +493,16 @@
                 "movie",
                 "tv"
             ]
+        },
+        "fmoviescab": {
+            "name": "fmoviescab",
+            "domain": "fmoviescab.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/fmoviescab.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
@@ -887,6 +897,14 @@
             ],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/xstreamcdn.js"
+        },
+        "hls": {
+            "name": "hls",
+            "domain": [
+                "loadshare.org"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/hls.js"
         }
     }
 }
