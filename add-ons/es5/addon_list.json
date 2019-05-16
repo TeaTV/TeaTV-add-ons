@@ -497,7 +497,7 @@
         "fmoviescab": {
             "name": "fmoviescab",
             "domain": "fmoviescab.dis",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/fmoviescab.js",
             "type": [
                 "movie",
