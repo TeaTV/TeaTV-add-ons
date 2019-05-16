@@ -503,6 +503,26 @@
                 "movie",
                 "tv"
             ]
+        },
+        "projectflv": {
+            "name": "projectflv",
+            "domain": "projectflv.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/projectflv.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "spacemov": {
+            "name": "spacemov",
+            "domain": "spacemov.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/spacemov.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
