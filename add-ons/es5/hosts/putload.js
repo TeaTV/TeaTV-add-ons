@@ -63,7 +63,7 @@ var Putload = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, sources, arrDirect, htmlDetail, p, x, l1, l2, linkcdn, size, linkHls, isDie;
+                var _libs, httpRequest, cheerio, sources, arrDirect, htmlDetail, ll, linkHls, isDie, p, x, l1, l2, linkcdn, size, _linkHls, _isDie;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -86,56 +86,15 @@ var Putload = function () {
                                 throw new Error("LINK DIE");
 
                             case 8:
-                                x = htmlDetail.split('return p}').pop();
+                                ll = htmlDetail.match(/src: "([^"]+)/);
 
-                                x = 'p = this.decode' + x.split(')))')[0] + '))';
-                                eval(x);
-                                l1 = p.match(/(http.+\.m3u8)/);
-                                l2 = p.match(/(http.+\.mp4)/g);
-
-                                if (!(l2 != undefined)) {
-                                    _context2.next = 26;
+                                if (!(ll != undefined)) {
+                                    _context2.next = 14;
                                     break;
                                 }
 
-                                linkcdn = l2[0].split('"')[2];
-                                size = false;
-                                _context2.prev = 16;
-                                _context2.next = 19;
-                                return httpRequest.isLinkDie(linkcdn);
-
-                            case 19:
-                                size = _context2.sent;
-                                _context2.next = 25;
-                                break;
-
-                            case 22:
-                                _context2.prev = 22;
-                                _context2.t0 = _context2['catch'](16);
-
-                                size = false;
-
-                            case 25:
-
-                                if (size != false && size != 'NOR' && size != NaN) {
-                                    sources.push({
-                                        file: linkcdn, label: 'NOR', type: "direct", size: size
-                                    });
-                                }
-
-                            case 26:
-                                if (!(l1 != undefined)) {
-                                    _context2.next = 32;
-                                    break;
-                                }
-
-                                linkHls = l1[1];
-                                _context2.next = 30;
-                                return httpRequest.isLinkDie(linkHls);
-
-                            case 30:
-                                isDie = _context2.sent;
-
+                                linkHls = ll[1];
+                                isDie = 'NOR'; //await httpRequest.isLinkDie(linkHls);
 
                                 if (isDie != false) {
                                     sources.push({
@@ -146,7 +105,6 @@ var Putload = function () {
                                     });
                                 }
 
-                            case 32:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -155,12 +113,82 @@ var Putload = function () {
                                     result: sources
                                 });
 
-                            case 33:
+                            case 14:
+                                x = htmlDetail.split('return p}').pop();
+
+                                x = 'p = this.decode' + x.split(')))')[0] + '))';
+                                eval(x);
+                                l1 = p.match(/(http.+\.m3u8)/);
+                                l2 = p.match(/(http.+\.mp4)/g);
+
+                                if (!(l2 != undefined)) {
+                                    _context2.next = 32;
+                                    break;
+                                }
+
+                                linkcdn = l2[0].split('"')[2];
+                                size = false;
+                                _context2.prev = 22;
+                                _context2.next = 25;
+                                return httpRequest.isLinkDie(linkcdn);
+
+                            case 25:
+                                size = _context2.sent;
+                                _context2.next = 31;
+                                break;
+
+                            case 28:
+                                _context2.prev = 28;
+                                _context2.t0 = _context2['catch'](22);
+
+                                size = false;
+
+                            case 31:
+
+                                if (size != false && size != 'NOR' && size != NaN) {
+                                    sources.push({
+                                        file: linkcdn, label: 'NOR', type: "direct", size: size
+                                    });
+                                }
+
+                            case 32:
+                                if (!(l1 != undefined)) {
+                                    _context2.next = 38;
+                                    break;
+                                }
+
+                                _linkHls = l1[1];
+                                _context2.next = 36;
+                                return httpRequest.isLinkDie(_linkHls);
+
+                            case 36:
+                                _isDie = _context2.sent;
+
+
+                                if (_isDie != false) {
+                                    sources.push({
+                                        label: 'NOR',
+                                        file: _linkHls,
+                                        type: "direct",
+                                        size: (Math.random() * (2.2 - 1.9) + 1.9).toFixed(2)
+                                    });
+                                }
+
+                            case 38:
+                                return _context2.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "Putload"
+                                    },
+                                    result: sources
+                                });
+
+                            case 39:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[16, 22]]);
+                }, _callee2, this, [[22, 28]]);
             }));
 
             function getLink(_x2) {
