@@ -127,11 +127,11 @@
                 "tv"
             ]
         },
-        "umbo": {
-            "name": "umbo",
-            "domain": "umbo.dis",
-            "version": "0.0.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/umbo.js",
+        "hdtop": {
+            "name": "hdtop",
+            "domain": "hdtop.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hdtop.js",
             "type": [
                 "movie",
                 "tv"
@@ -915,7 +915,7 @@
             "domain": [
                 "xstreamcdn.com"
             ],
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/xstreamcdn.js"
         },
         "hls": {

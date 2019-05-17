@@ -58,23 +58,27 @@ var XstreamCDN = function () {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                 sources = [];
-                                m = url.match(/\/v\/(.*)#?/);
+
+
+                                url = url.replace(/#.*/, '');
+
+                                m = url.match(/\/v\/(.*)$/);
                                 u = 'https://www.xstreamcdn.com/api/source/' + m[1];
-                                _context3.next = 6;
+                                _context3.next = 7;
                                 return this.checkLive(u);
 
-                            case 6:
+                            case 7:
                                 html = _context3.sent;
 
                                 if (!(html == false)) {
-                                    _context3.next = 10;
+                                    _context3.next = 11;
                                     break;
                                 }
 
                                 console.log('XstreamCDN no link');
                                 throw new Error("XstreamCDN LINK DIE");
 
-                            case 10:
+                            case 11:
                                 data = html.data.data;
                                 results = [];
                                 arrPromise = data.map(function () {
@@ -111,10 +115,10 @@ var XstreamCDN = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 15;
+                                _context3.next = 16;
                                 return Promise.all(arrPromise);
 
-                            case 15:
+                            case 16:
                                 return _context3.abrupt('return', {
                                     host: {
                                         url: url,
@@ -123,7 +127,7 @@ var XstreamCDN = function () {
                                     result: results
                                 });
 
-                            case 16:
+                            case 17:
                             case 'end':
                                 return _context3.stop();
                         }
