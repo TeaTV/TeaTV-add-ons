@@ -130,7 +130,7 @@
         "hdtop": {
             "name": "hdtop",
             "domain": "hdtop.dis",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hdtop.js",
             "type": [
                 "movie",
@@ -519,6 +519,26 @@
             "domain": "spacemov.dis",
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/spacemov.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "123netflix": {
+            "name": "123netflix",
+            "domain": "123netflix.dis",
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123netflix.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "streamdreams": {
+            "name": "streamdreams",
+            "domain": "streamdreams.dis",
+            "version": "0.0.3",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/streamdreams.js",
             "type": [
                 "movie",
                 "tv"
@@ -925,6 +945,14 @@
             ],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/hls.js"
+        },
+        "vidcloudco": {
+            "name": "vidcloudco",
+            "domain": [
+                "vidcloud.co"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidcloudco.js"
         }
     }
 }
