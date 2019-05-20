@@ -72,7 +72,7 @@ var RapidVideo = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
-                var _libs, httpRequest, cheerio, arrVideoQuality, results, html, $, quality, arrPromise;
+                var _libs, httpRequest, cheerio, arrVideoQuality, results, html, $, links, linksPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -108,50 +108,64 @@ var RapidVideo = function () {
                             case 11:
                                 $ = cheerio.load(html);
                                 _context3.prev = 12;
-                                quality = $('div[style*="height:30px; width:500px; margin:0 auto; color:#FFF; font-size:15px; line-height:30px; float:left;"]').find('a');
 
 
-                                quality.each(function () {
-
-                                    var linkQuality = $(this).attr('href');
-
-                                    if (linkQuality.indexOf('http') != -1 && linkQuality.indexOf('&q=') != -1) {
+                                /*
+                                let quality = $('div[style*="height:30px; width:500px; margin:0 auto; color:#FFF; font-size:15px; line-height:30px; float:left;"]').find('a');
+                                  quality.each(function() {
+                                     let linkQuality = $(this).attr('href');
+                                     if(linkQuality.indexOf('http') != -1 && linkQuality.indexOf('&q=') != -1) {
                                         arrVideoQuality.push(linkQuality);
                                     }
+                                    
+                                });
+                                 let arrPromise = arrVideoQuality.map(async function(val) {
+                                     let label       = val.match(/\&q\=(.+)/i);
+                                    label           = label != null ? label[1] : 'NOR';
+                                    let htmlDirect  = await httpRequest.getHTML(val); 
+                                    let $           = cheerio.load(htmlDirect);
+                                    let linkDirect  = $('#videojs source').attr('src');
+                                    let isDie       = await httpRequest.isLinkDie(linkDirect);
+                                         if( isDie != false ) {
+                                         results.push({
+                                            file: linkDirect, label: label, type: "direct" , size: isDie
+                                        });
+                                     }
+                                });
+                                  await Promise.all(arrPromise);
+                                */
+
+                                links = [];
+
+
+                                $('source').each(function () {
+                                    var label = $(this).attr('label');
+                                    var linkDirect = $(this).attr('src');
+                                    links.push({ label: label, link: linkDirect });
                                 });
 
-                                arrPromise = arrVideoQuality.map(function () {
+                                linksPromise = links.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
-                                        var label, htmlDirect, $, linkDirect, isDie;
+                                        var isDie;
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                             while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
-                                                        label = val.match(/\&q\=(.+)/i);
+                                                        _context2.next = 2;
+                                                        return httpRequest.isLinkDie(val.link);
 
-                                                        label = label != null ? label[1] : 'NOR';
-                                                        _context2.next = 4;
-                                                        return httpRequest.getHTML(val);
-
-                                                    case 4:
-                                                        htmlDirect = _context2.sent;
-                                                        $ = cheerio.load(htmlDirect);
-                                                        linkDirect = $('#videojs source').attr('src');
-                                                        _context2.next = 9;
-                                                        return httpRequest.isLinkDie(linkDirect);
-
-                                                    case 9:
+                                                    case 2:
                                                         isDie = _context2.sent;
 
+                                                        console.log(isDie, 'f');
 
                                                         if (isDie != false) {
-
                                                             results.push({
-                                                                file: linkDirect, label: label, type: "direct", size: isDie
+                                                                file: val.link, label: val.label, type: "direct", size: isDie
                                                             });
                                                         }
 
-                                                    case 11:
+                                                    case 5:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
@@ -164,7 +178,7 @@ var RapidVideo = function () {
                                     };
                                 }());
                                 _context3.next = 18;
-                                return Promise.all(arrPromise);
+                                return Promise.all(linksPromise);
 
                             case 18:
                                 return _context3.abrupt('return', {
