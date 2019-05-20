@@ -553,6 +553,15 @@
                 "movie",
                 "tv"
             ]
+        },
+        "newepisodes": {
+            "name": "putmovie",
+            "domain": "putmovie.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/newepisodes.js",
+            "type": [
+                "tv"
+            ]
         }
     },
     "hosts": {
@@ -963,6 +972,14 @@
             ],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidcloudco.js"
+        },
+        "vshare": {
+            "name": "vshare",
+            "domain": [
+                "vshare.eu"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vshare.js"
         }
     }
 }
