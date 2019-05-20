@@ -555,9 +555,9 @@
             ]
         },
         "newepisodes": {
-            "name": "putmovie",
-            "domain": "putmovie.dis",
-            "version": "0.0.1",
+            "name": "newepisodes",
+            "domain": "newepisodes.dis",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/newepisodes.js",
             "type": [
                 "tv"
