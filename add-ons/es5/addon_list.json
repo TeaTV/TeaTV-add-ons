@@ -63,7 +63,7 @@
         "series9": {
             "name": "series9",
             "domain": "series9.io",
-            "version": "0.4.11",
+            "version": "0.4.12",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/series9.js",
             "type": [
                 "tv",
@@ -101,7 +101,7 @@
         "fmoviespe": {
             "name": "fmoviespe",
             "domain": "fmovies.pe",
-            "version": "0.4.8",
+            "version": "0.4.9",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/fmoviespe.js",
             "type": [
                 "movie",
