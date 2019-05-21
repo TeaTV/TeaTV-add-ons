@@ -438,7 +438,7 @@
         "anonembed": {
             "name": "anonembed",
             "domain": "anonembed.dis",
-            "version": "0.0.8",
+            "version": "0.0.9",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/anonembed.js",
             "type": [
                 "movie",
