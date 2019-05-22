@@ -562,6 +562,26 @@
             "type": [
                 "tv"
             ]
+        },
+        "vizer": {
+            "name": "vizer",
+            "domain": "vizer.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vizer.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "amadei33": {
+            "name": "amadei33",
+            "domain": "amadei33.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/amadei33.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
