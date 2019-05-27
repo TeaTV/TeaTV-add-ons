@@ -91,7 +91,7 @@ var Openload = function () {
         key: 'getUsingAPI',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cryptoJs, cheerio, html, token, apiResponse, _apiResponse$data, status, data, error, isDie, $, title, quality, s;
+                var _libs, httpRequest, cryptoJs, cheerio, html, token, apiResponse, time, time1, t, _apiResponse$data, status, data, error, isDie, $, title, quality, s;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -119,7 +119,8 @@ var Openload = function () {
                                 token = cryptoJs.MD5(html + "teatv-openload").toString();
                                 apiResponse = void 0;
                                 _context2.prev = 14;
-                                _context2.next = 17;
+                                time = Date.now();
+                                _context2.next = 18;
                                 return httpRequest.post("https://api.teatv.net/api/v2/get_opl", {
                                     //apiResponse   = await httpRequest.post("http://localhost:3000/api/v2/get_opl", {
                                     "Content-Type": "application/json"
@@ -128,60 +129,64 @@ var Openload = function () {
                                     token: token
                                 }));
 
-                            case 17:
+                            case 18:
                                 apiResponse = _context2.sent;
-                                _context2.next = 24;
+                                time1 = Date.now();
+                                t = time1 - time;
+                                //console.log(t, 'time');
+
+                                _context2.next = 27;
                                 break;
 
-                            case 20:
-                                _context2.prev = 20;
+                            case 23:
+                                _context2.prev = 23;
                                 _context2.t1 = _context2['catch'](14);
 
                                 console.log('teatv.net, error json getopl', _context2.t1);
                                 throw new Error('ERROR REQUEST');
 
-                            case 24:
+                            case 27:
                                 _apiResponse$data = apiResponse.data, status = _apiResponse$data.status, data = _apiResponse$data.data, error = _apiResponse$data.error;
 
                                 if (!error) {
-                                    _context2.next = 27;
+                                    _context2.next = 30;
                                     break;
                                 }
 
                                 throw new Error(error);
 
-                            case 27:
+                            case 30:
                                 if (!(status == 200)) {
-                                    _context2.next = 48;
+                                    _context2.next = 51;
                                     break;
                                 }
 
                                 isDie = false;
-                                _context2.prev = 29;
-                                _context2.next = 32;
+                                _context2.prev = 32;
+                                _context2.next = 35;
                                 return httpRequest.isLinkDie(data);
 
-                            case 32:
+                            case 35:
                                 isDie = _context2.sent;
-                                _context2.next = 38;
+                                _context2.next = 41;
                                 break;
 
-                            case 35:
-                                _context2.prev = 35;
-                                _context2.t2 = _context2['catch'](29);
+                            case 38:
+                                _context2.prev = 38;
+                                _context2.t2 = _context2['catch'](32);
 
 
                                 console.log(String(_context2.t2));
 
-                            case 38:
+                            case 41:
                                 if (!(isDie == false)) {
-                                    _context2.next = 40;
+                                    _context2.next = 43;
                                     break;
                                 }
 
                                 throw new Error("NOT LINK");
 
-                            case 40:
+                            case 43:
                                 $ = cheerio.load(html);
                                 title = $(".title").text();
                                 quality = this.getQuality(title);
@@ -196,7 +201,7 @@ var Openload = function () {
                                     result: [s]
                                 });
 
-                            case 48:
+                            case 51:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -205,12 +210,12 @@ var Openload = function () {
                                     result: []
                                 });
 
-                            case 49:
+                            case 52:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[3, 9], [14, 20], [29, 35]]);
+                }, _callee2, this, [[3, 9], [14, 23], [32, 38]]);
             }));
 
             function getUsingAPI(_x2) {

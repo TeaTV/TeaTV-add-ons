@@ -188,7 +188,7 @@ var Afdah = function () {
 
                                 console.log(u);
 
-                                if (!(allowCache && false)) {
+                                if (!(allowCache && true)) {
                                     _context3.next = 23;
                                     break;
                                 }
@@ -306,7 +306,7 @@ var Afdah = function () {
                                 return Promise.all(arrPromise);
 
                             case 37:
-                                if (!(sources.length > 0 && allowCache && false)) {
+                                if (!(sources.length > 0 && allowCache && true)) {
                                     _context3.next = 44;
                                     break;
                                 }
