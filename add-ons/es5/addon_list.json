@@ -630,7 +630,7 @@
                 "oload.site",
                 "oload.win"
             ],
-            "version": "0.2.15",
+            "version": "0.2.16",
             "author": "psyntium",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/openload.js"
         },
