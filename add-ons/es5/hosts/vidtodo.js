@@ -49,23 +49,23 @@ var Vidtodo = function () {
     }, {
         key: 'getLink',
         value: function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, sources, html, m, isDie;
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
+                var _libs, httpRequest, cheerio, sources, html, m, g, gPromise;
 
-                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
-                        switch (_context2.prev = _context2.next) {
+                        switch (_context3.prev = _context3.next) {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                 sources = [];
-                                _context2.next = 4;
+                                _context3.next = 4;
                                 return this.checkLive(url);
 
                             case 4:
-                                html = _context2.sent;
+                                html = _context3.sent;
 
                                 if (!(html == false)) {
-                                    _context2.next = 8;
+                                    _context3.next = 8;
                                     break;
                                 }
 
@@ -86,10 +86,10 @@ var Vidtodo = function () {
                                  var player;
                                 eval(html);
                                 */
-                                m = html.match(/file:"([^"]+)/);
+                                m = html.match(/sources: \[([^\]]+)/);
 
                                 if (!(m == undefined)) {
-                                    _context2.next = 12;
+                                    _context3.next = 12;
                                     break;
                                 }
 
@@ -97,26 +97,53 @@ var Vidtodo = function () {
                                 throw new Error("vidtodo LINK DIE1");
 
                             case 12:
-                                _context2.next = 14;
-                                return httpRequest.isLinkDie(m[1]);
 
-                            case 14:
-                                isDie = _context2.sent;
+                                m = '[' + m[1].replace(/file:/g, '"file":') + ']';
+                                m = m.replace(/label:/g, '"label":');
+                                g = JSON.parse('' + m);
+
+                                console.log(g);
+
+                                gPromise = g.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
+                                        var isDie;
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+                                                        _context2.next = 2;
+                                                        return httpRequest.isLinkDie(val.file);
+
+                                                    case 2:
+                                                        isDie = _context2.sent;
 
 
-                                console.log('vidtodo', m[1], isDie);
+                                                        if (isDie != false) {
+                                                            sources.push({
+                                                                label: val.label,
+                                                                file: val.file,
+                                                                type: "direct",
+                                                                size: isDie
+                                                            });
+                                                        }
 
-                                if (isDie != false) {
+                                                    case 4:
+                                                    case 'end':
+                                                        return _context2.stop();
+                                                }
+                                            }
+                                        }, _callee2, this);
+                                    }));
 
-                                    sources.push({
-                                        label: 'NOR',
-                                        file: m[1],
-                                        type: "direct",
-                                        size: isDie
-                                    });
-                                }
+                                    return function (_x3) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 19;
+                                return Promise.all(gPromise);
 
-                                return _context2.abrupt('return', {
+                            case 19:
+                                return _context3.abrupt('return', {
                                     host: {
                                         url: url,
                                         name: "vidtodo"
@@ -124,12 +151,12 @@ var Vidtodo = function () {
                                     result: sources
                                 });
 
-                            case 18:
+                            case 20:
                             case 'end':
-                                return _context2.stop();
+                                return _context3.stop();
                         }
                     }
-                }, _callee2, this);
+                }, _callee3, this);
             }));
 
             function getLink(_x2) {
