@@ -33,7 +33,7 @@
         "m4u": {
             "name": "m4u",
             "domain": "m4u.fun",
-            "version": "0.1.7",
+            "version": "0.1.8",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/m4u.js",
             "type": [
                 "movie",
@@ -342,7 +342,7 @@
         "123moviesfree": {
             "name": "123moviesfree",
             "domain": "123moviesfree.dis",
-            "version": "0.1.15",
+            "version": "0.1.16",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesfree.js",
             "type": [
                 "tv",
@@ -578,6 +578,16 @@
             "domain": "amadei33.dis",
             "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/amadei33.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
+        "onmovies": {
+            "name": "onmovies",
+            "domain": "onmovies.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/onmoviesto.js",
             "type": [
                 "movie",
                 "tv"
