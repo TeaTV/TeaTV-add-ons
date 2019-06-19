@@ -97,7 +97,7 @@ var Openload = function () {
                     while (1) {
                         switch (_context2.prev = _context2.next) {
                             case 0:
-                                url = url.replace(/(oload.[a-z]+)/g, 'openload.co');
+                                url = url.replace(/(oload.[a-z]+)/g, 'openload.pw');
 
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cryptoJs = _libs.cryptoJs, cheerio = _libs.cheerio;
                                 html = false;
