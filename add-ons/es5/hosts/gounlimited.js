@@ -82,39 +82,42 @@ var Gounlimited = function () {
                                 throw new Error("LINK DIE");
 
                             case 2:
+
+                                url = url.replace('https://', 'http://');
+
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                 results = [];
-                                _context2.next = 6;
+                                _context2.next = 7;
                                 return this.checkLive(url);
 
-                            case 6:
+                            case 7:
                                 html = _context2.sent;
 
                                 if (!(html == false)) {
-                                    _context2.next = 9;
+                                    _context2.next = 10;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
-                            case 9:
-                                m = html.split('eval(')[2];
+                            case 10:
+                                m = html.split('eval(')[1];
 
                                 m = m.split('</script>')[0];
                                 m = 'eval(' + m;
-                                _context2.prev = 12;
+                                _context2.prev = 13;
 
                                 m = m.match(/\|([a-z0-9]+)\|([a-z0-9]+)\|sources/);
                                 hls = m[1];
                                 sv = m[2];
                                 domain = 'https://' + sv + '.gounlimited.to/';
                                 fuck = domain + hls + '/v.mp4';
-                                _context2.next = 23;
+                                _context2.next = 24;
                                 break;
 
-                            case 20:
-                                _context2.prev = 20;
-                                _context2.t0 = _context2['catch'](12);
+                            case 21:
+                                _context2.prev = 21;
+                                _context2.t0 = _context2['catch'](13);
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -123,19 +126,19 @@ var Gounlimited = function () {
                                     result: []
                                 });
 
-                            case 23:
+                            case 24:
                                 if (!(fuck.search('https://') == -1 && fuck.search('http://') == -1)) {
-                                    _context2.next = 25;
+                                    _context2.next = 26;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
-                            case 25:
-                                _context2.next = 27;
+                            case 26:
+                                _context2.next = 28;
                                 return httpRequest.isLinkDie(fuck);
 
-                            case 27:
+                            case 28:
                                 isDie = _context2.sent;
 
 
@@ -153,12 +156,12 @@ var Gounlimited = function () {
                                     result: results
                                 });
 
-                            case 30:
+                            case 31:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[12, 20]]);
+                }, _callee2, this, [[13, 21]]);
             }));
 
             function getLink(_x2) {
