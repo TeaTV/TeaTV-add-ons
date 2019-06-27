@@ -73,7 +73,7 @@
         "seehd": {
             "name": "seehd",
             "domain": "seehd.pl",
-            "version": "0.4.11",
+            "version": "0.4.12",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seehd.js",
             "type": [
                 "movie",
@@ -111,7 +111,7 @@
         "123moviessolar": {
             "name": "123moviessolar",
             "domain": "123moviessolar.dis",
-            "version": "0.1.17",
+            "version": "0.1.18",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviessolar.js",
             "type": [
                 "tv"
@@ -209,7 +209,7 @@
         "thanrd": {
             "name": "thanrd",
             "domain": "thanrd.dis",
-            "version": "0.0.10",
+            "version": "0.0.11",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/thanrd.js",
             "type": [
                 "movie",
