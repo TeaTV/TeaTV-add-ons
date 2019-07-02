@@ -132,6 +132,8 @@ var Afdah = function () {
                                     };
                                 } catch (e) {}
 
+                                //console.log(headers);    
+
                                 _context.next = 5;
                                 return httpRequest.post(url, headers, { 'play': 'continue', 'x': 0, 'y': 0 });
 

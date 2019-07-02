@@ -6,16 +6,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Gounlimited = function () {
-    function Gounlimited(props) {
-        _classCallCheck(this, Gounlimited);
+var Jetload = function () {
+    function Jetload(props) {
+        _classCallCheck(this, Jetload);
 
         this.libs = props.libs;
         this.settings = props.settings;
         this.state = {};
     }
 
-    _createClass(Gounlimited, [{
+    _createClass(Jetload, [{
         key: 'checkLive',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
@@ -33,6 +33,10 @@ var Gounlimited = function () {
 
                             case 2:
                                 httpRequest = this.libs.httpRequest;
+
+                                // you fill the die status text
+                                // const dieStatusText = "";
+
                                 _context.prev = 3;
                                 _context.next = 6;
                                 return httpRequest.getHTML(url);
@@ -68,7 +72,7 @@ var Gounlimited = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, results, html, m, hls, sv, domain, fuck, isDie;
+                var _libs, httpRequest, cheerio, arrVideoQuality, results, html, $, links, fname, srv, archive, fff, isDie;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -82,10 +86,8 @@ var Gounlimited = function () {
                                 throw new Error("LINK DIE");
 
                             case 2:
-
-                                url = url.replace('https://', 'http://');
-
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                arrVideoQuality = [];
                                 results = [];
                                 _context2.next = 7;
                                 return this.checkLive(url);
@@ -101,69 +103,94 @@ var Gounlimited = function () {
                                 throw new Error("LINK DIE");
 
                             case 10:
-                                m = html.split('eval(')[1];
+                                $ = cheerio.load(html);
+                                _context2.prev = 11;
 
-                                m = m.split('</script>')[0];
-                                m = 'eval(' + m;
-                                _context2.prev = 13;
 
-                                m = m.match(/\|([a-z0-9]+)\|([a-z0-9]+)\|sources/);
-                                hls = m[1];
-                                sv = m[2];
-                                domain = 'https://' + sv + '.gounlimited.to/';
-                                fuck = domain + hls + '/v.mp4';
-
-                                console.log(fuck);
-                                _context2.next = 25;
-                                break;
-
-                            case 22:
-                                _context2.prev = 22;
-                                _context2.t0 = _context2['catch'](13);
-                                return _context2.abrupt('return', {
-                                    host: {
-                                        url: url,
-                                        name: "Gounlimited"
-                                    },
-                                    result: []
+                                /*
+                                let quality = $('div[style*="height:30px; width:500px; margin:0 auto; color:#FFF; font-size:15px; line-height:30px; float:left;"]').find('a');
+                                  quality.each(function() {
+                                     let linkQuality = $(this).attr('href');
+                                     if(linkQuality.indexOf('http') != -1 && linkQuality.indexOf('&q=') != -1) {
+                                        arrVideoQuality.push(linkQuality);
+                                    }
+                                    
                                 });
+                                 let arrPromise = arrVideoQuality.map(async function(val) {
+                                     let label       = val.match(/\&q\=(.+)/i);
+                                    label           = label != null ? label[1] : 'NOR';
+                                    let htmlDirect  = await httpRequest.getHTML(val); 
+                                    let $           = cheerio.load(htmlDirect);
+                                    let linkDirect  = $('#videojs source').attr('src');
+                                    let isDie       = await httpRequest.isLinkDie(linkDirect);
+                                         if( isDie != false ) {
+                                         results.push({
+                                            file: linkDirect, label: label, type: "direct" , size: isDie
+                                        });
+                                     }
+                                });
+                                  await Promise.all(arrPromise);
+                                */
 
-                            case 25:
-                                if (!(fuck.search('https://') == -1 && fuck.search('http://') == -1)) {
-                                    _context2.next = 27;
+                                links = [];
+                                fname = $('#file_name').val();
+                                srv = $('#srv_id').val();
+                                archive = $('#archive').val();
+                                fff = void 0;
+
+                                if (!(archive == 1)) {
+                                    _context2.next = 21;
                                     break;
                                 }
 
-                                throw new Error("LINK DIE");
+                                fff = { data: 'https://ws04.jetload.net/v2/schema/archive/' + fname + '/master.m3u8' };
+                                _context2.next = 25;
+                                break;
+
+                            case 21:
+                                fname = fname + '.mp4';
+                                _context2.next = 24;
+                                return httpRequest.post('https://jetload.net/api/download', {}, {
+                                    'file_name': fname,
+                                    'srv': srv
+                                });
+
+                            case 24:
+                                fff = _context2.sent;
+
+                            case 25:
+                                _context2.next = 27;
+                                return httpRequest.isLinkDie(fff.data);
 
                             case 27:
-                                _context2.next = 29;
-                                return httpRequest.isLinkDie(fuck);
-
-                            case 29:
                                 isDie = _context2.sent;
 
 
                                 if (isDie != false) {
                                     results.push({
-                                        file: fuck, label: 'NOR', type: "direct", size: isDie
+                                        file: fff.data, label: 'NOR', type: "direct", size: isDie
                                     });
                                 }
 
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "Gounlimited"
+                                        name: "Jetload"
                                     },
                                     result: results
                                 });
 
                             case 32:
+                                _context2.prev = 32;
+                                _context2.t0 = _context2['catch'](11);
+                                throw new Error(_context2.t0);
+
+                            case 35:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[13, 22]]);
+                }, _callee2, this, [[11, 32]]);
             }));
 
             function getLink(_x2) {
@@ -174,9 +201,9 @@ var Gounlimited = function () {
         }()
     }]);
 
-    return Gounlimited;
+    return Jetload;
 }();
 
 thisSource.function = function (libs, settings) {
-    return new Gounlimited({ libs: libs, settings: settings });
+    return new Jetload({ libs: libs, settings: settings });
 };
