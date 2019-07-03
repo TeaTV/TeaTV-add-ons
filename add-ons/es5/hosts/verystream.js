@@ -50,7 +50,7 @@ var Verystream = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, sources, html, $, link;
+                var _libs, httpRequest, cheerio, sources, html, $, link, isDie;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -80,6 +80,11 @@ var Verystream = function () {
 
                             case 12:
                                 link = _context2.sent;
+                                _context2.next = 15;
+                                return httpRequest.isLinkDie(link);
+
+                            case 15:
+                                isDie = _context2.sent;
 
 
                                 if (isDie != false) {
@@ -88,7 +93,7 @@ var Verystream = function () {
                                         label: 'NOR',
                                         file: link,
                                         type: "direct",
-                                        size: (Math.random() * (2.2 - 1.9) + 1.9).toFixed(2)
+                                        size: isDie
                                     });
                                 }
 
@@ -100,7 +105,7 @@ var Verystream = function () {
                                     result: sources
                                 });
 
-                            case 15:
+                            case 18:
                             case 'end':
                                 return _context2.stop();
                         }

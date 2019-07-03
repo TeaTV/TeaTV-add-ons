@@ -529,7 +529,7 @@
             "name": "onmovies",
             "domain": "onmovies.dis",
             "version": "0.0.3",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/onmoviesto.js",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/onmoviesse.js",
             "type": [
                 "movie",
                 "tv"
@@ -920,7 +920,7 @@
             "domain": [
                 "verystream.com"
             ],
-            "version": "0.0.5",
+            "version": "0.0.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/verystream.js"
         },
         "xstreamcdn": {
@@ -954,6 +954,14 @@
             ],
             "version": "0.0.5",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vshare.js"
+        },
+        "jetload": {
+            "name": "vshare",
+            "domain": [
+                "jetload.net"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/jetload.js"
         }
     }
 }
