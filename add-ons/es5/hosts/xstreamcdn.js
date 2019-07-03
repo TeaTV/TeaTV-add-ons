@@ -62,8 +62,8 @@ var XstreamCDN = function () {
 
                                 url = url.replace(/#.*/, '');
 
-                                m = url.match(/\/v\/(.*)$/);
-                                u = 'https://www.xstreamcdn.com/api/source/' + m[1];
+                                m = url.split('/')[4];
+                                u = 'https://www.xstreamcdn.com/api/source/' + m;
                                 _context3.next = 7;
                                 return this.checkLive(u);
 
