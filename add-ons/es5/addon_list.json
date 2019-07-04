@@ -534,6 +534,15 @@
                 "movie",
                 "tv"
             ]
+        },
+        "saberfun": {
+            "name": "saberfun",
+            "domain": "saberfun.dis",
+            "version": "0.0.3",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/saberfun.js",
+            "type": [
+                "movie"
+            ]
         }
     },
     "hosts": {
@@ -794,7 +803,8 @@
                 "f2m.io",
                 "serverdl.pw",
                 "mihanpix.net",
-                "upfdl.com"
+                "upfdl.com",
+                "saberfun.name"
             ],
             "version": "0.1.11",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/direct.js"
@@ -928,7 +938,7 @@
             "domain": [
                 "xstreamcdn.com"
             ],
-            "version": "0.0.7",
+            "version": "0.0.8",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/xstreamcdn.js"
         },
         "hls": {
