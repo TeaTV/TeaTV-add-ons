@@ -51,7 +51,8 @@ var Hls = function () {
                                 return _context.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "Hls"
+                                        name: "Hls",
+                                        size: (Math.random() * (2.2 - 1.9) + 1.1).toFixed(2)
                                     },
                                     result: results
                                 });
