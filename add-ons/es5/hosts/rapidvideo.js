@@ -88,26 +88,27 @@ var RapidVideo = function () {
                             case 2:
 
                                 url = url.replace('/e/', '/v/');
+                                url = url.replace(/(www.)?rapidvideo.com/, 'rapidvid.to');
 
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                 arrVideoQuality = [];
                                 results = [];
-                                _context3.next = 8;
+                                _context3.next = 9;
                                 return this.checkLive(url);
 
-                            case 8:
+                            case 9:
                                 html = _context3.sent;
 
                                 if (!(html == false)) {
-                                    _context3.next = 11;
+                                    _context3.next = 12;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
-                            case 11:
+                            case 12:
                                 $ = cheerio.load(html);
-                                _context3.prev = 12;
+                                _context3.prev = 13;
 
 
                                 /*
@@ -177,10 +178,10 @@ var RapidVideo = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 18;
+                                _context3.next = 19;
                                 return Promise.all(linksPromise);
 
-                            case 18:
+                            case 19:
                                 return _context3.abrupt('return', {
                                     host: {
                                         url: url,
@@ -189,17 +190,17 @@ var RapidVideo = function () {
                                     result: results
                                 });
 
-                            case 21:
-                                _context3.prev = 21;
-                                _context3.t0 = _context3['catch'](12);
+                            case 22:
+                                _context3.prev = 22;
+                                _context3.t0 = _context3['catch'](13);
                                 throw new Error(_context3.t0);
 
-                            case 24:
+                            case 25:
                             case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this, [[12, 21]]);
+                }, _callee3, this, [[13, 22]]);
             }));
 
             function getLink(_x2) {
