@@ -35,7 +35,7 @@ var VidLox = function () {
               case 3:
                 html = _context.sent;
 
-                if (!html.includes("Video Was Deleted")) {
+                if (!html.includes("Video Was Deleted 1")) {
                   _context.next = 6;
                   break;
                 }

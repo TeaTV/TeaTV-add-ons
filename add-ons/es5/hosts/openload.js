@@ -91,7 +91,7 @@ var Openload = function () {
         key: 'getUsingAPI',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cryptoJs, cheerio, html, ttt, token, apiResponse, time, time1, t, _apiResponse$data, status, data, error, isDie, $, title, quality, s;
+                var _libs, httpRequest, cryptoJs, cheerio, html, isDie, $, title, quality, s;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -116,88 +116,51 @@ var Openload = function () {
                                 throw new Error("LINK DIE");
 
                             case 12:
-                                ttt = Math.floor(Date.now() / 1000);
-                                //if(ttt%4 != 0) throw new Error('NOT_FOUND');
-
                                 if (!(html.indexOf('It maybe got deleted by the owner or was removed due a copyright violation') != -1)) {
-                                    _context2.next = 15;
+                                    _context2.next = 14;
                                     break;
                                 }
 
                                 throw new Error('NOT_FOUND_OPL');
 
-                            case 15:
-                                token = cryptoJs.MD5(html + "teatv-openload").toString();
-                                apiResponse = void 0;
-                                _context2.prev = 17;
-                                time = Date.now();
-                                _context2.next = 21;
-                                return httpRequest.post("https://api.teatv.net/api/v2/get_opl", {
-                                    //apiResponse   = await httpRequest.post("http://localhost:3000/get_opl", {
-                                    "Content-Type": "application/json"
-                                }, JSON.stringify({
-                                    data: html,
-                                    token: token
-                                }));
-
-                            case 21:
-                                apiResponse = _context2.sent;
-                                time1 = Date.now();
-                                t = time1 - time;
-
-                                console.log(t, 'time', apiResponse.data);
-                                _context2.next = 31;
-                                break;
-
-                            case 27:
-                                _context2.prev = 27;
-                                _context2.t1 = _context2['catch'](17);
-
-                                console.log('teatv.net, error json getopl', _context2.t1);
-                                throw new Error('ERROR REQUEST');
-
-                            case 31:
-                                _apiResponse$data = apiResponse.data, status = _apiResponse$data.status, data = _apiResponse$data.data, error = _apiResponse$data.error;
-
-                                if (!error) {
-                                    _context2.next = 34;
+                            case 14:
+                                if (!(html.indexOf('<h3>We’re Sorry!</h3>') != -1)) {
+                                    _context2.next = 16;
                                     break;
                                 }
 
-                                throw new Error(error);
+                                throw new Error('NOT_FOUND_OPL');
 
-                            case 34:
-                                if (!(status == 200)) {
-                                    _context2.next = 55;
-                                    break;
-                                }
+                            case 16:
+                                return _context2.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "openload"
+                                    },
+                                    result: []
+                                });
 
-                                isDie = false;
-                                _context2.prev = 36;
-                                _context2.next = 39;
-                                return httpRequest.isLinkDie(data);
-
-                            case 39:
+                            case 22:
                                 isDie = _context2.sent;
-                                _context2.next = 45;
+                                _context2.next = 28;
                                 break;
 
-                            case 42:
-                                _context2.prev = 42;
-                                _context2.t2 = _context2['catch'](36);
+                            case 25:
+                                _context2.prev = 25;
+                                _context2.t1 = _context2['catch'](19);
 
 
-                                console.log(String(_context2.t2));
+                                console.log(String(_context2.t1));
 
-                            case 45:
+                            case 28:
                                 if (!(isDie == false)) {
-                                    _context2.next = 47;
+                                    _context2.next = 30;
                                     break;
                                 }
 
                                 throw new Error("NOT LINK");
 
-                            case 47:
+                            case 30:
                                 $ = cheerio.load(html);
                                 title = $(".title").text();
                                 quality = this.getQuality(title);
@@ -212,7 +175,7 @@ var Openload = function () {
                                     result: [s]
                                 });
 
-                            case 55:
+                            case 38:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -221,12 +184,12 @@ var Openload = function () {
                                     result: []
                                 });
 
-                            case 56:
+                            case 39:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[3, 9], [17, 27], [36, 42]]);
+                }, _callee2, this, [[3, 9], [19, 25]]);
             }));
 
             function getUsingAPI(_x2) {
@@ -245,7 +208,7 @@ var Openload = function () {
         key: 'getLink',
         value: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
-                var _libs2, httpRequest, cheerio, data;
+                var _libs2, httpRequest, cheerio, _data;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -257,8 +220,8 @@ var Openload = function () {
                                 return this.getUsingAPI(url);
 
                             case 4:
-                                data = _context3.sent;
-                                return _context3.abrupt('return', data);
+                                _data = _context3.sent;
+                                return _context3.abrupt('return', _data);
 
                             case 8:
                                 _context3.prev = 8;

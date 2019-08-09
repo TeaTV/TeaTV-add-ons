@@ -6,16 +6,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Verystream = function () {
-    function Verystream(props) {
-        _classCallCheck(this, Verystream);
+var Playeernet = function () {
+    function Playeernet(props) {
+        _classCallCheck(this, Playeernet);
 
         this.libs = props.libs;
         this.settings = props.settings;
         this.state = {};
     }
 
-    _createClass(Verystream, [{
+    _createClass(Playeernet, [{
         key: 'checkLive',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
@@ -26,7 +26,9 @@ var Verystream = function () {
                             case 0:
                                 httpRequest = this.libs.httpRequest;
                                 _context.next = 3;
-                                return httpRequest.getHTML(url);
+                                return httpRequest.getHTML(url, {
+                                    'Referer': 'https://online.moviesmax.net/movies/'
+                                });
 
                             case 3:
                                 html = _context.sent;
@@ -50,7 +52,7 @@ var Verystream = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, sources, html, $, link, isDie;
+                var _libs, httpRequest, cheerio, sources, html, results, m, isDie;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -69,43 +71,43 @@ var Verystream = function () {
                                     break;
                                 }
 
-                                console.log('Verystream no link 1');
-                                throw new Error("Verystream LINK DIE");
+                                console.log('Playeernet no link');
+                                throw new Error("Playeernet LINK DIE");
 
                             case 8:
-                                $ = cheerio.load(html);
-                                link = 'https://verystream.com/gettoken/' + $('#videolink').html();
-                                _context2.next = 12;
-                                return httpRequest.getRedirectUrl(link);
+                                results = [];
+                                m = html.match(/mp4 = '([^']+)/);
+
+                                if (!(m == undefined)) {
+                                    _context2.next = 12;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
 
                             case 12:
-                                link = _context2.sent;
-                                _context2.next = 15;
-                                return httpRequest.isLinkDie(link);
+                                _context2.next = 14;
+                                return httpRequest.isLinkDie(m[1]);
 
-                            case 15:
+                            case 14:
                                 isDie = _context2.sent;
-
 
                                 if (isDie != false) {
 
-                                    sources.push({
-                                        label: 'NOR',
-                                        file: link,
-                                        type: "direct",
-                                        size: isDie
+                                    results.push({
+                                        file: m[1], label: 'NOR', type: "direct", size: isDie
                                     });
                                 }
 
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "Verystream"
+                                        name: "Playeernet"
                                     },
-                                    result: sources
+                                    result: results
                                 });
 
-                            case 18:
+                            case 17:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -121,9 +123,9 @@ var Verystream = function () {
         }()
     }]);
 
-    return Verystream;
+    return Playeernet;
 }();
 
 thisSource.function = function (libs, settings) {
-    return new Verystream({ libs: libs, settings: settings });
+    return new Playeernet({ libs: libs, settings: settings });
 };
