@@ -562,6 +562,16 @@
                 "movie",
                 "tv"
             ]
+        },
+        "movies123pro": {
+            "name": "movies123pro",
+            "domain": "movies123pro.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/movies123pro.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
