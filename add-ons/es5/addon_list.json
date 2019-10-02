@@ -88,15 +88,6 @@
                 "tv"
             ]
         },
-        "123moviessolar": {
-            "name": "123moviessolar",
-            "domain": "123moviessolar.dis",
-            "version": "0.1.20",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviessolar.js",
-            "type": [
-                "tv"
-            ]
-        },
         "thanqn": {
             "name": "thanqn",
             "domain": "thanqn.dis",
@@ -115,16 +106,6 @@
             "type": [
                 "movie",
                 "tv"
-            ]
-        },
-        "movieflixter": {
-            "name": "movieflixter",
-            "domain": "movieflixter.dis",
-            "version": "0.1.19",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/movieflixter.js",
-            "type": [
-                "tv",
-                "movie"
             ]
         },
         "wfree": {
@@ -180,46 +161,17 @@
         "flixanity": {
             "name": "flixanity",
             "domain": "flixanity.io",
-            "version": "1.7.15",
+            "version": "1.7.16",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/flixanity.js",
             "type": [
                 "movie"
             ]
         },
-        "filmxyz": {
-            "name": "filmxyz",
-            "domain": "filmxyz.dis",
-            "version": "0.0.16",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/filmxy.js",
-            "type": [
-                "movie"
-            ]
-        },
-        "ffilms": {
-            "name": "ffilms",
-            "domain": "ffilms.dis",
-            "version": "0.0.16",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/ffilms.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "afdah": {
             "name": "afdah",
             "domain": "afdah.dis",
-            "version": "0.7.17",
+            "version": "0.7.18",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/afdah.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "onemovies": {
-            "name": "onemovies",
-            "domain": "onemovies.dis",
-            "version": "0.0.17",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/1movies.js",
             "type": [
                 "movie",
                 "tv"
@@ -261,16 +213,6 @@
                 "tv"
             ]
         },
-        "hdm": {
-            "name": "hdm",
-            "domain": "hdm.dis",
-            "version": "0.0.13",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hdm.js",
-            "type": [
-                "tv",
-                "movie"
-            ]
-        },
         "tdn": {
             "name": "tdn",
             "domain": "tdn.dis",
@@ -284,7 +226,7 @@
         "123moviesfree": {
             "name": "123moviesfree",
             "domain": "123moviesfree.dis",
-            "version": "0.1.18",
+            "version": "0.1.19",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesfree.js",
             "type": [
                 "tv",
@@ -294,7 +236,7 @@
         "projectfreetv": {
             "name": "projectfreetv",
             "domain": "projectfreetv.dis",
-            "version": "0.1.16",
+            "version": "0.1.17",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/projectfreetv.js",
             "type": [
                 "tv"
@@ -328,16 +270,6 @@
                 "tv"
             ]
         },
-        "movie4k": {
-            "name": "movie4k",
-            "domain": "movie4k.dis",
-            "version": "0.0.13",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/movie4k.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "123moviesag": {
             "name": "123moviesag",
             "domain": "123moviesag.dis",
@@ -351,7 +283,7 @@
         "miradetodo": {
             "name": "miradetodo",
             "domain": "miradetodo.dis",
-            "version": "0.0.12",
+            "version": "0.0.13",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/miradetodo.js",
             "type": [
                 "movie",
@@ -367,26 +299,6 @@
                 "movie"
             ]
         },
-        "cinewhale": {
-            "name": "cinewhale",
-            "domain": "cinewhale.dis",
-            "version": "0.0.14",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/cinewhale.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "anonembed": {
-            "name": "anonembed",
-            "domain": "anonembed.dis",
-            "version": "0.0.13",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/anonembed.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "f2movies": {
             "name": "f2movies",
             "domain": "f2movies.dis",
@@ -400,18 +312,8 @@
         "icefilms": {
             "name": "icefilms",
             "domain": "icefilms.dis",
-            "version": "0.0.15",
+            "version": "0.0.16",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/icefilms.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "c1nema": {
-            "name": "c1nema",
-            "domain": "c1nema.dis",
-            "version": "0.0.11",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/c1nema.js",
             "type": [
                 "movie",
                 "tv"
@@ -429,7 +331,7 @@
         "hdmo": {
             "name": "hdmo",
             "domain": "hdmo.dis",
-            "version": "0.0.11",
+            "version": "0.0.12",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hdmo.js",
             "type": [
                 "movie",
@@ -449,18 +351,8 @@
         "projectflv": {
             "name": "projectflv",
             "domain": "projectflv.dis",
-            "version": "0.0.5",
+            "version": "0.0.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/projectflv.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "spacemov": {
-            "name": "spacemov",
-            "domain": "spacemov.dis",
-            "version": "0.0.5",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/spacemov.js",
             "type": [
                 "movie",
                 "tv"
@@ -486,16 +378,6 @@
                 "tv"
             ]
         },
-        "putmovie": {
-            "name": "putmovie",
-            "domain": "putmovie.dis",
-            "version": "0.0.5",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/putmovie.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "newepisodes": {
             "name": "newepisodes",
             "domain": "newepisodes.dis",
@@ -513,35 +395,6 @@
             "type": [
                 "movie",
                 "tv"
-            ]
-        },
-        "amadei33": {
-            "name": "amadei33",
-            "domain": "amadei33.dis",
-            "version": "0.0.5",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/amadei33.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "onmovies": {
-            "name": "onmovies",
-            "domain": "onmovies.dis",
-            "version": "0.0.3",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/onmoviesse.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
-        "saberfun": {
-            "name": "saberfun",
-            "domain": "saberfun.dis",
-            "version": "0.0.3",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/saberfun.js",
-            "type": [
-                "movie"
             ]
         },
         "moviesmax": {
@@ -566,7 +419,7 @@
         "movies123pro": {
             "name": "movies123pro",
             "domain": "movies123pro.dis",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/movies123pro.js",
             "type": [
                 "movie",
@@ -855,7 +708,7 @@
             "domain": [
                 "afdah.info"
             ],
-            "version": "0.9.20",
+            "version": "0.9.21",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/afdah.js"
         },
         "vidtodo": {
