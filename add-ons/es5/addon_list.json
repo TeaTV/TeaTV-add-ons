@@ -189,7 +189,7 @@
         "davich": {
             "name": "davich",
             "domain": "davich.dis",
-            "version": "0.0.14",
+            "version": "0.0.15",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/davix.js",
             "type": [
                 "movie"
@@ -254,7 +254,7 @@
         "hdbest": {
             "name": "hdbest",
             "domain": "hdbest.dis",
-            "version": "0.0.13",
+            "version": "0.0.15",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hdbest.js",
             "type": [
                 "movie"
@@ -371,7 +371,7 @@
         "streamdreams": {
             "name": "streamdreams",
             "domain": "streamdreams.dis",
-            "version": "0.0.7",
+            "version": "0.0.10",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/streamdreams.js",
             "type": [
                 "movie",
@@ -390,7 +390,7 @@
         "vizer": {
             "name": "vizer",
             "domain": "vizer.dis",
-            "version": "0.0.5",
+            "version": "0.0.7",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vizer.js",
             "type": [
                 "movie",
@@ -424,6 +424,15 @@
             "type": [
                 "movie",
                 "tv"
+            ]
+        },
+        "solarmoviehd": {
+            "name": "solarmoviehd",
+            "domain": "solarmoviehd.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/solarmoviehd.js",
+            "type": [
+                "movie"
             ]
         }
     },
@@ -807,13 +816,14 @@
             "domain": [
                 "clipwatching.com"
             ],
-            "version": "0.0.8",
+            "version": "0.0.10",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/clipwatching.js"
         },
         "verystream": {
             "name": "verystream",
             "domain": [
-                "verystream.com"
+                "verystream.com",
+                "woof.tube"
             ],
             "version": "0.0.6",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/verystream.js"

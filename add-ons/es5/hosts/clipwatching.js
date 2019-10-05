@@ -62,7 +62,7 @@ var ClipWatching = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, arrVideoQuality, html, results, m, a, ff, reg, isDie;
+                var _libs, httpRequest, cheerio, arrVideoQuality, html, results, m, a, ff, reg;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -88,9 +88,9 @@ var ClipWatching = function () {
                                 _context2.prev = 8;
                                 m = void 0, a = void 0;
 
-                                m = html.split('eval(')[2];
+                                m = html.split('eval(function(p,a,c,k,e,d)')[1];
                                 m = m.split('</script>')[0].trim();
-                                m = 'eval(' + m;
+                                m = 'eval(function(p,a,c,k,e,d)' + m;
 
                                 ff = m.split('return p}')[1];
 
@@ -101,7 +101,7 @@ var ClipWatching = function () {
 
                             case 18:
                                 if (!(m = reg.exec(a))) {
-                                    _context2.next = 27;
+                                    _context2.next = 24;
                                     break;
                                 }
 
@@ -113,30 +113,22 @@ var ClipWatching = function () {
                                 return _context2.abrupt('continue', 18);
 
                             case 21:
-                                _context2.next = 23;
-                                return httpRequest.isLinkDie(m[1]);
-
-                            case 23:
-                                isDie = _context2.sent;
-
-                                if (isDie != false) {
-                                    results.push({
-                                        file: m[1], label: 'NOR', type: "direct", size: isDie
-                                    });
-                                }
+                                results.push({
+                                    file: m[1], label: 'NOR', type: "direct", size: 'NOR'
+                                });
                                 _context2.next = 18;
                                 break;
 
-                            case 27:
-                                _context2.next = 32;
+                            case 24:
+                                _context2.next = 29;
                                 break;
 
-                            case 29:
-                                _context2.prev = 29;
+                            case 26:
+                                _context2.prev = 26;
                                 _context2.t0 = _context2['catch'](8);
                                 throw new Error(_context2.t0);
 
-                            case 32:
+                            case 29:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -145,12 +137,12 @@ var ClipWatching = function () {
                                     result: results
                                 });
 
-                            case 33:
+                            case 30:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[8, 29]]);
+                }, _callee2, this, [[8, 26]]);
             }));
 
             function getLink(_x2) {
