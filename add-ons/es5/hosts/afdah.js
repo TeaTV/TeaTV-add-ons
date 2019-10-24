@@ -207,7 +207,7 @@ var Afdah = function () {
                                 };
 
                                 _context3.next = 13;
-                                return httpRequest.post('https://vvv.teatv.net/source/get', {}, bodyPost);
+                                return httpRequest.post('https://getaz.morphtv.club/source/get', {}, bodyPost);
 
                             case 13:
                                 res = _context3.sent;
@@ -317,7 +317,7 @@ var Afdah = function () {
                                 bodyPost['expired'] = 7200;
                                 console.log(bodyPost, 'bPost');
                                 _context3.next = 43;
-                                return httpRequest.post('https://vvv.teatv.net/source/set', {}, bodyPost);
+                                return httpRequest.post('https://getaz.morphtv.club/source/set', {}, bodyPost);
 
                             case 43:
                                 xxx = _context3.sent;
