@@ -1,1 +1,423 @@
-var _0x5bc9=['https://vizer.tv/assistir/filme/','https://vizer.tv/includes/ajax/publicFunctions.php','https://vizer.tv/embed/getPlay.php?id=','Mozilla/5.0\x20(Macintosh;\x20Intel\x20Mac\x20OS\x20X\x2010_11_6)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/61.0.3163.100\x20Safari/537.36','en-US,en;q=0.9,vi;q=0.8','XMLHttpRequest','libs','settings','searchDetail','mark','wrap','prev','httpRequest','cheerio','stringHelper','base64','title','season','episode','type','floor','now','state','detailUrl','convertToSearchQueryString','abrupt','return','getHostFromDetail','movieInfo','year','NOT_FOUND','getHTML','.yearAndDate\x20.item','first','find','.top','text','match','push','attr','data-get-episodes','.txt','trim','sent','data','status','NOT_FOUND1','list','name','break','NOT_FOUND3','post','EPISODES_LIST','NOT_FOUND2','map','PLAYER_URL','Vizer','embed','end','stop','all','hosts','function','movie','MD5','aloha','toString','https://getaz.morphtv.club/source/get','err','checker','https://getaz.morphtv.club/source/set','testing','length','enumerable','configurable','writable','defineProperty','key','prototype','apply','value','then','throw','next','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','https://vizer.tv/'];(function(_0x48ad7b,_0x42354b){var _0x156b21=function(_0x1205c0){while(--_0x1205c0){_0x48ad7b['push'](_0x48ad7b['shift']());}};_0x156b21(++_0x42354b);}(_0x5bc9,0x1a0));var _0x3d1d=function(_0x5e707e,_0x2087bf){_0x5e707e=_0x5e707e-0x0;var _0x3e5828=_0x5bc9[_0x5e707e];return _0x3e5828;};var _createClass=function(){function _0x3bf178(_0x3c87d4,_0x195654){for(var _0x321869=0x0;_0x321869<_0x195654[_0x3d1d('0x0')];_0x321869++){var _0x2e1e93=_0x195654[_0x321869];_0x2e1e93[_0x3d1d('0x1')]=_0x2e1e93['enumerable']||![];_0x2e1e93[_0x3d1d('0x2')]=!![];if('value'in _0x2e1e93)_0x2e1e93[_0x3d1d('0x3')]=!![];Object[_0x3d1d('0x4')](_0x3c87d4,_0x2e1e93[_0x3d1d('0x5')],_0x2e1e93);}}return function(_0x3e646c,_0x2be52f,_0x2f5015){if(_0x2be52f)_0x3bf178(_0x3e646c[_0x3d1d('0x6')],_0x2be52f);if(_0x2f5015)_0x3bf178(_0x3e646c,_0x2f5015);return _0x3e646c;};}();function _asyncToGenerator(_0x2b68f9){return function(){var _0x33f022=_0x2b68f9[_0x3d1d('0x7')](this,arguments);return new Promise(function(_0x1a79f7,_0xb859e8){function _0xe847ca(_0x52366e,_0x51bc08){try{var _0x5023d9=_0x33f022[_0x52366e](_0x51bc08);var _0x56e8ed=_0x5023d9[_0x3d1d('0x8')];}catch(_0x3a6994){_0xb859e8(_0x3a6994);return;}if(_0x5023d9['done']){_0x1a79f7(_0x56e8ed);}else{return Promise['resolve'](_0x56e8ed)[_0x3d1d('0x9')](function(_0x1a6d1f){_0xe847ca('next',_0x1a6d1f);},function(_0x114d9b){_0xe847ca(_0x3d1d('0xa'),_0x114d9b);});}}return _0xe847ca(_0x3d1d('0xb'));});};}function _classCallCheck(_0x2699f0,_0x14e70e){if(!(_0x2699f0 instanceof _0x14e70e)){throw new TypeError(_0x3d1d('0xc'));}}var URL={'DOMAIN':_0x3d1d('0xd'),'MOVIE':function MOVIE(_0x2bfd4b){return _0x3d1d('0xe')+_0x2bfd4b;},'SERIES':function SERIES(_0x27a6f3){return'https://vizer.tv/assistir/serie/'+_0x27a6f3;},'EPISODES_LIST':function EPISODES_LIST(){return _0x3d1d('0xf');},'PLAYER_URL':function PLAYER_URL(_0x577e0e,_0x323215){return _0x3d1d('0x10')+_0x577e0e+'&type='+_0x323215;},'HEADERS':function HEADERS(_0x207de2){return{'content-type':'application/x-www-form-urlencoded;\x20charset=UTF-8','user-agent':_0x3d1d('0x11'),'Accept-Language':_0x3d1d('0x12'),'X-Requested-With':_0x3d1d('0x13'),'Referer':_0x207de2};}};var Vizer=function(){function _0x460f6a(_0x2fcdda){_classCallCheck(this,_0x460f6a);this[_0x3d1d('0x14')]=_0x2fcdda[_0x3d1d('0x14')];this['movieInfo']=_0x2fcdda['movieInfo'];this[_0x3d1d('0x15')]=_0x2fcdda[_0x3d1d('0x15')];this['state']={};}_createClass(_0x460f6a,[{'key':_0x3d1d('0x16'),'value':function(){var _0x3f3913=_asyncToGenerator(regeneratorRuntime[_0x3d1d('0x17')](function _callee(){var _0x5dff7b,_0x4d2899,_0x5134fa,_0x4a51df,_0x41ad8c,_0x1a5b26,_0x243eaf,_0x2e5f10,_0x5ca674,_0x87db3b,_0x1546c3,_0x266b43;return regeneratorRuntime[_0x3d1d('0x18')](function _callee$(_0x565139){while(0x1){switch(_0x565139[_0x3d1d('0x19')]=_0x565139['next']){case 0x0:_0x5dff7b=this['libs'],_0x4d2899=_0x5dff7b[_0x3d1d('0x1a')],_0x5134fa=_0x5dff7b[_0x3d1d('0x1b')],_0x4a51df=_0x5dff7b[_0x3d1d('0x1c')],_0x41ad8c=_0x5dff7b[_0x3d1d('0x1d')];_0x1a5b26=this['movieInfo'],_0x243eaf=_0x1a5b26[_0x3d1d('0x1e')],_0x2e5f10=_0x1a5b26['year'],_0x5ca674=_0x1a5b26[_0x3d1d('0x1f')],_0x87db3b=_0x1a5b26[_0x3d1d('0x20')],_0x1546c3=_0x1a5b26[_0x3d1d('0x21')];_0x266b43=Math[_0x3d1d('0x22')](Date[_0x3d1d('0x23')]()/0x3e8);this[_0x3d1d('0x24')][_0x3d1d('0x25')]=_0x1546c3=='movie'?URL['MOVIE'](_0x4a51df[_0x3d1d('0x26')](_0x243eaf)):URL['SERIES'](_0x4a51df[_0x3d1d('0x26')](_0x243eaf));return _0x565139[_0x3d1d('0x27')](_0x3d1d('0x28'));case 0x5:case'end':return _0x565139['stop']();}}},_callee,this);}));function _0xd8ae99(){return _0x3f3913[_0x3d1d('0x7')](this,arguments);}return _0xd8ae99;}()},{'key':_0x3d1d('0x29'),'value':function(){var _0x288599=_asyncToGenerator(regeneratorRuntime[_0x3d1d('0x17')](function _callee3(){var _0x2e2120,_0x57b717,_0xe4f8a1,_0x3088f2,_0x552bad,_0x40643f,_0x36dd10,_0x5b9a56,_0x1f3892,_0xe02d70,_0x575845,_0x46897a,_0x4edf94,_0x5c5090,_0x564e87,_0x4acce5,_0x27d081,_0x3d2743,_0x26083,_0x228555,_0x4e0ce6,_0x10ea86,_0xb51503,_0x2833a5,_0x14fbd9,_0x5f0ba4,_0x595902,_0xbb3997;return regeneratorRuntime['wrap'](function _callee3$(_0x146334){while(0x1){switch(_0x146334[_0x3d1d('0x19')]=_0x146334[_0x3d1d('0xb')]){case 0x0:_0x2e2120=this['libs'],_0x57b717=_0x2e2120[_0x3d1d('0x1a')],_0xe4f8a1=_0x2e2120[_0x3d1d('0x1b')],_0x3088f2=_0x2e2120[_0x3d1d('0x1d')];_0x552bad=this[_0x3d1d('0x2a')],_0x40643f=_0x552bad['title'],_0x36dd10=_0x552bad[_0x3d1d('0x21')],_0x5b9a56=_0x552bad['season'],_0x1f3892=_0x552bad[_0x3d1d('0x20')],_0xe02d70=_0x552bad[_0x3d1d('0x2b')];if(this['state'][_0x3d1d('0x25')]){_0x146334[_0x3d1d('0xb')]=0x4;break;}throw new Error(_0x3d1d('0x2c'));case 0x4:_0x575845=[];_0x46897a=[];_0x4edf94=this[_0x3d1d('0x24')][_0x3d1d('0x25')];_0x146334[_0x3d1d('0xb')]=0x9;return _0x57b717[_0x3d1d('0x2d')](this[_0x3d1d('0x24')][_0x3d1d('0x25')]);case 0x9:_0x5c5090=_0x146334['sent'];_0x564e87=_0xe4f8a1['load'](_0x5c5090);_0x4acce5=[];if(!(_0x36dd10=='movie')){_0x146334[_0x3d1d('0xb')]=0x19;break;}_0x27d081=_0x564e87(_0x3d1d('0x2e'))[_0x3d1d('0x2f')]()[_0x3d1d('0x30')](_0x3d1d('0x31'))[_0x3d1d('0x32')]();if(!(_0x27d081!=_0xe02d70)){_0x146334['next']=0x10;break;}throw new Error('NOT_FOUND');case 0x10:_0x3d2743=_0x5c5090[_0x3d1d('0x33')](/getPlayer\('([^']+)/g);if(!(_0x3d2743==undefined)){_0x146334['next']=0x13;break;}throw new Error(_0x3d1d('0x2c'));case 0x13:_0x26083=_0x3d2743[0x0][_0x3d1d('0x33')](/(\d+)/);if(_0x26083!=undefined)_0x4acce5[_0x3d1d('0x34')](_0x26083[0x1]);_0x26083=_0x3d2743[0x1][_0x3d1d('0x33')](/(\d+)/);if(_0x26083!=undefined)_0x4acce5['push'](_0x26083[0x1]);_0x146334['next']=0x3f;break;case 0x19:_0x228555=![];_0x564e87('.seasonList\x20.item')['each'](function(){var _0x538e79=_0x564e87(this)[_0x3d1d('0x35')](_0x3d1d('0x36'));var _0x1d3f11=_0x564e87(this)[_0x3d1d('0x30')](_0x3d1d('0x37'))[_0x3d1d('0x32')]()[_0x3d1d('0x38')]();var _0x394667=_0x1d3f11[_0x3d1d('0x33')](/^(\d+)/);var _0x110a08=_0x394667[0x1];if(_0x110a08==_0x5b9a56)_0x228555=_0x538e79;});if(_0x228555){_0x146334[_0x3d1d('0xb')]=0x1d;break;}throw new Error(_0x3d1d('0x2c'));case 0x1d:_0x4e0ce6={'getEpisodes':_0x228555};_0x146334[_0x3d1d('0xb')]=0x20;return _0x57b717['post'](URL['EPISODES_LIST'](),{},_0x4e0ce6);case 0x20:_0x10ea86=_0x146334[_0x3d1d('0x39')];_0xb51503=_0x10ea86[_0x3d1d('0x3a')];if(!(_0xb51503[_0x3d1d('0x3b')]!='success')){_0x146334[_0x3d1d('0xb')]=0x24;break;}throw new Error(_0x3d1d('0x3c'));case 0x24:_0x2833a5=![];_0x14fbd9=0x0;case 0x26:if(!(_0x14fbd9<0xc8)){_0x146334[_0x3d1d('0xb')]=0x2e;break;}_0x5f0ba4=_0xb51503[_0x3d1d('0x3d')][_0x14fbd9];if(!(_0x5f0ba4[_0x3d1d('0x3e')]==_0x1f3892)){_0x146334[_0x3d1d('0xb')]=0x2b;break;}_0x2833a5=_0x5f0ba4['id'];return _0x146334[_0x3d1d('0x27')](_0x3d1d('0x3f'),0x2e);case 0x2b:_0x14fbd9++;_0x146334['next']=0x26;break;case 0x2e:if(_0x2833a5){_0x146334[_0x3d1d('0xb')]=0x30;break;}throw new Error(_0x3d1d('0x40'));case 0x30:_0x4e0ce6={'getEpisodeContent':_0x2833a5};_0x146334[_0x3d1d('0xb')]=0x33;return _0x57b717[_0x3d1d('0x41')](URL[_0x3d1d('0x42')](),{},_0x4e0ce6);case 0x33:_0x10ea86=_0x146334[_0x3d1d('0x39')];_0xb51503=_0x10ea86[_0x3d1d('0x3a')];if(!(_0xb51503[_0x3d1d('0x3b')]!='success')){_0x146334[_0x3d1d('0xb')]=0x37;break;}throw new Error(_0x3d1d('0x43'));case 0x37:_0x595902=0x0;case 0x38:if(!(_0x595902<0xa)){_0x146334[_0x3d1d('0xb')]=0x3f;break;}if(!(_0xb51503[_0x3d1d('0x3d')][_0x595902]==undefined)){_0x146334[_0x3d1d('0xb')]=0x3b;break;}return _0x146334[_0x3d1d('0x27')]('break',0x3f);case 0x3b:_0x4acce5['push'](_0xb51503[_0x3d1d('0x3d')][_0x595902]['id']);case 0x3c:_0x595902++;_0x146334[_0x3d1d('0xb')]=0x38;break;case 0x3f:_0xbb3997=_0x4acce5[_0x3d1d('0x44')](function(){var _0x41850c=_asyncToGenerator(regeneratorRuntime[_0x3d1d('0x17')](function _callee2(_0x3e61c5){var _0x3f5ba4,_0x1df081,_0x40c84b,_0x58c9de;return regeneratorRuntime['wrap'](function _callee2$(_0x1f3801){while(0x1){switch(_0x1f3801['prev']=_0x1f3801['next']){case 0x0:_0x3f5ba4=_0x36dd10=='movie'?'movies_player':'series_player';_0x1df081=URL[_0x3d1d('0x45')](_0x3e61c5,_0x3f5ba4);_0x1f3801['next']=0x4;return _0x57b717[_0x3d1d('0x2d')](_0x1df081);case 0x4:_0x40c84b=_0x1f3801[_0x3d1d('0x39')];_0x58c9de=_0x40c84b[_0x3d1d('0x33')](/href="([^"]+)/);if(_0x58c9de!=undefined)_0x575845[_0x3d1d('0x34')]({'provider':{'url':_0x4edf94,'name':_0x3d1d('0x46')},'result':{'file':_0x58c9de[0x1],'label':_0x3d1d('0x47'),'type':_0x3d1d('0x47')}});case 0x7:case _0x3d1d('0x48'):return _0x1f3801[_0x3d1d('0x49')]();}}},_callee2,this);}));return function(_0x5c9a76){return _0x41850c[_0x3d1d('0x7')](this,arguments);};}());_0x146334[_0x3d1d('0xb')]=0x42;return Promise[_0x3d1d('0x4a')](_0xbb3997);case 0x42:this['state'][_0x3d1d('0x4b')]=_0x575845;return _0x146334[_0x3d1d('0x27')](_0x3d1d('0x28'));case 0x44:case _0x3d1d('0x48'):return _0x146334[_0x3d1d('0x49')]();}}},_callee3,this);}));function _0x2d27d9(){return _0x288599[_0x3d1d('0x7')](this,arguments);}return _0x2d27d9;}()}]);return _0x460f6a;}();thisSource[_0x3d1d('0x4c')]=function(){var _0x6d12ec=_asyncToGenerator(regeneratorRuntime[_0x3d1d('0x17')](function _callee4(_0x17e686,_0xbd9b7f,_0x34ab3b){var _0x375181,_0x23823c,_0x58f1c9,_0x4901ea,_0x174525,_0x2301b8;return regeneratorRuntime[_0x3d1d('0x18')](function _callee4$(_0x327031){while(0x1){switch(_0x327031['prev']=_0x327031[_0x3d1d('0xb')]){case 0x0:_0x375181=_0x17e686[_0x3d1d('0x1a')];_0x23823c=new Vizer({'libs':_0x17e686,'movieInfo':_0xbd9b7f,'settings':_0x34ab3b});if(_0xbd9b7f[_0x3d1d('0x21')]==_0x3d1d('0x4d')){_0xbd9b7f['season']=0x0;_0xbd9b7f[_0x3d1d('0x20')]=0x0;}_0x58f1c9={'name_source':_0x3d1d('0x46'),'is_link':0x0,'type':_0xbd9b7f['type'],'season':_0xbd9b7f['season'],'episode':_0xbd9b7f[_0x3d1d('0x20')],'title':_0xbd9b7f[_0x3d1d('0x1e')],'year':_0xbd9b7f[_0x3d1d('0x2b')],'hash':_0x17e686['cryptoJs'][_0x3d1d('0x4e')](_0xbd9b7f[_0x3d1d('0x1e')]['toLowerCase']()+_0xbd9b7f[_0x3d1d('0x1f')]['toString']()+_0x3d1d('0x4f')+_0xbd9b7f['episode'][_0x3d1d('0x50')]())[_0x3d1d('0x50')]()};_0x327031[_0x3d1d('0xb')]=0x6;return _0x375181[_0x3d1d('0x41')](_0x3d1d('0x51'),{},_0x58f1c9);case 0x6:_0x4901ea=_0x327031[_0x3d1d('0x39')];_0x174525=void 0x0,_0x2301b8=[];try{_0x4901ea=_0x4901ea[_0x3d1d('0x3a')];if(_0x4901ea[_0x3d1d('0x3b')]){_0x2301b8=JSON['parse'](_0x4901ea[_0x3d1d('0x4b')]);}}catch(_0x467b11){console['log'](_0x3d1d('0x52'),_0x467b11);}if(_0xbd9b7f[_0x3d1d('0x53')]!=undefined)_0x2301b8=[];if(!(_0x2301b8[_0x3d1d('0x0')]==0x0)){_0x327031['next']=0x17;break;}_0x327031[_0x3d1d('0xb')]=0xd;return _0x23823c['searchDetail']();case 0xd:_0x327031[_0x3d1d('0xb')]=0xf;return _0x23823c[_0x3d1d('0x29')]();case 0xf:_0x2301b8=_0x23823c[_0x3d1d('0x24')]['hosts'];if(!(_0xbd9b7f[_0x3d1d('0x53')]!=undefined)){_0x327031[_0x3d1d('0xb')]=0x12;break;}return _0x327031[_0x3d1d('0x27')](_0x3d1d('0x28'),_0x2301b8);case 0x12:if(!(_0x2301b8[_0x3d1d('0x0')]>0x0)){_0x327031[_0x3d1d('0xb')]=0x17;break;}_0x58f1c9[_0x3d1d('0x4b')]=JSON['stringify'](_0x2301b8);_0x58f1c9['expired']=0x15180;_0x327031[_0x3d1d('0xb')]=0x17;return _0x375181[_0x3d1d('0x41')](_0x3d1d('0x54'),{},_0x58f1c9);case 0x17:if(_0xbd9b7f['ss']!=undefined){_0xbd9b7f['ss']['to'](_0xbd9b7f['cs']['id'])['emit'](_0xbd9b7f['c'],_0x2301b8);}return _0x327031[_0x3d1d('0x27')](_0x3d1d('0x28'),_0x2301b8);case 0x19:case _0x3d1d('0x48'):return _0x327031[_0x3d1d('0x49')]();}}},_callee4,undefined);}));return function(_0x5071b5,_0x58855e,_0x32061b){return _0x6d12ec[_0x3d1d('0x7')](this,arguments);};}();thisSource[_0x3d1d('0x55')]=Vizer;
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var URL = {
+    DOMAIN: "https://vizer.tv/",
+    MOVIE: function MOVIE(title) {
+        return 'https://vizer.tv/assistir/filme/' + title;
+    },
+    SERIES: function SERIES(title) {
+        return 'https://vizer.tv/assistir/serie/' + title;
+    },
+    EPISODES_LIST: function EPISODES_LIST() {
+        return 'https://vizer.tv/includes/ajax/publicFunctions.php';
+    },
+    PLAYER_URL: function PLAYER_URL(id, type) {
+        return 'https://vizer.tv/embed/getPlay.php?id=' + id + '&type=' + type;
+    },
+
+    HEADERS: function HEADERS(ref) {
+        return {
+            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+            'Accept-Language': 'en-US,en;q=0.9,vi;q=0.8',
+            'X-Requested-With': 'XMLHttpRequest',
+            'Referer': ref
+        };
+    }
+};
+
+var Vizer = function () {
+    function Vizer(props) {
+        _classCallCheck(this, Vizer);
+
+        this.libs = props.libs;
+        this.movieInfo = props.movieInfo;
+        this.settings = props.settings;
+
+        this.state = {};
+    }
+
+    _createClass(Vizer, [{
+        key: 'searchDetail',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+                var _libs, httpRequest, cheerio, stringHelper, base64, _movieInfo, title, year, season, episode, type, time;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, base64 = _libs.base64;
+                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+                                time = Math.floor(Date.now() / 1000);
+
+                                //if(time % 100 != 0) throw new Error('NOT_FOUND_BLOCK');
+
+                                this.state.detailUrl = type == 'movie' ? URL.MOVIE(stringHelper.convertToSearchQueryString(title)) : URL.SERIES(stringHelper.convertToSearchQueryString(title));
+                                return _context.abrupt('return');
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function searchDetail() {
+                return _ref.apply(this, arguments);
+            }
+
+            return searchDetail;
+        }()
+    }, {
+        key: 'getHostFromDetail',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+                var _libs2, httpRequest, cheerio, base64, _movieInfo2, title, type, season, episode, year, hosts, keys, detailUrl, htmlDetail, $, playIds, yearMovie, m, m1, ssId, p, pData, js, eId, i, j, x, playIdsPromise;
+
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio, base64 = _libs2.base64;
+                                _movieInfo2 = this.movieInfo, title = _movieInfo2.title, type = _movieInfo2.type, season = _movieInfo2.season, episode = _movieInfo2.episode, year = _movieInfo2.year;
+
+                                if (this.state.detailUrl) {
+                                    _context3.next = 4;
+                                    break;
+                                }
+
+                                throw new Error("NOT_FOUND");
+
+                            case 4:
+                                hosts = [];
+                                keys = [];
+                                detailUrl = this.state.detailUrl;
+                                _context3.next = 9;
+                                return httpRequest.getHTML(this.state.detailUrl);
+
+                            case 9:
+                                htmlDetail = _context3.sent;
+                                $ = cheerio.load(htmlDetail);
+                                playIds = [];
+
+                                if (!(type == 'movie')) {
+                                    _context3.next = 25;
+                                    break;
+                                }
+
+                                yearMovie = $('.yearAndDate .item').first().find('.top').text();
+
+                                if (!(yearMovie != year)) {
+                                    _context3.next = 16;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 16:
+                                m = htmlDetail.match(/getPlayer\('([^']+)/g);
+
+                                if (!(m == undefined)) {
+                                    _context3.next = 19;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 19:
+                                m1 = m[0].match(/(\d+)/);
+
+                                if (m1 != undefined) playIds.push(m1[1]);
+                                m1 = m[1].match(/(\d+)/);
+                                if (m1 != undefined) playIds.push(m1[1]);
+                                _context3.next = 63;
+                                break;
+
+                            case 25:
+                                ssId = false;
+
+                                $('.seasonList .item').each(function () {
+                                    var sId = $(this).attr('data-get-episodes');
+                                    var name = $(this).find('.txt').text().trim();
+                                    var m = name.match(/^(\d+)/);
+                                    var ss = m[1];
+                                    if (ss == season) ssId = sId;
+                                });
+
+                                if (ssId) {
+                                    _context3.next = 29;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND');
+
+                            case 29:
+                                p = { 'getEpisodes': ssId };
+                                _context3.next = 32;
+                                return httpRequest.post(URL.EPISODES_LIST(), {}, p);
+
+                            case 32:
+                                pData = _context3.sent;
+                                js = pData.data;
+
+                                if (!(js.status != 'success')) {
+                                    _context3.next = 36;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND1');
+
+                            case 36:
+                                eId = false;
+                                i = 0;
+
+                            case 38:
+                                if (!(i < 200)) {
+                                    _context3.next = 46;
+                                    break;
+                                }
+
+                                j = js.list[i];
+
+                                if (!(j.name == episode)) {
+                                    _context3.next = 43;
+                                    break;
+                                }
+
+                                eId = j.id;
+                                return _context3.abrupt('break', 46);
+
+                            case 43:
+                                i++;
+                                _context3.next = 38;
+                                break;
+
+                            case 46:
+                                if (eId) {
+                                    _context3.next = 48;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND3');
+
+                            case 48:
+
+                                p = { 'getEpisodeContent': eId };
+                                _context3.next = 51;
+                                return httpRequest.post(URL.EPISODES_LIST(), {}, p);
+
+                            case 51:
+                                pData = _context3.sent;
+
+                                js = pData.data;
+
+                                if (!(js.status != 'success')) {
+                                    _context3.next = 55;
+                                    break;
+                                }
+
+                                throw new Error('NOT_FOUND2');
+
+                            case 55:
+                                x = 0;
+
+                            case 56:
+                                if (!(x < 10)) {
+                                    _context3.next = 63;
+                                    break;
+                                }
+
+                                if (!(js.list[x] == undefined)) {
+                                    _context3.next = 59;
+                                    break;
+                                }
+
+                                return _context3.abrupt('break', 63);
+
+                            case 59:
+                                playIds.push(js.list[x].id);
+
+                            case 60:
+                                x++;
+                                _context3.next = 56;
+                                break;
+
+                            case 63:
+                                playIdsPromise = playIds.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(id) {
+                                        var typeObj, playUrl, playHtml, ph;
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+                                                        typeObj = type == 'movie' ? 'movies_player' : 'series_player';
+                                                        playUrl = URL.PLAYER_URL(id, typeObj);
+                                                        _context2.next = 4;
+                                                        return httpRequest.getHTML(playUrl);
+
+                                                    case 4:
+                                                        playHtml = _context2.sent;
+                                                        ph = playHtml.match(/href="([^"]+)/);
+
+                                                        if (ph != undefined) hosts.push({
+                                                            provider: {
+                                                                url: detailUrl,
+                                                                name: "Vizer"
+                                                            },
+                                                            result: {
+                                                                file: ph[1],
+                                                                label: "embed",
+                                                                type: "embed"
+                                                            }
+                                                        });
+
+                                                    case 7:
+                                                    case 'end':
+                                                        return _context2.stop();
+                                                }
+                                            }
+                                        }, _callee2, this);
+                                    }));
+
+                                    return function (_x) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 66;
+                                return Promise.all(playIdsPromise);
+
+                            case 66:
+
+                                this.state.hosts = hosts;
+                                return _context3.abrupt('return');
+
+                            case 68:
+                            case 'end':
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this);
+            }));
+
+            function getHostFromDetail() {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getHostFromDetail;
+        }()
+    }]);
+
+    return Vizer;
+}();
+
+thisSource.function = function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(libs, movieInfo, settings) {
+        var httpRequest, source, bodyPost, res, js, hosts;
+        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+            while (1) {
+                switch (_context4.prev = _context4.next) {
+                    case 0:
+                        httpRequest = libs.httpRequest;
+                        source = new Vizer({
+                            libs: libs,
+                            movieInfo: movieInfo,
+                            settings: settings
+                        });
+
+
+                        if (movieInfo.type == 'movie') {
+                            movieInfo.season = 0;movieInfo.episode = 0;
+                        }
+
+                        bodyPost = {
+                            name_source: 'Vizer',
+                            is_link: 0,
+                            type: movieInfo.type,
+                            season: movieInfo.season,
+                            episode: movieInfo.episode,
+                            title: movieInfo.title,
+                            year: movieInfo.year,
+                            hash: libs.cryptoJs.MD5(movieInfo.title.toLowerCase() + movieInfo.season.toString() + "aloha" + movieInfo.episode.toString()).toString()
+                        };
+                        _context4.next = 6;
+                        return httpRequest.post('https://getaz.morphtv.club/source/get', {}, bodyPost);
+
+                    case 6:
+                        res = _context4.sent;
+                        js = void 0, hosts = [];
+
+
+                        try {
+                            res = res['data'];
+                            if (res['status']) {
+                                hosts = JSON.parse(res['hosts']);
+                            }
+                        } catch (err) {
+                            console.log('err', err);
+                        }
+
+                        if (movieInfo.checker != undefined) hosts = [];
+
+                        if (!(hosts.length == 0)) {
+                            _context4.next = 23;
+                            break;
+                        }
+
+                        _context4.next = 13;
+                        return source.searchDetail();
+
+                    case 13:
+                        _context4.next = 15;
+                        return source.getHostFromDetail();
+
+                    case 15:
+                        hosts = source.state.hosts;
+
+                        if (!(movieInfo.checker != undefined)) {
+                            _context4.next = 18;
+                            break;
+                        }
+
+                        return _context4.abrupt('return', hosts);
+
+                    case 18:
+                        if (!(hosts.length > 0)) {
+                            _context4.next = 23;
+                            break;
+                        }
+
+                        bodyPost['hosts'] = JSON.stringify(hosts);
+                        bodyPost['expired'] = 86400;
+                        _context4.next = 23;
+                        return httpRequest.post('https://getaz.morphtv.club/source/set', {}, bodyPost);
+
+                    case 23:
+
+                        if (movieInfo.ss != undefined) {
+                            movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
+                        }
+
+                        return _context4.abrupt('return', hosts);
+
+                    case 25:
+                    case 'end':
+                        return _context4.stop();
+                }
+            }
+        }, _callee4, undefined);
+    }));
+
+    return function (_x2, _x3, _x4) {
+        return _ref4.apply(this, arguments);
+    };
+}();
+
+thisSource.testing = Vizer;
