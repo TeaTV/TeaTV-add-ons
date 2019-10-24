@@ -4,7 +4,7 @@
             "name": "5movies",
             "domain": "5movies.to",
             "version": "0.4.14",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/5movies.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/5movies.js",
             "type": [
                 "movie",
                 "tv"
@@ -14,7 +14,7 @@
             "name": "fmoviesvc",
             "domain": "fmovies.vc",
             "version": "0.4.17",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/fmoviesvc.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/fmoviesvc.js",
             "type": [
                 "movie",
                 "tv"
@@ -24,7 +24,7 @@
             "name": "m4u",
             "domain": "m4u.fun",
             "version": "0.1.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/m4u.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/m4u.js",
             "type": [
                 "movie",
                 "tv"
@@ -34,7 +34,7 @@
             "name": "playdk",
             "domain": "playdk.net",
             "version": "0.4.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/playdk.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/playdk.js",
             "type": [
                 "movie",
                 "tv"
@@ -44,7 +44,7 @@
             "name": "putlockerhd",
             "domain": "putlockerhd.co",
             "version": "0.4.14",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/putlockerhd.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/putlockerhd.js",
             "type": [
                 "movie",
                 "tv"
@@ -54,7 +54,7 @@
             "name": "series9",
             "domain": "series9.io",
             "version": "0.4.17",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/series9.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/series9.js",
             "type": [
                 "tv",
                 "movie"
@@ -64,7 +64,7 @@
             "name": "seehd",
             "domain": "seehd.pl",
             "version": "0.4.16",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/seehd.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/seehd.js",
             "type": [
                 "movie",
                 "tv"
@@ -74,7 +74,7 @@
             "name": "watchepisodes4",
             "domain": "watchepisodes4.com",
             "version": "0.4.17",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchepisodes4.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/watchepisodes4.js",
             "type": [
                 "tv"
             ]
@@ -83,7 +83,7 @@
             "name": "watchseries",
             "domain": "watchseries.sk",
             "version": "0.4.15",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchseries.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/watchseries.js",
             "type": [
                 "tv"
             ]
@@ -92,7 +92,7 @@
             "name": "thanqn",
             "domain": "thanqn.dis",
             "version": "0.3.18",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/thanqn.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/thanqn.js",
             "type": [
                 "movie",
                 "tv"
@@ -102,7 +102,7 @@
             "name": "hdtop",
             "domain": "hdtop.dis",
             "version": "0.0.10",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hdtop.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/hdtop.js",
             "type": [
                 "movie",
                 "tv"
@@ -112,7 +112,7 @@
             "name": "wfree",
             "domain": "wfree.dis",
             "version": "0.0.15",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/wfreeac.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/wfreeac.js",
             "type": [
                 "movie",
                 "tv"
@@ -122,7 +122,7 @@
             "name": "ddlvalley",
             "domain": "ddlvalley.dis",
             "version": "0.0.14",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/ddlvalley.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/ddlvalley.js",
             "type": [
                 "movie",
                 "tv"
@@ -132,7 +132,7 @@
             "name": "wrzcraft",
             "domain": "wrzcraft.dis",
             "version": "0.0.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/wrzcraft.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/wrzcraft.js",
             "type": [
                 "movie",
                 "tv"
@@ -142,7 +142,7 @@
             "name": "scnsrc",
             "domain": "scnsrc.dis",
             "version": "0.1.5",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/scnsrc.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/scnsrc.js",
             "type": [
                 "movie",
                 "tv"
@@ -152,7 +152,7 @@
             "name": "thanrd",
             "domain": "thanrd.dis",
             "version": "0.0.15",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/thanrd.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/thanrd.js",
             "type": [
                 "movie",
                 "tv"
@@ -162,7 +162,7 @@
             "name": "flixanity",
             "domain": "flixanity.io",
             "version": "1.7.17",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/flixanity.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/flixanity.js",
             "type": [
                 "movie"
             ]
@@ -171,7 +171,7 @@
             "name": "afdah",
             "domain": "afdah.dis",
             "version": "0.7.19",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/afdah.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/afdah.js",
             "type": [
                 "movie",
                 "tv"
@@ -181,7 +181,7 @@
             "name": "yitivi",
             "domain": "yitivi.dis",
             "version": "0.0.15",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/yifytv.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/yifytv.js",
             "type": [
                 "movie"
             ]
@@ -190,7 +190,7 @@
             "name": "davich",
             "domain": "davich.dis",
             "version": "0.0.16",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/davix.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/davix.js",
             "type": [
                 "movie"
             ]
@@ -199,7 +199,7 @@
             "name": "animevlf",
             "domain": "animevlf.dis",
             "version": "0.0.13",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/animeflv.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/animeflv.js",
             "type": [
                 "tv"
             ]
@@ -208,7 +208,7 @@
             "name": "gogoanimes",
             "domain": "gogoanimes.dis",
             "version": "0.0.13",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/gogoanimes.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/gogoanimes.js",
             "type": [
                 "tv"
             ]
@@ -217,7 +217,7 @@
             "name": "tdn",
             "domain": "tdn.dis",
             "version": "0.4.11",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/tdn.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/tdn.js",
             "type": [
                 "tv",
                 "movie"
@@ -227,7 +227,7 @@
             "name": "123moviesfree",
             "domain": "123moviesfree.dis",
             "version": "0.1.20",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesfree.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/123moviesfree.js",
             "type": [
                 "tv",
                 "movie"
@@ -237,7 +237,7 @@
             "name": "projectfreetv",
             "domain": "projectfreetv.dis",
             "version": "0.1.18",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/projectfreetv.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/projectfreetv.js",
             "type": [
                 "tv"
             ]
@@ -246,7 +246,7 @@
             "name": "watchonl",
             "domain": "watchonl.dis",
             "version": "0.0.15",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchonl.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/watchonl.js",
             "type": [
                 "tv"
             ]
@@ -255,7 +255,7 @@
             "name": "hdbest",
             "domain": "hdbest.dis",
             "version": "0.0.16",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hdbest.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/hdbest.js",
             "type": [
                 "movie"
             ]
@@ -264,7 +264,7 @@
             "name": "twodllnet",
             "domain": "twodllnet.dis",
             "version": "0.0.15",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/rd.twodllnet.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/rd.twodllnet.js",
             "type": [
                 "movie",
                 "tv"
@@ -274,7 +274,7 @@
             "name": "123moviesag",
             "domain": "123moviesag.dis",
             "version": "0.1.5",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123moviesag.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/123moviesag.js",
             "type": [
                 "movie",
                 "tv"
@@ -284,7 +284,7 @@
             "name": "miradetodo",
             "domain": "miradetodo.dis",
             "version": "0.0.14",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/miradetodo.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/miradetodo.js",
             "type": [
                 "movie",
                 "tv"
@@ -294,7 +294,7 @@
             "name": "salamdl",
             "domain": "salamdl.dis",
             "version": "0.0.13",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/salamdl.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/salamdl.js",
             "type": [
                 "movie"
             ]
@@ -303,7 +303,7 @@
             "name": "f2movies",
             "domain": "f2movies.dis",
             "version": "0.0.13",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/f2movies.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/f2movies.js",
             "type": [
                 "movie",
                 "tv"
@@ -313,7 +313,7 @@
             "name": "icefilms",
             "domain": "icefilms.dis",
             "version": "0.0.17",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/icefilms.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/icefilms.js",
             "type": [
                 "movie",
                 "tv"
@@ -323,7 +323,7 @@
             "name": "tv21",
             "domain": "tv21.dis",
             "version": "0.0.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/tv21.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/tv21.js",
             "type": [
                 "movie"
             ]
@@ -332,7 +332,7 @@
             "name": "hdmo",
             "domain": "hdmo.dis",
             "version": "0.0.13",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/hdmo.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/hdmo.js",
             "type": [
                 "movie",
                 "tv"
@@ -342,7 +342,7 @@
             "name": "fmoviescab",
             "domain": "fmoviescab.dis",
             "version": "0.0.10",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/fmoviescab.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/fmoviescab.js",
             "type": [
                 "movie",
                 "tv"
@@ -352,7 +352,7 @@
             "name": "projectflv",
             "domain": "projectflv.dis",
             "version": "0.0.7",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/projectflv.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/projectflv.js",
             "type": [
                 "movie",
                 "tv"
@@ -362,7 +362,7 @@
             "name": "123netflix",
             "domain": "123netflix.dis",
             "version": "0.0.7",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/123netflix.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/123netflix.js",
             "type": [
                 "movie",
                 "tv"
@@ -372,7 +372,7 @@
             "name": "streamdreams",
             "domain": "streamdreams.dis",
             "version": "0.0.11",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/streamdreams.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/streamdreams.js",
             "type": [
                 "movie",
                 "tv"
@@ -382,7 +382,7 @@
             "name": "newepisodes",
             "domain": "newepisodes.dis",
             "version": "0.0.7",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/newepisodes.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/newepisodes.js",
             "type": [
                 "tv"
             ]
@@ -391,7 +391,7 @@
             "name": "vizer",
             "domain": "vizer.dis",
             "version": "0.0.8",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/vizer.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/vizer.js",
             "type": [
                 "movie",
                 "tv"
@@ -401,7 +401,7 @@
             "name": "moviesmax",
             "domain": "moviesmax.dis",
             "version": "0.0.2",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/moviesmax.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/moviesmax.js",
             "type": [
                 "movie"
             ]
@@ -410,7 +410,7 @@
             "name": "yomoviesit",
             "domain": "yomoviesit.dis",
             "version": "0.0.2",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/yomoviesit.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/yomoviesit.js",
             "type": [
                 "movie",
                 "tv"
@@ -420,7 +420,7 @@
             "name": "movies123pro",
             "domain": "movies123pro.dis",
             "version": "0.0.3",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/movies123pro.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/movies123pro.js",
             "type": [
                 "movie",
                 "tv"
@@ -430,7 +430,7 @@
             "name": "solarmoviehd",
             "domain": "solarmoviehd.dis",
             "version": "0.0.2",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/solarmoviehd.js",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/solarmoviehd.js",
             "type": [
                 "movie"
             ]
@@ -444,13 +444,13 @@
                 "rapidvid.to"
             ],
             "version": "0.1.23",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/rapidvideo.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/rapidvideo.js"
         },
         "tocloud": {
             "name": "tocloud",
             "domain": "tocloud.co",
             "version": "0.0.20",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/tocloud.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/tocloud.js"
         },
         "uploadhaven": {
             "name": "uploadhaven",
@@ -458,7 +458,7 @@
                 "uploadhaven.com"
             ],
             "version": "0.0.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/uploadhaven.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/uploadhaven.js"
         },
         "consistent": {
             "name": "consistent",
@@ -466,13 +466,13 @@
                 "consistent.stream"
             ],
             "version": "0.0.13",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/consistent.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/consistent.js"
         },
         "streamango": {
             "name": "streamango",
             "domain": "streamango.com",
             "version": "0.1.11",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/streamango.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/streamango.js"
         },
         "openload": {
             "name": "openload",
@@ -488,7 +488,7 @@
             ],
             "version": "0.2.21",
             "author": "psyntium",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/openload.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/openload.js"
         },
         "putload": {
             "name": "putload",
@@ -496,7 +496,7 @@
                 "putload.tv"
             ],
             "version": "0.0.15",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/putload.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/putload.js"
         },
         "teamdk": {
             "name": "teamdk",
@@ -504,7 +504,7 @@
                 "teamdk.net"
             ],
             "version": "0.0.14",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/teamdk.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/teamdk.js"
         },
         "estream": {
             "name": "estream",
@@ -512,7 +512,7 @@
                 "estreamdisable.to"
             ],
             "version": "0.0.15",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/estream.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/estream.js"
         },
         "thevideo": {
             "name": "thevideo",
@@ -522,7 +522,7 @@
                 "thevideo.website"
             ],
             "version": "0.0.16",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/thevideo.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/thevideo.js"
         },
         "vidstreaming": {
             "name": "vidstreaming",
@@ -530,7 +530,7 @@
                 "vidstreaming.io"
             ],
             "version": "0.0.13",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidstreaming.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/vidstreaming.js"
         },
         "vidushare": {
             "name": "vidushare",
@@ -538,7 +538,7 @@
                 "vidushare.com"
             ],
             "version": "0.0.13",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidushare.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/vidushare.js"
         },
         "okru": {
             "name": "okru",
@@ -546,7 +546,7 @@
                 "ok.ru"
             ],
             "version": "0.2.20",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/ok-ru.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/ok-ru.js"
         },
         "vidnode": {
             "name": "vidnode",
@@ -554,7 +554,7 @@
                 "vidnode.net"
             ],
             "version": "0.0.14",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidnode.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/vidnode.js"
         },
         "vidcdn": {
             "name": "vidcdn",
@@ -562,7 +562,7 @@
                 "vidcdn.pro"
             ],
             "version": "0.0.16",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidcdn.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/vidcdn.js"
         },
         "m4ukido": {
             "name": "m4ukido",
@@ -570,7 +570,7 @@
                 "m4ukido.com"
             ],
             "version": "0.0.13",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/m4ukido.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/m4ukido.js"
         },
         "googleusercontent": {
             "name": "googleusercontent",
@@ -579,7 +579,7 @@
                 "googleapis.com"
             ],
             "version": "0.0.15",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/googleusercontent.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/googleusercontent.js"
         },
         "212.47.226.206": {
             "name": "212.47.226.206",
@@ -587,7 +587,7 @@
                 "212.47.226.206"
             ],
             "version": "0.0.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/212.47.226.206.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/212.47.226.206.js"
         },
         "212.47.234.139": {
             "name": "212.47.234.139",
@@ -595,7 +595,7 @@
                 "212.47.234.139"
             ],
             "version": "0.0.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/212.47.234.139.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/212.47.234.139.js"
         },
         "fbcdn": {
             "name": "fbcdn",
@@ -606,7 +606,7 @@
                 "instagram.com"
             ],
             "version": "0.6.20",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/video.xx.fbcdn.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/video.xx.fbcdn.js"
         },
         "googlevideo": {
             "name": "googlevideo",
@@ -615,7 +615,7 @@
                 "blogspot.com"
             ],
             "version": "0.1.11",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/googlevideo.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/googlevideo.js"
         },
         "vidlox": {
             "name": "vidlox",
@@ -623,7 +623,7 @@
                 "vidlox.me"
             ],
             "version": "0.0.15",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidlox.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/vidlox.js"
         },
         "vidoza": {
             "name": "vidoza",
@@ -631,7 +631,7 @@
                 "vidoza.net"
             ],
             "version": "1.0.15",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidoza.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/vidoza.js"
         },
         "realdebit": {
             "name": "realdebit",
@@ -641,7 +641,7 @@
                 "nitroflare.com"
             ],
             "version": "0.0.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/realdebit.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/realdebit.js"
         },
         "hdpopcornscosv": {
             "name": "hdpopcornscosv",
@@ -649,7 +649,7 @@
                 "85.93.91.137"
             ],
             "version": "0.0.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/hdpopcornscosv.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/hdpopcornscosv.js"
         },
         "GoogleDrive": {
             "name": "GoogleDrive",
@@ -657,7 +657,7 @@
                 "drive.google.com"
             ],
             "version": "0.7.14",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/drive.google.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/drive.google.js"
         },
         "direct": {
             "name": "direct",
@@ -701,7 +701,7 @@
                 "saberfun.name"
             ],
             "version": "0.1.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/direct.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/direct.js"
         },
         "uptostream": {
             "name": "uptostream",
@@ -710,7 +710,7 @@
                 "uptobox.com"
             ],
             "version": "0.0.13",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/uptostream.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/uptostream.js"
         },
         "afdah": {
             "name": "afdah",
@@ -718,7 +718,7 @@
                 "afdah.info"
             ],
             "version": "0.9.22",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/afdah.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/afdah.js"
         },
         "vidtodo": {
             "name": "vidtodo",
@@ -727,7 +727,7 @@
                 "vidtodoo.com"
             ],
             "version": "0.0.13",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidtodo.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/vidtodo.js"
         },
         "fastplay": {
             "name": "fastplay",
@@ -735,7 +735,7 @@
                 "fastplay.to"
             ],
             "version": "0.0.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/fastplay.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/fastplay.js"
         },
         "vcdn": {
             "name": "vcdn",
@@ -743,7 +743,7 @@
                 "vcdn.io"
             ],
             "version": "0.0.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vcdn.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/vcdn.js"
         },
         "vidcloud": {
             "name": "vidcloud",
@@ -751,7 +751,7 @@
                 "vidcloud.icu"
             ],
             "version": "0.0.14",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidcloud.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/vidcloud.js"
         },
         "vevio": {
             "name": "vevio",
@@ -759,7 +759,7 @@
                 "vev.io"
             ],
             "version": "0.0.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vevio.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/vevio.js"
         },
         "gounlimited": {
             "name": "gounlimited",
@@ -767,7 +767,7 @@
                 "gounlimited.to"
             ],
             "version": "0.0.17",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/gounlimited.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/gounlimited.js"
         },
         "viduplayer": {
             "name": "viduplayer",
@@ -776,7 +776,7 @@
                 "openstream.io"
             ],
             "version": "0.0.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/viduplayer.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/viduplayer.js"
         },
         "vidup": {
             "name": "vidup",
@@ -784,7 +784,7 @@
                 "vidup.io"
             ],
             "version": "0.0.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidup.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/vidup.js"
         },
         "megaxfer": {
             "name": "megaxfer",
@@ -793,7 +793,7 @@
                 "unlimitedpeer.ru"
             ],
             "version": "0.0.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/megaxfer.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/megaxfer.js"
         },
         "fembed": {
             "name": "fembed",
@@ -801,7 +801,7 @@
                 "fembed.com"
             ],
             "version": "0.0.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/fembed.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/fembed.js"
         },
         "vcstream": {
             "name": "vcstream",
@@ -809,7 +809,7 @@
                 "vcstream.to"
             ],
             "version": "0.0.12",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vcstream.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/vcstream.js"
         },
         "clipwatch": {
             "name": "clipwatch",
@@ -817,7 +817,7 @@
                 "clipwatching.com"
             ],
             "version": "0.0.11",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/clipwatching.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/clipwatching.js"
         },
         "verystream": {
             "name": "verystream",
@@ -826,7 +826,7 @@
                 "woof.tube"
             ],
             "version": "0.0.7",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/verystream.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/verystream.js"
         },
         "xstreamcdn": {
             "name": "xstreamcdn",
@@ -834,7 +834,7 @@
                 "xstreamcdn.com"
             ],
             "version": "0.0.9",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/xstreamcdn.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/xstreamcdn.js"
         },
         "hls": {
             "name": "hls",
@@ -842,7 +842,7 @@
                 "loadshare.org"
             ],
             "version": "0.0.7",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/hls.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/hls.js"
         },
         "vidcloudco": {
             "name": "vidcloudco",
@@ -850,7 +850,7 @@
                 "vidcloud.co"
             ],
             "version": "0.0.6",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vidcloudco.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/vidcloudco.js"
         },
         "vshare": {
             "name": "vshare",
@@ -858,7 +858,7 @@
                 "vshare.eu"
             ],
             "version": "0.0.6",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/vshare.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/vshare.js"
         },
         "jetload": {
             "name": "vshare",
@@ -866,7 +866,7 @@
                 "jetload.net"
             ],
             "version": "0.0.2",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/jetload.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/jetload.js"
         },
         "playeernet": {
             "name": "playeernet",
@@ -874,7 +874,7 @@
                 "playeer.net"
             ],
             "version": "0.0.3",
-            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/playeernet.js"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/playeernet.js"
         }
     }
 }
