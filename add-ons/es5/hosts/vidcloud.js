@@ -50,7 +50,7 @@ var Vidcloud = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, sources, html, reg, m, isDie;
+                var _libs, httpRequest, cheerio, sources, html, reg, m;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -73,16 +73,16 @@ var Vidcloud = function () {
                                 throw new Error("vidtodo LINK DIE");
 
                             case 8:
-                                reg = /file:\s?'([^']+)/g;
+                                reg = /file:\s?'?"?([^'?"?]+)/g;
                                 m = void 0;
 
                             case 10:
                                 if (!(m = reg.exec(html))) {
-                                    _context2.next = 19;
+                                    _context2.next = 16;
                                     break;
                                 }
 
-                                if (!(m[1].indexOf('google') == -1)) {
+                                if (!(m[1].indexOf('m3u8') == -1)) {
                                     _context2.next = 13;
                                     break;
                                 }
@@ -90,26 +90,17 @@ var Vidcloud = function () {
                                 return _context2.abrupt('continue', 10);
 
                             case 13:
-                                _context2.next = 15;
-                                return httpRequest.isLinkDie(m[1]);
 
-                            case 15:
-                                isDie = _context2.sent;
-
-
-                                if (isDie != false) {
-
-                                    sources.push({
-                                        label: 'NOR',
-                                        file: m[1],
-                                        type: "direct",
-                                        size: isDie
-                                    });
-                                }
+                                sources.push({
+                                    label: 'NOR',
+                                    file: m[1],
+                                    type: "direct",
+                                    size: "NOR"
+                                });
                                 _context2.next = 10;
                                 break;
 
-                            case 19:
+                            case 16:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -118,7 +109,7 @@ var Vidcloud = function () {
                                     result: sources
                                 });
 
-                            case 20:
+                            case 17:
                             case 'end':
                                 return _context2.stop();
                         }

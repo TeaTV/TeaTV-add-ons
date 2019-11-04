@@ -434,6 +434,15 @@
             "type": [
                 "movie"
             ]
+        },
+        "watchseriesto": {
+            "name": "watchseriesto",
+            "domain": "watchseriesto.dis",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/providers/watchseriesto.js",
+            "type": [
+                "tv"
+            ]
         }
     },
     "hosts": {
@@ -875,6 +884,14 @@
             ],
             "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/playeernet.js"
+        },
+        "onlystream": {
+            "name": "onlystream",
+            "domain": [
+                "onlystream.tv"
+            ],
+            "version": "0.0.5",
+            "url": "https://raw.githubusercontent.com/TeaTV/TeaTV-add-ons/master/add-ons/es5/hosts/onlystream.js"
         }
     }
 }
