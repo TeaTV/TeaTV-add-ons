@@ -101,7 +101,7 @@ var Gounlimited = function () {
                                 throw new Error("LINK DIE");
 
                             case 10:
-                                m = html.split('eval(')[1];
+                                m = html.split('eval(')[2];
 
                                 m = m.split('</script>')[0];
                                 m = 'eval(' + m;
@@ -114,12 +114,14 @@ var Gounlimited = function () {
                                 fuck = domain + hls + '/v.mp4';
 
                                 console.log(fuck);
-                                _context2.next = 25;
+                                _context2.next = 26;
                                 break;
 
                             case 22:
                                 _context2.prev = 22;
                                 _context2.t0 = _context2['catch'](13);
+
+                                console.log(_context2.t0);
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -128,19 +130,19 @@ var Gounlimited = function () {
                                     result: []
                                 });
 
-                            case 25:
+                            case 26:
                                 if (!(fuck.search('https://') == -1 && fuck.search('http://') == -1)) {
-                                    _context2.next = 27;
+                                    _context2.next = 28;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
-                            case 27:
-                                _context2.next = 29;
+                            case 28:
+                                _context2.next = 30;
                                 return httpRequest.isLinkDie(fuck);
 
-                            case 29:
+                            case 30:
                                 isDie = _context2.sent;
 
 
@@ -158,7 +160,7 @@ var Gounlimited = function () {
                                     result: results
                                 });
 
-                            case 32:
+                            case 33:
                             case 'end':
                                 return _context2.stop();
                         }

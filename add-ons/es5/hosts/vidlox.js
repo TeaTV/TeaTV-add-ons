@@ -30,7 +30,7 @@ var VidLox = function () {
                 // const dieStatusText = "";
 
                 _context.next = 3;
-                return httpRequest.getHTML(url);
+                return httpRequest.getHTML(url, { 'User-Agent': 'Firefox 59' });
 
               case 3:
                 html = _context.sent;
@@ -113,7 +113,7 @@ var VidLox = function () {
                   break;
                 }
 
-                throw new Error("LINK DIE");
+                throw new Error("vidlox LINK DIE");
 
               case 10:
 
