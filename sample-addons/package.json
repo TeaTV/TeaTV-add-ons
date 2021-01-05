@@ -10,7 +10,7 @@
   "author": "TeaTV",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "base-64": "^0.1.0",
     "cheerio-without-node-native": "^0.20.2",
     "cloudscraper": "^1.4.1",
