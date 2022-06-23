@@ -15,7 +15,7 @@
     "cheerio-without-node-native": "^0.20.2",
     "cloudscraper": "^1.4.1",
     "cross-fetch": "^1.1.1",
-    "jsdom": "^11.6.2",
+    "jsdom": "^16.5.0",
     "request": "^2.83.0"
   }
 }
